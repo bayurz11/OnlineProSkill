@@ -160,7 +160,7 @@
                                                 window.onresize = adjustButtonWidth;
                                             </script>
                                             <div class="text-center">
-                                                <a href="{{ route('register') }}" class="d-block mt-3 text-muted">Not a
+                                                <a href="" class="d-block mt-3 text-muted">Not a
                                                     user? Sign up</a>
                                             </div>
                                         </form>
