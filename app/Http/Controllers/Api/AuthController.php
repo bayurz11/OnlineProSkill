@@ -80,8 +80,26 @@ class AuthController extends Controller
         ]);
     }
 
-
-
+    // public function login(Request $request)
+    // {
+    //     if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+    //         $auth = Auth::user();
+    //         $success['token'] = $auth->createToken('auth_token')->plainTextToken;
+    //         $success['name'] = $auth->name;
+    //         $success['email'] = $auth->email;
+    //         return response()->json([
+    //             'success' => true,
+    //             'massage' => 'Login Sukses',
+    //             'data' => $success
+    //         ]);
+    //     } else {
+    //         return response()->json([
+    //             'success' => false,
+    //             'massage' => 'Cek Email Dan Password Anda',
+    //             'data' => null
+    //         ]);
+    //     }
+    // }
     public function login(Request $request)
     {
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
@@ -95,11 +113,7 @@ class AuthController extends Controller
                 'data' => $success
             ]);
         } else {
-            return response()->json([
-                'success' => false,
-                'massage' => 'Cek Email Dan Password Anda',
-                'data' => null
-            ]);
+            return redirect()->route('login')->with('error', 'Cek Email Dan Password Anda');
         }
     }
 }
