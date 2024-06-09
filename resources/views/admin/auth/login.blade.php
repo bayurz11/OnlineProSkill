@@ -20,7 +20,7 @@
 
 
     <!-- core:css -->
-    <link rel="stylesheet" href="{{ asset('public/assets_admin_admin/vendors/core/core.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets_admin/vendors/core/core.css') }}">
     <!-- endinject -->
 
     <!-- Plugin css for this page -->
