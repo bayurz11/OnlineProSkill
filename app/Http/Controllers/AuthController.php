@@ -6,8 +6,12 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-    public function index()
+    public function Showlogin()
     {
         return view('admin.auth.login');
+    }
+    public function showregistrasi()
+    {
+        return view('admin.auth.registrasi');
     }
 }
