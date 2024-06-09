@@ -33,11 +33,7 @@ class AuthController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Ada Kesalahan',
-                'data' => $validator->errors()
-            ]);
+            return redirect()->route('registrasi')->withErrors($validator)->withInput();
         }
 
         // Buat pengguna baru
@@ -63,10 +59,6 @@ class AuthController extends Controller
         $success['name'] = $user->name;
 
         // Kembalikan data pengguna dan token
-        return response()->json([
-            'success' => true,
-            'message' => 'Sukses Registrasi',
-            'data' => $success
-        ]);
+        return redirect()->route('login')->with('success', 'Registrasi berhasil. Silakan login.');
     }
 }
