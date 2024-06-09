@@ -171,7 +171,8 @@
                                             </script>
 
                                             <div class="text-center">
-                                                <a href="login.html" class="d-block mt-3 text-muted">Already have an
+                                                <a href="{{ route('login') }}" class="d-block mt-3 text-muted">Already
+                                                    have an
                                                     account? Log in</a>
                                             </div>
                                         </form>
