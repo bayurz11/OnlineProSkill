@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -35,6 +36,21 @@ return new class extends Migration
             $table->longText('payload');
             $table->integer('last_activity')->index();
         });
+        Schema::create('role', function (Blueprint $table) {
+            $table->id();
+            $table->string('role_name')->unique();
+        });
+        DB::table('role')->insert([
+            ['role_name' => 'Administrator'],
+            ['role_name' => 'Studen'],
+            ['role_name' => 'Instruktur'],
+        ]);
+        Schema::create('user_role', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('role_id')->constrained('role')->onDelete('cascade');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -45,5 +61,7 @@ return new class extends Migration
         Schema::dropIfExists('users');
         Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
+        Schema::dropIfExists('role');
+        Schema::dropIfExists('user_role');
     }
 };

@@ -123,7 +123,7 @@
                                             <h5 class="text-muted fw-normal mb-4">Welcome back! Log in to your account.
                                             </h5>
                                         </div>
-                                        <form class="forms-sample" method="POST" action="#">
+                                        <form class="forms-sample" method="POST" action="{{ route('register.post') }}">
                                             @csrf
                                             <div class="mb-3">
                                                 <label for="name" class="form-label">Name</label>
