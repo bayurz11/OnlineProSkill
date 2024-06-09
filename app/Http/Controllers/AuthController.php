@@ -14,4 +14,8 @@ class AuthController extends Controller
     {
         return view('admin.auth.registrasi');
     }
+    public function showdashboard()
+    {
+        return view('admin.dashboard');
+    }
 }
