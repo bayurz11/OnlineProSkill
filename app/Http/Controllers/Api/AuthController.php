@@ -61,7 +61,7 @@ class AuthController extends Controller
         ]);
 
         // Simpan peran pengguna
-        $user->roles()->attach(1); // Sesuaikan dengan ID peran yang sesuai
+        $user->role()->attach(1); // Sesuaikan dengan ID peran yang sesuai
 
         // Simpan profil pengguna (jika diperlukan)
         UserProfile::create([
