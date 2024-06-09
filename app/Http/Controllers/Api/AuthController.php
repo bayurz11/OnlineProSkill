@@ -51,7 +51,7 @@ class AuthController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()->route('registrasi')->withErrors($validator)->withInput();
+            return redirect()->route('login')->withErrors($validator)->withInput();
         }
 
         $input = $request->all();
@@ -62,7 +62,7 @@ class AuthController extends Controller
         $success['name'] = $user->name;
 
         // Kembalikan data pengguna dan token
-        return redirect()->route('login')->with([
+        return redirect()->route('registrasi')->with([
             'success' => true,
             'message' => 'Sukses Registrasi',
             'data' => $success
