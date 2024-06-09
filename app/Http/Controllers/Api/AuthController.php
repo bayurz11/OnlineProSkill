@@ -53,27 +53,30 @@ class AuthController extends Controller
             return redirect()->route('registrasi')->withErrors($validator)->withInput();
         }
 
-        // Buat pengguna baru
+        // Membuat pengguna baru
         $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => bcrypt($request->input('password')),
         ]);
 
-        // Tambahkan pengguna baru ke dalam tabel user_roles
-        $userRole = new UserRoles();
-        $userRole->user_id = $user->id;
-        $userRole->role_id = 1; // Sesuaikan dengan ID role yang sesuai
-        $userRole->save();
+        // Simpan peran pengguna
+        $user->roles()->attach(1); // Sesuaikan dengan ID peran yang sesuai
 
-        // Tambahkan user_id ke dalam tabel user_profiles
-        $userProfile = new UserProfile();
-        $userProfile->user_id = $user->id; // Masukkan user_id baru
-        $userProfile->role_id = 1;
-        $userProfile->save();
+        // Simpan profil pengguna (jika diperlukan)
+        UserProfile::create([
+            'user_id' => $user->id,
+            'role_id' => 1, // Sesuaikan dengan ID peran yang sesuai
+            // Tambahkan kolom lain yang perlu disimpan di sini
+        ]);
 
-        return redirect()->route('login')->with('success', 'Pendaftaran berhasil!');
+        // Redirect ke halaman login dengan pesan sukses
+        return redirect()->route('login')->with([
+            'success' => true,
+            'message' => 'Sukses Registrasi',
+        ]);
     }
+
 
 
     public function login(Request $request)
