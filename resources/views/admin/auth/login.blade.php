@@ -123,7 +123,7 @@
                                             <h5 class="text-muted fw-normal mb-4">Welcome back! Log in to your account.
                                             </h5>
                                         </div>
-                                        <form class="forms-sample" method="POST" action="api/register">
+                                        <form class="forms-sample" method="POST" action="api/login">
                                             @csrf
                                             <div class="mb-3">
                                                 <label for="email" class="form-label">Email address</label>

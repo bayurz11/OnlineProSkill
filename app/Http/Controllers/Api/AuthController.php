@@ -109,11 +109,11 @@ class AuthController extends Controller
             $success['email'] = $auth->email;
             return response()->json([
                 'success' => true,
-                'massage' => 'Login Sukses',
+                'message' => 'Login Sukses',
                 'data' => $success
             ]);
         } else {
-            return redirect()->route('login')->with('error', 'Cek Email Dan Password Anda');
+            return redirect()->back()->withInput()->withErrors(['message' => 'Cek Email Dan Password Anda']);
         }
     }
 }
