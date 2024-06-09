@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
@@ -29,7 +29,6 @@ class AuthController extends Controller
         }
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
-        // Buat pengguna baru
         $user = User::create($input);
 
         $success['token'] = $user->createToken('auth_token')->plainTextToken;
@@ -41,5 +40,26 @@ class AuthController extends Controller
             'massage' => 'Sukses Resgistrasi',
             'data' => $success
         ]);
+    }
+
+    public function login(Request $request)
+    {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            $auth = Auth::user();
+            $success['token'] = $auth->createToken('auth_token')->plainTextToken;
+            $success['name'] = $auth->name;
+            $success['email'] = $auth->email;
+            return response()->json([
+                'success' => true,
+                'massage' => 'Login Sukses',
+                'data' => $success
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'massage' => 'Cek Email Dan Password Anda',
+                'data' => null
+            ]);
+        }
     }
 }
