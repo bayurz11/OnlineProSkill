@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -16,12 +17,11 @@ class AuthController extends Controller
     }
     public function showdashboard()
     {
-        // Mengecek apakah pengguna sudah login
-        if (auth()->check()) {
-            return view('admin.dashboard');
-        } else {
-            // Jika pengguna belum login, arahkan ke halaman login
+        $user = Auth::user();
+
+        if (!$user) {
             return redirect()->route('login');
         }
+        return view('admin.dashboard', compact('user'));
     }
 }
