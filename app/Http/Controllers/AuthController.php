@@ -16,6 +16,12 @@ class AuthController extends Controller
     }
     public function showdashboard()
     {
-        return view('admin.dashboard');
+        // Mengecek apakah pengguna sudah login
+        if (auth()->check()) {
+            return view('admin.dashboard');
+        } else {
+            // Jika pengguna belum login, arahkan ke halaman login
+            return redirect()->route('login');
+        }
     }
 }
