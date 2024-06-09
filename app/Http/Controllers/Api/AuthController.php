@@ -69,6 +69,7 @@ class AuthController extends Controller
         // Tambahkan user_id ke dalam tabel user_profiles
         $userProfile = new UserProfile();
         $userProfile->user_id = $user->id; // Masukkan user_id baru
+        $userProfile->role_id = 1;
         $userProfile->save();
 
         return redirect()->route('login')->with('success', 'Pendaftaran berhasil!');
