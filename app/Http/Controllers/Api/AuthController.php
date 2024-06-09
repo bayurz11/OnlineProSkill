@@ -107,13 +107,13 @@ class AuthController extends Controller
             $success['token'] = $auth->createToken('auth_token')->plainTextToken;
             $success['name'] = $auth->name;
             $success['email'] = $auth->email;
-            return response()->json([
-                'success' => true,
-                'message' => 'Login Sukses',
-                'data' => $success
-            ]);
+            return redirect()->route('dashboard');
         } else {
-            return redirect()->back()->withInput()->withErrors(['message' => 'Cek Email Dan Password Anda']);
+            return response()->json([
+                'success' => false,
+                'message' => 'Cek Email Dan Password Anda',
+                'data' => null
+            ]);
         }
     }
 }
