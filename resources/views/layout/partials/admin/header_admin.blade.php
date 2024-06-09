@@ -247,15 +247,16 @@
                             </a>
                         </li>
                         <li class="dropdown-item py-2">
-                            <a href="api/logout" class="text-body ms-0">
+                            <form id="logout-form" action="api/logout" method="POST" style="display: none;">
                                 @csrf
+                            </form>
+                            <a href="#" class="text-body ms-0"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 <i class="me-2 icon-md" data-feather="log-out"></i>
                                 <span>Log Out</span>
                             </a>
-                            {{-- <form id="logout-form" action="#" method="POST" style="display: none;">
-                                @csrf
-                            </form> --}}
                         </li>
+
 
                     </ul>
                 </div>
