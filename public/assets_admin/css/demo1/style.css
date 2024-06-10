@@ -20197,14 +20197,14 @@ body {
 .noble-ui-logo {
     font-weight: 700;
     font-size: 25px;
-    color: #000865;
+    color: #FE9900;
 }
 .noble-ui-logo span {
     color: #028e83;
     font-weight: 300;
 }
 .noble-ui-logo:hover {
-    color: #000865;
+    color: #FE9900;
 }
 .noble-ui-logo.logo-light {
     color: #000;
