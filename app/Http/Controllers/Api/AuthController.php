@@ -138,7 +138,7 @@ class AuthController extends Controller
             // Redirect based on user role
             switch ($roleName) {
                 case 'Administrator':
-                    return redirect()->route('admin.dashboard')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+                    return redirect()->route('dashboard')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                     break;
                 case 'Studen':
                     return redirect()->route('dashboard_siswa')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
