@@ -18,21 +18,8 @@
     @include('layout.partials.admin.head_admin')
     <!-- Favicon -->
     <link rel="shortcut icon" href="public/assets_admin/images/favicon.png" />
+
     @if (session('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ session('success') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
-
-    @if (session('error'))
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            {{ session('error') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
-
-    {{-- @if (session('success'))
         <div id="success-message" class="notify alert alert-success" role="alert">
             {{ session('success') }}
         </div>
@@ -74,7 +61,7 @@
         if (errorMessage) {
             showNotification(errorMessage);
         }
-    </script> --}}
+    </script>
 </head>
 
 <body>
