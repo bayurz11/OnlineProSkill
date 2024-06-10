@@ -139,13 +139,10 @@ class AuthController extends Controller
             switch ($roleName) {
                 case 'Administrator':
                     return redirect()->route('dashboard')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
-                    break;
                 case 'Studen':
                     return redirect()->route('dashboard_siswa')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
-                    break;
                 case 'Instruktur':
                     return redirect()->route('dashboard_instruktur')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
-                    break;
                 default:
                     return redirect()->route('/')->with('error', 'Peran pengguna tidak dikenali.');
             }
@@ -156,6 +153,7 @@ class AuthController extends Controller
             ]);
         }
     }
+
 
 
     public function logout(Request $request)
