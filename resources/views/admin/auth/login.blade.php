@@ -105,17 +105,7 @@
         // Tampilkan pesan kesalahan
         showNotification(errorMessage);
     </script> --}}
-    @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
 
-    @if (session('error'))
-        <div class="alert alert-danger">
-            {{ session('error') }}
-        </div>
-    @endif
 </head>
 
 <body>
@@ -207,7 +197,8 @@
 
     <!-- Custom js for this page -->
     <!-- End custom js for this page -->
-
+    @include('notify::messages')
+    @notifyJs
 </body>
 
 </html>
