@@ -18,7 +18,6 @@
     @include('layout.partials.admin.head_admin')
     <!-- Favicon -->
     <link rel="shortcut icon" href="public/assets_admin/images/favicon.png" />
-
     @if (session('success'))
         <div id="success-message" class="notify alert alert-success" role="alert">
             {{ session('success') }}
@@ -31,12 +30,38 @@
         </div>
     @endif
 
-    <!-- core:js -->
-    <script src="{{ asset('public/assets_admin/vendors/core/core.js') }}"></script>
-    <!-- inject:js -->
-    <script src="{{ asset('public/assets_admin/vendors/feather-icons/feather.min.js') }}"></script>
-    <script src="{{ asset('public/assets_admin/js/template.js') }}"></script>
-    <!-- endinject -->
+    <style>
+        .notify {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            padding: 15px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s, top 0.3s;
+        }
+
+        .notify.show {
+            display: block;
+            opacity: 1;
+            top: 50px;
+        }
+
+        .notify.alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border-color: #c3e6cb;
+        }
+
+        .notify.alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+            border-color: #f5c6cb;
+        }
+    </style>
 
     <script>
         // Fungsi untuk menampilkan notifikasi
@@ -50,18 +75,19 @@
             }
         }
 
-        // Tampilkan pesan keberhasilan
+        // Ambil elemen pesan keberhasilan
         var successMessage = document.getElementById('success-message');
-        if (successMessage) {
-            showNotification(successMessage);
-        }
+        // Ambil elemen pesan kesalahan
+        var errorMessage = document.getElementById('error-message');
+
+        // Tampilkan pesan keberhasilan
+        showNotification(successMessage);
 
         // Tampilkan pesan kesalahan
-        var errorMessage = document.getElementById('error-message');
-        if (errorMessage) {
-            showNotification(errorMessage);
-        }
+        showNotification(errorMessage);
     </script>
+
+
 </head>
 
 <body>
