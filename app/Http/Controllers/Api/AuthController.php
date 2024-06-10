@@ -100,6 +100,21 @@ class AuthController extends Controller
     //         ]);
     //     }
     // }
+    // public function login(Request $request)
+    // {
+    //     if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+    //         $auth = Auth::user();
+    //         $success['token'] = $auth->createToken('auth_token')->plainTextToken;
+    //         $success['name'] = $auth->name;
+    //         $success['email'] = $auth->email;
+    //         return redirect()->route('dashboard');
+    //     } else {
+    //         return redirect()->route('login')->withErrors([
+    //             'email' => 'Cek Email Anda',
+    //             'Password' => 'Cek Password Anda',
+    //         ]);
+    //     }
+    // }
     public function login(Request $request)
     {
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
@@ -107,14 +122,41 @@ class AuthController extends Controller
             $success['token'] = $auth->createToken('auth_token')->plainTextToken;
             $success['name'] = $auth->name;
             $success['email'] = $auth->email;
-            return redirect()->route('dashboard');
+
+            // Assuming the user role is obtained like this
+            $userRole = $auth->userRole;
+
+            // If the user does not have a role
+            if (!$userRole) {
+                return redirect()->back()->with('error', 'Pengguna tidak memiliki peran yang ditetapkan!');
+            }
+
+            // Get the role name
+            $roleName = $userRole->role->role_name;
+            $userName = $auth->name; // Get user name
+
+            // Redirect based on user role
+            switch ($roleName) {
+                case 'Administrator':
+                    return redirect()->route('admin.dashboard')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+                    break;
+                case 'Siswa':
+                    return redirect()->route('dashboard_siswa')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+                    break;
+                case 'Instruktur':
+                    return redirect()->route('dashboard_instruktur')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+                    break;
+                default:
+                    return redirect()->route('/')->with('error', 'Peran pengguna tidak dikenali.');
+            }
         } else {
             return redirect()->route('login')->withErrors([
                 'email' => 'Cek Email Anda',
-                'Password' => 'Cek Password Anda',
+                'password' => 'Cek Password Anda',
             ]);
         }
     }
+
 
     public function logout(Request $request)
     {
