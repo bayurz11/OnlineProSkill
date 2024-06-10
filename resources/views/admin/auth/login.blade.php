@@ -36,7 +36,7 @@
     <!-- End layout styles -->
 
     <link rel="shortcut icon" href="{{ asset('public/assets_admin/images/favicon.png') }}" />
-
+    {{-- 
     @if (session('success'))
         <div id="success-message" class="notify alert alert-success" role="alert">
             {{ session('success') }}
@@ -104,7 +104,18 @@
 
         // Tampilkan pesan kesalahan
         showNotification(errorMessage);
-    </script>
+    </script> --}}
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
 </head>
 
 <body>

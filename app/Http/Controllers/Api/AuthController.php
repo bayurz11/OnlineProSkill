@@ -133,7 +133,7 @@ class AuthController extends Controller
 
             // Get the role name
             $roleName = $userRole->role->role_name;
-            $userName = $auth->name; // Get user name
+            $userName = $auth->name;
 
             // Redirect based on user role
             switch ($roleName) {
