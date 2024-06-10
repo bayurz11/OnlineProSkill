@@ -140,7 +140,7 @@ class AuthController extends Controller
             switch ($roleName) {
                 case 'Administrator':
                     notify()->success("Selamat datang, $userName! Anda berhasil masuk.");
-                    return redirect()->route('admin.dashboard');
+                    return redirect()->route('dashboard');
                 case 'Siswa':
                     notify()->success("Selamat datang, $userName! Anda berhasil masuk.");
                     return redirect()->route('dashboard_siswa');
@@ -159,8 +159,6 @@ class AuthController extends Controller
             ]);
         }
     }
-
-
 
     public function logout(Request $request)
     {
