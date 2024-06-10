@@ -9,4 +9,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Role extends Model
 {
     use HasApiTokens, HasFactory;
+    protected $table = 'role';
+    protected $primaryKey = 'id';
+
+    protected $guarded = [];
 }
