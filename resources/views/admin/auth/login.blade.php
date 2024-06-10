@@ -104,7 +104,7 @@
         // Tampilkan pesan kesalahan
         showNotification(errorMessage);
     </script> --}}
-
+    @notifyCss
 </head>
 
 <body>
