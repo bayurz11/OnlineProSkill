@@ -147,10 +147,7 @@ class AuthController extends Controller
                     return redirect()->route('/')->with('error', 'Peran pengguna tidak dikenali.');
             }
         } else {
-            return redirect()->route('login')->withErrors([
-                'email' => 'Cek Email Anda',
-                'password' => 'Cek Password Anda',
-            ]);
+            return redirect()->route('login')->with('error', 'email atau password anda salah.');
         }
     }
 
