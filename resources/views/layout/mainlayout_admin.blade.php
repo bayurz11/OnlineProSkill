@@ -18,6 +18,7 @@
     @include('layout.partials.admin.head_admin')
     <!-- Favicon -->
     <link rel="shortcut icon" href="public/assets_admin/images/favicon.png" />
+
     @if (session('success'))
         <div id="success-message" class="notify alert alert-success" role="alert">
             {{ session('success') }}

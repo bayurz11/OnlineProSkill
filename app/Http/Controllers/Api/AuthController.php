@@ -123,37 +123,53 @@ class AuthController extends Controller
             $success['name'] = $auth->name;
             $success['email'] = $auth->email;
 
-            // Assuming the user role is obtained like this
             $userRole = $auth->userRole;
 
-            // If the user does not have a role
             if (!$userRole) {
-                return redirect()->back()->with('error', 'Pengguna tidak memiliki peran yang ditetapkan!');
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Pengguna tidak memiliki peran yang ditetapkan!'
+                ], 403);
             }
 
-            // Get the role name
             $roleName = $userRole->role->role_name;
             $userName = $auth->name;
 
-            // Redirect based on user role
             switch ($roleName) {
                 case 'Administrator':
-                    return redirect()->route('dashboard')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+                    return response()->json([
+                        'status' => 'success',
+                        'message' => "Selamat datang, $userName! Anda berhasil masuk.",
+                        'redirect' => route('dashboard')
+                    ]);
                 case 'Studen':
-                    return redirect()->route('dashboard_siswa')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+                    return response()->json([
+                        'status' => 'success',
+                        'message' => "Selamat datang, $userName! Anda berhasil masuk.",
+                        'redirect' => route('dashboard_siswa')
+                    ]);
                 case 'Instruktur':
-                    return redirect()->route('dashboard_instruktur')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+                    return response()->json([
+                        'status' => 'success',
+                        'message' => "Selamat datang, $userName! Anda berhasil masuk.",
+                        'redirect' => route('dashboard_instruktur')
+                    ]);
                 default:
-                    return redirect()->route('/')->with('error', 'Peran pengguna tidak dikenali.');
+                    return response()->json([
+                        'status' => 'error',
+                        'message' => 'Peran pengguna tidak dikenali.'
+                    ], 403);
             }
         } else {
-            return redirect()->route('login')->withErrors([
-                'email' => 'Cek Email Anda',
-                'password' => 'Cek Password Anda',
-            ]);
+            return response()->json([
+                'status' => 'error',
+                'errors' => [
+                    'email' => 'Cek Email Anda',
+                    'password' => 'Cek Password Anda'
+                ]
+            ], 401);
         }
     }
-
 
 
     public function logout(Request $request)

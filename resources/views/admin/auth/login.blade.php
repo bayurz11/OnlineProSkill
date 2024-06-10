@@ -2,21 +2,12 @@
 <html lang="en">
 
 <head>
-    <!-- ... (other meta and link tags) ... -->
-
+    <!-- Meta tags, title, and other head contents -->
     <title>Proskill Akademia | Login</title>
-
-    <!-- ... (other styles and scripts) ... -->
-
-    <!-- Core CSS -->
     <link rel="stylesheet" href="{{ asset('public/assets_admin/vendors/core/core.css') }}">
-    <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('public/assets_admin/fonts/feather-font/css/iconfont.css') }}">
     <link rel="stylesheet" href="{{ asset('public/assets_admin/vendors/flag-icon-css/css/flag-icon.min.css') }}">
-    <!-- endinject -->
-    <!-- Layout styles -->
     <link rel="stylesheet" href="{{ asset('public/assets_admin/css/demo1/style.css') }}">
-    <!-- End layout styles -->
     <link rel="shortcut icon" href="{{ asset('public/assets_admin/images/favicon.png') }}" />
 </head>
 
@@ -36,7 +27,7 @@
                                             <h5 class="text-muted fw-normal mb-4">Welcome back! Log in to your account.
                                             </h5>
                                         </div>
-                                        <form class="forms-sample" method="POST" action="api/login">
+                                        <form class="forms-sample" id="login-form">
                                             @csrf
                                             <div class="mb-3">
                                                 <label for="email" class="form-label">Email address</label>
@@ -54,7 +45,7 @@
                                                 <label class="form-check-label" for="authCheck">Remember me</label>
                                             </div>
                                             <div class="text-center">
-                                                <button type="submit"
+                                                <button type="button"
                                                     class="btn btn-primary me-2 mb-3 mb-md-0 text-white"
                                                     id="login-button">Login</button>
                                             </div>
@@ -78,13 +69,14 @@
                                                     a user? Sign up</a>
                                             </div>
                                         </form>
+
+                                        <div id="success-message" class="notify alert alert-success" role="alert"
+                                            style="display: none;"></div>
+                                        <div id="error-message" class="notify alert alert-danger" role="alert"
+                                            style="display: none;"></div>
+
                                     </div>
                                 </div>
-                                <!-- Optionally, you can add an image or any other content in this column
-                                <div class="col-md-4 d-none d-md-block">
-                                    <img src="path/to/your/image.jpg" alt="Login image" class="img-fluid">
-                                </div>
-                                -->
                             </div>
                         </div>
                     </div>
@@ -93,29 +85,44 @@
         </div>
     </div>
 
-    @if (session('success'))
-        <div id="success-message" class="notify alert alert-success" role="alert">
-            {{ session('success') }}
-        </div>
-    @endif
+    <style>
+        .notify {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            padding: 15px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s, top 0.3s;
+        }
 
-    @if (session('error'))
-        <div id="error-message" class="notify alert alert-danger" role="alert">
-            {{ session('error') }}
-        </div>
-    @endif
+        .notify.show {
+            display: block;
+            opacity: 1;
+            top: 50px;
+        }
 
-    <!-- core:js -->
-    <script src="{{ asset('public/assets_admin/vendors/core/core.js') }}"></script>
-    <!-- inject:js -->
-    <script src="{{ asset('public/assets_admin/vendors/feather-icons/feather.min.js') }}"></script>
-    <script src="{{ asset('public/assets_admin/js/template.js') }}"></script>
-    <!-- endinject -->
+        .notify.alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border-color: #c3e6cb;
+        }
+
+        .notify.alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+            border-color: #f5c6cb;
+        }
+    </style>
 
     <script>
         // Fungsi untuk menampilkan notifikasi
-        function showNotification(element) {
+        function showNotification(element, message) {
             if (element) {
+                element.textContent = message;
                 element.classList.add('show');
                 // Tunggu 3 detik kemudian hilangkan pesan
                 setTimeout(function() {
@@ -124,18 +131,45 @@
             }
         }
 
-        // Tampilkan pesan keberhasilan
-        var successMessage = document.getElementById('success-message');
-        if (successMessage) {
-            showNotification(successMessage);
-        }
+        document.getElementById('login-button').addEventListener('click', function() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
 
-        // Tampilkan pesan kesalahan
-        var errorMessage = document.getElementById('error-message');
-        if (errorMessage) {
-            showNotification(errorMessage);
-        }
+            fetch('api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        password: password
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        showNotification(document.getElementById('success-message'), data.message);
+                        setTimeout(function() {
+                            window.location.href = data.redirect;
+                        }, 3000);
+                    } else {
+                        showNotification(document.getElementById('error-message'), data.message ||
+                            'Login gagal');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    showNotification(document.getElementById('error-message'), 'Terjadi kesalahan');
+                });
+        });
     </script>
+
+    <!-- core:js -->
+    <script src="{{ asset('public/assets_admin/vendors/core/core.js') }}"></script>
+    <script src="{{ asset('public/assets_admin/vendors/feather-icons/feather.min.js') }}"></script>
+    <script src="{{ asset('public/assets_admin/js/template.js') }}"></script>
 </body>
 
 </html>
