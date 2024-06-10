@@ -140,7 +140,7 @@ class AuthController extends Controller
                 case 'Administrator':
                     return redirect()->route('admin.dashboard')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                     break;
-                case 'Siswa':
+                case 'Studen':
                     return redirect()->route('dashboard_siswa')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                     break;
                 case 'Instruktur':
