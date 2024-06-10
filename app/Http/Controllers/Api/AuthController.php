@@ -109,10 +109,9 @@ class AuthController extends Controller
             $success['email'] = $auth->email;
             return redirect()->route('dashboard');
         } else {
-            return response()->json([
-                'success' => false,
-                'message' => 'Cek Email Dan Password Anda',
-                'data' => null
+            return redirect()->route('login')->withErrors([
+                'email' => 'Cek Email Anda',
+                'Password' => 'Cek Password Anda',
             ]);
         }
     }
