@@ -104,7 +104,7 @@
         // Tampilkan pesan kesalahan
         showNotification(errorMessage);
     </script> --}}
-    <link rel="stylesheet" href="{{ asset('public/vendor/mckenziearts/laravel-notify/dis/notify.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/vendor/mckenziearts/laravel-notify/dist/notify.css') }}">
 
 </head>
 
