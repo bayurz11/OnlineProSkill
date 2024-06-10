@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -8,6 +9,7 @@
     <meta name="author" content="NobleUI">
     <meta name="keywords"
         content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
+
     <title>Proskill Akademia | Login</title>
 
     <!-- Fonts -->
@@ -15,6 +17,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <!-- End fonts -->
+
 
     <!-- core:css -->
     <link rel="stylesheet" href="{{ asset('public/assets_admin/vendors/core/core.css') }}">
@@ -115,7 +118,7 @@
                                 <div class="col-md-12">
                                     <div class="auth-form-wrapper px-5 py-5">
                                         <div class="text-center">
-                                            <a href="{{ route('login') }}"
+                                            <a href="#"
                                                 class="noble-ui-logo d-block mb-2">ProSkill<span>Akademia</span></a>
                                             <h5 class="text-muted fw-normal mb-4">Welcome back! Log in to your account.
                                             </h5>
