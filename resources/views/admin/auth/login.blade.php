@@ -104,7 +104,8 @@
         // Tampilkan pesan kesalahan
         showNotification(errorMessage);
     </script> --}}
-    @notifyCss
+    <link rel="stylesheet" href="{{ asset('public/vendor/mckenziearts/laravel-notify/dis/notify.css') }}">
+
 </head>
 
 <body>
@@ -197,7 +198,7 @@
     <!-- Custom js for this page -->
     <!-- End custom js for this page -->
     @include('notify::messages')
-    @notifyJs
+    <script src="{{ asset('public/vendor/mckenziearts/laravel-notify/js/notify.js') }}"></script>
 </body>
 
 </html>
