@@ -14,6 +14,14 @@ class AuthController extends Controller
     {
         return view('auth.login');
     }
+    public function showinstruktur()
+    {
+        return view('instruktur.auth.login');
+    }
+    public function showinstuden()
+    {
+        return view('studen.auth.login');
+    }
 
     public function login(Request $request)
     {
