@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardInstrukturController;
 use App\Http\Controllers\DashboardStudenController;
@@ -14,6 +15,9 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/login_admin', [AuthController::class, 'show'])->name('login_admin');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+//*******ADMIN ONLINE COURSE SETTING*******//
+Route::get('/categories', [CategoriesController::class, 'index'])->name('categories');
+Route::get('/subcategories', [CategoriesController::class, 'showsub'])->name('subcategories');
 
 // Studen
 Route::get('/dashboard_studen', [DashboardStudenController::class, 'index'])->name('dashboard_studen');
