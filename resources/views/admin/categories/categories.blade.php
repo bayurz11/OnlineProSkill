@@ -12,13 +12,20 @@
             </ol>
         </nav>
 
+        {{-- @include('admin.modal.add_heroSection')
+        @include('admin.modal.edit_heroSection') --}}
+
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
                         <h6 class="card-title">Kategori</h6>
-                        {{-- <p class="text-muted mb-3">Read the <a href="https://datatables.net/" target="_blank"> Official
-                                DataTables Documentation </a>for a full list of instructions and other options.</p> --}}
+                        <button type="button" class="btn btn-outline-primary position-absolute top-0 end-0 mt-3 me-3"
+                            data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="btn-icon-prepend"
+                                data-feather="plus-circle"></i>
+                            Hero Section
+                        </button>
+                        <p class="text-muted mb-3">Jumlah Hero Section : </p>
                         <div class="table-responsive">
                             <table id="dataTableExample" class="table">
                                 <thead>
