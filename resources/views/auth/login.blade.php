@@ -119,7 +119,8 @@
                                         <div class="text-center">
                                             <a href="#"
                                                 class="noble-ui-logo d-block mb-2">ProSkill<span>Akademia</span></a>
-                                            <h5 class="text-muted fw-normal mb-4">Welcome back! Log in to your account.
+                                            <h5 class="text-muted fw-normal mb-4">Selamat datang kembali! Masuk ke akun
+                                                Anda.
                                             </h5>
                                         </div>
                                         <form class="forms-sample" method="POST" action="{{ route('login') }}">
