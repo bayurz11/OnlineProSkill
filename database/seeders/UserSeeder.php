@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
         $userId = DB::table('users')->insertGetId([
             'name' => 'Admin Proskill',
             'email' => 'admin@proskill.sch.id',
+            'status' => '1',
             'password' => Hash::make('123456'),
             'last_login' => Carbon::now(),
         ]);

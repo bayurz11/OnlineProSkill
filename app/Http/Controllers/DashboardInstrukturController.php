@@ -39,6 +39,7 @@ class DashboardInstrukturController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'last_login' => Carbon::now(),
+            'status' => 1,
         ]);
 
         $userRole = new UserRoles();
