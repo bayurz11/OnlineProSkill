@@ -17,5 +17,5 @@ Route::get('/registerStuden', [DashboardStudenController::class, 'showregister']
 Route::post('/regisStuden', [DashboardStudenController::class, 'register'])->name('regisStuden');
 // Instruktur
 Route::get('/dashboard_instruktur', [DashboardInstrukturController::class, 'index'])->name('dashboard_instruktur');
-Route::get('/register', [DashboardInstrukturController::class, 'showregister'])->name('register');
-Route::post('/regisProses', [DashboardInstrukturController::class, 'register'])->name('regisProses');
+Route::get('/registerInstruktur', [DashboardInstrukturController::class, 'showregister'])->name('registerInstruktur');
+Route::post('/regisInstruktur', [DashboardInstrukturController::class, 'register'])->name('regisInstruktur');
