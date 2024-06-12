@@ -95,7 +95,11 @@
                         if (response.success) {
                             link.data('status', newStatus);
                             link.text(newStatus ? 'Active' : 'Inactive');
-                            link.toggleClass('bg-success bg-danger');
+                            if (newStatus) {
+                                link.removeClass('bg-danger').addClass('bg-success');
+                            } else {
+                                link.removeClass('bg-success').addClass('bg-danger');
+                            }
                         } else {
                             alert('Failed to update status');
                         }
