@@ -12,8 +12,8 @@
             </ol>
         </nav>
 
-        {{-- @include('admin.modal.add_heroSection')
-        @include('admin.modal.edit_heroSection') --}}
+        @include('admin.modal.add_categories')
+        {{-- @include('admin.modal.edit_heroSection') --}}
 
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
@@ -23,9 +23,9 @@
                         <button type="button" class="btn btn-outline-primary position-absolute top-0 end-0 mt-3 me-3"
                             data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="btn-icon-prepend"
                                 data-feather="plus-circle"></i>
-                            Hero Section
+                            Kategori
                         </button>
-                        <p class="text-muted mb-3">Jumlah Hero Section : </p>
+                        <p class="text-muted mb-3">Jumlah Kategori : </p>
                         <div class="table-responsive">
                             <table id="dataTableExample" class="table">
                                 <thead>
