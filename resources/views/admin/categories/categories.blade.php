@@ -63,7 +63,7 @@
                                                 </button>
 
                                                 <script>
-                                                    function hapuslink(id) {
+                                                    function hapus(id) {
                                                         if (confirm('Apakah Anda yakin ingin menghapus ini?')) {
                                                             fetch(`/categories_destroy/${id}`, {
                                                                 method: 'DELETE',
