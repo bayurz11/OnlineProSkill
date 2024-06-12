@@ -63,7 +63,7 @@
                                                 </button>
 
                                                 <script>
-                                                    function hapus(id) {
+                                                    function hapuslink(id) {
                                                         if (confirm('Apakah Anda yakin ingin menghapus ini?')) {
                                                             fetch(`/categories_destroy/${id}`, {
                                                                 method: 'DELETE',
@@ -72,11 +72,14 @@
                                                                 }
                                                             }).then(response => {
                                                                 if (response.ok) {
-                                                                    // Jika penghapusan berhasil, refresh halaman
-                                                                    window.location.reload();
+                                                                    console.log('Kategori berhasil dihapus. Mengalihkan ke halaman pengaturan kategori.');
+
+                                                                    window.location.href = '{{ route('categories') }}';
                                                                 } else {
                                                                     // Tangani kesalahan jika terjadi
-                                                                    console.error('Gagal menghapus');
+                                                                    response.text().then(text => {
+                                                                        console.error('Gagal menghapus Kategori:', text);
+                                                                    });
                                                                 }
                                                             }).catch(error => {
                                                                 console.error('Terjadi kesalahan:', error);
