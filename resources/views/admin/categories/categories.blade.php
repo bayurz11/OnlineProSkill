@@ -57,9 +57,36 @@
                                                     <i data-feather="edit"></i>
                                                 </button>
 
-                                                <button onclick="#" class="btn btn-danger btn-icon" title="Hapus">
+                                                <button onclick="hapus('{{ $kategori->id }}') class="btn btn-danger
+                                                    btn-icon" title="Hapus">
                                                     <i data-feather="trash-2"></i>
                                                 </button>
+
+                                                <script>
+                                                    function hapus(id) {
+                                                        if (confirm('Apakah Anda yakin ingin menghapus Kategori ini?')) {
+                                                            fetch(`/categories_destroy/${id}`, {
+                                                                method: 'DELETE',
+                                                                headers: {
+                                                                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                                                }
+                                                            }).then(response => {
+                                                                if (response.ok) {
+                                                                    console.log('Kategori berhasil dihapus. Mengalihkan ke halaman pengaturan Kategori.');
+
+                                                                    window.location.href = '{{ route('categories') }}';
+                                                                } else {
+                                                                    // Tangani kesalahan jika terjadi
+                                                                    response.text().then(text => {
+                                                                        console.error('Gagal menghapus Kategori:', text);
+                                                                    });
+                                                                }
+                                                            }).catch(error => {
+                                                                console.error('Terjadi kesalahan:', error);
+                                                            });
+                                                        }
+                                                    }
+                                                </script>
                                             </td>
                                         </tr>
                                     @endforeach

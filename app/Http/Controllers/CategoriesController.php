@@ -110,8 +110,19 @@ class CategoriesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Categories $categories)
+    public function destroy($id)
     {
-        //
+        // Temukan artikel berdasarkan ID
+        $category = Categories::find($id);
+
+        // Periksa apakah artikel ditemukan
+        if (!$category) {
+            return redirect()->route('categories')->with('error', 'Link tidak ditemukan');
+        }
+
+        // Hapus artikel
+        $category->delete();
+
+        return redirect()->route('categories')->with('success', 'Link berhasil dihapus');
     }
 }
