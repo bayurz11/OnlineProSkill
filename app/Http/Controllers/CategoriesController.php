@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Categories;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\StoreCategoriesRequest;
+use Illuminate\Http\Request;
 use App\Http\Requests\UpdateCategoriesRequest;
 
 class CategoriesController extends Controller
@@ -34,9 +34,22 @@ class CategoriesController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCategoriesRequest $request)
+    public function store(Request $request)
     {
-        //
+
+        if ($request->hasFile('gambar')) {
+            $gambarName = time() . '.' . $request->gambar->extension();
+            $request->gambar->move(public_path('uploads'), $gambarName);
+
+            $categories = new Categories();
+            $categories->gambar = $gambarName;
+            $categories->name_category = $request->name_category;
+            $categories->save();
+
+            return redirect()->route('categories')->with('success', 'Hero Section berhasil disimpan.');
+        } else {
+            return redirect()->route('categories')->with('error', 'Pilih gambar terlebih dahulu.');
+        }
     }
 
     /**
