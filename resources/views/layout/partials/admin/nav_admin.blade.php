@@ -18,25 +18,23 @@
                     <span class="link-title">Dashboard</span>
                 </a>
             </li>
-            <li class="nav-item nav-category">web apps</li>
+            <li class="nav-item nav-category">Online Course Setting</li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#emails" role="button" aria-expanded="false"
-                    aria-controls="emails">
-                    <i class="link-icon" data-feather="mail"></i>
-                    <span class="link-title">Email</span>
+                <a class="nav-link" data-bs-toggle="collapse" href="#kategori" role="button" aria-expanded="false"
+                    aria-controls="kategori">
+                    <i class="link-icon" data-feather="folder"></i>
+                    <span class="link-title">Kategori</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
-                <div class="collapse" id="emails">
+                <div class="collapse" id="kategori">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="pages/email/inbox.html" class="nav-link">Inbox</a>
+                            <a href="pages/email/inbox.html" class="nav-link">Main Categories</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/email/read.html" class="nav-link">Read</a>
+                            <a href="pages/email/read.html" class="nav-link">Subcategories</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="pages/email/compose.html" class="nav-link">Compose</a>
-                        </li>
+
                     </ul>
                 </div>
             </li>
