@@ -45,8 +45,15 @@
                                         <td>System Architect</td>
                                         <td><a href="#" id="badgeLink" class="badge bg-success">Active</a></td>
                                         <td>
-                                            <button type="button" class="btn btn-primary">Edit</button>
-                                            <button type="button" class="btn btn-danger">Delete</button>
+                                            <button type="button" class="btn btn-primary btn-icon edit-button"
+                                                title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
+                                                data-id="#">
+                                                <i data-feather="edit"></i>
+                                            </button>
+
+                                            <button onclick="#" class="btn btn-danger btn-icon" title="Hapus">
+                                                <i data-feather="trash-2"></i>
+                                            </button>
                                         </td>
                                     </tr>
                                 </tbody>
