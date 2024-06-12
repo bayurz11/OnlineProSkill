@@ -40,7 +40,7 @@
                                     <tr>
                                         <td>1</td>
                                         <td>System Architect</td>
-                                        <td id="statusCell">Edinburgh</td>
+                                        <td id="statusCell">active</td>
                                         <td>
                                             <button type="button" class="btn btn-primary">Edit</button>
                                             <button type="button" class="btn btn-danger">Delete</button>
@@ -55,4 +55,19 @@
         </div>
 
     </div>
+    <script>
+        // Mendapatkan elemen sel yang akan diubah
+        var statusCell = document.getElementById("statusCell");
+
+        // Mengatur nilai awal status
+        var status = "active";
+
+        // Menambahkan event listener untuk mengubah status saat sel diklik
+        statusCell.addEventListener("click", function() {
+            // Toggle status
+            status = (status === "active") ? "inactive" : "active";
+            // Memperbarui teks sel
+            statusCell.textContent = status;
+        });
+    </script>
 @endsection
