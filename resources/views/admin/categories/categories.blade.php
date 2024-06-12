@@ -58,15 +58,13 @@
                                                 </button>
 
                                                 <button onclick="hapus('{{ $kategori->id }}')"
-                                                    class="btn btn-danger
-                                                    btn-icon"
-                                                    title="Hapus">
+                                                    class="btn btn-danger btn-icon" title="Hapus">
                                                     <i data-feather="trash-2"></i>
                                                 </button>
 
                                                 <script>
                                                     function hapus(id) {
-                                                        if (confirm('Apakah Anda yakin ingin menghapus  ini?')) {
+                                                        if (confirm('Apakah Anda yakin ingin menghapus ini?')) {
                                                             fetch(`/categories_destroy/${id}`, {
                                                                 method: 'DELETE',
                                                                 headers: {
@@ -78,7 +76,7 @@
                                                                     window.location.reload();
                                                                 } else {
                                                                     // Tangani kesalahan jika terjadi
-                                                                    console.error('Gagal menghapus ');
+                                                                    console.error('Gagal menghapus');
                                                                 }
                                                             }).catch(error => {
                                                                 console.error('Terjadi kesalahan:', error);
