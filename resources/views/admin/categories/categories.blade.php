@@ -32,7 +32,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama Kategori</th>
-                                        <th>Toggle</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -40,12 +40,7 @@
                                     <tr>
                                         <td>1</td>
                                         <td>System Architect</td>
-                                        <td>
-                                            <label class="switch">
-                                                <input type="checkbox">
-                                                <span class="slider"></span>
-                                            </label>
-                                        </td>
+                                        <td id="statusCell">Edinburgh</td>
                                         <td>
                                             <button type="button" class="btn btn-primary">Edit</button>
                                             <button type="button" class="btn btn-danger">Delete</button>
@@ -53,7 +48,6 @@
                                     </tr>
                                 </tbody>
                             </table>
-
                         </div>
                     </div>
                 </div>
