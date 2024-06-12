@@ -47,7 +47,7 @@ class CategoriesController extends Controller
             $categories->name_category = $request->name_category;
             $categories->save();
 
-            return redirect()->route('categories')->with('success', 'Hero Section berhasil disimpan.');
+            return redirect()->route('categories')->with('success', 'Kategori berhasil disimpan.');
         } else {
             return redirect()->route('categories')->with('error', 'Pilih gambar terlebih dahulu.');
         }
@@ -117,12 +117,12 @@ class CategoriesController extends Controller
 
         // Periksa apakah artikel ditemukan
         if (!$category) {
-            return redirect()->route('categories')->with('error', 'Link tidak ditemukan');
+            return redirect()->route('categories')->with('error', 'Kategori tidak ditemukan');
         }
 
         // Hapus artikel
         $category->delete();
 
-        return redirect()->route('categories')->with('success', 'Link berhasil dihapus');
+        return redirect()->route('categories')->with('success', 'Kategori berhasil dihapus');
     }
 }
