@@ -21,7 +21,7 @@ class DashboardStudenController extends Controller
     }
     public function showregister()
     {
-        return view('auth.register');
+        return view('studen.auth.register');
     }
 
     public function register(Request $request)
