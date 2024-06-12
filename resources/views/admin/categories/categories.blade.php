@@ -38,24 +38,27 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        {{--  {{ asset('public/uploads/' . $heroSection->banner) }} --}}
-                                        <td><img src="#" alt="Banner" class="wd-100 wd-sm-150 me-3"></td>
-                                        <td>System Architect</td>
-                                        <td><a href="#" id="badgeLink" class="badge bg-success">Active</a></td>
-                                        <td>
-                                            <button type="button" class="btn btn-primary btn-icon edit-button"
-                                                title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
-                                                data-id="#">
-                                                <i data-feather="edit"></i>
-                                            </button>
+                                    @foreach ($categori as $key => $kategori)
+                                        <tr>
+                                            <td>{{ $key + 1 }}</td>
+                                            {{--  {{ asset('public/uploads/' . $heroSection->banner) }} --}}
+                                            <td><img src="{{ asset('public/uploads/' . $kategori->gambar) }}" alt="Banner"
+                                                    class="wd-100 wd-sm-150 me-3"></td>
+                                            <td>{{ $kategori->name_category }}</td>
+                                            <td><a href="#" id="badgeLink" class="badge bg-success">Active</a></td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-icon edit-button"
+                                                    title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
+                                                    data-id="#">
+                                                    <i data-feather="edit"></i>
+                                                </button>
 
-                                            <button onclick="#" class="btn btn-danger btn-icon" title="Hapus">
-                                                <i data-feather="trash-2"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
+                                                <button onclick="#" class="btn btn-danger btn-icon" title="Hapus">
+                                                    <i data-feather="trash-2"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

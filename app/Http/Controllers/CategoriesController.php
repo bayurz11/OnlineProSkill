@@ -16,11 +16,12 @@ class CategoriesController extends Controller
     public function index()
     {
         $user = Auth::user();
-
+        $categori = Categories::all();
+        $count = $categori->count();
         if (!$user) {
             return redirect()->route('login_admin');
         }
-        return view('admin.categories.categories', compact('user'));
+        return view('admin.categories.categories', compact('user', 'categori', 'count'));
     }
 
     /**
