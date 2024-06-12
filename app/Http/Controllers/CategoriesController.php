@@ -78,9 +78,21 @@ class CategoriesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCategoriesRequest $request, Categories $categories)
+    public function update(Request $request, $id)
     {
-        //
+        $categories = Categories::findOrFail($id);
+        $categories->name_category = $request->name_category;
+
+
+        if ($request->hasFile('gambar')) {
+            $file = $request->file('gambar');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads'), $filename);
+            $categories->gambar = $filename;
+        }
+
+        $categories->save();
+        return redirect()->route('categories')->with('success', 'Data updated successfully');
     }
     public function updateStatus($id, Request $request)
     {

@@ -21,6 +21,8 @@ Route::get('/categories', [CategoriesController::class, 'index'])->name('categor
 Route::post('/storecategories', [CategoriesController::class, 'store'])->name('storecategories');
 Route::post('/update-category-status/{id}', [CategoriesController::class, 'updateStatus']);
 Route::get('/categories/{id}/edit', [CategoriesController::class, 'edit'])->name('categories.edit');
+Route::put('/categories/{id}', [CategoriesController::class, 'update'])->name('categories.update');
+
 Route::get('/subcategories', [SubcategoriesController::class, 'index'])->name('subcategories');
 
 // Studen
