@@ -125,19 +125,25 @@
                                         <form class="forms-sample" method="POST" action="{{ route('login') }}">
                                             @csrf
                                             <div class="mb-3">
-                                                <label for="email" class="form-label">Email address</label>
+                                                <label for="email" class="form-label">Alamat Email</label>
                                                 <input type="email" class="form-control" id="email" name="email"
-                                                    placeholder="Email" autofocus>
+                                                    placeholder="Email" value="{{ old('email') }}" autofocus>
+                                                @error('email')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                             <div class="mb-3">
-                                                <label for="password" class="form-label">Password</label>
+                                                <label for="password" class="form-label">Kata Sandi</label>
                                                 <input type="password" class="form-control" id="password"
                                                     autocomplete="current-password" placeholder="Password"
                                                     name="password">
+                                                @error('password')
+                                                    <div class="text-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                             <div class="form-check mb-3">
                                                 <input type="checkbox" class="form-check-input" id="authCheck">
-                                                <label class="form-check-label" for="authCheck">Remember me</label>
+                                                <label class="form-check-label" for="authCheck">Ingat saya</label>
                                             </div>
                                             <div class="text-center">
                                                 <button type="submit"
@@ -159,10 +165,7 @@
                                                 window.onload = adjustButtonWidth;
                                                 window.onresize = adjustButtonWidth;
                                             </script>
-                                            <div class="text-center">
-                                                <a href="{{ route('register') }}" class="d-block mt-3 text-muted">Not a
-                                                    user? Sign up</a>
-                                            </div>
+
                                         </form>
 
                                     </div>
