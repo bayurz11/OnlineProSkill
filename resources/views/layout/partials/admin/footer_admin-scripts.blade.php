@@ -30,7 +30,7 @@
 <script src="public/assets_admin/vendors/easymde/easymde.min.js"></script>
 <script src="public/assets_admin/js/easymde.js"></script>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.min.js"></script>
 {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css" /> --}}
