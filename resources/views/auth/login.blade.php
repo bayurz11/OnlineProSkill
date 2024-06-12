@@ -10,7 +10,7 @@
     <meta name="keywords"
         content="nobleui, bootstrap, bootstrap 5, bootstrap5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
-    <title>POS | Login</title>
+    <title>ProSkill Akademia | Login</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -118,7 +118,7 @@
                                     <div class="auth-form-wrapper px-5 py-5">
                                         <div class="text-center">
                                             <a href="#"
-                                                class="noble-ui-logo d-block mb-2">POS<span>1.0.0</span></a>
+                                                class="noble-ui-logo d-block mb-2">ProSkill<span>Akademia</span></a>
                                             <h5 class="text-muted fw-normal mb-4">Welcome back! Log in to your account.
                                             </h5>
                                         </div>
