@@ -67,7 +67,7 @@ class AuthController extends Controller
 
             // Redirect berdasarkan peran pengguna
             $roleName = $userRole->role->role_name;
-            $userName = $user->name; // Ambil nama pengguna
+            $userName = $user->name;
             switch ($roleName) {
                 case 'Administrator':
                     return redirect()->route('dashboard')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
@@ -85,10 +85,11 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
-        // Logout pengguna
+        $user = Auth::user();
+        $userName = $user->name;
         Auth::logout();
 
         // Redirect pengguna ke halaman login dengan pesan berhasil logout
-        return redirect()->route('/')->with('success', 'Anda berhasil keluar.');
+        return redirect()->route('/')->with('success', "Terimakasih, $userName! keluar.");
     }
 }
