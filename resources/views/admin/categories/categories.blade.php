@@ -40,7 +40,7 @@
                                     <tr>
                                         <td>1</td>
                                         <td>System Architect</td>
-                                        <td><a href="#" id="badgeLink" class="badge bg-success">Activ</a></td>
+                                        <td><a href="#" id="badgeLink" class="badge bg-success">Active</a></td>
                                         <td>
                                             <button type="button" class="btn btn-primary">Edit</button>
                                             <button type="button" class="btn btn-danger">Delete</button>
