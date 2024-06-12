@@ -66,7 +66,7 @@
 
                                                 <script>
                                                     function hapus(id) {
-                                                        if (confirm('Apakah Anda yakin ingin menghapus Kategori ini?')) {
+                                                        if (confirm('Apakah Anda yakin ingin menghapus  ini?')) {
                                                             fetch(`/categories_destroy/${id}`, {
                                                                 method: 'DELETE',
                                                                 headers: {
@@ -74,14 +74,11 @@
                                                                 }
                                                             }).then(response => {
                                                                 if (response.ok) {
-                                                                    console.log('Kategori berhasil dihapus. Mengalihkan ke halaman pengaturan Kategori.');
-
-                                                                    window.location.href = '{{ route('categories') }}';
+                                                                    // Jika penghapusan berhasil, refresh halaman
+                                                                    window.location.reload();
                                                                 } else {
                                                                     // Tangani kesalahan jika terjadi
-                                                                    response.text().then(text => {
-                                                                        console.error('Gagal menghapus Kategori:', text);
-                                                                    });
+                                                                    console.error('Gagal menghapus ');
                                                                 }
                                                             }).catch(error => {
                                                                 console.error('Terjadi kesalahan:', error);
