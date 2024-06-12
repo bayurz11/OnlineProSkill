@@ -22,15 +22,6 @@ class CategoriesController extends Controller
         }
         return view('admin.categories.categories', compact('user'));
     }
-    public function indexsub()
-    {
-        $user = Auth::user();
-
-        if (!$user) {
-            return redirect()->route('login_admin');
-        }
-        return view('admin.categories.subcategories', compact('user'));
-    }
 
     /**
      * Show the form for creating a new resource.
