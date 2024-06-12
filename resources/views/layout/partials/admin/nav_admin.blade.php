@@ -28,11 +28,14 @@
                 </a>
                 <div class="collapse" id="kategori">
                     <ul class="nav sub-menu">
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="{{ route('categories') }}" class="nav-link">Main Categories</a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <a href="{{ route('subcategories') }}" class="nav-link">Subcategories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('categories') }}" class="nav-link">Main Categories</a>
                         </li>
 
                     </ul>
