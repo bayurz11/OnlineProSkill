@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('last_login');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -36,19 +37,21 @@ return new class extends Migration
             $table->longText('payload');
             $table->integer('last_activity')->index();
         });
-        Schema::create('role', function (Blueprint $table) {
+
+        Schema::create('roles', function (Blueprint $table) {
             $table->id();
             $table->string('role_name')->unique();
+            $table->timestamps();
         });
-        DB::table('role')->insert([
+        DB::table('roles')->insert([
             ['role_name' => 'Administrator'],
-            ['role_name' => 'Studen'],
             ['role_name' => 'Instruktur'],
+            ['role_name' => 'Studen'],
         ]);
         Schema::create('user_role', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('role_id')->constrained('role')->onDelete('cascade');
+            $table->foreignId('role_id')->constrained('roles')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -61,7 +64,7 @@ return new class extends Migration
         Schema::dropIfExists('users');
         Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
-        Schema::dropIfExists('role');
+        Schema::dropIfExists('roles');
         Schema::dropIfExists('user_role');
     }
 };

@@ -1,12 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
+use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/login', [AuthController::class, 'Showlogin'])->name('login');
-Route::get('/loginproses', [AuthController::class, 'login'])->name('loginproses');
-Route::get('/registrasi', [AuthController::class, 'showregistrasi'])->name('registrasi');
-Route::get('/dashboard', [AuthController::class, 'showdashboard'])->name('dashboard');
+Route::get('/', [AuthController::class, 'show'])->name('/');
+Route::get('/register', [AuthController::class, 'showregister'])->name('register');
+Route::post('/regisProses', [AuthController::class, 'register'])->name('regisProses');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
