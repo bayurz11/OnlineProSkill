@@ -68,23 +68,22 @@
                                                             fetch(`/categories_destroy/${id}`, {
                                                                 method: 'DELETE',
                                                                 headers: {
-                                                                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                                                                    'Content-Type': 'application/json'
+                                                                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
                                                                 }
                                                             }).then(response => {
-                                                                console.log(response);
                                                                 if (response.ok) {
-                                                                    console.log('Kategori berhasil dihapus. Mengalihkan ke halaman pengaturan kategori.');
+                                                                    console.log('Kategori berhasil dihapus. Mengalihkan ke halaman pengaturan Kategori.');
+
                                                                     window.location.href = '{{ route('categories') }}';
                                                                 } else {
-                                                                    response.json().then(data => {
-                                                                        console.error('Gagal menghapus Kategori:', data.error || 'Unknown error');
+                                                                    // Tangani kesalahan jika terjadi
+                                                                    response.text().then(text => {
+                                                                        console.error('Gagal menghapus Kategori:', text);
                                                                     });
                                                                 }
                                                             }).catch(error => {
                                                                 console.error('Terjadi kesalahan:', error);
                                                             });
-
                                                         }
                                                     }
                                                 </script>
