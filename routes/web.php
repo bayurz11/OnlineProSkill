@@ -17,7 +17,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 
 //*******ADMIN ONLINE COURSE SETTING*******//
 Route::get('/categories', [CategoriesController::class, 'index'])->name('categories');
-Route::get('/subcategories', [CategoriesController::class, 'showsub'])->name('subcategories');
+Route::get('/subcategories', [CategoriesController::class, 'indexsub'])->name('subcategories');
 
 // Studen
 Route::get('/dashboard_studen', [DashboardStudenController::class, 'index'])->name('dashboard_studen');

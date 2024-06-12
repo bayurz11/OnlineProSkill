@@ -20,7 +20,16 @@ class CategoriesController extends Controller
         if (!$user) {
             return redirect()->route('login_admin');
         }
-        return view('admin.categories.index', compact('user'));
+        return view('admin.categories.categories', compact('user'));
+    }
+    public function indexsub()
+    {
+        $user = Auth::user();
+
+        if (!$user) {
+            return redirect()->route('login_admin');
+        }
+        return view('admin.categories.subcategories', compact('user'));
     }
 
     /**
