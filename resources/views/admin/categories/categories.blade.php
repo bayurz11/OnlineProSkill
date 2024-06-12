@@ -53,7 +53,7 @@
                                             <td>
                                                 <button type="button" class="btn btn-primary btn-icon edit-button"
                                                     title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
-                                                    data-id="#">
+                                                    data-id="{{ $kategori->id }}">
                                                     <i data-feather="edit"></i>
                                                 </button>
 

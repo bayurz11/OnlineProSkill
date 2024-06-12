@@ -31,17 +31,17 @@
         </div>
     </div>
 </div>
-{{-- <script>
+<script>
     $(document).ready(function() {
         // Fetch data when the edit button is clicked
         $('.edit-button').on('click', function() {
             const id = $(this).data('id');
-            fetch(`/HeroSection/${id}/edit`)
+            fetch(`/categories/${id}/edit`)
                 .then(response => response.json())
                 .then(data => {
                     $('#edit-id').val(data.id);
                     $('#name_category_edit').val(data.name_category);
-                   
+
                     if (data.gambar) {
                         $('#preview_edit').attr('src', `/path/to/images/${data.gambar}`).show();
                     } else {
@@ -49,7 +49,7 @@
                     }
 
                     // Set the form action to the update route
-                    $('#editForm').attr('action', `/HeroSection/${data.id}`);
+                    $('#editForm').attr('action', `/categories/${data.id}`);
                 })
                 .catch(error => {
                     console.error('Error fetching data:', error);
@@ -72,4 +72,4 @@
         }
 
     });
-</script> --}}
+</script>

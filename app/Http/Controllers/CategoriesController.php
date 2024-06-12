@@ -64,9 +64,15 @@ class CategoriesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Categories $categories)
+    public function edit($id)
     {
-        //
+        $categories = Categories::find($id);
+
+        if (!$categories) {
+            return response()->json(['message' => 'Categories not found'], 404);
+        }
+
+        return response()->json($categories);
     }
 
     /**
