@@ -19,6 +19,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 //*******ADMIN ONLINE COURSE SETTING*******//
 Route::get('/categories', [CategoriesController::class, 'index'])->name('categories');
 Route::post('/storecategories', [CategoriesController::class, 'store'])->name('storecategories');
+Route::post('/update-category-status/{id}', [CategoriesController::class, 'updateStatus']);
 Route::get('/subcategories', [SubcategoriesController::class, 'index'])->name('subcategories');
 
 // Studen

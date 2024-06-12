@@ -45,7 +45,10 @@
                                             <td><img src="{{ asset('public/uploads/' . $kategori->gambar) }}" alt="Banner"
                                                     class="wd-100 wd-sm-150 me-3"></td>
                                             <td>{{ $kategori->name_category }}</td>
-                                            <td><a href="#" id="badgeLink" class="badge bg-success">Active</a></td>
+                                            <td><a href="#" id="badgeLink" class="badge bg-success"
+                                                    data-id="{{ $category->id }}" data-status="{{ $category->status }}">
+                                                    {{ $category->status ? 'Active' : 'Inactive' }}
+                                                </a></td>
                                             <td>
                                                 <button type="button" class="btn btn-primary btn-icon edit-button"
                                                     title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
@@ -68,22 +71,39 @@
         </div>
 
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        var badgeLink = document.getElementById("badgeLink");
+        $(document).ready(function() {
+            $('#badgeLink').on('click', function(e) {
+                e.preventDefault();
 
-        badgeLink.addEventListener("click", function() {
+                var link = $(this);
+                var categoryId = link.data('id');
+                var currentStatus = link.data('status');
+                var newStatus = currentStatus ? 0 : 1;
 
-            if (badgeLink.classList.contains("bg-success")) {
-                badgeLink.classList.remove("bg-success");
-                badgeLink.classList.add("bg-danger");
-                // Perbarui teks
-                badgeLink.textContent = "Inactive";
-            } else {
-                badgeLink.classList.remove("bg-danger");
-                badgeLink.classList.add("bg-success");
-                // Perbarui teks
-                badgeLink.textContent = "Active";
-            }
+                $.ajax({
+                    url: '/update-category-status/' + categoryId,
+                    method: 'POST',
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        status: newStatus
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            link.data('status', newStatus);
+                            link.text(newStatus ? 'Active' : 'Inactive');
+                            link.toggleClass('bg-success bg-danger');
+                        } else {
+                            alert('Failed to update status');
+                        }
+                    },
+                    error: function() {
+                        alert('An error occurred');
+                    }
+                });
+            });
         });
     </script>
 @endsection

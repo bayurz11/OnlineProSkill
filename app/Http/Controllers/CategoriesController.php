@@ -76,7 +76,19 @@ class CategoriesController extends Controller
     {
         //
     }
+    public function updateStatus($id, Request $request)
+    {
+        $category = Categories::find($id);
 
+        if ($category) {
+            $category->status = $request->input('status');
+            $category->save();
+
+            return response()->json(['success' => true]);
+        }
+
+        return response()->json(['success' => false]);
+    }
     /**
      * Remove the specified resource from storage.
      */
