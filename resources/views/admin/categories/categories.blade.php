@@ -66,7 +66,7 @@
                                                     function hapus(id) {
                                                         if (confirm('Apakah Anda yakin ingin menghapus ini?')) {
                                                             fetch(`/categories_destroy/${id}`, {
-                                                                method: 'DELETE',
+                                                                method: 'GET',
                                                                 headers: {
                                                                     'X-CSRF-TOKEN': '{{ csrf_token() }}'
                                                                 }
