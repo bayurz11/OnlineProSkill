@@ -24,6 +24,7 @@ Route::get('/categories/{id}/edit', [CategoriesController::class, 'edit'])->name
 Route::put('/categories/{id}', [CategoriesController::class, 'update'])->name('categories.update');
 Route::delete('/categories_destroy/{id}', [CategoriesController::class, 'destroy'])->name('categories.destroy');
 
+
 Route::get('/subcategories', [SubcategoriesController::class, 'index'])->name('subcategories');
 
 // Studen

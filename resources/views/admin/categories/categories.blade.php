@@ -68,12 +68,12 @@
                                                             fetch(`/categories_destroy/${id}`, {
                                                                 method: 'DELETE',
                                                                 headers: {
-                                                                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                                                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                                                                    'Content-Type': 'application/json'
                                                                 }
                                                             }).then(response => {
                                                                 if (response.ok) {
                                                                     console.log('Kategori berhasil dihapus. Mengalihkan ke halaman pengaturan kategori.');
-
                                                                     window.location.href = '{{ route('categories') }}';
                                                                 } else {
                                                                     // Tangani kesalahan jika terjadi
@@ -87,6 +87,7 @@
                                                         }
                                                     }
                                                 </script>
+
                                             </td>
                                         </tr>
                                     @endforeach
