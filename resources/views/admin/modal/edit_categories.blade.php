@@ -43,7 +43,7 @@
                     $('#name_category_edit').val(data.name_category);
 
                     if (data.gambar) {
-                        $('#preview_edit').attr('src', `/path/to/images/${data.gambar}`).show();
+                        $('#preview_edit').attr('src', `/public/uploads/${data.gambar}`).show();
                     } else {
                         $('#preview_edit').hide();
                     }
