@@ -40,7 +40,7 @@
                                     <tr>
                                         <td>1</td>
                                         <td>System Architect</td>
-                                        <td><a href="#" id="badgeLink" class="badge bg-success">Primary</a></td>
+                                        <td><a href="#" id="badgeLink" class="badge bg-success">Activ</a></td>
                                         <td>
                                             <button type="button" class="btn btn-primary">Edit</button>
                                             <button type="button" class="btn btn-danger">Delete</button>
@@ -59,15 +59,19 @@
         // Mendapatkan elemen <a> yang akan diubah
         var badgeLink = document.getElementById("badgeLink");
 
-        // Menambahkan event listener untuk mengubah kelas saat diklik
+        // Menambahkan event listener untuk mengubah kelas dan teks saat diklik
         badgeLink.addEventListener("click", function() {
             // Toggle kelas
             if (badgeLink.classList.contains("bg-success")) {
                 badgeLink.classList.remove("bg-success");
                 badgeLink.classList.add("bg-danger");
+                // Perbarui teks
+                badgeLink.textContent = "Inactive";
             } else {
                 badgeLink.classList.remove("bg-danger");
                 badgeLink.classList.add("bg-success");
+                // Perbarui teks
+                badgeLink.textContent = "Active";
             }
         });
     </script>
