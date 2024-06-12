@@ -25,7 +25,7 @@
                                 data-feather="plus-circle"></i>
                             Kategori
                         </button>
-                        <p class="text-muted mb-3">Jumlah Kategori : </p>
+                        <p class="text-muted mb-3">Jumlah Kategori : {{ $kategori->count() }}</p>
                         <div class="table-responsive">
                             <table id="dataTableExample" class="table">
                                 <thead>
