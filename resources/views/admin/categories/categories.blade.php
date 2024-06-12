@@ -31,6 +31,7 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
+                                        <th>Gambar Icon</th>
                                         <th>Nama Kategori</th>
                                         <th>Status</th>
                                         <th>Action</th>
@@ -39,6 +40,8 @@
                                 <tbody>
                                     <tr>
                                         <td>1</td>
+                                        {{--  {{ asset('public/uploads/' . $heroSection->banner) }} --}}
+                                        <td><img src="#" alt="Banner" class="wd-100 wd-sm-150 me-3"></td>
                                         <td>System Architect</td>
                                         <td><a href="#" id="badgeLink" class="badge bg-success">Active</a></td>
                                         <td>
