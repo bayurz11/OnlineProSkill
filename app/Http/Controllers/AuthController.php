@@ -14,40 +14,7 @@ class AuthController extends Controller
     {
         return view('auth.login');
     }
-    public function showregister()
-    {
-        return view('auth.register');
-    }
 
-    public function register(Request $request)
-    {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:3|confirmed',
-        ]);
-
-        // Create a new user
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
-        ]);
-
-        // Add the new user to the user_roles table
-        $userRole = new UserRoles();
-        $userRole->user_id = $user->id;
-        $userRole->role_id = 1; // Adjust to the appropriate role ID
-        $userRole->save();
-
-        // Add user_id to the user_profiles table
-        $userProfile = new UserProfile();
-        $userProfile->user_id = $user->id; // Insert the new user_id
-        $userProfile->role_id = 1;
-        $userProfile->save();
-
-        return redirect()->route('/')->with('success', 'Pendaftaran berhasil!');
-    }
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
@@ -72,8 +39,11 @@ class AuthController extends Controller
                 case 'Administrator':
                     return redirect()->route('dashboard')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                     break;
-                case 'Kasir':
-                    return redirect()->route('dashboard_kasir')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+                case 'Instruktur':
+                    return redirect()->route('dashboard_instruktur')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+                    break;
+                case 'Studen':
+                    return redirect()->route('dashboard_studen')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                     break;
                 default:
                     return redirect()->route('/')->with('error', 'Peran pengguna tidak dikenali.');
