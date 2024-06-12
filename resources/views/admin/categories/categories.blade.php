@@ -72,22 +72,22 @@
                                                                     'Content-Type': 'application/json'
                                                                 }
                                                             }).then(response => {
+                                                                console.log(response);
                                                                 if (response.ok) {
                                                                     console.log('Kategori berhasil dihapus. Mengalihkan ke halaman pengaturan kategori.');
                                                                     window.location.href = '{{ route('categories') }}';
                                                                 } else {
-                                                                    // Tangani kesalahan jika terjadi
-                                                                    response.text().then(text => {
-                                                                        console.error('Gagal menghapus Kategori:', text);
+                                                                    response.json().then(data => {
+                                                                        console.error('Gagal menghapus Kategori:', data.error || 'Unknown error');
                                                                     });
                                                                 }
                                                             }).catch(error => {
                                                                 console.error('Terjadi kesalahan:', error);
                                                             });
+
                                                         }
                                                     }
                                                 </script>
-
                                             </td>
                                         </tr>
                                     @endforeach
