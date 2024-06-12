@@ -5,11 +5,13 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardInstrukturController;
 use App\Http\Controllers\DashboardStudenController;
 use Illuminate\Support\Facades\Route;
-
+//******** Admin *********//
 Route::get('/login_admin', [AuthController::class, 'show'])->name('login_admin');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
 
 // Studen
 Route::get('/dashboard_studen', [DashboardStudenController::class, 'index'])->name('dashboard_studen');

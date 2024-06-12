@@ -53,13 +53,49 @@ class AuthController extends Controller
         }
     }
 
+    // public function logout(Request $request)
+    // {
+    //     $user = Auth::user();
+    //     $userName = $user->name;
+    //     Auth::logout();
+
+    //     // Redirect pengguna ke halaman login dengan pesan berhasil logout
+    //     return redirect()->route('login_admin')->with('success', "Terimakasih, $userName! Anda Berhasil keluar.");
+    // }
     public function logout(Request $request)
     {
         $user = Auth::user();
         $userName = $user->name;
+
+        // Ambil peran pengguna
+        $userRole = $user->userRole;
+
+        // Jika pengguna tidak memiliki peran
+        if (!$userRole) {
+            Auth::logout();
+            return redirect()->route('login')->with('error', 'Pengguna tidak memiliki peran yang ditetapkan!');
+        }
+
+        // Redirect berdasarkan peran pengguna
+        $roleName = $userRole->role->role_name;
         Auth::logout();
 
-        // Redirect pengguna ke halaman login dengan pesan berhasil logout
-        return redirect()->route('login_admin')->with('success', "Terimakasih, $userName! Anda Berhasil keluar.");
+        switch ($roleName) {
+            case 'Administrator':
+                $redirectRoute = 'login_admin';
+                break;
+            case 'Instruktur':
+                $redirectRoute = 'login_instruktur';
+                break;
+            case 'Studen':
+                $redirectRoute = 'login_student';
+                break;
+            default:
+                $redirectRoute = 'login'; // Default redirect jika peran tidak dikenali
+                break;
+        }
+
+        // Redirect pengguna ke halaman login yang sesuai dengan pesan berhasil logout
+        return redirect()->route($redirectRoute)->with('success', "Terimakasih, $userName! Anda Berhasil keluar.");
     }
 }
