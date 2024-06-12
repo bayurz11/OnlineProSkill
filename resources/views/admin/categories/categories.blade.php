@@ -76,7 +76,7 @@
 
                                                                     window.location.href = '{{ route('categories') }}';
                                                                 } else {
-                                                                    // Tangani kesalahan jika terjadi
+
                                                                     response.text().then(text => {
                                                                         console.error('Gagal menghapus Kategori:', text);
                                                                     });
