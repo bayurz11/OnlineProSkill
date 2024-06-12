@@ -90,6 +90,6 @@ class AuthController extends Controller
         Auth::logout();
 
         // Redirect pengguna ke halaman login dengan pesan berhasil logout
-        return redirect()->route('/')->with('success', "Terimakasih, $userName! keluar.");
+        return redirect()->route('/')->with('success', "Terimakasih, $userName! Anda Berhasil keluar.");
     }
 }
