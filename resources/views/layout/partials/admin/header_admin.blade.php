@@ -252,10 +252,11 @@
                                 <i class="me-2 icon-md" data-feather="log-out"></i>
                                 <span>Log Out</span>
                             </a>
-                            <form id="logout-form" action="{{ route('logout_admin') }}" method="POST"
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                 style="display: none;">
                                 @csrf
                             </form>
+
                         </li>
 
                     </ul>
