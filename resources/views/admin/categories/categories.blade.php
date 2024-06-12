@@ -40,7 +40,7 @@
                                     <tr>
                                         <td>1</td>
                                         <td>System Architect</td>
-                                        <td id="statusCell">active</td>
+                                        <td><a href="#" id="badgeLink" class="badge bg-success">Primary</a></td>
                                         <td>
                                             <button type="button" class="btn btn-primary">Edit</button>
                                             <button type="button" class="btn btn-danger">Delete</button>
@@ -56,18 +56,19 @@
 
     </div>
     <script>
-        // Mendapatkan elemen sel yang akan diubah
-        var statusCell = document.getElementById("statusCell");
+        // Mendapatkan elemen <a> yang akan diubah
+        var badgeLink = document.getElementById("badgeLink");
 
-        // Mengatur nilai awal status
-        var status = "active";
-
-        // Menambahkan event listener untuk mengubah status saat sel diklik
-        statusCell.addEventListener("click", function() {
-            // Toggle status
-            status = (status === "active") ? "inactive" : "active";
-            // Memperbarui teks sel
-            statusCell.textContent = status;
+        // Menambahkan event listener untuk mengubah kelas saat diklik
+        badgeLink.addEventListener("click", function() {
+            // Toggle kelas
+            if (badgeLink.classList.contains("bg-success")) {
+                badgeLink.classList.remove("bg-success");
+                badgeLink.classList.add("bg-danger");
+            } else {
+                badgeLink.classList.remove("bg-danger");
+                badgeLink.classList.add("bg-success");
+            }
         });
     </script>
 @endsection
