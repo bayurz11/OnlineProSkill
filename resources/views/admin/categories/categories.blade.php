@@ -66,12 +66,10 @@
 
     </div>
     <script>
-        // Mendapatkan elemen <a> yang akan diubah
         var badgeLink = document.getElementById("badgeLink");
 
-        // Menambahkan event listener untuk mengubah kelas dan teks saat diklik
         badgeLink.addEventListener("click", function() {
-            // Toggle kelas
+
             if (badgeLink.classList.contains("bg-success")) {
                 badgeLink.classList.remove("bg-success");
                 badgeLink.classList.add("bg-danger");
