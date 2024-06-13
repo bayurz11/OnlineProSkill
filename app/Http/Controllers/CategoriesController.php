@@ -112,17 +112,20 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        // Temukan kategori berdasarkan ID
-        $category = Categories::find($id);
+        $category = Categories::findOrFail($id);
 
-        // Periksa apakah kategori ditemukan
-        if (!$category) {
-            return redirect()->route('categories')->with('error', 'Kategori tidak ditemukan');
+        if ($category) {
+            $category->delete();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Category deleted successfully.'
+            ]);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Category not found.'
+            ], 404);
         }
-
-        // Hapus kategori
-        $category->delete();
-
-        return redirect()->route('categories')->with('success', 'Kategori berhasil dihapus');
     }
 }
