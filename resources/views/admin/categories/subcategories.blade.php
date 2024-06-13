@@ -12,7 +12,7 @@
             </ol>
         </nav>
 
-        @include('admin.modal.add_categories')
+        @include('admin.modal.add_subcategories')
         @include('admin.modal.edit_categories')
 
         <div class="row">
