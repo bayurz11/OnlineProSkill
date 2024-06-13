@@ -27,7 +27,7 @@
 <script src="public/assets_admin/js/form-validation.js"></script>
 <script src="public/assets_admin/js/bootstrap-maxlength.js"></script>
 <script src="public/assets_admin/js/inputmask.js"></script>
-<script src="public/assets_admin/js/select2.js"></script>
+<script src="{{ asset('public/assets_admin/js/select2.js') }}"></script>
 <script src="public/assets_admin/js/typeahead.js"></script>
 <script src="public/assets_admin/js/tags-input.js"></script>
 <script src="public/assets_admin/js/dropzone.js"></script>
@@ -44,7 +44,7 @@
 <script src="public/assets_admin/vendors/jquery-validation/jquery.validate.min.js"></script>
 <script src="public/assets_admin/vendors/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
 <script src="public/assets_admin/vendors/inputmask/jquery.inputmask.min.js"></script>
-<script src="public/assets_admin/vendors/select2/select2.min.js"></script>
+<script src="{{ asset('public/assets_admin/vendors/select2/select2.min.js') }}"></script>
 <script src="public/assets_admin/vendors/typeahead.js/typeahead.bundle.min.js"></script>
 <script src="public/assets_admin/vendors/jquery-tags-input/jquery.tagsinput.min.js"></script>
 <script src="public/assets_admin/vendors/dropzone/dropzone.min.js"></script>
