@@ -69,8 +69,8 @@
                                                                 <div style="background: white; padding: 40px; border-radius: 8px; text-align: center;">
                                                                     <h4>Konfirmasi Penghapusan</h4><br>
                                                                     <p>Apakah Anda yakin ingin menghapus ini?</p><br>
-                                                                    <button id="confirmDelete" class="btn btn-danger">Ya, Hapus</button>
-                                                                    <button id="cancelDelete" class="btn btn-secondary">Batal</button>
+                                                                    <button id="confirmDelete" class="btn btn-danger btn-lg">Ya, Hapus</button>
+                                                                    <button id="cancelDelete" class="btn btn-secondary btn-lg">Batal</button>
                                                                 </div>
                                                             </div>
                                                         `;
