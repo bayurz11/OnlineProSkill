@@ -51,4 +51,3 @@
 <!-- <script src="{{ asset('public/assets_admin/vendors/pickr/pickr.min.js') }}"></script> -->
 <script src="{{ asset('public/assets_admin/vendors/moment/moment.min.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.min.js"></script>
-<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css" /> -->
