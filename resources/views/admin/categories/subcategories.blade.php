@@ -42,10 +42,11 @@
                                     @foreach ($subcategori as $key => $kategori)
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
-                                            {{--  {{ asset('public/uploads/' . $heroSection->banner) }} --}}
+
                                             <td><img src="{{ asset('public/uploads/' . $kategori->gambar) }}" alt="Banner"
                                                     class="wd-100 wd-sm-150 me-3"></td>
-                                            <td>{{ $kategori->name_category }}</td>
+                                            <td>{{ $kategori->category_id }}</td>
+                                            <td>{{ $kategori->name }}</td>
                                             <td><a href="#" id="badgeLink"
                                                     class="badge {{ $kategori->status ? 'bg-success' : 'bg-danger' }}"
                                                     data-id="{{ $kategori->id }}" data-status="{{ $kategori->status }}">
