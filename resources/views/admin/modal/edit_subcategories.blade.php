@@ -26,7 +26,7 @@
                         <label class="form-label" for="gambar">Icon Kategori</label>
                         <input type="file" accept="image/*" class="form-control" id="gambar" name="gambar">
                     </div>
-                    <img id="preview" src="#" alt="Preview banner"
+                    <img id="preview_edit" src="#" alt="Preview banner"
                         style="max-width: 100%; max-height: 200px; display: none;">
                 </div>
                 <div class="modal-footer">
