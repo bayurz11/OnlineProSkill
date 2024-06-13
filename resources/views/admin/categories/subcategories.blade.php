@@ -13,7 +13,7 @@
         </nav>
 
         @include('admin.modal.add_subcategories')
-        @include('admin.modal.edit_categories')
+        @include('admin.modal.edit_subcategories')
 
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">

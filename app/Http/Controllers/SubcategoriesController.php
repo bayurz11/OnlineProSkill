@@ -39,6 +39,23 @@ class SubcategoriesController extends Controller
             return redirect()->route('subcategories')->with('error', 'Pilih gambar terlebih dahulu.');
         }
     }
+    public function update(Request $request, $id)
+    {
+        $subcategories = Subcategories::findOrFail($id);
+        $subcategories->category_id = $request->name_category;
+        $subcategories->name = $request->name;
+
+
+        if ($request->hasFile('gambar')) {
+            $file = $request->file('gambar');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads'), $filename);
+            $subcategories->gambar = $filename;
+        }
+
+        $subcategories->save();
+        return redirect()->route('subcategories')->with('success', 'Data updated successfully');
+    }
     public function updateSubstatus($id, Request $request)
     {
         $category = Subcategories::find($id);
@@ -52,6 +69,18 @@ class SubcategoriesController extends Controller
 
         return response()->json(['success' => false]);
     }
+
+    public function edit($id)
+    {
+        $categories = Subcategories::find($id);
+
+        if (!$categories) {
+            return response()->json(['message' => 'Categories not found'], 404);
+        }
+
+        return response()->json($categories);
+    }
+
     public function destroy($id)
     {
 
