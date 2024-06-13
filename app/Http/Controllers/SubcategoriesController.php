@@ -28,7 +28,7 @@ class SubcategoriesController extends Controller
 
             $subcategories = new Subcategories();
             $subcategories->gambar = $gambarName;
-            $subcategories->name_category = $request->name_category;
+            $subcategories->category_id = $request->name_category;
             $subcategories->name = $request->name;
             $subcategories->save();
 
