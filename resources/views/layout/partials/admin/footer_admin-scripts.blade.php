@@ -24,7 +24,7 @@
 
 <!-- Custom js for this page -->
 <script src="public/assets_admin/js/dashboard-light.js"></script>
-{{-- <script src="public/assets_admin/js/select2.js"></script> --}}
+<script src="public/assets_admin/js/select2.js"></script>
 <!-- End custom js for this page -->
 
 <!-- Plugin js for this page -->
