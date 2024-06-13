@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categories;
+use App\Models\Subcategories;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,7 +26,7 @@ class SubcategoriesController extends Controller
             $gambarName = time() . '.' . $request->gambar->extension();
             $request->gambar->move(public_path('uploads'), $gambarName);
 
-            $subcategories = new Categories();
+            $subcategories = new Subcategories();
             $subcategories->gambar = $gambarName;
             $subcategories->name_category = $request->name_category;
             $subcategories->name = $request->name;
