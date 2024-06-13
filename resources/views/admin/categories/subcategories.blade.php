@@ -45,7 +45,7 @@
 
                                             <td><img src="{{ asset('public/uploads/' . $kategori->gambar) }}" alt="Banner"
                                                     class="wd-100 wd-sm-150 me-3"></td>
-                                            <td>{{ $subcategory->category?->name_category ?? 'Kategori tidak ditemukan' }}
+                                            <td>{{ $subcategory->kategori?->name_category ?? 'Kategori tidak ditemukan' }}
                                             </td>
                                             <td>{{ $kategori->name }}</td>
                                             <td><a href="#" id="badgeLink"
