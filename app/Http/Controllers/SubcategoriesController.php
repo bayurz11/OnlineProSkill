@@ -13,7 +13,8 @@ class SubcategoriesController extends Controller
     {
         $user = Auth::user();
         $categori = Categories::all();
-        $subcategori = Subcategories::all();
+        // $subcategori = Subcategories::all();
+        $subcategori = Subcategories::with('category')->get();
         $count = $categori->count();
         if (!$user) {
             return redirect()->route('login_admin');
