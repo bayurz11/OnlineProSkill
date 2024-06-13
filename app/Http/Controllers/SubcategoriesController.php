@@ -18,4 +18,22 @@ class SubcategoriesController extends Controller
         }
         return view('admin.categories.subcategories', compact('user', 'categori', 'count'));
     }
+
+    public function store(Request $request)
+    {
+        if ($request->hasFile('gambar')) {
+            $gambarName = time() . '.' . $request->gambar->extension();
+            $request->gambar->move(public_path('uploads'), $gambarName);
+
+            $subcategories = new Categories();
+            $subcategories->gambar = $gambarName;
+            $subcategories->name_category = $request->name_category;
+            $subcategories->name = $request->name;
+            $subcategories->save();
+
+            return redirect()->route('subcategories')->with('success', 'Kategori berhasil disimpan.');
+        } else {
+            return redirect()->route('subcategories')->with('error', 'Pilih gambar terlebih dahulu.');
+        }
+    }
 }

@@ -26,7 +26,7 @@ Route::delete('/categories_destroy/{id}', [CategoriesController::class, 'destroy
 
 
 Route::get('/subcategories', [SubcategoriesController::class, 'index'])->name('subcategories');
-
+Route::post('/storesubcategories', [SubcategoriesController::class, 'store'])->name('storesubcategories');
 // Studen
 Route::get('/dashboard_studen', [DashboardStudenController::class, 'index'])->name('dashboard_studen');
 Route::get('/login_student', [AuthController::class, 'showinstuden'])->name('login_student');
