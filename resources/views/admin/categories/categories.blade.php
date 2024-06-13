@@ -63,7 +63,7 @@
                                                 </button>
 
                                                 <!-- Add the JavaScript function in your Blade template -->
-
+                                                <meta name="csrf-token" content="{{ csrf_token() }}">
                                                 <script>
                                                     function hapus(id) {
                                                         if (confirm('Are you sure you want to delete this category?')) {
