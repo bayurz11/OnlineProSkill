@@ -39,7 +39,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($subcategori as $subcategory)
+                                    @foreach ($subcategori as $key => $subcategory)
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
 
