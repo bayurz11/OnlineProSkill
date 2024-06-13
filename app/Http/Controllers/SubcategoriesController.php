@@ -52,4 +52,17 @@ class SubcategoriesController extends Controller
 
         return response()->json(['success' => false]);
     }
+    public function destroy($id)
+    {
+
+        $category = Subcategories::find($id);
+
+        if (!$category) {
+            return redirect()->route('subcategories')->with('error', 'Kategori tidak ditemukan');
+        }
+
+        $category->delete();
+
+        return redirect()->route('subcategories')->with('success', 'Kategori berhasil dihapus');
+    }
 }

@@ -135,7 +135,7 @@
             document.body.insertAdjacentHTML('beforeend', confirmationBox);
 
             document.getElementById('confirmDelete').onclick = function() {
-                fetch(`/categories_destroy/${id}`, {
+                fetch(`/subcategories_destroy/${id}`, {
                     method: 'POST', // Menggunakan POST bukan DELETE
                     headers: {
                         'X-CSRF-TOKEN': '{{ csrf_token() }}',
@@ -149,7 +149,7 @@
                     if (response.ok) {
                         console.log(
                             'subcategory berhasil dihapus. Mengalihkan ke halaman pengaturan subcategory.');
-                        window.location.href = '{{ route('categories') }}';
+                        window.location.href = '{{ route('subcategories') }}';
                     } else {
                         response.text().then(text => {
                             console.error('Gagal menghapus subcategory:', text);
