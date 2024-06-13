@@ -55,17 +55,17 @@
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#uiComponents" role="button" aria-expanded="false"
                     aria-controls="uiComponents">
-                    <i class="link-icon" data-feather="feather"></i>
-                    <span class="link-title">UI Kit</span>
+                    <i class="link-icon" data-feather="folder"></i>
+                    <span class="link-title">Kategori</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 <div class="collapse" id="uiComponents">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="pages/ui-components/accordion.html" class="nav-link">Accordion</a>
+                            <a href="{{ route('categories') }}" class="nav-link">Categories</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/ui-components/alerts.html" class="nav-link">Alerts</a>
+                            <a href="{{ route('subcategories') }}" class="nav-link">Subcategories</a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/ui-components/badges.html" class="nav-link">Badges</a>
