@@ -136,7 +136,7 @@
                 var newStatus = currentStatus ? 0 : 1;
 
                 $.ajax({
-                    url: '/update-category-status/' + categoryId,
+                    url: '/update-subcategory-status/' + categoryId,
                     method: 'POST',
                     data: {
                         _token: '{{ csrf_token() }}',
