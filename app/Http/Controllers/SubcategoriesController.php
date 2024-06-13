@@ -21,6 +21,7 @@ class SubcategoriesController extends Controller
         return view('admin.categories.subcategories', compact('user', 'categori', 'count', 'subcategori'));
     }
 
+
     public function store(Request $request)
     {
         if ($request->hasFile('gambar')) {

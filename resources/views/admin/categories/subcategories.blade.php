@@ -1,4 +1,4 @@
-@section('title', 'ProSkill Akademia | Kategori')
+@section('title', 'ProSkill Akademia | subcategory')
 <?php $page = 'subcategories'; ?>
 
 @extends('layout.mainlayout_admin')
@@ -8,7 +8,7 @@
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Subkategori</li>
+                <li class="breadcrumb-item active" aria-current="page">Subsubcategory</li>
             </ol>
         </nav>
 
@@ -19,47 +19,48 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h6 class="card-title">Subkategori</h6>
+                        <h6 class="card-title">Subsubcategory</h6>
                         <button type="button" class="btn btn-outline-primary position-absolute top-0 end-0 mt-3 me-3"
                             data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="btn-icon-prepend"
                                 data-feather="plus-circle"></i>
-                            Subkategori
+                            Subsubcategory
                         </button>
-                        <p class="text-muted mb-3">Jumlah Subkategori : {{ $categori->count() }}</p>
+                        <p class="text-muted mb-3">Jumlah Subsubcategory : {{ $categori->count() }}</p>
                         <div class="table-responsive">
                             <table id="dataTableExample" class="table">
                                 <thead>
                                     <tr>
                                         <th>No</th>
                                         <th>Gambar Icon</th>
-                                        <th>Kategori</th>
-                                        <th>Nama Subkategori</th>
+                                        <th>subcategory</th>
+                                        <th>Nama Subsubcategory</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($subcategori as $key => $kategori)
+                                    @foreach ($subcategori as $subcategory)
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
 
-                                            <td><img src="{{ asset('public/uploads/' . $kategori->gambar) }}" alt="Banner"
-                                                    class="wd-100 wd-sm-150 me-3"></td>
-                                            <td>{{ $subcategory->category->name_category }}</td>
-                                            <td>{{ $kategori->name }}</td>
+                                            <td><img src="{{ asset('public/uploads/' . $subcategory->gambar) }}"
+                                                    alt="Banner" class="wd-100 wd-sm-150 me-3"></td>
+                                            <td>{{ $subcategory->name }}</td>
+                                            <td>{{ $subcategory->name }}</td>
                                             <td><a href="#" id="badgeLink"
-                                                    class="badge {{ $kategori->status ? 'bg-success' : 'bg-danger' }}"
-                                                    data-id="{{ $kategori->id }}" data-status="{{ $kategori->status }}">
-                                                    {{ $kategori->status ? 'Active' : 'Inactive' }}
+                                                    class="badge {{ $subcategory->status ? 'bg-success' : 'bg-danger' }}"
+                                                    data-id="{{ $subcategory->id }}"
+                                                    data-status="{{ $subcategory->status }}">
+                                                    {{ $subcategory->status ? 'Active' : 'Inactive' }}
                                                 </a>
                                             <td>
                                                 <button type="button" class="btn btn-primary btn-icon edit-button"
                                                     title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
-                                                    data-id="{{ $kategori->id }}">
+                                                    data-id="{{ $subcategory->id }}">
                                                     <i data-feather="edit"></i>
                                                 </button>
 
-                                                <button onclick="hapus('{{ $kategori->id }}')"
+                                                <button onclick="hapus('{{ $subcategory->id }}')"
                                                     class="btn btn-danger btn-icon" title="Hapus">
                                                     <i data-feather="trash-2"></i>
                                                 </button>
@@ -92,11 +93,12 @@
                                                             }).then(response => {
                                                                 document.getElementById('confirmationModal').remove();
                                                                 if (response.ok) {
-                                                                    console.log('Kategori berhasil dihapus. Mengalihkan ke halaman pengaturan Kategori.');
+                                                                    console.log(
+                                                                        'subcategory berhasil dihapus. Mengalihkan ke halaman pengaturan subcategory.');
                                                                     window.location.href = '{{ route('categories') }}';
                                                                 } else {
                                                                     response.text().then(text => {
-                                                                        console.error('Gagal menghapus Kategori:', text);
+                                                                        console.error('Gagal menghapus subcategory:', text);
                                                                     });
                                                                 }
                                                             }).catch(error => {
