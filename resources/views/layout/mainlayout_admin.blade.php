@@ -14,6 +14,7 @@
         content="ProSkill Akademia adalah lembaga kursus komputer terkemuka yang menyediakan layanan kursus terbaik dalam pengembangan keterampilan teknologi.">
     <meta property="og:image" content="assets/img/preview-banner.jpg">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta property="twitter:url" content="https://proskill.sch.id/">
     @include('layout.partials.admin.head_admin')
     <!-- Favicon -->

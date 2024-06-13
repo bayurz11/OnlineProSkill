@@ -61,7 +61,7 @@
                                                     class="btn btn-danger btn-icon" title="Hapus">
                                                     <i data-feather="trash-2"></i>
                                                 </button>
-                                                <meta name="csrf-token" content="{{ csrf_token() }}">
+
                                                 <script>
                                                     function hapus(id) {
                                                         if (confirm('Apakah Anda yakin ingin menghapus ini?')) {
