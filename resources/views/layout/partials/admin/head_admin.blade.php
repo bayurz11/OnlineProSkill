@@ -23,7 +23,7 @@
 <!-- Layout styles -->
 <link rel="stylesheet" href="public/assets_admin/css/demo1/style.css">
 <!-- End layout styles -->
-
+<link rel="stylesheet" href="public/assets_admin/vendors/select2/select2.min.css">
 <link rel="shortcut icon" href="public/assets_admin/images/favicon.png" />
 
 <!-- Plugin css for this page -->
