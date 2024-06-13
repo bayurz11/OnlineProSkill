@@ -1,5 +1,5 @@
 <!-- core:js -->
-<script src="public/assets_admin/vendors/core/core.js"></script>
+<script src="{{ asset('public/assets_admin/vendors/core/core.js') }}"></script>
 <!-- endinject -->
 
 <!-- Plugin js for this page -->
@@ -49,7 +49,7 @@
 <script src="public/assets_admin/vendors/jquery-tags-input/jquery.tagsinput.min.js"></script>
 <script src="public/assets_admin/vendors/dropzone/dropzone.min.js"></script>
 <script src="public/assets_admin/vendors/dropify/dist/dropify.min.js"></script>
-<script src="public/assets_admin/vendors/pickr/pickr.min.js"></script>
+<script src="{{ asset('public/assets_admin/vendors/pickr/pickr.min.js') }}"></script>
 <script src="public/assets_admin/vendors/moment/moment.min.js"></script>
 <script src="public/assets_admin/vendors/flatpickr/flatpickr.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.min.js"></script>
