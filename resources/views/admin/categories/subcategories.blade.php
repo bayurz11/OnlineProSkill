@@ -38,7 +38,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($categori as $key => $kategori)
+                                    @foreach ($subcategori as $key => $kategori)
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
                                             {{--  {{ asset('public/uploads/' . $heroSection->banner) }} --}}

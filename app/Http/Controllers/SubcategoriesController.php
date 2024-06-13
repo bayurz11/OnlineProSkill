@@ -13,11 +13,12 @@ class SubcategoriesController extends Controller
     {
         $user = Auth::user();
         $categori = Categories::all();
+        $subcategori = Subcategories::all();
         $count = $categori->count();
         if (!$user) {
             return redirect()->route('login_admin');
         }
-        return view('admin.categories.subcategories', compact('user', 'categori', 'count'));
+        return view('admin.categories.subcategories', compact('user', 'categori', 'count', 'subcategori'));
     }
 
     public function store(Request $request)
