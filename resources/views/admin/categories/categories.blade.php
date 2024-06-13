@@ -65,8 +65,8 @@
                                                 <script>
                                                     function hapus(id) {
                                                         const confirmationBox = `
-                                                            <div id="confirmationModal" style="position: fixed; top: 0; left: 0; width: 200%; height: 200%; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">
-                                                                <div style="background: white; padding: 20px; border-radius: 8px; text-align: center;">
+                                                            <div id="confirmationModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">
+                                                                <div style="background: white; padding: 40px; border-radius: 8px; text-align: center;">
                                                                     <h4>Konfirmasi Penghapusan</h4><br>
                                                                     <p>Apakah Anda yakin ingin menghapus ini?</p><br>
                                                                     <button id="confirmDelete" class="btn btn-danger">Ya, Hapus</button>
