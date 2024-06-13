@@ -66,17 +66,19 @@
                                                     function hapus(id) {
                                                         if (confirm('Apakah Anda yakin ingin menghapus ini?')) {
                                                             fetch(`/categories_destroy/${id}`, {
-                                                                method: 'POST',
+                                                                method: 'POST', // Use POST instead of DELETE
                                                                 headers: {
-                                                                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                                                                }
+                                                                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                                                                    'Content-Type': 'application/json'
+                                                                },
+                                                                body: JSON.stringify({
+                                                                    _method: 'DELETE'
+                                                                }) // Add _method override
                                                             }).then(response => {
                                                                 if (response.ok) {
                                                                     console.log('Kategori berhasil dihapus. Mengalihkan ke halaman pengaturan Kategori.');
-
                                                                     window.location.href = '{{ route('categories') }}';
                                                                 } else {
-
                                                                     response.text().then(text => {
                                                                         console.error('Gagal menghapus Kategori:', text);
                                                                     });
