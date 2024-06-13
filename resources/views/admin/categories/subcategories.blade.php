@@ -32,7 +32,8 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Gambar Icon</th>
-                                        <th>Nama Kategori</th>
+                                        <th>Kategori</th>
+                                        <th>Nama Subkategori</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
