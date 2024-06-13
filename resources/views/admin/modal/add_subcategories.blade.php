@@ -11,7 +11,7 @@
                     <div class="mb-3">
                         <label class="form-label">Nama Kategori</label>
                         <select class="js-example-basic-single form-select" data-width="100%">
-                            @foreach ($categories as $category)
+                            @foreach ($categori as $category)
                                 <option value="{{ $category->id }}">{{ $category->name_category }}</option>
                             @endforeach
                         </select>
