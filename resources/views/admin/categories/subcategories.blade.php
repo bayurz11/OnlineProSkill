@@ -55,18 +55,18 @@
                                                     {{ $subcategory->status ? 'Active' : 'Inactive' }}
                                                 </a>
                                             </td>
-                                            <button type="button" class="btn btn-primary btn-icon edit-button"
-                                                title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
-                                                data-id="{{ $subcategory->id }}">
-                                                <i data-feather="edit"></i>
-                                            </button>
+                                            <td> <button type="button" class="btn btn-primary btn-icon edit-button"
+                                                    title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
+                                                    data-id="{{ $subcategory->id }}">
+                                                    <i data-feather="edit"></i>
+                                                </button>
 
-                                            <button onclick="hapus('{{ $subcategory->id }}')"
-                                                class="btn btn-danger btn-icon" title="Hapus">
-                                                <i data-feather="trash-2"></i>
-                                            </button>
-
+                                                <button onclick="hapus('{{ $subcategory->id }}')"
+                                                    class="btn btn-danger btn-icon" title="Hapus">
+                                                    <i data-feather="trash-2"></i>
+                                                </button>
                                             </td>
+
                                         </tr>
                                     @endforeach
                                 </tbody>
