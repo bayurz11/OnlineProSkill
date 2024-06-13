@@ -49,9 +49,10 @@
                                             <td>{{ $subcategory->name }}</td>
                                             <td>
                                                 <a href="#"
-                                                    class="badge badgeLink {{ $kategori->status ? 'bg-success' : 'bg-danger' }}"
-                                                    data-id="{{ $kategori->id }}" data-status="{{ $kategori->status }}">
-                                                    {{ $kategori->status ? 'Active' : 'Inactive' }}
+                                                    class="badge badgeLink {{ $subcategory->status ? 'bg-success' : 'bg-danger' }}"
+                                                    data-id="{{ $subcategory->id }}"
+                                                    data-status="{{ $subcategory->status }}">
+                                                    {{ $subcategory->status ? 'Active' : 'Inactive' }}
                                                 </a>
                                             </td>
                                             <button type="button" class="btn btn-primary btn-icon edit-button"
