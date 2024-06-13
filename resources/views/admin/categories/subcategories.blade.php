@@ -47,71 +47,23 @@
                                                     alt="Banner" class="wd-100 wd-sm-150 me-3"></td>
                                             <td>{{ $subcategory->category->name_category }}</td>
                                             <td>{{ $subcategory->name }}</td>
-                                            <td><a href="#" id="badgeLink"
-                                                    class="badge {{ $subcategory->status ? 'bg-success' : 'bg-danger' }}"
-                                                    data-id="{{ $subcategory->id }}"
-                                                    data-status="{{ $subcategory->status }}">
-                                                    {{ $subcategory->status ? 'Active' : 'Inactive' }}
-                                                </a>
                                             <td>
-                                                <button type="button" class="btn btn-primary btn-icon edit-button"
-                                                    title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
-                                                    data-id="{{ $subcategory->id }}">
-                                                    <i data-feather="edit"></i>
-                                                </button>
+                                                <a href="#"
+                                                    class="badge badgeLink {{ $kategori->status ? 'bg-success' : 'bg-danger' }}"
+                                                    data-id="{{ $kategori->id }}" data-status="{{ $kategori->status }}">
+                                                    {{ $kategori->status ? 'Active' : 'Inactive' }}
+                                                </a>
+                                            </td>
+                                            <button type="button" class="btn btn-primary btn-icon edit-button"
+                                                title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
+                                                data-id="{{ $subcategory->id }}">
+                                                <i data-feather="edit"></i>
+                                            </button>
 
-                                                <button onclick="hapus('{{ $subcategory->id }}')"
-                                                    class="btn btn-danger btn-icon" title="Hapus">
-                                                    <i data-feather="trash-2"></i>
-                                                </button>
-
-                                                <script>
-                                                    function hapus(id) {
-                                                        const confirmationBox = `
-                                                            <div id="confirmationModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">
-                                                                <div style="background: white; padding: 40px; border-radius: 8px; text-align: center;">
-                                                                    <h4>Konfirmasi Penghapusan</h4><br>
-                                                                    <p>Apakah Anda yakin ingin menghapus ini?</p><br>
-                                                                    <button id="confirmDelete" class="btn btn-danger btn-lg">Ya, Hapus</button>
-                                                                    <button id="cancelDelete" class="btn btn-secondary btn-lg">Batal</button>
-                                                                </div>
-                                                            </div>
-                                                        `;
-
-                                                        document.body.insertAdjacentHTML('beforeend', confirmationBox);
-
-                                                        document.getElementById('confirmDelete').onclick = function() {
-                                                            fetch(`/categories_destroy/${id}`, {
-                                                                method: 'POST', // Menggunakan POST bukan DELETE
-                                                                headers: {
-                                                                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                                                                    'Content-Type': 'application/json'
-                                                                },
-                                                                body: JSON.stringify({
-                                                                    _method: 'DELETE'
-                                                                }) // Menambahkan _method override
-                                                            }).then(response => {
-                                                                document.getElementById('confirmationModal').remove();
-                                                                if (response.ok) {
-                                                                    console.log(
-                                                                        'subcategory berhasil dihapus. Mengalihkan ke halaman pengaturan subcategory.');
-                                                                    window.location.href = '{{ route('categories') }}';
-                                                                } else {
-                                                                    response.text().then(text => {
-                                                                        console.error('Gagal menghapus subcategory:', text);
-                                                                    });
-                                                                }
-                                                            }).catch(error => {
-                                                                document.getElementById('confirmationModal').remove();
-                                                                console.error('Terjadi kesalahan:', error);
-                                                            });
-                                                        };
-
-                                                        document.getElementById('cancelDelete').onclick = function() {
-                                                            document.getElementById('confirmationModal').remove();
-                                                        };
-                                                    }
-                                                </script>
+                                            <button onclick="hapus('{{ $subcategory->id }}')"
+                                                class="btn btn-danger btn-icon" title="Hapus">
+                                                <i data-feather="trash-2"></i>
+                                            </button>
 
                                             </td>
                                         </tr>
@@ -127,9 +79,10 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    {{-- Active inactive togel --}}
     <script>
         $(document).ready(function() {
-            $('#badgeLink').on('click', function(e) {
+            $('.badgeLink').on('click', function(e) {
                 e.preventDefault();
 
                 var link = $(this);
@@ -138,7 +91,7 @@
                 var newStatus = currentStatus ? 0 : 1;
 
                 $.ajax({
-                    url: '/update-subcategory-status/' + categoryId,
+                    url: '/update-category-status/' + categoryId,
                     method: 'POST',
                     data: {
                         _token: '{{ csrf_token() }}',
@@ -154,14 +107,63 @@
                                 link.removeClass('bg-success').addClass('bg-danger');
                             }
                         } else {
-                            alert('Failed to update status');
+                            alert('Gagal mengupdate status');
                         }
                     },
                     error: function() {
-                        alert('An error occurred');
+                        alert('Terjadi kesalahan');
                     }
                 });
             });
         });
     </script>
+    {{-- hapus data --}}
+    <script>
+        function hapus(id) {
+            const confirmationBox = `
+                <div id="confirmationModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">
+                    <div style="background: white; padding: 40px; border-radius: 8px; text-align: center;">
+                        <h4>Konfirmasi Penghapusan</h4><br>
+                        <p>Apakah Anda yakin ingin menghapus ini?</p><br>
+                        <button id="confirmDelete" class="btn btn-danger btn-lg">Ya, Hapus</button>
+                        <button id="cancelDelete" class="btn btn-secondary btn-lg">Batal</button>
+                    </div>
+                </div>
+            `;
+
+            document.body.insertAdjacentHTML('beforeend', confirmationBox);
+
+            document.getElementById('confirmDelete').onclick = function() {
+                fetch(`/categories_destroy/${id}`, {
+                    method: 'POST', // Menggunakan POST bukan DELETE
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        _method: 'DELETE'
+                    }) // Menambahkan _method override
+                }).then(response => {
+                    document.getElementById('confirmationModal').remove();
+                    if (response.ok) {
+                        console.log(
+                            'subcategory berhasil dihapus. Mengalihkan ke halaman pengaturan subcategory.');
+                        window.location.href = '{{ route('categories') }}';
+                    } else {
+                        response.text().then(text => {
+                            console.error('Gagal menghapus subcategory:', text);
+                        });
+                    }
+                }).catch(error => {
+                    document.getElementById('confirmationModal').remove();
+                    console.error('Terjadi kesalahan:', error);
+                });
+            };
+
+            document.getElementById('cancelDelete').onclick = function() {
+                document.getElementById('confirmationModal').remove();
+            };
+        }
+    </script>
+
 @endsection
