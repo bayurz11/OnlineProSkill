@@ -68,7 +68,7 @@
                                                     function hapus(id) {
                                                         if (confirm('Are you sure you want to delete this category?')) {
                                                             fetch(`/categories/${id}`, {
-                                                                    method: 'DELETE',
+                                                                    method: 'PUT',
                                                                     headers: {
                                                                         'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
                                                                     }
