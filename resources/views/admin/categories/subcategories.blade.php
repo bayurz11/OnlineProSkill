@@ -32,7 +32,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Gambar Icon</th>
-                                        <th>subcategory</th>
+                                        <th>Kategori</th>
                                         <th>Nama Subsubcategory</th>
                                         <th>Status</th>
                                         <th>Action</th>
@@ -45,7 +45,7 @@
 
                                             <td><img src="{{ asset('public/uploads/' . $subcategory->gambar) }}"
                                                     alt="Banner" class="wd-100 wd-sm-150 me-3"></td>
-                                            <td>{{ $subcategory->name }}</td>
+                                            <td>{{ $subcategory->category->name_category }}</td>
                                             <td>{{ $subcategory->name }}</td>
                                             <td><a href="#" id="badgeLink"
                                                     class="badge {{ $subcategory->status ? 'bg-success' : 'bg-danger' }}"
