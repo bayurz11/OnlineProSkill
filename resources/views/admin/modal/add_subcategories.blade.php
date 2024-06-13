@@ -11,9 +11,11 @@
                     <div class="mb-3">
                         <label class="form-label">Nama Kategori</label>
                         <select class="js-example-basic-single form-select" data-width="100%">
-                            @foreach ($categori as $category)
-                                <option value="{{ $category->id }}">{{ $category->name_category }}</option>
-                            @endforeach
+                            <option value="TX">Texas</option>
+                            <option value="NY">New York</option>
+                            <option value="FL">Florida</option>
+                            <option value="KN">Kansas</option>
+                            <option value="HW">Hawaii</option>
                         </select>
                     </div>
                     <div class="mb-3">
