@@ -38,7 +38,7 @@ class SubcategoriesController extends Controller
             return redirect()->route('subcategories')->with('error', 'Pilih gambar terlebih dahulu.');
         }
     }
-    public function updateStatus($id, Request $request)
+    public function updateSubstatus($id, Request $request)
     {
         $category = Subcategories::find($id);
 
