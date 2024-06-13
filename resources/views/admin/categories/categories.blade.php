@@ -45,26 +45,28 @@
                                             <td><img src="{{ asset('public/uploads/' . $kategori->gambar) }}" alt="Banner"
                                                     class="wd-100 wd-sm-150 me-3"></td>
                                             <td>{{ $kategori->name_category }}</td>
-                                            <td><a href="#" id="badgeLink"
-                                                    class="badge {{ $kategori->status ? 'bg-success' : 'bg-danger' }}"
+                                            <td>
+                                                <a href="#"
+                                                    class="badge badgeLink {{ $kategori->status ? 'bg-success' : 'bg-danger' }}"
                                                     data-id="{{ $kategori->id }}" data-status="{{ $kategori->status }}">
                                                     {{ $kategori->status ? 'Active' : 'Inactive' }}
                                                 </a>
-                                            <td>
-                                                <button type="button" class="btn btn-primary btn-icon edit-button"
-                                                    title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
-                                                    data-id="{{ $kategori->id }}">
-                                                    <i data-feather="edit"></i>
-                                                </button>
+                                            </td>
 
-                                                <button onclick="hapus('{{ $kategori->id }}')"
-                                                    class="btn btn-danger btn-icon" title="Hapus">
-                                                    <i data-feather="trash-2"></i>
-                                                </button>
+                                            <button type="button" class="btn btn-primary btn-icon edit-button"
+                                                title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
+                                                data-id="{{ $kategori->id }}">
+                                                <i data-feather="edit"></i>
+                                            </button>
 
-                                                <script>
-                                                    function hapus(id) {
-                                                        const confirmationBox = `
+                                            <button onclick="hapus('{{ $kategori->id }}')" class="btn btn-danger btn-icon"
+                                                title="Hapus">
+                                                <i data-feather="trash-2"></i>
+                                            </button>
+
+                                            <script>
+                                                function hapus(id) {
+                                                    const confirmationBox = `
                                                             <div id="confirmationModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">
                                                                 <div style="background: white; padding: 40px; border-radius: 8px; text-align: center;">
                                                                     <h4>Konfirmasi Penghapusan</h4><br>
@@ -75,39 +77,39 @@
                                                             </div>
                                                         `;
 
-                                                        document.body.insertAdjacentHTML('beforeend', confirmationBox);
+                                                    document.body.insertAdjacentHTML('beforeend', confirmationBox);
 
-                                                        document.getElementById('confirmDelete').onclick = function() {
-                                                            fetch(`/categories_destroy/${id}`, {
-                                                                method: 'POST', // Menggunakan POST bukan DELETE
-                                                                headers: {
-                                                                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                                                                    'Content-Type': 'application/json'
-                                                                },
-                                                                body: JSON.stringify({
-                                                                    _method: 'DELETE'
-                                                                }) // Menambahkan _method override
-                                                            }).then(response => {
-                                                                document.getElementById('confirmationModal').remove();
-                                                                if (response.ok) {
-                                                                    console.log('Kategori berhasil dihapus. Mengalihkan ke halaman pengaturan Kategori.');
-                                                                    window.location.href = '{{ route('categories') }}';
-                                                                } else {
-                                                                    response.text().then(text => {
-                                                                        console.error('Gagal menghapus Kategori:', text);
-                                                                    });
-                                                                }
-                                                            }).catch(error => {
-                                                                document.getElementById('confirmationModal').remove();
-                                                                console.error('Terjadi kesalahan:', error);
-                                                            });
-                                                        };
-
-                                                        document.getElementById('cancelDelete').onclick = function() {
+                                                    document.getElementById('confirmDelete').onclick = function() {
+                                                        fetch(`/categories_destroy/${id}`, {
+                                                            method: 'POST', // Menggunakan POST bukan DELETE
+                                                            headers: {
+                                                                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                                                                'Content-Type': 'application/json'
+                                                            },
+                                                            body: JSON.stringify({
+                                                                _method: 'DELETE'
+                                                            }) // Menambahkan _method override
+                                                        }).then(response => {
                                                             document.getElementById('confirmationModal').remove();
-                                                        };
-                                                    }
-                                                </script>
+                                                            if (response.ok) {
+                                                                console.log('Kategori berhasil dihapus. Mengalihkan ke halaman pengaturan Kategori.');
+                                                                window.location.href = '{{ route('categories') }}';
+                                                            } else {
+                                                                response.text().then(text => {
+                                                                    console.error('Gagal menghapus Kategori:', text);
+                                                                });
+                                                            }
+                                                        }).catch(error => {
+                                                            document.getElementById('confirmationModal').remove();
+                                                            console.error('Terjadi kesalahan:', error);
+                                                        });
+                                                    };
+
+                                                    document.getElementById('cancelDelete').onclick = function() {
+                                                        document.getElementById('confirmationModal').remove();
+                                                    };
+                                                }
+                                            </script>
 
                                             </td>
                                         </tr>
@@ -125,7 +127,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#badgeLink').on('click', function(e) {
+            $('.badgeLink').on('click', function(e) {
                 e.preventDefault();
 
                 var link = $(this);
@@ -150,14 +152,15 @@
                                 link.removeClass('bg-success').addClass('bg-danger');
                             }
                         } else {
-                            alert('Failed to update status');
+                            alert('Gagal mengupdate status');
                         }
                     },
                     error: function() {
-                        alert('An error occurred');
+                        alert('Terjadi kesalahan');
                     }
                 });
             });
         });
     </script>
+
 @endsection
