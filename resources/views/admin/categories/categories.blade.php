@@ -62,31 +62,33 @@
                                                     <i data-feather="trash-2"></i>
                                                 </button>
 
+                                                <!-- Add the JavaScript function in your Blade template -->
+
                                                 <script>
                                                     function hapus(id) {
-                                                        if (confirm('Apakah Anda yakin ingin menghapus ini?')) {
-                                                            fetch(`/categories_destroy/${id}`, {
-                                                                method: 'DELETE',
-                                                                headers: {
-                                                                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                                                                }
-                                                            }).then(response => {
-                                                                if (response.ok) {
-                                                                    console.log('Kategori berhasil dihapus. Mengalihkan ke halaman pengaturan Kategori.');
-
-                                                                    window.location.href = '{{ route('categories') }}';
-                                                                } else {
-
-                                                                    response.text().then(text => {
-                                                                        console.error('Gagal menghapus Kategori:', text);
-                                                                    });
-                                                                }
-                                                            }).catch(error => {
-                                                                console.error('Terjadi kesalahan:', error);
-                                                            });
+                                                        if (confirm('Are you sure you want to delete this category?')) {
+                                                            fetch(`/categories/${id}`, {
+                                                                    method: 'DELETE',
+                                                                    headers: {
+                                                                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                                                                    }
+                                                                })
+                                                                .then(response => response.json())
+                                                                .then(data => {
+                                                                    if (data.success) {
+                                                                        alert(data.message);
+                                                                        location.reload();
+                                                                    } else {
+                                                                        alert(data.message);
+                                                                    }
+                                                                })
+                                                                .catch(error => {
+                                                                    console.error('Error:', error);
+                                                                });
                                                         }
                                                     }
                                                 </script>
+
                                             </td>
                                         </tr>
                                     @endforeach
