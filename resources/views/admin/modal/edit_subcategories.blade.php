@@ -55,7 +55,7 @@
                     }
 
                     // Set the form action to the update route
-                    $('#editForm').attr('action', `/categories/${data.id}`);
+                    $('#editForm').attr('action', `/subcategories/${data.id}`);
                 })
                 .catch(error => {
                     console.error('Error fetching data:', error);
