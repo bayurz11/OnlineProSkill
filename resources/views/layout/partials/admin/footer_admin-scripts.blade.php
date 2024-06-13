@@ -1,5 +1,7 @@
 <!-- core:js -->
 <script src="{{ asset('public/assets_admin/vendors/core/core.js') }}"></script>
+<script src="{{ asset('public/assets_admin/vendors/inputmask/jquery.inputmask.min.js') }}"></script>
+
 <!-- endinject -->
 
 <!-- Plugin js for this page -->
