@@ -95,9 +95,9 @@ class SubcategoriesController extends Controller
         return redirect()->route('subcategories')->with('success', 'Kategori berhasil dihapus');
     }
 
-    public function getSubcategories($categoryId)
+    public function getSubcategories($id)
     {
-        $subcategories = Subcategories::where('id', $categoryId)->get();
+        $subcategories = Subcategories::where('id', $id)->get();
         return response()->json($subcategories);
     }
 }
