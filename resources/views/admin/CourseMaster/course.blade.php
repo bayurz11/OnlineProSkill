@@ -31,14 +31,37 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Gambar Icon</th>
-                                        <th>Nama Kategori</th>
+                                        <th>Nama Kursus</th>
+                                        <th>Kursus Owner</th>
+                                        <th>Harga</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                                {{-- <tbody>
-                                    @foreach ($categori as $key => $kategori)
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>a</td>
+                                        <td>a</td>
+                                        <td>100000</td>
+                                        <td>
+                                            <div class="form-check form-switch mb-2">
+                                                <input type="checkbox" class="form-check-input" id="formSwitch1">
+
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary btn-icon edit-button"
+                                                title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
+                                                data-id="#">
+                                                <i data-feather="edit"></i>
+                                            </button>
+                                            <button onclick="hapus('#')" class="btn btn-danger btn-icon" title="Hapus">
+                                                <i data-feather="trash-2"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    {{-- @foreach ($categori as $key => $kategori)
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
                                             <td><img src="{{ asset('public/uploads/' . $kategori->gambar) }}" alt="Banner"
@@ -63,8 +86,8 @@
                                                 </button>
                                             </td>
                                         </tr>
-                                    @endforeach
-                                </tbody> --}}
+                                    @endforeach --}}
+                                </tbody>
                             </table>
 
                         </div>
