@@ -68,7 +68,7 @@
                         <div id="include-container">
                             <div class="input-group mb-2">
                                 <input type="text" class="form-control" id="include" name="include[]">
-                                <button class="btn btn-outline-success" type="button" id="add-include">+</button>
+                                <button class="btn btn-success" type="button" id="add-include">+</button>
                             </div>
                         </div>
                     </div>
@@ -141,7 +141,7 @@
             newInputGroup.classList.add('input-group', 'mb-2');
             newInputGroup.innerHTML = `
             <input type="text" class="form-control" name="include[]" >
-            <button class="btn btn-secondary remove-include" type="button">-</button>
+            <button class="btn btn-danger remove-include" type="button">-</button>
         `;
             includeContainer.appendChild(newInputGroup);
 
