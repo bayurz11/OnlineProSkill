@@ -14,7 +14,7 @@
         <div class="row justify-content-center mt-5">
             <div class="col-md-6 text-center">
                 <h1>Welcome to Our Application</h1>
-                <a href="{{ route('register') }}" class="btn btn-primary btn-lg mt-3">Register</a>
+                <a href="{{ route('registerStuden') }}" class="btn btn-primary btn-lg mt-3">Register</a>
                 <a href="{{ route('login') }}" class="btn btn-secondary btn-lg mt-3">Login</a>
             </div>
         </div>
