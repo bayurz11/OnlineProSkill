@@ -90,13 +90,13 @@ class AuthController extends Controller
 
         switch ($roleName) {
             case 'Administrator':
-                $redirectRoute = 'login_admin';
+                $redirectRoute = '/';
                 break;
             case 'Instruktur':
-                $redirectRoute = 'login_instruktur';
+                $redirectRoute = '/';
                 break;
             case 'Studen':
-                $redirectRoute = 'login_student';
+                $redirectRoute = '/';
                 break;
             default:
                 $redirectRoute = 'login'; // Default redirect jika peran tidak dikenali
