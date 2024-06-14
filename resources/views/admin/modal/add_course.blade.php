@@ -202,6 +202,23 @@
             }
         });
     });
+
+    //price
+    function togglePriceAndDiscount() {
+        var priceInput = document.getElementById("price");
+        var discountInput = document.getElementById("discount");
+        var freeCheckbox = document.getElementById("free");
+
+        if (freeCheckbox.checked) {
+            priceInput.value = ""; // Clear the price field
+            discountInput.value = ""; // Clear the discount field
+            priceInput.disabled = true; // Disable the price input
+            discountInput.disabled = true; // Disable the discount input
+        } else {
+            priceInput.disabled = false; // Enable the price input
+            discountInput.disabled = false; // Enable the discount input
+        }
+    }
 </script>
 
 {{-- <script>
