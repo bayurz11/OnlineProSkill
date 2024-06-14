@@ -3,7 +3,7 @@
 <script src="{{ asset('public/assets_admin/vendors/inputmask/jquery.inputmask.min.js') }}"></script>
 
 <!-- endinject -->
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Plugin js for this page -->
 <script src="{{ asset('public/assets_admin/vendors/flatpickr/flatpickr.min.js') }}"></script>
 <script src="{{ asset('public/assets_admin/vendors/apexcharts/apexcharts.min.js') }}"></script>
