@@ -31,42 +31,6 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="name_course" class="form-label">Nama Kursus</label>
-                        <input type="text" class="form-control" id="name_course" name="name_course"
-                            placeholder="Masukkan Nama Kursus Anda">
-                    </div>
-                    <div class="mb-3">
-                        <label for="name_course" class="form-label">Nama Kursus</label>
-                        <input type="text" class="form-control" id="name_course" name="name_course"
-                            placeholder="Masukkan Nama Kursus Anda">
-                    </div>
-                    <div class="mb-3">
-                        <label for="name_course" class="form-label">Nama Kursus</label>
-                        <input type="text" class="form-control" id="name_course" name="name_course"
-                            placeholder="Masukkan Nama Kursus Anda">
-                    </div>
-                    <div class="mb-3">
-                        <label for="name_course" class="form-label">Nama Kursus</label>
-                        <input type="text" class="form-control" id="name_course" name="name_course"
-                            placeholder="Masukkan Nama Kursus Anda">
-                    </div>
-                    <div class="mb-3">
-                        <label for="name_course" class="form-label">Nama Kursus</label>
-                        <input type="text" class="form-control" id="name_course" name="name_course"
-                            placeholder="Masukkan Nama Kursus Anda">
-                    </div>
-                    <div class="mb-3">
-                        <label for="name_course" class="form-label">Nama Kursus</label>
-                        <input type="text" class="form-control" id="name_course" name="name_course"
-                            placeholder="Masukkan Nama Kursus Anda">
-                    </div>
-                    <div class="mb-3">
-                        <label for="name_course" class="form-label">Nama Kursus</label>
-                        <input type="text" class="form-control" id="name_course" name="name_course"
-                            placeholder="Masukkan Nama Kursus Anda">
-                    </div>
-
-                    <div class="mb-3">
                         <label class="form-label" for="gambar">Icon Kategori</label>
                         <input type="file" accept="image/*" class="form-control" id="gambar" name="gambar">
                     </div>
