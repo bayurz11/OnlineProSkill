@@ -140,8 +140,8 @@
             const newInputGroup = document.createElement('div');
             newInputGroup.classList.add('input-group', 'mb-2');
             newInputGroup.innerHTML = `
-            <input type="text" class="form-control" name="include[]" placeholder="Masukkan Nama Kursus Anda">
-            <button class="btn btn-outline-secondary remove-include" type="button">-</button>
+            <input type="text" class="form-control" name="include[]" >
+            <button class="btn btn-secondary remove-include" type="button">-</button>
         `;
             includeContainer.appendChild(newInputGroup);
 
