@@ -15,17 +15,17 @@
         @include('admin.modal.add_categories')
         @include('admin.modal.edit_categories')
 
-        {{-- <div class="row">
+        <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h6 class="card-title">Kategori</h6>
+                        <h6 class="card-title">Course</h6>
                         <button type="button" class="btn btn-outline-primary position-absolute top-0 end-0 mt-3 me-3"
                             data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="btn-icon-prepend"
                                 data-feather="plus-circle"></i>
-                            Kategori
+                            Course
                         </button>
-                        <p class="text-muted mb-3">Jumlah Kategori : {{ $categori->count() }}</p>
+                        <p class="text-muted mb-3">Jumlah Course : {{ $categori->count() }}</p>
                         <div class="table-responsive">
                             <table id="dataTableExample" class="table">
                                 <thead>
@@ -37,7 +37,7 @@
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                {{-- <tbody>
                                     @foreach ($categori as $key => $kategori)
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
@@ -64,14 +64,14 @@
                                             </td>
                                         </tr>
                                     @endforeach
-                                </tbody>
+                                </tbody> --}}
                             </table>
 
                         </div>
                     </div>
                 </div>
             </div>
-        </div> --}}
+        </div>
 
     </div>
 
