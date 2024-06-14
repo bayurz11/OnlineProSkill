@@ -29,6 +29,7 @@
                             <option value="">Pilih Subkategori</option>
                         </select>
                     </div>
+
                     <div class="mb-3">
                         <label for="name_course" class="form-label">Nama Kursus</label>
                         <input type="text" class="form-control" id="name_course" name="name_course"
@@ -101,4 +102,33 @@
             reader.readAsDataURL(input.files[0]);
         }
     }
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const categorySelect = document.getElementById('category');
+        const subcategorySelect = document.getElementById('subcategory');
+
+        categorySelect.addEventListener('change', function() {
+            const categoryId = this.value;
+            subcategorySelect.disabled = !categoryId;
+
+            if (categoryId) {
+                fetch(`/get-subcategories/${categoryId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        subcategorySelect.innerHTML = '<option value="">Pilih Subkategori</option>';
+                        data.forEach(subcategory => {
+                            const option = document.createElement('option');
+                            option.value = subcategory.id;
+                            option.textContent = subcategory.name_subcategory;
+                            subcategorySelect.appendChild(option);
+                        });
+                    })
+                    .catch(error => console.error('Error fetching subcategories:', error));
+            } else {
+                subcategorySelect.innerHTML = '<option value="">Pilih Subkategori</option>';
+            }
+        });
+    });
 </script>
