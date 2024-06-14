@@ -77,8 +77,13 @@
                         <input type="text" class="form-control" id="price" name="price">
                     </div>
                     <div class="mb-3">
-                        <label for="discount" class="form-label">Diskon %<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="discount" name="discount">
+                        <label for="discount" class="form-label">Diskon %</label>
+                        <input type="text" class="form-control" id="discount" name="discount"
+                            oninput="calculateDiscountedPrice()">
+                    </div>
+                    <div class="mb-3">
+                        <label for="discountedPrice">Harga Setelah Diskon</label>
+                        <input type="text" class="form-control" id="discountedPrice" readonly>
                     </div>
                     <div class="mb-3">
 
@@ -218,6 +223,24 @@
         } else {
             priceInput.disabled = false; // Enable the price input
             discountInput.disabled = false; // Enable the discount input
+        }
+    }
+    //diskon
+    function calculateDiscountedPrice() {
+        var priceInput = document.getElementById("price");
+        var discountInput = document.getElementById("discount");
+        var discountedPriceInput = document.getElementById("discountedPrice");
+
+        // Parse the values as numbers (floats)
+        var price = parseFloat(priceInput.value);
+        var discount = parseFloat(discountInput.value);
+
+        // Calculate the discounted price
+        if (!isNaN(price) && !isNaN(discount)) {
+            var discountedPrice = price - (price * (discount / 100));
+            discountedPriceInput.value = discountedPrice.toFixed(2); // Display up to 2 decimal places
+        } else {
+            discountedPriceInput.value = ""; // Clear the discounted price if inputs are not valid numbers
         }
     }
 </script>
