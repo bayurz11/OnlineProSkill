@@ -51,6 +51,9 @@
                                             </div>
                                         </td>
                                         <td>
+                                            <button class="btn btn-success btn-icon" title="Kurikulum">
+                                                <i data-feather="settings"></i>
+                                            </button>
                                             <button type="button" class="btn btn-primary btn-icon edit-button"
                                                 title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
                                                 data-id="#">
