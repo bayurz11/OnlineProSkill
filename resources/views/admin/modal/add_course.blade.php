@@ -1,4 +1,3 @@
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/css/select2.min.css" rel="stylesheet" />
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -30,6 +29,42 @@
                             <option value="">Pilih Subkategori</option>
                         </select>
                     </div>
+                    <div class="mb-3">
+                        <label for="name_course" class="form-label">Nama Kursus</label>
+                        <input type="text" class="form-control" id="name_course" name="name_course"
+                            placeholder="Masukkan Nama Kursus Anda">
+                    </div>
+                    <div class="mb-3">
+                        <label for="name_course" class="form-label">Nama Kursus</label>
+                        <input type="text" class="form-control" id="name_course" name="name_course"
+                            placeholder="Masukkan Nama Kursus Anda">
+                    </div>
+                    <div class="mb-3">
+                        <label for="name_course" class="form-label">Nama Kursus</label>
+                        <input type="text" class="form-control" id="name_course" name="name_course"
+                            placeholder="Masukkan Nama Kursus Anda">
+                    </div>
+                    <div class="mb-3">
+                        <label for="name_course" class="form-label">Nama Kursus</label>
+                        <input type="text" class="form-control" id="name_course" name="name_course"
+                            placeholder="Masukkan Nama Kursus Anda">
+                    </div>
+                    <div class="mb-3">
+                        <label for="name_course" class="form-label">Nama Kursus</label>
+                        <input type="text" class="form-control" id="name_course" name="name_course"
+                            placeholder="Masukkan Nama Kursus Anda">
+                    </div>
+                    <div class="mb-3">
+                        <label for="name_course" class="form-label">Nama Kursus</label>
+                        <input type="text" class="form-control" id="name_course" name="name_course"
+                            placeholder="Masukkan Nama Kursus Anda">
+                    </div>
+                    <div class="mb-3">
+                        <label for="name_course" class="form-label">Nama Kursus</label>
+                        <input type="text" class="form-control" id="name_course" name="name_course"
+                            placeholder="Masukkan Nama Kursus Anda">
+                    </div>
+
                     <div class="mb-3">
                         <label class="form-label" for="gambar">Icon Kategori</label>
                         <input type="file" accept="image/*" class="form-control" id="gambar" name="gambar">
@@ -66,41 +101,4 @@
             reader.readAsDataURL(input.files[0]);
         }
     }
-</script>
-
-<!-- Include Select2 JS -->
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/js/select2.min.js"></script>
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        // Initialize Select2
-        $('#category').select2();
-        $('#subcategory').select2();
-
-        // Fetch subcategories based on category selection
-        $('#category').on('change', function() {
-            var categoryId = $(this).val();
-            if (categoryId) {
-                $.ajax({
-                    url: '/get-subcategories/' + categoryId,
-                    type: 'GET',
-                    dataType: 'json',
-                    success: function(data) {
-                        $('#subcategory').empty();
-                        $('#subcategory').append(
-                            '<option value="">Pilih Subkategori</option>');
-                        $.each(data, function(key, value) {
-                            $('#subcategory').append('<option value="' + value.id +
-                                '">' + value.name_subcategory + '</option>');
-                        });
-                        $('#subcategory').prop('disabled', false);
-                    }
-                });
-            } else {
-                $('#subcategory').empty();
-                $('#subcategory').append('<option value="">Pilih Subkategori</option>');
-                $('#subcategory').prop('disabled', true);
-            }
-        });
-    });
 </script>
