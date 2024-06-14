@@ -67,9 +67,8 @@
                                 class="text-danger">*</span></label>
                         <div id="include-container">
                             <div class="input-group mb-2">
-                                <input type="text" class="form-control" id="include" name="include[]"
-                                    placeholder="Masukkan Nama Kursus Anda">
-                                <button class="btn btn-outline-secondary" type="button" id="add-include">+</button>
+                                <input type="text" class="form-control" id="include" name="include[]">
+                                <button class="btn btn-outline-success" type="button" id="add-include">+</button>
                             </div>
                         </div>
                     </div>
