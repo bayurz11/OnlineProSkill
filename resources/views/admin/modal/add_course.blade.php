@@ -235,7 +235,7 @@
         // Calculate the discounted price
         if (!isNaN(price) && !isNaN(discount)) {
             var discountedPrice = price - (price * (discount / 100));
-            discountedPriceInput.value = discountedPrice.toFixed(2); // Display up to 2 decimal places
+            discountedPriceInput.value = discountedPrice.toFixed(); // Display up to 2 decimal places
         } else {
             discountedPriceInput.value = ""; // Clear the discounted price if inputs are not valid numbers
         }
