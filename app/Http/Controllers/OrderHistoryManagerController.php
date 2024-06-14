@@ -19,7 +19,7 @@ class OrderHistoryManagerController extends Controller
         if (!$user) {
             return redirect()->route('login_admin');
         }
-        return view('admin.categories.categories', compact('user', 'categori', 'count'));
+        return view('admin.CourseMaster.orderhistory', compact('user', 'categori', 'count'));
     }
 
     /**
