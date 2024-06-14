@@ -72,9 +72,25 @@
                             </div>
                         </div>
                     </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Harga<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="price" name="price">
+                    </div>
+                    <div class="mb-3">
+                        <label for="discount" class="form-label">Diskon %<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="discount" name="discount">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Kelas</label>
+                        <div>
+                            <input type="radio" id="free" name="class" value="free">
+                            <label for="free">Free</label>
+                        </div>
+                    </div>
 
                     <div class="mb-3">
-                        <label class="form-label" for="gambar">Icon Kategori<span class="text-danger">*</span></label>
+                        <label class="form-label" for="gambar">Icon Kategori<span
+                                class="text-danger">*</span></label>
                         <input type="file" accept="image/*" class="form-control" id="gambar" name="gambar">
                     </div>
                     <img id="preview" src="#" alt="Preview banner"
