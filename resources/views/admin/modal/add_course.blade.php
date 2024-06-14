@@ -120,6 +120,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+    //tags
     document.addEventListener("DOMContentLoaded", function() {
         var input = document.querySelector('input[name=category]');
 
@@ -131,6 +132,7 @@
             }
         });
     });
+    //gambar
     $(document).ready(function() {
         $("#gambar").change(function() {
             readURL(this);
@@ -239,32 +241,3 @@
         }
     }
 </script>
-
-{{-- <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const categorySelect = document.getElementById('category');
-        const subcategorySelect = document.getElementById('subcategory');
-
-        categorySelect.addEventListener('change', function() {
-            const categoryId = this.value;
-            subcategorySelect.disabled = !categoryId;
-
-            if (categoryId) {
-                fetch(`/get-subcategories/${categoryId}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        subcategorySelect.innerHTML = '<option value="">Pilih Subkategori</option>';
-                        data.forEach(subcategory => {
-                            const option = document.createElement('option');
-                            option.value = subcategory.id;
-                            option.textContent = subcategory.name;
-                            subcategorySelect.appendChild(option);
-                        });
-                    })
-                    .catch(error => console.error('Error fetching subcategories:', error));
-            } else {
-                subcategorySelect.innerHTML = '<option value="">Pilih Subkategori</option>';
-            }
-        });
-    });
-</script> --}}
