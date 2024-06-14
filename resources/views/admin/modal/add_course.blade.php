@@ -81,7 +81,7 @@
                         <input type="text" class="form-control" id="discount" name="discount">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Kelas</label>
+
                         <div>
                             <input type="checkbox" id="free" name="class" value="free">
                             <label for="free">Free</label>
