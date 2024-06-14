@@ -31,6 +31,36 @@
                             <option value="">Pilih Subkategori</option>
                         </select>
                     </div>
+                    <div class="mb-3">
+                        <label for="level" class="form-label">Tingkat <span class="text-danger">*</span></label>
+                        <select id="level" class="form-select" name="level" required>
+                            <option value="">Pilih Tingkat</option>
+                            <option value="beginner">Pemula</option>
+                            <option value="intermediate">Menengah</option>
+                            <option value="advanced">Lanjutan</option>
+                            <option value="all levels">Semua Tingkat</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pimpinan" class="form-label">Deskripsi</label>
+                        <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+                        <textarea id="content" style="height: 800px; width: 200px; font-size: 18px;"></textarea>
+                        <!-- Menggunakan <textarea> untuk CKEditor -->
+                        <input type="hidden" id="content_input" name="content">
+                        <script>
+                            ClassicEditor
+                                .create(document.querySelector('#content'))
+                                .then(editor => {
+                                    editor.model.document.on('change:data', () => {
+                                        const content_input = document.querySelector('#content_input');
+                                        content_input.value = editor.getData();
+                                    });
+                                })
+                                .catch(error => {
+                                    console.error(error);
+                                });
+                        </script>
+                    </div>
 
 
                     <div class="mb-3">
@@ -40,6 +70,28 @@
                     <img id="preview" src="#" alt="Preview banner"
                         style="max-width: 100%; max-height: 200px; display: none;">
 
+                    <div class="mb-3">
+                        <label for="category" class="form-label">Tag</label>
+                        <input type="text" class="form-control" id="category" name="category">
+                        <small class="text-secondary">Note : Isi Dengan Kategori atau Tags</small>
+                    </div>
+
+                    <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.min.js"></script>
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css" />
+
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            var input = document.querySelector('input[name=category]');
+
+                            new Tagify(input, {
+                                whitelist: [], // Tambahkan kata kunci yang diperbolehkan jika perlu
+                                dropdown: {
+                                    enabled: 1,
+                                    maxItems: 5
+                                }
+                            });
+                        });
+                    </script>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
