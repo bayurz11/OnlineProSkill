@@ -9,7 +9,8 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="name_course" class="form-label">Nama Kursus</label>
+                        <label for="name_course" class="form-label">Nama Kursus<span
+                                class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="name_course" name="name_course"
                             placeholder="Masukkan Nama Kursus Anda">
                     </div>

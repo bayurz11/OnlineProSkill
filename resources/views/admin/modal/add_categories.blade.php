@@ -9,13 +9,14 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="name_category" class="form-label">Nama Kategori</label>
+                        <label for="name_category" class="form-label">Nama Kategori<span
+                                class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="name_category" name="name_category"
                             placeholder="Masukkan Nama Kategori Anda">
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label" for="gambar">Icon Kategori</label>
+                        <label class="form-label" for="gambar">Icon Kategori<span class="text-danger">*</span></label>
                         <input type="file" accept="image/*" class="form-control" id="gambar" name="gambar">
                     </div>
                     <img id="preview" src="#" alt="Preview banner"

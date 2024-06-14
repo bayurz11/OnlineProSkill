@@ -9,7 +9,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label class="form-label">Nama Kategori</label>
+                        <label class="form-label">Nama Kategori<span class="text-danger">*</span></label>
                         <select class="js-example-basic-single form-select" name="name_category" data-width="100%">
                             @foreach ($categori as $category)
                                 <option value="{{ $category->id }}">{{ $category->name_category }}</option>
@@ -17,12 +17,13 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="name" class="form-label">Nama Subkategori</label>
+                        <label for="name" class="form-label">Nama Subkategori<span
+                                class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="name" name="name"
                             placeholder="Masukkan Nama Subkategori">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label" for="gambar">Icon Kategori</label>
+                        <label class="form-label" for="gambar">Icon Kategori<span class="text-danger">*</span></label>
                         <input type="file" accept="image/*" class="form-control" id="gambar" name="gambar">
                     </div>
                     <img id="preview" src="#" alt="Preview banner"
