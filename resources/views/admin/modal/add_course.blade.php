@@ -107,23 +107,6 @@
                         <input type="text" class="form-control" id="category" name="category">
                         <small class="text-secondary">Note : Isi Dengan Tags kursus yang relevan</small>
                     </div>
-
-                    <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.min.js"></script>
-                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css" />
-
-                    <script>
-                        document.addEventListener("DOMContentLoaded", function() {
-                            var input = document.querySelector('input[name=category]');
-
-                            new Tagify(input, {
-                                whitelist: [], // Tambahkan kata kunci yang diperbolehkan jika perlu
-                                dropdown: {
-                                    enabled: 1,
-                                    maxItems: 5
-                                }
-                            });
-                        });
-                    </script>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
@@ -133,9 +116,21 @@
         </div>
     </div>
 </div>
-
+<script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var input = document.querySelector('input[name=category]');
+
+        new Tagify(input, {
+            whitelist: [],
+            dropdown: {
+                enabled: 1,
+                maxItems: 100
+            }
+        });
+    });
     $(document).ready(function() {
         $("#gambar").change(function() {
             readURL(this);
