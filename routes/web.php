@@ -37,7 +37,7 @@ Route::post('/update-subcategory-status/{id}', [SubcategoriesController::class, 
 Route::get('/subcategories/{id}/edit', [SubcategoriesController::class, 'edit'])->name('subcategories.edit');
 Route::put('/subcategories/{id}', [SubcategoriesController::class, 'update'])->name('subcategories.update');
 Route::delete('/subcategories_destroy/{id}', [SubcategoriesController::class, 'destroy'])->name('subcategories.destroy');
-Route::get('/get-subcategories/{id}', [SubcategoriesController::class, 'getSubcategories']);
+Route::get('/get-subcategories/{categoryId}', [SubcategoriesController::class, 'getSubcategories']);
 
 //kelola Kursus
 Route::get('/CourseMaster', [CourseMasterController::class, 'index'])->name('CourseMaster');

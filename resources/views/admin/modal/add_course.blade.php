@@ -110,11 +110,11 @@
         const subcategorySelect = document.getElementById('subcategory');
 
         categorySelect.addEventListener('change', function() {
-            const id = this.value;
-            subcategorySelect.disabled = !id;
+            const categoryId = this.value;
+            subcategorySelect.disabled = !categoryId;
 
-            if (id) {
-                fetch(`/get-subcategories/${id}`)
+            if (categoryId) {
+                fetch(`/get-subcategories/${categoryId}`)
                     .then(response => response.json())
                     .then(data => {
                         subcategorySelect.innerHTML = '<option value="">Pilih Subkategori</option>';
