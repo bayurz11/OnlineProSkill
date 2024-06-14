@@ -83,7 +83,7 @@
                     <div class="mb-3">
                         <label class="form-label">Kelas</label>
                         <div>
-                            <input type="radio" id="free" name="class" value="free">
+                            <input type="checkbox" id="free" name="class" value="free">
                             <label for="free">Free</label>
                         </div>
                     </div>
