@@ -14,6 +14,7 @@
                         <input type="text" class="form-control" id="name_course" name="name_course"
                             placeholder="Masukkan Nama Kursus Anda">
                     </div>
+
                     <div class="mb-3">
                         <label class="form-label">Kategori<span class="text-danger">*</span></label>
                         <select id="category" class="js-example-basic-single form-select" name="name_category"
@@ -42,7 +43,7 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="pimpinan" class="form-label">Deskripsi</label>
+                        <label for="pimpinan" class="form-label">Deskripsi<span class="text-danger">*</span></label>
                         <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
                         <textarea id="content" style="height: 800px; width: 200px; font-size: 18px;"></textarea>
                         <!-- Menggunakan <textarea> untuk CKEditor -->
@@ -61,7 +62,17 @@
                                 });
                         </script>
                     </div>
-
+                    <div class="mb-3">
+                        <label for="include" class="form-label">Akan Didapatkan <span
+                                class="text-danger">*</span></label>
+                        <div id="include-container">
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" id="include" name="include[]"
+                                    placeholder="Masukkan Nama Kursus Anda">
+                                <button class="btn btn-outline-secondary" type="button" id="add-include">+</button>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="mb-3">
                         <label class="form-label" for="gambar">Icon Kategori<span class="text-danger">*</span></label>
@@ -121,9 +132,35 @@
             reader.readAsDataURL(input.files[0]);
         }
     }
-</script>
+    //include script
+    document.addEventListener('DOMContentLoaded', function() {
+        const addIncludeButton = document.getElementById('add-include');
+        const includeContainer = document.getElementById('include-container');
 
-<script>
+        addIncludeButton.addEventListener('click', function() {
+            const newInputGroup = document.createElement('div');
+            newInputGroup.classList.add('input-group', 'mb-2');
+            newInputGroup.innerHTML = `
+            <input type="text" class="form-control" name="include[]" placeholder="Masukkan Nama Kursus Anda">
+            <button class="btn btn-outline-secondary remove-include" type="button">-</button>
+        `;
+            includeContainer.appendChild(newInputGroup);
+
+            // Add event listener to the new remove button
+            newInputGroup.querySelector('.remove-include').addEventListener('click', function() {
+                newInputGroup.remove();
+            });
+        });
+
+        // Event listener for initial remove button
+        includeContainer.addEventListener('click', function(event) {
+            if (event.target && event.target.classList.contains('remove-include')) {
+                event.target.closest('.input-group').remove();
+            }
+        });
+    });
+
+    //select 
     document.addEventListener('DOMContentLoaded', function() {
         const categorySelect = document.getElementById('category');
         const subcategorySelect = document.getElementById('subcategory');
@@ -151,3 +188,32 @@
         });
     });
 </script>
+
+{{-- <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const categorySelect = document.getElementById('category');
+        const subcategorySelect = document.getElementById('subcategory');
+
+        categorySelect.addEventListener('change', function() {
+            const categoryId = this.value;
+            subcategorySelect.disabled = !categoryId;
+
+            if (categoryId) {
+                fetch(`/get-subcategories/${categoryId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        subcategorySelect.innerHTML = '<option value="">Pilih Subkategori</option>';
+                        data.forEach(subcategory => {
+                            const option = document.createElement('option');
+                            option.value = subcategory.id;
+                            option.textContent = subcategory.name;
+                            subcategorySelect.appendChild(option);
+                        });
+                    })
+                    .catch(error => console.error('Error fetching subcategories:', error));
+            } else {
+                subcategorySelect.innerHTML = '<option value="">Pilih Subkategori</option>';
+            }
+        });
+    });
+</script> --}}
