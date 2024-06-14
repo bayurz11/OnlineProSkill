@@ -63,7 +63,7 @@
                         </script>
                     </div>
                     <div class="mb-3">
-                        <label for="include" class="form-label">Akan Didapatkan <span
+                        <label for="include" class="form-label">Fasilitas yang Akan Didapatkan <span
                                 class="text-danger">*</span></label>
                         <div id="include-container">
                             <div class="input-group mb-2">
