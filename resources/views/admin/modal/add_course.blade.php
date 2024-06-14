@@ -90,7 +90,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label" for="gambar">Icon Kategori<span
+                        <label class="form-label" for="gambar">Gambar Kursus<span
                                 class="text-danger">*</span></label>
                         <input type="file" accept="image/*" class="form-control" id="gambar" name="gambar">
                     </div>
