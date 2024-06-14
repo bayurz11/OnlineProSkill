@@ -100,7 +100,7 @@
                     <div class="mb-3">
                         <label for="category" class="form-label">Tag</label>
                         <input type="text" class="form-control" id="category" name="category">
-                        <small class="text-secondary">Note : Isi Dengan Tags kursus yang relefan</small>
+                        <small class="text-secondary">Note : Isi Dengan Tags kursus yang relevan</small>
                     </div>
 
                     <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.min.js"></script>
