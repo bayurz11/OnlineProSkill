@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardInstrukturController;
 use App\Http\Controllers\DashboardStudenController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SubcategoriesController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,8 +35,6 @@ Route::put('/subcategories/{id}', [SubcategoriesController::class, 'update'])->n
 Route::delete('/subcategories_destroy/{id}', [SubcategoriesController::class, 'destroy'])->name('subcategories.destroy');
 
 
-
-
 //*********STUDEN*********//
 //Auth Studen
 Route::get('/dashboard_studen', [DashboardStudenController::class, 'index'])->name('dashboard_studen');
@@ -49,3 +48,8 @@ Route::get('/dashboard_instruktur', [DashboardInstrukturController::class, 'inde
 Route::get('/login_instruktur', [AuthController::class, 'showinstruktur'])->name('login_instruktur');
 Route::get('/registerInstruktur', [DashboardInstrukturController::class, 'showregister'])->name('registerInstruktur');
 Route::post('/regisInstruktur', [DashboardInstrukturController::class, 'register'])->name('regisInstruktur');
+
+
+
+//*********FRONTEND*********//
+Route::get('/', [HomeController::class, 'index'])->name('/');
