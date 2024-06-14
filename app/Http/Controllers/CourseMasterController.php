@@ -19,7 +19,7 @@ class CourseMasterController extends Controller
         if (!$user) {
             return redirect()->route('login_admin');
         }
-        return view('admin.categories.categories', compact('user', 'categori', 'count'));
+        return view('admin.CourseMaster.course', compact('user', 'categori', 'count'));
     }
     /**
      * Show the form for creating a new resource.
