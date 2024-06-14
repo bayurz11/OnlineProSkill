@@ -7,7 +7,7 @@
 <!-- Include Select2 JS -->
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/js/select2.min.js"></script>
 <!-- Include Inputmask JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.7-beta.19/jquery.inputmask.min.js"></script>
+
 
 <!-- Plugin js for this page -->
 <script src="{{ asset('public/assets_admin/vendors/flatpickr/flatpickr.min.js') }}"></script>
