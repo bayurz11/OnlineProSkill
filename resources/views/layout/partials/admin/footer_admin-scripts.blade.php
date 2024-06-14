@@ -2,8 +2,13 @@
 <script src="{{ asset('public/assets_admin/vendors/core/core.js') }}"></script>
 <script src="{{ asset('public/assets_admin/vendors/inputmask/jquery.inputmask.min.js') }}"></script>
 
-<!-- endinject -->
+<!-- Include jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Include Select2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/js/select2.min.js"></script>
+<!-- Include Inputmask JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.7-beta.19/jquery.inputmask.min.js"></script>
+
 <!-- Plugin js for this page -->
 <script src="{{ asset('public/assets_admin/vendors/flatpickr/flatpickr.min.js') }}"></script>
 <script src="{{ asset('public/assets_admin/vendors/apexcharts/apexcharts.min.js') }}"></script>
