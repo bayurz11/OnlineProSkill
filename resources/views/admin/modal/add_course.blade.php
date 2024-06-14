@@ -14,7 +14,7 @@
                             placeholder="Masukkan Nama Kursus Anda">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Kategori</label>
+                        <label class="form-label">Kategori<span class="text-danger">*</span></label>
                         <select id="category" class="js-example-basic-single form-select" name="name_category"
                             data-width="100%">
                             <option value="">Pilih Kategori</option>
@@ -24,7 +24,8 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="subcategory" class="form-label">Subkategori</label>
+                        <label for="subcategory" class="form-label">Subkategori<span
+                                class="text-danger">*</span></label>
                         <select id="subcategory" class="form-control" name="name_course" disabled>
                             <option value="">Pilih Subkategori</option>
                         </select>
@@ -32,7 +33,7 @@
 
 
                     <div class="mb-3">
-                        <label class="form-label" for="gambar">Icon Kategori</label>
+                        <label class="form-label" for="gambar">Icon Kategori<span class="text-danger">*</span></label>
                         <input type="file" accept="image/*" class="form-control" id="gambar" name="gambar">
                     </div>
                     <img id="preview" src="#" alt="Preview banner"
