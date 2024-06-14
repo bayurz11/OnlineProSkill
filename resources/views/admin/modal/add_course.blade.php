@@ -73,7 +73,7 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="price" class="form-label">Harga<span class="text-danger">*</span></label>
+                        <label for="price" class="form-label">Harga (Rp)<span class="text-danger">*</span></label>
                         <input type="number" class="form-control" id="price" name="price">
                     </div>
                     <div class="mb-3">
@@ -82,7 +82,7 @@
                             oninput="calculateDiscountedPrice()">
                     </div>
                     <div class="mb-3">
-                        <label for="discountedPrice">Harga Setelah Diskon</label>
+                        <label for="discountedPrice">Harga Setelah Diskon (Rp)</label>
                         <input type="text" class="form-control" id="discountedPrice" readonly>
                     </div>
                     <div class="mb-3">
