@@ -42,17 +42,17 @@
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#advancedUI" role="button" aria-expanded="false"
                     aria-controls="advancedUI">
-                    <i class="link-icon" data-feather="anchor"></i>
+                    <i class="link-icon" data-feather="book-open"></i>
                     <span class="link-title">Kelola Kursus</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 <div class="collapse" id="advancedUI">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Daftar Kursus</a>
+                            <a href="{{ route('CourseMaster') }}" class="nav-link">Daftar Kursus</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Riwayat Pembelian</a>
+                            <a href="{{ route('OrderHistoryManager') }}" class="nav-link">Riwayat Pembelian</a>
                         </li>
 
                     </ul>

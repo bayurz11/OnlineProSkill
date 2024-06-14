@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\CourseMasterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardInstrukturController;
 use App\Http\Controllers\DashboardStudenController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderHistoryManagerController;
 use App\Http\Controllers\SubcategoriesController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,6 +38,10 @@ Route::get('/subcategories/{id}/edit', [SubcategoriesController::class, 'edit'])
 Route::put('/subcategories/{id}', [SubcategoriesController::class, 'update'])->name('subcategories.update');
 Route::delete('/subcategories_destroy/{id}', [SubcategoriesController::class, 'destroy'])->name('subcategories.destroy');
 
+//kelola Kursus
+Route::get('/CourseMaster', [CourseMasterController::class, 'index'])->name('CourseMaster');
+//Riwayat Pembelian Kursus
+Route::get('/OrderHistoryManager', [OrderHistoryManagerController::class, 'index'])->name('OrderHistoryManager');
 
 //*********STUDEN*********//
 //Auth Studen

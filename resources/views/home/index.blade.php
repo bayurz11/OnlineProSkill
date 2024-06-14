@@ -13,7 +13,7 @@
         <div class="row justify-content-center mt-5">
             <div class="col-md-6 text-center">
                 <h1>Welcome </h1>
-                <a href="{{ route('registerStuden') }}" class="btn btn-primary btn-lg mt-3">Register</a>
+                <a href="#" class="btn btn-primary btn-lg mt-3">Register</a>
                 <button type="button" class="btn btn-secondary btn-lg mt-3" data-toggle="modal"
                     data-target="#loginModal">Login</button>
             </div>
