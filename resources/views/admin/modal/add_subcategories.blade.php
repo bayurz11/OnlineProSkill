@@ -12,10 +12,13 @@
                         <label class="form-label">Nama Kategori<span class="text-danger">*</span></label>
                         <select class="js-example-basic-single form-select" name="name_category" data-width="100%">
                             @foreach ($categori as $category)
-                                <option value="{{ $category->id }}">{{ $category->name_category }}</option>
+                                @if ($category->status == 1)
+                                    <option value="{{ $category->id }}">{{ $category->name_category }}</option>
+                                @endif
                             @endforeach
                         </select>
                     </div>
+
                     <div class="mb-3">
                         <label for="name" class="form-label">Nama Subkategori<span
                                 class="text-danger">*</span></label>
