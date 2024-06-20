@@ -45,11 +45,19 @@
                                                     class="wd-100 wd-sm-150 me-3"></td>
                                             <td>{{ $kategori->name_category }}</td>
                                             <td>
-                                                <a href="#"
-                                                    class="badge badgeLink {{ $kategori->status ? 'bg-success' : 'bg-danger' }}"
-                                                    data-id="{{ $kategori->id }}" data-status="{{ $kategori->status }}">
-                                                    {{ $kategori->status ? 'Active' : 'Inactive' }}
-                                                </a>
+                                                <div class="form-check form-switch mb-2">
+                                                    <input type="checkbox" class="form-check-input" id="formSwitch1"
+                                                        {{ $kategori->status ? 'checked' : '' }}>
+                                                    <label for="formSwitch1" class="form-check-label">
+                                                        <a href="#"
+                                                            class="badge badgeLink {{ $kategori->status ? 'bg-success' : 'bg-danger' }}"
+                                                            data-id="{{ $kategori->id }}"
+                                                            data-status="{{ $kategori->status }}">
+                                                            {{ $kategori->status ? 'Active' : 'Inactive' }}
+                                                        </a>
+                                                    </label>
+                                                </div>
+
                                             </td>
                                             <td>
                                                 <button type="button" class="btn btn-primary btn-icon edit-button"
