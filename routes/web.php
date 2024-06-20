@@ -41,7 +41,7 @@ Route::get('/get-subcategories/{categoryId}', [SubcategoriesController::class, '
 
 //kelola Kursus
 Route::get('/CourseMaster', [CourseMasterController::class, 'index'])->name('CourseMaster');
-Route::get('/storeCourse', [CourseMasterController::class, 'store'])->name('storeCourse');
+Route::post('/storeCourse', [CourseMasterController::class, 'store'])->name('storeCourse');
 //Riwayat Pembelian Kursus
 Route::get('/OrderHistoryManager', [OrderHistoryManagerController::class, 'index'])->name('OrderHistoryManager');
 
