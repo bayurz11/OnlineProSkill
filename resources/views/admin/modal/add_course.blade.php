@@ -47,16 +47,16 @@
                     </div>
                     <div class="mb-3">
                         <label for="pimpinan" class="form-label">Deskripsi<span class="text-danger">*</span></label>
-                        <textarea id="deskripsi" style="height: 800px; width: 200px; font-size: 18px;"></textarea>
+                        <textarea id="content" style="height: 800px; width: 200px; font-size: 18px;"></textarea>
                         <!-- Menggunakan <textarea> untuk CKEditor -->
-                        <input type="hidden" id="deskripsi_input" name="deskripsi">
+                        <input type="hidden" id="content_input" name="content">
                         <script>
                             ClassicEditor
-                                .create(document.querySelector('#deskripsi'))
+                                .create(document.querySelector('#content'))
                                 .then(editor => {
                                     editor.model.document.on('change:data', () => {
-                                        const deskripsi_input = document.querySelector('#deskripsi_input');
-                                        deskripsi_input.value = editor.getData();
+                                        const content_input = document.querySelector('#content_input');
+                                        content_input.value = editor.getData();
                                     });
                                 })
                                 .catch(error => {

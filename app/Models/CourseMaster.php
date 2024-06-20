@@ -16,7 +16,7 @@ class CourseMaster extends Model
         'nama_kursus',
         'kategori_id',
         'subkategori_id',
-        'deskripsi',
+        'content',
         'tingkat',
         'include',
         'harga',
