@@ -21,10 +21,13 @@
                             data-width="100%">
                             <option value="">Pilih Kategori</option>
                             @foreach ($categori as $category)
-                                <option value="{{ $category->id }}">{{ $category->name_category }}</option>
+                                @if ($category->status == 1)
+                                    <option value="{{ $category->id }}">{{ $category->name_category }}</option>
+                                @endif
                             @endforeach
                         </select>
                     </div>
+
                     <div class="mb-3">
                         <label for="subcategory" class="form-label">Subkategori<span
                                 class="text-danger">*</span></label>
@@ -63,7 +66,7 @@
                         </script>
                     </div>
                     <div class="mb-3">
-                        <label for="include" class="form-label">Fasilitas yang Akan Didapatkan <span
+                        <label for="include" class="form-label">yang akan di pelajari <span
                                 class="text-danger">*</span></label>
                         <div id="include-container">
                             <div class="input-group mb-2">
