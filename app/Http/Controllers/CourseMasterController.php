@@ -35,21 +35,6 @@ class CourseMasterController extends Controller
      */
     public function store(Request $request)
     {
-        // Validasi input
-        $request->validate([
-            'nama_kursus' => 'required|string|max:255',
-            'kategori_id' => 'required|exists:categories,id',
-            'subkategori_id' => 'nullable|exists:subcategories,id',
-            'deskripsi' => 'required|string',
-            'tingkat' => 'required|in:beginner,intermediate,advanced,all levels',
-            'include' => 'required|array',
-            'harga' => 'nullable|numeric',
-            'diskon' => 'nullable|numeric',
-            'gratis' => 'boolean',
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'tag' => 'nullable|string',
-        ]);
-
         // Proses unggahan gambar
         if ($request->hasFile('gambar')) {
             $gambarName = time() . '.' . $request->gambar->extension();
