@@ -6,6 +6,7 @@ use App\Models\Categories;
 use App\Models\CourseMaster;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreCourseMasterRequest;
 use App\Http\Requests\UpdateCourseMasterRequest;
 
@@ -32,10 +33,56 @@ class CourseMasterController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCourseMasterRequest $request)
+    public function store(Request $request)
     {
-        //
+        // Validasi input
+        $request->validate([
+            'nama_kursus' => 'required|string|max:255',
+            'kategori_id' => 'required|exists:categories,id',
+            'subkategori_id' => 'nullable|exists:subcategories,id',
+            'deskripsi' => 'required|string',
+            'tingkat' => 'required|in:beginner,intermediate,advanced,all levels',
+            'include' => 'required|array',
+            'harga' => 'nullable|numeric',
+            'diskon' => 'nullable|numeric',
+            'gratis' => 'boolean',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'tag' => 'nullable|string',
+        ]);
+
+        // Proses unggahan gambar
+        if ($request->hasFile('gambar')) {
+            $gambarName = time() . '.' . $request->gambar->extension();
+            $request->gambar->move(public_path('uploads'), $gambarName);
+        } else {
+            $gambarName = null;
+        }
+
+        // Hitung harga setelah diskon jika ada
+        $hargaSetelahDiskon = null;
+        if ($request->filled('harga') && $request->filled('diskon')) {
+            $hargaSetelahDiskon = $request->harga - ($request->harga * ($request->diskon / 100));
+        }
+
+        // Buat entitas kursus baru
+        $course = new CourseMaster();
+        $course->nama_kursus = $request->nama_kursus;
+        $course->kategori_id = $request->kategori_id;
+        $course->subkategori_id = $request->subkategori_id;
+        $course->deskripsi = $request->deskripsi;
+        $course->tingkat = $request->tingkat;
+        $course->include = json_encode($request->include);
+        $course->harga = $request->gratis ? null : $request->harga;
+        $course->diskon = $request->diskon;
+        $course->harga_setelah_diskon = $hargaSetelahDiskon;
+        $course->gratis = $request->gratis;
+        $course->gambar = $gambarName;
+        $course->tag = $request->tag;
+        $course->save();
+
+        return redirect()->route('CourseMaster')->with('success', 'Kursus berhasil disimpan.');
     }
+
 
     /**
      * Display the specified resource.
