@@ -9,15 +9,15 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="name_course" class="form-label">Nama Kursus<span
+                        <label for="nama_kursus" class="form-label">Nama Kursus<span
                                 class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="name_course" name="name_course"
+                        <input type="text" class="form-control" id="nama_kursus" name="nama_kursus"
                             placeholder="Masukkan Nama Kursus Anda">
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Kategori<span class="text-danger">*</span></label>
-                        <select id="category" class="js-example-basic-single form-select" name="name_category"
+                        <select id="category" class="js-example-basic-single form-select" name="kategori_id"
                             data-width="100%">
                             <option value="">Pilih Kategori</option>
                             @foreach ($categori as $category)
@@ -31,32 +31,32 @@
                     <div class="mb-3">
                         <label for="subcategory" class="form-label">Subkategori<span
                                 class="text-danger">*</span></label>
-                        <select id="subcategory" class="form-control" name="name_course" disabled>
+                        <select id="subcategory" class="form-control" name="subkategori_id" disabled>
                             <option value="">Pilih Subkategori</option>
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="level" class="form-label">Tingkat <span class="text-danger">*</span></label>
-                        <select id="level" class="form-select" name="level" required>
+                        <label for="tingkat" class="form-label">Tingkat <span class="text-danger">*</span></label>
+                        <select id="tingkat" class="form-select" name="tingkat" required>
                             <option value="">Pilih Tingkat</option>
-                            <option value="beginner">Pemula</option>
-                            <option value="intermediate">Menengah</option>
-                            <option value="advanced">Lanjutan</option>
-                            <option value="all levels">Semua Tingkat</option>
+                            <option value="Pemula">Pemula</option>
+                            <option value="Menengah">Menengah</option>
+                            <option value="Lanjutan">Lanjutan</option>
+                            <option value="Semua Tingkat">Semua Tingkat</option>
                         </select>
                     </div>
                     <div class="mb-3">
                         <label for="pimpinan" class="form-label">Deskripsi<span class="text-danger">*</span></label>
-                        <textarea id="content" style="height: 800px; width: 200px; font-size: 18px;"></textarea>
+                        <textarea id="deskripsi" style="height: 800px; width: 200px; font-size: 18px;"></textarea>
                         <!-- Menggunakan <textarea> untuk CKEditor -->
-                        <input type="hidden" id="content_input" name="content">
+                        <input type="hidden" id="deskripsi_input" name="deskripsi">
                         <script>
                             ClassicEditor
-                                .create(document.querySelector('#content'))
+                                .create(document.querySelector('#deskripsi'))
                                 .then(editor => {
                                     editor.model.document.on('change:data', () => {
-                                        const content_input = document.querySelector('#content_input');
-                                        content_input.value = editor.getData();
+                                        const deskripsi_input = document.querySelector('#deskripsi_input');
+                                        deskripsi_input.value = editor.getData();
                                     });
                                 })
                                 .catch(error => {
