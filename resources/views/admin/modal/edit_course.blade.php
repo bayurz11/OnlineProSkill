@@ -50,7 +50,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="pimpinan" class="form-label">Deskripsi<span class="text-danger">*</span></label>
-                        <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+                        {{-- <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script> --}}
                         <textarea id="content" style="height: 800px; width: 200px; font-size: 18px;"></textarea>
                         <!-- Menggunakan <textarea> untuk CKEditor -->
                         <input type="hidden" id="content_input" name="content">
@@ -121,10 +121,10 @@
         </div>
     </div>
 </div>
-
+{{-- 
 <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css" />
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
 <script>
     $(document).ready(function() {
         // Fetch data when the edit button is clicked
