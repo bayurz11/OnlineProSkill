@@ -53,7 +53,7 @@
                                                             class="badge badgeLink {{ $kategori->status ? 'bg-success' : 'bg-danger' }}"
                                                             data-id="{{ $kategori->id }}"
                                                             data-status="{{ $kategori->status }}">
-                                                            {{ $kategori->status ? 'Active' : 'Inactive' }}
+                                                            {{ $kategori->status ? 'Aktif' : 'Tidak Aktif' }}
                                                         </a>
                                                     </label>
                                                 </div>
