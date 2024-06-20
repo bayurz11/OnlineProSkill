@@ -18,4 +18,8 @@ class Subcategories extends Model
     {
         return $this->belongsTo(Categories::class);
     }
+    public function courses()
+    {
+        return $this->hasMany(CourseMaster::class);
+    }
 }
