@@ -7,21 +7,37 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Jalankan migrasi.
      */
     public function up(): void
     {
-        Schema::create('course_masters', function (Blueprint $table) {
+        Schema::create('course_master', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_kursus');
+            $table->unsignedBigInteger('kategori_id');
+            $table->unsignedBigInteger('subkategori_id')->nullable();
+            $table->text('deskripsi');
+            $table->string('tingkat');
+            $table->json('include');
+            $table->decimal('harga', 10, 2)->nullable();
+            $table->integer('diskon')->nullable();
+            $table->decimal('harga_setelah_diskon', 10, 2)->nullable();
+            $table->boolean('gratis')->default(false);
+            $table->string('gambar')->nullable();
+            $table->string('tag')->nullable();
+            $table->boolean('status')->default(1);
             $table->timestamps();
+
+            $table->foreign('kategori_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('subkategori_id')->references('id')->on('subcategories')->onDelete('set null');
         });
     }
 
     /**
-     * Reverse the migrations.
+     * Batalkan migrasi.
      */
     public function down(): void
     {
-        Schema::dropIfExists('course_masters');
+        Schema::dropIfExists('course_master');
     }
 };

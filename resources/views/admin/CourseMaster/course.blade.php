@@ -13,7 +13,7 @@
         </nav>
 
         @include('admin.modal.add_course')
-        @include('admin.modal.edit_categories')
+        @include('admin.modal.edit_course')
 
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
