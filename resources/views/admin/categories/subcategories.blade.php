@@ -48,12 +48,19 @@
                                             <td>{{ $subcategory->category->name_category }}</td>
                                             <td>{{ $subcategory->name }}</td>
                                             <td>
-                                                <a href="#"
+
+                                                <div class="form-check form-switch mb-2">
+                                                    <input type="checkbox" class="form-check-input formSwitch"
+                                                        id="formSwitch{{ $subcategory->id }}"
+                                                        data-id="{{ $subcategory->id }}"
+                                                        data-status="{{ $subcategory->status }}">
+                                                </div>
+                                                {{-- <a href="#"
                                                     class="badge badgeLink {{ $subcategory->status ? 'bg-success' : 'bg-danger' }}"
                                                     data-id="{{ $subcategory->id }}"
                                                     data-status="{{ $subcategory->status }}">
                                                     {{ $subcategory->status ? 'Active' : 'Inactive' }}
-                                                </a>
+                                                </a> --}}
                                             </td>
                                             <td> <button type="button" class="btn btn-primary btn-icon edit-button"
                                                     title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
@@ -81,7 +88,7 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     {{-- Active inactive togel --}}
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             $('.badgeLink').on('click', function(e) {
                 e.preventDefault();
@@ -117,9 +124,48 @@
                 });
             });
         });
-    </script>
+    </script> --}}
     {{-- hapus data --}}
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const formSwitches = document.querySelectorAll('.formSwitch');
+
+            formSwitches.forEach(function(formSwitch) {
+
+
+                // Set initial state of the switch based on the status
+                formSwitch.checked = formSwitch.dataset.status == 1;
+
+                formSwitch.addEventListener('change', function() {
+                    const categoryId = formSwitch.dataset.id;
+                    const newStatus = formSwitch.checked ? 1 : 0;
+
+                    fetch('/update-subcategory-status/' + categoryId, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                            },
+                            body: JSON.stringify({
+                                status: newStatus
+                            })
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                formSwitch.dataset.status = newStatus;
+
+                            } else {
+                                alert('Gagal mengupdate status');
+                            }
+                        })
+                        .catch(() => {
+                            alert('Terjadi kesalahan');
+                        });
+                });
+            });
+        });
+
         function hapus(id) {
             const confirmationBox = `
                 <div id="confirmationModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">
