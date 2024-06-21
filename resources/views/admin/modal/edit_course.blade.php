@@ -177,21 +177,21 @@
             }
         });
 
-        // Add new include input
-        $('#add-include').click(function() {
-            const newInputGroup = `
-                <div class="input-group mb-2">
-                    <input type="text" class="form-control" name="include[]" >
-                    <button class="btn btn-danger remove-include" type="button">-</button>
-                </div>
-            `;
-            $('#include-container').append(newInputGroup);
-        });
+        // // Add new include input
+        // $('#add-include').click(function() {
+        //     const newInputGroup = `
+        //         <div class="input-group mb-2">
+        //             <input type="text" class="form-control" name="include[]" >
+        //             <button class="btn btn-danger remove-include" type="button">-</button>
+        //         </div>
+        //     `;
+        //     $('#include-container').append(newInputGroup);
+        // });
 
-        // Remove include input
-        $('#include-container').on('click', '.remove-include', function() {
-            $(this).closest('.input-group').remove();
-        });
+        // // Remove include input
+        // $('#include-container').on('click', '.remove-include', function() {
+        //     $(this).closest('.input-group').remove();
+        // });
 
         // Load subcategories based on selected category
         $('#category').change(function() {
