@@ -196,10 +196,12 @@
                     .then(data => {
                         subcategorySelect.innerHTML = '<option value="">Pilih Subkategori</option>';
                         data.forEach(subcategory => {
-                            const option = document.createElement('option');
-                            option.value = subcategory.id;
-                            option.textContent = subcategory.name;
-                            subcategorySelect.appendChild(option);
+                            if (subcategory.status == 1) { // Check the status
+                                const option = document.createElement('option');
+                                option.value = subcategory.id;
+                                option.textContent = subcategory.name;
+                                subcategorySelect.appendChild(option);
+                            }
                         });
                     })
                     .catch(error => console.error('Error fetching subcategories:', error));
@@ -208,6 +210,7 @@
             }
         });
     });
+
 
     //price
     function togglePriceAndDiscount() {
