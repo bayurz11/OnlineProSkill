@@ -45,11 +45,21 @@
                                                     class="wd-100 wd-sm-150 me-3"></td>
                                             <td>{{ $kategori->name_category }}</td>
                                             <td>
-                                                <a href="#"
+                                                <div class="form-check form-switch mb-2">
+                                                    <input type="checkbox" class="form-check-input" id="formSwitch1">
+                                                </div>
+
+                                                {{-- <a href="#"
                                                     class="badge badgeLink {{ $kategori->status ? 'bg-success' : 'bg-danger' }}"
                                                     data-id="{{ $kategori->id }}" data-status="{{ $kategori->status }}">
                                                     {{ $kategori->status ? 'Active' : 'Inactive' }}
-                                                </a>
+                                                </a> --}}
+
+                                                {{-- <a href="#"
+                                                    class="badge badgeLink {{ $kategori->status ? 'bg-success' : 'bg-danger' }}"
+                                                    data-id="{{ $kategori->id }}" data-status="{{ $kategori->status }}">
+                                                    {{ $kategori->status ? 'Active' : 'Inactive' }}
+                                                </a> --}}
                                             </td>
                                             <td>
                                                 <button type="button" class="btn btn-primary btn-icon edit-button"
@@ -76,7 +86,58 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const badgeLink = document.querySelector('.badgeLink');
+            const formSwitch = document.getElementById('formSwitch1');
+
+            // Set initial state of the switch based on the status
+            formSwitch.checked = badgeLink.dataset.status == 1;
+
+            formSwitch.addEventListener('change', function() {
+                const categoryId = badgeLink.dataset.id;
+                const newStatus = formSwitch.checked ? 1 : 0;
+
+                fetch('/update-category-status/' + categoryId, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        },
+                        body: JSON.stringify({
+                            status: newStatus
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            badgeLink.dataset.status = newStatus;
+                            badgeLink.textContent = newStatus ? 'Active' : 'Inactive';
+                            if (newStatus) {
+                                badgeLink.classList.remove('bg-danger');
+                                badgeLink.classList.add('bg-success');
+                            } else {
+                                badgeLink.classList.remove('bg-success');
+                                badgeLink.classList.add('bg-danger');
+                            }
+                        } else {
+                            alert('Gagal mengupdate status');
+                        }
+                    })
+                    .catch(() => {
+                        alert('Terjadi kesalahan');
+                    });
+            });
+
+            badgeLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                formSwitch.checked = !formSwitch.checked;
+                formSwitch.dispatchEvent(new Event('change'));
+            });
+        });
+    </script>
+    {{-- <script>
         $(document).ready(function() {
             $('.badgeLink').on('click', function(e) {
                 e.preventDefault();
@@ -112,7 +173,7 @@
                 });
             });
         });
-    </script>
+    </script> --}}
     <script>
         function hapus(id) {
             const confirmationBox = `
