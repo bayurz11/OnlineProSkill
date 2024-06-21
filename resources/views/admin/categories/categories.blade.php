@@ -94,7 +94,7 @@
             const formSwitches = document.querySelectorAll('.formSwitch');
 
             formSwitches.forEach(function(formSwitch) {
-                const statusLabel = document.getElementById('statusLabel' + formSwitch.dataset.id);
+                // const statusLabel = document.getElementById('statusLabel' + formSwitch.dataset.id);
 
                 // Set initial state of the switch based on the status
                 formSwitch.checked = formSwitch.dataset.status == 1;
@@ -117,7 +117,7 @@
                         .then(data => {
                             if (data.success) {
                                 formSwitch.dataset.status = newStatus;
-                                statusLabel.textContent = newStatus ? 'Active' : 'Inactive';
+                                // statusLabel.textContent = newStatus ? 'Active' : 'Inactive';
                             } else {
                                 alert('Gagal mengupdate status');
                             }
