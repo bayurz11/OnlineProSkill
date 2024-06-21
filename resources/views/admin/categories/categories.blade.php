@@ -50,8 +50,8 @@
                                                     <input type="checkbox" class="form-check-input formSwitch"
                                                         id="formSwitch{{ $kategori->id }}" data-id="{{ $kategori->id }}"
                                                         data-status="{{ $kategori->status }}">
-                                                    <label id="statusLabel{{ $kategori->id }}"
-                                                        for="formSwitch{{ $kategori->id }}">{{ $kategori->status ? 'Active' : 'Inactive' }}</label>
+                                                    {{-- <label id="statusLabel{{ $kategori->id }}"
+                                                        for="formSwitch{{ $kategori->id }}">{{ $kategori->status ? 'Active' : 'Inactive' }}</label> --}}
                                                 </div>
 
 
