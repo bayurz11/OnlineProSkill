@@ -50,8 +50,6 @@
                                                     <input type="checkbox" class="form-check-input formSwitch"
                                                         id="formSwitch{{ $kategori->id }}" data-id="{{ $kategori->id }}"
                                                         data-status="{{ $kategori->status }}">
-                                                    {{-- <label id="statusLabel{{ $kategori->id }}"
-                                                        for="formSwitch{{ $kategori->id }}">{{ $kategori->status ? 'Active' : 'Inactive' }}</label> --}}
                                                 </div>
 
 
@@ -87,48 +85,6 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const formSwitches = document.querySelectorAll('.formSwitch');
-
-            formSwitches.forEach(function(formSwitch) {
-                // const statusLabel = document.getElementById('statusLabel' + formSwitch.dataset.id);
-
-                // Set initial state of the switch based on the status
-                formSwitch.checked = formSwitch.dataset.status == 1;
-
-                formSwitch.addEventListener('change', function() {
-                    const categoryId = formSwitch.dataset.id;
-                    const newStatus = formSwitch.checked ? 1 : 0;
-
-                    fetch('/update-category-status/' + categoryId, {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                            },
-                            body: JSON.stringify({
-                                status: newStatus
-                            })
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data.success) {
-                                formSwitch.dataset.status = newStatus;
-                                // statusLabel.textContent = newStatus ? 'Active' : 'Inactive';
-                            } else {
-                                alert('Gagal mengupdate status');
-                            }
-                        })
-                        .catch(() => {
-                            alert('Terjadi kesalahan');
-                        });
-                });
-            });
-        });
-    </script>
     {{-- <script>
         $(document).ready(function() {
             $('.badgeLink').on('click', function(e) {
@@ -167,6 +123,45 @@
         });
     </script> --}}
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const formSwitches = document.querySelectorAll('.formSwitch');
+
+            formSwitches.forEach(function(formSwitch) {
+
+
+                // Set initial state of the switch based on the status
+                formSwitch.checked = formSwitch.dataset.status == 1;
+
+                formSwitch.addEventListener('change', function() {
+                    const categoryId = formSwitch.dataset.id;
+                    const newStatus = formSwitch.checked ? 1 : 0;
+
+                    fetch('/update-category-status/' + categoryId, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                            },
+                            body: JSON.stringify({
+                                status: newStatus
+                            })
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                formSwitch.dataset.status = newStatus;
+
+                            } else {
+                                alert('Gagal mengupdate status');
+                            }
+                        })
+                        .catch(() => {
+                            alert('Terjadi kesalahan');
+                        });
+                });
+            });
+        });
+
         function hapus(id) {
             const confirmationBox = `
             <div id="confirmationModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">
