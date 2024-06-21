@@ -46,7 +46,7 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="pimpinan" class="form-label">Deskripsi<span class="text-danger">*</span></label>
+                        <label for="content" class="form-label">Deskripsi<span class="text-danger">*</span></label>
                         <textarea id="content" style="height: 800px; width: 200px; font-size: 18px;"></textarea>
                         <!-- Menggunakan <textarea> untuk CKEditor -->
                         <input type="hidden" id="content_input" name="content">
@@ -105,8 +105,8 @@
                         style="max-width: 100%; max-height: 200px; display: none;">
 
                     <div class="mb-3">
-                        <label for="category" class="form-label">Tag</label>
-                        <input type="text" class="form-control" id="category" name="category">
+                        <label for="tag" class="form-label">Tag</label>
+                        <input type="text" class="form-control" id="tag" name="tag">
                         <small class="text-secondary">Note : Isi Dengan Tags kursus yang relevan</small>
                     </div>
                 </div>
@@ -125,7 +125,7 @@
 <script>
     //tags
     document.addEventListener("DOMContentLoaded", function() {
-        var input = document.querySelector('input[name=category]');
+        var input = document.querySelector('input[name=tag]');
 
         new Tagify(input, {
             whitelist: [],

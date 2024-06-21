@@ -19,10 +19,10 @@ return new class extends Migration
             $table->text('deskripsi');
             $table->string('tingkat');
             $table->json('include');
-            $table->decimal('harga', 10, 2)->nullable();
-            $table->integer('diskon')->nullable();
-            $table->decimal('harga_setelah_diskon', 10, 2)->nullable();
-            $table->boolean('gratis')->default(false);
+            $table->decimal('price', 10, 2)->nullable();
+            $table->integer('discount')->nullable();
+            $table->decimal('discountedPrice', 10, 2)->nullable();
+            $table->boolean('free')->default(false);
             $table->string('gambar')->nullable();
             $table->string('tag')->nullable();
             $table->boolean('status')->default(1);
