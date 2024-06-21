@@ -186,9 +186,11 @@
         const categorySelect = document.getElementById('category');
         const subcategorySelect = document.getElementById('subcategory');
 
+        // Event listener untuk perubahan pada select kategori
         categorySelect.addEventListener('change', function() {
             const categoryId = this.value;
-            subcategorySelect.disabled = !categoryId;
+            subcategorySelect.disabled = !
+                categoryId; // Menonaktifkan select subkategori jika kategori tidak dipilih
 
             if (categoryId) {
                 fetch(`/get-subcategories/${categoryId}`)
@@ -196,7 +198,7 @@
                     .then(data => {
                         subcategorySelect.innerHTML = '<option value="">Pilih Subkategori</option>';
                         data.forEach(subcategory => {
-                            if (subcategory.status == 1) { // Check the status
+                            if (subcategory.status == 1) { // Mengecek status subkategori
                                 const option = document.createElement('option');
                                 option.value = subcategory.id;
                                 option.textContent = subcategory.name;

@@ -95,9 +95,17 @@ class SubcategoriesController extends Controller
         return redirect()->route('subcategories')->with('success', 'Kategori berhasil dihapus');
     }
 
+    // public function getSubcategories($categoryId)
+    // {
+    //     $subcategories = Subcategories::where('category_id', $categoryId)->get();
+    //     return response()->json($subcategories);
+    // }
     public function getSubcategories($categoryId)
     {
-        $subcategories = Subcategories::where('category_id', $categoryId)->get();
+        // Mengambil subkategori dengan kategori_id yang sesuai dan status aktif (status == 1)
+        $subcategories = Subcategories::where('category_id', $categoryId)
+            ->where('status', 1)
+            ->get();
         return response()->json($subcategories);
     }
 }
