@@ -45,15 +45,15 @@
                                                     class="wd-100 wd-sm-150 me-3"></td>
                                             <td>{{ $kategori->name_category }}</td>
                                             <td>
-                                                @foreach ($kategoris as $kategori)
-                                                    <div class="form-check form-switch mb-2">
-                                                        <input type="checkbox" class="form-check-input formSwitch"
-                                                            id="formSwitch{{ $kategori->id }}" data-id="{{ $kategori->id }}"
-                                                            data-status="{{ $kategori->status }}">
-                                                        <label id="statusLabel{{ $kategori->id }}"
-                                                            for="formSwitch{{ $kategori->id }}">{{ $kategori->status ? 'Active' : 'Inactive' }}</label>
-                                                    </div>
-                                                @endforeach
+
+                                                <div class="form-check form-switch mb-2">
+                                                    <input type="checkbox" class="form-check-input formSwitch"
+                                                        id="formSwitch{{ $kategori->id }}" data-id="{{ $kategori->id }}"
+                                                        data-status="{{ $kategori->status }}">
+                                                    <label id="statusLabel{{ $kategori->id }}"
+                                                        for="formSwitch{{ $kategori->id }}">{{ $kategori->status ? 'Active' : 'Inactive' }}</label>
+                                                </div>
+
 
                                                 {{-- <a href="#"
                                                     class="badge badgeLink {{ $kategori->status ? 'bg-success' : 'bg-danger' }}"
