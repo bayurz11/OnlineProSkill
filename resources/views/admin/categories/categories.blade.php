@@ -45,12 +45,15 @@
                                                     class="wd-100 wd-sm-150 me-3"></td>
                                             <td>{{ $kategori->name_category }}</td>
                                             <td>
-                                                <div class="form-check form-switch mb-2">
-                                                    <input type="checkbox" class="form-check-input" id="formSwitch1"
-                                                        data-id="{{ $kategori->id }}" data-status="{{ $kategori->status }}">
-                                                    <label id="statusLabel"
-                                                        for="formSwitch1">{{ $kategori->status ? 'Active' : 'Inactive' }}</label>
-                                                </div>
+                                                @foreach ($kategoris as $kategori)
+                                                    <div class="form-check form-switch mb-2">
+                                                        <input type="checkbox" class="form-check-input formSwitch"
+                                                            id="formSwitch{{ $kategori->id }}" data-id="{{ $kategori->id }}"
+                                                            data-status="{{ $kategori->status }}">
+                                                        <label id="statusLabel{{ $kategori->id }}"
+                                                            for="formSwitch{{ $kategori->id }}">{{ $kategori->status ? 'Active' : 'Inactive' }}</label>
+                                                    </div>
+                                                @endforeach
 
                                                 {{-- <a href="#"
                                                     class="badge badgeLink {{ $kategori->status ? 'bg-success' : 'bg-danger' }}"
@@ -84,40 +87,45 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const formSwitch = document.getElementById('formSwitch1');
-            const statusLabel = document.getElementById('statusLabel');
+            const formSwitches = document.querySelectorAll('.formSwitch');
 
-            // Set initial state of the switch based on the status
-            formSwitch.checked = formSwitch.dataset.status == 1;
+            formSwitches.forEach(function(formSwitch) {
+                const statusLabel = document.getElementById('statusLabel' + formSwitch.dataset.id);
 
-            formSwitch.addEventListener('change', function() {
-                const categoryId = formSwitch.dataset.id;
-                const newStatus = formSwitch.checked ? 1 : 0;
+                // Set initial state of the switch based on the status
+                formSwitch.checked = formSwitch.dataset.status == 1;
 
-                fetch('/update-category-status/' + categoryId, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                        },
-                        body: JSON.stringify({
-                            status: newStatus
+                formSwitch.addEventListener('change', function() {
+                    const categoryId = formSwitch.dataset.id;
+                    const newStatus = formSwitch.checked ? 1 : 0;
+
+                    fetch('/update-category-status/' + categoryId, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                            },
+                            body: JSON.stringify({
+                                status: newStatus
+                            })
                         })
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            formSwitch.dataset.status = newStatus;
-                            statusLabel.textContent = newStatus ? 'Active' : 'Inactive';
-                        } else {
-                            alert('Gagal mengupdate status');
-                        }
-                    })
-                    .catch(() => {
-                        alert('Terjadi kesalahan');
-                    });
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                formSwitch.dataset.status = newStatus;
+                                statusLabel.textContent = newStatus ? 'Active' : 'Inactive';
+                            } else {
+                                alert('Gagal mengupdate status');
+                            }
+                        })
+                        .catch(() => {
+                            alert('Terjadi kesalahan');
+                        });
+                });
             });
         });
     </script>
