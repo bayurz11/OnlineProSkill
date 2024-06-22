@@ -48,7 +48,7 @@
                                 class="injectable"></button>
                     </form>
                     <div class="account__switch">
-                        <p>Apakah anda sudah memiliki akun?<a href="#" data-bs-toggle="modal"
+                        <p>Apakah Punya Akun?<a href="#" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal">Masuk</a></p>
                     </div>
                 </div>
