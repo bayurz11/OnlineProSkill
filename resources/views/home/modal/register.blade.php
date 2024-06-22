@@ -4,44 +4,33 @@
             <!-- Modal Body -->
             <div class="modal-body">
                 <div class="singUp-wrap">
-                    <h2 class="title">Create Your Account</h2>
-                    <p>Hey there! Ready to join the party? We just need a few details from you to get <br> started.
-                        Let's do this!</p>
+                    <h2 class="title">Buat Akun ProSkill</h2>
+                    <p>Silahkan isi form berikut untuk melanjutkan.</p>
                     <div class="account__social">
                         <a href="#" class="account__social-btn">
                             <img src="public/assets/img/icons/google.svg" alt="img">
-                            Continue with google
+                            Daftar menggunakan Google
                         </a>
                     </div>
                     <div class="account__divider">
                         <span>or</span>
                     </div>
                     <form action="#" class="account__form">
-                        <div class="row gutter-20">
-                            <div class="col-md-6">
-                                <div class="form-grp">
-                                    <label for="fast-name">First Name</label>
-                                    <input type="text" id="fast-name" placeholder="First Name">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-grp">
-                                    <label for="last-name">Last name</label>
-                                    <input type="text" id="last-name" placeholder="Last name">
-                                </div>
-                            </div>
+                        <div class="form-grp">
+
+                            <input type="text" id="name" name="name" placeholder="nama">
                         </div>
                         <div class="form-grp">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" placeholder="email">
+
+                            <input type="email" id="email" placeholder="Email" name="email">
                         </div>
                         <div class="form-grp">
-                            <label for="password">Password</label>
-                            <input type="password" id="password" placeholder="password">
+
+                            <input type="password" id="password" placeholder="Password" name="password">
                         </div>
                         <div class="form-grp">
-                            <label for="confirm-password">Confirm Password</label>
-                            <input type="password" id="confirm-password" placeholder="Confirm Password">
+
+                            <input type="password" id="confirm-password" placeholder="Konfirmasi Password">
                         </div>
                         <button type="submit" class="btn btn-two arrow-btn">Sign Up<img
                                 src="public/assets/img/icons/right_arrow.svg" alt="img"

@@ -4,14 +4,12 @@
             <!-- Modal Body -->
             <div class="modal-body">
                 <div class="singUp-wrap">
-                    <h2 class="title">Welcome back!</h2>
-                    <p>Hey there! Ready to log in? Just enter your username and password below and you'll be back in
-                        action
-                        in no time. Let's go!</p>
+                    <h2 class="title">Masuk Ke ProSkill</h2>
+                    <p>Silahkan masukkan informasi akun kamu.</p>
                     <div class="account__social">
                         <a href="#" class="account__social-btn">
                             <img src="public/assets/img/icons/google.svg" alt="img">
-                            Continue with google
+                            Masuk Dengan Google
                         </a>
                     </div>
                     <div class="account__divider">
@@ -20,17 +18,17 @@
                     <form action="{{ route('login') }}" class="account__form" method="POST">
                         @csrf
                         <div class="form-grp">
-                            <label for="email">Email</label>
-                            <input id="email" type="text" placeholder="email" name="email" autofocus>
+
+                            <input id="email" type="text" placeholder="Email" name="email" autofocus>
                         </div>
                         <div class="form-grp">
-                            <label for="password">Password</label>
-                            <input id="password" type="password" placeholder="password" name="password">
+
+                            <input id="password" type="password" placeholder="Password" name="password">
                         </div>
                         <div class="account__check">
                             <div class="account__check-remember">
                                 <input type="checkbox" class="form-check-input" value="" id="terms-check">
-                                <label for="terms-check" class="form-check-label">Remember me</label>
+                                <label for="terms-check" class="form-check-label">Ingat saya</label>
                             </div>
                             <div class="account__check-forgot">
                                 <a href="registration.html">Forgot Password?</a>
