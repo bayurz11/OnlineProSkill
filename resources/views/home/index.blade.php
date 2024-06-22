@@ -4,6 +4,41 @@
 @extends('layout.mainlayout')
 
 @section('content')
+    <div class="row justify-content-center">
+        <div class="col-xl-9">
+            <div class="instructor-slider-dot">
+                <div class="swiper instructor-nav">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <button><img src="public/assets/img/instructor/instructor_nav01.png" alt="img"></button>
+                        </div>
+                        <div class="swiper-slide">
+                            <button><img src="public/assets/img/instructor/instructor_nav02.png" alt="img"></button>
+                        </div>
+                        <div class="swiper-slide">
+                            <button><img src="public/assets/img/instructor/instructor_nav03.png" alt="img"></button>
+                        </div>
+                        <div class="swiper-slide">
+                            <button><img src="public/assets/img/instructor/instructor_nav04.png" alt="img"></button>
+                        </div>
+                        <div class="swiper-slide">
+                            <button><img src="public/assets/img/instructor/h2_instructor05.png" alt="img"></button>
+                        </div>
+                        <div class="swiper-slide">
+                            <button><img src="public/assets/img/instructor/instructor_nav04.png" alt="img"></button>
+                        </div>
+                        <div class="swiper-slide">
+                            <button><img src="public/assets/img/instructor/instructor_nav03.png" alt="img"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="instructor__nav-two">
+                    <div class="instructor-button-prev"><i class="flaticon-arrow-right"></i></div>
+                    <div class="instructor-button-next"><i class="flaticon-arrow-right"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- banner-area -->
     <section class="banner-area-two banner-bg-two tg-motion-effects"
         data-background="public/assets/img/banner/banner_bg02.png">
