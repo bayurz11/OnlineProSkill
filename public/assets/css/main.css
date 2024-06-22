@@ -52,7 +52,8 @@
   /* --tg-theme-primary: #5751E1; */
   --tg-theme-primary: #007F73;
   --tg-theme-secondary: #FFC224;
-  --tg-common-color-blue: #050071;
+  --tg-common-color-blue: #FE9B00;
+  /* --tg-common-color-blue: #050071; */
   --tg-common-color-blue-2: #282568;
   --tg-common-color-indigo: #9B51E0;
   --tg-common-color-purple: #8121FB;
@@ -8574,11 +8575,16 @@ textarea {
 .courses__details-content .nav-tabs .nav-link:hover, .courses__details-content .nav-tabs .nav-link.active {
   color: var(--tg-common-color-white);
   background: var(--tg-theme-primary);
-  -webkit-box-shadow: 4px 6px 0px 0px #050071;
+  -webkit-box-shadow: 4px 6px 0px 0px #FE9B00;
+  -moz-box-shadow: 4px 6px 0px 0px #FE9B00;
+  -ms-box-shadow: 4px 6px 0px 0px #FE9B00;
+  -o-box-shadow: 4px 6px 0px 0px #FE9B00;
+  box-shadow: 4px 6px 0px 0px #FE9B00;
+  /* -webkit-box-shadow: 4px 6px 0px 0px #050071;
   -moz-box-shadow: 4px 6px 0px 0px #050071;
   -ms-box-shadow: 4px 6px 0px 0px #050071;
   -o-box-shadow: 4px 6px 0px 0px #050071;
-  box-shadow: 4px 6px 0px 0px #050071;
+  box-shadow: 4px 6px 0px 0px #050071; */
 }
 .courses__details-meta .list-wrap {
   display: -webkit-box;
