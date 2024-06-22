@@ -7,21 +7,21 @@
                     in no time. Let's go!</p>
                 <div class="account__social">
                     <a href="#" class="account__social-btn">
-                        <img src="assets/img/icons/google.svg" alt="img">
+                        <img src="public/assets/img/icons/google.svg" alt="img">
                         Continue with google
                     </a>
                 </div>
                 <div class="account__divider">
                     <span>or</span>
                 </div>
-                <form action="#" class="account__form">
+                <form action="{{ route('login') }}" class="account__form">
                     <div class="form-grp">
                         <label for="email">Email</label>
-                        <input id="email" type="text" placeholder="email">
+                        <input id="email" type="text" placeholder="email" name="email">
                     </div>
                     <div class="form-grp">
                         <label for="password">Password</label>
-                        <input id="password" type="text" placeholder="password">
+                        <input id="password" type="text" placeholder="password" name="password">
                     </div>
                     <div class="account__check">
                         <div class="account__check-remember">
