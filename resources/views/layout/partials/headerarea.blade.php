@@ -223,16 +223,17 @@
                                  <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
                              </div>
                              <div class="social-links">
-                                 <li class="header-btn login-btn">
-                                     <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                         class="btn"
-                                         style="background-color: white; color: black; border: 1px solid black;">Masuk</a>
-                                 </li>
-
-                                 @include('home.modal.login')
-                                 <li class="header-btn login-btn">
-                                     <a href="contact.html" class="btn">Daftar</a>
-                                 </li>
+                                 <ul class="list-wrap">
+                                     <li class="header-btn login-btn">
+                                         <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                             class="btn"
+                                             style="background-color: white; color: black; border: 1px solid black;">Masuk</a>
+                                     </li>
+                                     @include('home.modal.login')
+                                     <li class="header-btn login-btn">
+                                         <a href="contact.html" class="btn">Daftar</a>
+                                     </li>
+                                 </ul>
                              </div>
                              <div class="social-links">
                                  <ul class="list-wrap">
