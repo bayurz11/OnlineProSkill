@@ -6,12 +6,7 @@
                 <div class="singUp-wrap">
                     <h2 class="title">Masuk Ke ProSkill</h2>
                     <p>Silahkan masukkan informasi akun kamu.</p>
-                    <div class="account__social">
-                        <a href="#" class="account__social-btn">
-                            <img src="public/assets/img/icons/google.svg" alt="img">
-                            Masuk Dengan Google
-                        </a>
-                    </div>
+
 
                     <form action="{{ route('login') }}" class="account__form" method="POST">
                         @csrf
@@ -39,6 +34,12 @@
                     <div class="account__switch">
                         <p>Belum punya akun?<a href="#"data-bs-toggle="modal"
                                 data-bs-target="#exampleModalDaftar">Daftar</a></p>
+                    </div>
+                    <div class="account__social">
+                        <a href="#" class="account__social-btn">
+                            <img src="public/assets/img/icons/google.svg" alt="img">
+                            Masuk Dengan Google
+                        </a>
                     </div>
                 </div>
             </div>

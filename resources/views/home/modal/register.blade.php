@@ -6,12 +6,6 @@
                 <div class="singUp-wrap">
                     <h2 class="title">Buat Akun ProSkill</h2>
                     <p>Silahkan isi form berikut untuk melanjutkan.</p>
-                    <div class="account__social">
-                        <a href="#" class="account__social-btn">
-                            <img src="public/assets/img/icons/google.svg" alt="img">
-                            Daftar Dengan Google
-                        </a>
-                    </div>
 
                     <form action="#" class="account__form">
                         <div class="form-grp">
@@ -38,6 +32,13 @@
                         <p>Apakah Punya Akun?<a href="#" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal">Masuk</a></p>
                     </div>
+                    <div class="account__social">
+                        <a href="#" class="account__social-btn">
+                            <img src="public/assets/img/icons/google.svg" alt="img">
+                            Daftar Dengan Google
+                        </a>
+                    </div>
+
                 </div>
             </div>
         </div>
