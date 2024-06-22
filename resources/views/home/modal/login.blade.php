@@ -3,11 +3,22 @@
         <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header">
-                <!-- Tombol close -->
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close-btn" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    var closeButton = document.querySelector(".close-btn");
+                    closeButton.addEventListener("click", function() {
+                        var modal = document.querySelector("#exampleModal");
+                        var bootstrapModal = new bootstrap.Modal(
+                            modal); // Inisialisasi modal menggunakan Bootstrap JS
+                        bootstrapModal.hide(); // Menyembunyikan modal
+                    });
+                });
+            </script>
+
 
             <!-- Modal Body -->
             <div class="modal-body">
