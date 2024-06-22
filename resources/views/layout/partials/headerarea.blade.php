@@ -13,7 +13,7 @@
                              </div>
                              <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-xl-flex">
                                  <ul class="navigation">
-                                     <li class="active menu-item-has-children"><a href="#">Beranda</a>
+                                     <li class="active"><a href="#">Beranda</a>
 
                                      </li>
                                      <li class="menu-item-has-children"><a href="#">Courses</a>
