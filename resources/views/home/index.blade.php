@@ -72,19 +72,7 @@
                         <div class="banner__images-two tg-svg" style="position: relative; width: 100%; height: 100%;">
                             <img src="public/assets/img/banner/h2_banner_img.png" alt="img" class="main-img"
                                 style="width: 100%; height: 100%; object-fit: cover;">
-                            <div class="shape big-shape" data-aos="fade-up" data-aos-delay="600"
-                                style="position: absolute; top: 10px; left: 10px; width: 50px;">
-                                <img src="public/assets/img/banner/h2_banner_shape01.svg" alt="shape"
-                                    class="injectable tg-motion-effects1" style="width: 100%;">
-                            </div>
-                            <span class="svg-icon" id="banner-svg"
-                                data-svg-icon="public/assets/img/banner/h2_banner_shape02.svg"
-                                style="position: absolute; top: 10px; right: 10px; width: 50px;"></span>
-                            <div class="about__enrolled" data-aos="fade-right" data-aos-delay="200"
-                                style="position: absolute; bottom: 20px; left: 10px;">
-                                <p class="title"><span>36K+</span> Enrolled Students</p>
-                                <img src="public/assets/img/others/student_grp.png" alt="img" style="width: 50px;">
-                            </div>
+
                             <div class="banner__student" data-aos="fade-left" data-aos-delay="200"
                                 style="position: absolute; bottom: 20px; right: 10px;">
                                 <div class="icon" style="display: inline-block;">
