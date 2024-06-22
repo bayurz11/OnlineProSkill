@@ -53,7 +53,7 @@
 
         <!-- banner-area -->
         <section class="banner-area-two banner-bg-two tg-motion-effects"
-            data-background="assets/img/banner/banner_bg02.png">
+            data-background="public/assets/img/banner/banner_bg02.png">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-5 col-lg-6">
@@ -73,7 +73,8 @@
                             </h3>
                             <div class="banner__btn-two" data-aos="fade-right" data-aos-delay="600">
                                 <a href="contact.html" class="btn arrow-btn">Start Free Trial <img
-                                        src="assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
+                                        src="public/assets/img/icons/right_arrow.svg" alt="img"
+                                        class="injectable"></a>
                                 <a href="https://www.youtube.com/watch?v=b2Az7_lLh3g" class="play-btn popup-video"><i
                                         class="fas fa-play"></i> Watch Our <br> Class Demo</a>
                             </div>
@@ -81,20 +82,21 @@
                     </div>
                     <div class="col-xl-7 col-lg-6 col-md-8">
                         <div class="banner__images-two tg-svg">
-                            <img src="assets/img/banner/h2_banner_img.png" alt="img" class="main-img">
+                            <img src="public/assets/img/banner/h2_banner_img.png" alt="img" class="main-img">
                             <div class="shape big-shape" data-aos="fade-up" data-aos-delay="600">
-                                <img src="assets/img/banner/h2_banner_shape01.svg" alt="shape"
+                                <img src="public/assets/img/banner/h2_banner_shape01.svg" alt="shape"
                                     class="injectable tg-motion-effects1">
                             </div>
                             <span class="svg-icon" id="banner-svg"
-                                data-svg-icon="assets/img/banner/h2_banner_shape02.svg"></span>
+                                data-svg-icon="public/assets/img/banner/h2_banner_shape02.svg"></span>
                             <div class="about__enrolled" data-aos="fade-right" data-aos-delay="200">
                                 <p class="title"><span>36K+</span> Enrolled Students</p>
-                                <img src="assets/img/others/student_grp.png" alt="img">
+                                <img src="public/assets/img/others/student_grp.png" alt="img">
                             </div>
                             <div class="banner__student" data-aos="fade-left" data-aos-delay="200">
                                 <div class="icon">
-                                    <img src="assets/img/banner/h2_banner_icon.svg" alt="img" class="injectable">
+                                    <img src="public/assets/img/banner/h2_banner_icon.svg" alt="img"
+                                        class="injectable">
                                 </div>
                                 <div class="content">
                                     <span>Total Students</span>
@@ -105,7 +107,7 @@
                     </div>
                 </div>
             </div>
-            <img src="assets/img/banner/h2_banner_shape03.svg" alt="shape" class="line-shape-two"
+            <img src="public/assets/img/banner/h2_banner_shape03.svg" alt="shape" class="line-shape-two"
                 data-aos="fade-right" data-aos-delay="1600">
         </section>
         <!-- banner-area-end -->
@@ -115,40 +117,40 @@
             <div class="container-fluid">
                 <div class="marquee_mode">
                     <div class="brand__item">
-                        <a href="#"><img src="assets/img/brand/brand01.png" alt="brand"></a>
-                        <img src="assets/img/icons/brand_star.svg" alt="star">
+                        <a href="#"><img src="public/assets/img/brand/brand01.png" alt="brand"></a>
+                        <img src="public/assets/img/icons/brand_star.svg" alt="star">
                     </div>
                     <div class="brand__item">
-                        <a href="#"><img src="assets/img/brand/brand02.png" alt="brand"></a>
-                        <img src="assets/img/icons/brand_star.svg" alt="star">
+                        <a href="#"><img src="public/assets/img/brand/brand02.png" alt="brand"></a>
+                        <img src="public/assets/img/icons/brand_star.svg" alt="star">
                     </div>
                     <div class="brand__item">
-                        <a href="#"><img src="assets/img/brand/brand03.png" alt="brand"></a>
-                        <img src="assets/img/icons/brand_star.svg" alt="star">
+                        <a href="#"><img src="public/assets/img/brand/brand03.png" alt="brand"></a>
+                        <img src="public/assets/img/icons/brand_star.svg" alt="star">
                     </div>
                     <div class="brand__item">
-                        <a href="#"><img src="assets/img/brand/brand04.png" alt="brand"></a>
-                        <img src="assets/img/icons/brand_star.svg" alt="star">
+                        <a href="#"><img src="public/assets/img/brand/brand04.png" alt="brand"></a>
+                        <img src="public/assets/img/icons/brand_star.svg" alt="star">
                     </div>
                     <div class="brand__item">
-                        <a href="#"><img src="assets/img/brand/brand05.png" alt="brand"></a>
-                        <img src="assets/img/icons/brand_star.svg" alt="star">
+                        <a href="#"><img src="public/assets/img/brand/brand05.png" alt="brand"></a>
+                        <img src="public/assets/img/icons/brand_star.svg" alt="star">
                     </div>
                     <div class="brand__item">
-                        <a href="#"><img src="assets/img/brand/brand06.png" alt="brand"></a>
-                        <img src="assets/img/icons/brand_star.svg" alt="star">
+                        <a href="#"><img src="public/assets/img/brand/brand06.png" alt="brand"></a>
+                        <img src="public/assets/img/icons/brand_star.svg" alt="star">
                     </div>
                     <div class="brand__item">
-                        <a href="#"><img src="assets/img/brand/brand07.png" alt="brand"></a>
-                        <img src="assets/img/icons/brand_star.svg" alt="star">
+                        <a href="#"><img src="public/assets/img/brand/brand07.png" alt="brand"></a>
+                        <img src="public/assets/img/icons/brand_star.svg" alt="star">
                     </div>
                     <div class="brand__item">
-                        <a href="#"><img src="assets/img/brand/brand04.png" alt="brand"></a>
-                        <img src="assets/img/icons/brand_star.svg" alt="star">
+                        <a href="#"><img src="public/assets/img/brand/brand04.png" alt="brand"></a>
+                        <img src="public/assets/img/icons/brand_star.svg" alt="star">
                     </div>
                     <div class="brand__item">
-                        <a href="#"><img src="assets/img/brand/brand03.png" alt="brand"></a>
-                        <img src="assets/img/icons/brand_star.svg" alt="star">
+                        <a href="#"><img src="public/assets/img/brand/brand03.png" alt="brand"></a>
+                        <img src="public/assets/img/icons/brand_star.svg" alt="star">
                     </div>
                 </div>
             </div>
@@ -175,7 +177,7 @@
                                 <div class="features__content-two">
                                     <div class="content-top">
                                         <div class="features__icon-two">
-                                            <img src="assets/img/icons/h2_features_icon01.svg" alt="img"
+                                            <img src="public/assets/img/icons/h2_features_icon01.svg" alt="img"
                                                 class="injectable">
                                         </div>
                                         <h2 class="title">Expert Tutors</h2>
@@ -183,7 +185,7 @@
                                     <p>when an unknown printer took a galley offe type and scrambled makes.</p>
                                 </div>
                                 <div class="features__item-shape">
-                                    <img src="assets/img/others/features_item_shape.svg" alt="img"
+                                    <img src="public/assets/img/others/features_item_shape.svg" alt="img"
                                         class="injectable">
                                 </div>
                             </div>
@@ -193,7 +195,7 @@
                                 <div class="features__content-two">
                                     <div class="content-top">
                                         <div class="features__icon-two">
-                                            <img src="assets/img/icons/h2_features_icon02.svg" alt="img"
+                                            <img src="public/assets/img/icons/h2_features_icon02.svg" alt="img"
                                                 class="injectable">
                                         </div>
                                         <h2 class="title">Effective Courses</h2>
@@ -201,7 +203,7 @@
                                     <p>when an unknown printer took a galley offe type and scrambled makes.</p>
                                 </div>
                                 <div class="features__item-shape">
-                                    <img src="assets/img/others/features_item_shape.svg" alt="img"
+                                    <img src="public/assets/img/others/features_item_shape.svg" alt="img"
                                         class="injectable">
                                 </div>
                             </div>
@@ -211,7 +213,7 @@
                                 <div class="features__content-two">
                                     <div class="content-top">
                                         <div class="features__icon-two">
-                                            <img src="assets/img/icons/h2_features_icon03.svg" alt="img"
+                                            <img src="public/assets/img/icons/h2_features_icon03.svg" alt="img"
                                                 class="injectable">
                                         </div>
                                         <h2 class="title">Earn Certificate</h2>
@@ -219,7 +221,7 @@
                                     <p>when an unknown printer took a galley offe type and scrambled makes.</p>
                                 </div>
                                 <div class="features__item-shape">
-                                    <img src="assets/img/others/features_item_shape.svg" alt="img"
+                                    <img src="public/assets/img/others/features_item_shape.svg" alt="img"
                                         class="injectable">
                                 </div>
                             </div>
@@ -242,14 +244,14 @@
                                 </div>
                             </div>
                             <div class="faq__img faq__img-two">
-                                <img src="assets/img/others/faq_img.png" alt="img">
+                                <img src="public/assets/img/others/faq_img.png" alt="img">
                                 <div class="shape-one">
-                                    <img src="assets/img/others/faq_shape01.svg" class="injectable tg-motion-effects4"
-                                        alt="img">
+                                    <img src="public/assets/img/others/faq_shape01.svg"
+                                        class="injectable tg-motion-effects4" alt="img">
                                 </div>
                                 <div class="shape-two">
                                     <span class="svg-icon" id="faq-two-svg"
-                                        data-svg-icon="assets/img/others/faq_shape02.svg"></span>
+                                        data-svg-icon="public/assets/img/others/faq_shape02.svg"></span>
                                 </div>
                             </div>
                         </div>
@@ -291,7 +293,8 @@
                             </ul>
                             <div class="tg-button-wrap">
                                 <a href="about-us.html" class="btn arrow-btn">Start Free Trial <img
-                                        src="assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
+                                        src="public/assets/img/icons/right_arrow.svg" alt="img"
+                                        class="injectable"></a>
                             </div>
                         </div>
                     </div>
@@ -301,7 +304,7 @@
         <!-- about-area-end -->
 
         <!-- course-area -->
-        <section class="courses-area section-py-120" data-background="assets/img/bg/courses_bg.jpg">
+        <section class="courses-area section-py-120" data-background="public/assets/img/bg/courses_bg.jpg">
             <div class="container">
                 <div class="section__title-wrap">
                     <div class="row justify-content-center">
@@ -355,7 +358,8 @@
                                     <div class="courses__item courses__item-two shine__animate-item">
                                         <div class="courses__item-thumb courses__item-thumb-two">
                                             <a href="course-details.html" class="shine__animate-link">
-                                                <img src="assets/img/courses/course_thumb01.jpg" alt="img">
+                                                <img src="public/assets/img/courses/course_thumb01.jpg"
+                                                    alt="img">
                                             </a>
                                         </div>
                                         <div class="courses__item-content courses__item-content-two">
@@ -370,7 +374,7 @@
                                             <div class="courses__item-content-bottom">
                                                 <div class="author-two">
                                                     <a href="instructor-details.html"><img
-                                                            src="assets/img/courses/course_author001.png"
+                                                            src="public/assets/img/courses/course_author001.png"
                                                             alt="img">David Millar</a>
                                                 </div>
                                                 <div class="avg-rating">
@@ -391,7 +395,8 @@
                                     <div class="courses__item courses__item-two shine__animate-item">
                                         <div class="courses__item-thumb courses__item-thumb-two">
                                             <a href="course-details.html" class="shine__animate-link">
-                                                <img src="assets/img/courses/course_thumb02.jpg" alt="img">
+                                                <img src="public/assets/img/courses/course_thumb02.jpg"
+                                                    alt="img">
                                             </a>
                                         </div>
                                         <div class="courses__item-content courses__item-content-two">
@@ -406,7 +411,7 @@
                                             <div class="courses__item-content-bottom">
                                                 <div class="author-two">
                                                     <a href="instructor-details.html"><img
-                                                            src="assets/img/courses/course_author002.png"
+                                                            src="public/assets/img/courses/course_author002.png"
                                                             alt="img">Wilson</a>
                                                 </div>
                                                 <div class="avg-rating">
@@ -427,7 +432,8 @@
                                     <div class="courses__item courses__item-two shine__animate-item">
                                         <div class="courses__item-thumb courses__item-thumb-two">
                                             <a href="course-details.html" class="shine__animate-link">
-                                                <img src="assets/img/courses/course_thumb03.jpg" alt="img">
+                                                <img src="public/assets/img/courses/course_thumb03.jpg"
+                                                    alt="img">
                                             </a>
                                         </div>
                                         <div class="courses__item-content courses__item-content-two">
@@ -442,7 +448,7 @@
                                             <div class="courses__item-content-bottom">
                                                 <div class="author-two">
                                                     <a href="instructor-details.html"><img
-                                                            src="assets/img/courses/course_author003.png"
+                                                            src="public/assets/img/courses/course_author003.png"
                                                             alt="img">Warren</a>
                                                 </div>
                                                 <div class="avg-rating">
@@ -463,7 +469,8 @@
                                     <div class="courses__item courses__item-two shine__animate-item">
                                         <div class="courses__item-thumb courses__item-thumb-two">
                                             <a href="course-details.html" class="shine__animate-link">
-                                                <img src="assets/img/courses/course_thumb04.jpg" alt="img">
+                                                <img src="public/assets/img/courses/course_thumb04.jpg"
+                                                    alt="img">
                                             </a>
                                         </div>
                                         <div class="courses__item-content courses__item-content-two">
@@ -478,7 +485,7 @@
                                             <div class="courses__item-content-bottom">
                                                 <div class="author-two">
                                                     <a href="instructor-details.html"><img
-                                                            src="assets/img/courses/course_author004.png"
+                                                            src="public/assets/img/courses/course_author004.png"
                                                             alt="img">Robert Fox</a>
                                                 </div>
                                                 <div class="avg-rating">
@@ -499,7 +506,8 @@
                                     <div class="courses__item courses__item-two shine__animate-item">
                                         <div class="courses__item-thumb courses__item-thumb-two">
                                             <a href="course-details.html" class="shine__animate-link">
-                                                <img src="assets/img/courses/course_thumb05.jpg" alt="img">
+                                                <img src="public/assets/img/courses/course_thumb05.jpg"
+                                                    alt="img">
                                             </a>
                                         </div>
                                         <div class="courses__item-content courses__item-content-two">
@@ -514,7 +522,7 @@
                                             <div class="courses__item-content-bottom">
                                                 <div class="author-two">
                                                     <a href="instructor-details.html"><img
-                                                            src="assets/img/courses/course_author002.png"
+                                                            src="public/assets/img/courses/course_author002.png"
                                                             alt="img">Hawkins</a>
                                                 </div>
                                                 <div class="avg-rating">
@@ -542,7 +550,8 @@
                                     <div class="courses__item courses__item-two shine__animate-item">
                                         <div class="courses__item-thumb courses__item-thumb-two">
                                             <a href="course-details.html" class="shine__animate-link">
-                                                <img src="assets/img/courses/course_thumb02.jpg" alt="img">
+                                                <img src="public/assets/img/courses/course_thumb02.jpg"
+                                                    alt="img">
                                             </a>
                                         </div>
                                         <div class="courses__item-content courses__item-content-two">
@@ -557,7 +566,7 @@
                                             <div class="courses__item-content-bottom">
                                                 <div class="author-two">
                                                     <a href="instructor-details.html"><img
-                                                            src="assets/img/courses/course_author002.png"
+                                                            src="public/assets/img/courses/course_author002.png"
                                                             alt="img">Wilson</a>
                                                 </div>
                                                 <div class="avg-rating">
@@ -578,7 +587,8 @@
                                     <div class="courses__item courses__item-two shine__animate-item">
                                         <div class="courses__item-thumb courses__item-thumb-two">
                                             <a href="course-details.html" class="shine__animate-link">
-                                                <img src="assets/img/courses/course_thumb01.jpg" alt="img">
+                                                <img src="public/assets/img/courses/course_thumb01.jpg"
+                                                    alt="img">
                                             </a>
                                         </div>
                                         <div class="courses__item-content courses__item-content-two">
@@ -593,7 +603,7 @@
                                             <div class="courses__item-content-bottom">
                                                 <div class="author-two">
                                                     <a href="instructor-details.html"><img
-                                                            src="assets/img/courses/course_author001.png"
+                                                            src="public/assets/img/courses/course_author001.png"
                                                             alt="img">David Millar</a>
                                                 </div>
                                                 <div class="avg-rating">
@@ -614,7 +624,8 @@
                                     <div class="courses__item courses__item-two shine__animate-item">
                                         <div class="courses__item-thumb courses__item-thumb-two">
                                             <a href="course-details.html" class="shine__animate-link">
-                                                <img src="assets/img/courses/course_thumb03.jpg" alt="img">
+                                                <img src="public/assets/img/courses/course_thumb03.jpg"
+                                                    alt="img">
                                             </a>
                                         </div>
                                         <div class="courses__item-content courses__item-content-two">
@@ -629,7 +640,7 @@
                                             <div class="courses__item-content-bottom">
                                                 <div class="author-two">
                                                     <a href="instructor-details.html"><img
-                                                            src="assets/img/courses/course_author003.png"
+                                                            src="public/assets/img/courses/course_author003.png"
                                                             alt="img">Warren</a>
                                                 </div>
                                                 <div class="avg-rating">
@@ -650,7 +661,8 @@
                                     <div class="courses__item courses__item-two shine__animate-item">
                                         <div class="courses__item-thumb courses__item-thumb-two">
                                             <a href="course-details.html" class="shine__animate-link">
-                                                <img src="assets/img/courses/course_thumb04.jpg" alt="img">
+                                                <img src="public/assets/img/courses/course_thumb04.jpg"
+                                                    alt="img">
                                             </a>
                                         </div>
                                         <div class="courses__item-content courses__item-content-two">
@@ -665,7 +677,7 @@
                                             <div class="courses__item-content-bottom">
                                                 <div class="author-two">
                                                     <a href="instructor-details.html"><img
-                                                            src="assets/img/courses/course_author004.png"
+                                                            src="public/assets/img/courses/course_author004.png"
                                                             alt="img">Robert Fox</a>
                                                 </div>
                                                 <div class="avg-rating">
@@ -686,7 +698,8 @@
                                     <div class="courses__item courses__item-two shine__animate-item">
                                         <div class="courses__item-thumb courses__item-thumb-two">
                                             <a href="course-details.html" class="shine__animate-link">
-                                                <img src="assets/img/courses/course_thumb05.jpg" alt="img">
+                                                <img src="public/assets/img/courses/course_thumb05.jpg"
+                                                    alt="img">
                                             </a>
                                         </div>
                                         <div class="courses__item-content courses__item-content-two">
@@ -701,7 +714,7 @@
                                             <div class="courses__item-content-bottom">
                                                 <div class="author-two">
                                                     <a href="instructor-details.html"><img
-                                                            src="assets/img/courses/course_author002.png"
+                                                            src="public/assets/img/courses/course_author002.png"
                                                             alt="img">Hawkins</a>
                                                 </div>
                                                 <div class="avg-rating">
@@ -729,7 +742,8 @@
                                     <div class="courses__item courses__item-two shine__animate-item">
                                         <div class="courses__item-thumb courses__item-thumb-two">
                                             <a href="course-details.html" class="shine__animate-link">
-                                                <img src="assets/img/courses/course_thumb03.jpg" alt="img">
+                                                <img src="public/assets/img/courses/course_thumb03.jpg"
+                                                    alt="img">
                                             </a>
                                         </div>
                                         <div class="courses__item-content courses__item-content-two">
@@ -744,7 +758,7 @@
                                             <div class="courses__item-content-bottom">
                                                 <div class="author-two">
                                                     <a href="instructor-details.html"><img
-                                                            src="assets/img/courses/course_author003.png"
+                                                            src="public/assets/img/courses/course_author003.png"
                                                             alt="img">Warren</a>
                                                 </div>
                                                 <div class="avg-rating">
@@ -765,7 +779,8 @@
                                     <div class="courses__item courses__item-two shine__animate-item">
                                         <div class="courses__item-thumb courses__item-thumb-two">
                                             <a href="course-details.html" class="shine__animate-link">
-                                                <img src="assets/img/courses/course_thumb01.jpg" alt="img">
+                                                <img src="public/assets/img/courses/course_thumb01.jpg"
+                                                    alt="img">
                                             </a>
                                         </div>
                                         <div class="courses__item-content courses__item-content-two">
@@ -780,7 +795,7 @@
                                             <div class="courses__item-content-bottom">
                                                 <div class="author-two">
                                                     <a href="instructor-details.html"><img
-                                                            src="assets/img/courses/course_author001.png"
+                                                            src="public/assets/img/courses/course_author001.png"
                                                             alt="img">David Millar</a>
                                                 </div>
                                                 <div class="avg-rating">
@@ -801,7 +816,8 @@
                                     <div class="courses__item courses__item-two shine__animate-item">
                                         <div class="courses__item-thumb courses__item-thumb-two">
                                             <a href="course-details.html" class="shine__animate-link">
-                                                <img src="assets/img/courses/course_thumb02.jpg" alt="img">
+                                                <img src="public/assets/img/courses/course_thumb02.jpg"
+                                                    alt="img">
                                             </a>
                                         </div>
                                         <div class="courses__item-content courses__item-content-two">
@@ -816,7 +832,7 @@
                                             <div class="courses__item-content-bottom">
                                                 <div class="author-two">
                                                     <a href="instructor-details.html"><img
-                                                            src="assets/img/courses/course_author002.png"
+                                                            src="public/assets/img/courses/course_author002.png"
                                                             alt="img">Wilson</a>
                                                 </div>
                                                 <div class="avg-rating">
@@ -837,7 +853,8 @@
                                     <div class="courses__item courses__item-two shine__animate-item">
                                         <div class="courses__item-thumb courses__item-thumb-two">
                                             <a href="course-details.html" class="shine__animate-link">
-                                                <img src="assets/img/courses/course_thumb04.jpg" alt="img">
+                                                <img src="public/assets/img/courses/course_thumb04.jpg"
+                                                    alt="img">
                                             </a>
                                         </div>
                                         <div class="courses__item-content courses__item-content-two">
@@ -852,7 +869,7 @@
                                             <div class="courses__item-content-bottom">
                                                 <div class="author-two">
                                                     <a href="instructor-details.html"><img
-                                                            src="assets/img/courses/course_author004.png"
+                                                            src="public/assets/img/courses/course_author004.png"
                                                             alt="img">Robert Fox</a>
                                                 </div>
                                                 <div class="avg-rating">
@@ -873,7 +890,8 @@
                                     <div class="courses__item courses__item-two shine__animate-item">
                                         <div class="courses__item-thumb courses__item-thumb-two">
                                             <a href="course-details.html" class="shine__animate-link">
-                                                <img src="assets/img/courses/course_thumb05.jpg" alt="img">
+                                                <img src="public/assets/img/courses/course_thumb05.jpg"
+                                                    alt="img">
                                             </a>
                                         </div>
                                         <div class="courses__item-content courses__item-content-two">
@@ -888,7 +906,7 @@
                                             <div class="courses__item-content-bottom">
                                                 <div class="author-two">
                                                     <a href="instructor-details.html"><img
-                                                            src="assets/img/courses/course_author002.png"
+                                                            src="public/assets/img/courses/course_author002.png"
                                                             alt="img">Hawkins</a>
                                                 </div>
                                                 <div class="avg-rating">
@@ -916,7 +934,8 @@
                                     <div class="courses__item courses__item-two shine__animate-item">
                                         <div class="courses__item-thumb courses__item-thumb-two">
                                             <a href="course-details.html" class="shine__animate-link">
-                                                <img src="assets/img/courses/course_thumb04.jpg" alt="img">
+                                                <img src="public/assets/img/courses/course_thumb04.jpg"
+                                                    alt="img">
                                             </a>
                                         </div>
                                         <div class="courses__item-content courses__item-content-two">
@@ -931,7 +950,7 @@
                                             <div class="courses__item-content-bottom">
                                                 <div class="author-two">
                                                     <a href="instructor-details.html"><img
-                                                            src="assets/img/courses/course_author004.png"
+                                                            src="public/assets/img/courses/course_author004.png"
                                                             alt="img">Robert Fox</a>
                                                 </div>
                                                 <div class="avg-rating">
@@ -952,7 +971,8 @@
                                     <div class="courses__item courses__item-two shine__animate-item">
                                         <div class="courses__item-thumb courses__item-thumb-two">
                                             <a href="course-details.html" class="shine__animate-link">
-                                                <img src="assets/img/courses/course_thumb01.jpg" alt="img">
+                                                <img src="public/assets/img/courses/course_thumb01.jpg"
+                                                    alt="img">
                                             </a>
                                         </div>
                                         <div class="courses__item-content courses__item-content-two">
@@ -967,7 +987,7 @@
                                             <div class="courses__item-content-bottom">
                                                 <div class="author-two">
                                                     <a href="instructor-details.html"><img
-                                                            src="assets/img/courses/course_author001.png"
+                                                            src="public/assets/img/courses/course_author001.png"
                                                             alt="img">David Millar</a>
                                                 </div>
                                                 <div class="avg-rating">
@@ -988,7 +1008,8 @@
                                     <div class="courses__item courses__item-two shine__animate-item">
                                         <div class="courses__item-thumb courses__item-thumb-two">
                                             <a href="course-details.html" class="shine__animate-link">
-                                                <img src="assets/img/courses/course_thumb02.jpg" alt="img">
+                                                <img src="public/assets/img/courses/course_thumb02.jpg"
+                                                    alt="img">
                                             </a>
                                         </div>
                                         <div class="courses__item-content courses__item-content-two">
@@ -1003,7 +1024,7 @@
                                             <div class="courses__item-content-bottom">
                                                 <div class="author-two">
                                                     <a href="instructor-details.html"><img
-                                                            src="assets/img/courses/course_author002.png"
+                                                            src="public/assets/img/courses/course_author002.png"
                                                             alt="img">Wilson</a>
                                                 </div>
                                                 <div class="avg-rating">
@@ -1024,7 +1045,8 @@
                                     <div class="courses__item courses__item-two shine__animate-item">
                                         <div class="courses__item-thumb courses__item-thumb-two">
                                             <a href="course-details.html" class="shine__animate-link">
-                                                <img src="assets/img/courses/course_thumb03.jpg" alt="img">
+                                                <img src="public/assets/img/courses/course_thumb03.jpg"
+                                                    alt="img">
                                             </a>
                                         </div>
                                         <div class="courses__item-content courses__item-content-two">
@@ -1039,7 +1061,7 @@
                                             <div class="courses__item-content-bottom">
                                                 <div class="author-two">
                                                     <a href="instructor-details.html"><img
-                                                            src="assets/img/courses/course_author003.png"
+                                                            src="public/assets/img/courses/course_author003.png"
                                                             alt="img">Warren</a>
                                                 </div>
                                                 <div class="avg-rating">
@@ -1060,7 +1082,8 @@
                                     <div class="courses__item courses__item-two shine__animate-item">
                                         <div class="courses__item-thumb courses__item-thumb-two">
                                             <a href="course-details.html" class="shine__animate-link">
-                                                <img src="assets/img/courses/course_thumb05.jpg" alt="img">
+                                                <img src="public/assets/img/courses/course_thumb05.jpg"
+                                                    alt="img">
                                             </a>
                                         </div>
                                         <div class="courses__item-content courses__item-content-two">
@@ -1075,7 +1098,7 @@
                                             <div class="courses__item-content-bottom">
                                                 <div class="author-two">
                                                     <a href="instructor-details.html"><img
-                                                            src="assets/img/courses/course_author002.png"
+                                                            src="public/assets/img/courses/course_author002.png"
                                                             alt="img">Hawkins</a>
                                                 </div>
                                                 <div class="avg-rating">
@@ -1099,7 +1122,7 @@
                 <div class="all-courses-btn mt-30">
                     <div class="tg-button-wrap justify-content-center">
                         <a href="courses.html" class="btn arrow-btn">See All Courses <img
-                                src="assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
+                                src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
                     </div>
                 </div>
             </div>
@@ -1112,8 +1135,9 @@
                 <div class="row align-items-center justify-content-center">
                     <div class="col-lg-6 col-md-9">
                         <div class="about__images work__images">
-                            <img src="assets/img/others/about_img.png" alt="img" class="main-img">
-                            <img src="assets/img/others/about_shape.svg" alt="img" class="shape alltuchtopdown">
+                            <img src="public/assets/img/others/about_img.png" alt="img" class="main-img">
+                            <img src="public/assets/img/others/about_shape.svg" alt="img"
+                                class="shape alltuchtopdown">
                             <a href="https://www.youtube.com/watch?v=b2Az7_lLh3g" class="popup-video">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="28"
                                     viewBox="0 0 22 28" fill="none">
@@ -1155,7 +1179,8 @@
                             </div>
                             <div class="tg-button-wrap">
                                 <a href="contact.html" class="btn arrow-btn">Quick Join Now <img
-                                        src="assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
+                                        src="public/assets/img/icons/right_arrow.svg" alt="img"
+                                        class="injectable"></a>
                             </div>
                         </div>
                     </div>
@@ -1195,13 +1220,14 @@
                                 </div>
                             </div>
                             <div class="fact__img-wrap tg-svg">
-                                <img src="assets/img/others/fact_img.png" alt="img">
+                                <img src="public/assets/img/others/fact_img.png" alt="img">
                                 <div class="shape-one">
-                                    <img src="assets/img/others/fact_shape01.svg" alt="img" class="injectable">
+                                    <img src="public/assets/img/others/fact_shape01.svg" alt="img"
+                                        class="injectable">
                                 </div>
                                 <div class="shape-two">
                                     <span class="svg-icon" id="fact-btn"
-                                        data-svg-icon="assets/img/others/fact_shape02.svg"></span>
+                                        data-svg-icon="public/assets/img/others/fact_shape02.svg"></span>
                                 </div>
                             </div>
                         </div>
@@ -1212,7 +1238,8 @@
         <!-- fact-area-two-end -->
 
         <!-- instructor-area -->
-        <section class="instructor__area-three instructor__bg" data-background="assets/img/bg/instructor_bg.jpg">
+        <section class="instructor__area-three instructor__bg"
+            data-background="public/assets/img/bg/instructor_bg.jpg">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-6 col-lg-8">
@@ -1229,9 +1256,10 @@
                                 <div class="swiper-slide">
                                     <div class="instructor__item-three">
                                         <div class="instructor__thumb-three">
-                                            <img src="assets/img/instructor/h2_instructor01.png" alt="img">
+                                            <img src="public/assets/img/instructor/h2_instructor01.png"
+                                                alt="img">
                                             <div class="shape-one">
-                                                <img src="assets/img/instructor/h2_instructor_img_shape01.svg"
+                                                <img src="public/assets/img/instructor/h2_instructor_img_shape01.svg"
                                                     alt="img" class="injectable">
                                             </div>
                                         </div>
@@ -1260,8 +1288,8 @@
                                             </div>
                                             <div class="tg-button-wrap">
                                                 <a href="instructor-details.html" class="btn arrow-btn">Join My
-                                                    Class <img src="assets/img/icons/right_arrow.svg" alt="img"
-                                                        class="injectable"></a>
+                                                    Class <img src="public/assets/img/icons/right_arrow.svg"
+                                                        alt="img" class="injectable"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -1269,9 +1297,10 @@
                                 <div class="swiper-slide">
                                     <div class="instructor__item-three">
                                         <div class="instructor__thumb-three">
-                                            <img src="assets/img/instructor/h2_instructor02.png" alt="img">
+                                            <img src="public/assets/img/instructor/h2_instructor02.png"
+                                                alt="img">
                                             <div class="shape-one">
-                                                <img src="assets/img/instructor/h2_instructor_img_shape01.svg"
+                                                <img src="public/assets/img/instructor/h2_instructor_img_shape01.svg"
                                                     alt="img" class="injectable">
                                             </div>
                                         </div>
@@ -1300,8 +1329,8 @@
                                             </div>
                                             <div class="tg-button-wrap">
                                                 <a href="instructor-details.html" class="btn arrow-btn">Join My
-                                                    Class <img src="assets/img/icons/right_arrow.svg" alt="img"
-                                                        class="injectable"></a>
+                                                    Class <img src="public/assets/img/icons/right_arrow.svg"
+                                                        alt="img" class="injectable"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -1309,9 +1338,10 @@
                                 <div class="swiper-slide">
                                     <div class="instructor__item-three">
                                         <div class="instructor__thumb-three">
-                                            <img src="assets/img/instructor/h2_instructor03.png" alt="img">
+                                            <img src="public/assets/img/instructor/h2_instructor03.png"
+                                                alt="img">
                                             <div class="shape-one">
-                                                <img src="assets/img/instructor/h2_instructor_img_shape01.svg"
+                                                <img src="public/assets/img/instructor/h2_instructor_img_shape01.svg"
                                                     alt="img" class="injectable">
                                             </div>
                                         </div>
@@ -1340,8 +1370,8 @@
                                             </div>
                                             <div class="tg-button-wrap">
                                                 <a href="instructor-details.html" class="btn arrow-btn">Join My
-                                                    Class <img src="assets/img/icons/right_arrow.svg" alt="img"
-                                                        class="injectable"></a>
+                                                    Class <img src="public/assets/img/icons/right_arrow.svg"
+                                                        alt="img" class="injectable"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -1349,9 +1379,10 @@
                                 <div class="swiper-slide">
                                     <div class="instructor__item-three">
                                         <div class="instructor__thumb-three">
-                                            <img src="assets/img/instructor/h2_instructor04.png" alt="img">
+                                            <img src="public/assets/img/instructor/h2_instructor04.png"
+                                                alt="img">
                                             <div class="shape-one">
-                                                <img src="assets/img/instructor/h2_instructor_img_shape01.svg"
+                                                <img src="public/assets/img/instructor/h2_instructor_img_shape01.svg"
                                                     alt="img" class="injectable">
                                             </div>
                                         </div>
@@ -1380,8 +1411,8 @@
                                             </div>
                                             <div class="tg-button-wrap">
                                                 <a href="instructor-details.html" class="btn arrow-btn">Join My
-                                                    Class <img src="assets/img/icons/right_arrow.svg" alt="img"
-                                                        class="injectable"></a>
+                                                    Class <img src="public/assets/img/icons/right_arrow.svg"
+                                                        alt="img" class="injectable"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -1389,9 +1420,10 @@
                                 <div class="swiper-slide">
                                     <div class="instructor__item-three">
                                         <div class="instructor__thumb-three">
-                                            <img src="assets/img/instructor/h2_instructor05.png" alt="img">
+                                            <img src="public/assets/img/instructor/h2_instructor05.png"
+                                                alt="img">
                                             <div class="shape-one">
-                                                <img src="assets/img/instructor/h2_instructor_img_shape01.svg"
+                                                <img src="public/assets/img/instructor/h2_instructor_img_shape01.svg"
                                                     alt="img" class="injectable">
                                             </div>
                                         </div>
@@ -1420,8 +1452,8 @@
                                             </div>
                                             <div class="tg-button-wrap">
                                                 <a href="instructor-details.html" class="btn arrow-btn">Join My
-                                                    Class <img src="assets/img/icons/right_arrow.svg" alt="img"
-                                                        class="injectable"></a>
+                                                    Class <img src="public/assets/img/icons/right_arrow.svg"
+                                                        alt="img" class="injectable"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -1429,9 +1461,10 @@
                                 <div class="swiper-slide">
                                     <div class="instructor__item-three">
                                         <div class="instructor__thumb-three">
-                                            <img src="assets/img/instructor/h2_instructor04.png" alt="img">
+                                            <img src="public/assets/img/instructor/h2_instructor04.png"
+                                                alt="img">
                                             <div class="shape-one">
-                                                <img src="assets/img/instructor/h2_instructor_img_shape01.svg"
+                                                <img src="public/assets/img/instructor/h2_instructor_img_shape01.svg"
                                                     alt="img" class="injectable">
                                             </div>
                                         </div>
@@ -1460,8 +1493,8 @@
                                             </div>
                                             <div class="tg-button-wrap">
                                                 <a href="instructor-details.html" class="btn arrow-btn">Join My
-                                                    Class <img src="assets/img/icons/right_arrow.svg" alt="img"
-                                                        class="injectable"></a>
+                                                    Class <img src="public/assets/img/icons/right_arrow.svg"
+                                                        alt="img" class="injectable"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -1469,9 +1502,10 @@
                                 <div class="swiper-slide">
                                     <div class="instructor__item-three">
                                         <div class="instructor__thumb-three">
-                                            <img src="assets/img/instructor/h2_instructor03.png" alt="img">
+                                            <img src="public/assets/img/instructor/h2_instructor03.png"
+                                                alt="img">
                                             <div class="shape-one">
-                                                <img src="assets/img/instructor/h2_instructor_img_shape01.svg"
+                                                <img src="public/assets/img/instructor/h2_instructor_img_shape01.svg"
                                                     alt="img" class="injectable">
                                             </div>
                                         </div>
@@ -1501,8 +1535,8 @@
                                             </div>
                                             <div class="tg-button-wrap">
                                                 <a href="instructor-details.html" class="btn arrow-btn">Join My
-                                                    Class <img src="assets/img/icons/right_arrow.svg" alt="img"
-                                                        class="injectable"></a>
+                                                    Class <img src="public/assets/img/icons/right_arrow.svg"
+                                                        alt="img" class="injectable"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -1517,31 +1551,31 @@
                             <div class="swiper instructor-nav">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
-                                        <button><img src="assets/img/instructor/instructor_nav01.png"
+                                        <button><img src="public/assets/img/instructor/instructor_nav01.png"
                                                 alt="img"></button>
                                     </div>
                                     <div class="swiper-slide">
-                                        <button><img src="assets/img/instructor/instructor_nav02.png"
+                                        <button><img src="public/assets/img/instructor/instructor_nav02.png"
                                                 alt="img"></button>
                                     </div>
                                     <div class="swiper-slide">
-                                        <button><img src="assets/img/instructor/instructor_nav03.png"
+                                        <button><img src="public/assets/img/instructor/instructor_nav03.png"
                                                 alt="img"></button>
                                     </div>
                                     <div class="swiper-slide">
-                                        <button><img src="assets/img/instructor/instructor_nav04.png"
+                                        <button><img src="public/assets/img/instructor/instructor_nav04.png"
                                                 alt="img"></button>
                                     </div>
                                     <div class="swiper-slide">
-                                        <button><img src="assets/img/instructor/h2_instructor05.png"
+                                        <button><img src="public/assets/img/instructor/h2_instructor05.png"
                                                 alt="img"></button>
                                     </div>
                                     <div class="swiper-slide">
-                                        <button><img src="assets/img/instructor/instructor_nav04.png"
+                                        <button><img src="public/assets/img/instructor/instructor_nav04.png"
                                                 alt="img"></button>
                                     </div>
                                     <div class="swiper-slide">
-                                        <button><img src="assets/img/instructor/instructor_nav03.png"
+                                        <button><img src="public/assets/img/instructor/instructor_nav03.png"
                                                 alt="img"></button>
                                     </div>
                                 </div>
@@ -1555,7 +1589,8 @@
                 </div>
             </div>
             <div class="instructor__shape">
-                <img src="assets/img/instructor/h2_instructor_shape.png" alt="img" class="alltuchtopdown">
+                <img src="public/assets/img/instructor/h2_instructor_shape.png" alt="img"
+                    class="alltuchtopdown">
             </div>
         </section>
         <!-- instructor-area-end -->
@@ -1566,10 +1601,10 @@
                 <div class="row align-items-center">
                     <div class="col-lg-4">
                         <div class="newsletter__img-wrap">
-                            <img src="assets/img/others/newsletter_img.png" alt="img">
-                            <img src="assets/img/others/newsletter_shape01.png" alt="img" data-aos="fade-up"
-                                data-aos-delay="400">
-                            <img src="assets/img/others/newsletter_shape02.png" alt="img"
+                            <img src="public/assets/img/others/newsletter_img.png" alt="img">
+                            <img src="public/assets/img/others/newsletter_shape01.png" alt="img"
+                                data-aos="fade-up" data-aos-delay="400">
+                            <img src="public/assets/img/others/newsletter_shape02.png" alt="img"
                                 class="alltuchtopdown">
                         </div>
                     </div>
@@ -1588,7 +1623,7 @@
                 </div>
             </div>
             <div class="newsletter__shape">
-                <img src="assets/img/others/newsletter_shape03.png" alt="img" data-aos="fade-left"
+                <img src="public/assets/img/others/newsletter_shape03.png" alt="img" data-aos="fade-left"
                     data-aos-delay="400">
             </div>
         </section>
@@ -1609,7 +1644,7 @@
                                     centuries.Edhen anderely unknown printer took a galley.</p>
                                 <div class="tg-button-wrap">
                                     <a href="events.html" class="btn arrow-btn">See All Events <img
-                                            src="assets/img/icons/right_arrow.svg" alt="img"
+                                            src="public/assets/img/icons/right_arrow.svg" alt="img"
                                             class="injectable"></a>
                                 </div>
                             </div>
@@ -1621,7 +1656,7 @@
                                         <div class="event__item shine__animate-item">
                                             <div class="event__item-thumb">
                                                 <a href="events-details.html" class="shine__animate-link"><img
-                                                        src="assets/img/events/event_thumb01.jpg"
+                                                        src="public/assets/img/events/event_thumb01.jpg"
                                                         alt="img"></a>
                                             </div>
                                             <div class="event__item-content">
@@ -1637,7 +1672,7 @@
                                         <div class="event__item shine__animate-item">
                                             <div class="event__item-thumb">
                                                 <a href="events-details.html" class="shine__animate-link"><img
-                                                        src="assets/img/events/event_thumb02.jpg"
+                                                        src="public/assets/img/events/event_thumb02.jpg"
                                                         alt="img"></a>
                                             </div>
                                             <div class="event__item-content">
@@ -1653,7 +1688,7 @@
                                         <div class="event__item shine__animate-item">
                                             <div class="event__item-thumb">
                                                 <a href="events-details.html" class="shine__animate-link"><img
-                                                        src="assets/img/events/event_thumb03.jpg"
+                                                        src="public/assets/img/events/event_thumb03.jpg"
                                                         alt="img"></a>
                                             </div>
                                             <div class="event__item-content">
@@ -1672,7 +1707,7 @@
                 </div>
             </div>
             <div class="event__shape">
-                <img src="assets/img/events/event_shape.png" alt="img" class="alltuchtopdown">
+                <img src="public/assets/img/events/event_shape.png" alt="img" class="alltuchtopdown">
             </div>
         </section>
         <!-- event-area-end -->
@@ -1694,7 +1729,7 @@
                         <div class="blog__post-item shine__animate-item">
                             <div class="blog__post-thumb">
                                 <a href="blog-details.html" class="shine__animate-link"><img
-                                        src="assets/img/blog/blog_post01.jpg" alt="img"></a>
+                                        src="public/assets/img/blog/blog_post01.jpg" alt="img"></a>
                                 <a href="blog.html" class="post-tag">Marketing</a>
                             </div>
                             <div class="blog__post-content">
@@ -1714,7 +1749,7 @@
                         <div class="blog__post-item shine__animate-item">
                             <div class="blog__post-thumb">
                                 <a href="blog-details.html" class="shine__animate-link"><img
-                                        src="assets/img/blog/blog_post02.jpg" alt="img"></a>
+                                        src="public/assets/img/blog/blog_post02.jpg" alt="img"></a>
                                 <a href="blog.html" class="post-tag">Students</a>
                             </div>
                             <div class="blog__post-content">
@@ -1734,7 +1769,7 @@
                         <div class="blog__post-item shine__animate-item">
                             <div class="blog__post-thumb">
                                 <a href="blog-details.html" class="shine__animate-link"><img
-                                        src="assets/img/blog/blog_post03.jpg" alt="img"></a>
+                                        src="public/assets/img/blog/blog_post03.jpg" alt="img"></a>
                                 <a href="blog.html" class="post-tag">Science</a>
                             </div>
                             <div class="blog__post-content">
@@ -1754,7 +1789,7 @@
                         <div class="blog__post-item shine__animate-item">
                             <div class="blog__post-thumb">
                                 <a href="blog-details.html" class="shine__animate-link"><img
-                                        src="assets/img/blog/blog_post04.jpg" alt="img"></a>
+                                        src="public/assets/img/blog/blog_post04.jpg" alt="img"></a>
                                 <a href="blog.html" class="post-tag">Agency</a>
                             </div>
                             <div class="blog__post-content">
@@ -1783,14 +1818,14 @@
                         <div class="col-xl-6">
                             <div class="instructor__item-two tg-svg">
                                 <div class="instructor__thumb-two">
-                                    <img src="assets/img/instructor/instructor_two01.png" alt="img">
+                                    <img src="public/assets/img/instructor/instructor_two01.png" alt="img">
                                     <div class="shape-one">
-                                        <img src="assets/img/instructor/instructor_shape01.svg" alt="img"
-                                            class="injectable">
+                                        <img src="public/assets/img/instructor/instructor_shape01.svg"
+                                            alt="img" class="injectable">
                                     </div>
                                     <div class="shape-two">
                                         <span class="svg-icon" id="instructor-svg"
-                                            data-svg-icon="assets/img/instructor/instructor_shape02.svg"></span>
+                                            data-svg-icon="public/assets/img/instructor/instructor_shape02.svg"></span>
                                     </div>
                                 </div>
                                 <div class="instructor__content-two">
@@ -1799,7 +1834,7 @@
                                         happen here.</p>
                                     <div class="tg-button-wrap">
                                         <a href="contact.html" class="btn arrow-btn">Apply Now <img
-                                                src="assets/img/icons/right_arrow.svg" alt="img"
+                                                src="public/assets/img/icons/right_arrow.svg" alt="img"
                                                 class="injectable"></a>
                                     </div>
                                 </div>
@@ -1808,14 +1843,14 @@
                         <div class="col-xl-6">
                             <div class="instructor__item-two tg-svg">
                                 <div class="instructor__thumb-two">
-                                    <img src="assets/img/instructor/instructor_two02.png" alt="img">
+                                    <img src="public/assets/img/instructor/instructor_two02.png" alt="img">
                                     <div class="shape-one">
-                                        <img src="assets/img/instructor/instructor_shape01.svg" alt="img"
-                                            class="injectable">
+                                        <img src="public/assets/img/instructor/instructor_shape01.svg"
+                                            alt="img" class="injectable">
                                     </div>
                                     <div class="shape-two">
                                         <span class="svg-icon" id="instructor-svg-two"
-                                            data-svg-icon="assets/img/instructor/instructor_shape02.svg"></span>
+                                            data-svg-icon="public/assets/img/instructor/instructor_shape02.svg"></span>
                                     </div>
                                 </div>
                                 <div class="instructor__content-two">
@@ -1824,7 +1859,7 @@
                                     </p>
                                     <div class="tg-button-wrap">
                                         <a href="contact.html" class="btn arrow-btn">Apply Now <img
-                                                src="assets/img/icons/right_arrow.svg" alt="img"
+                                                src="public/assets/img/icons/right_arrow.svg" alt="img"
                                                 class="injectable"></a>
                                     </div>
                                 </div>
