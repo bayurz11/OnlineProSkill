@@ -151,7 +151,7 @@
                                  </ul>
                              </div>
                              <div class="mobile-login-btn">
-                                 <a href="login.html"><img src="assets/img/icons/user.svg" alt=""
+                                 <a href="login.html"><img src="public/assets/img/icons/user.svg" alt=""
                                          class="injectable"></a>
                              </div>
                              <div class="mobile-nav-toggler"><i class="tg-flaticon-menu-1"></i></div>
