@@ -186,8 +186,9 @@
                                  </ul>
                              </div>
                              <div class="auth-links" style="text-align: center; margin-top: 10px;">
-                                 <a href="login.html" class="btn btn-primary"
-                                     style="margin-right: 10px; color: white;">Masuk</a>
+                                 <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                     class="btn"
+                                     style="background-color: white; color: black; border: 1px solid black;">Masuk</a>
                                  <a href="register.html" class="btn btn-secondary">Daftar</a>
                              </div>
                          </nav>
