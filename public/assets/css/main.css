@@ -47,9 +47,10 @@
   --tg-body-font-size: 16px;
   --tg-body-line-height: 1.75;
   --tg-heading-line-height: 1.3;
-  --tg-body-color: #6D6C80;
+  --tg-body-color: #6D6C80; 
   --tg-heading-color: #161439;
-  --tg-theme-primary: #5751E1;
+  /* --tg-theme-primary: #5751E1; */
+  --tg-theme-primary: #007F73;
   --tg-theme-secondary: #FFC224;
   --tg-common-color-blue: #050071;
   --tg-common-color-blue-2: #282568;
@@ -13710,10 +13711,12 @@ textarea {
   box-shadow: 8px 8px 0px 0px #D9D5F1;
 }
 .features__item-wrap .row [class*=col-]:nth-child(2) .features__item-two .features__icon-two {
-  background: #5751E1;
+  background: #007F73;
+  /* background: #5751E1; */
 }
 .features__item-wrap .row [class*=col-]:nth-child(2) .features__item-two:hover .features__item-shape {
-  color: #5751E1;
+  color: #007F73;
+  /* color: #5751E1; */
 }
 .features__item-wrap .row [class*=col-]:nth-child(3) .features__item-two {
   border: 1px solid #EBE0C4;
