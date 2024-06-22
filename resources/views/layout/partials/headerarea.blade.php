@@ -13,31 +13,47 @@
                              </div>
                              <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-xl-flex">
                                  <ul class="navigation">
-                                     <li class="active"><a href="{{ route('/') }}">Beranda</a>
+                                     <li class="{{ Request::is('/') ? 'active' : '' }}">
+                                         <a href="{{ route('/') }}"> <span
+                                                 {{ Request::is('/') ? 'style=color:#028E83;' : '' }}>Beranda</span></a>
                                      </li>
-                                     <li class="menu-item-has-children"><a href="#">Kelas</a>
+                                     <li class="menu-item-has-children {{ Request::is('kelas*') ? 'active' : '' }}">
+                                         <a href="#">Kelas</a>
                                          <ul class="sub-menu">
-                                             <li><a href="#">Kelas Tatap Muka</a></li>
-                                             <li><a href="#">Kelas Online</a></li>
+                                             <li class="{{ Request::is('kelas/tatap-muka') ? 'active' : '' }}">
+                                                 <a href="#">Kelas Tatap Muka</a>
+                                             </li>
+                                             <li class="{{ Request::is('kelas/online') ? 'active' : '' }}">
+                                                 <a href="#">Kelas Online</a>
+                                             </li>
                                          </ul>
                                      </li>
+                                     <li class="{{ Request::is('event') ? 'active' : '' }}">
+                                         <a href="">Event</a>
                                      </li>
-                                     <li><a href="">Event</a>
+                                     <li class="{{ Request::is('artikel') ? 'active' : '' }}">
+                                         <a href="">Artikel</a>
                                      </li>
-                                     <li><a href="">Artikel</a>
-                                     </li>
-
-                                     <li class="menu-item-has-children"><a href="#">Profil</a>
+                                     <li class="menu-item-has-children {{ Request::is('profil*') ? 'active' : '' }}">
+                                         <a href="#">Profil</a>
                                          <ul class="sub-menu">
-                                             <li><a href="about-us.html">Tantang Kami</a></li>
-                                             <li><a href="login.html">Contoh Sertifikat</a></li>
-                                             <li><a href="registration.html">Brosur</a></li>
-                                             <li><a href="404.html">Hubungi kami</a></li>
-
+                                             <li class="{{ Request::is('about-us') ? 'active' : '' }}">
+                                                 <a href="about-us.html">Tantang Kami</a>
+                                             </li>
+                                             <li class="{{ Request::is('login') ? 'active' : '' }}">
+                                                 <a href="login.html">Contoh Sertifikat</a>
+                                             </li>
+                                             <li class="{{ Request::is('registration') ? 'active' : '' }}">
+                                                 <a href="registration.html">Brosur</a>
+                                             </li>
+                                             <li class="{{ Request::is('404') ? 'active' : '' }}">
+                                                 <a href="404.html">Hubungi kami</a>
+                                             </li>
                                          </ul>
                                      </li>
                                  </ul>
                              </div>
+
                              <div class="tgmenu__search d-none d-md-block">
                                  <form action="#" class="tgmenu__search-form">
                                      <div class="select-grp">
