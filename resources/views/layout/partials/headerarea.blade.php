@@ -222,20 +222,12 @@
                              <div class="tgmobile__menu-outer">
                                  <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
                              </div>
-                             <div class="tgmenu__action tgmenu__action-two">
-                                 <ul class="list-wrap">
-                                     <li class="header-btn login-btn">
-                                         <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                             class="btn"
-                                             style="background-color: white; color: black; border: 1px solid black;">Masuk</a>
-                                     </li>
 
-                                     @include('home.modal.login')
-                                     <li class="header-btn login-btn">
-                                         <a href="contact.html" class="btn">Daftar</a>
-                                     </li>
-                                 </ul>
+                             <div class="tgmobile__auth-buttons">
+                                 <a href="login.html" class="tgmobile__login-btn">Masuk</a>
+                                 <a href="register.html" class="tgmobile__register-btn">Daftar</a>
                              </div>
+
                              <div class="social-links">
                                  <ul class="list-wrap">
                                      <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -249,6 +241,7 @@
                      </div>
                      <div class="tgmobile__menu-backdrop"></div>
                      <!-- End Mobile Menu -->
+
                  </div>
              </div>
          </div>
