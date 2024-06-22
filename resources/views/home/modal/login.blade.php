@@ -15,6 +15,7 @@
                     <span>or</span>
                 </div>
                 <form action="{{ route('login') }}" class="account__form">
+                    @csrf
                     <div class="form-grp">
                         <label for="email">Email</label>
                         <input id="email" type="text" placeholder="email" name="email">
