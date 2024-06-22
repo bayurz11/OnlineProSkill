@@ -63,15 +63,16 @@
             data-aos="fade-right" data-aos-delay="1600">
     </section> --}}
     <section class="banner-area-two banner-bg-two tg-motion-effects"
-        data-background="public/assets/img/banner/banner_bg02.png" style="max-width: 677px; height: 224px; margin: 0 auto;">
+        data-background="public/assets/img/banner/banner_bg02.png" style="max-width: 100%; height: auto; margin: 0 auto;">
         <div class="container" style="width: 100%; height: 100%;">
 
             <div class="swiper-container instructor-nav" style="width: 100%; height: 100%;">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide" style="width: 100%; height: 100%;">
-                        <div class="banner__images-two tg-svg" style="position: relative; width: 100%; height: 100%;">
+                        <div class="banner__images-two tg-svg"
+                            style="position: relative; width: 100%; height: 100%; max-height: 224px;">
                             <img src="public/assets/img/banner/h2_banner_img.png" alt="img" class="main-img"
-                                style="width: 100%; height: 100%; object-fit: cover;">
+                                style="width: 100%; height: 100%; object-fit: cover; max-height: 224px;">
                         </div>
                     </div>
                     <!-- Add more slides as needed -->
@@ -82,13 +83,13 @@
                 </div>
                 <!-- Add Pagination -->
                 <div class="swiper-pagination"></div>
-
             </div>
 
         </div>
         <img src="public/assets/img/banner/h2_banner_shape03.svg" alt="shape" class="line-shape-two"
             data-aos="fade-right" data-aos-delay="1600" style="position: absolute; top: 10px; left: 10px; width: 50px;">
     </section>
+
 
     <!-- Add Swiper.js CDN -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
