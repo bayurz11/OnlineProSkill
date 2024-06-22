@@ -14,8 +14,7 @@
                              <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-xl-flex">
                                  <ul class="navigation">
                                      <li class="{{ Request::is('/') ? 'active' : '' }}">
-                                         <a href="{{ route('/') }}"> <span
-                                                 {{ Request::is('/') ? 'style=color:#028E83;' : '' }}>Beranda</span></a>
+                                         <a href="{{ route('/') }}"> Beranda</a>
                                      </li>
                                      <li class="menu-item-has-children {{ Request::is('kelas*') ? 'active' : '' }}">
                                          <a href="#">Kelas</a>
