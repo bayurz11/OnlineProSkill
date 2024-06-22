@@ -62,7 +62,7 @@
         style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 9999; cursor: move;"
         ontouchstart="handleTouchStart(event)" ontouchmove="handleTouchMove(event)">
         <a href="https://wa.me/6281266187125?" target="_blank">
-            <img src="public/assets/img/Whatsapp.png" alt="WhatsApp Icon" style="width: 50px; height: auto;"
+            <img src="public/assets/img/whatsapp.png" alt="WhatsApp Icon" style="width: 50px; height: auto;"
                 loading="lazy">
         </a>
         <div id="popup-message"
