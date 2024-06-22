@@ -1,6 +1,9 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
             <div class="singUp-wrap">
                 <h2 class="title">Welcome back!</h2>
                 <p>Hey there! Ready to log in? Just enter your username and password below and you'll be back in action
