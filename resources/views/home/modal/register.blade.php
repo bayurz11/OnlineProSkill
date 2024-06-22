@@ -9,7 +9,7 @@
                         Let's do this!</p>
                     <div class="account__social">
                         <a href="#" class="account__social-btn">
-                            <img src="assets/img/icons/google.svg" alt="img">
+                            <img src="public/assets/img/icons/google.svg" alt="img">
                             Continue with google
                         </a>
                     </div>
@@ -44,10 +44,12 @@
                             <input type="password" id="confirm-password" placeholder="Confirm Password">
                         </div>
                         <button type="submit" class="btn btn-two arrow-btn">Sign Up<img
-                                src="assets/img/icons/right_arrow.svg" alt="img" class="injectable"></button>
+                                src="public/assets/img/icons/right_arrow.svg" alt="img"
+                                class="injectable"></button>
                     </form>
                     <div class="account__switch">
-                        <p>Already have an account?<a href="login.html">Login</a></p>
+                        <p>Apakah anda sudah memiliki akun?<a href="#" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">Masuk</a></p>
                     </div>
                 </div>
             </div>
