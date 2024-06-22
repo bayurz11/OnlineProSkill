@@ -15,94 +15,20 @@
                                  <ul class="navigation">
                                      <li class="active"><a href="{{ route('/') }}">Beranda</a>
                                      </li>
-                                     <li class=""><a href="">Kelas Tatap Muka</a>
+                                     <li class=""><a href="">Kelas Tatap Muka</a></li>
                                      <li class=""><a href="">Kelas Online</a>
                                      </li>
-                                     <li class="menu-item-has-children"><a href="#">Courses</a>
-                                         <ul class="sub-menu">
-                                             <li><a href="courses.html">All Courses</a></li>
-                                             <li><a href="course-details.html">Course Details</a></li>
-                                             <li><a href="lesson.html">Course Lesson</a></li>
-                                         </ul>
+                                     <li class=""><a href="">Event</a>
                                      </li>
-                                     <li class="menu-item-has-children"><a href="#">Pages</a>
-                                         <ul class="sub-menu">
-                                             <li><a href="about-us.html">About Us</a></li>
-                                             <li class="menu-item-has-children">
-                                                 <a href="instructors.html">Our Instructors</a>
-                                                 <ul class="sub-menu">
-                                                     <li><a href="instructors.html">Our Instructors</a></li>
-                                                     <li><a href="instructor-details.html">Instructor Details</a>
-                                                     </li>
-                                                 </ul>
-                                             </li>
-                                             <li class="menu-item-has-children">
-                                                 <a href="events.html">Our Events</a>
-                                                 <ul class="sub-menu">
-                                                     <li><a href="events.html">Our Events</a></li>
-                                                     <li><a href="events-details.html">Event Details</a></li>
-                                                 </ul>
-                                             </li>
-                                             <li class="menu-item-has-children">
-                                                 <a href="shop.html">Shop</a>
-                                                 <ul class="sub-menu">
-                                                     <li><a href="shop.html">Shop Page</a></li>
-                                                     <li><a href="shop-details.html">Shop Details</a></li>
-                                                     <li><a href="cart.html">Cart Page</a></li>
-                                                     <li><a href="check-out.html">Checkout</a></li>
-                                                 </ul>
-                                             </li>
-                                             <li class="menu-item-has-children">
-                                                 <a href="blog.html">Blog</a>
-                                                 <ul class="sub-menu">
-                                                     <li><a href="blog.html">Blog Right Sidebar</a></li>
-                                                     <li><a href="blog-2.html">Blog Left Sidebar</a></li>
-                                                     <li><a href="blog-3.html">Blog Full Width</a></li>
-                                                     <li><a href="blog-details.html">Blog Details</a></li>
-                                                 </ul>
-                                             </li>
-                                             <li><a href="login.html">Student Login</a></li>
-                                             <li><a href="registration.html">Student Registration</a></li>
-                                             <li><a href="404.html">404 Page</a></li>
-                                             <li><a href="contact.html">contact</a></li>
-                                         </ul>
+                                     <li class=""><a href="">Artikel</a>
                                      </li>
-                                     <li class="menu-item-has-children"><a href="#">Dashboard</a>
+
+                                     <li class="menu-item-has-children"><a href="#">Profil</a>
                                          <ul class="sub-menu">
-                                             <li class="menu-item-has-children">
-                                                 <a href="instructor-dashboard.html">Instructor Dashboard</a>
-                                                 <ul class="sub-menu">
-                                                     <li><a href="instructor-dashboard.html">Dashboard</a></li>
-                                                     <li><a href="instructor-profile.html">Profile</a></li>
-                                                     <li><a href="instructor-enrolled-courses.html">Enrolled
-                                                             Courses</a></li>
-                                                     <li><a href="instructor-wishlist.html">Wishlist</a></li>
-                                                     <li><a href="instructor-review.html">Reviews</a></li>
-                                                     <li><a href="instructor-attempts.html">My Quiz Attempts</a>
-                                                     </li>
-                                                     <li><a href="instructor-history.html">Order History</a></li>
-                                                     <li><a href="instructor-courses.html">My Course</a></li>
-                                                     <li><a href="instructor-announcement.html">Announcements</a>
-                                                     </li>
-                                                     <li><a href="instructor-quiz.html">Quiz Attempts</a></li>
-                                                     <li><a href="instructor-assignment.html">Assignments</a></li>
-                                                     <li><a href="instructor-setting.html">Settings</a></li>
-                                                 </ul>
-                                             </li>
-                                             <li class="menu-item-has-children"><a href="student-dashboard.html">Student
-                                                     Dashboard</a>
-                                                 <ul class="sub-menu">
-                                                     <li><a href="student-dashboard.html">Dashboard</a></li>
-                                                     <li><a href="student-profile.html">Profile</a></li>
-                                                     <li><a href="student-enrolled-courses.html">Enrolled
-                                                             Courses</a></li>
-                                                     <li><a href="student-wishlist.html">Wishlist</a></li>
-                                                     <li><a href="student-review.html">Reviews</a></li>
-                                                     <li><a href="student-attempts.html">My Quiz Attempts</a></li>
-                                                     <li><a href="student-history.html">Order History</a></li>
-                                                     <li><a href="student-setting.html">Settings</a></li>
-                                                 </ul>
-                                             </li>
+                                             <li><a href="about-us.html">Tentang Kami</a></li>
+                                             <li><a href="registration.html">Contoh Sertifikat</a></li>
+                                             <li><a href="404.html">Brosur</a></li>
+                                             <li><a href="contact.html">Hubungi Kami</a></li>
                                          </ul>
                                      </li>
                                  </ul>
@@ -149,8 +75,8 @@
 
 
                                      <li class="header-btn login-btn">
-                                         <a href="#" data-bs-toggle="modal"
-                                             data-bs-target="#exampleModalDaftar" class="btn">Daftar</a>
+                                         <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalDaftar"
+                                             class="btn">Daftar</a>
                                      </li>
                                  </ul>
                              </div>
