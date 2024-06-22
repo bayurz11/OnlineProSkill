@@ -89,6 +89,72 @@
                         </div>
                     </div>
                 </div>
+                <div class="banner__images-two tg-svg">
+                    <img src="public/assets/img/banner/h2_banner_img.png" alt="img" class="main-img">
+                    <div class="shape big-shape" data-aos="fade-up" data-aos-delay="600">
+                        <img src="public/assets/img/banner/h2_banner_shape01.svg" alt="shape"
+                            class="injectable tg-motion-effects1">
+                    </div>
+                    <span class="svg-icon" id="banner-svg"
+                        data-svg-icon="public/assets/img/banner/h2_banner_shape02.svg"></span>
+                    <div class="about__enrolled" data-aos="fade-right" data-aos-delay="200">
+                        <p class="title"><span>36K+</span> Enrolled Students</p>
+                        <img src="public/assets/img/others/student_grp.png" alt="img">
+                    </div>
+                    <div class="banner__student" data-aos="fade-left" data-aos-delay="200">
+                        <div class="icon">
+                            <img src="public/assets/img/banner/h2_banner_icon.svg" alt="img" class="injectable">
+                        </div>
+                        <div class="content">
+                            <span>Total Students</span>
+                            <h4 class="title">15K</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="banner__images-two tg-svg">
+                    <img src="public/assets/img/banner/h2_banner_img.png" alt="img" class="main-img">
+                    <div class="shape big-shape" data-aos="fade-up" data-aos-delay="600">
+                        <img src="public/assets/img/banner/h2_banner_shape01.svg" alt="shape"
+                            class="injectable tg-motion-effects1">
+                    </div>
+                    <span class="svg-icon" id="banner-svg"
+                        data-svg-icon="public/assets/img/banner/h2_banner_shape02.svg"></span>
+                    <div class="about__enrolled" data-aos="fade-right" data-aos-delay="200">
+                        <p class="title"><span>36K+</span> Enrolled Students</p>
+                        <img src="public/assets/img/others/student_grp.png" alt="img">
+                    </div>
+                    <div class="banner__student" data-aos="fade-left" data-aos-delay="200">
+                        <div class="icon">
+                            <img src="public/assets/img/banner/h2_banner_icon.svg" alt="img" class="injectable">
+                        </div>
+                        <div class="content">
+                            <span>Total Students</span>
+                            <h4 class="title">15K</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="banner__images-two tg-svg">
+                    <img src="public/assets/img/banner/h2_banner_img.png" alt="img" class="main-img">
+                    <div class="shape big-shape" data-aos="fade-up" data-aos-delay="600">
+                        <img src="public/assets/img/banner/h2_banner_shape01.svg" alt="shape"
+                            class="injectable tg-motion-effects1">
+                    </div>
+                    <span class="svg-icon" id="banner-svg"
+                        data-svg-icon="public/assets/img/banner/h2_banner_shape02.svg"></span>
+                    <div class="about__enrolled" data-aos="fade-right" data-aos-delay="200">
+                        <p class="title"><span>36K+</span> Enrolled Students</p>
+                        <img src="public/assets/img/others/student_grp.png" alt="img">
+                    </div>
+                    <div class="banner__student" data-aos="fade-left" data-aos-delay="200">
+                        <div class="icon">
+                            <img src="public/assets/img/banner/h2_banner_icon.svg" alt="img" class="injectable">
+                        </div>
+                        <div class="content">
+                            <span>Total Students</span>
+                            <h4 class="title">15K</h4>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="instructor__nav-two">
                 <div class="instructor-button-prev"><i class="flaticon-arrow-right"></i></div>
