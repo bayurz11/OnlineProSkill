@@ -72,18 +72,6 @@
                         <div class="banner__images-two tg-svg" style="position: relative; width: 100%; height: 100%;">
                             <img src="public/assets/img/banner/h2_banner_img.png" alt="img" class="main-img"
                                 style="width: 100%; height: 100%; object-fit: cover;">
-
-                            <div class="banner__student" data-aos="fade-left" data-aos-delay="200"
-                                style="position: absolute; bottom: 20px; right: 10px;">
-                                <div class="icon" style="display: inline-block;">
-                                    <img src="public/assets/img/banner/h2_banner_icon.svg" alt="img" class="injectable"
-                                        style="width: 30px;">
-                                </div>
-                                <div class="content" style="display: inline-block; vertical-align: top; margin-left: 5px;">
-                                    <span>Total Students</span>
-                                    <h4 class="title">15K</h4>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <!-- Add more slides as needed -->
