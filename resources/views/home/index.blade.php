@@ -66,105 +66,74 @@
         data-background="public/assets/img/banner/banner_bg02.png">
         <div class="container">
 
-            <div class="swiper instructor-nav">
-                <div class="banner__images-two tg-svg">
-                    <img src="public/assets/img/banner/h2_banner_img.png" alt="img" class="main-img">
-                    <div class="shape big-shape" data-aos="fade-up" data-aos-delay="600">
-                        <img src="public/assets/img/banner/h2_banner_shape01.svg" alt="shape"
-                            class="injectable tg-motion-effects1">
-                    </div>
-                    <span class="svg-icon" id="banner-svg"
-                        data-svg-icon="public/assets/img/banner/h2_banner_shape02.svg"></span>
-                    <div class="about__enrolled" data-aos="fade-right" data-aos-delay="200">
-                        <p class="title"><span>36K+</span> Enrolled Students</p>
-                        <img src="public/assets/img/others/student_grp.png" alt="img">
-                    </div>
-                    <div class="banner__student" data-aos="fade-left" data-aos-delay="200">
-                        <div class="icon">
-                            <img src="public/assets/img/banner/h2_banner_icon.svg" alt="img" class="injectable">
+            <div class="swiper-container instructor-nav">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="banner__images-two tg-svg">
+                            <img src="public/assets/img/banner/h2_banner_img.png" alt="img" class="main-img">
+                            <div class="shape big-shape" data-aos="fade-up" data-aos-delay="600">
+                                <img src="public/assets/img/banner/h2_banner_shape01.svg" alt="shape"
+                                    class="injectable tg-motion-effects1">
+                            </div>
+                            <span class="svg-icon" id="banner-svg"
+                                data-svg-icon="public/assets/img/banner/h2_banner_shape02.svg"></span>
+                            <div class="about__enrolled" data-aos="fade-right" data-aos-delay="200">
+                                <p class="title"><span>36K+</span> Enrolled Students</p>
+                                <img src="public/assets/img/others/student_grp.png" alt="img">
+                            </div>
+                            <div class="banner__student" data-aos="fade-left" data-aos-delay="200">
+                                <div class="icon">
+                                    <img src="public/assets/img/banner/h2_banner_icon.svg" alt="img"
+                                        class="injectable">
+                                </div>
+                                <div class="content">
+                                    <span>Total Students</span>
+                                    <h4 class="title">15K</h4>
+                                </div>
+                            </div>
                         </div>
-                        <div class="content">
-                            <span>Total Students</span>
-                            <h4 class="title">15K</h4>
-                        </div>
                     </div>
+                    <!-- Add more slides as needed -->
+                    <div class="swiper-slide">
+                        <!-- Another slide content -->
+                    </div>
+                    <!-- Repeat slide structure as needed -->
                 </div>
-                <div class="banner__images-two tg-svg">
-                    <img src="public/assets/img/banner/h2_banner_img.png" alt="img" class="main-img">
-                    <div class="shape big-shape" data-aos="fade-up" data-aos-delay="600">
-                        <img src="public/assets/img/banner/h2_banner_shape01.svg" alt="shape"
-                            class="injectable tg-motion-effects1">
-                    </div>
-                    <span class="svg-icon" id="banner-svg"
-                        data-svg-icon="public/assets/img/banner/h2_banner_shape02.svg"></span>
-                    <div class="about__enrolled" data-aos="fade-right" data-aos-delay="200">
-                        <p class="title"><span>36K+</span> Enrolled Students</p>
-                        <img src="public/assets/img/others/student_grp.png" alt="img">
-                    </div>
-                    <div class="banner__student" data-aos="fade-left" data-aos-delay="200">
-                        <div class="icon">
-                            <img src="public/assets/img/banner/h2_banner_icon.svg" alt="img" class="injectable">
-                        </div>
-                        <div class="content">
-                            <span>Total Students</span>
-                            <h4 class="title">15K</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="banner__images-two tg-svg">
-                    <img src="public/assets/img/banner/h2_banner_img.png" alt="img" class="main-img">
-                    <div class="shape big-shape" data-aos="fade-up" data-aos-delay="600">
-                        <img src="public/assets/img/banner/h2_banner_shape01.svg" alt="shape"
-                            class="injectable tg-motion-effects1">
-                    </div>
-                    <span class="svg-icon" id="banner-svg"
-                        data-svg-icon="public/assets/img/banner/h2_banner_shape02.svg"></span>
-                    <div class="about__enrolled" data-aos="fade-right" data-aos-delay="200">
-                        <p class="title"><span>36K+</span> Enrolled Students</p>
-                        <img src="public/assets/img/others/student_grp.png" alt="img">
-                    </div>
-                    <div class="banner__student" data-aos="fade-left" data-aos-delay="200">
-                        <div class="icon">
-                            <img src="public/assets/img/banner/h2_banner_icon.svg" alt="img" class="injectable">
-                        </div>
-                        <div class="content">
-                            <span>Total Students</span>
-                            <h4 class="title">15K</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="banner__images-two tg-svg">
-                    <img src="public/assets/img/banner/h2_banner_img.png" alt="img" class="main-img">
-                    <div class="shape big-shape" data-aos="fade-up" data-aos-delay="600">
-                        <img src="public/assets/img/banner/h2_banner_shape01.svg" alt="shape"
-                            class="injectable tg-motion-effects1">
-                    </div>
-                    <span class="svg-icon" id="banner-svg"
-                        data-svg-icon="public/assets/img/banner/h2_banner_shape02.svg"></span>
-                    <div class="about__enrolled" data-aos="fade-right" data-aos-delay="200">
-                        <p class="title"><span>36K+</span> Enrolled Students</p>
-                        <img src="public/assets/img/others/student_grp.png" alt="img">
-                    </div>
-                    <div class="banner__student" data-aos="fade-left" data-aos-delay="200">
-                        <div class="icon">
-                            <img src="public/assets/img/banner/h2_banner_icon.svg" alt="img" class="injectable">
-                        </div>
-                        <div class="content">
-                            <span>Total Students</span>
-                            <h4 class="title">15K</h4>
-                        </div>
-                    </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- Add Navigation -->
+                <div class="instructor__nav-two">
+                    <div class="instructor-button-prev swiper-button-prev"><i class="flaticon-arrow-left"></i></div>
+                    <div class="instructor-button-next swiper-button-next"><i class="flaticon-arrow-right"></i></div>
                 </div>
             </div>
-            <div class="instructor__nav-two">
-                <div class="instructor-button-prev"><i class="flaticon-arrow-right"></i></div>
-                <div class="instructor-button-next"><i class="flaticon-arrow-right"></i></div>
-            </div>
-        </div>
+
         </div>
         <img src="public/assets/img/banner/h2_banner_shape03.svg" alt="shape" class="line-shape-two"
             data-aos="fade-right" data-aos-delay="1600">
     </section>
+
+    <!-- Add Swiper.js CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+
     <!-- banner-area-end -->
 
 
