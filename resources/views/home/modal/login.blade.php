@@ -41,7 +41,8 @@
                                 class="injectable"></button>
                     </form>
                     <div class="account__switch">
-                        <p>Don't have an account?<a href="registration.html">Sign Up</a></p>
+                        <p>Belum punya akun?<a href="#"data-bs-toggle="modal"
+                                data-bs-target="#exampleModalDaftar">Daftar</a></p>
                     </div>
                 </div>
             </div>
