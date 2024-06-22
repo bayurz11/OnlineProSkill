@@ -79,7 +79,8 @@
   --tg-common-color-gray-9: #F9F9F9;
   --tg-common-color-gray-10: #F8F8F8;
   --tg-common-color-dark: #1C1A4A;
-  --tg-common-color-black: #06042E;
+  /* --tg-common-color-black: #06042E; */
+  --tg-common-color-black: #007F73;
   --tg-common-color-black-2: #161439;
   --tg-common-color-black-3: #000;
   --tg-border-1: #C9C9DD;
