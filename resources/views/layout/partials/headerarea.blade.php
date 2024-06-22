@@ -222,7 +222,7 @@
                              <div class="tgmobile__menu-outer">
                                  <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
                              </div>
-                             <div class="tgmobile__search">
+                             <div class="tgmenu__action tgmenu__action-two">
                                  <ul class="list-wrap">
                                      <li class="header-btn login-btn">
                                          <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
