@@ -15,9 +15,48 @@
                                  <ul class="navigation">
                                      <li class="active"><a href="{{ route('/') }}">Beranda</a>
                                      </li>
-                                     <li><a href="">Kelas Offline</a>
+                                     <li class="menu-item-has-children"><a href="#">Kelas</a>
+                                         <ul class="sub-menu">
+                                             <li><a href="about-us.html">About Us</a></li>
+                                             <li class="menu-item-has-children">
+                                                 <a href="instructors.html">Our Instructors</a>
+                                                 <ul class="sub-menu">
+                                                     <li><a href="instructors.html">Our Instructors</a></li>
+                                                     <li><a href="instructor-details.html">Instructor Details</a>
+                                                     </li>
+                                                 </ul>
+                                             </li>
+                                             <li class="menu-item-has-children">
+                                                 <a href="events.html">Our Events</a>
+                                                 <ul class="sub-menu">
+                                                     <li><a href="events.html">Our Events</a></li>
+                                                     <li><a href="events-details.html">Event Details</a></li>
+                                                 </ul>
+                                             </li>
+                                             <li class="menu-item-has-children">
+                                                 <a href="shop.html">Shop</a>
+                                                 <ul class="sub-menu">
+                                                     <li><a href="shop.html">Shop Page</a></li>
+                                                     <li><a href="shop-details.html">Shop Details</a></li>
+                                                     <li><a href="cart.html">Cart Page</a></li>
+                                                     <li><a href="check-out.html">Checkout</a></li>
+                                                 </ul>
+                                             </li>
+                                             <li class="menu-item-has-children">
+                                                 <a href="blog.html">Blog</a>
+                                                 <ul class="sub-menu">
+                                                     <li><a href="blog.html">Blog Right Sidebar</a></li>
+                                                     <li><a href="blog-2.html">Blog Left Sidebar</a></li>
+                                                     <li><a href="blog-3.html">Blog Full Width</a></li>
+                                                     <li><a href="blog-details.html">Blog Details</a></li>
+                                                 </ul>
+                                             </li>
+                                             <li><a href="login.html">Student Login</a></li>
+                                             <li><a href="registration.html">Student Registration</a></li>
+                                             <li><a href="404.html">404 Page</a></li>
+                                             <li><a href="contact.html">contact</a></li>
+                                         </ul>
                                      </li>
-                                     <li><a href="">Kelas Online</a>
                                      </li>
                                      <li><a href="">Event</a>
                                      </li>
@@ -110,8 +149,8 @@
 
 
                                      <li class="header-btn login-btn">
-                                         <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalDaftar"
-                                             class="btn">Daftar</a>
+                                         <a href="#" data-bs-toggle="modal"
+                                             data-bs-target="#exampleModalDaftar" class="btn">Daftar</a>
                                      </li>
                                  </ul>
                              </div>
