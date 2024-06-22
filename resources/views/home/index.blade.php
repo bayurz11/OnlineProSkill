@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+@section('title', 'ProSkill Akademia | Lembaga Kursus dan Pelatihan Komputer')
+<?php $page = 'index'; ?>
+
+@extends('layout.mainlayout')
+{{-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -54,4 +58,4 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
-</html>
+</html> --}}
