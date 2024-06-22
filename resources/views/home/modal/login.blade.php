@@ -33,7 +33,7 @@
                             <a href="registration.html">Forgot Password?</a>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-two arrow-btn">Sign In<img
+                    <button type="submit" class="btn btn-two arrow-btn">Masuk<img
                             src="assets/img/icons/right_arrow.svg" alt="img" class="injectable"></button>
                 </form>
                 <div class="account__switch">
