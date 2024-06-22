@@ -128,11 +128,12 @@
 
                              <div class="social-links">
                                  <ul class="list-wrap">
-                                     <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                     <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                     <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                     <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                     <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                                     <li><a href="https://www.instagram.com/proskillakademia/?igsh=MTJzdjNteGNrMGVpOA%3D%3D"
+                                             _blank><i class="fab fa-instagram"></i></a></li>
+                                     <li><a href="https://www.linkedin.com/company/proskill-akademia/;" _blank><i
+                                                 class="fab fa-linkedin-in"></i></a></li>
+                                     <li><a href="https://www.youtube.com/channel/UCNw50VFi4Rdmv1WpKlWGHUQ" _blank><i
+                                                 class="fab fa-youtube"></i></a></li>
                                  </ul>
                              </div>
                              <div class="auth-links" style="text-align: center; margin-top: 10px;">
