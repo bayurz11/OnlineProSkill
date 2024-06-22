@@ -106,14 +106,7 @@
                 </div>
                 <!-- Add Pagination -->
                 <div class="swiper-pagination"></div>
-                <!-- Add Navigation -->
-                <div class="instructor__nav-two"
-                    style="position: absolute; top: 50%; transform: translateY(-50%); width: 100%; display: flex; justify-content: space-between;">
-                    <div class="instructor-button-prev swiper-button-prev" style="cursor: pointer;"><i
-                            class="flaticon-arrow-left"></i></div>
-                    <div class="instructor-button-next swiper-button-next" style="cursor: pointer;"><i
-                            class="flaticon-arrow-right"></i></div>
-                </div>
+
             </div>
 
         </div>
