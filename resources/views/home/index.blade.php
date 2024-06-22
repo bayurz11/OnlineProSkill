@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="row justify-content-center">
-        <div class="col-xl-9">
+        <div class="col-xl-12">
             <div class="instructor-slider-dot">
                 <div class="swiper instructor-nav">
                     <div class="swiper-wrapper">
