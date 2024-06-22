@@ -26,7 +26,7 @@
                                 <label for="terms-check" class="form-check-label">Ingat saya</label>
                             </div>
                             <div class="account__check-forgot">
-                                <a href="registration.html">Forgot Password?</a>
+                                <a href="registration.html">Lupa Password?</a>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-two arrow-btn">Masuk

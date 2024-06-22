@@ -28,7 +28,7 @@
 
                             <input type="password" id="confirm-password" placeholder="Konfirmasi Password">
                         </div>
-                        <button type="submit" class="btn btn-two arrow-btn">Sign Up<img
+                        <button type="submit" class="btn btn-two arrow-btn">Daftar<img
                                 src="public/assets/img/icons/right_arrow.svg" alt="img"
                                 class="injectable"></button>
                     </form><br>
