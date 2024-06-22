@@ -8,7 +8,7 @@
                      <div class="tgmenu__wrap">
                          <nav class="tgmenu__nav">
                              <div class="logo">
-                                 <a href="index.html"><img src="assets/img/logo/logo.svg" alt="Logo"></a>
+                                 <a href="index.html"><img src="public/assets/img/logo/logo.svg" alt="Logo"></a>
                              </div>
                              <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-xl-flex">
                                  <ul class="navigation">
