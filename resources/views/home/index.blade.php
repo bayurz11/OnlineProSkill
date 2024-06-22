@@ -63,30 +63,35 @@
             data-aos="fade-right" data-aos-delay="1600">
     </section> --}}
     <section class="banner-area-two banner-bg-two tg-motion-effects"
-        data-background="public/assets/img/banner/banner_bg02.png">
-        <div class="container">
+        data-background="public/assets/img/banner/banner_bg02.png" style="max-width: 677px; height: 224px; margin: 0 auto;">
+        <div class="container" style="width: 100%; height: 100%;">
 
-            <div class="swiper-container instructor-nav">
+            <div class="swiper-container instructor-nav" style="width: 100%; height: 100%;">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="banner__images-two tg-svg">
-                            <img src="public/assets/img/banner/h2_banner_img.png" alt="img" class="main-img">
-                            <div class="shape big-shape" data-aos="fade-up" data-aos-delay="600">
+                    <div class="swiper-slide" style="width: 100%; height: 100%;">
+                        <div class="banner__images-two tg-svg" style="position: relative; width: 100%; height: 100%;">
+                            <img src="public/assets/img/banner/h2_banner_img.png" alt="img" class="main-img"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                            <div class="shape big-shape" data-aos="fade-up" data-aos-delay="600"
+                                style="position: absolute; top: 10px; left: 10px; width: 50px;">
                                 <img src="public/assets/img/banner/h2_banner_shape01.svg" alt="shape"
-                                    class="injectable tg-motion-effects1">
+                                    class="injectable tg-motion-effects1" style="width: 100%;">
                             </div>
                             <span class="svg-icon" id="banner-svg"
-                                data-svg-icon="public/assets/img/banner/h2_banner_shape02.svg"></span>
-                            <div class="about__enrolled" data-aos="fade-right" data-aos-delay="200">
+                                data-svg-icon="public/assets/img/banner/h2_banner_shape02.svg"
+                                style="position: absolute; top: 10px; right: 10px; width: 50px;"></span>
+                            <div class="about__enrolled" data-aos="fade-right" data-aos-delay="200"
+                                style="position: absolute; bottom: 20px; left: 10px;">
                                 <p class="title"><span>36K+</span> Enrolled Students</p>
-                                <img src="public/assets/img/others/student_grp.png" alt="img">
+                                <img src="public/assets/img/others/student_grp.png" alt="img" style="width: 50px;">
                             </div>
-                            <div class="banner__student" data-aos="fade-left" data-aos-delay="200">
-                                <div class="icon">
-                                    <img src="public/assets/img/banner/h2_banner_icon.svg" alt="img"
-                                        class="injectable">
+                            <div class="banner__student" data-aos="fade-left" data-aos-delay="200"
+                                style="position: absolute; bottom: 20px; right: 10px;">
+                                <div class="icon" style="display: inline-block;">
+                                    <img src="public/assets/img/banner/h2_banner_icon.svg" alt="img" class="injectable"
+                                        style="width: 30px;">
                                 </div>
-                                <div class="content">
+                                <div class="content" style="display: inline-block; vertical-align: top; margin-left: 5px;">
                                     <span>Total Students</span>
                                     <h4 class="title">15K</h4>
                                 </div>
@@ -94,7 +99,7 @@
                         </div>
                     </div>
                     <!-- Add more slides as needed -->
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" style="width: 100%; height: 100%;">
                         <!-- Another slide content -->
                     </div>
                     <!-- Repeat slide structure as needed -->
@@ -102,15 +107,18 @@
                 <!-- Add Pagination -->
                 <div class="swiper-pagination"></div>
                 <!-- Add Navigation -->
-                <div class="instructor__nav-two">
-                    <div class="instructor-button-prev swiper-button-prev"><i class="flaticon-arrow-left"></i></div>
-                    <div class="instructor-button-next swiper-button-next"><i class="flaticon-arrow-right"></i></div>
+                <div class="instructor__nav-two"
+                    style="position: absolute; top: 50%; transform: translateY(-50%); width: 100%; display: flex; justify-content: space-between;">
+                    <div class="instructor-button-prev swiper-button-prev" style="cursor: pointer;"><i
+                            class="flaticon-arrow-left"></i></div>
+                    <div class="instructor-button-next swiper-button-next" style="cursor: pointer;"><i
+                            class="flaticon-arrow-right"></i></div>
                 </div>
             </div>
 
         </div>
         <img src="public/assets/img/banner/h2_banner_shape03.svg" alt="shape" class="line-shape-two"
-            data-aos="fade-right" data-aos-delay="1600">
+            data-aos="fade-right" data-aos-delay="1600" style="position: absolute; top: 10px; left: 10px; width: 50px;">
     </section>
 
     <!-- Add Swiper.js CDN -->
