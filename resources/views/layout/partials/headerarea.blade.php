@@ -187,13 +187,10 @@
 
                                      </li>
                                      <li class="header-btn login-btn">
-                                         <button type="button" class="btn"
-                                             style="background-color: white; color: black; border: 1px solid black;"
-                                             data-toggle="modal" data-target="#exampleModal">Masuk</button>
+                                         <a href="#" id="modalBtn" class="btn"
+                                             style="background-color: white; color: black; border: 1px solid black;">Masuk</a>
                                      </li>
-
                                      @include('home.modal.login')
-
                                      <li class="header-btn login-btn">
                                          <a href="contact.html" class="btn">Daftar</a>
                                      </li>
