@@ -187,8 +187,10 @@
 
                                      </li>
                                      <li class="header-btn login-btn">
-                                         <a href="contact.html" class="btn">Masuk</a>
+                                         <a href="contact.html" class="btn"
+                                             style="background-color: white; color: black; border: 1px solid black;">Masuk</a>
                                      </li>
+
                                      <li class="header-btn login-btn">
                                          <a href="contact.html" class="btn">Daftar</a>
                                      </li>
