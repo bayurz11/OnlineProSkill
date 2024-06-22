@@ -184,10 +184,13 @@
                                              <i class="flaticon-shopping-cart"></i>
                                              <span class="mini-cart-count">0</span>
                                          </a>
-                                         <strong class="price">$00.0</strong>
+
                                      </li>
                                      <li class="header-btn login-btn">
-                                         <a href="contact.html" class="btn">Get Started</a>
+                                         <a href="contact.html" class="btn">Masuk</a>
+                                     </li>
+                                     <li class="header-btn login-btn">
+                                         <a href="contact.html" class="btn">Daftar</a>
                                      </li>
                                  </ul>
                              </div>
