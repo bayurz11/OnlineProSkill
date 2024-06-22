@@ -6,7 +6,8 @@
                 <div class="col-xl-3 col-lg-4 col-md-6">
                     <div class="footer__widget">
                         <div class="logo mb-35">
-                            <a href="index.html"><img src="assets/img/logo/secondary_logo.svg" alt="img"></a>
+                            <a href="{{ route('/') }}"><img
+                                    src="{{ asset('public/assets/img/logo/secondary_logo.svg') }}" alt="img"></a>
                         </div>
                         <div class="footer__content">
                             <p>when an unknown printer took galley of type and scrambled it to make pspecimen bookt
@@ -55,34 +56,39 @@
                             <ul class="list-wrap footer__social">
                                 <li>
                                     <a href="https://www.facebook.com/" target="_blank">
-                                        <img src="assets/img/icons/facebook.svg" alt="img" class="injectable">
+                                        <img src="public/assets/img/icons/facebook.svg" alt="img"
+                                            class="injectable">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="https://www.facebook.com/" target="_blank">
-                                        <img src="assets/img/icons/twitter.svg" alt="img" class="injectable">
+                                        <img src="public/assets/img/icons/twitter.svg" alt="img"
+                                            class="injectable">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="https://www.facebook.com/" target="_blank">
-                                        <img src="assets/img/icons/whatsapp.svg" alt="img" class="injectable">
+                                        <img src="public/assets/img/icons/whatsapp.svg" alt="img"
+                                            class="injectable">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="https://www.facebook.com/" target="_blank">
-                                        <img src="assets/img/icons/instagram.svg" alt="img" class="injectable">
+                                        <img src="public/assets/img/icons/instagram.svg" alt="img"
+                                            class="injectable">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="https://www.facebook.com/" target="_blank">
-                                        <img src="assets/img/icons/youtube.svg" alt="img" class="injectable">
+                                        <img src="public/assets/img/icons/youtube.svg" alt="img"
+                                            class="injectable">
                                     </a>
                                 </li>
                             </ul>
                         </div>
                         <div class="app-download">
-                            <a href="#"><img src="assets/img/others/google-play.svg" alt="img"></a>
-                            <a href="#"><img src="assets/img/others/apple-store.svg" alt="img"></a>
+                            <a href="#"><img src="public/assets/img/others/google-play.svg" alt="img"></a>
+                            <a href="#"><img src="public/assets/img/others/apple-store.svg" alt="img"></a>
                         </div>
                     </div>
                 </div>
