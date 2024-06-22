@@ -15,7 +15,7 @@
                                  <ul class="navigation">
                                      <li class="active"><a href="{{ route('/') }}">Beranda</a>
                                      </li>
-                                     <li><a href="">Kelas Tatap Muka</a>
+                                     <li><a href="">Kelas Offline</a>
                                      </li>
                                      <li><a href="">Kelas Online</a>
                                      </li>
