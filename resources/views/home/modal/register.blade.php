@@ -11,21 +11,18 @@
                     <h2 class="title">Buat Akun ProSkill</h2>
                     <p>Silahkan isi form berikut untuk melanjutkan.</p>
 
-                    <form action="#" class="account__form">
+                    <form action="#" class="account__form" method="POST">
+                        @csrf
                         <div class="form-grp">
-
                             <input type="text" id="name" name="name" placeholder="nama">
                         </div>
                         <div class="form-grp">
-
                             <input type="email" id="email" placeholder="Email" name="email">
                         </div>
                         <div class="form-grp">
-
                             <input type="password" id="password" placeholder="Password" name="password">
                         </div>
                         <div class="form-grp">
-
                             <input type="password" id="confirm-password" placeholder="Konfirmasi Password">
                         </div>
                         <button type="submit" class="btn btn-two arrow-btn">Daftar<img
