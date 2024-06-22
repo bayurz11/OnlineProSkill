@@ -13,7 +13,7 @@
                         </a>
                     </div>
                     <div class="account__divider">
-                        <span>or</span>
+                        <span>Atau</span>
                     </div>
                     <form action="{{ route('login') }}" class="account__form" method="POST">
                         @csrf

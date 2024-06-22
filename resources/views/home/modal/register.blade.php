@@ -9,11 +9,11 @@
                     <div class="account__social">
                         <a href="#" class="account__social-btn">
                             <img src="public/assets/img/icons/google.svg" alt="img">
-                            Daftar menggunakan Google
+                            Daftar Dengan Google
                         </a>
                     </div>
                     <div class="account__divider">
-                        <span>or</span>
+                        <span>Atau</span>
                     </div>
                     <form action="#" class="account__form">
                         <div class="form-grp">
