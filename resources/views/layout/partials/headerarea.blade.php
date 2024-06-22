@@ -8,7 +8,8 @@
                      <div class="tgmenu__wrap">
                          <nav class="tgmenu__nav">
                              <div class="logo">
-                                 <a href="index.html"><img src="public/assets/img/logo/logo.svg" alt="Logo"></a>
+                                 <a href="index.html"><img src="{{ asset('public/assets/img/logo/logo.svg') }}"
+                                         alt="Logo"></a>
                              </div>
                              <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-xl-flex">
                                  <ul class="navigation">
@@ -202,7 +203,8 @@
                          <nav class="tgmobile__menu-box">
                              <div class="close-btn"><i class="tg-flaticon-close-1"></i></div>
                              <div class="nav-logo">
-                                 <a href="index.html"><img src="assets/img/logo/logo.svg" alt="Logo"></a>
+                                 <a href="index.html"><img src="{{ asset('public/assets/img/logo/logo.svg') }}"
+                                         alt="Logo"></a>
                              </div>
                              <div class="tgmobile__search">
                                  <form action="#">
