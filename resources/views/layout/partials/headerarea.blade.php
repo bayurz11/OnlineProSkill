@@ -192,7 +192,7 @@
                                              style="background-color: white; color: black; border: 1px solid black;">Masuk</a>
                                      </li>
 
-                                     @include('home.modal.login')
+
                                      <li class="header-btn login-btn">
                                          <a href="contact.html" class="btn">Daftar</a>
                                      </li>
@@ -241,4 +241,5 @@
          </div>
      </div>
  </header>
+ @include('home.modal.login')
  <!-- header-area-end -->
