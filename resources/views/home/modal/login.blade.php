@@ -3,8 +3,9 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Welcome back!</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                <button type="button" class="close rounded-circle p-0" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true" class="p-2"
+                        style="background-color: rgba(0,0,0,.1); border-radius: 50%;">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
