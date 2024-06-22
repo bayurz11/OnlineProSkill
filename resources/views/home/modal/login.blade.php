@@ -12,9 +12,7 @@
                             Masuk Dengan Google
                         </a>
                     </div>
-                    <div class="account__divider">
-                        <span>Atau</span>
-                    </div>
+
                     <form action="{{ route('login') }}" class="account__form" method="POST">
                         @csrf
                         <div class="form-grp">
