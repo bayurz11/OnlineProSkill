@@ -185,7 +185,7 @@
                                      <li><a href="#"><i class="fab fa-youtube"></i></a></li>
                                  </ul>
                              </div>
-                             <div class="auth-links">
+                             <div class="social-links">
                                  <ul class="list-wrap">
                                      <li><a href="login.html" class="btn btn-primary">Masuk</a></li>
                                      <li><a href="register.html" class="btn btn-secondary">Daftar</a></li>
