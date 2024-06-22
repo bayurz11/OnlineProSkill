@@ -157,6 +157,7 @@
                              <div class="mobile-nav-toggler"><i class="tg-flaticon-menu-1"></i></div>
                          </nav>
                      </div>
+
                      <!-- Mobile Menu  -->
                      <div class="tgmobile__menu">
                          <nav class="tgmobile__menu-box">
@@ -182,6 +183,12 @@
                                      <li><a href="#"><i class="fab fa-instagram"></i></a></li>
                                      <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
                                      <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                                 </ul>
+                             </div>
+                             <div class="auth-links">
+                                 <ul class="list-wrap">
+                                     <li><a href="login.html" class="btn btn-primary">Masuk</a></li>
+                                     <li><a href="register.html" class="btn btn-secondary">Daftar</a></li>
                                  </ul>
                              </div>
                          </nav>
