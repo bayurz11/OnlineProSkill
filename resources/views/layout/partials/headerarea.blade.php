@@ -146,7 +146,8 @@
 
 
                                      <li class="header-btn login-btn">
-                                         <a href="contact.html" class="btn">Daftar</a>
+                                         <a href="#" data-bs-toggle="modal"
+                                             data-bs-target="#exampleModalDaftar" class="btn">Daftar</a>
                                      </li>
                                  </ul>
                              </div>
@@ -201,4 +202,5 @@
      </div>
  </header>
  @include('home.modal.login')
+ @include('home.modal.register')
  <!-- header-area-end -->
