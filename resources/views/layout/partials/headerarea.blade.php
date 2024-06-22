@@ -186,7 +186,8 @@
                                  </ul>
                              </div>
                              <div class="auth-links" style="text-align: center; margin-top: 10px;">
-                                 <a href="login.html" class="btn btn-primary" style="margin-right: 10px;">Masuk</a>
+                                 <a href="login.html" class="btn btn-primary"
+                                     style="margin-right: 10px; color: white;">Masuk</a>
                                  <a href="register.html" class="btn btn-secondary">Daftar</a>
                              </div>
                          </nav>
