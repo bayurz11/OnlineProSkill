@@ -14,7 +14,7 @@
                 <div class="account__divider">
                     <span>or</span>
                 </div>
-                <form action="{{ route('login') }}" class="account__form">
+                <form action="{{ route('login') }}" class="account__form" method="POST">
                     @csrf
                     <div class="form-grp">
                         <label for="email">Email</label>
@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     <button type="submit" class="btn btn-two arrow-btn">Masuk<img
-                            src="assets/img/icons/right_arrow.svg" alt="img" class="injectable"></button>
+                            src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"></button>
                 </form>
                 <div class="account__switch">
                     <p>Don't have an account?<a href="registration.html">Sign Up</a></p>
