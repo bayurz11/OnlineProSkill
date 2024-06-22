@@ -4,79 +4,8 @@
 @extends('layout.mainlayout')
 
 @section('content')
-    <section class="banner-area-two banner-bg-two tg-motion-effects"
-        style="background-image: url('public/assets/img/banner/banner_bg02.png');">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-5 col-lg-6">
-                    <div class="banner__content-two">
-                        <h3 class="title" data-aos="fade-right" data-aos-delay="400">
-                            Learning is
-                            <span class="position-relative">
-                                <svg x="0px" y="0px" preserveAspectRatio="none" viewBox="0 0 209 59" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M4.74438 7.70565C69.7006 -1.18799 136.097 -2.38304 203.934 4.1205C207.178 4.48495 209.422 7.14626 208.933 10.0534C206.793 23.6481 205.415 36.5704 204.801 48.8204C204.756 51.3291 202.246 53.5582 199.213 53.7955C136.093 59.7623 74.1922 60.5985 13.5091 56.3043C10.5653 56.0924 7.84371 53.7277 7.42158 51.0325C5.20725 38.2627 2.76333 25.6511 0.0898448 13.1978C-0.465589 10.5873 1.61173 8.1379 4.73327 7.70565"
-                                        fill="currentcolor" />
-                                </svg>
-                                What You
-                            </span>
-                            Make of it. Make it Yours at SkillGro.
-                        </h3>
-                        <div class="banner__btn-two" data-aos="fade-right" data-aos-delay="600">
-                            <a href="contact.html" class="btn arrow-btn"
-                                style="display: inline-block; background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
-                                Start Free Trial
-                                <img src="public/assets/img/icons/right_arrow.svg" alt="img"
-                                    style="width: 16px; height: 16px;">
-                            </a>
-                            <a href="https://www.youtube.com/watch?v=b2Az7_lLh3g" class="play-btn popup-video"
-                                style="display: inline-block; margin-left: 15px; text-decoration: none; color: #007bff;">
-                                <i class="fas fa-play" style="margin-right: 5px;"></i> Watch Our <br> Class Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-7 col-lg-6 col-md-8">
-                    <div class="banner__images-two tg-svg" style="position: relative;">
-                        <img src="public/assets/img/banner/h2_banner_img.png" alt="img" class="main-img"
-                            style="width: 100%; height: auto;">
-                        <div class="shape big-shape" data-aos="fade-up" data-aos-delay="600"
-                            style="position: absolute; top: 0; left: 0;">
-                            <img src="public/assets/img/banner/h2_banner_shape01.svg" alt="shape"
-                                class="injectable tg-motion-effects1" style="width: 100%; height: auto;">
-                        </div>
-                        <span class="svg-icon" id="banner-svg"
-                            data-svg-icon="public/assets/img/banner/h2_banner_shape02.svg"></span>
-                        <div class="about__enrolled" data-aos="fade-right" data-aos-delay="200"
-                            style="position: absolute; bottom: 10px; left: 10px; background-color: white; padding: 10px; border-radius: 5px;">
-                            <p class="title" style="margin: 0; font-size: 16px;"><span
-                                    style="font-weight: bold;">36K+</span> Enrolled Students</p>
-                            <img src="public/assets/img/others/student_grp.png" alt="img"
-                                style="width: 50px; height: auto;">
-                        </div>
-                        <div class="banner__student" data-aos="fade-left" data-aos-delay="200"
-                            style="position: absolute; bottom: 10px; right: 10px; background-color: white; padding: 10px; border-radius: 5px;">
-                            <div class="icon" style="margin-bottom: 5px;">
-                                <img src="public/assets/img/banner/h2_banner_icon.svg" alt="img" class="injectable"
-                                    style="width: 24px; height: auto;">
-                            </div>
-                            <div class="content">
-                                <span style="font-size: 12px;">Total Students</span>
-                                <h4 class="title" style="margin: 0; font-size: 20px; font-weight: bold;">15K</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <img src="public/assets/img/banner/h2_banner_shape03.svg" alt="shape" class="line-shape-two"
-            data-aos="fade-right" data-aos-delay="1600"
-            style="position: absolute; bottom: 0; right: 0; width: 100px; height: auto;">
-    </section>
-
     <!-- banner-area -->
-    {{-- <section class="banner-area-two banner-bg-two tg-motion-effects"
+    <section class="banner-area-two banner-bg-two tg-motion-effects"
         data-background="public/assets/img/banner/banner_bg02.png">
         <div class="container">
             <div class="row justify-content-center">
@@ -132,7 +61,7 @@
         <img src="public/assets/img/banner/h2_banner_shape03.svg" alt="shape" class="line-shape-two"
             data-aos="fade-right" data-aos-delay="1600">
     </section>
-    <!-- banner-area-end --> --}}
+    <!-- banner-area-end -->
 
 
     <!-- features-area -->
