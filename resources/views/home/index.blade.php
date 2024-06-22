@@ -4,8 +4,56 @@
 @extends('layout.mainlayout')
 
 @section('content')
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" style="width: 100%; max-height: 500px;">
+            <div class="item bg bg1 active"
+                style="background-color: #777; height: auto; background-repeat: no-repeat; background-size: cover; background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/158072/spiderweb.jpg'); background-position: center top;">
+                <div class="container">
+                    <div class="carousel-caption" style="z-index: 10;">
+                        <h1>Example headline.</h1>
+                        <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous"
+                            Glyphicon buttons on the left and right might not load/display properly due to web browser
+                            security rules.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="item bg bg2"
+                style="background-color: #777; height: auto; background-repeat: no-repeat; background-size: cover; background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/158072/hearthand.jpg'); background-position: center center;">
+                <div class="container">
+                    <div class="carousel-caption" style="z-index: 10;">
+                        <h1>Another example headline.</h1>
+                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida
+                            at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="item bg bg3"
+                style="background-color: #777; height: auto; background-repeat: no-repeat; background-size: cover; background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/158072/woman-camera.jpg'); background-position: center bottom;">
+                <div class="container">
+                    <div class="carousel-caption" style="z-index: 10;">
+                        <h1>One more for good measure.</h1>
+                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida
+                            at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev" style="height: auto; top: 0; bottom: 0;"><span
+                class="glyphicon glyphicon-chevron-left"></span></a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next"
+            style="height: auto; top: 0; bottom: 0;"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div>
+
     <!-- banner-area -->
-    <section class="banner-area-two banner-bg-two tg-motion-effects"
+    {{-- <section class="banner-area-two banner-bg-two tg-motion-effects"
         data-background="public/assets/img/banner/banner_bg02.png">
         <div class="container">
             <div class="row justify-content-center">
@@ -61,7 +109,7 @@
         <img src="public/assets/img/banner/h2_banner_shape03.svg" alt="shape" class="line-shape-two"
             data-aos="fade-right" data-aos-delay="1600">
     </section>
-    <!-- banner-area-end -->
+    <!-- banner-area-end --> --}}
 
 
     <!-- features-area -->
