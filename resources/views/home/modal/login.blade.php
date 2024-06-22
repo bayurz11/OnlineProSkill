@@ -1,27 +1,26 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <button type="button" class="close-btn" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <script>
-                document.addEventListener("DOMContentLoaded", function() {
-                    var closeButton = document.querySelector(".close-btn");
-                    closeButton.addEventListener("click", function() {
-                        var modal = document.querySelector("#exampleModal");
-                        var bootstrapModal = new bootstrap.Modal(
-                            modal); // Inisialisasi modal menggunakan Bootstrap JS
-                        bootstrapModal.hide(); // Menyembunyikan modal
-                    });
-                });
-            </script>
-
-
             <!-- Modal Body -->
             <div class="modal-body">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <button type="button" class="close-btn" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        var closeButton = document.querySelector(".close-btn");
+                        closeButton.addEventListener("click", function() {
+                            var modal = document.querySelector("#exampleModal");
+                            var bootstrapModal = new bootstrap.Modal(
+                                modal); // Inisialisasi modal menggunakan Bootstrap JS
+                            bootstrapModal.hide(); // Menyembunyikan modal
+                        });
+                    });
+                </script>
+
                 <div class="singUp-wrap">
                     <h2 class="title">Welcome back!</h2>
                     <p>Hey there! Ready to log in? Just enter your username and password below and you'll be back in
