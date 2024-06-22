@@ -18,11 +18,11 @@
                     @csrf
                     <div class="form-grp">
                         <label for="email">Email</label>
-                        <input id="email" type="text" placeholder="email" name="email">
+                        <input id="email" type="text" placeholder="email" name="email" autofocus>
                     </div>
                     <div class="form-grp">
                         <label for="password">Password</label>
-                        <input id="password" type="text" placeholder="password" name="password">
+                        <input id="password" type="password" placeholder="password" name="password">
                     </div>
                     <div class="account__check">
                         <div class="account__check-remember">
