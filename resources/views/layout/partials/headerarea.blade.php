@@ -15,6 +15,9 @@
                                  <ul class="navigation">
                                      <li class="active"><a href="{{ route('/') }}">Beranda</a>
                                      </li>
+                                     <li class=""><a href="">Kelas Tatap Muka</a>
+                                     <li class=""><a href="">Kelas Online</a>
+                                     </li>
                                      <li class="menu-item-has-children"><a href="#">Courses</a>
                                          <ul class="sub-menu">
                                              <li><a href="courses.html">All Courses</a></li>
