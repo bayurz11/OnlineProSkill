@@ -30,13 +30,13 @@
                         <button type="submit" class="btn btn-two arrow-btn">Masuk<img
                                 src="public/assets/img/icons/right_arrow.svg" alt="img"
                                 class="injectable"></button>
-                    </form>
+                    </form><br>
                     <div class="account__social">
                         <a href="#" class="account__social-btn">
                             <img src="public/assets/img/icons/google.svg" alt="img">
                             Masuk Dengan Google
                         </a>
-                    </div><br>
+                    </div>
                     <div class="account__switch">
                         <p>Belum punya akun?<a href="#"data-bs-toggle="modal"
                                 data-bs-target="#exampleModalDaftar">Daftar</a></p>
