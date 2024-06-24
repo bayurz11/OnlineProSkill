@@ -5,7 +5,7 @@
 <!-- Include jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Include Select2 JS -->
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/js/select2.min.js"></script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0/dist/js/select2.min.js"></script> --}}
 <!-- Include Inputmask JS -->
 
 
@@ -48,7 +48,7 @@
 <script src="{{ asset('public/assets_admin/vendors/jquery-validation/jquery.validate.min.js') }}"></script>
 <script src="{{ asset('public/assets_admin/vendors/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
 <script src="{{ asset('public/assets_admin/vendors/pickr/pickr.min.js') }}"></script>
-{{-- <script src="{{ asset('public/assets_admin/vendors/select2/select2.min.js') }}"></script> --}}
+<script src="{{ asset('public/assets_admin/vendors/select2/select2.min.js') }}"></script>
 <script src="{{ asset('public/assets_admin/vendors/typeahead.js/typeahead.bundle.min.js') }}"></script>
 <script src="{{ asset('public/assets_admin/vendors/jquery-tags-input/jquery.tagsinput.min.js') }}"></script>
 <script src="{{ asset('public/assets_admin/vendors/dropzone/dropzone.min.js') }}"></script>
