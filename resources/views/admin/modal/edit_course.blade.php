@@ -55,8 +55,8 @@
                                 .create(document.querySelector('#edit_content'))
                                 .then(editor => {
                                     editor.model.document.on('change:data', () => {
-                                        const content_input = document.querySelector('#edit_content_input');
-                                        content_input.value = editor.getData();
+                                        const edit_content_input = document.querySelector('#edit_content_input');
+                                        edit_content_input.value = editor.getData();
                                     });
                                 })
                                 .catch(error => {
