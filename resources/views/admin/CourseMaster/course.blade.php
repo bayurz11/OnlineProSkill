@@ -43,6 +43,7 @@
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
                                             <td>{{ $courses->nama_kursus }}</td>
+                                            <td>{{ $courses->user_id->name }}</td>
                                             <td>{{ $courses->user_id }}</td>
                                             <td>100000</td>
                                             <td>
