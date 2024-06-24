@@ -18,14 +18,14 @@
                     <input type="text" class="form-control bg-transparent border-primary" placeholder="Select date"
                         data-input>
                 </div> --}}
-                <button type="button" class="btn btn-outline-primary btn-icon-text me-2 mb-2 mb-md-0">
+                {{-- <button type="button" class="btn btn-outline-primary btn-icon-text me-2 mb-2 mb-md-0">
                     <i class="btn-icon-prepend" data-feather="printer"></i>
                     Print
                 </button>
                 <button type="button" class="btn btn-primary btn-icon-text mb-2 mb-md-0">
                     <i class="btn-icon-prepend" data-feather="download-cloud"></i>
                     Download Report
-                </button>
+                </button> --}}
             </div>
         </div>
 
@@ -36,7 +36,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
-                                    <h6 class="card-title mb-0">New Customers</h6>
+                                    <h6 class="card-title mb-0">Siswa</h6>
                                     <div class="dropdown mb-2">
                                         <a type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false">
@@ -82,7 +82,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
-                                    <h6 class="card-title mb-0">New Orders</h6>
+                                    <h6 class="card-title mb-0">Kelas Online</h6>
                                     <div class="dropdown mb-2">
                                         <a type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false">
@@ -128,7 +128,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
-                                    <h6 class="card-title mb-0">Growth</h6>
+                                    <h6 class="card-title mb-0">Kelas tatap Muka</h6>
                                     <div class="dropdown mb-2">
                                         <a type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false">
