@@ -117,6 +117,9 @@
 
 <script>
     $(document).ready(function() {
+        // Initialize an empty object to store editors
+        const editors = {};
+
         // Pengambilan data saat tombol edit diklik
         $('.edit-button').on('click', function() {
             const id = $(this).data('id');
@@ -159,20 +162,30 @@
                     $('#edit_tingkat').val(data.tingkat);
 
                     // Pengaturan konten deskripsi dengan CKEditor
-                    ClassicEditor.create(document.querySelector('#edit_content'))
-                        .then(editor => {
-                            editor.setData(data
-                                .content); // Mengatur nilai konten dari data yang diterima
-                            editor.model.document.on('change:data', () => {
-                                const content_input = document.querySelector(
-                                    '#edit_content_input');
-                                content_input.value = editor.getData();
-                            });
-                        })
-                        .catch(error => {
-                            console.error(error);
+                    if (editors[id]) {
+                        editors[id].destroy().then(() => {
+                            createEditor(id, data.content);
                         });
+                    } else {
+                        createEditor(id, data.content);
+                    }
 
+                    function createEditor(id, content) {
+                        ClassicEditor.create(document.querySelector('#edit_content'))
+                            .then(editor => {
+                                editors[id] = editor; // Store the editor instance
+                                editor.setData(
+                                content); // Mengatur nilai konten dari data yang diterima
+                                editor.model.document.on('change:data', () => {
+                                    const content_input = document.querySelector(
+                                        '#edit_content_input');
+                                    content_input.value = editor.getData();
+                                });
+                            })
+                            .catch(error => {
+                                console.error(error);
+                            });
+                    }
 
                     // Pengaturan harga dan diskon
                     $('#edit_price').val(data.price);
@@ -186,12 +199,13 @@
                     } else {
                         $('#edit_preview').hide();
                     }
+
                     // Pengaturan nilai tag
                     let tagValue = '';
 
                     if (Array.isArray(data.tag) && data.tag.length > 0) {
                         tagValue = data.tag[0]
-                            .value; // Mengambil nilai dari item pertama dalam array
+                        .value; // Mengambil nilai dari item pertama dalam array
                     } else if (typeof data.tag === 'object' && data.tag !== null) {
                         tagValue = data.tag.value; // Jika data.tag adalah objek tunggal
                     } else if (typeof data.tag === 'string') {
