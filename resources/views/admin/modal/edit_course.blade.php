@@ -145,7 +145,7 @@
                     $('#edit_discount').val(data.discount);
                     $('#edit_discountedPrice').val(data.discountedPrice);
                     $('#edit_free').prop('checked', data.free);
-
+                    $('#editModal').modal('show');
                     // Handle include fields
                     const includeContainer = $('#edit-include-container');
                     includeContainer.html('');
@@ -251,8 +251,10 @@
 
     document.addEventListener("DOMContentLoaded", function() {
         $('#editModal').on('shown.bs.modal', function() {
+            console.log("Modal is shown"); // Debugging
             var input = document.querySelector('input[name=tag]');
             if (input) {
+                console.log("Tag input found"); // Debugging
                 new Tagify(input, {
                     whitelist: [],
                     dropdown: {
@@ -260,6 +262,8 @@
                         maxItems: 100
                     }
                 });
+            } else {
+                console.log("Tag input not found"); // Debugging
             }
         });
     });
