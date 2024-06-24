@@ -16,7 +16,7 @@ class CourseMasterController extends Controller
     {
         $user = Auth::user();
         $categori = Categories::all();
-        $course = CourseMaster::all();
+        $course = CourseMaster::with('user')->get();
         $count = $course->count();
         if (!$user) {
             return redirect()->route('login_admin');
