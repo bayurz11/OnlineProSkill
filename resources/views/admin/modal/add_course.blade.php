@@ -49,7 +49,7 @@
 
                     <div class="mb-3">
                         <label for="content" class="form-label">Deskripsi<span class="text-danger">*</span></label>
-                        <textarea id="content" style="height: 800px; width: 200px; font-size: 18px;"></textarea>
+                        <textarea id="content" style="height: 80px; width: 200px; font-size: 18px;"></textarea>
                         <input type="hidden" id="content_input" name="content">
                         <script>
                             ClassicEditor
