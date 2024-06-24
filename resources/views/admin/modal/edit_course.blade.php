@@ -250,22 +250,9 @@
         $('#edit_free').on('change', toggleEditPriceAndDiscount);
     });
 
-    document.addEventListener("DOMContentLoaded", function() {
-        $('#edit_tag').on('shown.bs.modal', function() {
-            console.log("Modal is shown"); // Debugging
-            var input = document.querySelector('input[name=tag]');
-            if (input) {
-                console.log("Tag input found"); // Debugging
-                new Tagify(input, {
-                    whitelist: [],
-                    dropdown: {
-                        enabled: 1,
-                        maxItems: 100
-                    }
-                });
-            } else {
-                console.log("Tag input not found"); // Debugging
-            }
-        });
-    });
+    if (Array.isArray(data.tag) && data.tag.length > 0) {
+        $('#edit_tag').val(data.tag[0].value); // Asumsikan Anda ingin nilai dari item pertama
+    } else {
+        $('#edit_tag').val(''); // Handle kasus kosong jika diperlukan
+    }
 </script>
