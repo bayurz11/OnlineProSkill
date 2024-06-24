@@ -1,4 +1,4 @@
-<!-- Edit Course Modal -->
+<!-- Include your modal structure -->
 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -49,13 +49,13 @@
                     <div class="mb-3">
                         <label for="content" class="form-label">Deskripsi<span class="text-danger">*</span></label>
                         <textarea id="edit_content" style="height: 800px; width: 200px; font-size: 18px;"></textarea>
-                        <input type="hidden" id="content_input" name="content">
+                        <input type="hidden" id="edit_content_input" name="content">
                         <script>
                             ClassicEditor
-                                .create(document.querySelector('#content'))
+                                .create(document.querySelector('#edit_content'))
                                 .then(editor => {
                                     editor.model.document.on('change:data', () => {
-                                        const content_input = document.querySelector('#content_input');
+                                        const content_input = document.querySelector('#edit_content_input');
                                         content_input.value = editor.getData();
                                     });
                                 })
@@ -65,7 +65,7 @@
                         </script>
                     </div>
                     <div class="mb-3">
-                        <label for="include" class="form-label">yang akan di pelajari <span
+                        <label for="include" class="form-label">Yang Akan Dipelajari <span
                                 class="text-danger">*</span></label>
                         <div id="include-container">
                             <div class="input-group mb-2">
@@ -80,8 +80,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="discount" class="form-label">Diskon %</label>
-                        <input type="text" class="form-control" id="edit_discount" name="discount"
-                            oninput="calculateDiscountedPrice()">
+                        <input type="text" class="form-control" id="edit_discount" name="discount">
                     </div>
                     <div class="mb-3">
                         <label for="discountedPrice">Harga Setelah Diskon (Rp)</label>
@@ -90,8 +89,7 @@
                     </div>
                     <div class="mb-3">
                         <div>
-                            <input type="checkbox" id="edit_free" name="free" value="1"
-                                onchange="togglePriceAndDiscount()">
+                            <input type="checkbox" id="edit_free" name="free" value="1">
                             <label for="free">Free</label>
                         </div>
                     </div>
@@ -118,7 +116,6 @@
     </div>
 </div>
 
-
 <script>
     $(document).ready(function() {
         // Fetch data when the edit button is clicked
@@ -129,7 +126,7 @@
                 .then(data => {
                     $('#edit-id').val(data.id);
                     $('#edit_nama_kursus').val(data.nama_kursus);
-                    $('#edit_category').val(data.kategori_id).trigger('change');
+                    $('#category').val(data.kategori_id).trigger('change');
                     $('#edit_subcategory').val(data.subkategori_id);
                     $('#edit_tingkat').val(data.tingkat);
                     $('#edit_content').val(data.content);
@@ -192,6 +189,56 @@
             } else {
                 $('#edit_price').attr('readonly', false);
                 $('#edit_discount').attr('readonly', false);
+            }
+        });
+
+        // Initialize Tagify
+        var input = document.querySelector('input[name=tag]');
+        new Tagify(input, {
+            whitelist: [],
+            dropdown: {
+                enabled: 1,
+                maxItems: 100
+            }
+        });
+
+        // Handle include fields
+        const addIncludeButton = document.getElementById('add-include');
+        const includeContainer = document.getElementById('include-container');
+
+        addIncludeButton.addEventListener('click', function() {
+            const newInputGroup = document.createElement('div');
+            newInputGroup.classList.add('input-group', 'mb-2');
+            newInputGroup.innerHTML = `
+                <input type="text" class="form-control" name="include[]">
+                <button class="btn btn-danger remove-include" type="button">-</button>
+            `;
+            includeContainer.appendChild(newInputGroup);
+        });
+
+        includeContainer.addEventListener('click', function(event) {
+            if (event.target.classList.contains('remove-include')) {
+                event.target.closest('.input-group').remove();
+            }
+        });
+
+        // Category and subcategory change logic
+        $('#category').on('change', function() {
+            var categoryId = $(this).val();
+            $('#edit_subcategory').prop('disabled', !categoryId);
+            $('#edit_subcategory').empty().append('<option value="">Pilih Subkategori</option>');
+            if (categoryId) {
+                $.ajax({
+                    url: `/getSubcategories/${categoryId}`,
+                    type: 'GET',
+                    success: function(subcategories) {
+                        $.each(subcategories, function(key, subcategory) {
+                            $('#edit_subcategory').append(
+                                `<option value="${subcategory.id}">${subcategory.name_subcategory}</option>`
+                            );
+                        });
+                    }
+                });
             }
         });
     });
