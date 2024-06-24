@@ -220,7 +220,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-baseline mb-2">
-                            <h6 class="card-title mb-0">Projects</h6>
+                            <h6 class="card-title mb-0">Status Transaksi</h6>
                             <div class="dropdown mb-2">
                                 <a type="button" id="dropdownMenuButton7" data-bs-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
