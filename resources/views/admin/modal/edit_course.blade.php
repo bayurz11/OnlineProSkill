@@ -143,6 +143,7 @@
                     $('#edit_content').val(data.content);
                     $('#edit_price').val(data.price);
                     $('#edit_discount').val(data.discount);
+                    $('#edit_tag').val(data.tag);
                     $('#edit_discountedPrice').val(data.discountedPrice);
                     $('#edit_free').prop('checked', data.free);
 
