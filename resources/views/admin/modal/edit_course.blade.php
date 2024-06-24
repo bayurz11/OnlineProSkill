@@ -132,10 +132,10 @@
         // Fetch data when the edit button is clicked
         $('.edit-button').on('click', function() {
             const id = $(this).data('id');
-            fetch(`/course/${id}/edit`)
+            fetch(`/Course/${id}/edit`)
                 .then(response => response.json())
                 .then(data => {
-                    $('#editCourseForm').attr('action', `/course/${id}`);
+                    $('#editCourseForm').attr('action', `/Course/${id}`);
                     $('#edit_nama_kursus').val(data.nama_kursus);
                     $('#edit_category').val(data.kategori_id);
                     $('#edit_subcategory').val(data.subkategori_id);
