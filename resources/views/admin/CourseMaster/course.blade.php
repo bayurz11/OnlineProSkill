@@ -44,7 +44,16 @@
                                             <td>{{ $key + 1 }}</td>
                                             <td>{{ $courses->nama_kursus }}</td>
                                             <td>{{ $courses->user->name }}</td>
-                                            <td>Rp. {{ $courses->price }}</td>
+                                            <td>
+                                                @if ($courses->free)
+                                                    Free
+                                                @elseif(!empty($courses->discount) && !empty($courses->discountedPrice))
+                                                    Rp. {{ number_format($courses->discountedPrice, 0, ',', '.') }}
+                                                @else
+                                                    Rp. {{ number_format($courses->price, 0, ',', '.') }}
+                                                @endif
+                                            </td>
+
                                             <td>
                                                 <div class="form-check form-switch mb-2">
                                                     <input type="checkbox" class="form-check-input formSwitch"
