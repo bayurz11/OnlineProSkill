@@ -45,8 +45,8 @@ class CourseMasterController extends Controller
 
         // Hitung harga setelah diskon jika ada
         $hargaSetelahDiskon = null;
-        if ($request->filled('harga') && $request->filled('diskon')) {
-            $hargaSetelahDiskon = $request->harga - ($request->harga * ($request->diskon / 100));
+        if ($request->filled('price') && $request->filled('diskon')) {
+            $hargaSetelahDiskon = $request->price - ($request->price * ($request->diskon / 100));
         }
 
         // Buat entitas kursus baru
