@@ -170,7 +170,7 @@
                     // Pengaturan nilai tingkat
                     $('#edit_tingkat').val(data.tingkat);
 
-                    // Pengaturan konten deskripsi
+                    // Pengaturan konten deskripsi dengan CKEditor
                     ClassicEditor.create(document.querySelector('#edit_content'))
                         .then(editor => {
                             editor.setData(data
@@ -184,6 +184,7 @@
                         .catch(error => {
                             console.error(error);
                         });
+
 
                     // Pengaturan harga dan diskon
                     $('#edit_price').val(data.price);
