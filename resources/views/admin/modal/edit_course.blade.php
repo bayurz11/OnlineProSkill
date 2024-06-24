@@ -116,6 +116,7 @@
     </div>
 </div>
 
+<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
 <script>
     $(document).ready(function() {
         // Fetch data when the edit button is clicked
