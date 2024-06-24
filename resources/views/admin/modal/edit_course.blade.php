@@ -7,7 +7,7 @@
                 @method('PUT')
                 <div class="modal-header">
                     <h5 class="modal-title" id="editModalLabel">Edit Kursus</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
@@ -19,12 +19,10 @@
 
                     <div class="mb-3">
                         <label class="form-label">Kategori<span class="text-danger">*</span></label>
-                        <select id="edit_category" class="form-select" name="kategori_id" data-width="100%">
+                        <select id="edit_category" class="form-select" name="kategori_id">
                             <option value="">Pilih Kategori</option>
-                            @foreach ($categori as $category)
-                                @if ($category->status == 1)
-                                    <option value="{{ $category->id }}">{{ $category->name_category }}</option>
-                                @endif
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -32,14 +30,14 @@
                     <div class="mb-3">
                         <label for="edit_subcategory" class="form-label">Subkategori<span
                                 class="text-danger">*</span></label>
-                        <select id="edit_subcategory" class="form-control" name="subkategori_id" disabled>
+                        <select id="edit_subcategory" class="form-select" name="subkategori_id">
                             <option value="">Pilih Subkategori</option>
                         </select>
                     </div>
 
                     <div class="mb-3">
                         <label for="edit_tingkat" class="form-label">Tingkat <span class="text-danger">*</span></label>
-                        <select id="edit_tingkat" class="form-select" name="tingkat" required>
+                        <select id="edit_tingkat" class="form-select" name="tingkat">
                             <option value="">Pilih Tingkat</option>
                             <option value="Pemula">Pemula</option>
                             <option value="Menengah">Menengah</option>
@@ -47,20 +45,20 @@
                             <option value="Semua Tingkat">Semua Tingkat</option>
                         </select>
                     </div>
+
                     <div class="mb-3">
                         <label for="edit_content" class="form-label">Deskripsi<span class="text-danger">*</span></label>
                         <textarea id="edit_content" name="content" style="height: 400px; width: 100%; font-size: 18px;"></textarea>
                         <input type="hidden" id="edit_content_input" name="content">
-
                     </div>
 
                     <div class="mb-3">
-                        <label for="edit_include" class="form-label">Yang akan di pelajari <span
+                        <label for="include" class="form-label">yang akan di pelajari <span
                                 class="text-danger">*</span></label>
-                        <div id="edit-include-container">
+                        <div id="edit_include-container">
                             <div class="input-group mb-2">
-                                <input type="text" class="form-control" id="edit_include" name="include[]">
-                                <button class="btn btn-success" type="button" id="add-edit-include">+</button>
+                                <input type="text" class="form-control" id="include" name="include[]">
+                                <button class="btn btn-success" type="button" id="add-include">+</button>
                             </div>
                         </div>
                     </div>
@@ -72,7 +70,7 @@
 
                     <div class="mb-3">
                         <label for="edit_discount" class="form-label">Diskon %</label>
-                        <input type="text" class="form-control" id="edit_discount" name="discount"
+                        <input type="number" class="form-control" id="edit_discount" name="discount"
                             oninput="calculateEditDiscountedPrice()">
                     </div>
 
@@ -83,10 +81,12 @@
                     </div>
 
                     <div class="mb-3">
-                        <div>
-                            <input type="checkbox" id="edit_free" name="free" value="1"
-                                onchange="toggleEditPriceAndDiscount()">
-                            <label for="edit_free">Free</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="edit_free" name="free"
+                                value="1" onchange="toggleEditPriceAndDiscount()">
+                            <label class="form-check-label" for="edit_free">
+                                Gratis
+                            </label>
                         </div>
                     </div>
 
@@ -96,24 +96,25 @@
                         <input type="file" accept="image/*" class="form-control" id="edit_gambar"
                             name="gambar">
                     </div>
-                    <img id="edit_preview" src="#" alt="Preview banner"
+                    <img id="edit_preview" src="#" alt="Pratinjau Gambar"
                         style="max-width: 100%; max-height: 200px; display: none;">
 
                     <div class="mb-3">
                         <label for="edit_tag" class="form-label">Tag</label>
                         <input type="text" class="form-control" id="edit_tag" name="tag">
-                        <small class="text-secondary">Note : Isi Dengan Tags kursus yang relevan</small>
+                        <small class="form-text text-muted">Catatan: Isi dengan tag kursus yang relevan</small>
                     </div>
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
 
 <script>
     $(document).ready(function() {
@@ -158,11 +159,10 @@
                     // Pengaturan nilai tingkat
                     $('#edit_tingkat').val(data.tingkat);
 
-                    // Pengaturan konten deskripsi dengan CKEditor
+                    // Inisialisasi CKEditor dengan data konten
                     ClassicEditor.create(document.querySelector('#edit_content'))
                         .then(editor => {
-                            editor.setData(data
-                                .content); // Mengatur nilai konten dari data yang diterima
+                            editor.setData(data.content);
                             editor.model.document.on('change:data', () => {
                                 const content_input = document.querySelector(
                                     '#edit_content_input');
@@ -172,7 +172,6 @@
                         .catch(error => {
                             console.error(error);
                         });
-
 
                     // Pengaturan harga dan diskon
                     $('#edit_price').val(data.price);
@@ -186,19 +185,19 @@
                     } else {
                         $('#edit_preview').hide();
                     }
+
                     // Pengaturan nilai tag
                     let tagValue = '';
 
                     if (Array.isArray(data.tag) && data.tag.length > 0) {
-                        tagValue = data.tag[0]
-                            .value; // Mengambil nilai dari item pertama dalam array
+                        tagValue = data.tag[0].value;
                     } else if (typeof data.tag === 'object' && data.tag !== null) {
-                        tagValue = data.tag.value; // Jika data.tag adalah objek tunggal
+                        tagValue = data.tag.value;
                     } else if (typeof data.tag === 'string') {
-                        tagValue = data.tag; // Jika data.tag adalah string tunggal
+                        tagValue = data.tag;
                     }
 
-                    $('#edit_tag').val(tagValue); // Menetapkan nilai tag ke dalam elemen input
+                    $('#edit_tag').val(tagValue);
 
                     // Pengaturan field include
                     const includeContainer = $('#edit-include-container');
