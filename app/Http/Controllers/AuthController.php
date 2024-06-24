@@ -99,7 +99,7 @@ class AuthController extends Controller
                 $redirectRoute = '/';
                 break;
             default:
-                $redirectRoute = 'login'; // Default redirect jika peran tidak dikenali
+                $redirectRoute = '/'; // Default redirect jika peran tidak dikenali
                 break;
         }
 
