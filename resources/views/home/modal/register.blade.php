@@ -11,7 +11,7 @@
                     <h2 class="title">Buat Akun ProSkill</h2>
                     <p>Silahkan isi form berikut untuk melanjutkan.</p>
 
-                    <form action="#" class="account__form" method="POST">
+                    <form action="{{ route('regisProses') }}" class="account__form" method="POST">
                         @csrf
                         <div class="form-grp">
                             <input type="text" id="name" name="name" placeholder="nama">
@@ -23,7 +23,8 @@
                             <input type="password" id="password" placeholder="Password" name="password">
                         </div>
                         <div class="form-grp">
-                            <input type="password" id="confirm-password" placeholder="Konfirmasi Password">
+                            <input type="password" id="password_confirmation" placeholder="Konfirmasi Password"
+                                name="password_confirmation">
                         </div>
                         <button type="submit" class="btn btn-two arrow-btn">Daftar<img
                                 src="public/assets/img/icons/right_arrow.svg" alt="img"

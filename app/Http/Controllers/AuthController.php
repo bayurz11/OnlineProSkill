@@ -14,15 +14,43 @@ class AuthController extends Controller
     {
         return view('auth.login');
     }
-    public function showinstruktur()
+    // public function showinstruktur()
+    // {
+    //     return view('instruktur.auth.login');
+    // }
+    // public function showinstuden()
+    // {
+    //     return view('studen.auth.login');
+    // }
+    public function stdregister(Request $request)
     {
-        return view('instruktur.auth.login');
-    }
-    public function showinstuden()
-    {
-        return view('studen.auth.login');
-    }
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:3|confirmed',
+        ]);
 
+        // Create a new user
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ]);
+
+        // Add the new user to the user_roles table
+        $userRole = new UserRoles();
+        $userRole->user_id = $user->id;
+        $userRole->role_id = 3; // Adjust to the appropriate role ID
+        $userRole->save();
+
+        // Add user_id to the user_profiles table
+        $userProfile = new UserProfile();
+        $userProfile->user_id = $user->id; // Insert the new user_id
+        $userProfile->role_id = 3;
+        $userProfile->save();
+
+        return redirect()->route('/')->with('success', 'Pendaftaran berhasil!');
+    }
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
