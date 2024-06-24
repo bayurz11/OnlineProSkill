@@ -85,9 +85,15 @@ class CourseMasterController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(CourseMaster $courseMaster)
+    public function edit($id)
     {
-        //
+        $course = CourseMaster::find($id);
+
+        if (!$course) {
+            return response()->json(['message' => 'course not found'], 404);
+        }
+
+        return response()->json($course);
     }
 
     /**

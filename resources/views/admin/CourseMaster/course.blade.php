@@ -67,7 +67,7 @@
                                                 </button>
                                                 <button type="button" class="btn btn-primary btn-icon edit-button"
                                                     title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
-                                                    data-id="#">
+                                                    data-id="{{ $courses->id }}">
                                                     <i data-feather="edit"></i>
                                                 </button>
                                                 <button onclick="hapus('{{ $courses->id }}')"

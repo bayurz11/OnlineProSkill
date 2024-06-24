@@ -62,7 +62,8 @@
                                                     {{ $subcategory->status ? 'Active' : 'Inactive' }}
                                                 </a> --}}
                                             </td>
-                                            <td> <button type="button" class="btn btn-primary btn-icon edit-button"
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-icon edit-button"
                                                     title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
                                                     data-id="{{ $subcategory->id }}">
                                                     <i data-feather="edit"></i>
