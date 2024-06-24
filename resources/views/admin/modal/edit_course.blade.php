@@ -128,21 +128,6 @@
 </div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Inisialisasi Tagify pada input tag setelah modal ditampilkan
-        $('#editModal').on('shown.bs.modal', function() {
-            var input = document.querySelector('input[name=tag]');
-            if (input) {
-                new Tagify(input, {
-                    whitelist: [], // Tambahkan daftar tag yang diizinkan jika diperlukan
-                    dropdown: {
-                        enabled: 1,
-                        maxItems: 100
-                    }
-                });
-            }
-        });
-    });
     $(document).ready(function() {
         // Fetch data when the edit button is clicked
         $('.edit-button').on('click', function() {
@@ -262,5 +247,21 @@
         }
 
         $('#edit_free').on('change', toggleEditPriceAndDiscount);
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // Inisialisasi Tagify pada input tag setelah modal ditampilkan
+        $('#editModal').on('shown.bs.modal', function() {
+            var input = document.querySelector('input[name=tag]');
+            if (input) {
+                new Tagify(input, {
+                    whitelist: [], // Tambahkan daftar tag yang diizinkan jika diperlukan
+                    dropdown: {
+                        enabled: 1,
+                        maxItems: 100
+                    }
+                });
+            }
+        });
     });
 </script>
