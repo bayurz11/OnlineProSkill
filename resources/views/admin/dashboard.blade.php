@@ -194,7 +194,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-6 col-md-12 col-xl-5">
+                                    <div class="col-6 col-md-12 col-xl-4">
                                         <h3 class="mb-2">89.87%</h3>
                                         {{-- <div class="d-flex align-items-baseline">
                                             <p class="text-success">
