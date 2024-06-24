@@ -48,6 +48,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="content" class="form-label">Deskripsi<span class="text-danger">*</span></label>
+                        <x-head.tinymce-config />
                         <x-forms.tinymce-editor />
                     </div>
                     <div class="mb-3">

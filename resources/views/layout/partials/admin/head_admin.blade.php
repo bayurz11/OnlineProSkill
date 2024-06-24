@@ -43,4 +43,3 @@
 <!-- End plugin css for this page -->
 {{-- <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.min.js"></script> --}}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css" />
-<x-head.tinymce-config />
