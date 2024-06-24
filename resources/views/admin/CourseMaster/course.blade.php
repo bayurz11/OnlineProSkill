@@ -8,7 +8,7 @@
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Course</li>
+                <li class="breadcrumb-item active" aria-current="page">Kursus</li>
             </ol>
         </nav>
 
@@ -19,13 +19,13 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h6 class="card-title">Course</h6>
+                        <h6 class="card-title">Kursus</h6>
                         <button type="button" class="btn btn-outline-primary position-absolute top-0 end-0 mt-3 me-3"
                             data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="btn-icon-prepend"
                                 data-feather="plus-circle"></i>
-                            Course
+                            Kursus
                         </button>
-                        <p class="text-muted mb-3">Jumlah Course : {{ $course->count() }}</p>
+                        <p class="text-muted mb-3">Jumlah Kursus : {{ $course->count() }}</p>
                         <div class="table-responsive">
                             <table id="dataTableExample" class="table">
                                 <thead>
