@@ -25,7 +25,7 @@
                                 data-feather="plus-circle"></i>
                             Course
                         </button>
-                        <p class="text-muted mb-3">Jumlah Course : {{ $courses->count() }}</p>
+                        <p class="text-muted mb-3">Jumlah Course : {{ $course->count() }}</p>
                         <div class="table-responsive">
                             <table id="dataTableExample" class="table">
                                 <thead>
