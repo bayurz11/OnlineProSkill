@@ -2,25 +2,23 @@
 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form id="editForm" action="#" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('storeCourse') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editModalLabel">Edit Course</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Tambah Kursus</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
                 </div>
                 <div class="modal-body">
-                    <input type="hidden" id="edit-id" name="id">
-
                     <div class="mb-3">
-                        <label for="name_course" class="form-label">Nama Kursus<span
+                        <label for="nama_kursus" class="form-label">Nama Kursus<span
                                 class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="name_course" name="name_course"
+                        <input type="text" class="form-control" id="nama_kursus" name="nama_kursus"
                             placeholder="Masukkan Nama Kursus Anda">
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Kategori<span class="text-danger">*</span></label>
-                        <select id="category" class="js-example-basic-single form-select" name="name_category"
+                        <select id="category" class="js-example-basic-single form-select" name="kategori_id"
                             data-width="100%">
                             <option value="">Pilih Kategori</option>
                             @foreach ($categori as $category)
@@ -34,25 +32,25 @@
                     <div class="mb-3">
                         <label for="subcategory" class="form-label">Subkategori<span
                                 class="text-danger">*</span></label>
-                        <select id="subcategory" class="form-control" name="name_course" disabled>
+                        <select id="subcategory" class="form-control" name="subkategori_id" disabled>
                             <option value="">Pilih Subkategori</option>
                         </select>
                     </div>
+
                     <div class="mb-3">
-                        <label for="level" class="form-label">Tingkat <span class="text-danger">*</span></label>
-                        <select id="level" class="form-select" name="level" required>
+                        <label for="tingkat" class="form-label">Tingkat <span class="text-danger">*</span></label>
+                        <select id="tingkat" class="form-select" name="tingkat" required>
                             <option value="">Pilih Tingkat</option>
-                            <option value="beginner">Pemula</option>
-                            <option value="intermediate">Menengah</option>
-                            <option value="advanced">Lanjutan</option>
-                            <option value="all levels">Semua Tingkat</option>
+                            <option value="Pemula">Pemula</option>
+                            <option value="Menengah">Menengah</option>
+                            <option value="Lanjutan">Lanjutan</option>
+                            <option value="Semua Tingkat">Semua Tingkat</option>
                         </select>
                     </div>
+
                     <div class="mb-3">
-                        <label for="pimpinan" class="form-label">Deskripsi<span class="text-danger">*</span></label>
-                        {{-- <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script> --}}
+                        <label for="content" class="form-label">Deskripsi<span class="text-danger">*</span></label>
                         <textarea id="content" style="height: 800px; width: 200px; font-size: 18px;"></textarea>
-                        <!-- Menggunakan <textarea> untuk CKEditor -->
                         <input type="hidden" id="content_input" name="content">
                         <script>
                             ClassicEditor
@@ -68,6 +66,7 @@
                                 });
                         </script>
                     </div>
+
                     <div class="mb-3">
                         <label for="include" class="form-label">yang akan di pelajari <span
                                 class="text-danger">*</span></label>
@@ -78,22 +77,26 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="mb-3">
                         <label for="price" class="form-label">Harga (Rp)<span class="text-danger">*</span></label>
                         <input type="number" class="form-control" id="price" name="price">
                     </div>
+
                     <div class="mb-3">
                         <label for="discount" class="form-label">Diskon %</label>
                         <input type="text" class="form-control" id="discount" name="discount"
                             oninput="calculateDiscountedPrice()">
                     </div>
+
                     <div class="mb-3">
                         <label for="discountedPrice">Harga Setelah Diskon (Rp)</label>
-                        <input type="text" class="form-control" id="discountedPrice" readonly>
+                        <input type="text" class="form-control" id="discountedPrice" name="discountedPrice" readonly>
                     </div>
+
                     <div class="mb-3">
                         <div>
-                            <input type="checkbox" id="free" name="class" value="free"
+                            <input type="checkbox" id="free" name="free" value="1"
                                 onchange="togglePriceAndDiscount()">
                             <label for="free">Free</label>
                         </div>
@@ -108,11 +111,12 @@
                         style="max-width: 100%; max-height: 200px; display: none;">
 
                     <div class="mb-3">
-                        <label for="category" class="form-label">Tag</label>
-                        <input type="text" class="form-control" id="category" name="category">
+                        <label for="tag" class="form-label">Tag</label>
+                        <input type="text" class="form-control" id="tag" name="tag">
                         <small class="text-secondary">Note : Isi Dengan Tags kursus yang relevan</small>
                     </div>
                 </div>
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
                     <button type="submit" class="btn btn-primary">Simpan</button>
@@ -121,54 +125,14 @@
         </div>
     </div>
 </div>
-{{-- 
 <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css" />
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
 <script>
-    $(document).ready(function() {
-        // Fetch data when the edit button is clicked
-        $('.edit-button').on('click', function() {
-            const id = $(this).data('id');
-            fetch(`/categories/${id}/edit`)
-                .then(response => response.json())
-                .then(data => {
-                    $('#edit-id').val(data.id);
-                    $('#name_course').val(data.name_course);
-                    $('#category').val(data.category_id).trigger(
-                        'change'); // Trigger change event to load subcategories
-
-                    if (data.gambar) {
-                        $('#preview').attr('src', `/public/uploads/${data.gambar}`).show();
-                    } else {
-                        $('#preview').hide();
-                    }
-
-                    // Set the form action to the update route
-                    $('#editForm').attr('action', `/categories/${data.id}`);
-                })
-                .catch(error => {
-                    console.error('Error fetching data:', error);
-                });
-        });
-
-        // Display the uploaded image preview
-        $('#gambar').change(function() {
-            readURL(this);
-        });
-
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    $('#preview').attr('src', e.target.result).show();
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-        // Initialize Tagify
-        var input = document.querySelector('input[name=category]');
+    // Tags initialization
+    document.addEventListener("DOMContentLoaded", function() {
+        var input = document.querySelector('input[name=tag]');
         new Tagify(input, {
             whitelist: [],
             dropdown: {
@@ -176,81 +140,110 @@
                 maxItems: 100
             }
         });
+    });
 
-        // // Add new include input
-        // $('#add-include').click(function() {
-        //     const newInputGroup = `
-        //         <div class="input-group mb-2">
-        //             <input type="text" class="form-control" name="include[]" >
-        //             <button class="btn btn-danger remove-include" type="button">-</button>
-        //         </div>
-        //     `;
-        //     $('#include-container').append(newInputGroup);
-        // });
+    // Gambar preview
+    $(document).ready(function() {
+        $("#gambar").change(function() {
+            readURL(this);
+        });
+    });
 
-        // // Remove include input
-        // $('#include-container').on('click', '.remove-include', function() {
-        //     $(this).closest('.input-group').remove();
-        // });
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#preview').attr('src', e.target.result).show();
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
 
-        // Load subcategories based on selected category
-        $('#category').change(function() {
-            const categoryId = $(this).val();
-            const subcategorySelect = $('#subcategory');
-            subcategorySelect.prop('disabled', !categoryId);
+    // Include fields handling
+    document.addEventListener('DOMContentLoaded', function() {
+        const addIncludeButton = document.getElementById('add-include');
+        const includeContainer = document.getElementById('include-container');
 
+        addIncludeButton.addEventListener('click', function() {
+            const newInputGroup = document.createElement('div');
+            newInputGroup.classList.add('input-group', 'mb-2');
+            newInputGroup.innerHTML = `
+                <input type="text" class="form-control" name="include[]" >
+                <button class="btn btn-danger remove-include" type="button">-</button>
+            `;
+            includeContainer.appendChild(newInputGroup);
+
+            newInputGroup.querySelector('.remove-include').addEventListener('click', function() {
+                newInputGroup.remove();
+            });
+        });
+
+        includeContainer.addEventListener('click', function(event) {
+            if (event.target && event.target.classList.contains('remove-include')) {
+                event.target.closest('.input-group').remove();
+            }
+        });
+    });
+
+    // Kategori dan Subkategori handling
+    document.addEventListener('DOMContentLoaded', function() {
+        const categorySelect = document.getElementById('category');
+        const subcategorySelect = document.getElementById('subcategory');
+
+        categorySelect.addEventListener('change', function() {
+            const categoryId = this.value;
+            subcategorySelect.disabled = !categoryId;
             if (categoryId) {
                 fetch(`/get-subcategories/${categoryId}`)
                     .then(response => response.json())
                     .then(data => {
-                        subcategorySelect.html('<option value="">Pilih Subkategori</option>');
+                        subcategorySelect.innerHTML = '<option value="">Pilih Subkategori</option>';
                         data.forEach(subcategory => {
-                            const option =
-                                `<option value="${subcategory.id}">${subcategory.name}</option>`;
-                            subcategorySelect.append(option);
+                            if (subcategory.status == 1) {
+                                const option = document.createElement('option');
+                                option.value = subcategory.id;
+                                option.textContent = subcategory.name;
+                                subcategorySelect.appendChild(option);
+                            }
                         });
                     })
                     .catch(error => console.error('Error fetching subcategories:', error));
             } else {
-                subcategorySelect.html('<option value="">Pilih Subkategori</option>');
+                subcategorySelect.innerHTML = '<option value="">Pilih Subkategori</option>';
             }
         });
-
-        // Toggle price and discount inputs
-        $('#free').change(function() {
-            togglePriceAndDiscount();
-        });
-
-        function togglePriceAndDiscount() {
-            var priceInput = $('#price');
-            var discountInput = $('#discount');
-            var freeCheckbox = $('#free');
-
-            if (freeCheckbox.is(':checked')) {
-                priceInput.val('').prop('disabled', true);
-                discountInput.val('').prop('disabled', true);
-            } else {
-                priceInput.prop('disabled', false);
-                discountInput.prop('disabled', false);
-            }
-        }
-
-        // Calculate discounted price
-        $('#discount, #price').on('input', function() {
-            calculateDiscountedPrice();
-        });
-
-        function calculateDiscountedPrice() {
-            var price = parseFloat($('#price').val());
-            var discount = parseFloat($('#discount').val());
-            var discountedPriceInput = $('#discountedPrice');
-
-            if (!isNaN(price) && !isNaN(discount)) {
-                var discountedPrice = price - (price * (discount / 100));
-                discountedPriceInput.val(discountedPrice.toFixed());
-            } else {
-                discountedPriceInput.val('');
-            }
-        }
     });
+
+    // Price and discount handling
+    function togglePriceAndDiscount() {
+        var priceInput = document.getElementById("price");
+        var discountInput = document.getElementById("discount");
+        var freeCheckbox = document.getElementById("free");
+
+        if (freeCheckbox.checked) {
+            priceInput.value = ""; // Clear the price field
+            discountInput.value = ""; // Clear the discount field
+            priceInput.disabled = true; // Disable the price input
+            discountInput.disabled = true; // Disable the discount input
+        } else {
+            priceInput.disabled = false; // Enable the price input
+            discountInput.disabled = false; // Enable the discount input
+        }
+    }
+
+    function calculateDiscountedPrice() {
+        var priceInput = document.getElementById("price");
+        var discountInput = document.getElementById("discount");
+        var discountedPriceInput = document.getElementById("discountedPrice");
+
+        var price = parseFloat(priceInput.value);
+        var discount = parseFloat(discountInput.value);
+
+        if (!isNaN(price) && !isNaN(discount)) {
+            var discountedPrice = price - (price * (discount / 100));
+            discountedPriceInput.value = discountedPrice.toFixed(); // Display up to 2 decimal places
+        } else {
+            discountedPriceInput.value = ""; // Clear the discounted price if inputs are not valid numbers
+        }
+    }
 </script>
