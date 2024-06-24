@@ -129,45 +129,18 @@
 
 <script>
     $(document).ready(function() {
-        // Fetch data when the edit button is clicked
+        // Pengambilan data saat tombol edit diklik
         $('.edit-button').on('click', function() {
             const id = $(this).data('id');
             fetch(`/Course/${id}/edit`)
                 .then(response => response.json())
                 .then(data => {
+                    // Pengaturan nilai form edit
                     $('#editCourseForm').attr('action', `/Course/${id}`);
                     $('#edit_nama_kursus').val(data.nama_kursus);
                     $('#edit_category').val(data.kategori_id);
-                    $('#edit_subcategory').val(data.subkategori_id);
-                    $('#edit_tingkat').val(data.tingkat);
-                    $('#edit_content').val(data.content);
-                    $('#edit_price').val(data.price);
-                    $('#edit_discount').val(data.discount);
-                    $('#edit_tag').val(data.tag);
-                    $('#edit_discountedPrice').val(data.discountedPrice);
-                    $('#edit_free').prop('checked', data.free);
 
-                    // Handle include fields
-                    const includeContainer = $('#edit-include-container');
-                    includeContainer.html('');
-                    data.include.forEach(item => {
-                        const inputGroup = $(`
-                            <div class="input-group mb-2">
-                                <input type="text" class="form-control" name="include[]" value="${item}">
-                                <button class="btn btn-danger remove-edit-include" type="button">-</button>
-                            </div>
-                        `);
-                        includeContainer.append(inputGroup);
-                    });
-
-                    // Handle image preview
-                    if (data.gambar) {
-                        $('#edit_preview').attr('src', `/public/uploads/${data.gambar}`).show();
-                    } else {
-                        $('#edit_preview').hide();
-                    }
-
-                    // Trigger subcategory update
+                    // Pengaturan subkategori berdasarkan kategori
                     const categoryId = data.kategori_id;
                     const subcategorySelect = $('#edit_subcategory');
                     subcategorySelect.prop('disabled', !categoryId);
@@ -193,11 +166,57 @@
                     } else {
                         subcategorySelect.html('<option value="">Pilih Subkategori</option>');
                     }
+
+                    // Pengaturan nilai tingkat
+                    $('#edit_tingkat').val(data.tingkat);
+
+                    // Pengaturan konten deskripsi
+                    $('#edit_content').val(data.content);
+
+                    // Pengaturan harga dan diskon
+                    $('#edit_price').val(data.price);
+                    $('#edit_discount').val(data.discount);
+                    $('#edit_discountedPrice').val(data.discountedPrice);
+                    $('#edit_free').prop('checked', data.free);
+
+                    // Pengaturan pratinjau gambar
+                    if (data.gambar) {
+                        $('#edit_preview').attr('src', `/public/uploads/${data.gambar}`).show();
+                    } else {
+                        $('#edit_preview').hide();
+                    }
+
+                    // Pengaturan nilai tag
+                    // Memastikan data.tag adalah string atau mengambil nilai dari array jika perlu
+                    if (typeof data.tag === 'string') {
+                        $('#edit_tag').val(data.tag);
+                    } else if (Array.isArray(data.tag) && data.tag.length > 0) {
+                        $('#edit_tag').val(data.tag[0]
+                            .value); // Misalnya mengambil nilai dari item pertama dalam array
+                    } else {
+                        $('#edit_tag').val(''); // Handle jika data.tag tidak ada atau kosong
+                    }
+
+                    // Pengaturan field include
+                    const includeContainer = $('#edit-include-container');
+                    includeContainer.html('');
+                    data.include.forEach(item => {
+                        const inputGroup = $(`
+                        <div class="input-group mb-2">
+                            <input type="text" class="form-control" name="include[]" value="${item}">
+                            <button class="btn btn-danger remove-edit-include" type="button">-</button>
+                        </div>
+                    `);
+                        includeContainer.append(inputGroup);
+                    });
+
+                    // Mengatur disable/enable harga dan diskon berdasarkan status free
+                    toggleEditPriceAndDiscount();
                 })
                 .catch(error => console.error('Error fetching course data:', error));
         });
 
-        // Display the uploaded image preview
+        // Menampilkan pratinjau gambar yang diunggah
         $('#edit_gambar').change(function() {
             readURL(this);
         });
@@ -212,14 +231,14 @@
             }
         }
 
-        // Include fields handling for edit form
+        // Menambahkan dan menghapus field include pada form edit
         $('#add-edit-include').on('click', function() {
             const inputGroup = $(`
-                <div class="input-group mb-2">
-                    <input type="text" class="form-control" name="include[]">
-                    <button class="btn btn-danger remove-edit-include" type="button">-</button>
-                </div>
-            `);
+            <div class="input-group mb-2">
+                <input type="text" class="form-control" name="include[]">
+                <button class="btn btn-danger remove-edit-include" type="button">-</button>
+            </div>
+        `);
             $('#edit-include-container').append(inputGroup);
         });
 
@@ -227,7 +246,7 @@
             $(this).closest('.input-group').remove();
         });
 
-        // Price and discount handling
+        // Menghitung harga setelah diskon pada form edit
         function calculateEditDiscountedPrice() {
             const price = parseFloat($('#edit_price').val());
             const discount = parseFloat($('#edit_discount').val());
@@ -239,6 +258,7 @@
 
         $('#edit_discount').on('input', calculateEditDiscountedPrice);
 
+        // Menyembunyikan/menampilkan field harga dan diskon berdasarkan status free
         function toggleEditPriceAndDiscount() {
             const isFree = $('#edit_free').is(':checked');
             $('#edit_price, #edit_discount, #edit_discountedPrice').prop('disabled', isFree);
@@ -249,10 +269,4 @@
 
         $('#edit_free').on('change', toggleEditPriceAndDiscount);
     });
-
-    if (Array.isArray(data.tag) && data.tag.length > 0) {
-        $('#edit_tag').val(data.tag[0].value); // Asumsikan Anda ingin nilai dari item pertama
-    } else {
-        $('#edit_tag').val(''); // Handle kasus kosong jika diperlukan
-    }
 </script>
