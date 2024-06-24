@@ -56,4 +56,3 @@
 <!-- <script src="{{ asset('public/assets_admin/vendors/pickr/pickr.min.js') }}"></script> -->
 <script src="{{ asset('public/assets_admin/vendors/moment/moment.min.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.min.js"></script>
-<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
