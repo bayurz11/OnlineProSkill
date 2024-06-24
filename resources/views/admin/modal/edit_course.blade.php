@@ -51,19 +51,7 @@
                         <label for="edit_content" class="form-label">Deskripsi<span class="text-danger">*</span></label>
                         <textarea id="edit_content" name="content" style="height: 400px; width: 100%; font-size: 18px;"></textarea>
                         <input type="hidden" id="edit_content_input" name="content">
-                        <script>
-                            ClassicEditor
-                                .create(document.querySelector('#edit_content'))
-                                .then(editor => {
-                                    editor.model.document.on('change:data', () => {
-                                        const content_input = document.querySelector('#edit_content_input');
-                                        content_input.value = editor.getData();
-                                    });
-                                })
-                                .catch(error => {
-                                    console.error(error);
-                                });
-                        </script>
+
                     </div>
 
                     <div class="mb-3">
