@@ -251,11 +251,11 @@
     document.querySelectorAll('.edit-button').forEach(button => {
         button.addEventListener('click', function() {
             const courseId = this.getAttribute('data-id');
-            fetch(`/Course/${courseId}/edit`)
+            fetch(`/course/${courseId}/edit`)
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('editCourseForm').setAttribute('action',
-                        `/Course/${courseId}`);
+                        `/course/${courseId}`);
                     document.getElementById('edit_nama_kursus').value = data.nama_kursus;
                     document.getElementById('edit_category').value = data.kategori_id;
                     document.getElementById('edit_subcategory').value = data.subkategori_id;
