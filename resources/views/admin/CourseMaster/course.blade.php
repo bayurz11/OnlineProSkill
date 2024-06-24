@@ -80,38 +80,41 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        $(document).ready(function() {
-            $('.badgeLink').on('click', function(e) {
-                e.preventDefault();
+        document.addEventListener('DOMContentLoaded', function() {
+            const formSwitches = document.querySelectorAll('.formSwitch');
 
-                var link = $(this);
-                var categoryId = link.data('id');
-                var currentStatus = link.data('status');
-                var newStatus = currentStatus ? 0 : 1;
+            formSwitches.forEach(function(formSwitch) {
 
-                $.ajax({
-                    url: '/update-category-status/' + categoryId,
-                    method: 'POST',
-                    data: {
-                        _token: '{{ csrf_token() }}',
-                        status: newStatus
-                    },
-                    success: function(response) {
-                        if (response.success) {
-                            link.data('status', newStatus);
-                            link.text(newStatus ? 'Active' : 'Inactive');
-                            if (newStatus) {
-                                link.removeClass('bg-danger').addClass('bg-success');
+
+                // Set initial state of the switch based on the status
+                formSwitch.checked = formSwitch.dataset.status == 1;
+
+                formSwitch.addEventListener('change', function() {
+                    const categoryId = formSwitch.dataset.id;
+                    const newStatus = formSwitch.checked ? 1 : 0;
+
+                    fetch('/update-category-status/' + categoryId, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                            },
+                            body: JSON.stringify({
+                                status: newStatus
+                            })
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                formSwitch.dataset.status = newStatus;
+
                             } else {
-                                link.removeClass('bg-success').addClass('bg-danger');
+                                alert('Gagal mengupdate status');
                             }
-                        } else {
-                            alert('Gagal mengupdate status');
-                        }
-                    },
-                    error: function() {
-                        alert('Terjadi kesalahan');
-                    }
+                        })
+                        .catch(() => {
+                            alert('Terjadi kesalahan');
+                        });
                 });
             });
         });
