@@ -7,7 +7,7 @@
                 @method('PUT')
                 <div class="modal-header">
                     <h5 class="modal-title" id="editModalLabel">Edit Kursus</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
@@ -19,8 +19,7 @@
 
                     <div class="mb-3">
                         <label class="form-label">Kategori<span class="text-danger">*</span></label>
-                        <select id="edit_category" class="js-example-basic-single form-select" name="kategori_id"
-                            data-width="100%">
+                        <select id="edit_category" class="form-select" name="kategori_id" data-width="100%">
                             <option value="">Pilih Kategori</option>
                             @foreach ($categori as $category)
                                 @if ($category->status == 1)
@@ -68,7 +67,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="edit_include" class="form-label">yang akan di pelajari <span
+                        <label for="edit_include" class="form-label">Yang akan di pelajari <span
                                 class="text-danger">*</span></label>
                         <div id="edit-include-container">
                             <div class="input-group mb-2">
@@ -129,192 +128,124 @@
 </div>
 
 <script>
-    // Tags initialization
-    document.addEventListener("DOMContentLoaded", function() {
-        var input = document.querySelector('input[name=tag]');
-        new Tagify(input, {
-            whitelist: [],
-            dropdown: {
-                enabled: 1,
-                maxItems: 100
-            }
-        });
-    });
-
-    // Gambar preview
     $(document).ready(function() {
-        $("#edit_gambar").change(function() {
-            readURLEdit(this);
-        });
-    });
-
-    function readURLEdit(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                $('#edit_preview').attr('src', e.target.result).show();
-            };
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-
-    // Include fields handling
-    document.addEventListener('DOMContentLoaded', function() {
-        const addEditIncludeButton = document.getElementById('add-edit-include');
-        const editIncludeContainer = document.getElementById('edit-include-container');
-
-        addEditIncludeButton.addEventListener('click', function() {
-            const newInputGroup = document.createElement('div');
-            newInputGroup.classList.add('input-group', 'mb-2');
-            newInputGroup.innerHTML = `
-                <input type="text" class="form-control" name="include[]" >
-                <button class="btn btn-danger remove-edit-include" type="button">-</button>
-            `;
-            editIncludeContainer.appendChild(newInputGroup);
-
-            newInputGroup.querySelector('.remove-edit-include').addEventListener('click', function() {
-                newInputGroup.remove();
-            });
-        });
-
-        editIncludeContainer.addEventListener('click', function(event) {
-            if (event.target && event.target.classList.contains('remove-edit-include')) {
-                event.target.closest('.input-group').remove();
-            }
-        });
-    });
-
-    // Kategori dan Subkategori handling
-    document.addEventListener('DOMContentLoaded', function() {
-        const editCategorySelect = document.getElementById('edit_category');
-        const editSubcategorySelect = document.getElementById('edit_subcategory');
-
-        editCategorySelect.addEventListener('change', function() {
-            const categoryId = this.value;
-            editSubcategorySelect.disabled = !categoryId;
-            if (categoryId) {
-                fetch(`/get-subcategories/${categoryId}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        editSubcategorySelect.innerHTML =
-                            '<option value="">Pilih Subkategori</option>';
-                        data.forEach(subcategory => {
-                            if (subcategory.status == 1) {
-                                const option = document.createElement('option');
-                                option.value = subcategory.id;
-                                option.textContent = subcategory.name;
-                                editSubcategorySelect.appendChild(option);
-                            }
-                        });
-                    })
-                    .catch(error => console.error('Error fetching subcategories:', error));
-            } else {
-                editSubcategorySelect.innerHTML = '<option value="">Pilih Subkategori</option>';
-            }
-        });
-    });
-
-    // Price and discount handling
-    function toggleEditPriceAndDiscount() {
-        var priceInput = document.getElementById("edit_price");
-        var discountInput = document.getElementById("edit_discount");
-        var freeCheckbox = document.getElementById("edit_free");
-
-        if (freeCheckbox.checked) {
-            priceInput.value = ""; // Clear the price field
-            discountInput.value = ""; // Clear the discount field
-            priceInput.disabled = true; // Disable the price input
-            discountInput.disabled = true; // Disable the discount input
-        } else {
-            priceInput.disabled = false; // Enable the price input
-            discountInput.disabled = false; // Enable the discount input
-        }
-    }
-
-    function calculateEditDiscountedPrice() {
-        var priceInput = document.getElementById("edit_price");
-        var discountInput = document.getElementById("edit_discount");
-        var discountedPriceInput = document.getElementById("edit_discountedPrice");
-
-        var price = parseFloat(priceInput.value);
-        var discount = parseFloat(discountInput.value);
-
-        if (!isNaN(price) && !isNaN(discount)) {
-            var discountedPrice = price - (price * (discount / 100));
-            discountedPriceInput.value = discountedPrice.toFixed(); // Display up to 2 decimal places
-        } else {
-            discountedPriceInput.value = ""; // Clear the discounted price if inputs are not valid numbers
-        }
-    }
-
-    // Populate edit modal with course data
-    document.querySelectorAll('.edit-button').forEach(button => {
-        button.addEventListener('click', function() {
-            const courseId = this.getAttribute('data-id');
-            fetch(`/course/${courseId}/edit`)
+        // Fetch data when the edit button is clicked
+        $('.edit-button').on('click', function() {
+            const id = $(this).data('id');
+            fetch(`/course/${id}/edit`)
                 .then(response => response.json())
                 .then(data => {
-                    document.getElementById('editCourseForm').setAttribute('action',
-                        `/course/${courseId}`);
-                    document.getElementById('edit_nama_kursus').value = data.nama_kursus;
-                    document.getElementById('edit_category').value = data.kategori_id;
-                    document.getElementById('edit_subcategory').value = data.subkategori_id;
-                    document.getElementById('edit_tingkat').value = data.tingkat;
-                    document.getElementById('edit_content').value = data.content;
-                    document.getElementById('edit_price').value = data.price;
-                    document.getElementById('edit_discount').value = data.discount;
-                    document.getElementById('edit_discountedPrice').value = data.discountedPrice;
-                    document.getElementById('edit_free').checked = data.free;
+                    $('#editCourseForm').attr('action', `/course/${id}`);
+                    $('#edit_nama_kursus').val(data.nama_kursus);
+                    $('#edit_category').val(data.kategori_id);
+                    $('#edit_subcategory').val(data.subkategori_id);
+                    $('#edit_tingkat').val(data.tingkat);
+                    $('#edit_content').val(data.content);
+                    $('#edit_price').val(data.price);
+                    $('#edit_discount').val(data.discount);
+                    $('#edit_discountedPrice').val(data.discountedPrice);
+                    $('#edit_free').prop('checked', data.free);
 
                     // Handle include fields
-                    const includeContainer = document.getElementById('edit-include-container');
-                    includeContainer.innerHTML = '';
+                    const includeContainer = $('#edit-include-container');
+                    includeContainer.html('');
                     data.include.forEach(item => {
-                        const inputGroup = document.createElement('div');
-                        inputGroup.classList.add('input-group', 'mb-2');
-                        inputGroup.innerHTML = `
-                            <input type="text" class="form-control" name="include[]" value="${item}">
-                            <button class="btn btn-danger remove-edit-include" type="button">-</button>
-                        `;
-                        includeContainer.appendChild(inputGroup);
+                        const inputGroup = $(`
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" name="include[]" value="${item}">
+                                <button class="btn btn-danger remove-edit-include" type="button">-</button>
+                            </div>
+                        `);
+                        includeContainer.append(inputGroup);
                     });
 
                     // Handle image preview
                     if (data.gambar) {
-                        document.getElementById('edit_preview').src = `/storage/${data.gambar}`;
-                        document.getElementById('edit_preview').style.display = 'block';
+                        $('#edit_preview').attr('src', `/storage/${data.gambar}`).show();
                     } else {
-                        document.getElementById('edit_preview').style.display = 'none';
+                        $('#edit_preview').hide();
                     }
 
                     // Trigger subcategory update
                     const categoryId = data.kategori_id;
-                    const subcategorySelect = document.getElementById('edit_subcategory');
-                    subcategorySelect.disabled = !categoryId;
+                    const subcategorySelect = $('#edit_subcategory');
+                    subcategorySelect.prop('disabled', !categoryId);
                     if (categoryId) {
                         fetch(`/get-subcategories/${categoryId}`)
                             .then(response => response.json())
                             .then(subcategories => {
-                                subcategorySelect.innerHTML =
-                                    '<option value="">Pilih Subkategori</option>';
+                                subcategorySelect.html(
+                                    '<option value="">Pilih Subkategori</option>');
                                 subcategories.forEach(subcategory => {
                                     if (subcategory.status == 1) {
-                                        const option = document.createElement('option');
-                                        option.value = subcategory.id;
-                                        option.textContent = subcategory.name;
+                                        const option = $('<option></option>')
+                                            .attr('value', subcategory.id)
+                                            .text(subcategory.name);
                                         if (subcategory.id == data.subkategori_id) {
-                                            option.selected = true;
+                                            option.prop('selected', true);
                                         }
-                                        subcategorySelect.appendChild(option);
+                                        subcategorySelect.append(option);
                                     }
                                 });
                             })
                             .catch(error => console.error('Error fetching subcategories:', error));
                     } else {
-                        subcategorySelect.innerHTML = '<option value="">Pilih Subkategori</option>';
+                        subcategorySelect.html('<option value="">Pilih Subkategori</option>');
                     }
                 })
                 .catch(error => console.error('Error fetching course data:', error));
         });
+
+        // Display the uploaded image preview
+        $('#edit_gambar').change(function() {
+            readURL(this);
+        });
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#edit_preview').attr('src', e.target.result).show();
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        // Include fields handling for edit form
+        $('#add-edit-include').on('click', function() {
+            const inputGroup = $(`
+                <div class="input-group mb-2">
+                    <input type="text" class="form-control" name="include[]">
+                    <button class="btn btn-danger remove-edit-include" type="button">-</button>
+                </div>
+            `);
+            $('#edit-include-container').append(inputGroup);
+        });
+
+        $(document).on('click', '.remove-edit-include', function() {
+            $(this).closest('.input-group').remove();
+        });
+
+        // Price and discount handling
+        function calculateEditDiscountedPrice() {
+            const price = parseFloat($('#edit_price').val());
+            const discount = parseFloat($('#edit_discount').val());
+            if (!isNaN(price) && !isNaN(discount)) {
+                const discountedPrice = price - (price * (discount / 100));
+                $('#edit_discountedPrice').val(discountedPrice.toFixed(2));
+            }
+        }
+
+        $('#edit_discount').on('input', calculateEditDiscountedPrice);
+
+        function toggleEditPriceAndDiscount() {
+            const isFree = $('#edit_free').is(':checked');
+            $('#edit_price, #edit_discount, #edit_discountedPrice').prop('disabled', isFree);
+            if (isFree) {
+                $('#edit_price, #edit_discount, #edit_discountedPrice').val('');
+            }
+        }
+
+        $('#edit_free').on('change', toggleEditPriceAndDiscount);
     });
 </script>
