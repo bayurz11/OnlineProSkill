@@ -94,7 +94,19 @@ class CourseMasterController extends Controller
     {
         //
     }
+    public function updateCoursestatus($id, Request $request)
+    {
+        $course = CourseMaster::find($id);
 
+        if ($course) {
+            $course->status = $request->input('status');
+            $course->save();
+
+            return response()->json(['success' => true]);
+        }
+
+        return response()->json(['success' => false]);
+    }
     /**
      * Remove the specified resource from storage.
      */
