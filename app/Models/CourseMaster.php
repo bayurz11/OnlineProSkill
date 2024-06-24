@@ -43,4 +43,8 @@ class CourseMaster extends Model
     {
         return $this->belongsTo(Subcategories::class);
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
