@@ -36,6 +36,7 @@ class CourseMasterController extends Controller
      */
     public function store(Request $request)
     {
+        $userId = Auth::id();
         // Proses unggahan gambar
         if ($request->hasFile('gambar')) {
             $gambarName = time() . '.' . $request->gambar->extension();
@@ -64,6 +65,7 @@ class CourseMasterController extends Controller
         $course->free = $request->free;
         $course->gambar = $gambarName;
         $course->tag = $request->tag;
+        $course->user_id = $userId;
         $course->save();
 
         return redirect()->route('CourseMaster')->with('success', 'Kursus berhasil disimpan.');

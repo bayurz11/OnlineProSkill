@@ -42,8 +42,8 @@
                                     @foreach ($course as $key => $courses)
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
-                                            <td>a</td>
-                                            <td>a</td>
+                                            <td>{{ $courses->nama_kursus }}</td>
+                                            <td>{{ $courses->user_id }}</td>
                                             <td>100000</td>
                                             <td>
                                                 <div class="form-check form-switch mb-2">

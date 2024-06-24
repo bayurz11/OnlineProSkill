@@ -25,6 +25,7 @@ return new class extends Migration
             $table->boolean('free')->default(false);
             $table->string('gambar')->nullable();
             $table->string('tag')->nullable();
+            $table->string('user_id')->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();
 
