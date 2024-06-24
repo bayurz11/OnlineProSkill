@@ -161,7 +161,7 @@
 
                     // Handle image preview
                     if (data.gambar) {
-                        $('#edit_preview').attr('src', `/storage/${data.gambar}`).show();
+                        $('#edit_preview').attr('src', `/public/uploads/${data.gambar}`).show();
                     } else {
                         $('#edit_preview').hide();
                     }
