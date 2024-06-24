@@ -58,7 +58,7 @@ class CourseMasterController extends Controller
         $course->tingkat = $request->tingkat;
         $course->include = json_encode($request->include);
         $course->price = $request->gratis ? null : $request->price;
-        $course->diskon = $request->diskon;
+        $course->discount = $request->discount;
         $course->harga_setelah_diskon = $hargaSetelahDiskon;
         $course->gratis = $request->gratis;
         $course->gambar = $gambarName;

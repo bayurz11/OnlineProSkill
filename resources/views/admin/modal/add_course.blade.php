@@ -84,7 +84,7 @@
 
                     <div class="mb-3">
                         <label for="discount" class="form-label">Diskon %</label>
-                        <input type="text" class="form-control" id="discount" name="diskon"
+                        <input type="text" class="form-control" id="discount" name="discount"
                             oninput="calculateDiscountedPrice()">
                     </div>
 
