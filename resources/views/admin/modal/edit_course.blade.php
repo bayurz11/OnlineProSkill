@@ -188,11 +188,13 @@
 
                     // Pengaturan nilai tag
                     // Memastikan data.tag adalah string atau mengambil nilai dari array jika perlu
-                    if (typeof data.tag === 'string') {
-                        $('#edit_tag').val(data.tag);
-                    } else if (Array.isArray(data.tag) && data.tag.length > 0) {
+                    if (Array.isArray(data.tag) && data.tag.length > 0) {
                         $('#edit_tag').val(data.tag[0]
-                            .value); // Misalnya mengambil nilai dari item pertama dalam array
+                            .value); // Mengambil nilai dari item pertama dalam array
+                    } else if (typeof data.tag === 'object' && data.tag !== null) {
+                        $('#edit_tag').val(data.tag.value); // Jika data.tag adalah objek tunggal
+                    } else if (typeof data.tag === 'string') {
+                        $('#edit_tag').val(data.tag); // Jika data.tag adalah string tunggal
                     } else {
                         $('#edit_tag').val(''); // Handle jika data.tag tidak ada atau kosong
                     }
