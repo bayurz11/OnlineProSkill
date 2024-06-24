@@ -34,6 +34,7 @@ class CourseMasterController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+
     public function store(Request $request)
     {
         $userId = Auth::id();
@@ -61,7 +62,7 @@ class CourseMasterController extends Controller
         $course->include = json_encode($request->include);
         $course->price = $request->gratis ? null : $request->price;
         $course->discount = $request->discount;
-        $course->discountedPrice = $hargaSetelahDiskon;
+        $course->discountedPrice = $request->discountedPrice;
         $course->free = $request->free;
         $course->gambar = $gambarName;
         $course->tag = $request->tag;

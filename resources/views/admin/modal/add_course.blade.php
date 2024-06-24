@@ -90,7 +90,7 @@
 
                     <div class="mb-3">
                         <label for="discountedPrice">Harga Setelah Diskon (Rp)</label>
-                        <input type="text" class="form-control" id="discountedPrice" readonly>
+                        <input type="text" class="form-control" id="discountedPrice" name="discountedPrice" readonly>
                     </div>
 
                     <div class="mb-3">
