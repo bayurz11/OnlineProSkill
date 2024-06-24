@@ -44,7 +44,6 @@
                                             <td>{{ $key + 1 }}</td>
                                             <td>{{ $courses->nama_kursus }}</td>
                                             <td>{{ $courses->user->name }}</td>
-                                            <td>{{ $courses->user_id }}</td>
                                             <td>{{ $courses->user->price }}</td>
                                             <td>
                                                 <div class="form-check form-switch mb-2">
