@@ -48,7 +48,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="content" class="form-label">Deskripsi<span class="text-danger">*</span></label>
-                        <textarea id="content" style="height: 800px; width: 200px; font-size: 18px;"></textarea>
+                        <textarea id="content" name="content" style="height: 400px; width: 100%; font-size: 18px;"></textarea>
                         <input type="hidden" id="content_input" name="content">
                         <script>
                             ClassicEditor
@@ -64,6 +64,7 @@
                                 });
                         </script>
                     </div>
+
                     <div class="mb-3">
                         <label for="include" class="form-label">yang akan di pelajari <span
                                 class="text-danger">*</span></label>
@@ -88,7 +89,8 @@
 
                     <div class="mb-3">
                         <label for="discountedPrice">Harga Setelah Diskon (Rp)</label>
-                        <input type="text" class="form-control" id="discountedPrice" name="discountedPrice" readonly>
+                        <input type="text" class="form-control" id="discountedPrice" name="discountedPrice"
+                            readonly>
                     </div>
 
                     <div class="mb-3">
@@ -123,10 +125,7 @@
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css" />
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
+
 <script>
     // Tags initialization
     document.addEventListener("DOMContentLoaded", function() {
