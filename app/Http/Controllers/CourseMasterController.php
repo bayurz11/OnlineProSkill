@@ -16,11 +16,12 @@ class CourseMasterController extends Controller
     {
         $user = Auth::user();
         $categori = Categories::all();
-        $count = $categori->count();
+        $course = CourseMaster::all();
+        $count = $course->count();
         if (!$user) {
             return redirect()->route('login_admin');
         }
-        return view('admin.CourseMaster.course', compact('user', 'categori', 'count'));
+        return view('admin.CourseMaster.course', compact('user', 'categori', 'count', 'course'));
     }
     /**
      * Show the form for creating a new resource.

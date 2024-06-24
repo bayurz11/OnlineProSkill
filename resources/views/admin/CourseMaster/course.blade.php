@@ -39,57 +39,34 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>a</td>
-                                        <td>a</td>
-                                        <td>100000</td>
-                                        <td>
-                                            <div class="form-check form-switch mb-2">
-                                                <input type="checkbox" class="form-check-input" id="formSwitch1">
-
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-success btn-icon" title="Kurikulum">
-                                                <i data-feather="settings"></i>
-                                            </button>
-                                            <button type="button" class="btn btn-primary btn-icon edit-button"
-                                                title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
-                                                data-id="#">
-                                                <i data-feather="edit"></i>
-                                            </button>
-                                            <button onclick="hapus('#')" class="btn btn-danger btn-icon" title="Hapus">
-                                                <i data-feather="trash-2"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    {{-- @foreach ($categori as $key => $kategori)
+                                    @foreach ($course as $key => $courses)
                                         <tr>
-                                            <td>{{ $key + 1 }}</td>
-                                            <td><img src="{{ asset('public/uploads/' . $kategori->gambar) }}" alt="Banner"
-                                                    class="wd-100 wd-sm-150 me-3"></td>
-                                            <td>{{ $kategori->name_category }}</td>
+                                            <td>1</td>
+                                            <td>a</td>
+                                            <td>a</td>
+                                            <td>100000</td>
                                             <td>
-                                                <a href="#"
-                                                    class="badge badgeLink {{ $kategori->status ? 'bg-success' : 'bg-danger' }}"
-                                                    data-id="{{ $kategori->id }}" data-status="{{ $kategori->status }}">
-                                                    {{ $kategori->status ? 'Active' : 'Inactive' }}
-                                                </a>
+                                                <div class="form-check form-switch mb-2">
+                                                    <input type="checkbox" class="form-check-input formSwitch"
+                                                        id="formSwitch{{ $courses->id }}" data-id="{{ $courses->id }}"
+                                                        data-status="{{ $courses->status }}">
+                                                </div>
                                             </td>
                                             <td>
+                                                <button class="btn btn-success btn-icon" title="Kurikulum">
+                                                    <i data-feather="settings"></i>
+                                                </button>
                                                 <button type="button" class="btn btn-primary btn-icon edit-button"
                                                     title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
-                                                    data-id="{{ $kategori->id }}">
+                                                    data-id="#">
                                                     <i data-feather="edit"></i>
                                                 </button>
-                                                <button onclick="hapus('{{ $kategori->id }}')"
-                                                    class="btn btn-danger btn-icon" title="Hapus">
+                                                <button onclick="hapus('#')" class="btn btn-danger btn-icon" title="Hapus">
                                                     <i data-feather="trash-2"></i>
                                                 </button>
                                             </td>
                                         </tr>
-                                    @endforeach --}}
+                                    @endforeach
                                 </tbody>
                             </table>
 
