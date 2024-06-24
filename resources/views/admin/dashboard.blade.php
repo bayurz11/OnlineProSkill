@@ -32,7 +32,7 @@
         <div class="row">
             <div class="col-12 col-xl-12 stretch-card">
                 <div class="row flex-grow-1">
-                    <div class="col-md-2 grid-margin stretch-card">
+                    <div class="col-md-3 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
@@ -78,7 +78,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 grid-margin stretch-card">
+                    <div class="col-md-3 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
@@ -117,14 +117,12 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-12 col-xl-7">
-                                        <div id="ordersChart" class="mt-md-3 mt-xl-0"></div>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 grid-margin stretch-card">
+                    <div class="col-md-3 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-baseline">
@@ -163,9 +161,7 @@
                                             </p>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-12 col-xl-7">
-                                        <div id="growthChart" class="mt-md-3 mt-xl-0"></div>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
