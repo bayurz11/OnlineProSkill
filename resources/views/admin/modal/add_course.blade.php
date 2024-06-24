@@ -35,6 +35,7 @@
                             <option value="">Pilih Subkategori</option>
                         </select>
                     </div>
+
                     <div class="mb-3">
                         <label for="tingkat" class="form-label">Tingkat <span class="text-danger">*</span></label>
                         <select id="tingkat" class="form-select" name="tingkat" required>
@@ -45,10 +46,10 @@
                             <option value="Semua Tingkat">Semua Tingkat</option>
                         </select>
                     </div>
+
                     <div class="mb-3">
                         <label for="content" class="form-label">Deskripsi<span class="text-danger">*</span></label>
                         <textarea id="content" style="height: 800px; width: 200px; font-size: 18px;"></textarea>
-                        <!-- Menggunakan <textarea> untuk CKEditor -->
                         <input type="hidden" id="content_input" name="content">
                         <script>
                             ClassicEditor
@@ -64,6 +65,7 @@
                                 });
                         </script>
                     </div>
+
                     <div class="mb-3">
                         <label for="include" class="form-label">yang akan di pelajari <span
                                 class="text-danger">*</span></label>
@@ -74,23 +76,26 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="mb-3">
                         <label for="price" class="form-label">Harga (Rp)<span class="text-danger">*</span></label>
-                        <input type="number" class="form-control" id="price" name="price">
+                        <input type="number" class="form-control" id="price" name="harga">
                     </div>
+
                     <div class="mb-3">
                         <label for="discount" class="form-label">Diskon %</label>
-                        <input type="text" class="form-control" id="discount" name="discount"
+                        <input type="text" class="form-control" id="discount" name="diskon"
                             oninput="calculateDiscountedPrice()">
                     </div>
+
                     <div class="mb-3">
                         <label for="discountedPrice">Harga Setelah Diskon (Rp)</label>
                         <input type="text" class="form-control" id="discountedPrice" readonly>
                     </div>
-                    <div class="mb-3">
 
+                    <div class="mb-3">
                         <div>
-                            <input type="checkbox" id="free" name="class" value="free"
+                            <input type="checkbox" id="free" name="gratis" value="1"
                                 onchange="togglePriceAndDiscount()">
                             <label for="free">Free</label>
                         </div>
@@ -110,6 +115,7 @@
                         <small class="text-secondary">Note : Isi Dengan Tags kursus yang relevan</small>
                     </div>
                 </div>
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
                     <button type="submit" class="btn btn-primary">Simpan</button>
@@ -118,15 +124,15 @@
         </div>
     </div>
 </div>
+
 <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
 <script>
-    //tags
+    // Tags initialization
     document.addEventListener("DOMContentLoaded", function() {
         var input = document.querySelector('input[name=tag]');
-
         new Tagify(input, {
             whitelist: [],
             dropdown: {
@@ -135,7 +141,8 @@
             }
         });
     });
-    //gambar
+
+    // Gambar preview
     $(document).ready(function() {
         $("#gambar").change(function() {
             readURL(this);
@@ -145,15 +152,14 @@
     function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
-
             reader.onload = function(e) {
                 $('#preview').attr('src', e.target.result).show();
             };
-
             reader.readAsDataURL(input.files[0]);
         }
     }
-    //include script
+
+    // Include fields handling
     document.addEventListener('DOMContentLoaded', function() {
         const addIncludeButton = document.getElementById('add-include');
         const includeContainer = document.getElementById('include-container');
@@ -162,18 +168,16 @@
             const newInputGroup = document.createElement('div');
             newInputGroup.classList.add('input-group', 'mb-2');
             newInputGroup.innerHTML = `
-            <input type="text" class="form-control" name="include[]" >
-            <button class="btn btn-danger remove-include" type="button">-</button>
-        `;
+                <input type="text" class="form-control" name="include[]" >
+                <button class="btn btn-danger remove-include" type="button">-</button>
+            `;
             includeContainer.appendChild(newInputGroup);
 
-            // Add event listener to the new remove button
             newInputGroup.querySelector('.remove-include').addEventListener('click', function() {
                 newInputGroup.remove();
             });
         });
 
-        // Event listener for initial remove button
         includeContainer.addEventListener('click', function(event) {
             if (event.target && event.target.classList.contains('remove-include')) {
                 event.target.closest('.input-group').remove();
@@ -181,24 +185,21 @@
         });
     });
 
-    //select 
+    // Kategori dan Subkategori handling
     document.addEventListener('DOMContentLoaded', function() {
         const categorySelect = document.getElementById('category');
         const subcategorySelect = document.getElementById('subcategory');
 
-        // Event listener untuk perubahan pada select kategori
         categorySelect.addEventListener('change', function() {
             const categoryId = this.value;
-            subcategorySelect.disabled = !
-                categoryId; // Menonaktifkan select subkategori jika kategori tidak dipilih
-
+            subcategorySelect.disabled = !categoryId;
             if (categoryId) {
                 fetch(`/get-subcategories/${categoryId}`)
                     .then(response => response.json())
                     .then(data => {
                         subcategorySelect.innerHTML = '<option value="">Pilih Subkategori</option>';
                         data.forEach(subcategory => {
-                            if (subcategory.status == 1) { // Mengecek status subkategori
+                            if (subcategory.status == 1) {
                                 const option = document.createElement('option');
                                 option.value = subcategory.id;
                                 option.textContent = subcategory.name;
@@ -213,8 +214,7 @@
         });
     });
 
-
-    //price
+    // Price and discount handling
     function togglePriceAndDiscount() {
         var priceInput = document.getElementById("price");
         var discountInput = document.getElementById("discount");
@@ -230,17 +230,15 @@
             discountInput.disabled = false; // Enable the discount input
         }
     }
-    //diskon
+
     function calculateDiscountedPrice() {
         var priceInput = document.getElementById("price");
         var discountInput = document.getElementById("discount");
         var discountedPriceInput = document.getElementById("discountedPrice");
 
-        // Parse the values as numbers (floats)
         var price = parseFloat(priceInput.value);
         var discount = parseFloat(discountInput.value);
 
-        // Calculate the discounted price
         if (!isNaN(price) && !isNaN(discount)) {
             var discountedPrice = price - (price * (discount / 100));
             discountedPriceInput.value = discountedPrice.toFixed(); // Display up to 2 decimal places
