@@ -48,8 +48,21 @@
                     </div>
                     <div class="mb-3">
                         <label for="content" class="form-label">Deskripsi<span class="text-danger">*</span></label>
-                        <x-head.tinymce-config />
-                        <x-forms.tinymce-editor />
+                        <textarea id="content" style="height: 800px; width: 200px; font-size: 18px;"></textarea>
+                        <input type="hidden" id="content_input" name="content">
+                        <script>
+                            ClassicEditor
+                                .create(document.querySelector('#content'))
+                                .then(editor => {
+                                    editor.model.document.on('change:data', () => {
+                                        const content_input = document.querySelector('#content_input');
+                                        content_input.value = editor.getData();
+                                    });
+                                })
+                                .catch(error => {
+                                    console.error(error);
+                                });
+                        </script>
                     </div>
                     <div class="mb-3">
                         <label for="include" class="form-label">yang akan di pelajari <span
