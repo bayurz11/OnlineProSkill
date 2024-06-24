@@ -97,7 +97,7 @@ class CourseMasterController extends Controller
         $course->include = json_encode($request->include);
 
         // Save user ID who made the update
-        $course->updated_by = $userId;
+        $course->user_id = $userId;
 
         $course->save();
 
