@@ -70,7 +70,8 @@
                                                     data-id="#">
                                                     <i data-feather="edit"></i>
                                                 </button>
-                                                <button onclick="hapus('#')" class="btn btn-danger btn-icon" title="Hapus">
+                                                <button onclick="hapus('{{ $courses->id }}')"
+                                                    class="btn btn-danger btn-icon" title="Hapus">
                                                     <i data-feather="trash-2"></i>
                                                 </button>
                                             </td>
@@ -127,40 +128,40 @@
                 });
             });
         });
-    </script>
-    <script>
+        //hapus
         function hapus(id) {
             const confirmationBox = `
-            <div id="confirmationModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">
-                <div style="background: white; padding: 40px; border-radius: 8px; text-align: center;">
-                    <h4>Konfirmasi Penghapusan</h4><br>
-                    <p>Apakah Anda yakin ingin menghapus ini?</p><br>
-                    <button id="confirmDelete" class="btn btn-danger btn-lg">Ya, Hapus</button>
-                    <button id="cancelDelete" class="btn btn-secondary btn-lg">Batal</button>
+                <div id="confirmationModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">
+                    <div style="background: white; padding: 40px; border-radius: 8px; text-align: center;">
+                        <h4>Konfirmasi Penghapusan</h4><br>
+                        <p>Apakah Anda yakin ingin menghapus ini?</p><br>
+                        <button id="confirmDelete" class="btn btn-danger btn-lg">Ya, Hapus</button>
+                        <button id="cancelDelete" class="btn btn-secondary btn-lg">Batal</button>
+                    </div>
                 </div>
-            </div>
-        `;
+            `;
 
             document.body.insertAdjacentHTML('beforeend', confirmationBox);
 
             document.getElementById('confirmDelete').onclick = function() {
-                fetch(`/categories_destroy/${id}`, {
-                    method: 'POST',
+                fetch(`/Course_destroy/${id}`, {
+                    method: 'POST', // Menggunakan POST bukan DELETE
                     headers: {
                         'X-CSRF-TOKEN': '{{ csrf_token() }}',
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
                         _method: 'DELETE'
-                    })
+                    }) // Menambahkan _method override
                 }).then(response => {
                     document.getElementById('confirmationModal').remove();
                     if (response.ok) {
-                        console.log('Kategori berhasil dihapus. Mengalihkan ke halaman pengaturan Kategori.');
-                        window.location.href = '{{ route('categories') }}';
+                        console.log(
+                            'subcategory berhasil dihapus. Mengalihkan ke halaman pengaturan subcategory.');
+                        window.location.href = '{{ route('CourseMaster') }}';
                     } else {
                         response.text().then(text => {
-                            console.error('Gagal menghapus Kategori:', text);
+                            console.error('Gagal menghapus subcategory:', text);
                         });
                     }
                 }).catch(error => {

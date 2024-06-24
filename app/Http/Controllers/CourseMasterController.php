@@ -113,8 +113,17 @@ class CourseMasterController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(CourseMaster $courseMaster)
+    public function destroy($id)
     {
-        //
+
+        $course = CourseMaster::find($id);
+
+        if (!$course) {
+            return redirect()->route('subcategories')->with('error', 'Kategori tidak ditemukan');
+        }
+
+        $course->delete();
+
+        return redirect()->route('subcategories')->with('success', 'Kategori berhasil dihapus');
     }
 }

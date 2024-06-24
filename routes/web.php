@@ -44,6 +44,7 @@ Route::get('/get-subcategories/{categoryId}', [SubcategoriesController::class, '
 Route::get('/CourseMaster', [CourseMasterController::class, 'index'])->name('CourseMaster');
 Route::post('/storeCourse', [CourseMasterController::class, 'store'])->name('storeCourse');
 Route::post('/update-Course-status/{id}', [CourseMasterController::class, 'updateCoursestatus']);
+Route::delete('/Course_destroy/{id}', [CourseMasterController::class, 'destroy'])->name('Course.destroy');
 //Riwayat Pembelian Kursus
 Route::get('/OrderHistoryManager', [OrderHistoryManagerController::class, 'index'])->name('OrderHistoryManager');
 
