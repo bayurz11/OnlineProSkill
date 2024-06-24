@@ -23,18 +23,6 @@ class CourseMasterController extends Controller
         }
         return view('admin.CourseMaster.course', compact('user', 'categori', 'count', 'course'));
     }
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-
     public function store(Request $request)
     {
         $userId = Auth::id();
@@ -72,19 +60,6 @@ class CourseMasterController extends Controller
         return redirect()->route('CourseMaster')->with('success', 'Kursus berhasil disimpan.');
     }
 
-
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(CourseMaster $courseMaster)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit($id)
     {
         $course = CourseMaster::find($id);
@@ -96,13 +71,39 @@ class CourseMasterController extends Controller
         return response()->json($course);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateCourseMasterRequest $request, CourseMaster $courseMaster)
+    public function update(Request $request, $id)
     {
-        //
+        $userId = Auth::id();  // Get the authenticated user's ID
+        $course = CourseMaster::findOrFail($id);
+
+        $course->nama_kursus = $request->nama_kursus;
+        $course->kategori_id = $request->kategori_id;
+        $course->subkategori_id = $request->subkategori_id;
+        $course->tingkat = $request->tingkat;
+        $course->content = $request->content;
+        $course->price = $request->price;
+        $course->discount = $request->discount;
+        $course->discountedPrice = $request->discountedPrice;
+        $course->free = $request->has('free') ? 1 : 0;
+
+        if ($request->hasFile('gambar')) {
+            $file = $request->file('gambar');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads'), $filename);
+            $course->gambar = $filename;
+        }
+
+        // Handle includes
+        $course->include = json_encode($request->include);
+
+        // Save user ID who made the update
+        $course->updated_by = $userId;
+
+        $course->save();
+
+        return redirect()->route('courses')->with('success', 'Course updated successfully');
     }
+
     public function updateCoursestatus($id, Request $request)
     {
         $course = CourseMaster::find($id);
@@ -116,9 +117,7 @@ class CourseMasterController extends Controller
 
         return response()->json(['success' => false]);
     }
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy($id)
     {
 
