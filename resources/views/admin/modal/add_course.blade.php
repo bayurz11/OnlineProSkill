@@ -95,7 +95,7 @@
 
                     <div class="mb-3">
                         <div>
-                            <input type="checkbox" id="free" name="gratis" value="1"
+                            <input type="checkbox" id="free" name="free" value="1"
                                 onchange="togglePriceAndDiscount()">
                             <label for="free">Free</label>
                         </div>

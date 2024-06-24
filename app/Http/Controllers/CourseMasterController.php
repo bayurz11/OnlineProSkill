@@ -60,7 +60,7 @@ class CourseMasterController extends Controller
         $course->price = $request->gratis ? null : $request->price;
         $course->discount = $request->discount;
         $course->discountedPrice = $hargaSetelahDiskon;
-        $course->gratis = $request->gratis;
+        $course->free = $request->free;
         $course->gambar = $gambarName;
         $course->tag = $request->tag;
         $course->save();
