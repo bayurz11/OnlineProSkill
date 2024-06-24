@@ -45,12 +45,12 @@
 <script src="{{ asset('public/assets_admin/vendors/easymde/easymde.min.js') }}"></script>
 <script src="{{ asset('public/assets_admin/js/easymde.js') }}"></script>
 
-{{-- <script src="{{ asset('public/assets_admin/vendors/jquery-validation/jquery.validate.min.js') }}"></script> --}}
+<script src="{{ asset('public/assets_admin/vendors/jquery-validation/jquery.validate.min.js') }}"></script>
 <script src="{{ asset('public/assets_admin/vendors/bootstrap-maxlength/bootstrap-maxlength.min.js') }}"></script>
 <script src="{{ asset('public/assets_admin/vendors/pickr/pickr.min.js') }}"></script>
 <script src="{{ asset('public/assets_admin/vendors/select2/select2.min.js') }}"></script>
 <script src="{{ asset('public/assets_admin/vendors/typeahead.js/typeahead.bundle.min.js') }}"></script>
-{{-- <script src="{{ asset('public/assets_admin/vendors/jquery-tags-input/jquery.tagsinput.min.js') }}"></script> --}}
+<script src="{{ asset('public/assets_admin/vendors/jquery-tags-input/jquery.tagsinput.min.js') }}"></script>
 <script src="{{ asset('public/assets_admin/vendors/dropzone/dropzone.min.js') }}"></script>
 <script src="{{ asset('public/assets_admin/vendors/dropify/dist/dropify.min.js') }}"></script>
 <!-- <script src="{{ asset('public/assets_admin/vendors/pickr/pickr.min.js') }}"></script> -->
