@@ -115,8 +115,6 @@
         </div>
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css" />
 
 <script>
     $(document).ready(function() {
