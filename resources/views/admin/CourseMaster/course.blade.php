@@ -45,7 +45,7 @@
                                             <td>{{ $courses->nama_kursus }}</td>
                                             <td>{{ $courses->user->name }}</td>
                                             <td>{{ $courses->user_id }}</td>
-                                            <td>100000</td>
+                                            <td>{{ $courses->user->price }}</td>
                                             <td>
                                                 <div class="form-check form-switch mb-2">
                                                     <input type="checkbox" class="form-check-input formSwitch"
