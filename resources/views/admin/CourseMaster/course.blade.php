@@ -41,7 +41,7 @@
                                 <tbody>
                                     @foreach ($course as $key => $courses)
                                         <tr>
-                                            <td>1</td>
+                                            <td>{{ $key + 1 }}</td>
                                             <td>a</td>
                                             <td>a</td>
                                             <td>100000</td>
