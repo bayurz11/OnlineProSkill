@@ -98,7 +98,7 @@
                                         </li>
                                     @endguest
                                     @auth
-                                        <li class="mobile-login-btn">
+                                        <li>
                                             <a href=""><img src="{{ asset('public/assets/img/icons/user.svg') }}"
                                                     alt="" class="injectable"></a>
                                         </li>
@@ -158,7 +158,7 @@
                                         class="btn btn-secondary">Daftar</a>
                                 @endguest
                                 @auth
-                                    <div class="mobile-login-btn">
+                                    <div>
                                         <a href="#"><img src="{{ asset('public/assets/img/icons/user.svg') }}"
                                                 alt="" class="injectable"></a>
                                     </div>
