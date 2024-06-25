@@ -110,7 +110,6 @@
                                                             </form>
                                                             <a href="{{ route('logout') }}"
                                                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                                                <i class="skillgro-logout"></i>
                                                                 Logout
                                                             </a>
                                                         </li>
