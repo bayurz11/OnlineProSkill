@@ -58,7 +58,7 @@
                                 <li class="author-two">
                                     <img src="public/assets/img/courses/course_author001.png" alt="img">
                                     By
-                                    <a href="#">David Millar</a>
+                                    <a href="#">{{ $courses->user->name }}</a>
                                 </li>
                                 <li class="date"><i class="flaticon-calendar"></i>24/07/2024</li>
                                 <li><i class="flaticon-mortarboard"></i>2,250 Students</li>
@@ -291,7 +291,7 @@
                         </div>
                         <div class="courses__cost-wrap">
                             <span>This Course Fee:</span>
-                            <h2 class="title">$18.00 <del>$32.00</del></h2>
+                            <h2 class="title">Rp. {{ number_format($courses->price, 0, ',', '.') }}</h2>
                         </div>
                         <div class="courses__information-wrap">
                             <h5 class="title">Course includes:</h5>
