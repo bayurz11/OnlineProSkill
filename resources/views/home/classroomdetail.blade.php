@@ -30,13 +30,13 @@
         </div>
         <div class="breadcrumb__shape-wrap">
             <img src="{{ asset('public/assets/img/others/breadcrumb_shape01.svg') }}" alt="img" class="alltuchtopdown">
-            <img src="public/assets/img/others/breadcrumb_shape02.svg" alt="img" data-aos="fade-right"
+            <img src="{{ asset('public/assets/img/others/breadcrumb_shape02.svg') }}" alt="img" data-aos="fade-right"
                 data-aos-delay="300">
-            <img src="public/assets/img/others/breadcrumb_shape03.svg" alt="img" data-aos="fade-up"
+            <img src="{{ asset('public/assets/img/others/breadcrumb_shape03.svg') }}" alt="img" data-aos="fade-up"
                 data-aos-delay="400">
-            <img src="public/assets/img/others/breadcrumb_shape04.svg" alt="img" data-aos="fade-down-left"
-                data-aos-delay="400">
-            <img src="public/assets/img/others/breadcrumb_shape05.svg" alt="img" data-aos="fade-left"
+            <img src="{{ asset('public/assets/img/others/breadcrumb_shape04.svg') }}" alt="img"
+                data-aos="fade-down-left" data-aos-delay="400">
+            <img src="{{ asset('public/assets/img/others/breadcrumb_shape05.svg') }}" alt="img" data-aos="fade-left"
                 data-aos-delay="400">
         </div>
     </div>
@@ -48,7 +48,7 @@
             <div class="row">
                 <div class="col-xl-9 col-lg-8">
                     <div class="courses__details-thumb">
-                        <img src="public/assets/img/courses/courses_details.jpg" alt="img">
+                        <img src="{{ asset('public/uploads/' . $cours->gambar) }}" alt="img">
                     </div>
                     <div class="courses__details-content">
 
