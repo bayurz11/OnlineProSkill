@@ -45,7 +45,7 @@
                      <div class="footer__widget">
                          <h4 class="footer__widget-title">LAINNYA</h4>
                          <div class="footer__contact-content">
-                             <p>when an unknown printer took <br> galley type and scrambled</p>
+                             <p>Terhubung dengan <br> Sosial Media Kami</p>
                              <ul class="list-wrap footer__social">
                                  <li>
                                      <a href="https://www.facebook.com/" target="_blank">
@@ -67,10 +67,7 @@
                                  </li>
                              </ul>
                          </div>
-                         <div class="app-download">
-                             <a href="#"><img src="public/assets/img/others/google-play.svg" alt="img"></a>
-                             <a href="#"><img src="public/assets/img/others/apple-store.svg" alt="img"></a>
-                         </div>
+
                      </div>
                  </div>
              </div>
