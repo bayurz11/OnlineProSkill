@@ -137,8 +137,8 @@
 
 
                         <div class="tab-pane fade" id="list" role="tabpanel" aria-labelledby="list-tab">
-                            @foreach ($course as $cours)
-                                <div class="row courses__list-wrap row-cols-1">
+                            <div class="row courses__list-wrap row-cols-1">
+                                @foreach ($course as $cours)
                                     <div class="col">
                                         <div class="courses__item courses__item-three shine__animate-item">
                                             <div class="courses__item-thumb">
@@ -171,8 +171,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endforeach
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 </div>
