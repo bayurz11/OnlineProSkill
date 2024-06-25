@@ -112,14 +112,9 @@
     </main>
     <!-- main-area-end -->
 
-
-
     <!-- footer-area -->
     @include('layout.partials.footerarea')
     <!-- footer-area-end -->
-
-
-
 
     <!-- JS here -->
     <script src="{{ asset('public/assets/js/vendor/jquery-3.6.0.min.js') }}"></script>
