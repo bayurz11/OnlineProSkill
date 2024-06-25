@@ -90,8 +90,6 @@
                                     </li>
                                     <li class="author-two">
                                         <img src="public/assets/img/courses/course_author001.png" alt="img">
-                                        By
-                                        <a href="#">David Millar</a>
                                     </li>
                                     @guest
                                         <li class="header-btn login-btn">
