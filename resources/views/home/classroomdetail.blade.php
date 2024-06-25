@@ -57,7 +57,6 @@
                                 <li class="author-two">
                                     <img src="{{ asset('public/assets/img/courses/course_author001.png') }}"
                                         alt="img">
-                                    By
                                     <a href="#">{{ $courses->user->name }}</a>
                                 </li>
 
@@ -68,28 +67,22 @@
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link active" id="overview-tab" data-bs-toggle="tab"
                                     data-bs-target="#overview-tab-pane" type="button" role="tab"
-                                    aria-controls="overview-tab-pane" aria-selected="true">Overview</button>
+                                    aria-controls="overview-tab-pane" aria-selected="true">Ringkasan</button>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="curriculum-tab" data-bs-toggle="tab"
                                     data-bs-target="#curriculum-tab-pane" type="button" role="tab"
-                                    aria-controls="curriculum-tab-pane" aria-selected="false">Curriculum</button>
+                                    aria-controls="curriculum-tab-pane" aria-selected="false">Kurikulum</button>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="overview-tab-pane" role="tabpanel"
                                 aria-labelledby="overview-tab" tabindex="0">
                                 <div class="courses__overview-wrap">
-                                    <h3 class="title">Course Description</h3>
-                                    <p>Dorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua Quis ipsum suspendisse ultrices gravida.
-                                        Risus commodo viverra maecenas accumsan lacus vel facilisis.dolor sit amet,
-                                        consectetur adipiscing elited do eiusmod tempor incididunt ut labore et dolore magna
-                                        aliqua.</p>
+                                    <h3 class="title">Deskripsi Kelas</h3>
+                                    <p>{{ $courses->content }}</p>
                                     <h3 class="title">What you'll learn in this course?</h3>
-                                    <p>Dorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua Quis ipsum suspendisse ultrices gravida.
-                                        Risus commodo viverra maecenas accumsan.</p>
+
                                     <ul class="about__info-list list-wrap">
                                         <li class="about__info-list-item">
                                             <i class="flaticon-angle-right"></i>
@@ -108,11 +101,7 @@
                                             <p class="content">How to work with Images & Text</p>
                                         </li>
                                     </ul>
-                                    <p class="last-info">Morem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                        eiusmod tempor incididunt ut labore et dolore magna aliqua Quis ipsum suspendisse
-                                        ultrices gravida. Risus commodo viverra maecenas accumsan.Dorem ipsum dolor sit
-                                        amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                                        dolore magn.</p>
+
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="curriculum-tab-pane" role="tabpanel"
