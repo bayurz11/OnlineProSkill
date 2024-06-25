@@ -88,6 +88,11 @@
                                             <span class="mini-cart-count">0</span>
                                         </a>
                                     </li>
+                                    <li class="author-two">
+                                        <img src="public/assets/img/courses/course_author001.png" alt="img">
+                                        By
+                                        <a href="#">David Millar</a>
+                                    </li>
                                     @guest
                                         <li class="header-btn login-btn">
                                             <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
