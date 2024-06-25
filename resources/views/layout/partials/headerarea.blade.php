@@ -142,12 +142,9 @@
 
                             <div class="mobile-nav-toggler">
                                 <i class="tg-flaticon-menu-1"></i>
-
-
                                 <i class="flaticon-shopping-cart"></i>
-
-
                             </div>
+
 
 
                         </nav>
