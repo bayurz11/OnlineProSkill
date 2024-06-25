@@ -130,12 +130,7 @@
                                     @endguest
                                 </ul>
                             </div>
-                            <div class="mobile-nav-toggler">
-                                <a href="{{ route('cart') }}" class="cart-count-two">
-                                    <i class="flaticon-shopping-cart"></i>
 
-                                </a>
-                            </div>
                             @auth
                                 <div class="mobile-login-btn">
                                     <a href="{{ route('dashboard_studen') }}">
@@ -144,6 +139,12 @@
                                     </a>
                                 </div>
                             @endauth
+                            <div class="mobile-nav-toggler">
+                                <a href="{{ route('cart') }}" class="cart-count-two">
+                                    <i class="flaticon-shopping-cart"></i>
+
+                                </a>
+                            </div>
                             <div class="mobile-nav-toggler">
 
                                 <i class="tg-flaticon-menu-1"></i>
