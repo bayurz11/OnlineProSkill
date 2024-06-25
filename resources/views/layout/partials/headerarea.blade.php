@@ -102,6 +102,7 @@
                                             <a href=""><img src="{{ asset('public/assets/img/icons/user.svg') }}"
                                                     alt="" class="injectable"></a>
                                         </li>
+
                                     @endauth
                                 </ul>
                             </div>

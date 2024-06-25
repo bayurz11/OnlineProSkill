@@ -2799,7 +2799,6 @@ textarea {
   display: none;
 }
 
-
 .profile-button a {
   margin-right: 20px;
   width: 40px;
@@ -2811,16 +2810,20 @@ textarea {
   border-radius: 50%;
   line-height: 0;
   color: var(--tg-body-color);
+  border: 2px solid #d9d9d9; /* Add this line to create a circular border */
 }
+
 .profile-button a:hover {
   background: var(--tg-theme-primary);
   color: var(--tg-common-color-white);
 }
+
 .profile-button-two a {
   background: var(--tg-common-color-white);
   border: 1px solid #d9d9d9;
   color: var(--tg-body-color);
 }
+
 
 .select-grp-two {
   margin-left: 55px;
