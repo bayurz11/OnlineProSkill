@@ -112,6 +112,20 @@
                                                 <a class="dropdown-item" href="#">Something else here</a>
                                             </div>
                                         </li>
+                                        <style>
+                                            .profile-icon {
+                                                border: 2px solid #000;
+                                                /* Border lingkaran */
+                                                border-radius: 50%;
+                                                /* Membuat border menjadi lingkaran */
+                                                padding: 5px;
+                                            }
+
+                                            .dropdown-menu {
+                                                min-width: 0;
+                                                /* Menyesuaikan lebar dropdown */
+                                            }
+                                        </style>
                                     @endauth
                                 </ul>
                             </div>
