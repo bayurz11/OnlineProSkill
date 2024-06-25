@@ -60,7 +60,7 @@
                                     By
                                     <a href="#">{{ $courses->user->name }}</a>
                                 </li>
-                                <li class="date"><i class="flaticon-calendar"></i>24/07/2024</li>
+
                                 <li><i class="flaticon-mortarboard"></i>2,250 Students</li>
                             </ul>
                         </div>
