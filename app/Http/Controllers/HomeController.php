@@ -21,11 +21,20 @@ class HomeController extends Controller
         $count = $course->count();
         return view('home.classroom', compact('user', 'count', 'course'));
     }
-    public function classroomdetail()
+    public function classroomdetail($id)
     {
         $user = Auth::user();
         $course = KelasTatapMuka::all();
-        return view('home.classroomdetail', compact('user', 'course'));
+        $courses = KelasTatapMuka::find($id);
+
+        // Periksa apakah $klsoffline ditemukan
+        if (!$courses) {
+            abort(404, 'Kelas tatap muka tidak ditemukan.');
+        }
+
+        // Decode JSON fasilitas
+        $fasilitas = json_decode($courses->fasilitas, true);
+        return view('home.classroomdetail', compact('user', 'course', 'courses'));
     }
     public function cart()
     {

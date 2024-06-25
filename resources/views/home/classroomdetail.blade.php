@@ -48,7 +48,7 @@
             <div class="row">
                 <div class="col-xl-9 col-lg-8">
                     <div class="courses__details-thumb">
-                        <img src="{{ asset('public/uploads/' . $course->gambar) }}" alt="img">
+                        <img src="{{ asset('public/uploads/' . $courses->gambar) }}" alt="img">
                     </div>
                     <div class="courses__details-content">
 
