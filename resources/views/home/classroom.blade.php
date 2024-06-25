@@ -108,12 +108,7 @@
                                             </a>
                                         </div>
                                         <div class="courses__item-content">
-                                            <ul class="courses__item-meta list-wrap">
-                                                <li class="courses__item-tag">
-                                                    <a href="course.html">Development</a>
-                                                </li>
-                                                <li class="avg-rating"><i class="fas fa-star"></i> (4.8 Reviews)</li>
-                                            </ul>
+
                                             <h5 class="title"><a href="{{ route('classroomdetail') }}">Learning
                                                     JavaScript With
                                                     Imagination</a></h5>
@@ -121,7 +116,7 @@
                                             <div class="courses__item-bottom">
                                                 <div class="button">
                                                     <a href="{{ route('classroomdetail') }}">
-                                                        <span class="text">Enroll Now</span>
+                                                        <span class="text">Detail Kelas</span>
                                                         <i class="flaticon-arrow-right"></i>
                                                     </a>
                                                 </div>
@@ -145,12 +140,7 @@
                                         </div>
                                         <div class="courses__item-content">
                                             <ul class="courses__item-meta list-wrap">
-                                                <li class="courses__item-tag">
-                                                    <a href="course.html">Development</a>
-                                                    <div class="avg-rating">
-                                                        <i class="fas fa-star"></i> (4.8 Reviews)
-                                                    </div>
-                                                </li>
+
                                                 <li class="price"><del>$29.00</del>$15.00</li>
                                             </ul>
                                             <h5 class="title"><a href="{{ route('classroomdetail') }}">Resolving
@@ -162,7 +152,7 @@
                                             <div class="courses__item-bottom">
                                                 <div class="button">
                                                     <a href="{{ route('classroomdetail') }}">
-                                                        <span class="text">Enroll Now</span>
+                                                        <span class="text">Detail Kelas</span>
                                                         <i class="flaticon-arrow-right"></i>
                                                     </a>
                                                 </div>
