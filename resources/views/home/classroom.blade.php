@@ -147,7 +147,15 @@
                                             <div class="courses__item-content">
                                                 <ul class="courses__item-meta list-wrap">
 
-                                                    <li class="price">{{ $cours->price }}</li>
+                                                    <li class="price">
+                                                        @if ($course->free)
+                                                            Free
+                                                        @elseif(!empty($course->discount) && !empty($course->discountedPrice))
+                                                            Rp. {{ number_format($course->discountedPrice, 0, ',', '.') }}
+                                                        @else
+                                                            Rp. {{ number_format($course->price, 0, ',', '.') }}
+                                                        @endif
+                                                    </li>
                                                 </ul>
                                                 <h5 class="title"><a
                                                         href="{{ route('classroomdetail') }}">{{ $cours->nama_kursus }}</a>
