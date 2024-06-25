@@ -84,11 +84,12 @@
                                     <h3 class="title">Pelajaran yang Didapat</h3>
 
                                     <ul class="about__info-list list-wrap">
-                                        <li class="about__info-list-item">
-                                            <i class="flaticon-angle-right"></i>
-                                            <p class="content">{!! $courses->include !!}</p>
-                                        </li>
-
+                                        @foreach ($courseList as $course)
+                                            <li class="about__info-list-item">
+                                                <i class="flaticon-angle-right"></i>
+                                                <p class="content">{{ $course }}</p>
+                                            </li>
+                                        @endforeach
                                     </ul>
 
                                 </div>

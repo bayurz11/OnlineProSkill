@@ -26,7 +26,7 @@ class HomeController extends Controller
         $user = Auth::user();
         $course = KelasTatapMuka::all();
         $courses = KelasTatapMuka::find($id);
-
+        $courseList = json_decode($courses->include, true);
         // Periksa apakah $klsoffline ditemukan
         if (!$courses) {
             abort(404, 'Kelas tatap muka tidak ditemukan.');
@@ -34,7 +34,7 @@ class HomeController extends Controller
 
         // Decode JSON fasilitas
         $fasilitas = json_decode($courses->fasilitas, true);
-        return view('home.classroomdetail', compact('user', 'course', 'courses'));
+        return view('home.classroomdetail', compact('user', 'course', 'courses', 'courseList'));
     }
     public function cart()
     {
