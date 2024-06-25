@@ -133,10 +133,26 @@
 
                             <div class="mobile-login-btn">
                                 @auth
-                                    <a href="{{ route('dashboard_studen') }}" style="margin-right: 10px;">
-                                        <img src="{{ asset('public/assets/img/icons/user.svg') }}" alt=""
-                                            class="injectable">
-                                    </a>
+                                    <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-xl-flex">
+                                        <ul class="navigation">
+                                            <li class="menu-item-has-children">
+                                                <a href="{{ route('dashboard_studen') }}">
+                                                    <img src="public/assets/img/courses/course_author001.png" alt="img"
+                                                        style="border-radius: 50%;">
+                                                </a>
+                                                <ul class="sub-menu">
+                                                    <li class="{{ Request::is('about-us') ? 'active' : '' }}">
+                                                        <a href="about-us.html">Profil</a>
+                                                    </li>
+                                                    <li class="{{ Request::is('login') ? 'active' : '' }}">
+                                                        <a href="login.html">logout</a>
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+
+                                        </ul>
+                                    </div>
                                 @endauth
                                 <a href="{{ route('cart') }}" class="cart-count-two">
                                     <i class="flaticon-shopping-cart"></i>
