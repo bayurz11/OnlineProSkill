@@ -6,7 +6,8 @@
 @section('content')
 
     <!-- breadcrumb-area -->
-    <div class="breadcrumb__area breadcrumb__bg breadcrumb__bg-two" data-background="public/assets/img/bg/breadcrumb_bg.jpg">
+    <div class="breadcrumb__area breadcrumb__bg breadcrumb__bg-two"
+        data-background="{{ asset('public/assets/img/bg/breadcrumb_bg.jpg') }}">
         <div class="container">
             <div class="row">
                 <div class="col-12">
