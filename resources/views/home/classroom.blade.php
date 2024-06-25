@@ -47,7 +47,7 @@
                         <div class="row align-items-center">
                             <div class="col-md-5">
                                 <div class="courses-top-left">
-                                    <p>Menampilkan 3 Hasil Total</p>
+                                    <p>Menampilkan {{ $course->count() }} Hasil Total</p>
                                 </div>
                             </div>
                             <div class="col-md-7">

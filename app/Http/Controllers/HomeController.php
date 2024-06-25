@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categories;
 use Illuminate\Http\Request;
+use App\Models\KelasTatapMuka;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -12,7 +16,10 @@ class HomeController extends Controller
     }
     public function classroom()
     {
-        return view('home.classroom');
+        $user = Auth::user();
+        $course = KelasTatapMuka::with('user')->get();
+        $count = $course->count();
+        return view('home.classroom', compact('user', 'count', 'course'));
     }
     public function classroomdetail()
     {
