@@ -133,12 +133,17 @@
 
                             <div class="mobile-login-btn">
                                 @auth
-                                    <a href="{{ route('dashboard_studen') }}">
+                                    <a href="{{ route('dashboard_studen') }}" style="margin-right: 10px;">
                                         <img src="{{ asset('public/assets/img/icons/user.svg') }}" alt=""
                                             class="injectable">
                                     </a>
                                 @endauth
+                                <a href="{{ route('cart') }}" class="cart-count-two">
+                                    <i class="flaticon-shopping-cart"></i>
+                                    <span class="mini-cart-count">0</span>
+                                </a>
                             </div>
+
                             <div class="mobile-nav-toggler">
                                 <i class="tg-flaticon-menu-1"></i>
                             </div>
