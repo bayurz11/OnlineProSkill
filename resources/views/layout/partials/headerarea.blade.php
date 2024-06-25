@@ -140,17 +140,14 @@
                                 </div>
                             @endauth
 
-                            <div style="display: inline-block;">
-                                <div class="mobile-login-btn" style="display: inline-block;">
-                                    <a href="{{ route('dashboard_studen') }}">
-                                        <i class="flaticon-shopping-cart"></i>
-                                    </a>
-                                </div>
-                                <div class="mobile-nav-toggler" style="display: inline-block; margin-right: 10px;">
-                                    <i class="tg-flaticon-menu-1"></i>
-                                </div>
 
-
+                            <div class="mobile-login-btn" style="display: inline-block;">
+                                <a href="{{ route('dashboard_studen') }}">
+                                    <i class="flaticon-shopping-cart"></i>
+                                </a>
+                            </div>
+                            <div class="mobile-nav-toggler" style="display: inline-block; margin-right: 10px;">
+                                <i class="tg-flaticon-menu-1"></i>
                             </div>
 
 
