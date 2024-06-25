@@ -88,15 +88,17 @@
                                             <span class="mini-cart-count">0</span>
                                         </a>
                                     </li>
-                                    @auth
-                                        <li class="mini-cart-icon">
+
+                                    <li class="mini-cart-icon">
+                                        @auth
                                             <a href="{{ route('dashboard_studen') }}">
                                                 <img src="public/assets/img/courses/course_author001.png" alt="img"
                                                     style="border-radius: 50%;">
                                             </a>
-                                        </li>
+                                        @endauth
+                                    </li>
 
-                                    @endauth
+
                                     @guest
                                         <li class="header-btn login-btn">
                                             <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
