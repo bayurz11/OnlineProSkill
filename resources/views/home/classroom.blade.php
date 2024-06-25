@@ -47,7 +47,7 @@
                         <div class="row align-items-center">
                             <div class="col-md-5">
                                 <div class="courses-top-left">
-                                    <p>Showing 250 total results</p>
+                                    <p>Menampilkan 3 Hasil Total</p>
                                 </div>
                             </div>
                             <div class="col-md-7">
