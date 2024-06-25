@@ -23,7 +23,9 @@ class HomeController extends Controller
     }
     public function classroomdetail()
     {
-        return view('home.classroomdetail');
+        $user = Auth::user();
+        $course = KelasTatapMuka::with('user')->get();
+        return view('home.classroomdetail', compact('user', 'course'));
     }
     public function cart()
     {
