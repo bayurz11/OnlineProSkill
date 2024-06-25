@@ -158,8 +158,7 @@
                                                         href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
                                                 </h5>
                                                 <p class="author">By <a href="#">{{ $cours->user->name }}</a></p>
-                                                <p class="info">when an unknown printer took a galley of type and
-                                                    scrambled type specimen book It has survived not only.</p>
+                                                <p class="info">{!! $cours->content !!}</p>
                                                 <div class="courses__item-bottom">
                                                     <div class="button">
                                                         <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}">
@@ -180,5 +179,16 @@
         </div>
     </section>
     <!-- all-courses-end -->
-
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var paragraphs = document.querySelectorAll('.content p');
+            paragraphs.forEach(function(p) {
+                var parent = p.parentNode;
+                while (p.firstChild) {
+                    parent.insertBefore(p.firstChild, p);
+                }
+                parent.removeChild(p);
+            });
+        });
+    </script>
 @endsection
