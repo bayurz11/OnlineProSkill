@@ -80,7 +80,7 @@
                                 aria-labelledby="overview-tab" tabindex="0">
                                 <div class="courses__overview-wrap">
                                     <h3 class="title">Deskripsi Kelas</h3>
-                                    <p>{{ $courses->content }}</p>
+                                    <p> {!! $courses->content !!}</p>
                                     <h3 class="title">What you'll learn in this course?</h3>
 
                                     <ul class="about__info-list list-wrap">
@@ -351,5 +351,16 @@
         </div>
     </section>
     <!-- courses-details-area-end -->
-
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var paragraphs = document.querySelectorAll('.content p');
+            paragraphs.forEach(function(p) {
+                var parent = p.parentNode;
+                while (p.firstChild) {
+                    parent.insertBefore(p.firstChild, p);
+                }
+                parent.removeChild(p);
+            });
+        });
+    </script>
 @endsection
