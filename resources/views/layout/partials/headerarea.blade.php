@@ -113,9 +113,8 @@
                                             class="injectable"></a>
                                 @endguest
                                 @auth
-                                    <a href="{{ route('profile') }}"><img
-                                            src="{{ asset('public/assets/img/icons/user.svg') }}" alt=""
-                                            class="injectable"></a>
+                                    <a href="#"><img src="{{ asset('public/assets/img/icons/user.svg') }}"
+                                            alt="" class="injectable"></a>
                                 @endauth
                             </div>
                             <div class="mobile-nav-toggler"><i class="tg-flaticon-menu-1"></i></div>
