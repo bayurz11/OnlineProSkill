@@ -88,11 +88,12 @@
                                             <span class="mini-cart-count">0</span>
                                         </a>
                                     </li>
-                                    <li class="author-two">
-                                        <img src="public/assets/img/courses/course_author001.png" alt="img"
-                                            style="border-radius: 50%;">
-                                    </li>
-
+                                    @auth
+                                        <li class="author-two">
+                                            <img src="public/assets/img/courses/course_author001.png" alt="img"
+                                                style="border-radius: 50%;">
+                                        </li>
+                                    @endauth
                                     @guest
                                         <li class="header-btn login-btn">
                                             <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
