@@ -1,5 +1,5 @@
-@section('title', 'ProSkill Akademia | Kelas Tatap Muka')
-<?php $page = 'classroom'; ?>
+@section('title', 'ProSkill Akademia | Cart')
+<?php $page = 'Cart'; ?>
 
 @extends('layout.mainlayout')
 
