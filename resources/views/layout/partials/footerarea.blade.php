@@ -9,11 +9,11 @@
                              <a href="index.html"><img src="public/assets/img/logo/logo.svg" alt="img"></a>
                          </div>
                          <div class="footer__content">
-                             <p>when an unknown printer took galley of type and scrambled it to make pspecimen bookt
-                                 has.</p>
+                             <p>Proskill Akademia adalah lembaga kursus yang dikelola oleh:<br> <b>PT Bahagia Sukses
+                                     Digimedia</b></p>
                              <ul class="list-wrap">
-                                 <li>463 7th Ave, NY 10018, USA</li>
-                                 <li>+123 88 9900 456</li>
+                                 <li>Jl. H. Ungar No.2C, Kota Tanjung Pinang, Kepulauan Riau </li>
+                                 <li>+62 8126 6187 125</li>
                              </ul>
                          </div>
                      </div>
