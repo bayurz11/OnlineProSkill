@@ -100,9 +100,13 @@
                                      </li>
                                  </ul>
                              </div>
-                             <div class="mobile-login-btn">
+                             {{-- <div class="mobile-login-btn">
                                  <a href="login.html"><img src="public/assets/img/icons/user.svg" alt=""
                                          class="injectable"></a>
+                             </div> --}}
+                             <div class="mobile-login-btn">
+                                 <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn"
+                                     style="background-color: white; color: black; border: 0px solid black;">Masuk</a>
                              </div>
                              <div class="mobile-nav-toggler"><i class="tg-flaticon-menu-1"></i></div>
                          </nav>
