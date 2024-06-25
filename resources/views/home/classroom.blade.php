@@ -103,7 +103,7 @@
                                 <div class="col">
                                     <div class="courses__item shine__animate-item">
                                         <div class="courses__item-thumb">
-                                            <a href="course-details.html" class="shine__animate-link">
+                                            <a href="{{ route('classroomdetail') }}" class="shine__animate-link">
                                                 <img src="public/assets/img/courses/course_thumb01.jpg" alt="img">
                                             </a>
                                         </div>
@@ -114,12 +114,13 @@
                                                 </li>
                                                 <li class="avg-rating"><i class="fas fa-star"></i> (4.8 Reviews)</li>
                                             </ul>
-                                            <h5 class="title"><a href="course-details.html">Learning JavaScript With
+                                            <h5 class="title"><a href="{{ route('classroomdetail') }}">Learning
+                                                    JavaScript With
                                                     Imagination</a></h5>
                                             <p class="author">By <a href="#">David Millar</a></p>
                                             <div class="courses__item-bottom">
                                                 <div class="button">
-                                                    <a href="course-details.html">
+                                                    <a href="{{ route('classroomdetail') }}">
                                                         <span class="text">Enroll Now</span>
                                                         <i class="flaticon-arrow-right"></i>
                                                     </a>
@@ -138,7 +139,7 @@
                                 <div class="col">
                                     <div class="courses__item courses__item-three shine__animate-item">
                                         <div class="courses__item-thumb">
-                                            <a href="course-details.html" class="shine__animate-link">
+                                            <a href="{{ route('classroomdetail') }}" class="shine__animate-link">
                                                 <img src="public/assets/img/courses/course_thumb01.jpg" alt="img">
                                             </a>
                                         </div>
@@ -152,14 +153,15 @@
                                                 </li>
                                                 <li class="price"><del>$29.00</del>$15.00</li>
                                             </ul>
-                                            <h5 class="title"><a href="course-details.html">Resolving Conflicts
+                                            <h5 class="title"><a href="{{ route('classroomdetail') }}">Resolving
+                                                    Conflicts
                                                     Between Designers And Engineers</a></h5>
                                             <p class="author">By <a href="#">David Millar</a></p>
                                             <p class="info">when an unknown printer took a galley of type and
                                                 scrambled type specimen book It has survived not only.</p>
                                             <div class="courses__item-bottom">
                                                 <div class="button">
-                                                    <a href="course-details.html">
+                                                    <a href="{{ route('classroomdetail') }}">
                                                         <span class="text">Enroll Now</span>
                                                         <i class="flaticon-arrow-right"></i>
                                                     </a>
