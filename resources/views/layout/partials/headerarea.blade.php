@@ -88,15 +88,17 @@
                                             <span class="mini-cart-count">0</span>
                                         </a>
                                     </li>
-                                    <li class="header-btn login-btn">
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                            class="btn"
-                                            style="background-color: white; color: black; border: 1px solid black;">Masuk</a>
-                                    </li>
-                                    <li class="header-btn login-btn">
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalDaftar"
-                                            class="btn">Daftar</a>
-                                    </li>
+                                    @guest
+                                        <li class="header-btn login-btn">
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                class="btn"
+                                                style="background-color: white; color: black; border: 1px solid black;">Masuk</a>
+                                        </li>
+                                        <li class="header-btn login-btn">
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalDaftar"
+                                                class="btn">Daftar</a>
+                                        </li>
+                                    @endguest
                                 </ul>
                             </div>
 
