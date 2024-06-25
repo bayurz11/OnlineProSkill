@@ -148,12 +148,12 @@
                                                 <ul class="courses__item-meta list-wrap">
 
                                                     <li class="price">
-                                                        @if ($course->free)
+                                                        @if ($cours->free)
                                                             Free
-                                                        @elseif(!empty($course->discount) && !empty($course->discountedPrice))
-                                                            Rp. {{ number_format($course->discountedPrice, 0, ',', '.') }}
+                                                        @elseif(!empty($cours->discount) && !empty($cours->discountedPrice))
+                                                            Rp. {{ number_format($cours->discountedPrice, 0, ',', '.') }}
                                                         @else
-                                                            Rp. {{ number_format($course->price, 0, ',', '.') }}
+                                                            Rp. {{ number_format($cours->price, 0, ',', '.') }}
                                                         @endif
                                                     </li>
                                                 </ul>
