@@ -116,22 +116,22 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('logout') }}">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        style="display: none;">
+                                        @csrf
+                                    </form>
+                                    <a href="{{ route('logout') }}"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         <i class="skillgro-logout"></i>
                                         Logout
                                     </a>
                                 </li>
+
                             </ul>
                         </nav>
                     </div>
                 </div>
-                {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
-                
-                <button type="button" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    Logout
-                </button> --}}
+
                 <div class="col-lg-9">
                     <div class="dashboard__content-wrap dashboard__content-wrap-two">
                         <div class="dashboard__content-title">
