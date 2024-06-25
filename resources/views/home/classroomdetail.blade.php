@@ -21,8 +21,7 @@
                                 <a href="{{ route('classroom') }}">Kelas Tatap Muka</a>
                             </span>
                             <span class="breadcrumb-separator"><i class="fas fa-angle-right"></i></span>
-                            <span property="itemListElement" typeof="ListItem">Resolving Conflicts Between Designers And
-                                Engineers</span>
+                            <span property="itemListElement" typeof="ListItem">{{ $courses->nama_kursus }}</span>
                         </nav>
                     </div>
                 </div>
@@ -52,11 +51,12 @@
                     </div>
                     <div class="courses__details-content">
 
-                        <h2 class="title">Resolving Conflicts Between Designers And Engineers</h2>
+                        <h2 class="title">{{ $courses->nama_kursus }}</h2>
                         <div class="courses__details-meta">
                             <ul class="list-wrap">
                                 <li class="author-two">
-                                    <img src="public/assets/img/courses/course_author001.png" alt="img">
+                                    <img src="{{ asset('public/assets/img/courses/course_author001.png') }}"
+                                        alt="img">
                                     By
                                     <a href="#">{{ $courses->user->name }}</a>
                                 </li>
