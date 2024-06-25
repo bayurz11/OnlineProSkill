@@ -157,13 +157,15 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="auth-links" style="text-align: center; margin-top: 10px;">
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                    class="btn"
-                                    style="background-color: white; color: black; border: 0px solid black;">Masuk</a>
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalDaftar"
-                                    class="btn btn-secondary">Daftar</a>
-                            </div>
+                            @guest
+                                <div class="auth-links" style="text-align: center; margin-top: 10px;">
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                        class="btn"
+                                        style="background-color: white; color: black; border: 0px solid black;">Masuk</a>
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalDaftar"
+                                        class="btn btn-secondary">Daftar</a>
+                                </div>
+                            @endguest
                         </nav>
                     </div>
                     <div class="tgmobile__menu-backdrop"></div>
