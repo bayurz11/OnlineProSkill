@@ -12,11 +12,8 @@ use App\Http\Controllers\SubcategoriesController;
 use Illuminate\Support\Facades\Route;
 
 //Authentikasi
-// Route::get('/login_instruktur', [AuthController::class, 'showinstruktur'])->name('login_instruktur');
-// Route::get('/login_student', [AuthController::class, 'showinstuden'])->name('login_student');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-Route::post('/stdregister', [AuthController::class, 'stdregister'])->name('stdregister');
 
 //******** Admin *********//
 Route::get('/login_admin', [AuthController::class, 'show'])->name('login_admin');
@@ -53,16 +50,15 @@ Route::get('/OrderHistoryManager', [OrderHistoryManagerController::class, 'index
 //*********STUDEN*********//
 //Auth Studen
 Route::get('/dashboard_studen', [DashboardStudenController::class, 'index'])->name('dashboard_studen');
-Route::get('/registerStuden', [DashboardStudenController::class, 'showregister'])->name('registerStuden');
 Route::post('/regisStuden', [DashboardStudenController::class, 'register'])->name('regisStuden');
 
 //*********INSTRUKTUR*********//
 // Auth Instruktur
 Route::get('/dashboard_instruktur', [DashboardInstrukturController::class, 'index'])->name('dashboard_instruktur');
-Route::get('/registerInstruktur', [DashboardInstrukturController::class, 'showregister'])->name('registerInstruktur');
 Route::post('/regisInstruktur', [DashboardInstrukturController::class, 'register'])->name('regisInstruktur');
 
 
 
 //*********FRONTEND*********//
 Route::get('/', [HomeController::class, 'index'])->name('/');
+Route::get('/classroom', [HomeController::class, 'classroom'])->name('classroom');

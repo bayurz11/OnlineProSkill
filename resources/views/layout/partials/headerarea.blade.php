@@ -20,7 +20,7 @@
                                          <a href="#">Kelas</a>
                                          <ul class="sub-menu">
                                              <li class="{{ Request::is('kelas/tatap-muka') ? 'active' : '' }}">
-                                                 <a href="#">Kelas Tatap Muka</a>
+                                                 <a href="{{ route('classroom') }}">Kelas Tatap Muka</a>
                                              </li>
                                              <li class="{{ Request::is('kelas/online') ? 'active' : '' }}">
                                                  <a href="#">Kelas Online</a>
