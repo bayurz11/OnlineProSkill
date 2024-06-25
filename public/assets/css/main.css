@@ -2794,6 +2794,33 @@ textarea {
   border: 1px solid #d9d9d9;
   color: var(--tg-body-color);
 }
+.profile-button {
+  margin-left: auto;
+  display: none;
+}
+
+
+.profile-button a {
+  margin-right: 20px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  background: #F4F4F4;
+  justify-content: center;
+  border-radius: 50%;
+  line-height: 0;
+  color: var(--tg-body-color);
+}
+.profile-button a:hover {
+  background: var(--tg-theme-primary);
+  color: var(--tg-common-color-white);
+}
+.profile-button-two a {
+  background: var(--tg-common-color-white);
+  border: 1px solid #d9d9d9;
+  color: var(--tg-body-color);
+}
 
 .select-grp-two {
   margin-left: 55px;
