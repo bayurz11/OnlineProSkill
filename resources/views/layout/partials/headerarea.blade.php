@@ -81,7 +81,7 @@
                              <div class="tgmenu__action tgmenu__action-two">
                                  <ul class="list-wrap">
                                      <li class="mini-cart-icon">
-                                         <a href="{{ route('cart') }}l" class="cart-count-two">
+                                         <a href="{{ route('cart') }}" class="cart-count-two">
                                              <i class="flaticon-shopping-cart"></i>
                                              <span class="mini-cart-count">0</span>
                                          </a>
