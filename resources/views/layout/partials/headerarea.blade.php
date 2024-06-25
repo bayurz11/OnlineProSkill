@@ -19,7 +19,7 @@
                                      <li class="menu-item-has-children {{ Request::is('kelas*') ? 'active' : '' }}">
                                          <a href="#">Kelas</a>
                                          <ul class="sub-menu">
-                                             <li class="{{ Request::is('kelas/tatap-muka') ? 'active' : '' }}">
+                                             <li class="{{ Request::is('classroom') ? 'active' : '' }}">
                                                  <a href="{{ route('classroom') }}">Kelas Tatap Muka</a>
                                              </li>
                                              <li class="{{ Request::is('kelas/online') ? 'active' : '' }}">
