@@ -140,12 +140,15 @@
                                 </div>
                             @endauth
 
-                            <div class="mobile-nav-toggler">
-                                <i class="tg-flaticon-menu-1"></i>
+                            <div style="display: inline-block;">
+                                <div class="mobile-nav-toggler" style="display: inline-block;">
+                                    <i class="tg-flaticon-menu-1"></i>
+                                </div>
+                                <div class="mobile-nav-toggler" style="display: inline-block;">
+                                    <i class="flaticon-shopping-cart"></i>
+                                </div>
                             </div>
-                            <div class="mobile-nav-toggler">
-                                <i class="flaticon-shopping-cart"></i>
-                            </div>
+
 
 
                         </nav>
