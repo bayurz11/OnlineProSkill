@@ -131,14 +131,7 @@
                                 </div>
 
                             </div>
-                            <nav class="pagination__wrap mt-30">
-                                <ul class="list-wrap">
-                                    <li class="active"><a href="#">1</a></li>
-                                    <li><a href="courses.html">2</a></li>
-                                    <li><a href="courses.html">3</a></li>
-                                    <li><a href="courses.html">4</a></li>
-                                </ul>
-                            </nav>
+
                         </div>
                         <div class="tab-pane fade" id="list" role="tabpanel" aria-labelledby="list-tab">
                             <div class="row courses__list-wrap row-cols-1">
@@ -176,14 +169,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <nav class="pagination__wrap mt-30">
-                                <ul class="list-wrap">
-                                    <li class="active"><a href="#">1</a></li>
-                                    <li><a href="courses.html">2</a></li>
-                                    <li><a href="courses.html">3</a></li>
-                                    <li><a href="courses.html">4</a></li>
-                                </ul>
-                            </nav>
+
                         </div>
                     </div>
                 </div>
