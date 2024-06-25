@@ -103,7 +103,7 @@
                     const categoryId = formSwitch.dataset.id;
                     const newStatus = formSwitch.checked ? 1 : 0;
 
-                    fetch('/update-Course-status/' + categoryId, {
+                    fetch('/update-class-status/' + categoryId, {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
@@ -144,7 +144,7 @@
             document.body.insertAdjacentHTML('beforeend', confirmationBox);
 
             document.getElementById('confirmDelete').onclick = function() {
-                fetch(`/Course_destroy/${id}`, {
+                fetch(`/class_destroy/${id}`, {
                     method: 'POST', // Menggunakan POST bukan DELETE
                     headers: {
                         'X-CSRF-TOKEN': '{{ csrf_token() }}',

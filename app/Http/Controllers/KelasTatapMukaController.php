@@ -58,7 +58,7 @@ class KelasTatapMukaController extends Controller
         $course->user_id = $userId;
         $course->save();
 
-        return redirect()->route('CourseMaster')->with('success', 'Kursus berhasil disimpan.');
+        return redirect()->route('classroomsetting')->with('success', 'Kursus berhasil disimpan.');
     }
 
     public function edit($id)
