@@ -102,9 +102,8 @@
                              </div>
 
                              <div class="mobile-login-btn">
-                                 <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                     class="btn"><img src="public/assets/img/icons/user.svg" alt=""
-                                         class="injectable"></a>
+                                 <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><img
+                                         src="public/assets/img/icons/user.svg" alt="" class="injectable"></a>
                              </div>
                              <div class="mobile-nav-toggler"><i class="tg-flaticon-menu-1"></i></div>
                          </nav>
