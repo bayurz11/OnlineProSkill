@@ -12,8 +12,8 @@
             </ol>
         </nav>
 
-        @include('admin.modal.add_course')
-        @include('admin.modal.edit_course')
+        @include('admin.modal.add_clasroom')
+        @include('admin.modal.edit_clasroom')
 
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">

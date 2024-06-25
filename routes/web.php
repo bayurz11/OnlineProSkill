@@ -51,6 +51,11 @@ Route::get('/OrderHistoryManager', [OrderHistoryManagerController::class, 'index
 
 //Kursus Tatap Muka
 Route::get('/classroomsetting', [KelasTatapMukaController::class, 'index'])->name('classroomsetting');
+Route::post('/storeclas', [KelasTatapMukaController::class, 'store'])->name('storeclas');
+Route::post('/update-storeclas-status/{id}', [KelasTatapMukaController::class, 'updatestoreclasstatus']);
+Route::get('/storeclas/{id}/edit', [KelasTatapMukaController::class, 'edit'])->name('storeclas.edit');
+Route::put('/storeclas/{id}', [KelasTatapMukaController::class, 'update'])->name('storeclas.update');
+Route::delete('/storeclas_destroy/{id}', [KelasTatapMukaController::class, 'destroy'])->name('storeclas.destroy');
 
 //*********STUDEN*********//
 //Auth Studen
