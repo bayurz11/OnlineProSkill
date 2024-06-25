@@ -264,7 +264,7 @@
                 <div class="col-xl-3 col-lg-4">
                     <div class="courses__details-sidebar">
                         <div class="courses__details-video">
-                            <img src="public/assets/img/courses/course_thumb02.jpg" alt="img">
+                            <img src="{{ asset('public/assets/img/courses/course_thumb02.jpg') }}" alt="img">
                             <a href="https://www.youtube.com/watch?v=YwrHGratByU" class="popup-video"><i
                                     class="fas fa-play"></i></a>
                         </div>
@@ -276,37 +276,37 @@
                             <h5 class="title">Course includes:</h5>
                             <ul class="list-wrap">
                                 <li>
-                                    <img src="public/assets/img/icons/course_icon01.svg" alt="img"
+                                    <img src="{{ asset('public/assets/img/icons/course_icon01.svg') }}" alt="img"
                                         class="injectable">
                                     Level
                                     <span>Expert</span>
                                 </li>
                                 <li>
-                                    <img src="public/assets/img/icons/course_icon02.svg" alt="img"
+                                    <img src="{{ asset('public/assets/img/icons/course_icon02.svg') }}" alt="img"
                                         class="injectable">
                                     Duration
                                     <span>11h 20m</span>
                                 </li>
                                 <li>
-                                    <img src="public/assets/img/icons/course_icon03.svg" alt="img"
+                                    <img src="{{ asset('public/assets/img/icons/course_icon03.svg') }}" alt="img"
                                         class="injectable">
                                     Lessons
                                     <span>12</span>
                                 </li>
                                 <li>
-                                    <img src="public/assets/img/icons/course_icon04.svg" alt="img"
+                                    <img src="{{ asset('public/assets/img/icons/course_icon04.svg') }}" alt="img"
                                         class="injectable">
                                     Quizzes
                                     <span>145</span>
                                 </li>
                                 <li>
-                                    <img src="public/assets/img/icons/course_icon05.svg" alt="img"
+                                    <img src="{{ asset('public/assets/img/icons/course_icon05.svg') }}" alt="img"
                                         class="injectable">
                                     Certifications
                                     <span>Yes</span>
                                 </li>
                                 <li>
-                                    <img src="public/assets/img/icons/course_icon06.svg" alt="img"
+                                    <img src="{{ asset('public/assets/img/icons/course_icon06.svg') }}" alt="img"
                                         class="injectable">
                                     Graduation
                                     <span>25K</span>
@@ -315,7 +315,7 @@
                         </div>
                         <div class="courses__payment">
                             <h5 class="title">Secure Payment:</h5>
-                            <img src="public/assets/img/others/payment.png" alt="img">
+                            <img src="{{ asset('public/assets/img/others/payment.png') }}" alt="img">
                         </div>
                         <div class="courses__details-social">
                             <h5 class="title">Share this course:</h5>
@@ -331,7 +331,8 @@
                             <div class="tg-button-wrap">
                                 <a href="{{ route('cart') }}" class="btn btn-two arrow-btn">
                                     Pesan Sekarang
-                                    <img src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable">
+                                    <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
+                                        class="injectable">
                                 </a>
                             </div>
                         </div>

@@ -6,7 +6,8 @@
                  <div class="col-xl-3 col-lg-4 col-md-6">
                      <div class="footer__widget">
                          <div class="logo mb-35">
-                             <a href="index.html"><img src="public/assets/img/logo/logo.svg" alt="img"></a>
+                             <a href="index.html"><img src="{{ asset('public/assets/img/logo/logo.svg') }}"
+                                     alt="img"></a>
                          </div>
                          <div class="footer__content">
                              <p>Proskill Akademia adalah lembaga kursus yang dikelola oleh:<br> <b>PT Bahagia Sukses
@@ -49,19 +50,19 @@
                              <ul class="list-wrap footer__social">
                                  <li>
                                      <a href="https://www.facebook.com/" target="_blank">
-                                         <img src="public/assets/img/icons/whatsapp.svg" alt="img"
+                                         <img src="{{ asset('public/assets/img/icons/whatsapp.svg') }}" alt="img"
                                              class="injectable">
                                      </a>
                                  </li>
                                  <li>
                                      <a href="https://www.facebook.com/" target="_blank">
-                                         <img src="public/assets/img/icons/instagram.svg" alt="img"
+                                         <img src="{{ asset('public/assets/img/icons/instagram.svg') }}" alt="img"
                                              class="injectable">
                                      </a>
                                  </li>
                                  <li>
                                      <a href="https://www.facebook.com/" target="_blank">
-                                         <img src="public/assets/img/icons/youtube.svg" alt="img"
+                                         <img src="{{ asset('public/assets/img/icons/youtube.svg') }}" alt="img"
                                              class="injectable">
                                      </a>
                                  </li>
