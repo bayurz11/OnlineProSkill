@@ -90,9 +90,12 @@
                                     </li>
                                     @auth
                                         <li class="author-two">
-                                            <img src="public/assets/img/courses/course_author001.png" alt="img"
-                                                style="border-radius: 50%;">
+                                            <a href="{{ route('dashboard_studen') }}">
+                                                <img src="public/assets/img/courses/course_author001.png" alt="img"
+                                                    style="border-radius: 50%;">
+                                            </a>
                                         </li>
+
                                     @endauth
                                     @guest
                                         <li class="header-btn login-btn">
