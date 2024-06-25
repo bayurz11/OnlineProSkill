@@ -107,10 +107,11 @@
                                             class="injectable">
                                     </a>
                                 </div>
-                                <div class="mobile-nav-toggler">
-                                    <i class="tg-flaticon-menu-1"></i>
-                                </div>
                             @endguest
+                            <div class="mobile-nav-toggler">
+                                <i class="tg-flaticon-menu-1"></i>
+                            </div>
+
                         </nav>
                     </div>
 
