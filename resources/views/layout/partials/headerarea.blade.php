@@ -138,10 +138,10 @@
                                             class="injectable">
                                     </a>
                                 @endauth
-                                <span class="mini-cart-count">0</span>
                                 <a href="{{ route('cart') }}" class="cart-count-two">
                                     <i class="flaticon-shopping-cart"></i>
                                 </a>
+                                <span class="mini-cart-count">0</span>
                             </div>
 
                             <div class="mobile-nav-toggler">
