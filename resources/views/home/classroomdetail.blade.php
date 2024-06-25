@@ -309,7 +309,7 @@
                             </ul>
                         </div>
                         <div class="courses__payment">
-                            <h5 class="title">Secure Payment:</h5>
+                            <h5 class="title">Pembayaran</h5>
                             <img src="{{ asset('public/assets/img/others/payment.png') }}" alt="img">
                         </div>
                         <div class="courses__details-social">
