@@ -44,7 +44,7 @@
             <div class="container">
                 <div class="row">
 
-                    <div class="col-xl-9 col-lg-8">
+                    <div class="col-xl-12 col-lg-8">
                         <div class="courses-top-wrap courses-top-wrap">
                             <div class="row align-items-center">
                                 <div class="col-md-5">
