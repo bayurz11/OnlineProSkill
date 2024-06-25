@@ -112,9 +112,9 @@
                                             </div>
                                             <div class="courses__item-content">
 
-                                                <h5 class="title"><a href="{{ route('classroomdetail') }}">Learning
-                                                        JavaScript With
-                                                        Imagination</a></h5>
+                                                <h5 class="title"><a
+                                                        href="{{ route('classroomdetail') }}">{{ $cours->nama_kursus }}</a>
+                                                </h5>
                                                 <p class="author">By <a href="#">{{ $cours->user->name }}</a></p>
                                                 <div class="courses__item-bottom">
                                                     <div class="button">
@@ -123,7 +123,7 @@
                                                             <i class="flaticon-arrow-right"></i>
                                                         </a>
                                                     </div>
-                                                    <h5 class="price">$15.00</h5>
+                                                    <h5 class="price">{{ $cours->price }}</h5>
                                                 </div>
                                             </div>
                                         </div>
@@ -134,38 +134,40 @@
                             </div>
                         @endforeach
                         <div class="tab-pane fade" id="list" role="tabpanel" aria-labelledby="list-tab">
-                            <div class="row courses__list-wrap row-cols-1">
-                                <div class="col">
-                                    <div class="courses__item courses__item-three shine__animate-item">
-                                        <div class="courses__item-thumb">
-                                            <a href="{{ route('classroomdetail') }}" class="shine__animate-link">
-                                                <img src="public/assets/img/courses/course_thumb01.jpg" alt="img">
-                                            </a>
-                                        </div>
-                                        <div class="courses__item-content">
-                                            <ul class="courses__item-meta list-wrap">
+                            @foreach ($course as $cours)
+                                <div class="row courses__list-wrap row-cols-1">
+                                    <div class="col">
+                                        <div class="courses__item courses__item-three shine__animate-item">
+                                            <div class="courses__item-thumb">
+                                                <a href="{{ route('classroomdetail') }}" class="shine__animate-link">
+                                                    <img src="public/assets/img/courses/course_thumb01.jpg"
+                                                        alt="img">
+                                                </a>
+                                            </div>
+                                            <div class="courses__item-content">
+                                                <ul class="courses__item-meta list-wrap">
 
-                                                <li class="price"><del>$29.00</del>$15.00</li>
-                                            </ul>
-                                            <h5 class="title"><a href="{{ route('classroomdetail') }}">Resolving
-                                                    Conflicts
-                                                    Between Designers And Engineers</a></h5>
-                                            <p class="author">By <a href="#">David Millar</a></p>
-                                            <p class="info">when an unknown printer took a galley of type and
-                                                scrambled type specimen book It has survived not only.</p>
-                                            <div class="courses__item-bottom">
-                                                <div class="button">
-                                                    <a href="{{ route('classroomdetail') }}">
-                                                        <span class="text">Detail Kelas</span>
-                                                        <i class="flaticon-arrow-right"></i>
-                                                    </a>
+                                                    <li class="price">{{ $cours->price }}</li>
+                                                </ul>
+                                                <h5 class="title"><a
+                                                        href="{{ route('classroomdetail') }}">{{ $cours->nama_kursus }}</a>
+                                                </h5>
+                                                <p class="author">By <a href="#">{{ $cours->user->name }}</a></p>
+                                                <p class="info">when an unknown printer took a galley of type and
+                                                    scrambled type specimen book It has survived not only.</p>
+                                                <div class="courses__item-bottom">
+                                                    <div class="button">
+                                                        <a href="{{ route('classroomdetail') }}">
+                                                            <span class="text">Detail Kelas</span>
+                                                            <i class="flaticon-arrow-right"></i>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
+                            @endforeach
                         </div>
                     </div>
                 </div>
