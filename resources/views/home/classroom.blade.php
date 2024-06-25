@@ -54,7 +54,7 @@
                                 <div class="col-md-7">
                                     <div
                                         class="d-flex justify-content-center justify-content-md-end align-items-center flex-wrap">
-                                        <div class="courses-top-right m-0 ms-md-auto">
+                                        {{-- <div class="courses-top-right m-0 ms-md-auto">
                                             <span class="sort-by">Sort By:</span>
                                             <div class="courses-top-right-select">
                                                 <select name="orderby" class="orderby">
@@ -65,7 +65,7 @@
                                                     <option value="latest">latest</option>
                                                 </select>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <ul class="nav nav-tabs courses__nav-tabs" id="myTab" role="tablist">
                                             <li class="nav-item" role="presentation">
                                                 <button class="nav-link active" id="grid-tab" data-bs-toggle="tab"
@@ -96,8 +96,8 @@
                                                 <button class="nav-link" id="list-tab" data-bs-toggle="tab"
                                                     data-bs-target="#list" type="button" role="tab"
                                                     aria-controls="list" aria-selected="false">
-                                                    <svg width="19" height="15" viewBox="0 0 19 15"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <svg width="19" height="15" viewBox="0 0 19 15" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
                                                         <path
                                                             d="M1.5 6C0.67 6 0 6.67 0 7.5C0 8.33 0.67 9 1.5 9C2.33 9 3 8.33 3 7.5C3 6.67 2.33 6 1.5 6ZM1.5 0C0.67 0 0 0.67 0 1.5C0 2.33 0.67 3 1.5 3C2.33 3 3 2.33 3 1.5C3 0.67 2.33 0 1.5 0ZM1.5 12C0.67 12 0 12.68 0 13.5C0 14.32 0.68 15 1.5 15C2.32 15 3 14.32 3 13.5C3 12.68 2.33 12 1.5 12ZM5.5 14.5H17.5C18.05 14.5 18.5 14.05 18.5 13.5C18.5 12.95 18.05 12.5 17.5 12.5H5.5C4.95 12.5 4.5 12.95 4.5 13.5C4.5 14.05 4.95 14.5 5.5 14.5ZM5.5 8.5H17.5C18.05 8.5 18.5 8.05 18.5 7.5C18.5 6.95 18.05 6.5 17.5 6.5H5.5C4.95 6.5 4.5 6.95 4.5 7.5C4.5 8.05 4.95 8.5 5.5 8.5ZM4.5 1.5C4.5 2.05 4.95 2.5 5.5 2.5H17.5C18.05 2.5 18.5 2.05 18.5 1.5C18.5 0.95 18.05 0.5 17.5 0.5H5.5C4.95 0.5 4.5 0.95 4.5 1.5Z"
                                                             fill="currentColor" />
