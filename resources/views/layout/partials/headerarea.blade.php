@@ -92,36 +92,27 @@
 
                                     </li>
                                     @auth
+                                        <li class="menu-item-has-children">
+                                            <a href="{{ route('dashboard_studen') }}">
+                                                <img src="public/assets/img/courses/course_author001.png" alt="img"
+                                                    style="border-radius: 50%;">
+                                            </a>
+                                            <ul class="sub-menu">
+                                                <li class="{{ Request::is('about-us') ? 'active' : '' }}">
+                                                    <a href="about-us.html">Profil</a>
+                                                </li>
+                                                <li class="{{ Request::is('login') ? 'active' : '' }}">
+                                                    <a href="login.html">logout</a>
+                                                </li>
+
+                                            </ul>
+                                        </li>
                                         {{-- <li class="mini-cart-icon">
                                             <a href="{{ route('dashboard_studen') }}">
                                                 <img src="public/assets/img/courses/course_author001.png" alt="img"
                                                     style="border-radius: 50%;">
                                             </a>
                                         </li> --}}
-                                        <div class="dropdown">
-                                            <button class="dropdown-toggle" type="button" id="dropdownMenuButton"
-                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                Dropdown Toggle
-                                            </button>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-
-                                                <a class="dropdown-item" href="{{ route('dashboard_studen') }}">
-                                                    <img src="public/assets/img/courses/course_author001.png" alt="img"
-                                                        style="border-radius: 50%;">
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <li>
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                                style="display: none;">
-                                                @csrf
-                                            </form>
-                                            <a href="{{ route('logout') }}"
-                                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                                <i class="skillgro-logout"></i>
-                                                Logout
-                                            </a>
-                                        </li>
 
                                     @endauth
                                     @guest
@@ -134,7 +125,6 @@
                                             <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalDaftar"
                                                 class="btn">Daftar</a>
                                         </li>
-
                                     @endguest
                                 </ul>
                             </div>
