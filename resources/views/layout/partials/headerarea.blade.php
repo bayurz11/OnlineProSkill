@@ -93,7 +93,7 @@
                                             <ul class="navigation">
                                                 <li class="menu-item-has-children">
                                                     <a href="{{ route('dashboard_studen') }}">
-                                                        <img src="public/assets/img/courses/course_author001.png"
+                                                        <img src="{{ asset('public/assets/img/courses/course_author001.png') }}"
                                                             alt="img" style="border-radius: 50%;">
                                                     </a>
                                                     <ul class="sub-menu">
