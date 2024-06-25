@@ -269,46 +269,41 @@
                                     class="fas fa-play"></i></a>
                         </div>
                         <div class="courses__cost-wrap">
-                            <span>This Course Fee:</span>
+                            <span>Kursus Fee:</span>
                             <h2 class="title">Rp. {{ number_format($courses->price, 0, ',', '.') }}</h2>
                         </div>
                         <div class="courses__information-wrap">
-                            <h5 class="title">Course includes:</h5>
+                            <h5 class="title">Keterangan:</h5>
                             <ul class="list-wrap">
                                 <li>
                                     <img src="{{ asset('public/assets/img/icons/course_icon01.svg') }}" alt="img"
                                         class="injectable">
-                                    Level
-                                    <span>Expert</span>
+                                    Tingkat
+                                    <span>{{ $courses->tingkat }}</span>
                                 </li>
                                 <li>
                                     <img src="{{ asset('public/assets/img/icons/course_icon02.svg') }}" alt="img"
                                         class="injectable">
-                                    Duration
+                                    Durasi
                                     <span>11h 20m</span>
                                 </li>
                                 <li>
                                     <img src="{{ asset('public/assets/img/icons/course_icon03.svg') }}" alt="img"
                                         class="injectable">
-                                    Lessons
+                                    Pelajaran
                                     <span>12</span>
                                 </li>
-                                <li>
-                                    <img src="{{ asset('public/assets/img/icons/course_icon04.svg') }}" alt="img"
-                                        class="injectable">
-                                    Quizzes
-                                    <span>145</span>
-                                </li>
+
                                 <li>
                                     <img src="{{ asset('public/assets/img/icons/course_icon05.svg') }}" alt="img"
                                         class="injectable">
-                                    Certifications
+                                    Sertifikat
                                     <span>Yes</span>
                                 </li>
                                 <li>
                                     <img src="{{ asset('public/assets/img/icons/course_icon06.svg') }}" alt="img"
                                         class="injectable">
-                                    Graduation
+                                    Kelulusan
                                     <span>25K</span>
                                 </li>
                             </ul>
