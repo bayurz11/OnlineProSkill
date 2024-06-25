@@ -98,11 +98,11 @@
                     </div>
                     <div class="tab-content" id="myTabContent">
 
-                        @foreach ($course as $cours)
-                            <div class="tab-pane fade show active" id="grid" role="tabpanel"
-                                aria-labelledby="grid-tab">
-                                <div
-                                    class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
+
+                        <div class="tab-pane fade show active" id="grid" role="tabpanel" aria-labelledby="grid-tab">
+                            <div
+                                class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
+                                @foreach ($course as $cours)
                                     <div class="col">
                                         <div class="courses__item shine__animate-item">
                                             <div class="courses__item-thumb">
@@ -131,10 +131,10 @@
                                             </div>
                                         </div>
                                     </div>
-
-                                </div>
+                                @endforeach
                             </div>
-                        @endforeach
+                        </div>
+
 
                         <div class="tab-pane fade" id="list" role="tabpanel" aria-labelledby="list-tab">
                             @foreach ($course as $cours)
