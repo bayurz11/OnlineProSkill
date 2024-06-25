@@ -110,7 +110,7 @@ class KelasTatapMukaController extends Controller
     }
 
 
-    public function updateCoursestatus($id, Request $request)
+    public function updateclassstatus($id, Request $request)
     {
         $course = KelasTatapMuka::find($id);
 
