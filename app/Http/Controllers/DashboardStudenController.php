@@ -17,7 +17,7 @@ class DashboardStudenController extends Controller
         $user = Auth::user();
 
         if (!$user) {
-            return redirect()->route('login_admin');
+            return redirect()->route('/');
         }
         return view('studen.dashboard');
     }
