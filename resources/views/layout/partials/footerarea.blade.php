@@ -20,51 +20,33 @@
                  </div>
                  <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                      <div class="footer__widget">
-                         <h4 class="footer__widget-title">Useful Links</h4>
+                         <h4 class="footer__widget-title">PROSKILL</h4>
                          <div class="footer__link">
                              <ul class="list-wrap">
-                                 <li><a href="events-details.html">Our values</a></li>
-                                 <li><a href="events-details.html">Our advisory board</a></li>
-                                 <li><a href="events-details.html">Our partners</a></li>
-                                 <li><a href="events-details.html">Become a partner</a></li>
-                                 <li><a href="events-details.html">Work at Future Learn</a></li>
-                                 <li><a href="events-details.html">Quizlet Plus</a></li>
+                                 <li><a href="events-details.html">Tentang Kami</a></li>
+                                 <li><a href="events-details.html">Hubungi Kami</a></li>
+                                 <li><a href="events-details.html">Blog</a></li>
                              </ul>
                          </div>
                      </div>
                  </div>
                  <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                      <div class="footer__widget">
-                         <h4 class="footer__widget-title">Our Company</h4>
+                         <h4 class="footer__widget-title">PRODUK</h4>
                          <div class="footer__link">
                              <ul class="list-wrap">
-                                 <li><a href="contact.html">Contact Us</a></li>
-                                 <li><a href="instructor-details.html">Become Teacher</a></li>
-                                 <li><a href="blog.html">Blog</a></li>
-                                 <li><a href="instructor-details.html">Instructor</a></li>
-                                 <li><a href="events-details.html">Events</a></li>
+                                 <li><a href="contact.html">Kelas Tatap Muka</a></li>
+                                 <li><a href="instructor-details.html">kelas Online</a></li>
                              </ul>
                          </div>
                      </div>
                  </div>
                  <div class="col-xl-3 col-lg-4 col-md-6">
                      <div class="footer__widget">
-                         <h4 class="footer__widget-title">Get In Touch</h4>
+                         <h4 class="footer__widget-title">LAINNYA</h4>
                          <div class="footer__contact-content">
                              <p>when an unknown printer took <br> galley type and scrambled</p>
                              <ul class="list-wrap footer__social">
-                                 <li>
-                                     <a href="https://www.facebook.com/" target="_blank">
-                                         <img src="public/assets/img/icons/facebook.svg" alt="img"
-                                             class="injectable">
-                                     </a>
-                                 </li>
-                                 <li>
-                                     <a href="https://www.facebook.com/" target="_blank">
-                                         <img src="public/assets/img/icons/twitter.svg" alt="img"
-                                             class="injectable">
-                                     </a>
-                                 </li>
                                  <li>
                                      <a href="https://www.facebook.com/" target="_blank">
                                          <img src="public/assets/img/icons/whatsapp.svg" alt="img"
@@ -99,14 +81,14 @@
              <div class="row align-items-center">
                  <div class="col-md-7">
                      <div class="copy-right-text">
-                         <p>© 2010-2024 skillgro.com. All rights reserved.</p>
+                         <p>©2024 proskill.sch.id.All rights reserved</p>
                      </div>
                  </div>
                  <div class="col-md-5">
                      <div class="footer__bottom-menu">
                          <ul class="list-wrap">
-                             <li><a href="contact.html">Term of Use</a></li>
-                             <li><a href="contact.html">Privacy Policy</a></li>
+                             <li><a href="contact.html">Syarat dan Ketentuan</a></li>
+                             <li><a href="contact.html">Ketentuan Privasi</a></li>
                          </ul>
                      </div>
                  </div>
