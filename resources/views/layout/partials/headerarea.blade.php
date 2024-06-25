@@ -100,14 +100,14 @@
                                 </ul>
                             </div>
 
-                            @guest
+                            @auth
                                 <div class="mobile-login-btn">
                                     <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                         <img src="{{ asset('public/assets/img/icons/user.svg') }}" alt=""
                                             class="injectable">
                                     </a>
                                 </div>
-                            @endguest
+                            @endauth
                             <div class="mobile-nav-toggler">
                                 <i class="tg-flaticon-menu-1"></i>
                             </div>
