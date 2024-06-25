@@ -131,14 +131,14 @@
                                 </ul>
                             </div>
 
-                            @auth
-                                <div class="mobile-login-btn">
+                            <div class="mobile-login-btn">
+                                @auth
                                     <a href="{{ route('dashboard_studen') }}">
                                         <img src="{{ asset('public/assets/img/icons/user.svg') }}" alt=""
                                             class="injectable">
                                     </a>
-                                </div>
-                            @endauth
+                                @endauth
+                            </div>
                             <div class="mobile-nav-toggler">
                                 <i class="tg-flaticon-menu-1"></i>
                             </div>
