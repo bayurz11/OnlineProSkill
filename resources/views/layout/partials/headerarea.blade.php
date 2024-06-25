@@ -105,10 +105,10 @@
                                             </button>
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-                                                {{-- <a class="dropdown-item" href="{{ route('dashboard_student') }}">
+                                                <a class="dropdown-item" href="{{ route('dashboard_studen') }}">
                                                     <img src="public/assets/img/courses/course_author001.png" alt="img"
                                                         style="border-radius: 50%;">
-                                                </a> --}}
+                                                </a>
                                             </div>
                                         </div>
 
