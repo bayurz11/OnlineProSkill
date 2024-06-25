@@ -8,7 +8,7 @@
     <main class="main-area fix">
 
         <!-- breadcrumb-area -->
-        <section class="breadcrumb__area breadcrumb__bg" data-background="assets/img/bg/breadcrumb_bg.jpg">
+        <section class="breadcrumb__area breadcrumb__bg" data-background="public/assets/img/bg/breadcrumb_bg.jpg">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -26,13 +26,14 @@
                 </div>
             </div>
             <div class="breadcrumb__shape-wrap">
-                <img src="assets/img/others/breadcrumb_shape01.svg" alt="img" class="alltuchtopdown">
-                <img src="assets/img/others/breadcrumb_shape02.svg" alt="img" data-aos="fade-right"
+                <img src="public/assets/img/others/breadcrumb_shape01.svg" alt="img" class="alltuchtopdown">
+                <img src="public/assets/img/others/breadcrumb_shape02.svg" alt="img" data-aos="fade-right"
                     data-aos-delay="300">
-                <img src="assets/img/others/breadcrumb_shape03.svg" alt="img" data-aos="fade-up" data-aos-delay="400">
-                <img src="assets/img/others/breadcrumb_shape04.svg" alt="img" data-aos="fade-down-left"
+                <img src="public/assets/img/others/breadcrumb_shape03.svg" alt="img" data-aos="fade-up"
                     data-aos-delay="400">
-                <img src="assets/img/others/breadcrumb_shape05.svg" alt="img" data-aos="fade-left"
+                <img src="public/assets/img/others/breadcrumb_shape04.svg" alt="img" data-aos="fade-down-left"
+                    data-aos-delay="400">
+                <img src="public/assets/img/others/breadcrumb_shape05.svg" alt="img" data-aos="fade-left"
                     data-aos-delay="400">
             </div>
         </section>
@@ -402,7 +403,8 @@
                                         <div class="courses__item shine__animate-item">
                                             <div class="courses__item-thumb">
                                                 <a href="course-details.html" class="shine__animate-link">
-                                                    <img src="assets/img/courses/course_thumb01.jpg" alt="img">
+                                                    <img src="public/assets/img/courses/course_thumb01.jpg"
+                                                        alt="img">
                                                 </a>
                                             </div>
                                             <div class="courses__item-content">
@@ -431,7 +433,8 @@
                                         <div class="courses__item shine__animate-item">
                                             <div class="courses__item-thumb">
                                                 <a href="course-details.html" class="shine__animate-link">
-                                                    <img src="assets/img/courses/course_thumb02.jpg" alt="img">
+                                                    <img src="public/assets/img/courses/course_thumb02.jpg"
+                                                        alt="img">
                                                 </a>
                                             </div>
                                             <div class="courses__item-content">
@@ -460,7 +463,8 @@
                                         <div class="courses__item shine__animate-item">
                                             <div class="courses__item-thumb">
                                                 <a href="course-details.html" class="shine__animate-link">
-                                                    <img src="assets/img/courses/course_thumb03.jpg" alt="img">
+                                                    <img src="public/assets/img/courses/course_thumb03.jpg"
+                                                        alt="img">
                                                 </a>
                                             </div>
                                             <div class="courses__item-content">
@@ -489,7 +493,8 @@
                                         <div class="courses__item shine__animate-item">
                                             <div class="courses__item-thumb">
                                                 <a href="course-details.html" class="shine__animate-link">
-                                                    <img src="assets/img/courses/course_thumb04.jpg" alt="img">
+                                                    <img src="public/assets/img/courses/course_thumb04.jpg"
+                                                        alt="img">
                                                 </a>
                                             </div>
                                             <div class="courses__item-content">
@@ -518,7 +523,8 @@
                                         <div class="courses__item shine__animate-item">
                                             <div class="courses__item-thumb">
                                                 <a href="course-details.html" class="shine__animate-link">
-                                                    <img src="assets/img/courses/course_thumb05.jpg" alt="img">
+                                                    <img src="public/assets/img/courses/course_thumb05.jpg"
+                                                        alt="img">
                                                 </a>
                                             </div>
                                             <div class="courses__item-content">
@@ -547,7 +553,8 @@
                                         <div class="courses__item shine__animate-item">
                                             <div class="courses__item-thumb">
                                                 <a href="course-details.html" class="shine__animate-link">
-                                                    <img src="assets/img/courses/course_thumb06.jpg" alt="img">
+                                                    <img src="public/assets/img/courses/course_thumb06.jpg"
+                                                        alt="img">
                                                 </a>
                                             </div>
                                             <div class="courses__item-content">
@@ -576,7 +583,8 @@
                                         <div class="courses__item shine__animate-item">
                                             <div class="courses__item-thumb">
                                                 <a href="course-details.html" class="shine__animate-link">
-                                                    <img src="assets/img/courses/course_thumb07.jpg" alt="img">
+                                                    <img src="public/assets/img/courses/course_thumb07.jpg"
+                                                        alt="img">
                                                 </a>
                                             </div>
                                             <div class="courses__item-content">
@@ -605,7 +613,8 @@
                                         <div class="courses__item shine__animate-item">
                                             <div class="courses__item-thumb">
                                                 <a href="course-details.html" class="shine__animate-link">
-                                                    <img src="assets/img/courses/course_thumb08.jpg" alt="img">
+                                                    <img src="public/assets/img/courses/course_thumb08.jpg"
+                                                        alt="img">
                                                 </a>
                                             </div>
                                             <div class="courses__item-content">
@@ -634,7 +643,8 @@
                                         <div class="courses__item shine__animate-item">
                                             <div class="courses__item-thumb">
                                                 <a href="course-details.html" class="shine__animate-link">
-                                                    <img src="assets/img/courses/course_thumb09.jpg" alt="img">
+                                                    <img src="public/assets/img/courses/course_thumb09.jpg"
+                                                        alt="img">
                                                 </a>
                                             </div>
                                             <div class="courses__item-content">
@@ -663,7 +673,8 @@
                                         <div class="courses__item shine__animate-item">
                                             <div class="courses__item-thumb">
                                                 <a href="course-details.html" class="shine__animate-link">
-                                                    <img src="assets/img/courses/course_thumb10.jpg" alt="img">
+                                                    <img src="public/assets/img/courses/course_thumb10.jpg"
+                                                        alt="img">
                                                 </a>
                                             </div>
                                             <div class="courses__item-content">
@@ -692,7 +703,8 @@
                                         <div class="courses__item shine__animate-item">
                                             <div class="courses__item-thumb">
                                                 <a href="course-details.html" class="shine__animate-link">
-                                                    <img src="assets/img/courses/course_thumb11.jpg" alt="img">
+                                                    <img src="public/assets/img/courses/course_thumb11.jpg"
+                                                        alt="img">
                                                 </a>
                                             </div>
                                             <div class="courses__item-content">
@@ -721,7 +733,8 @@
                                         <div class="courses__item shine__animate-item">
                                             <div class="courses__item-thumb">
                                                 <a href="course-details.html" class="shine__animate-link">
-                                                    <img src="assets/img/courses/course_thumb12.jpg" alt="img">
+                                                    <img src="public/assets/img/courses/course_thumb12.jpg"
+                                                        alt="img">
                                                 </a>
                                             </div>
                                             <div class="courses__item-content">
@@ -762,7 +775,8 @@
                                         <div class="courses__item courses__item-three shine__animate-item">
                                             <div class="courses__item-thumb">
                                                 <a href="course-details.html" class="shine__animate-link">
-                                                    <img src="assets/img/courses/course_thumb01.jpg" alt="img">
+                                                    <img src="public/assets/img/courses/course_thumb01.jpg"
+                                                        alt="img">
                                                 </a>
                                             </div>
                                             <div class="courses__item-content">
@@ -795,7 +809,8 @@
                                         <div class="courses__item courses__item-three shine__animate-item">
                                             <div class="courses__item-thumb">
                                                 <a href="course-details.html" class="shine__animate-link">
-                                                    <img src="assets/img/courses/course_thumb02.jpg" alt="img">
+                                                    <img src="public/assets/img/courses/course_thumb02.jpg"
+                                                        alt="img">
                                                 </a>
                                             </div>
                                             <div class="courses__item-content">
@@ -828,7 +843,8 @@
                                         <div class="courses__item courses__item-three shine__animate-item">
                                             <div class="courses__item-thumb">
                                                 <a href="course-details.html" class="shine__animate-link">
-                                                    <img src="assets/img/courses/course_thumb03.jpg" alt="img">
+                                                    <img src="public/assets/img/courses/course_thumb03.jpg"
+                                                        alt="img">
                                                 </a>
                                             </div>
                                             <div class="courses__item-content">
@@ -861,7 +877,8 @@
                                         <div class="courses__item courses__item-three shine__animate-item">
                                             <div class="courses__item-thumb">
                                                 <a href="course-details.html" class="shine__animate-link">
-                                                    <img src="assets/img/courses/course_thumb04.jpg" alt="img">
+                                                    <img src="public/assets/img/courses/course_thumb04.jpg"
+                                                        alt="img">
                                                 </a>
                                             </div>
                                             <div class="courses__item-content">
@@ -894,7 +911,8 @@
                                         <div class="courses__item courses__item-three shine__animate-item">
                                             <div class="courses__item-thumb">
                                                 <a href="course-details.html" class="shine__animate-link">
-                                                    <img src="assets/img/courses/course_thumb05.jpg" alt="img">
+                                                    <img src="public/assets/img/courses/course_thumb05.jpg"
+                                                        alt="img">
                                                 </a>
                                             </div>
                                             <div class="courses__item-content">
@@ -927,7 +945,8 @@
                                         <div class="courses__item courses__item-three shine__animate-item">
                                             <div class="courses__item-thumb">
                                                 <a href="course-details.html" class="shine__animate-link">
-                                                    <img src="assets/img/courses/course_thumb06.jpg" alt="img">
+                                                    <img src="public/assets/img/courses/course_thumb06.jpg"
+                                                        alt="img">
                                                 </a>
                                             </div>
                                             <div class="courses__item-content">
@@ -960,7 +979,8 @@
                                         <div class="courses__item courses__item-three shine__animate-item">
                                             <div class="courses__item-thumb">
                                                 <a href="course-details.html" class="shine__animate-link">
-                                                    <img src="assets/img/courses/course_thumb07.jpg" alt="img">
+                                                    <img src="public/assets/img/courses/course_thumb07.jpg"
+                                                        alt="img">
                                                 </a>
                                             </div>
                                             <div class="courses__item-content">
