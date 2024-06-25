@@ -112,7 +112,7 @@
                             <li>Subtotal <span>$32.00</span></li>
                             <li>Total <span class="amount">$32.00</span></li>
                         </ul>
-                        <a href="check-out.html" class="btn">Proceed to checkout</a>
+                        <a href="{{ route('checkout') }}" class="btn">Bayar Sekarang</a>
                     </div>
                 </div>
             </div>
