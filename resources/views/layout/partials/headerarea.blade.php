@@ -137,10 +137,10 @@
                                         <img src="{{ asset('public/assets/img/icons/user.svg') }}" alt=""
                                             class="injectable">
                                     </a>
+                                    <a href="{{ route('cart') }}" class="cart-count-two">
+                                        <i class="flaticon-shopping-cart"></i>
+                                    </a>
                                 @endauth
-                                <a href="{{ route('cart') }}" class="cart-count-two">
-                                    <i class="flaticon-shopping-cart"></i>
-                                </a>
                             </div>
 
                             <div class="mobile-nav-toggler">
