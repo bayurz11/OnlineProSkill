@@ -144,9 +144,12 @@
                                 <div class="mobile-nav-toggler" style="display: inline-block; margin-right: 10px;">
                                     <i class="tg-flaticon-menu-1"></i>
                                 </div>
-                                <div class="mini-cart-icon" style="display: inline-block;">
-                                    <i class="flaticon-shopping-cart"></i>
+                                <div class="mobile-login-btn">
+                                    <a href="{{ route('dashboard_studen') }}">
+                                        <i class="flaticon-shopping-cart"></i>
+                                    </a>
                                 </div>
+
                             </div>
 
 
