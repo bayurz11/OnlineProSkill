@@ -98,10 +98,21 @@
                                                     </a>
                                                     <ul class="sub-menu">
                                                         <li class="{{ Request::is('about-us') ? 'active' : '' }}">
+                                                            <a href="about-us.html">Dashboard</a>
+                                                        </li>
+                                                        <li class="{{ Request::is('about-us') ? 'active' : '' }}">
                                                             <a href="about-us.html">Profil</a>
                                                         </li>
-                                                        <li class="{{ Request::is('login') ? 'active' : '' }}">
-                                                            <a href="login.html">logout</a>
+                                                        <li>
+                                                            <form id="logout-form" action="{{ route('logout') }}"
+                                                                method="POST" style="display: none;">
+                                                                @csrf
+                                                            </form>
+                                                            <a href="{{ route('logout') }}"
+                                                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                                <i class="skillgro-logout"></i>
+                                                                Logout
+                                                            </a>
                                                         </li>
 
                                                     </ul>
