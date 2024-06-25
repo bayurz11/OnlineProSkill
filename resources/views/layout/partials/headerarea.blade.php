@@ -141,7 +141,7 @@
                             @endauth
 
 
-                            <div class="mobile-login-btn" style="display: inline-block;">
+                            <div class="mobile-login-btn">
                                 <a href="{{ route('dashboard_studen') }}">
                                     <i class="flaticon-shopping-cart"></i>
                                 </a>
