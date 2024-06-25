@@ -139,8 +139,8 @@
                                     </a>
                                 @endauth
                                 <a href="{{ route('cart') }}" class="cart-count-two">
-                                    <i class="flaticon-shopping-cart"></i>
                                     <span class="mini-cart-count">0</span>
+                                    <i class="flaticon-shopping-cart"></i>
                                 </a>
                             </div>
 
