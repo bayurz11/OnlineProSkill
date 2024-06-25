@@ -349,8 +349,8 @@
                         </div>
                         <div class="courses__details-enroll">
                             <div class="tg-button-wrap">
-                                <a href="courses.html" class="btn btn-two arrow-btn">
-                                    See All Instructors
+                                <a href="{{ route('cart') }}" class="btn btn-two arrow-btn">
+                                    Pesan Sekarang
                                     <img src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable">
                                 </a>
                             </div>

@@ -18,4 +18,8 @@ class HomeController extends Controller
     {
         return view('home.classroomdetail');
     }
+    public function cart()
+    {
+        return view('home.cart');
+    }
 }
