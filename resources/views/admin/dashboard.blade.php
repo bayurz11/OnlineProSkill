@@ -1,5 +1,5 @@
 @section('title', 'ProSkill Akademia | Dashboard Admin')
-<?php $page = 'login_user'; ?>
+<?php $page = 'Dashboard_admin'; ?>
 
 @extends('layout.mainlayout_admin')
 @section('content')

@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardInstrukturController;
 use App\Http\Controllers\DashboardStudenController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KelasTatapMukaController;
 use App\Http\Controllers\OrderHistoryManagerController;
 use App\Http\Controllers\SubcategoriesController;
 use Illuminate\Support\Facades\Route;
@@ -44,8 +45,12 @@ Route::post('/update-Course-status/{id}', [CourseMasterController::class, 'updat
 Route::get('/Course/{id}/edit', [CourseMasterController::class, 'edit'])->name('Course.edit');
 Route::put('/Course/{id}', [CourseMasterController::class, 'update'])->name('Course.update');
 Route::delete('/Course_destroy/{id}', [CourseMasterController::class, 'destroy'])->name('Course.destroy');
+
 //Riwayat Pembelian Kursus
 Route::get('/OrderHistoryManager', [OrderHistoryManagerController::class, 'index'])->name('OrderHistoryManager');
+
+//Kursus Tatap Muka
+Route::get('/classroomsetting', [KelasTatapMukaController::class, 'index'])->name('classroomsetting');
 
 //*********STUDEN*********//
 //Auth Studen
