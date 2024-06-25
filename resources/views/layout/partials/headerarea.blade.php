@@ -102,7 +102,7 @@
 
                             @auth
                                 <div class="mobile-login-btn">
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <a href="{{ route('dashboard_studen') }}">
                                         <img src="{{ asset('public/assets/img/icons/user.svg') }}" alt=""
                                             class="injectable">
                                     </a>
