@@ -99,9 +99,8 @@
                                     @endguest
                                     @auth
                                         <li class="mobile-login-btn">
-                                            <a href="{{ route('profile') }}"><img
-                                                    src="{{ asset('public/assets/img/icons/user.svg') }}" alt=""
-                                                    class="injectable"></a>
+                                            <a href=""><img src="{{ asset('public/assets/img/icons/user.svg') }}"
+                                                    alt="" class="injectable"></a>
                                         </li>
                                     @endauth
                                 </ul>
