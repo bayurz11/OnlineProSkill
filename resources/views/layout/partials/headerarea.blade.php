@@ -144,7 +144,7 @@
                                 <div class="mobile-nav-toggler" style="display: inline-block; margin-right: 10px;">
                                     <i class="tg-flaticon-menu-1"></i>
                                 </div>
-                                <div class="mobile-nav-toggler" style="display: inline-block;">
+                                <div class="mini-cart-icon" style="display: inline-block;">
                                     <i class="flaticon-shopping-cart"></i>
                                 </div>
                             </div>
