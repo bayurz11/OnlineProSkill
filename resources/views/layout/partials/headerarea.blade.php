@@ -92,12 +92,26 @@
 
                                     </li>
                                     @auth
-                                        <li class="mini-cart-icon">
+                                        {{-- <li class="mini-cart-icon">
                                             <a href="{{ route('dashboard_studen') }}">
                                                 <img src="public/assets/img/courses/course_author001.png" alt="img"
                                                     style="border-radius: 50%;">
                                             </a>
-                                        </li>
+                                        </li> --}}
+                                        <div class="dropdown">
+                                            <button class="dropdown-toggle" type="button" id="dropdownMenuButton"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Dropdown Toggle
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                                                <a class="dropdown-item" href="{{ route('dashboard_student') }}">
+                                                    <img src="public/assets/img/courses/course_author001.png" alt="img"
+                                                        style="border-radius: 50%;">
+                                                </a>
+                                            </div>
+                                        </div>
+
 
                                     @endauth
                                     @guest
