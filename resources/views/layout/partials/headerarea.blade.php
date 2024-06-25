@@ -143,12 +143,10 @@
                             <div class="mobile-nav-toggler">
                                 <i class="tg-flaticon-menu-1"></i>
 
-                                <li class="mini-cart-icon">
-                                    <a href="{{ route('cart') }}" class="cart-count-two">
-                                        <i class="flaticon-shopping-cart"></i>
-                                        <span class="mini-cart-count">0</span>
-                                    </a>
-                                </li>
+
+                                <i class="flaticon-shopping-cart"></i>
+
+
                             </div>
 
 
