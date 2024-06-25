@@ -81,25 +81,14 @@
                                 <div class="courses__overview-wrap">
                                     <h3 class="title">Deskripsi Kelas</h3>
                                     <p> {!! $courses->content !!}</p>
-                                    <h3 class="title">What you'll learn in this course?</h3>
+                                    <h3 class="title">Pelajaran yang Didapat</h3>
 
                                     <ul class="about__info-list list-wrap">
                                         <li class="about__info-list-item">
                                             <i class="flaticon-angle-right"></i>
-                                            <p class="content">Work with color & Gradients & Grids</p>
+                                            <p class="content">{!! $courses->include !!}</p>
                                         </li>
-                                        <li class="about__info-list-item">
-                                            <i class="flaticon-angle-right"></i>
-                                            <p class="content">All the useful shortcuts</p>
-                                        </li>
-                                        <li class="about__info-list-item">
-                                            <i class="flaticon-angle-right"></i>
-                                            <p class="content">Be able to create Flyers, Brochures, Advertisements</p>
-                                        </li>
-                                        <li class="about__info-list-item">
-                                            <i class="flaticon-angle-right"></i>
-                                            <p class="content">How to work with Images & Text</p>
-                                        </li>
+
                                     </ul>
 
                                 </div>
