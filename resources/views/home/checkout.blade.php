@@ -14,7 +14,7 @@
                         <h3 class="title">Checkout</h3>
                         <nav class="breadcrumb">
                             <span property="itemListElement" typeof="ListItem">
-                                <a href="index.html">Home</a>
+                                <a href="{{ route('/') }}">Beranda</a>
                             </span>
                             <span class="breadcrumb-separator"><i class="fas fa-angle-right"></i></span>
                             <span property="itemListElement" typeof="ListItem">Checkout</span>
