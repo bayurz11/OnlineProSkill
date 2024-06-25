@@ -123,7 +123,8 @@
                                                             <i class="flaticon-arrow-right"></i>
                                                         </a>
                                                     </div>
-                                                    <h5 class="price">{{ $cours->price }}</h5>
+                                                    <h5 class="price">Rp. {{ number_format($cours->price, 0, ',', '.') }}
+                                                    </h5>
                                                 </div>
                                             </div>
                                         </div>
@@ -148,13 +149,7 @@
                                                 <ul class="courses__item-meta list-wrap">
 
                                                     <li class="price">
-                                                        @if ($cours->free)
-                                                            Free
-                                                        @elseif(!empty($cours->discount) && !empty($cours->discountedPrice))
-                                                            Rp. {{ number_format($cours->discountedPrice, 0, ',', '.') }}
-                                                        @else
-                                                            Rp. {{ number_format($cours->price, 0, ',', '.') }}
-                                                        @endif
+                                                        Rp. {{ number_format($cours->price, 0, ',', '.') }}
                                                     </li>
                                                 </ul>
                                                 <h5 class="title"><a
