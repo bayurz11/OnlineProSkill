@@ -96,7 +96,7 @@
                                                                 alt="img">
                                                         </div>
                                                         <label for="upload-photo" title="Upload Photo">
-                                                            <i class="fas fa-camera"></i>
+                                                            <i class="fas fa-camera">Upload Foto</i>
                                                         </label>
                                                         <input type="file" id="upload-photo" style="display: none;">
                                                     </div>
