@@ -239,4 +239,19 @@
         </div>
     </section>
     <!-- dashboard-area-end -->
+    <style>
+        /* Styling untuk elemen upload */
+        .upload-container {
+            display: inline-block;
+            cursor: pointer;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .upload-container i {
+            font-size: 24px;
+        }
+    </style>
 @endsection
