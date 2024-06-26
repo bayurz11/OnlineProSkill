@@ -111,11 +111,10 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <div class="form-grp">
+                                                        <div class="form-grp" style="color: #BCBCBC">
                                                             <label for="lastname">Email</label>
                                                             <input id="email" name="email" type="email"
-                                                                value="{{ $user->email }}" readonly
-                                                                style="color: #BCBCBC">
+                                                                value="{{ $user->email }}" readonly>
                                                         </div>
                                                     </div>
 
