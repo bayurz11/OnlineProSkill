@@ -91,12 +91,27 @@
                                                 data-background="{{ asset('public/assets/img/bg/student_bg.jpg') }}">
                                                 <div class="instructor__cover-info">
                                                     <div class="instructor__cover-info-left">
+
                                                         <div class="thumb">
                                                             <img src="{{ asset('public/assets/img/courses/details_instructors02.jpg') }}"
-                                                                alt="img">
+                                                                alt="img" id="uploadedImage">
                                                         </div>
-                                                        <button title="Upload Photo"><i class="fas fa-camera"></i>
-                                                            Upload</button>
+                                                        <input type="file" name="image" id="imageUpload"
+                                                            style="display: none;" onchange="previewImage(event)">
+                                                        <button type="button" title="Upload Photo"
+                                                            onclick="document.getElementById('imageUpload').click();">
+                                                            <i class="fas fa-camera"></i>
+                                                        </button>
+                                                        <script>
+                                                            function previewImage(event) {
+                                                                var reader = new FileReader();
+                                                                reader.onload = function() {
+                                                                    var output = document.getElementById('uploadedImage');
+                                                                    output.src = reader.result;
+                                                                };
+                                                                reader.readAsDataURL(event.target.files[0]);
+                                                            }
+                                                        </script>
                                                     </div>
                                                     <div class="instructor__cover-info-right">
                                                         <a href="#" class="btn btn-two arrow-btn">Edit Foto
