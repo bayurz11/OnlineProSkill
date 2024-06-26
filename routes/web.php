@@ -19,7 +19,7 @@ use App\Http\Controllers\SettingController;
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('/regisInstruktur', [DashboardInstrukturController::class, 'register'])->name('regisInstruktur');
-Route::post('/regisStuden', [DashboardStudenController::class, 'register'])->name('regisStuden');
+Route::post('/regisStuden', [AuthController::class, 'register'])->name('regisStuden');
 
 Route::middleware('isAdmin')->group(function () {
 
