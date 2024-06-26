@@ -95,8 +95,8 @@
                                                             <img src="{{ asset('public/assets/img/courses/details_instructors02.jpg') }}"
                                                                 alt="img">
                                                         </div>
-                                                        <button title="Upload Photo"><i
-                                                                class="fas fa-camera"></i></button>
+                                                        <button title="Upload Photo"><i class="fas fa-camera"></i>
+                                                            Upload</button>
                                                     </div>
                                                     <div class="instructor__cover-info-right">
                                                         <a href="#" class="btn btn-two arrow-btn">Edit Foto
