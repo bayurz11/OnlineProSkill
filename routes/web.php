@@ -18,8 +18,9 @@ use App\Http\Controllers\OrderHistoryManagerController;
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::middleware([AdminMiddleware::class])->group(function () {
-    //******** Admin *********//
+
+//******** Admin *********//
+Route::middleware('isAdmin')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     //*******ADMIN ONLINE COURSE SETTING*******//
@@ -50,6 +51,7 @@ Route::middleware([AdminMiddleware::class])->group(function () {
 
     //Riwayat Pembelian Kursus
     Route::get('/OrderHistoryManager', [OrderHistoryManagerController::class, 'index'])->name('OrderHistoryManager');
+
     //*******ADMIN OFFLINE COURSE SETTING*******//
     //Kursus Tatap Muka
     Route::get('/classroomsetting', [KelasTatapMukaController::class, 'index'])->name('classroomsetting');
@@ -59,6 +61,7 @@ Route::middleware([AdminMiddleware::class])->group(function () {
     Route::put('/class/{id}', [KelasTatapMukaController::class, 'update'])->name('class.update');
     Route::delete('/class_destroy/{id}', [KelasTatapMukaController::class, 'destroy'])->name('class.destroy');
 });
+
 //*********STUDEN*********//
 //Auth Studen
 Route::get('/dashboard_studen', [DashboardStudenController::class, 'index'])->name('dashboard_studen');
