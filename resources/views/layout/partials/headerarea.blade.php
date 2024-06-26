@@ -149,10 +149,12 @@
                                         <img src="{{ asset('public/assets/img/icons/user.svg') }}" alt=""
                                             class="injectable">
                                     </a>
-                                    <a href="#" class="cart-count-two">
-                                        <i class="far fa-bell" style="color: #007F73;"></i><span class="red-circle"
-                                            style="color: red">1</span>
-                                    </a>
+                                    <li class="mini-cart-icon">
+                                        <a href="#" class="cart-count-two">
+                                            <i class="far fa-bell" style="color: #007F73;"></i>
+                                            <span class="mini-cart-count">0</span>
+                                        </a>
+                                    </li>
                                 @endauth
                             </div>
 
