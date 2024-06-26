@@ -73,5 +73,5 @@ Route::post('/regisInstruktur', [DashboardInstrukturController::class, 'register
 Route::get('/', [HomeController::class, 'index'])->name('/');
 Route::get('/classroom', [HomeController::class, 'classroom'])->name('classroom');
 Route::get('/classroomdetail/{id}', [HomeController::class, 'classroomdetail'])->name('classroomdetail');
-Route::get('/cart', [HomeController::class, 'cart'])->name('cart');
+Route::get('/cart/{id}', [HomeController::class, 'cart'])->name('cart');
 Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout');
