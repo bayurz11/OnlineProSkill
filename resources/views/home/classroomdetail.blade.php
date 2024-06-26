@@ -320,7 +320,13 @@
                         </div>
                         <div class="courses__details-enroll">
                             <div class="tg-button-wrap">
-                                <a href="{{ route('cart', ['id' => $courses->id]) }}" class="btn btn-two arrow-btn">
+                                <a href="{{ route('cart') }}" class="btn btn-two arrow-btn">
+                                    Masukkan Keranjang
+                                    <i class="flaticon-shopping-cart"></i>
+                                </a>
+                            </div>
+                            <div class="tg-button-wrap">
+                                <a href="#" class="btn btn-two arrow-btn">
                                     Pesan Sekarang
                                     <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                         class="injectable">

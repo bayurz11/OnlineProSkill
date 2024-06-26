@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\CourseMasterController;
 use App\Http\Controllers\DashboardController;
@@ -71,7 +72,12 @@ Route::post('/regisInstruktur', [DashboardInstrukturController::class, 'register
 
 //*********FRONTEND*********//
 Route::get('/', [HomeController::class, 'index'])->name('/');
+
+//Classroom
 Route::get('/classroom', [HomeController::class, 'classroom'])->name('classroom');
 Route::get('/classroomdetail/{id}', [HomeController::class, 'classroomdetail'])->name('classroomdetail');
-Route::get('/cart/{id}', [HomeController::class, 'cart'])->name('cart');
 Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout');
+
+//Cart
+Route::get('/cart', [CartController::class, 'view'])->name('cart');
+Route::get('/cart/{id}', [CartController::class, 'index'])->name('cart');

@@ -37,13 +37,7 @@ class HomeController extends Controller
         $fasilitas = json_decode($courses->fasilitas, true);
         return view('home.classroomdetail', compact('user', 'course', 'courses', 'courseList'));
     }
-    public function cart($id)
-    {
-        $user = Auth::user();
-        $course = KelasTatapMuka::all();
-        $courses = KelasTatapMuka::find($id);
-        return view('home.cart', compact('user', 'course', 'courses'));
-    }
+
     public function checkout()
     {
         return view('home.checkout');
