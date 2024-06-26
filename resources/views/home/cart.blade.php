@@ -1,4 +1,4 @@
-a@section('title', 'ProSkill Akademia | Cart')
+@section('title', 'ProSkill Akademia | Cart')
 <?php $page = 'Cart'; ?>
 
 @extends('layout.mainlayout')
