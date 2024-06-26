@@ -1,4 +1,4 @@
-@section('title', 'ProSkill Akademia | Lembaga Kursus dan Pelatihan Komputer')
+@section('title', 'ProSkill Akademia | Dashboard')
 <?php $page = 'index'; ?>
 
 @extends('layout.mainlayout')
