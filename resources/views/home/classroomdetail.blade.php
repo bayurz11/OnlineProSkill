@@ -321,10 +321,11 @@
                         <div class="courses__details-enroll">
                             <div class="tg-button-wrap">
                                 <a href="{{ route('cart') }}" class="btn btn-two arrow-btn">
-                                    Masukkan Keranjang
                                     <i class="flaticon-shopping-cart"></i>
+                                    Masukkan Keranjang
                                 </a>
                             </div>
+                            <br>
                             <div class="tg-button-wrap">
                                 <a href="#" class="btn btn-two arrow-btn">
                                     Pesan Sekarang
