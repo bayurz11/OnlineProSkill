@@ -83,25 +83,29 @@
                                     </ul>
                                 </div>
                                 <div class="tab-content" id="myTabContent">
-                                    <div class="tab-pane fade show active" id="itemOne-tab-pane" role="tabpanel"
-                                        aria-labelledby="itemOne-tab" tabindex="0">
-                                        <div class="instructor__cover-bg"
-                                            data-background="{{ asset('public/assets/img/bg/student_bg.jpg') }}">
-                                            <div class="instructor__cover-info">
-                                                <div class="instructor__cover-info-left">
-                                                    <div class="thumb">
-                                                        <img src="{{ asset('public/assets/img/courses/details_instructors02.jpg') }}"
-                                                            alt="img">
+                                    <form action="#" class="instructor__profile-form" method="POST"
+                                        enctype="multipart/form-data">
+                                        <div class="tab-pane fade show active" id="itemOne-tab-pane" role="tabpanel"
+                                            aria-labelledby="itemOne-tab" tabindex="0">
+                                            <div class="instructor__cover-bg"
+                                                data-background="{{ asset('public/assets/img/bg/student_bg.jpg') }}">
+                                                <div class="instructor__cover-info">
+                                                    <div class="instructor__cover-info-left">
+                                                        <div class="thumb">
+                                                            <img src="{{ asset('public/assets/img/courses/details_instructors02.jpg') }}"
+                                                                alt="img">
+                                                        </div>
+                                                        <button title="Upload Photo"><i
+                                                                class="fas fa-camera"></i></button>
                                                     </div>
-                                                    <button title="Upload Photo"><i class="fas fa-camera"></i></button>
-                                                </div>
-                                                <div class="instructor__cover-info-right">
-                                                    <a href="#" class="btn btn-two arrow-btn">Edit Foto Sampul</a>
+                                                    <div class="instructor__cover-info-right">
+                                                        <a href="#" class="btn btn-two arrow-btn">Edit Foto
+                                                            Sampul</a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="instructor__profile-form-wrap">
-                                            <form action="#" class="instructor__profile-form">
+                                            <div class="instructor__profile-form-wrap">
+
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-grp">
@@ -145,9 +149,10 @@
                                                 <div class="submit-btn mt-25">
                                                     <button type="submit" class="btn">Perbahrui Informasi</button>
                                                 </div>
-                                            </form>
+
+                                            </div>
                                         </div>
-                                    </div>
+                                    </form>
                                     <div class="tab-pane fade" id="itemTwo-tab-pane" role="tabpanel"
                                         aria-labelledby="itemTwo-tab" tabindex="0">
                                         <div class="instructor__profile-form-wrap">
