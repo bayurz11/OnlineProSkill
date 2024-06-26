@@ -240,7 +240,7 @@
 
     // Optional: Close the dropdown if the user clicks outside of it
     window.onclick = function(event) {
-        if (!event.target.matches('.mobile-nav-toggler')) {
+        if (!event.target.matches('.mobile-nav-dropdown')) {
             var dropdown = document.getElementById("dropdown-menu");
             if (dropdown.classList.contains("active")) {
                 dropdown.classList.remove("active");
