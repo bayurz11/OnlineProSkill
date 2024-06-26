@@ -33,7 +33,7 @@
                             <img src="public/assets/img/courses/details_instructors02.jpg" alt="img">
                         </div>
                         <div class="content">
-                            <h4 class="title">Emily Hannah</h4>
+                            <h4 class="title">{{ $user->name }}</h4>
                             <ul class="list-wrap">
                                 <li>
                                     <img src="public/assets/img/icons/course_icon03.svg" alt="img" class="injectable">
@@ -56,7 +56,7 @@
                 <div class="col-lg-3">
                     <div class="dashboard__sidebar-wrap">
                         <div class="dashboard__sidebar-title mb-20">
-                            <h6 class="title">Welcome, Emily Hannah</h6>
+                            <h6 class="title">Selamat datang, {{ $user->name }}</h6>
                         </div>
                         <nav class="dashboard__sidebar-menu">
                             <ul class="list-wrap">

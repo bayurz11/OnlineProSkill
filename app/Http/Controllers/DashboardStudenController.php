@@ -19,7 +19,7 @@ class DashboardStudenController extends Controller
         if (!$user) {
             return redirect()->route('/');
         }
-        return view('studen.dashboard');
+        return view('studen.dashboard', compact('user'));
     }
     public function register(Request $request)
     {
