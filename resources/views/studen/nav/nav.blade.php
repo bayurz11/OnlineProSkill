@@ -55,7 +55,7 @@
         <nav class="dashboard__sidebar-menu">
             <ul class="list-wrap">
                 <li>
-                    <a href="student-setting.html">
+                    <a href="{{ route('setting') }}">
                         <i class="skillgro-settings"></i>
                         Settings
                     </a>
