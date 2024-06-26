@@ -232,3 +232,19 @@
 @include('home.modal.login')
 @include('home.modal.register')
 <!-- header-area-end -->
+<script>
+    function toggleDropdown() {
+        var dropdown = document.getElementById("dropdown-menu");
+        dropdown.classList.toggle("active"); // toggle the "active" class
+    }
+
+    // Optional: Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('.mobile-nav-toggler')) {
+            var dropdown = document.getElementById("dropdown-menu");
+            if (dropdown.classList.contains("active")) {
+                dropdown.classList.remove("active");
+            }
+        }
+    }
+</script>
