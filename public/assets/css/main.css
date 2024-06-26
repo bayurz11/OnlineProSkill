@@ -2759,6 +2759,27 @@ textarea {
   height: 90px;
 }
 
+/* tambahan */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 30px; /* Adjust this based on your icon size */
+  right: 0;
+  background-color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-item {
+  padding: 10px 20px;
+  text-decoration: none;
+  color: black;
+  display: block;
+}
+
+.dropdown-item:hover {
+  background-color: #f1f1f1;
+}
 
 @media (max-width: 767.98px) {
   #header-fixed-height.active-height {
