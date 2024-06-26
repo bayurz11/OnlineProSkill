@@ -82,10 +82,10 @@
 
                             <div class="tgmenu__action tgmenu__action-two">
                                 <ul class="list-wrap">
-                                    <li class="mini-cart-icon">
+                                    <li class="mini-cart-icon" style="color: #FE9900;">
                                         <a href="#" class="cart-count-two">
                                             <i class="far fa-bell" style="color: #007F73;"></i>
-                                            <span class="mini-cart-count" style="color: #FE9900;">0</span>
+                                            <span class="mini-cart-count">0</span>
                                         </a>
                                     </li>
                                     @auth
