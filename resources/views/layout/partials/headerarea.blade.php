@@ -82,8 +82,8 @@
 
                             <div class="tgmenu__action tgmenu__action-two">
                                 <ul class="list-wrap">
-                                    <li class="mini-cart-icon" style="color: #FE9900;">
-                                        <a href="#" class="cart-count-two">
+                                    <li class="mini-cart-icon">
+                                        <a href="#" class="cart-count-two" style="color: #FE9900;">
                                             <i class="far fa-bell" style="color: #007F73;"></i>
                                             <span class="mini-cart-count">0</span>
                                         </a>
