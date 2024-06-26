@@ -146,15 +146,13 @@
                             <div class="mobile-login-btn">
                                 @auth
                                     <div class="dropdown">
-                                        <a href="{{ route('dashboard_studen') }}" style="margin-right: 10px;">
+                                        <a href="" style="margin-right: 10px;">
                                             <img src="{{ asset('public/assets/img/icons/user.svg') }}" alt=""
                                                 class="injectable">
                                         </a>
                                         <div class="dropdown-content">
                                             <ul class="sub-menu">
-                                                <li class="{{ Request::is('dashboard_studen') ? 'active' : '' }}">
-                                                    <a href="{{ route('dashboard_studen') }}">Dashboard</a>
-                                                </li>
+
                                                 <li class="{{ Request::is('Profil') ? 'active' : '' }}">
                                                     <a href="about-us.html">Profil</a>
                                                 </li>
