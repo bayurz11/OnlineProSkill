@@ -103,35 +103,39 @@
                             <div
                                 class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
                                 @foreach ($course as $cours)
-                                    <div class="col">
-                                        <div class="courses__item shine__animate-item">
-                                            <div class="courses__item-thumb">
-                                                <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}"
-                                                    class="shine__animate-link">
-                                                    <img src="{{ asset('public/uploads/' . $cours->gambar) }}"
-                                                        alt="Banner" class="wd-100 wd-sm-150 me-3">
-                                                </a>
-                                            </div>
-                                            <div class="courses__item-content">
-
-                                                <h5 class="title"><a
-                                                        href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
-                                                </h5>
-                                                <p class="author">By <a href="#">{{ $cours->user->name }}</a></p>
-                                                <div class="courses__item-bottom">
-                                                    <div class="button">
-                                                        <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}">
-                                                            <span class="text">Detail Kelas</span>
-                                                            <i class="flaticon-arrow-right"></i>
-                                                        </a>
-                                                    </div>
-                                                    <h5 class="price">Rp. {{ number_format($cours->price, 0, ',', '.') }}
+                                    @if ($cours->status == 1)
+                                        <div class="col">
+                                            <div class="courses__item shine__animate-item">
+                                                <div class="courses__item-thumb">
+                                                    <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}"
+                                                        class="shine__animate-link">
+                                                        <img src="{{ asset('public/uploads/' . $cours->gambar) }}"
+                                                            alt="Banner" class="wd-100 wd-sm-150 me-3">
+                                                    </a>
+                                                </div>
+                                                <div class="courses__item-content">
+                                                    <h5 class="title">
+                                                        <a
+                                                            href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
                                                     </h5>
+                                                    <p class="author">By <a href="#">{{ $cours->user->name }}</a>
+                                                    </p>
+                                                    <div class="courses__item-bottom">
+                                                        <div class="button">
+                                                            <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}">
+                                                                <span class="text">Detail Kelas</span>
+                                                                <i class="flaticon-arrow-right"></i>
+                                                            </a>
+                                                        </div>
+                                                        <h5 class="price">Rp.
+                                                            {{ number_format($cours->price, 0, ',', '.') }}</h5>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    @endif
                                 @endforeach
+
                             </div>
                         </div>
 
