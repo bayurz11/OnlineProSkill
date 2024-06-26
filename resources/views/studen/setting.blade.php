@@ -114,7 +114,8 @@
                                                         <div class="form-grp">
                                                             <label for="lastname">Email</label>
                                                             <input id="email" name="email" type="email"
-                                                                value="{{ $user->email }}" readonly>
+                                                                value="{{ $user->email }}" readonly
+                                                                style="color: #BCBCBC">
                                                         </div>
                                                     </div>
 
