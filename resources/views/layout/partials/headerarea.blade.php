@@ -143,20 +143,23 @@
                                 </ul>
                             </div>
 
-                            <div class="mobile-login-btn">
+                            {{-- <div class="mobile-login-btn">
                                 @auth
                                     <a href="{{ route('dashboard_studen') }}" style="margin-right: 10px;">
                                         <img src="{{ asset('public/assets/img/icons/user.svg') }}" alt=""
                                             class="injectable">
                                     </a>
-                                    <a href="#" class="cart-count-two" id="userIcon">
+                                    <a href="#" class="cart-count-two">
                                         <i class="far fa-user"></i>
                                     </a>
-                                    <div id="dropdownMenu" class="dropdown-menu">
-                                        <a href="#" class="dropdown-item">Profile</a>
-                                        <a href="#" class="dropdown-item">Logout</a>
-                                    </div>
                                 @endauth
+                            </div> --}}
+                            <div class="mobile-nav-dropdown" onclick="toggleDropdown()">
+                                <i class="tg-flaticon-menu-1"></i>
+                            </div>
+                            <div id="dropdown-menu" class="dropdown-menu">
+                                <a href="#profile">Profile</a>
+                                <a href="#logout">Logout</a>
                             </div>
 
                             <div class="mobile-nav-toggler">
@@ -228,23 +231,4 @@
 </header>
 @include('home.modal.login')
 @include('home.modal.register')
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const userIcon = document.getElementById('userIcon');
-        const dropdownMenu = document.getElementById('dropdownMenu');
-
-        userIcon.addEventListener('click', function(event) {
-            event.preventDefault();
-            dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
-        });
-
-        window.addEventListener('click', function(event) {
-            if (!event.target.matches('#userIcon, #userIcon *')) {
-                if (dropdownMenu.style.display === 'block') {
-                    dropdownMenu.style.display = 'none';
-                }
-            }
-        });
-    });
-</script>
 <!-- header-area-end -->

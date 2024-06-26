@@ -2759,31 +2759,56 @@ textarea {
   height: 90px;
 }
 
-/* tambahan */
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 30px; /* Adjust this based on your icon size */
-  right: 0;
-  background-color: white;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-.dropdown-item {
-  padding: 10px 20px;
-  text-decoration: none;
-  color: black;
-  display: block;
-}
-
-.dropdown-item:hover {
-  background-color: #f1f1f1;
-}
 
 @media (max-width: 767.98px) {
   #header-fixed-height.active-height {
     height: 80px;
+  }
+}
+
+/* tambahan */
+.mobile-nav-dropdown {
+  cursor: pointer;
+  font-size: 24px;
+  display: none; /* default hide on larger screens */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-menu a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Media query for screens 767.98px and below */
+@media only screen and (max-width: 767.98px) {
+  .mobile-nav-toggler {
+      display: inline-block; /* Show the toggler button */
+  }
+
+  .dropdown-menu {
+      display: none; /* Hide dropdown menu by default */
+  }
+
+  .mobile-nav-toggler.active + .dropdown-menu {
+      display: block; /* Show dropdown menu when toggler is active */
   }
 }
 
