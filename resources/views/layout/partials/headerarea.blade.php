@@ -143,7 +143,7 @@
                                 </ul>
                             </div>
 
-                            {{-- <div class="mobile-login-btn">
+                            <div class="mobile-login-btn">
                                 @auth
                                     <a href="{{ route('dashboard_studen') }}" style="margin-right: 10px;">
                                         <img src="{{ asset('public/assets/img/icons/user.svg') }}" alt=""
@@ -153,13 +153,6 @@
                                         <i class="far fa-user"></i>
                                     </a>
                                 @endauth
-                            </div> --}}
-                            <div class="mobile-nav-dropdown" onclick="toggleDropdown()">
-                                <i class="tg-flaticon-menu-1"></i>
-                            </div>
-                            <div id="dropdown-menu" class="dropdown-menu">
-                                <a href="#profile">Profile</a>
-                                <a href="#logout">Logout</a>
                             </div>
 
                             <div class="mobile-nav-toggler">
@@ -232,19 +225,3 @@
 @include('home.modal.login')
 @include('home.modal.register')
 <!-- header-area-end -->
-<script>
-    function toggleDropdown() {
-        var dropdown = document.getElementById("dropdown-menu");
-        dropdown.classList.toggle("active"); // toggle the "active" class
-    }
-
-    // Optional: Close the dropdown if the user clicks outside of it
-    window.onclick = function(event) {
-        if (!event.target.matches('.mobile-nav-dropdown')) {
-            var dropdown = document.getElementById("dropdown-menu");
-            if (dropdown.classList.contains("active")) {
-                dropdown.classList.remove("active");
-            }
-        }
-    }
-</script>
