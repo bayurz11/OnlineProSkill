@@ -47,6 +47,6 @@ class DashboardStudenController extends Controller
         $userProfile->role_id = 3;
         $userProfile->save();
 
-        return redirect()->route('/')->with('success', 'Pendaftaran berhasil!');
+        return redirect()->route('setting')->with('success', 'Pendaftaran berhasil!');
     }
 }
