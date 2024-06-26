@@ -147,7 +147,7 @@
                                         <img src="{{ asset('public/assets/img/icons/user.svg') }}" alt=""
                                             class="injectable">
                                     </a>
-                                    <a href="{{ route('cart') }}" class="cart-count-two">
+                                    <a href="#" class="cart-count-two">
                                         <i class="flaticon-shopping-cart"></i><span class="red-circle"
                                             style="color: red">1</span>
                                     </a>
