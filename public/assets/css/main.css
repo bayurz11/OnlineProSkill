@@ -2773,7 +2773,7 @@ textarea {
     display: flex;
   }
 }
-.mobile-login-btn ul {
+.mobile-login-btn a {
   margin-right: 20px;
   width: 40px;
   height: 40px;
@@ -2785,11 +2785,11 @@ textarea {
   line-height: 0;
   color: var(--tg-body-color);
 }
-.mobile-login-btn ul:hover {
+.mobile-login-btn a:hover {
   background: var(--tg-theme-primary);
   color: var(--tg-common-color-white);
 }
-.mobile-login-btn-two ul {
+.mobile-login-btn-two a {
   background: var(--tg-common-color-white);
   border: 1px solid #d9d9d9;
   color: var(--tg-body-color);
