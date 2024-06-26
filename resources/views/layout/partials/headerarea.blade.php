@@ -149,9 +149,13 @@
                                         <img src="{{ asset('public/assets/img/icons/user.svg') }}" alt=""
                                             class="injectable">
                                     </a>
-                                    <a href="#" class="cart-count-two">
+                                    <a href="#" class="cart-count-two" id="userIcon">
                                         <i class="far fa-user"></i>
                                     </a>
+                                    <div id="dropdownMenu" class="dropdown-menu">
+                                        <a href="#" class="dropdown-item">Profile</a>
+                                        <a href="#" class="dropdown-item">Logout</a>
+                                    </div>
                                 @endauth
                             </div>
 
@@ -224,4 +228,23 @@
 </header>
 @include('home.modal.login')
 @include('home.modal.register')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const userIcon = document.getElementById('userIcon');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+
+        userIcon.addEventListener('click', function(event) {
+            event.preventDefault();
+            dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+        });
+
+        window.addEventListener('click', function(event) {
+            if (!event.target.matches('#userIcon, #userIcon *')) {
+                if (dropdownMenu.style.display === 'block') {
+                    dropdownMenu.style.display = 'none';
+                }
+            }
+        });
+    });
+</script>
 <!-- header-area-end -->
