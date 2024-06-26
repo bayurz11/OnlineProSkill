@@ -95,8 +95,24 @@
                                                             <img src="{{ asset('public/assets/img/courses/details_instructors02.jpg') }}"
                                                                 alt="img">
                                                         </div>
-                                                        <button title="Upload Photo"><i
+                                                        <button id="uploadButton" title="Upload Photo"><i
                                                                 class="fas fa-camera"></i></button>
+
+                                                        <input type="file" id="fileInput" accept="image/*"
+                                                            style="display: none;" webkitdirectory mozdirectory
+                                                            directory />
+
+                                                        <script>
+                                                            document.getElementById('uploadButton').addEventListener('click', function() {
+                                                                document.getElementById('fileInput').click();
+                                                            });
+
+                                                            document.getElementById('fileInput').addEventListener('change', function(event) {
+                                                                const files = event.target.files;
+                                                                // Proses file yang dipilih di sini
+                                                                console.log(files);
+                                                            });
+                                                        </script>
                                                     </div>
                                                     <div class="instructor__cover-info-right">
                                                         <a href="#" class="btn btn-two arrow-btn">Edit Foto
