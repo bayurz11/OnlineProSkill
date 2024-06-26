@@ -2759,48 +2759,6 @@ textarea {
   height: 90px;
 }
 
-/* tambahan */
-/* Default styles for larger screens */
-.tgmenu__navbar-wrap {
-  display: none; /* Initially hidden */
-}
-
-@media (min-width: 768px) {
-  .tgmenu__navbar-wrap {
-      display: flex; /* Show the menu on screens 768px and wider */
-  }
-}
-
-/* Styles for screens up to 767.98px */
-@media (max-width: 767.98px) {
-  .tgmenu__navbar-wrap {
-      display: flex; /* Show the menu */
-      flex-direction: column; /* Stack items vertically */
-      width: 100%; /* Full width for smaller screens */
-  }
-
-  .tgmenu__main-menu {
-      flex-direction: column; /* Stack the main menu items vertically */
-  }
-
-  .navigation {
-      flex-direction: column; /* Stack navigation items vertically */
-  }
-
-  .menu-item-has-children {
-      width: 100%; /* Full width for each menu item */
-  }
-
-  .sub-menu {
-      display: none; /* Initially hidden */
-      flex-direction: column; /* Stack submenu items vertically */
-  }
-
-  .menu-item-has-children:hover .sub-menu,
-  .menu-item-has-children:focus-within .sub-menu {
-      display: flex; /* Show submenu on hover or focus */
-  }
-}
 
 @media (max-width: 767.98px) {
   #header-fixed-height.active-height {

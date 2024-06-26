@@ -143,7 +143,7 @@
                                 </ul>
                             </div>
 
-                            {{-- <div class="mobile-login-btn">
+                            <div class="mobile-login-btn">
                                 @auth
                                     <a href="{{ route('dashboard_studen') }}" style="margin-right: 10px;">
                                         <img src="{{ asset('public/assets/img/icons/user.svg') }}" alt=""
@@ -153,36 +153,6 @@
                                         <i class="far fa-bell"></i><span class="red-circle">0</span>
                                     </a>
                                 @endauth
-                            </div> --}}
-                            <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-xl-flex">
-                                <ul class="navigation">
-                                    <li class="menu-item-has-children">
-                                        <a href="{{ route('dashboard_studen') }}">
-                                            <img src="{{ asset('public/assets/img/courses/course_author001.png') }}"
-                                                alt="img" style="border-radius: 50%;">
-                                        </a>
-                                        <ul class="sub-menu">
-                                            <li class="{{ Request::is('dashboard_studen') ? 'active' : '' }}">
-                                                <a href="{{ route('dashboard_studen') }}">Dashboard</a>
-                                            </li>
-                                            <li class="{{ Request::is('Profil') ? 'active' : '' }}">
-                                                <a href="about-us.html">Profil</a>
-                                            </li>
-                                            <li>
-                                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                                    style="display: none;">
-                                                    @csrf
-                                                </form>
-                                                <a href="{{ route('logout') }}"
-                                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                                    Logout
-                                                </a>
-                                            </li>
-
-                                        </ul>
-                                    </li>
-
-                                </ul>
                             </div>
 
                             <div class="mobile-nav-toggler">
