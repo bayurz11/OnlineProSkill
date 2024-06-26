@@ -95,26 +95,7 @@
                                                             <img src="{{ asset('public/assets/img/courses/details_instructors02.jpg') }}"
                                                                 alt="img">
                                                         </div>
-                                                        <div id="uploadContainer" class="upload-container"
-                                                            title="Upload Photo">
-                                                            <i class="fas fa-camera"></i>
-                                                        </div>
-
-                                                        <input type="file" id="fileInput" accept="image/*"
-                                                            style="display: none;" webkitdirectory mozdirectory
-                                                            directory />
-
-                                                        <script>
-                                                            document.getElementById('uploadContainer').addEventListener('click', function() {
-                                                                document.getElementById('fileInput').click();
-                                                            });
-
-                                                            document.getElementById('fileInput').addEventListener('change', function(event) {
-                                                                const files = event.target.files;
-                                                                // Proses file yang dipilih di sini
-                                                                console.log(files);
-                                                            });
-                                                        </script>
+                                                        <a title="Upload Photo"><i class="fas fa-camera"></i></a>
                                                     </div>
                                                     <div class="instructor__cover-info-right">
                                                         <a href="#" class="btn btn-two arrow-btn">Edit Foto
@@ -239,19 +220,4 @@
         </div>
     </section>
     <!-- dashboard-area-end -->
-    <style>
-        /* Styling untuk elemen upload */
-        .upload-container {
-            display: inline-block;
-            cursor: pointer;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            text-align: center;
-        }
-
-        .upload-container i {
-            font-size: 24px;
-        }
-    </style>
 @endsection
