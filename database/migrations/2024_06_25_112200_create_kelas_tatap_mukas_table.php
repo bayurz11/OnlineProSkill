@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('nama_kursus');
             $table->unsignedBigInteger('kategori_id');
             $table->unsignedBigInteger('subkategori_id')->nullable();
-            $table->text('deskripsi');
             $table->string('tingkat');
             $table->json('include');
             $table->decimal('price', 10, 2)->nullable();

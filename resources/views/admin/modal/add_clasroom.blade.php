@@ -92,15 +92,6 @@
                         <input type="text" class="form-control" id="discountedPrice" name="discountedPrice"
                             readonly>
                     </div>
-
-                    <div class="mb-3">
-                        <div>
-                            <input type="checkbox" id="free" name="free" value="1"
-                                onchange="togglePriceAndDiscount()">
-                            <label for="free">Free</label>
-                        </div>
-                    </div>
-
                     <div class="mb-3">
                         <label class="form-label" for="gambar">Gambar Kursus<span
                                 class="text-danger">*</span></label>
