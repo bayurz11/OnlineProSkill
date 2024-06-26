@@ -75,7 +75,7 @@
                                     aria-controls="curriculum-tab-pane" aria-selected="false">Kurikulum</button>
                             </li>
                         </ul>
-                        <div class="tab-content col-xl-12 col-lg-8" id="myTabContent">
+                        <div class="tab-content col-xl-12 col-lg-12" id="myTabContent">
                             <div class="tab-pane fade show active" id="overview-tab-pane" role="tabpanel"
                                 aria-labelledby="overview-tab" tabindex="0">
                                 <div class="courses__overview-wrap">
