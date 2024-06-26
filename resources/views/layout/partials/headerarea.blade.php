@@ -150,7 +150,7 @@
                                             class="injectable">
                                     </a>
                                     <a href="#" class="cart-count-two">
-                                        <i class="flaticon-shopping-cart"></i><span class="red-circle"
+                                        <i class="far fa-bell" style="color: #007F73;"></i><span class="red-circle"
                                             style="color: red">1</span>
                                     </a>
                                 @endauth
