@@ -46,10 +46,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="dashboard__instructor-info-right">
-                        <a href="#" class="btn btn-two arrow-btn">Become an Instructor <img
-                                src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
-                    </div>
+
                 </div>
             </div>
             <div class="row">
