@@ -150,7 +150,7 @@
                                             class="injectable">
                                     </a>
                                     <a href="#" class="cart-count-two">
-                                        <i class="far fa-user"></i>
+                                        <i class="far fa-bell"></i><span class="red-circle">0</span>
                                     </a>
                                 @endauth
                             </div>
