@@ -1,4 +1,4 @@
-@section('title', 'ProSkill Akademia | Cart')
+a@section('title', 'ProSkill Akademia | Cart')
 <?php $page = 'Cart'; ?>
 
 @extends('layout.mainlayout')
@@ -45,9 +45,9 @@
                         <thead>
                             <tr>
                                 <th class="product__thumb">&nbsp;</th>
-                                <th class="product__name">Product</th>
-                                <th class="product__price">Price</th>
-                                <th class="product__quantity">Quantity</th>
+                                <th class="product__name">Produk</th>
+                                <th class="product__price">Harga</th>
+                                {{-- <th class="product__quantity">Quantity</th> --}}
                                 <th class="product__subtotal">Subtotal</th>
                                 <th class="product__remove">&nbsp;</th>
                             </tr>
@@ -55,19 +55,19 @@
                         <tbody>
                             <tr>
                                 <td class="product__thumb">
-                                    <a href="shop-details.html"><img
-                                            src="{{ asset('public/assets/img/shop/shop_img01.jpg') }}" alt=""></a>
+                                    <a href="shop-details.html"><img src="{{ asset('public/uploads/' . $courses->gambar) }}"
+                                            alt=""></a>
                                 </td>
                                 <td class="product__name">
-                                    <a href="shop-details.html">Antiaging and Longevity</a>
+                                    <a href="shop-details.html">{{ $courses->nama_kursus }}</a>
                                 </td>
-                                <td class="product__price">$13.00</td>
-                                <td class="product__quantity">
+                                <td class="product__price">Rp. {{ number_format($courses->price, 0, ',', '.') }}</td>
+                                {{-- <td class="product__quantity">
                                     <div class="cart-plus-minus">
                                         <input type="text" value="1">
                                     </div>
-                                </td>
-                                <td class="product__subtotal">$13.00</td>
+                                </td> --}}
+                                <td class="product__subtotal">Rp. {{ number_format($courses->price, 0, ',', '.') }}</td>
                                 <td class="product__remove">
                                     <a href="#">×</a>
                                 </td>
