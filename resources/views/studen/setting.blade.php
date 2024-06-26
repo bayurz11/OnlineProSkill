@@ -67,7 +67,7 @@
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link active" id="itemOne-tab" data-bs-toggle="tab"
                                                 data-bs-target="#itemOne-tab-pane" type="button" role="tab"
-                                                aria-controls="itemOne-tab-pane" aria-selected="true">Profile</button>
+                                                aria-controls="itemOne-tab-pane" aria-selected="true">Profil</button>
                                         </li>
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link" id="itemTwo-tab" data-bs-toggle="tab"
@@ -96,7 +96,7 @@
                                                     <button title="Upload Photo"><i class="fas fa-camera"></i></button>
                                                 </div>
                                                 <div class="instructor__cover-info-right">
-                                                    <a href="#" class="btn btn-two arrow-btn">Edit Cover Photo</a>
+                                                    <a href="#" class="btn btn-two arrow-btn">Edit Foto Sampul</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -105,46 +105,31 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-grp">
-                                                            <label for="firstname">First Name</label>
-                                                            <input id="firstname" type="text" value="John">
+                                                            <label for="name">Nama Lengkap</label>
+                                                            <input id="name" name="name" type="text"
+                                                                value="John">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-grp">
-                                                            <label for="lastname">Last Name</label>
-                                                            <input id="lastname" type="text" value="Due">
+                                                            <label for="lastname">Email</label>
+                                                            <input id="email" name="email" type="email"
+                                                                value="">
                                                         </div>
                                                     </div>
+
                                                     <div class="col-md-6">
                                                         <div class="form-grp">
-                                                            <label for="username">User Name</label>
-                                                            <input id="username" type="text" value="johndue">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-grp">
-                                                            <label for="phonenumber">Phone Number</label>
+                                                            <label for="phonenumber">Telepon</label>
                                                             <input id="phonenumber" type="tel"
                                                                 value="+1-202-555-0174">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-grp">
-                                                            <label for="skill">Skill/Occupation</label>
-                                                            <input id="skill" type="text"
-                                                                value="Full Stack Developer">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-grp select-grp">
-                                                            <label for="displayname">Display Name Publicly As</label>
-                                                            <select id="displayname" name="displayname">
-                                                                <option value="Emily Hannah">Emily Hannah</option>
-                                                                <option value="John">John</option>
-                                                                <option value="Due">Due</option>
-                                                                <option value="Due John">Due John</option>
-                                                                <option value="johndue">johndue</option>
-                                                            </select>
+                                                            <label for="alamat">Alamat</label>
+                                                            <input id="alamat" name="alamat" type="text"
+                                                                value="">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -153,7 +138,7 @@
                                                     <textarea id="bio">I'm the Front-End Developer for #ThemeGenix in New York, OR. I am passionate about UI effects, animations, and creating intuitive, dynamic user experiences.</textarea>
                                                 </div>
                                                 <div class="submit-btn mt-25">
-                                                    <button type="submit" class="btn">Update Info</button>
+                                                    <button type="submit" class="btn">Perbahrui Informasi</button>
                                                 </div>
                                             </form>
                                         </div>
