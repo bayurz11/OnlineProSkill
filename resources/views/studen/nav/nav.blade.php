@@ -5,43 +5,43 @@
         </div>
         <nav class="dashboard__sidebar-menu">
             <ul class="list-wrap">
-                <li class="active">
+                <li class="{{ Request::is('dashboard_studen') ? 'active' : '' }}">
                     <a href="{{ route('dashboard_studen') }}">
                         <i class="fas fa-home"></i>
                         Dashboard
                     </a>
                 </li>
-                <li>
+                <li class="{{ Request::is('student-profile') ? 'active' : '' }}">
                     <a href="student-profile.html">
                         <i class="skillgro-avatar"></i>
                         My Profile
                     </a>
                 </li>
-                <li>
+                <li class="{{ Request::is('student-enrolled-courses') ? 'active' : '' }}">
                     <a href="student-enrolled-courses.html">
                         <i class="skillgro-book"></i>
                         Enrolled Courses
                     </a>
                 </li>
-                <li>
+                <li class="{{ Request::is('student-wishlist') ? 'active' : '' }}">
                     <a href="student-wishlist.html">
                         <i class="skillgro-label"></i>
                         Wishlist
                     </a>
                 </li>
-                <li>
+                <li class="{{ Request::is('student-review') ? 'active' : '' }}">
                     <a href="student-review.html">
                         <i class="skillgro-book-2"></i>
                         Reviews
                     </a>
                 </li>
-                <li>
+                <li class="{{ Request::is('student-attempts') ? 'active' : '' }}">
                     <a href="student-attempts.html">
                         <i class="skillgro-question"></i>
                         My Quiz Attempts
                     </a>
                 </li>
-                <li>
+                <li class="{{ Request::is('student-history') ? 'active' : '' }}">
                     <a href="student-history.html">
                         <i class="skillgro-satchel"></i>
                         Order History
@@ -54,7 +54,7 @@
         </div>
         <nav class="dashboard__sidebar-menu">
             <ul class="list-wrap">
-                <li>
+                <li class="{{ Request::is('setting') ? 'active' : '' }}">
                     <a href="{{ route('setting') }}">
                         <i class="skillgro-settings"></i>
                         Settings
@@ -70,7 +70,6 @@
                         Logout
                     </a>
                 </li>
-
             </ul>
         </nav>
     </div>

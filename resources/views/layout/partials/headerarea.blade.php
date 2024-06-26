@@ -145,27 +145,38 @@
 
                             <div class="mobile-login-btn">
                                 @auth
-                                    <ul class="sub-menu">
-                                        <li class="{{ Request::is('dashboard_studen') ? 'active' : '' }}">
-                                            <a href="{{ route('dashboard_studen') }}">Dashboard</a>
-                                        </li>
-                                        <li class="{{ Request::is('Profil') ? 'active' : '' }}">
-                                            <a href="about-us.html">Profil</a>
-                                        </li>
-                                        <li>
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                                style="display: none;">
-                                                @csrf
-                                            </form>
-                                            <a href="{{ route('logout') }}"
-                                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                                Logout
-                                            </a>
-                                        </li>
-
-                                    </ul>
+                                    <div class="dropdown">
+                                        <a href="{{ route('dashboard_studen') }}" style="margin-right: 10px;">
+                                            <img src="{{ asset('public/assets/img/icons/user.svg') }}" alt=""
+                                                class="injectable">
+                                        </a>
+                                        <div class="dropdown-content">
+                                            <ul class="sub-menu">
+                                                <li class="{{ Request::is('dashboard_studen') ? 'active' : '' }}">
+                                                    <a href="{{ route('dashboard_studen') }}">Dashboard</a>
+                                                </li>
+                                                <li class="{{ Request::is('Profil') ? 'active' : '' }}">
+                                                    <a href="about-us.html">Profil</a>
+                                                </li>
+                                                <li>
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                        style="display: none;">
+                                                        @csrf
+                                                    </form>
+                                                    <a href="{{ route('logout') }}"
+                                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                        Logout
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    {{-- <a href="{{ route('dashboard_studen') }}" style="margin-right: 10px;">
+                                        <img src="{{ asset('public/assets/img/icons/user.svg') }}" alt=""
+                                            class="injectable">
+                                    </a> --}}
                                     <a href="#" class="cart-count-two">
-                                        <i class="far fa-bell"></i><span class="red-circle">1</span>
+                                        <i class="far fa-bell"></i><span class="red-circle">0</span>
                                     </a>
                                 @endauth
                             </div>
@@ -240,3 +251,33 @@
 @include('home.modal.login')
 @include('home.modal.register')
 <!-- header-area-end -->
+<style>
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: white;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #f1f1f1;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+</style>
