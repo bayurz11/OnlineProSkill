@@ -146,10 +146,9 @@
                             <div class="mobile-login-btn">
                                 @auth
                                     <div class="dropdown">
-                                        <a href="" style="margin-right: 10px;">
-                                            <img src="{{ asset('public/assets/img/icons/user.svg') }}" alt=""
-                                                class="injectable">
-                                        </a>
+                                        <img src="{{ asset('public/assets/img/icons/user.svg') }}" alt=""
+                                            class="injectable">
+
                                         <div class="dropdown-content">
                                             <ul class="sub-menu">
 
