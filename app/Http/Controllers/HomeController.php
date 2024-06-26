@@ -17,10 +17,11 @@ class HomeController extends Controller
     public function classroom()
     {
         $user = Auth::user();
-        $course = KelasTatapMuka::with('user')->get();
+        $course = KelasTatapMuka::with('user')->where('status', 1)->get();
         $count = $course->count();
         return view('home.classroom', compact('user', 'count', 'course'));
     }
+
     public function classroomdetail($id)
     {
         $user = Auth::user();
