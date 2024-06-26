@@ -91,10 +91,32 @@
                                                 data-background="{{ asset('public/assets/img/bg/student_bg.jpg') }}">
                                                 <div class="instructor__cover-info">
                                                     <div class="instructor__cover-info-left">
-                                                        <div class="thumb">
-                                                            <img src="{{ asset('public/assets/img/courses/details_instructors02.jpg') }}"
-                                                                alt="img">
+                                                        <div class="instructor__cover-info-left">
+                                                            <div class="thumb">
+                                                                <img id="instructor-img"
+                                                                    src="{{ asset('public/assets/img/courses/details_instructors02.jpg') }}"
+                                                                    alt="img">
+                                                            </div>
+                                                            <label for="upload-photo" title="Upload Photo">
+                                                                <i class="fas fa-camera">Upload Foto</i>
+                                                            </label>
+                                                            <input type="file" id="upload-photo"
+                                                                style="display: none;">
                                                         </div>
+
+                                                        <script>
+                                                            document.getElementById('upload-photo').addEventListener('change', function(event) {
+                                                                const file = event.target.files[0];
+                                                                if (file) {
+                                                                    const reader = new FileReader();
+                                                                    reader.onload = function(e) {
+                                                                        document.getElementById('instructor-img').src = e.target.result;
+                                                                    };
+                                                                    reader.readAsDataURL(file);
+                                                                }
+                                                            });
+                                                        </script>
+
                                                         <label for="upload-photo" title="Upload Photo">
                                                             <i class="fas fa-camera">Upload Foto</i>
                                                         </label>
