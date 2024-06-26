@@ -46,10 +46,10 @@ class AuthController extends Controller
                     return redirect()->route('dashboard')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                     break;
                 case 'Instruktur':
-                    return redirect()->route('dashboard_instruktur')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+                    return redirect()->route('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                     break;
                 case 'Studen':
-                    return redirect()->route('dashboard_studen')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+                    return redirect()->route('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                     break;
                 default:
                     return redirect()->route('/')->with('error', 'Peran pengguna tidak dikenali.');
