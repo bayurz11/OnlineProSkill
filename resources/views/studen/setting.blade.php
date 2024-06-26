@@ -95,15 +95,17 @@
                                                             <img src="{{ asset('public/assets/img/courses/details_instructors02.jpg') }}"
                                                                 alt="img">
                                                         </div>
-                                                        <button id="uploadButton" title="Upload Photo"><i
-                                                                class="fas fa-camera"></i></button>
+                                                        <div id="uploadContainer" class="upload-container"
+                                                            title="Upload Photo">
+                                                            <i class="fas fa-camera"></i>
+                                                        </div>
 
                                                         <input type="file" id="fileInput" accept="image/*"
                                                             style="display: none;" webkitdirectory mozdirectory
                                                             directory />
 
                                                         <script>
-                                                            document.getElementById('uploadButton').addEventListener('click', function() {
+                                                            document.getElementById('uploadContainer').addEventListener('click', function() {
                                                                 document.getElementById('fileInput').click();
                                                             });
 
