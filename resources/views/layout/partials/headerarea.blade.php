@@ -84,8 +84,8 @@
                                 <ul class="list-wrap">
                                     <li class="mini-cart-icon">
                                         <a href="#" class="cart-count-two">
-                                            <i class="far fa-bell" style="color: #FE9900;"></i>
-                                            <span class="mini-cart-count">0</span>
+                                            <i class="far fa-bell" style="color: #007F73;"></i>
+                                            <span class="mini-cart-count" style="color: #FE9900;">0</span>
                                         </a>
                                     </li>
                                     @auth
