@@ -328,7 +328,7 @@
                             <br>
                             <div class="tg-button-wrap">
                                 <a href="#" class="btn btn-two arrow-btn">
-                                    Pesan Sekarang
+                                    Gabung Kelas
                                     <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                         class="injectable">
                                 </a>
