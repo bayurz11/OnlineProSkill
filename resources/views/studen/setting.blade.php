@@ -107,16 +107,19 @@
                                                         <div class="form-grp">
                                                             <label for="name">Nama Lengkap</label>
                                                             <input id="name" name="name" type="text"
-                                                                value="{{ $user->name }}" readonly>
+                                                                value="{{ $user->name }}" readonly
+                                                                style="background-color: #d3d3d3;">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <div class="form-grp" style="color: #BCBCBC">
-                                                            <label for="lastname">Email</label>
+                                                        <div class="form-grp">
+                                                            <label for="email">Email</label>
                                                             <input id="email" name="email" type="email"
-                                                                value="{{ $user->email }}" readonly>
+                                                                value="{{ $user->email }}" readonly
+                                                                style="background-color: #d3d3d3;">
                                                         </div>
                                                     </div>
+
 
                                                     <div class="col-md-6">
                                                         <div class="form-grp">
