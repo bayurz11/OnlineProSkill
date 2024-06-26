@@ -99,13 +99,12 @@ class KelasTatapMukaController extends Controller
         $course->price = $request->free ? null : $request->price;
         $course->discount = $request->discount;
         $course->discountedPrice = $hargaSetelahDiskon;
-        $course->free = $request->free ? 1 : 0;
         $course->tag = $request->tag;
         $course->user_id = $userId;
 
         $course->save();
 
-        return redirect()->route('CourseMaster')->with('success', 'Kursus berhasil diperbarui.');
+        return redirect()->route('classroomsetting')->with('success', 'Kursus berhasil diperbarui.');
     }
 
 
@@ -129,11 +128,11 @@ class KelasTatapMukaController extends Controller
         $course = KelasTatapMuka::find($id);
 
         if (!$course) {
-            return redirect()->route('subcategories')->with('error', 'Kategori tidak ditemukan');
+            return redirect()->route('classroomsetting')->with('error', 'Kategori tidak ditemukan');
         }
 
         $course->delete();
 
-        return redirect()->route('subcategories')->with('success', 'Kategori berhasil dihapus');
+        return redirect()->route('classroomsetting')->with('success', 'Kategori berhasil dihapus');
     }
 }
