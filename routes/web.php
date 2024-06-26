@@ -1,23 +1,24 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\HomeController;
+use App\Http\Middleware\AdminMiddleware;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\CourseMasterController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\DashboardInstrukturController;
-use App\Http\Controllers\DashboardStudenController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\KelasTatapMukaController;
-use App\Http\Controllers\OrderHistoryManagerController;
 use App\Http\Controllers\SubcategoriesController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KelasTatapMukaController;
+use App\Http\Controllers\DashboardStudenController;
+use App\Http\Controllers\DashboardInstrukturController;
+use App\Http\Controllers\OrderHistoryManagerController;
 
 //Authentikasi
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::middleware(['AdminMiddleware'])->group(function () {
+Route::middleware([AdminMiddleware::class])->group(function () {
     //******** Admin *********//
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
