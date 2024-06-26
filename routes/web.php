@@ -65,10 +65,16 @@ Route::middleware('isAdmin')->group(function () {
 
 //*********STUDEN*********//
 Route::middleware('isStuden')->group(function () {
+
     //Auth Studen
     Route::get('/dashboard_studen', [DashboardStudenController::class, 'index'])->name('dashboard_studen');
-    Route::post('/regisStuden', [DashboardStudenController::class, 'register'])->name('regisStuden');
 });
+
+//register Studen
+Route::post('/regisStuden', [DashboardStudenController::class, 'register'])->name('regisStuden');
+
+
+
 //*********INSTRUKTUR*********//
 // Auth Instruktur
 Route::get('/dashboard_instruktur', [DashboardInstrukturController::class, 'index'])->name('dashboard_instruktur');
