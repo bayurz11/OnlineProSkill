@@ -17,7 +17,7 @@ class AdminMiddleware
     public function handle(Request $request, Closure $next): Response
     {
 
-        if (Auth::check() && Auth::user()->hasRole(1)) {
+        if (Auth::check() && Auth::user()->userRole(1)) {
             return $next($request);
         }
 
