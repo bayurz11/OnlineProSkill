@@ -14,6 +14,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
             'isAdmin' => \App\Http\Middleware\AdminMiddleware::class,
+            'isStuden' => \App\Http\Middleware\StudenMiddleware::class,
         ]);
         // $middleware->append(AdminMiddleware::class);
     })
