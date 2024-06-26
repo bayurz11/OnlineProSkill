@@ -18,47 +18,47 @@ use App\Http\Controllers\OrderHistoryManagerController;
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-// Route::middleware([AdminMiddleware::class])->group(function () {
-//******** Admin *********//
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::middleware([AdminMiddleware::class])->group(function () {
+    //******** Admin *********//
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-//*******ADMIN ONLINE COURSE SETTING*******//
-//Kategori
-Route::get('/categories', [CategoriesController::class, 'index'])->name('categories');
-Route::post('/storecategories', [CategoriesController::class, 'store'])->name('storecategories');
-Route::post('/update-category-status/{id}', [CategoriesController::class, 'updateStatus']);
-Route::get('/categories/{id}/edit', [CategoriesController::class, 'edit'])->name('categories.edit');
-Route::put('/categories/{id}', [CategoriesController::class, 'update'])->name('categories.update');
-Route::delete('/categories_destroy/{id}', [CategoriesController::class, 'destroy'])->name('categories.destroy');
+    //*******ADMIN ONLINE COURSE SETTING*******//
+    //Kategori
+    Route::get('/categories', [CategoriesController::class, 'index'])->name('categories');
+    Route::post('/storecategories', [CategoriesController::class, 'store'])->name('storecategories');
+    Route::post('/update-category-status/{id}', [CategoriesController::class, 'updateStatus']);
+    Route::get('/categories/{id}/edit', [CategoriesController::class, 'edit'])->name('categories.edit');
+    Route::put('/categories/{id}', [CategoriesController::class, 'update'])->name('categories.update');
+    Route::delete('/categories_destroy/{id}', [CategoriesController::class, 'destroy'])->name('categories.destroy');
 
-//Subkategori
-Route::get('/subcategories', [SubcategoriesController::class, 'index'])->name('subcategories');
-Route::post('/storesubcategories', [SubcategoriesController::class, 'store'])->name('storesubcategories');
-Route::post('/update-subcategory-status/{id}', [SubcategoriesController::class, 'updateSubstatus']);
-Route::get('/subcategories/{id}/edit', [SubcategoriesController::class, 'edit'])->name('subcategories.edit');
-Route::put('/subcategories/{id}', [SubcategoriesController::class, 'update'])->name('subcategories.update');
-Route::delete('/subcategories_destroy/{id}', [SubcategoriesController::class, 'destroy'])->name('subcategories.destroy');
-Route::get('/get-subcategories/{categoryId}', [SubcategoriesController::class, 'getSubcategories']);
+    //Subkategori
+    Route::get('/subcategories', [SubcategoriesController::class, 'index'])->name('subcategories');
+    Route::post('/storesubcategories', [SubcategoriesController::class, 'store'])->name('storesubcategories');
+    Route::post('/update-subcategory-status/{id}', [SubcategoriesController::class, 'updateSubstatus']);
+    Route::get('/subcategories/{id}/edit', [SubcategoriesController::class, 'edit'])->name('subcategories.edit');
+    Route::put('/subcategories/{id}', [SubcategoriesController::class, 'update'])->name('subcategories.update');
+    Route::delete('/subcategories_destroy/{id}', [SubcategoriesController::class, 'destroy'])->name('subcategories.destroy');
+    Route::get('/get-subcategories/{categoryId}', [SubcategoriesController::class, 'getSubcategories']);
 
-//kelola Kursus
-Route::get('/CourseMaster', [CourseMasterController::class, 'index'])->name('CourseMaster');
-Route::post('/storeCourse', [CourseMasterController::class, 'store'])->name('storeCourse');
-Route::post('/update-Course-status/{id}', [CourseMasterController::class, 'updateCoursestatus']);
-Route::get('/Course/{id}/edit', [CourseMasterController::class, 'edit'])->name('Course.edit');
-Route::put('/Course/{id}', [CourseMasterController::class, 'update'])->name('Course.update');
-Route::delete('/Course_destroy/{id}', [CourseMasterController::class, 'destroy'])->name('Course.destroy');
+    //kelola Kursus
+    Route::get('/CourseMaster', [CourseMasterController::class, 'index'])->name('CourseMaster');
+    Route::post('/storeCourse', [CourseMasterController::class, 'store'])->name('storeCourse');
+    Route::post('/update-Course-status/{id}', [CourseMasterController::class, 'updateCoursestatus']);
+    Route::get('/Course/{id}/edit', [CourseMasterController::class, 'edit'])->name('Course.edit');
+    Route::put('/Course/{id}', [CourseMasterController::class, 'update'])->name('Course.update');
+    Route::delete('/Course_destroy/{id}', [CourseMasterController::class, 'destroy'])->name('Course.destroy');
 
-//Riwayat Pembelian Kursus
-Route::get('/OrderHistoryManager', [OrderHistoryManagerController::class, 'index'])->name('OrderHistoryManager');
-//*******ADMIN OFFLINE COURSE SETTING*******//
-//Kursus Tatap Muka
-Route::get('/classroomsetting', [KelasTatapMukaController::class, 'index'])->name('classroomsetting');
-Route::post('/storeclas', [KelasTatapMukaController::class, 'store'])->name('storeclas');
-Route::post('/update-class-status/{id}', [KelasTatapMukaController::class, 'updateclassstatus']);
-Route::get('/class/{id}/edit', [KelasTatapMukaController::class, 'edit'])->name('class.edit');
-Route::put('/class/{id}', [KelasTatapMukaController::class, 'update'])->name('class.update');
-Route::delete('/class_destroy/{id}', [KelasTatapMukaController::class, 'destroy'])->name('class.destroy');
-// });
+    //Riwayat Pembelian Kursus
+    Route::get('/OrderHistoryManager', [OrderHistoryManagerController::class, 'index'])->name('OrderHistoryManager');
+    //*******ADMIN OFFLINE COURSE SETTING*******//
+    //Kursus Tatap Muka
+    Route::get('/classroomsetting', [KelasTatapMukaController::class, 'index'])->name('classroomsetting');
+    Route::post('/storeclas', [KelasTatapMukaController::class, 'store'])->name('storeclas');
+    Route::post('/update-class-status/{id}', [KelasTatapMukaController::class, 'updateclassstatus']);
+    Route::get('/class/{id}/edit', [KelasTatapMukaController::class, 'edit'])->name('class.edit');
+    Route::put('/class/{id}', [KelasTatapMukaController::class, 'update'])->name('class.update');
+    Route::delete('/class_destroy/{id}', [KelasTatapMukaController::class, 'destroy'])->name('class.destroy');
+});
 //*********STUDEN*********//
 //Auth Studen
 Route::get('/dashboard_studen', [DashboardStudenController::class, 'index'])->name('dashboard_studen');
