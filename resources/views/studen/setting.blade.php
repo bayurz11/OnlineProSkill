@@ -108,7 +108,7 @@
                                                             <label for="name">Nama Lengkap</label>
                                                             <input id="name" name="name" type="text"
                                                                 value="{{ $user->name }}" readonly
-                                                                style="background-color: #939090;">
+                                                                style="background-color: #BCBCBC;">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -116,7 +116,7 @@
                                                             <label for="email">Email</label>
                                                             <input id="email" name="email" type="email"
                                                                 value="{{ $user->email }}" readonly
-                                                                style="background-color: #939090;">
+                                                                style="background-color: #BCBCBC;">
                                                         </div>
                                                     </div>
 
