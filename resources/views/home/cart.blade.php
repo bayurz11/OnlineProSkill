@@ -72,25 +72,7 @@ a@section('title', 'ProSkill Akademia | Cart')
                                     <a href="#">×</a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td class="product__thumb">
-                                    <a href="shop-details.html"><img
-                                            src="{{ asset('public/assets/img/shop/shop_img02.jpg') }}" alt=""></a>
-                                </td>
-                                <td class="product__name">
-                                    <a href="shop-details.html">Time to Explore</a>
-                                </td>
-                                <td class="product__price">$19.00</td>
-                                <td class="product__quantity">
-                                    <div class="cart-plus-minus">
-                                        <input type="text" value="1">
-                                    </div>
-                                </td>
-                                <td class="product__subtotal">$19.00</td>
-                                <td class="product__remove">
-                                    <a href="#">×</a>
-                                </td>
-                            </tr>
+
                             <tr>
                                 <td colspan="6" class="cart__actions">
                                     <form action="#" class="cart__actions-form">
