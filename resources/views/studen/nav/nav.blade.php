@@ -6,7 +6,7 @@
         <nav class="dashboard__sidebar-menu">
             <ul class="list-wrap">
                 <li class="active">
-                    <a href="student-dashboard.html">
+                    <a href="{{ route('dashboard_studen') }}">
                         <i class="fas fa-home"></i>
                         Dashboard
                     </a>
