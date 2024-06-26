@@ -145,10 +145,25 @@
 
                             <div class="mobile-login-btn">
                                 @auth
-                                    <a href="{{ route('dashboard_studen') }}" style="margin-right: 10px;">
-                                        <img src="{{ asset('public/assets/img/icons/user.svg') }}" alt=""
-                                            class="injectable">
-                                    </a>
+                                    <ul class="sub-menu">
+                                        <li class="{{ Request::is('dashboard_studen') ? 'active' : '' }}">
+                                            <a href="{{ route('dashboard_studen') }}">Dashboard</a>
+                                        </li>
+                                        <li class="{{ Request::is('Profil') ? 'active' : '' }}">
+                                            <a href="about-us.html">Profil</a>
+                                        </li>
+                                        <li>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                style="display: none;">
+                                                @csrf
+                                            </form>
+                                            <a href="{{ route('logout') }}"
+                                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                Logout
+                                            </a>
+                                        </li>
+
+                                    </ul>
                                     <a href="#" class="cart-count-two">
                                         <i class="far fa-bell"></i><span class="red-circle">1</span>
                                     </a>
