@@ -84,7 +84,7 @@
                                 <ul class="list-wrap">
                                     <li class="mini-cart-icon">
                                         <a href="#" class="cart-count-two">
-                                            <i class="flaticon-bell"></i>
+                                            <i class="fas fa-bell"></i>
                                             <span class="mini-cart-count">0</span>
                                         </a>
                                     </li>
