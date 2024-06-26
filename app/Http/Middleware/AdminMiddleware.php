@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use App\Models\UserRoles;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,12 +17,16 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
+        // Ambil role_id dari model UserRoles
+        $role = UserRoles::where('user_id', auth()->id())->first();
 
-        if (Auth::check() && Auth::user()->userRole(1)) {
+        // Periksa apakah role_id = 1
+        if ($role && $role->role_id == 1) {
+            // Jika role_id = 1, lanjutkan request
             return $next($request);
         }
 
-        // Alihkan jika tidak memenuhi syarat
+        // Jika tidak, alihkan ke halaman '/'
         return redirect('/');
     }
 }
