@@ -98,8 +98,8 @@
                                                         <img src="{{ asset('public/assets/img/courses/course_author001.png') }}"
                                                             alt="img" style="border-radius: 50%;">
                                                     </a>
-                                                    {{ $user->name }}
                                                     <ul class="sub-menu">
+                                                        <li> {{ $user->name }}</li>
                                                         <li class="{{ Request::is('dashboard_studen') ? 'active' : '' }}">
                                                             <a href="{{ route('dashboard_studen') }}">Dashboard</a>
                                                         </li>
