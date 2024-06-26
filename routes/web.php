@@ -19,8 +19,9 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
-//******** Admin *********//
 Route::middleware('isAdmin')->group(function () {
+
+    //******** Admin *********//
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     //*******ADMIN ONLINE COURSE SETTING*******//
