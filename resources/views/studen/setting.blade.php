@@ -58,7 +58,8 @@
                 <div class="col-lg-9">
                     <div class="dashboard__content-wrap">
                         <div class="dashboard__content-title">
-                            <h4 class="title">Settings</h4>
+                            <h4 class="title">Profil Saya</h4>
+                            <p class="text">Informasi mengenai profil dan preferensi kamu di seluruh layanan ProSkill.</p>
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
