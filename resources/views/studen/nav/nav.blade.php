@@ -24,6 +24,13 @@
                         Riwayat Transaksi
                     </a>
                 </li>
+                <li class="{{ Request::is('student-history') ? 'active' : '' }}">
+                    <a href="student-history.html">
+                        <img src="{{ asset('public/assets/img/icons/course_icon05.svg') }}" alt="img"
+                            class="injectable">
+                        Sertifikat
+                    </a>
+                </li>
             </ul>
         </nav>
 
