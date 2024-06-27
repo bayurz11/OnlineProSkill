@@ -72,6 +72,11 @@ Route::middleware('isStuden')->group(function () {
     //Auth Studen
     Route::get('/profil', [SettingController::class, 'index'])->name('profil');
     Route::post('/updateProfile/{id}', [SettingController::class, 'updateprofil'])->name('updateProfile');
+    //checkout
+    Route::get('/checkout/{id}', [HomeController::class, 'checkout'])->name('checkout');
+
+    //payment
+    Route::post('/payment', [PaymentController::class, 'payment'])->name('payment');
 });
 
 
@@ -88,10 +93,7 @@ Route::get('/', [HomeController::class, 'index'])->name('/');
 //Classroom
 Route::get('/classroom', [HomeController::class, 'classroom'])->name('classroom');
 Route::get('/classroomdetail/{id}', [HomeController::class, 'classroomdetail'])->name('classroomdetail');
-Route::get('/checkout/{id}', [HomeController::class, 'checkout'])->name('checkout');
 
-//payment
-Route::post('/payment', [PaymentController::class, 'payment'])->name('payment');
 
 //Cart
 Route::get('/cart', [CartController::class, 'show'])->name('cart');
