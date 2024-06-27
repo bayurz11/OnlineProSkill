@@ -99,7 +99,14 @@
                                                             alt="img" style="border-radius: 50%;">
                                                     </a>
                                                     <ul class="sub-menu">
-
+                                                        <li>
+                                                            <a class="dropdown-item">
+                                                                <b>{{ $user->name }}</b>
+                                                                <br>
+                                                                <span
+                                                                    style="font-size: 14px; color: #b2b2b2;">{{ $user->email }}</span>
+                                                            </a>
+                                                        </li>
                                                         <li class="{{ Request::is('Profil') ? 'active' : '' }}">
                                                             <a href="about-us.html">Profil</a>
                                                         </li>
