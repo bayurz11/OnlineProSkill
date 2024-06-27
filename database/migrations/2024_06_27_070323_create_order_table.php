@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('order_history_managers', function (Blueprint $table) {
+        Schema::create('order', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('product_id');
+            $table->string('checkout_link');
+            $table->string('external_id');
+            $table->string('status');
+            $table->foreign('product_id')->references('id')->on('products');
             $table->timestamps();
         });
     }
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('order_history_managers');
+        Schema::dropIfExists('order');
     }
 };
