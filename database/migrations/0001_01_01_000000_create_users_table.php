@@ -53,11 +53,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('role_id')->constrained('roles')->onDelete('cascade');
-            $table->string('foto');
-            $table->string('cover');
-            $table->string('phonenumber');
-            $table->string('alamat');
-            $table->string('bio');
             $table->timestamps();
         });
     }
