@@ -39,24 +39,38 @@ class HomeController extends Controller
 
     public function classroomdetail($id)
     {
+        // Mendapatkan user yang sedang login
         $user = Auth::user();
         $profile = null;
 
+        // Jika user ditemukan, mencari profil user berdasarkan user_id
         if ($user) {
             $profile = UserProfile::where('user_id', $user->id)->first();
         }
 
+        // Mencari kelas tatap muka berdasarkan id yang diberikan
         $courses = KelasTatapMuka::find($id);
 
+        // Jika kelas tatap muka tidak ditemukan, tampilkan halaman 404 dengan pesan error
         if (!$courses) {
             abort(404, 'Kelas tatap muka tidak ditemukan.');
         }
 
+        // Mengubah data 'include' dari JSON menjadi array
         $courseList = json_decode($courses->include, true);
+
+        // Memastikan bahwa $courseList adalah array
+        if (!is_array($courseList)) {
+            $courseList = [];
+        }
+
+        // Mengubah data 'fasilitas' dari JSON menjadi array
         $fasilitas = json_decode($courses->fasilitas, true);
 
+        // Mengirim data ke view 'home.classroomdetail'
         return view('home.classroomdetail', compact('user', 'courses', 'courseList', 'profile'));
     }
+
 
     public function checkout($id)
     {

@@ -87,7 +87,7 @@
                                         @foreach ($courseList as $course)
                                             <li class="about__info-list-item">
                                                 <i class="flaticon-angle-right"></i>
-                                                <p class="content">{{ $courses }}</p>
+                                                <p class="content">{{ $course }}</p>
                                             </li>
                                         @endforeach
                                     </ul>
