@@ -70,7 +70,7 @@ Route::middleware('isStuden')->group(function () {
 
     //Auth Studen
     Route::get('/profil', [SettingController::class, 'index'])->name('profil');
-    Route::post('/updateProfile', [SettingController::class, 'updateProfile'])->name('updateProfile');
+    Route::post('/updateProfile', [SettingController::class, 'UpdateProfil'])->name('updateProfile');
 });
 
 
