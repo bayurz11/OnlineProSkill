@@ -152,8 +152,12 @@
                                     </a>
 
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <li><a
-                                                class="dropdown-item"><b>{{ $user->name }}</b><br><span>{{ $user->email }}</span></a>
+                                        <li>
+                                            <a class="dropdown-item">
+                                                <b>{{ $user->name }}</b>
+                                                <br>
+                                                <span style="font-size: 14px; color: #b2b2b2;">{{ $user->email }}</span>
+                                            </a>
                                         </li>
                                         <li><a class="dropdown-item" href="#">Profil</a></li>
                                         <li><a class="dropdown-item"
