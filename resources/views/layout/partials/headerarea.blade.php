@@ -152,7 +152,7 @@
                                     </a>
 
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <li><a class="dropdown-item">{{ $user->name }}</a></li>
+                                        <li><a class="dropdown-item"><b>{{ $user->name }}</b></a></li>
                                         <li><a class="dropdown-item" href="#">Profil</a></li>
                                         <li><a class="dropdown-item"
                                                 href="{{ route('logout') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
