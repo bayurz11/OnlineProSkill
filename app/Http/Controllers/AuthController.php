@@ -25,6 +25,14 @@ class AuthController extends Controller
             $user->last_login = now()->setTimezone('Asia/Jakarta')->toDateTimeString();
             $user->save();
 
+            // Ambil peran pengguna
+            $userRole = $user->userRole;
+
+            // Pengecekan apakah pengguna memiliki peran yang ditetapkan
+            if (!$userRole) {
+                return redirect()->back()->with('error', 'Pengguna tidak memiliki peran yang ditetapkan!');
+            }
+
             // Ambil profile pengguna
             $profile = UserProfile::where('user_id', $user->id)->first();
 
@@ -33,11 +41,6 @@ class AuthController extends Controller
                 return redirect()->route('profil')->with('info', 'Silakan lengkapi profil Anda terlebih dahulu.');
             } else {
                 // Jika sudah lengkap, redirect berdasarkan peran pengguna
-                $userRole = $user->userRole;
-                if (!$userRole) {
-                    return redirect()->back()->with('error', 'Pengguna tidak memiliki peran yang ditetapkan!');
-                }
-
                 $roleName = $userRole->role->role_name;
                 $userName = $user->name;
                 switch ($roleName) {
