@@ -12,11 +12,11 @@ class SettingController extends Controller
     public function index()
     {
         $user = Auth::user();
-
+        $profile = UserProfile::all();
         if (!$user) {
             return redirect()->route('/');
         }
-        return view('studen.setting', compact('user'));
+        return view('studen.setting', compact('user', 'profile'));
     }
 
     public function updateprofil(Request $request, $id)
