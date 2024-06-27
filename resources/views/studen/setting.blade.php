@@ -127,17 +127,23 @@
                                                                     style="color: red">*</span></label>
                                                             <select id="gender" name="gender">
                                                                 <option>Pilih Gender</option>
-                                                                <option value="Laki-Laki">Laki-Laki</option>
-                                                                <option value="Perempuan">Perempuan</option>
+                                                                <option value="Laki-Laki"
+                                                                    {{ $profile->gender == 'Laki-Laki' ? 'selected' : '' }}>
+                                                                    Laki-Laki</option>
+                                                                <option value="Perempuan"
+                                                                    {{ $profile->gender == 'Perempuan' ? 'selected' : '' }}>
+                                                                    Perempuan</option>
                                                             </select>
                                                         </div>
                                                     </div>
+
                                                     <div class="col-md-6">
                                                         <div class="form-grp">
                                                             <label for="phonenumber">No.HP<span
                                                                     style="color: red">*</span> </label>
                                                             <input id="phonenumber" type="tel" name="phonenumber"
-                                                                value="" placeholder="masukan no telepon">
+                                                                value="{{ $profile->phone_number }}"
+                                                                placeholder="masukan no telepon">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -145,13 +151,13 @@
                                                             <label for="alamat">Alamat <span
                                                                     style="color: red">*</span></label>
                                                             <input id="alamat" name="alamat" type="text"
-                                                                value="">
+                                                                value="{{ $profile->address }}">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="form-grp">
                                                     <label for="bio">Bio</label>
-                                                    <textarea id="bio" name="bio"></textarea>
+                                                    <textarea id="bio" name="bio">{{ $profile->bio }}</textarea>
                                                 </div>
                                                 <div class="submit-btn mt-25">
                                                     <button type="submit" class="btn">Perbahrui Informasi</button>
