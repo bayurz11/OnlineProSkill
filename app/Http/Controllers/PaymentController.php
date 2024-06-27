@@ -70,14 +70,14 @@ class PaymentController extends Controller
         }
     }
 
-    public function success($id)
+    public function success($uuid)
     {
         $apiInstance = new InvoiceApi();
 
-        $result = $apiInstance->getInvoices(null, $id);
+        $result = $apiInstance->getInvoices(null, $uuid);
 
         //get data
-        $klsoffline = Order::where('external_id', $id)->firstOrFail();
+        $klsoffline = Order::where('external_id', $uuid)->firstOrFail();
 
         if ($klsoffline->status == 'settled') {
             return response()->json('Pembayaran berhasil di proses');
