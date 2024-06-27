@@ -145,8 +145,8 @@
 
                             @auth
                                 <div class="mobile-menu-dropdown dropdown">
-                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
                                         <img src="{{ asset('public/assets/img/courses/course_author001.png') }}"
                                             alt="img" style="border-radius: 50%; width: 40px; height: 40px;">
                                     </a>
