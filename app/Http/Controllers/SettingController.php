@@ -40,7 +40,7 @@ class SettingController extends Controller
             'phonenumber' => 'required|string|max:15',
             'alamat' => 'required|string|max:255',
             'bio' => 'nullable|string',
-            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5000'
         ]);
 
         // Handle image upload
