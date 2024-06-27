@@ -25,37 +25,25 @@ class AuthController extends Controller
             $user->last_login = now()->setTimezone('Asia/Jakarta')->toDateTimeString();
             $user->save();
 
-            // Ambil peran pengguna
             $userRole = $user->userRole;
-
-            // Jika pengguna tidak memiliki peran
             if (!$userRole) {
                 return redirect()->back()->with('error', 'Pengguna tidak memiliki peran yang ditetapkan!');
             }
 
-
-
-            // Redirect berdasarkan peran pengguna
             $roleName = $userRole->role->role_name;
             $userName = $user->name;
+
             switch ($roleName) {
                 case 'Administrator':
                     return redirect()->route('dashboard')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
-                    break;
                 case 'Instruktur':
-                    return redirect()->route('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
-                    break;
-                case 'Studen':
-                    $profile = $user->profile; // Mengambil profil pengguna
-
-                    // Pengecekan data profil
-                    if (!$profile || !$profile->gambar || !$profile->date_of_birth  || !$profile->phone_number) {
+                case 'Studen': // Handling both 'Instruktur' and 'Studen' roles
+                    $profile = $user->profile;
+                    if (!$profile || !$profile->gambar || !$profile->date_of_birth || !$profile->phone_number) {
                         return redirect()->route('profil')->with('info', 'Harap lengkapi profil Anda untuk melanjutkan.');
                     } else {
                         return redirect()->route('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                     }
-                    break;
-
                 default:
                     return redirect()->route('/')->with('error', 'Peran pengguna tidak dikenali.');
             }
@@ -63,6 +51,7 @@ class AuthController extends Controller
             return redirect()->back()->with('error', 'Email atau password salah.');
         }
     }
+
 
     // public function login(Request $request)
     // {
