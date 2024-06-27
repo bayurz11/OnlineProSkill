@@ -152,6 +152,6 @@ class AuthController extends Controller
         $userProfile->role_id = 3;
         $userProfile->save();
 
-        return redirect()->route('profil')->with('success', 'Pendaftaran berhasil!');
+        return redirect()->route('profil')->with('success', 'Pendaftaran berhasil! Silahkan Login');
     }
 }
