@@ -49,60 +49,56 @@
                         </div>
                         <form action="#" class="coupon__code-form">
                             <p>Jika Anda memiliki kode kupon, silakan gunakan di bawah ini.</p>
-                            <input type="text" placeholder="Coupon code">
+                            <input type="text" placeholder="Kode kupon">
                             <button type="submit" class="btn">Terapkan kupon</button>
                         </form>
                     </div>
                 </div>
-                <form action="{{ route('payment') }}" class="customer__form-wrap" method="POST">
-                    @csrf
-                    <div class="col-lg-7">
+                <div class="col-lg-7">
+                    <form action="{{ route('payment') }}" class="customer__form-wrap" method="POST">
+                        @csrf
+                        <input type="hidden" name="id" value="{{ $courses->id }}">
                         <span class="title">RINCIAN PENAGIHAN</span>
 
                         <div class="form-grp">
                             <label for="name">Nama *</label>
-                            <input type="text" id="name" name="name" value="{{ Auth::user()->name }}">
+                            <input type="text" id="name" name="name" value="{{ Auth::user()->name }}" required>
                         </div>
 
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-grp">
-                                    <label for="phone">Phone *</label>
-                                    <input type="number" id="phone" name="phone" min="0">
+                                    <label for="phone">Telepon *</label>
+                                    <input type="number" id="phone" name="phone" min="0" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-grp">
-                                    <label for="email">Email address *</label>
-                                    <input type="email" id="email" name="email" value="{{ Auth::user()->email }}">
+                                    <label for="email">Alamat Email *</label>
+                                    <input type="email" id="email" name="email" value="{{ Auth::user()->email }}"
+                                        required>
                                 </div>
                             </div>
                         </div>
 
-
+                        <button type="submit" class="btn">Bayar & gabung kelas</button>
+                    </form>
+                </div>
+                <div class="col-lg-5">
+                    <div class="order__info-wrap">
+                        <h2 class="title">PESANAN ANDA</h2>
+                        <ul class="list-wrap">
+                            <li class="title">Kelas <span>Subtotal</span></li>
+                            <li>{{ $courses->nama_kursus }}<span>Rp.
+                                    {{ number_format($courses->price, 0, ',', '.') }}</span></li>
+                            <li>Subtotal <span>Rp. {{ number_format($courses->price, 0, ',', '.') }}</span></li>
+                            <li>Total <span>Rp. {{ number_format($courses->price, 0, ',', '.') }}</span></li>
+                        </ul>
                     </div>
-                    <div class="col-lg-5">
-                        <div class="order__info-wrap">
-                            <h2 class="title">PESANAN ANDA</h2>
-                            <ul class="list-wrap">
-                                <li class="title">Kelas <span>Subtotal</span></li>
-                                <li>{{ $courses->nama_kursus }}<span>Rp.
-                                        {{ number_format($courses->price, 0, ',', '.') }}</span></li>
-                                <li>Subtotal <span>Rp. {{ number_format($courses->price, 0, ',', '.') }}</span></li>
-                                <li>Total <span>Rp. {{ number_format($courses->price, 0, ',', '.') }}</span></li>
-                            </ul>
-                            {{-- <p>Sorry, it seems that there are no available payment methods for your state. Please contact us if
-                            you require assistance or wish to make alternate arrangements.</p>
-                        <p>Your personal data will be used to process your order, support your experience throughout this
-                            website, and for other purposes described in our <a href="#">privacy policy.</a></p> --}}
-                            <button class="btn">Bayar & gabung kelas</button>
-                        </div>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
     <!-- checkout-area-end -->
-
 
 @endsection
