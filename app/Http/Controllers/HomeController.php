@@ -22,14 +22,16 @@ class HomeController extends Controller
     public function classroom()
     {
         $user = Auth::user();
+        $profile = UserProfile::where('user_id', $user->id)->first();
         $course = KelasTatapMuka::with('user')->where('status', 1)->get();
         $count = $course->count();
-        return view('home.classroom', compact('user', 'count', 'course'));
+        return view('home.classroom', compact('user', 'count', 'course', 'profile'));
     }
 
     public function classroomdetail($id)
     {
         $user = Auth::user();
+        $profile = UserProfile::where('user_id', $user->id)->first();
         $course = KelasTatapMuka::all();
         $courses = KelasTatapMuka::find($id);
         $courseList = json_decode($courses->include, true);
@@ -40,11 +42,13 @@ class HomeController extends Controller
 
         // Decode JSON fasilitas
         $fasilitas = json_decode($courses->fasilitas, true);
-        return view('home.classroomdetail', compact('user', 'course', 'courses', 'courseList'));
+        return view('home.classroomdetail', compact('user', 'course', 'courses', 'courseList', 'profile'));
     }
 
     public function checkout()
     {
-        return view('home.checkout');
+        $user = Auth::user();
+        $profile = UserProfile::where('user_id', $user->id)->first();
+        return view('home.checkout', compact('user', 'profile'));
     }
 }
