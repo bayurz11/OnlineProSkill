@@ -67,7 +67,7 @@
                             <div class="col-md-6">
                                 <div class="form-grp">
                                     <label for="phone">Phone *</label>
-                                    <input type="number" id="phone">
+                                    <input type="number" id="phone" min="0">
                                 </div>
                             </div>
                             <div class="col-md-6">
