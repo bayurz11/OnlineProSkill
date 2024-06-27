@@ -142,10 +142,10 @@
                             <li>Subtotal <span>Rp. {{ number_format($courses->price, 0, ',', '.') }}</span></li>
                             <li>Total <span>Rp. {{ number_format($courses->price, 0, ',', '.') }}</span></li>
                         </ul>
-                        <p>Sorry, it seems that there are no available payment methods for your state. Please contact us if
+                        {{-- <p>Sorry, it seems that there are no available payment methods for your state. Please contact us if
                             you require assistance or wish to make alternate arrangements.</p>
                         <p>Your personal data will be used to process your order, support your experience throughout this
-                            website, and for other purposes described in our <a href="#">privacy policy.</a></p>
+                            website, and for other purposes described in our <a href="#">privacy policy.</a></p> --}}
                         <button class="btn">Bayar & gabung kelas</button>
                     </div>
                 </div>
