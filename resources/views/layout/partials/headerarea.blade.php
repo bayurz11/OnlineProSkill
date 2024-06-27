@@ -107,8 +107,8 @@
                                                                     style="font-size: 14px; color: #b2b2b2;">{{ $user->email }}</span>
                                                             </a>
                                                         </li>
-                                                        <li class="{{ Request::is('Profil') ? 'active' : '' }}">
-                                                            <a href="about-us.html">Profil</a>
+                                                        <li class="{{ Request::is('profil') ? 'active' : '' }}">
+                                                            <a href="{{ route('profil') }}">Profil</a>
                                                         </li>
                                                         <li>
                                                             <form id="logout-form" action="{{ route('logout') }}"
