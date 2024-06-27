@@ -46,8 +46,16 @@ class AuthController extends Controller
                     return redirect()->route('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                     break;
                 case 'Studen':
-                    return redirect()->route('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+                    $profile = $user->profile; // Mengambil profil pengguna
+
+                    // Pengecekan data profil
+                    if (!$profile || !$profile->image || !$profile->date_of_birth || !$profile->gender || !$profile->phone_number) {
+                        return redirect()->route('profile')->with('error', 'Harap lengkapi profil Anda untuk melanjutkan.');
+                    } else {
+                        return redirect()->route('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+                    }
                     break;
+
                 default:
                     return redirect()->route('/')->with('error', 'Peran pengguna tidak dikenali.');
             }
