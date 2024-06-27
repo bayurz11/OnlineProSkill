@@ -26,14 +26,10 @@ class SettingController extends Controller
     {
         $user = Auth::user();
 
-        // Ensure the authenticated user is updating their own profile
-        if ($user->id != $id) {
-            return redirect()->route('profil')->with('error', 'Unauthorized action.');
-        }
+        // Pastikan pengguna yang terautentikasi hanya dapat memperbarui profil mereka sendiri
+        $profile = UserProfile::where('user_id', $user->id)->firstOrFail();
 
-        $profile = UserProfile::findOrFail($id);
-
-        // Validate the request data
+        // Validasi data permintaan
         $request->validate([
             'dateofBirth' => 'required|date',
             'gender' => 'required|string',
@@ -43,14 +39,14 @@ class SettingController extends Controller
             'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5000'
         ]);
 
-        // Handle image upload
+        // Menangani upload gambar
         if ($request->hasFile('foto')) {
             $fotoName = time() . '.' . $request->foto->extension();
             $request->foto->move(public_path('uploads'), $fotoName);
             $profile->gambar = $fotoName;
         }
 
-        // Update profile fields
+        // Perbarui data profil
         $profile->date_of_birth = $request->input('dateofBirth');
         $profile->gender = $request->input('gender');
         $profile->phone_number = $request->input('phonenumber');
