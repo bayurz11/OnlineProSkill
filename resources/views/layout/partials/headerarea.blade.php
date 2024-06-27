@@ -95,10 +95,11 @@
                                             <ul class="navigation">
                                                 <li class="menu-item-has-children">
                                                     <a href="#">
-                                                        <img src="{{ $profile->gambar ? asset('public/uploads/' . $profile->gambar) : asset('public/assets/img/courses/details_instructors02.jpg') }}
-                                                            alt="img
-                                                            width="50" height="50" style="border-radius: 50%;">
+                                                        <img src="{{ $profile->gambar ? asset('public/uploads/' . $profile->gambar) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
+                                                            alt="img" width="50" height="50"
+                                                            style="border-radius: 50%;">
                                                     </a>
+
                                                     <ul class="sub-menu">
                                                         <li>
                                                             <a class="dropdown-item">
