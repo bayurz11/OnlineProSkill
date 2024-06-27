@@ -44,13 +44,13 @@
                 <div class="col-12">
                     <div class="coupon__code-wrap">
                         <div class="coupon__code-info">
-                            <span><i class="far fa-bookmark"></i> Have a coupon?</span>
-                            <a href="#" id="coupon-element">Click here to enter your code</a>
+                            <span><i class="far fa-bookmark"></i> Punya kupon?</span>
+                            <a href="#" id="coupon-element">Klik di sini untuk memasukkan kode Anda</a>
                         </div>
                         <form action="#" class="coupon__code-form">
-                            <p>If you have a coupon code, please apply it below.</p>
+                            <p>Jika Anda memiliki kode kupon, silakan gunakan di bawah ini.</p>
                             <input type="text" placeholder="Coupon code">
-                            <button type="submit" class="btn">Apply coupon</button>
+                            <button type="submit" class="btn">Terapkan kupon</button>
                         </form>
                     </div>
                 </div>
