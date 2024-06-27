@@ -69,8 +69,7 @@ Route::middleware('isAdmin')->group(function () {
 Route::middleware('isStuden')->group(function () {
 
     //Auth Studen
-    Route::get('/dashboard_studen', [DashboardStudenController::class, 'index'])->name('dashboard_studen');
-    Route::get('/setting', [SettingController::class, 'index'])->name('setting');
+    Route::get('/profil', [SettingController::class, 'index'])->name('profil');
 });
 
 
