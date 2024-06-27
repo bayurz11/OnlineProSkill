@@ -6,8 +6,8 @@
         <nav class="dashboard__sidebar-menu">
             <ul class="list-wrap">
 
-                <li class="{{ Request::is('student-profile') ? 'active' : '' }}">
-                    <a href="student-profile.html">
+                <li class="{{ Request::is('profil') ? 'active' : '' }}">
+                    <a href="{{ route('profil') }}">
                         <i class="skillgro-avatar"></i>
                         Profil Saya
                     </a>
