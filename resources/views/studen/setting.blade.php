@@ -246,9 +246,10 @@
                     const img = document.getElementById('profileImage');
                     img.src = e.target.result;
                     img.onload = function() {
-                        // Set width and height attributes to match the container
-                        img.style.width = img.parentElement.offsetWidth + 'px';
-                        img.style.height = 'auto'; // Maintain aspect ratio
+                        // Set width and height attributes to 120x120
+                        img.style.width = '120px';
+                        img.style.height = '120px';
+                        img.style.objectFit = 'cover'; // Optional: ensure the image covers the area
                     };
                 };
                 reader.readAsDataURL(file);
