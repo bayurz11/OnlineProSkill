@@ -129,12 +129,6 @@
 
                                             </ul>
                                         </div>
-                                        {{-- <li class="mini-cart-icon">
-                                            <a href="{{ route('dashboard_studen') }}">
-                                                <img src="public/assets/img/courses/course_author001.png" alt="img"
-                                                    style="border-radius: 50%;">
-                                            </a>
-                                        </li> --}}
 
                                     @endauth
                                     @guest
