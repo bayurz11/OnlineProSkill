@@ -34,19 +34,15 @@ class AuthController extends Controller
             switch ($roleName) {
                 case 'Administrator':
                     return redirect()->route('dashboard')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
-                    break;
                 case 'Instruktur':
                     return redirect()->route('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
-                    break;
                 case 'Studen':
-                    $profile = $user->profile;
-                    if (!$profile || !$profile->gambar || !$profile->date_of_birth  || !$profile->phone_number) {
+                    $profile = $user->userProfile; // Perbaiki penggunaan relasi di sini
+                    if (!$profile || !$profile->gambar || !$profile->date_of_birth || !$profile->phone_number) {
                         return redirect()->route('profil')->with('info', 'Harap lengkapi profil Anda untuk melanjutkan.');
                     } else {
                         return redirect()->route('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                     }
-                    break;
-
                 default:
                     return redirect()->route('/')->with('error', 'Peran pengguna tidak dikenali.');
             }
@@ -54,6 +50,7 @@ class AuthController extends Controller
             return redirect()->back()->with('error', 'Email atau password salah.');
         }
     }
+
 
     // public function login(Request $request)
     // {
