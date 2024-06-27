@@ -27,6 +27,6 @@ class StudenMiddleware
         }
 
         // Jika tidak, alihkan ke halaman '/'
-        return redirect('/')->with('error', 'Silahkan Masuk Terlebih Dahulu');
+        return redirect('/')->with('info', 'Silahkan Masuk Terlebih Dahulu');
     }
 }
