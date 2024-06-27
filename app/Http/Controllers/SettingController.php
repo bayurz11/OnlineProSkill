@@ -19,7 +19,7 @@ class SettingController extends Controller
         return view('studen.setting', compact('user'));
     }
 
-    public function UpdateProfil(Request $request, $id)
+    public function updateprofil(Request $request, $id)
     {
         $user = Auth::user();
 
