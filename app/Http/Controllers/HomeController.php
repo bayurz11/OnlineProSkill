@@ -60,18 +60,32 @@ class HomeController extends Controller
 
     public function checkout($id)
     {
-        $courses = KelasTatapMuka::find($id);
-
-        if (!$courses) {
-            abort(404, 'Kelas tatap muka tidak ditemukan.');
-        }
         $user = Auth::user();
         $profile = null;
 
         if ($user) {
             $profile = UserProfile::where('user_id', $user->id)->first();
         }
-
-        return view('home.checkout', compact('user', 'profile', 'courses'));
+        $courses = KelasTatapMuka::find($id);
+        if (!$courses) {
+            return redirect()->route('home')->with('error', 'Kelas tidak ditemukan.');
+        }
+        return view('checkout', compact('user', 'profile', 'courses'));
     }
+    // public function checkout($id)
+    // {
+    //     $courses = KelasTatapMuka::find($id);
+
+    //     if (!$courses) {
+    //         abort(404, 'Kelas tatap muka tidak ditemukan.');
+    //     }
+    //     $user = Auth::user();
+    //     $profile = null;
+
+    //     if ($user) {
+    //         $profile = UserProfile::where('user_id', $user->id)->first();
+    //     }
+
+    //     return view('home.checkout', compact('user', 'profile', 'courses'));
+    // }
 }
