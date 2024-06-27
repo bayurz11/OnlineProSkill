@@ -54,9 +54,9 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-lg-7">
-                    <form action="{{ route('payment') }}" class="customer__form-wrap" method="POST">
-                        @csrf
+                <form action="{{ route('payment') }}" class="customer__form-wrap" method="POST">
+                    @csrf
+                    <div class="col-lg-7">
                         <span class="title">RINCIAN PENAGIHAN</span>
 
                         <div class="form-grp">
@@ -79,25 +79,26 @@
                             </div>
                         </div>
 
-                    </form>
-                </div>
-                <div class="col-lg-5">
-                    <div class="order__info-wrap">
-                        <h2 class="title">PESANAN ANDA</h2>
-                        <ul class="list-wrap">
-                            <li class="title">Kelas <span>Subtotal</span></li>
-                            <li>{{ $courses->nama_kursus }}<span>Rp.
-                                    {{ number_format($courses->price, 0, ',', '.') }}</span></li>
-                            <li>Subtotal <span>Rp. {{ number_format($courses->price, 0, ',', '.') }}</span></li>
-                            <li>Total <span>Rp. {{ number_format($courses->price, 0, ',', '.') }}</span></li>
-                        </ul>
-                        {{-- <p>Sorry, it seems that there are no available payment methods for your state. Please contact us if
+
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="order__info-wrap">
+                            <h2 class="title">PESANAN ANDA</h2>
+                            <ul class="list-wrap">
+                                <li class="title">Kelas <span>Subtotal</span></li>
+                                <li>{{ $courses->nama_kursus }}<span>Rp.
+                                        {{ number_format($courses->price, 0, ',', '.') }}</span></li>
+                                <li>Subtotal <span>Rp. {{ number_format($courses->price, 0, ',', '.') }}</span></li>
+                                <li>Total <span>Rp. {{ number_format($courses->price, 0, ',', '.') }}</span></li>
+                            </ul>
+                            {{-- <p>Sorry, it seems that there are no available payment methods for your state. Please contact us if
                             you require assistance or wish to make alternate arrangements.</p>
                         <p>Your personal data will be used to process your order, support your experience throughout this
                             website, and for other purposes described in our <a href="#">privacy policy.</a></p> --}}
-                        <button class="btn">Bayar & gabung kelas</button>
+                            <button class="btn">Bayar & gabung kelas</button>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
