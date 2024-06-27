@@ -164,7 +164,7 @@
                                                 <span style="font-size: 14px; color: #b2b2b2;">{{ $user->email }}</span>
                                             </a>
                                         </li>
-                                        <li><a class="dropdown-item" href="#">Profil</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('Profil') }}">Profil</a></li>
                                         <li><a class="dropdown-item"
                                                 href="{{ route('logout') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST"
