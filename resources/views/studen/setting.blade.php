@@ -31,7 +31,7 @@
                     <div class="dashboard__instructor-info-left">
                         <div class="thumb">
                             <img src="{{ $profile->gambar ? asset('public/uploads/' . $profile->gambar) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
-                                alt="img">
+                                alt="img" width="120" height="120">
                         </div>
                         <div class="content">
                             <h4 class="title">{{ $user->name }}</h4>
