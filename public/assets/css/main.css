@@ -2771,7 +2771,7 @@ textarea {
   display: none;
 }
 @media (max-width: 767.98px) {
-  .mobile-login-btn {
+  .mobile-login-btn , .mobile-menu-dropdown{
     display: flex;
   }
 }

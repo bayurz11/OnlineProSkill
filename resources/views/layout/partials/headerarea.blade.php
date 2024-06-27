@@ -143,7 +143,7 @@
                                 </ul>
                             </div>
 
-                            <div class="mobile-menu-dropdown" style="text-align: right;">
+                            <div class="mobile-menu-dropdown">
                                 <img src="{{ asset('public/assets/img/courses/course_author001.png') }}"
                                     alt="img" style="border-radius: 50%;">
                             </div>
