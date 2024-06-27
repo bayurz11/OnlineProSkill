@@ -2766,6 +2766,10 @@ textarea {
   }
 }
 
+.mobile-menu-dropdown {
+  margin-left: auto;
+  display: none;
+}
 .mobile-login-btn {
   margin-left: auto;
   display: none;
