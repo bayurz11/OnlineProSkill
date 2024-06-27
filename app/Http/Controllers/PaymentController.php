@@ -21,7 +21,7 @@ class PaymentController extends Controller
 
     public function payment(Request $request)
     {
-        // Validate request
+        // Validasi permintaan
         $request->validate([
             'id' => 'required',
             'name' => 'required|string',
@@ -29,11 +29,15 @@ class PaymentController extends Controller
             'phone' => 'required',
         ]);
 
-        // Fetch product data
+        // Ambil data produk
         $klsoffline = KelasTatapMuka::find($request->id);
+        if (!$klsoffline) {
+            return redirect()->back()->with('error', 'Kelas tidak ditemukan.');
+        }
+
         $uuid = (string) Str::uuid();
 
-        // Call Xendit
+        // Panggil Xendit
         $apiInstance = new InvoiceApi();
         $createInvoiceRequest = new CreateInvoiceRequest([
             'external_id' => $uuid,
@@ -45,14 +49,14 @@ class PaymentController extends Controller
                 "email" => $request->email,
                 "mobile_number" => $request->phone,
             ],
-            "success_redirect_url" => "https://testproskill.proskill.sch.id/succes/{$uuid}",
-            "failure_redirect_url" => "http://127.0.0.1:8000",
+            "success_redirect_url" => route('success', ['uuid' => $uuid]),
+            "failure_redirect_url" => route('checkout'),
         ]);
 
         try {
             $result = $apiInstance->createInvoice($createInvoiceRequest);
 
-            // Insert into orders table
+            // Masukkan ke tabel orders
             $order = new Order();
             $order->product_id = $klsoffline->id;
             $order->checkout_link = $result['invoice_url'];
@@ -62,7 +66,7 @@ class PaymentController extends Controller
 
             return redirect($result['invoice_url']);
         } catch (\Xendit\XenditSdkException $e) {
-            return redirect()->back()->with('error', 'Payment failed. Please try again.');
+            return redirect()->back()->with('error', 'Pembayaran gagal. Silakan coba lagi.');
         }
     }
 }
