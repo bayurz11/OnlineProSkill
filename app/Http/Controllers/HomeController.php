@@ -14,10 +14,15 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user(); // Mengambil pengguna yang sedang login
-        $profile = UserProfile::where('user_id', $user->id)->first(); // Mengambil profil pengguna yang terkait
+        $profile = null;
+
+        if ($user) {
+            $profile = UserProfile::where('user_id', $user->id)->first(); // Mengambil profil pengguna yang terkait
+        }
 
         return view('home.index', compact('user', 'profile'));
     }
+
 
     public function classroom()
     {
