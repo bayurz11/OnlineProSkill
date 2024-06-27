@@ -15,6 +15,6 @@ class Order extends Model
 
     public function product()
     {
-        return $this->belongsTo(KelasTatapMuka::class, 'product_id');
+        return $this->belongsTo(KelasTatapMuka::class, 'id');
     }
 }
