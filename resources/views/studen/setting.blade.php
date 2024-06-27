@@ -88,6 +88,7 @@
                                         enctype="multipart/form-data">
                                         <div class="tab-pane fade show active" id="itemOne-tab-pane" role="tabpanel"
                                             aria-labelledby="itemOne-tab" tabindex="0">
+
                                             <div class="instructor__cover-bg">
                                                 <div class="instructor__cover-info">
                                                     <div class="instructor__cover-info-left">
@@ -242,7 +243,13 @@
             if (file) {
                 const reader = new FileReader();
                 reader.onload = function(e) {
-                    document.getElementById('profileImage').src = e.target.result;
+                    const img = document.getElementById('profileImage');
+                    img.src = e.target.result;
+                    img.onload = function() {
+                        // Set width and height attributes to match the container
+                        img.style.width = img.parentElement.offsetWidth + 'px';
+                        img.style.height = 'auto'; // Maintain aspect ratio
+                    };
                 };
                 reader.readAsDataURL(file);
             }
