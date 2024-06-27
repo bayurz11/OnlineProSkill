@@ -149,10 +149,10 @@
                             </div>
                             <div class="mobile-login-btn">
                                 @auth
-                                    <a href="{{ route('dashboard_studen') }}" style="margin-right: 10px;">
+                                    {{-- <a href="{{ route('dashboard_studen') }}" style="margin-right: 10px;">
                                         <img src="{{ asset('public/assets/img/icons/user.svg') }}" alt=""
                                             class="injectable">
-                                    </a>
+                                    </a> --}}
                                     <a href="#" class="cart-count-two">
                                         <i class="far fa-bell"></i><span class="red-circle">0</span>
                                     </a>
