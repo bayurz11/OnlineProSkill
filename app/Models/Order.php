@@ -12,8 +12,9 @@ class Order extends Model
 
     protected $guarded = [];
 
-    public function room()
+
+    public function product()
     {
-        return $this->belongsTo(KelasTatapMuka::class);
+        return $this->belongsTo(KelasTatapMuka::class, 'product_id');
     }
 }
