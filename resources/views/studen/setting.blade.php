@@ -84,8 +84,8 @@
                                     </ul>
                                 </div>
                                 <div class="tab-content" id="myTabContent">
-                                    <form action="#" class="instructor__profile-form" method="POST"
-                                        enctype="multipart/form-data">
+                                    <form action="{{ route('updateProfile') }}" class="instructor__profile-form"
+                                        method="POST" enctype="multipart/form-data">
                                         <div class="tab-pane fade show active" id="itemOne-tab-pane" role="tabpanel"
                                             aria-labelledby="itemOne-tab" tabindex="0">
 
