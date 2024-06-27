@@ -36,28 +36,29 @@ class AuthController extends Controller
             // Pengecekan bagian profil pengguna
             if (!$user->gambar || !$user->phone_number || !$user->address) {
                 return redirect()->route('profil')->with('info', 'Silakan lengkapi profil Anda terlebih dahulu.');
-            }
-
-            // Redirect berdasarkan peran pengguna
-            $roleName = $userRole->role->role_name;
-            $userName = $user->name;
-            switch ($roleName) {
-                case 'Administrator':
-                    return redirect()->route('dashboard')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
-                    break;
-                case 'Instruktur':
-                    return redirect()->route('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
-                    break;
-                case 'Studen':
-                    return redirect()->route('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
-                    break;
-                default:
-                    return redirect()->route('/')->with('error', 'Peran pengguna tidak dikenali.');
+            } else {
+                // Jika sudah lengkap, redirect berdasarkan peran pengguna
+                $roleName = $userRole->role->role_name;
+                $userName = $user->name;
+                switch ($roleName) {
+                    case 'Administrator':
+                        return redirect()->route('dashboard')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+                        break;
+                    case 'Instruktur':
+                        return redirect('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+                        break;
+                    case 'Student':
+                        return redirect('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+                        break;
+                    default:
+                        return redirect('/')->with('error', 'Peran pengguna tidak dikenali.');
+                }
             }
         } else {
             return redirect()->back()->with('error', 'Email atau password salah.');
         }
     }
+
 
     // public function login(Request $request)
     // {
