@@ -97,15 +97,17 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="instructor__cover-info-right">
+                                                    <div class="instructor__cover-info-right"
+                                                        style="display: flex; justify-content: center; align-items: center;">
                                                         <input type="file" id="fileInput" style="display: none;"
                                                             accept="image/*">
                                                         <a href="#" class="btn btn-two arrow-btn"
                                                             onclick="document.getElementById('fileInput').click(); return false;">
-                                                            Ungah Foto Profil
+                                                            Edit Foto Sampul
                                                         </a>
                                                     </div>
                                                 </div>
+
 
                                             </div>
                                             <div class="instructor__profile-form-wrap">
