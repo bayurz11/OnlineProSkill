@@ -55,7 +55,7 @@ class SettingController extends Controller
 
         $user->save();
 
-        return redirect()->back()->with('success', 'Profile updated successfully!');
+        return redirect()->route('profil')->with('success', 'Profil berhasil diperbarui.');
     }
 
     public function updatePassword(Request $request)
