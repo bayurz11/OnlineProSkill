@@ -152,8 +152,8 @@
                                     </a>
 
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <li><a class="dropdown-item" href="#">Profile</a></li>
-                                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                                        <li><a class="dropdown-item">{{ $user->name }}</a></li>
+                                        <li><a class="dropdown-item" href="#">Profil</a></li>
                                         <li><a class="dropdown-item"
                                                 href="{{ route('logout') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -164,15 +164,6 @@
                                     </ul>
                                 </div>
                             @endauth
-
-                            {{-- 
-                            @auth
-                                <div class="mobile-menu-dropdown">
-                                    <img src="{{ asset('public/assets/img/courses/course_author001.png') }}"
-                                        alt="img" style="border-radius: 50%;">
-                                </div>
-                            @endauth --}}
-
 
                             <div class="mobile-nav-toggler">
                                 <i class="tg-flaticon-menu-1"></i>
