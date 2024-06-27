@@ -60,6 +60,11 @@ class HomeController extends Controller
 
     public function checkout($id)
     {
+        $courses = KelasTatapMuka::find($id);
+
+        if (!$courses) {
+            abort(404, 'Kelas tatap muka tidak ditemukan.');
+        }
         $user = Auth::user();
         $profile = null;
 
@@ -67,6 +72,6 @@ class HomeController extends Controller
             $profile = UserProfile::where('user_id', $user->id)->first();
         }
 
-        return view('home.checkout', compact('user', 'profile'));
+        return view('home.checkout', compact('user', 'profile', 'courses'));
     }
 }
