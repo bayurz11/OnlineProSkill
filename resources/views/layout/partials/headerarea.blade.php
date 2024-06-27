@@ -142,8 +142,9 @@
                                     @endguest
                                 </ul>
                             </div>
+
                             @auth
-                                <div class="dropdown">
+                                <div class="mobile-menu-dropdown dropdown">
                                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                         <img src="{{ asset('public/assets/img/courses/course_author001.png') }}"
@@ -157,17 +158,15 @@
                                     </ul>
                                 </div>
                             @endauth
-                            {{-- <div class="mobile-login-btn">
-                                @auth
-                                    <a href="{{ route('dashboard_studen') }}" style="margin-right: 10px;">
-                                        <img src="{{ asset('public/assets/img/icons/user.svg') }}" alt=""
-                                            class="injectable">
-                                    </a>
-                                    <a href="#" class="cart-count-two">
-                                        <i class="far fa-bell"></i><span class="red-circle">0</span>
-                                    </a>
-                                @endauth
-                            </div> --}}
+
+
+                            @auth
+                                <div class="mobile-menu-dropdown">
+                                    <img src="{{ asset('public/assets/img/courses/course_author001.png') }}"
+                                        alt="img" style="border-radius: 50%;">
+                                </div>
+                            @endauth
+
 
                             <div class="mobile-nav-toggler">
                                 <i class="tg-flaticon-menu-1"></i>
