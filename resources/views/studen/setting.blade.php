@@ -92,47 +92,20 @@
                                                 <div class="instructor__cover-info">
                                                     <div class="instructor__cover-info-left">
                                                         <div class="thumb">
-                                                            <img id="instructorImage"
-                                                                src="{{ asset('public/assets/img/courses/details_instructors02.jpg') }}"
-                                                                alt="img" style="width: 230px; height: 230px;">
+                                                            <img src="{{ asset('public/assets/img/courses/details_instructors02.jpg') }}"
+                                                                alt="img">
                                                         </div>
                                                     </div>
 
                                                     <div class="instructor__cover-info-right">
-                                                        <form id="uploadForm" enctype="multipart/form-data">
-                                                            <input type="file" id="fileInput" accept="image/*">
-                                                            <button type="button" class="btn btn-two arrow-btn"
-                                                                onclick="uploadImage()">Upload Foto Sampul</button>
-                                                        </form>
+                                                        <input type="file" id="fileInput" style="display: none;"
+                                                            accept="image/*">
+                                                        <a href="#" class="btn btn-two arrow-btn"
+                                                            onclick="document.getElementById('fileInput').click(); return false;">
+                                                            Ungah Foto Profil
+                                                        </a>
                                                     </div>
                                                 </div>
-
-                                                <script>
-                                                    function uploadImage() {
-                                                        var fileInput = document.getElementById('fileInput');
-                                                        var file = fileInput.files[0];
-                                                        var formData = new FormData();
-                                                        formData.append('file', file);
-
-                                                        fetch('upload_image_endpoint', { // Ganti dengan endpoint upload yang sesuai
-                                                                method: 'POST',
-                                                                body: formData
-                                                            })
-                                                            .then(response => response.json())
-                                                            .then(data => {
-                                                                if (data.success) {
-                                                                    var imageUrl = data.imageUrl; // Asumsikan server mengembalikan URL gambar baru
-                                                                    document.getElementById('instructorImage').src = imageUrl;
-                                                                } else {
-                                                                    alert('Upload gagal, silakan coba lagi.');
-                                                                }
-                                                            })
-                                                            .catch(error => {
-                                                                console.error('Error uploading image:', error);
-                                                                alert('Terjadi kesalahan, silakan coba lagi.');
-                                                            });
-                                                    }
-                                                </script>
 
                                             </div>
                                             <div class="instructor__profile-form-wrap">
