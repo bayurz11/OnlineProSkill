@@ -320,13 +320,6 @@
                         </div>
                         <div class="courses__details-enroll">
                             <div class="tg-button-wrap">
-                                <a href="{{ route('cart') }}" class="btn btn-two arrow-btn">
-                                    <i class="flaticon-shopping-cart"></i>
-                                    Masukkan Keranjang
-                                </a>
-                            </div>
-                            <br>
-                            <div class="tg-button-wrap">
                                 <a href="#" class="btn btn-two arrow-btn">
                                     Gabung Kelas
                                     <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
