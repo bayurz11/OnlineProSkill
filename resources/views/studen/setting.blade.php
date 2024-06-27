@@ -89,8 +89,7 @@
                                         <div class="tab-pane fade show active" id="itemOne-tab-pane" role="tabpanel"
                                             aria-labelledby="itemOne-tab" tabindex="0">
                                             <div class="instructor__cover-bg">
-                                                <div class="instructor__cover-info"
-                                                    style="display: flex; align-items: center;">
+                                                <div class="instructor__cover-info">
                                                     <div class="instructor__cover-info-left">
                                                         <div class="thumb">
                                                             <img src="{{ asset('public/assets/img/courses/details_instructors02.jpg') }}"
@@ -98,13 +97,12 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="instructor__cover-info-right"
-                                                        style="flex: 1; display: flex; justify-content: center; align-items: center;">
+                                                    <div class="instructor__cover-info-right">
                                                         <input type="file" id="fileInput" style="display: none;"
                                                             accept="image/*">
                                                         <a href="#" class="btn btn-two arrow-btn"
                                                             onclick="document.getElementById('fileInput').click(); return false;">
-                                                            Edit Foto Sampul
+                                                            Ungah Foto Profil
                                                         </a>
                                                     </div>
                                                 </div>
