@@ -89,7 +89,8 @@
                                         <div class="tab-pane fade show active" id="itemOne-tab-pane" role="tabpanel"
                                             aria-labelledby="itemOne-tab" tabindex="0">
                                             <div class="instructor__cover-bg">
-                                                <div class="instructor__cover-info">
+                                                <div class="instructor__cover-info"
+                                                    style="display: flex; align-items: center;">
                                                     <div class="instructor__cover-info-left">
                                                         <div class="thumb">
                                                             <img src="{{ asset('public/assets/img/courses/details_instructors02.jpg') }}"
@@ -98,7 +99,7 @@
                                                     </div>
 
                                                     <div class="instructor__cover-info-right"
-                                                        style="display: flex; justify-content: center; align-items: center;">
+                                                        style="flex: 1; display: flex; justify-content: center; align-items: center;">
                                                         <input type="file" id="fileInput" style="display: none;"
                                                             accept="image/*">
                                                         <a href="#" class="btn btn-two arrow-btn"
@@ -107,7 +108,6 @@
                                                         </a>
                                                     </div>
                                                 </div>
-
 
                                             </div>
                                             <div class="instructor__profile-form-wrap">
