@@ -34,7 +34,7 @@ class AuthController extends Controller
             }
 
             // Pengecekan bagian profil pengguna
-            if (!$user->photo || !$user->cover || !$user->phonenumber || !$user->alamat || !$user->bio) {
+            if (!$user->gambar || !$user->phone_number || !$user->address) {
                 return redirect()->route('profil')->with('info', 'Silakan lengkapi profil Anda terlebih dahulu.');
             }
 
