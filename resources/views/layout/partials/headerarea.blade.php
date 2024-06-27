@@ -143,6 +143,9 @@
                                 </ul>
                             </div>
 
+                            <div class="mobile-menu-dropdown">
+                                <i class="fas fa-bars"></i>
+                            </div>
                             <div class="mobile-login-btn">
                                 @auth
                                     <a href="{{ route('dashboard_studen') }}" style="margin-right: 10px;">
