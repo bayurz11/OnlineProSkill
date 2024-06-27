@@ -121,14 +121,16 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-grp">
-                                                            <label for="dateofBirth">Tanggal Lahir</label>
+                                                            <label for="dateofBirth">Tanggal Lahir<span
+                                                                    style="color: red">*</span></label>
                                                             <input id="dateofBirth" name="dateofBirth" type="date"
                                                                 value="">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-grp select-grp">
-                                                            <label for="gender">Gender</label>
+                                                            <label for="gender">Gender<span
+                                                                    style="color: red">*</span></label>
                                                             <select id="gender" name="gender">
                                                                 <option>Pilih Gender</option>
                                                                 <option value="Laki-Laki">Laki-Laki</option>
@@ -138,17 +140,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-grp">
-                                                            <label for="email">Email</label>
-                                                            <input id="email" name="email" type="email"
-                                                                value="{{ $user->email }}" readonly
-                                                                style="background-color: #bebebe;">
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div class="col-md-6">
-                                                        <div class="form-grp">
-                                                            <label for="phonenumber">Telepon<span
+                                                            <label for="phonenumber">No.HP<span
                                                                     style="color: red">*</span> </label>
                                                             <input id="phonenumber" type="tel" name="phonenumber"
                                                                 value="" placeholder="masukan no telepon">
