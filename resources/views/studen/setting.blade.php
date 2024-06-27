@@ -120,6 +120,7 @@
                                                                 value="{{ $profile->date_of_birth }}">
                                                         </div>
                                                     </div>
+
                                                     <div class="col-md-6">
                                                         <div class="form-grp select-grp">
                                                             <label for="gender">Gender<span

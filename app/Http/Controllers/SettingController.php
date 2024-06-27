@@ -12,10 +12,13 @@ class SettingController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $profile = UserProfile::all();
         if (!$user) {
             return redirect()->route('/');
         }
+
+        // Mengambil profil pengguna yang sedang login
+        $profile = UserProfile::where('user_id', $user->id)->first();
+
         return view('studen.setting', compact('user', 'profile'));
     }
 
