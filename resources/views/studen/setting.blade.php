@@ -86,7 +86,8 @@
                                                         <div class="thumb">
                                                             <img id="profileImage"
                                                                 src="{{ $profile->gambar ? asset('public/uploads/' . $profile->gambar) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
-                                                                alt="img">
+                                                                alt="img" width="120" height="120">
+
                                                         </div>
                                                     </div>
 
