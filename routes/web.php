@@ -14,6 +14,7 @@ use App\Http\Controllers\DashboardStudenController;
 use App\Http\Controllers\DashboardInstrukturController;
 use App\Http\Controllers\OrderHistoryManagerController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\RiwayatTransaksiController;
 use App\Http\Controllers\SettingController;
 
 //Authentikasi
@@ -69,9 +70,13 @@ Route::middleware('isAdmin')->group(function () {
 //*********STUDEN*********//
 Route::middleware('isStuden')->group(function () {
 
-    //Auth Studen
+    //Profile Studen
     Route::get('/profil', [SettingController::class, 'index'])->name('profil');
     Route::post('/updateProfile/{id}', [SettingController::class, 'updateprofil'])->name('updateProfile');
+
+    //Riwayat Transaksi
+    Route::get('/history', [RiwayatTransaksiController::class, 'index'])->name('history');
+
     //checkout
     Route::get('/checkout/{id}', [HomeController::class, 'checkout'])->name('checkout');
 

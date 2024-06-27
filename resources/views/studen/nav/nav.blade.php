@@ -18,8 +18,8 @@
                         Akses Pembelian
                     </a>
                 </li>
-                <li class="{{ Request::is('student-history') ? 'active' : '' }}">
-                    <a href="student-history.html">
+                <li class="{{ Request::is('history') ? 'active' : '' }}">
+                    <a href="{{ route('history') }}">
                         <i class="skillgro-satchel"></i>
                         Riwayat Transaksi
                     </a>
