@@ -117,7 +117,7 @@
                                                             <label for="dateofBirth">Tanggal Lahir<span
                                                                     style="color: red">*</span></label>
                                                             <input id="dateofBirth" name="dateofBirth" type="date"
-                                                                value="">
+                                                                value="{{ $user->date_of_birth }}">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
