@@ -281,7 +281,7 @@
                                     <img src="{{ asset('public/assets/img/icons/course_icon02.svg') }}" alt="img"
                                         class="injectable">
                                     Durasi
-                                    <span>11h 20m</span>
+                                    <span>{{ $courses->durasi }}</span>
                                 </li>
                                 <li>
                                     <img src="{{ asset('public/assets/img/icons/course_icon03.svg') }}" alt="img"
