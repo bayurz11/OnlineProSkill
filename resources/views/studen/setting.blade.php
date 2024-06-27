@@ -121,6 +121,23 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-grp">
+                                                            <label for="dateofBirth">Tanggal Lahir</label>
+                                                            <input id="dateofBirth" name="dateofBirth" type="date"
+                                                                value="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-grp select-grp">
+                                                            <label for="gender">Gender</label>
+                                                            <select id="gender" name="gender">
+                                                                <option>Pilih Gender</option>
+                                                                <option value="Laki-Laki">Laki-Laki</option>
+                                                                <option value="Perempuan">Perempuan</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-grp">
                                                             <label for="email">Email</label>
                                                             <input id="email" name="email" type="email"
                                                                 value="{{ $user->email }}" readonly
