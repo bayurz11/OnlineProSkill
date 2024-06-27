@@ -43,7 +43,7 @@ class SettingController extends Controller
         if ($request->hasFile('foto')) {
             $fotoName = time() . '.' . $request->foto->extension();
             $request->foto->move(public_path('uploads'), $fotoName);
-            $profile->gambar = $fotoName;
+            $profile->foto = $fotoName;
         }
 
         // Perbarui data profil
