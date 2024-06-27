@@ -99,9 +99,7 @@
                                                             alt="img" style="border-radius: 50%;">
                                                     </a>
                                                     <ul class="sub-menu">
-                                                        <li class="{{ Request::is('dashboard_studen') ? 'active' : '' }}">
-                                                            <a href="{{ route('dashboard_studen') }}">Dashboard</a>
-                                                        </li>
+
                                                         <li class="{{ Request::is('Profil') ? 'active' : '' }}">
                                                             <a href="about-us.html">Profil</a>
                                                         </li>
