@@ -14,7 +14,8 @@
                     <form action="{{ route('regisStuden') }}" class="account__form" method="POST">
                         @csrf
                         <div class="form-grp">
-                            <input type="text" id="name" name="name" placeholder="nama">
+                            <input type="text" id="name" name="name"
+                                placeholder="Masukkan Nama Lengkap Anda">
                         </div>
                         <div class="form-grp">
                             <input type="email" id="email" placeholder="Email" name="email">
