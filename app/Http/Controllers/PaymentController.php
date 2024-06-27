@@ -49,7 +49,7 @@ class PaymentController extends Controller
                 "email" => $request->email,
                 "mobile_number" => $request->phone,
             ],
-            "success_redirect_url" => route('succes', ['uuid' => $uuid]),
+            "success_redirect_url" => route('success', ['uuid' => $uuid]),
             "failure_redirect_url" => route('checkout', ['id' => $request->id]),
         ]);
 
