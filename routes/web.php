@@ -13,6 +13,7 @@ use App\Http\Controllers\KelasTatapMukaController;
 use App\Http\Controllers\DashboardStudenController;
 use App\Http\Controllers\DashboardInstrukturController;
 use App\Http\Controllers\OrderHistoryManagerController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SettingController;
 
 //Authentikasi
@@ -87,7 +88,10 @@ Route::get('/', [HomeController::class, 'index'])->name('/');
 //Classroom
 Route::get('/classroom', [HomeController::class, 'classroom'])->name('classroom');
 Route::get('/classroomdetail/{id}', [HomeController::class, 'classroomdetail'])->name('classroomdetail');
-Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout');
+Route::get('/checkout/{id}', [HomeController::class, 'checkout'])->name('checkout');
+
+//payment
+Route::post('/payment', [PaymentController::class, 'payment'])->name('payment');
 
 //Cart
 Route::get('/cart', [CartController::class, 'show'])->name('cart');

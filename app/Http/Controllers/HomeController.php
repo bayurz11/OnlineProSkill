@@ -58,7 +58,7 @@ class HomeController extends Controller
         return view('home.classroomdetail', compact('user', 'courses', 'courseList', 'profile'));
     }
 
-    public function checkout()
+    public function checkout($id)
     {
         $user = Auth::user();
         $profile = null;
