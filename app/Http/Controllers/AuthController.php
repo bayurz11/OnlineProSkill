@@ -50,7 +50,7 @@ class AuthController extends Controller
 
                     // Pengecekan data profil
                     if (!$profile || !$profile->image || !$profile->date_of_birth || !$profile->gender || !$profile->phone_number) {
-                        return redirect()->route('profile')->with('error', 'Harap lengkapi profil Anda untuk melanjutkan.');
+                        return redirect()->route('profil')->with('error', 'Harap lengkapi profil Anda untuk melanjutkan.');
                     } else {
                         return redirect()->route('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                     }
