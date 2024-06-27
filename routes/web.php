@@ -77,9 +77,7 @@ Route::middleware('isStuden')->group(function () {
 
     //payment
     Route::post('/payment', [PaymentController::class, 'payment'])->name('payment');
-    Route::get('/success/{uuid}', function ($uuid) {
-        return view('success', compact('uuid'));
-    })->name('success');
+    Route::get('/succes/{id}', [PaymentController::class, 'success']);
 });
 
 
