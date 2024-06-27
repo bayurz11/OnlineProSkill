@@ -31,14 +31,20 @@
     <link rel="stylesheet" href="{{ asset('public/assets/css/tg-cursor.css') }}">
     <link rel="stylesheet" href="{{ asset('public/assets/css/main.css') }}">
     @if (session('success'))
-        <div id="success-message" class="notify alert alert-success" role="alert">
+        <div id="success-message" class="notify alert alert-success show" role="alert">
             {{ session('success') }}
         </div>
     @endif
 
     @if (session('error'))
-        <div id="error-message" class="notify alert alert-danger" role="alert">
+        <div id="error-message" class="notify alert alert-danger show" role="alert">
             {{ session('error') }}
+        </div>
+    @endif
+
+    @if (session('info'))
+        <div id="info-message" class="notify alert alert-info show" role="alert">
+            {{ session('info') }}
         </div>
     @endif
 
@@ -73,6 +79,12 @@
             color: #721c24;
             border-color: #f5c6cb;
         }
+
+        .notify.alert-info {
+            background-color: #cce5ff;
+            color: #004085;
+            border-color: #b8daff;
+        }
     </style>
 
     <script>
@@ -81,14 +93,21 @@
                 element.classList.add('show');
                 setTimeout(function() {
                     element.classList.remove('show');
-                }, 3000);
+                }, 3000); // 3000 milliseconds = 3 seconds
             }
         }
-        var successMessage = document.getElementById('success-message');
-        var errorMessage = document.getElementById('error-message');
-        showNotification(successMessage);
-        showNotification(errorMessage);
+
+        window.onload = function() {
+            var successMessage = document.getElementById('success-message');
+            var errorMessage = document.getElementById('error-message');
+            var infoMessage = document.getElementById('info-message');
+
+            showNotification(successMessage);
+            showNotification(errorMessage);
+            showNotification(infoMessage);
+        };
     </script>
+
 </head>
 
 <body>
