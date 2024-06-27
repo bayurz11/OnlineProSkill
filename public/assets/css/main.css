@@ -2771,13 +2771,20 @@ textarea {
   display: none;
 }
 @media (max-width: 767.98px) {
-  .mobile-login-btn  .mobile-menu-dropdown{
+  .mobile-login-btn {
     display: flex;
   }
 }
+@media (max-width: 767.98px) {
+  .mobile-menu-dropdown{
+    display: flex;
+  }
+}
+
 .mobile-menu-dropdown img{
  margin-right: 20px;
 };
+
 .mobile-login-btn a {
   margin-right: 20px;
   width: 40px;
