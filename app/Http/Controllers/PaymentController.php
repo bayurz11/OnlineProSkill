@@ -58,7 +58,7 @@ class PaymentController extends Controller
 
             // Masukkan ke tabel orders
             $order = new Order();
-            $order->id = $klsoffline->id;
+            $order->product_id = $klsoffline->id;
             $order->checkout_link = $result['invoice_url'];
             $order->external_id = $uuid;
             $order->status = "pending";
