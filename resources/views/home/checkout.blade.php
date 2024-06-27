@@ -57,60 +57,12 @@
                 <div class="col-lg-7">
                     <form action="#" class="customer__form-wrap">
                         <span class="title">RINCIAN PENAGIHAN</span>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-grp">
-                                    <label for="first-name">First name *</label>
-                                    <input type="text" id="first-name">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-grp">
-                                    <label for="last-name">Last name *</label>
-                                    <input type="text" id="last-name">
-                                </div>
-                            </div>
-                        </div>
+
                         <div class="form-grp">
-                            <label for="company-name">Company name (optional)</label>
+                            <label for="company-name">Nama *</label>
                             <input type="text" id="company-name">
                         </div>
-                        <div class="form-grp select-grp">
-                            <label for="country-name">Country / Region *</label>
-                            <select id="country-name" name="country-name" class="country-name">
-                                <option value="United Kingdom (UK)">United Kingdom (UK)</option>
-                                <option value="United States (US)">United States (US)</option>
-                                <option value="Turkey">Turkey</option>
-                                <option value="Saudi Arabia">Saudi Arabia</option>
-                                <option value="Portugal">Portugal</option>
-                            </select>
-                        </div>
-                        <div class="form-grp">
-                            <label for="street-address">Street address *</label>
-                            <input type="text" id="street-address" placeholder="House number and street name">
-                        </div>
-                        <div class="form-grp">
-                            <input type="text" id="street-address-two"
-                                placeholder="Apartment, suite, unit, etc. (optional)">
-                        </div>
-                        <div class="form-grp">
-                            <label for="town-name">Town / City *</label>
-                            <input type="text" id="town-name">
-                        </div>
-                        <div class="form-grp select-grp">
-                            <label for="district-name">District *</label>
-                            <select id="district-name" name="district-name" class="district-name">
-                                <option value="Alabama">Alabama</option>
-                                <option value="Alaska">Alaska</option>
-                                <option value="Arizona">Arizona</option>
-                                <option value="California">California</option>
-                                <option value="New York">New York</option>
-                            </select>
-                        </div>
-                        <div class="form-grp">
-                            <label for="zip-code">ZIP Code *</label>
-                            <input type="text" id="zip-code">
-                        </div>
+
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-grp">
@@ -125,11 +77,7 @@
                                 </div>
                             </div>
                         </div>
-                        <span class="title title-two">Additional Information</span>
-                        <div class="form-grp">
-                            <label for="note">Order notes (optional)</label>
-                            <textarea id="note" placeholder="Notes about your order, e.g. special notes for delivery."></textarea>
-                        </div>
+
                     </form>
                 </div>
                 <div class="col-lg-5">
