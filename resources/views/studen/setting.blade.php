@@ -85,7 +85,7 @@
                                                     <div class="instructor__cover-info-left">
                                                         <div class="thumb">
                                                             <img id="profileImage"
-                                                                src="{{ asset('public/assets/img/courses/details_instructors02.jpg') }}"
+                                                                src="{{ $profile->gambar ? asset('public/uploads/' . $profile->gambar) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
                                                                 alt="img">
                                                         </div>
                                                     </div>
@@ -95,7 +95,7 @@
                                                             style="display: none;" accept="image/*">
                                                         <a href="#" class="btn btn-two arrow-btn"
                                                             onclick="document.getElementById('foto').click(); return false;">
-                                                            Ungah Foto Profil
+                                                            Unggah Foto Profil
                                                         </a>
                                                     </div>
                                                 </div>
