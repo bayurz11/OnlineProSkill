@@ -23,11 +23,15 @@ class HomeController extends Controller
         return view('home.index', compact('user', 'profile'));
     }
 
-
     public function classroom()
     {
         $user = Auth::user();
-        $profile = UserProfile::where('user_id', $user->id)->first();
+        $profile = null;
+
+        if ($user) {
+            $profile = UserProfile::where('user_id', $user->id)->first();
+        }
+
         $course = KelasTatapMuka::with('user')->where('status', 1)->get();
         $count = $course->count();
         return view('home.classroom', compact('user', 'count', 'course', 'profile'));
@@ -36,24 +40,33 @@ class HomeController extends Controller
     public function classroomdetail($id)
     {
         $user = Auth::user();
-        $profile = UserProfile::where('user_id', $user->id)->first();
-        $course = KelasTatapMuka::all();
+        $profile = null;
+
+        if ($user) {
+            $profile = UserProfile::where('user_id', $user->id)->first();
+        }
+
         $courses = KelasTatapMuka::find($id);
-        $courseList = json_decode($courses->include, true);
-        // Periksa apakah $klsoffline ditemukan
+
         if (!$courses) {
             abort(404, 'Kelas tatap muka tidak ditemukan.');
         }
 
-        // Decode JSON fasilitas
+        $courseList = json_decode($courses->include, true);
         $fasilitas = json_decode($courses->fasilitas, true);
-        return view('home.classroomdetail', compact('user', 'course', 'courses', 'courseList', 'profile'));
+
+        return view('home.classroomdetail', compact('user', 'courses', 'courseList', 'profile'));
     }
 
     public function checkout()
     {
         $user = Auth::user();
-        $profile = UserProfile::where('user_id', $user->id)->first();
+        $profile = null;
+
+        if ($user) {
+            $profile = UserProfile::where('user_id', $user->id)->first();
+        }
+
         return view('home.checkout', compact('user', 'profile'));
     }
 }
