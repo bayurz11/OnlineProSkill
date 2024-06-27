@@ -283,12 +283,12 @@
                                     Durasi
                                     <span>{{ $courses->durasi }}</span>
                                 </li>
-                                <li>
+                                {{-- <li>
                                     <img src="{{ asset('public/assets/img/icons/course_icon03.svg') }}" alt="img"
                                         class="injectable">
                                     Pelajaran
                                     <span>12</span>
-                                </li>
+                                </li> --}}
 
                                 <li>
                                     <img src="{{ asset('public/assets/img/icons/course_icon05.svg') }}" alt="img"

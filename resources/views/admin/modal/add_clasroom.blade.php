@@ -19,6 +19,11 @@
                         <input type="text" class="form-control" id="durasi" name="durasi"
                             placeholder="durasi kursus">
                     </div>
+                    <div class="mb-3">
+                        <label for="sertifikat" class="form-label">Sertifikat<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="sertifikat" name="sertifikat"
+                            placeholder="apakah mendapatkan sertifikat">
+                    </div>
 
                     <div class="mb-3">
                         <label class="form-label">Kategori<span class="text-danger">*</span></label>
