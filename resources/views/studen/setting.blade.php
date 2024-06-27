@@ -30,7 +30,8 @@
                 <div class="dashboard__instructor-info">
                     <div class="dashboard__instructor-info-left">
                         <div class="thumb">
-                            <img src="{{ asset('public/assets/img/courses/details_instructors02.jpg') }}" alt="img">
+                            <img src="{{ $profile->gambar ? asset('public/uploads/' . $profile->gambar) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
+                                alt="img">
                         </div>
                         <div class="content">
                             <h4 class="title">{{ $user->name }}</h4>
