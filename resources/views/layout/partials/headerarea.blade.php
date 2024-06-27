@@ -142,22 +142,23 @@
                                     @endguest
                                 </ul>
                             </div>
-
-                            <div class="mobile-menu-dropdown">
-                                <img src="{{ asset('public/assets/img/courses/course_author001.png') }}"
-                                    alt="img" style="border-radius: 50%;">
-                            </div>
-                            <div class="mobile-login-btn">
+                            @auth
+                                <div class="mobile-menu-dropdown">
+                                    <img src="{{ asset('public/assets/img/courses/course_author001.png') }}"
+                                        alt="img" style="border-radius: 50%;">
+                                </div>
+                            @endauth
+                            {{-- <div class="mobile-login-btn">
                                 @auth
-                                    {{-- <a href="{{ route('dashboard_studen') }}" style="margin-right: 10px;">
+                                    <a href="{{ route('dashboard_studen') }}" style="margin-right: 10px;">
                                         <img src="{{ asset('public/assets/img/icons/user.svg') }}" alt=""
                                             class="injectable">
-                                    </a> --}}
+                                    </a>
                                     <a href="#" class="cart-count-two">
                                         <i class="far fa-bell"></i><span class="red-circle">0</span>
                                     </a>
                                 @endauth
-                            </div>
+                            </div> --}}
 
                             <div class="mobile-nav-toggler">
                                 <i class="tg-flaticon-menu-1"></i>
