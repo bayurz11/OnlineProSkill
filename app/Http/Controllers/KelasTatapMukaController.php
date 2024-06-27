@@ -54,6 +54,7 @@ class KelasTatapMukaController extends Controller
         $course->discountedPrice = $request->discountedPrice;
         $course->gambar = $gambarName;
         $course->tag = $request->tag;
+        $course->durasi = $request->durasi;
         $course->user_id = $userId;
         $course->save();
 

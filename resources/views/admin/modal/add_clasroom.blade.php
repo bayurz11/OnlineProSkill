@@ -14,6 +14,11 @@
                         <input type="text" class="form-control" id="nama_kursus" name="nama_kursus"
                             placeholder="Masukkan Nama Kursus Anda">
                     </div>
+                    <div class="mb-3">
+                        <label for="durasi" class="form-label">Durasi Kursus<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="durasi" name="durasi"
+                            placeholder="durasi kursus">
+                    </div>
 
                     <div class="mb-3">
                         <label class="form-label">Kategori<span class="text-danger">*</span></label>
