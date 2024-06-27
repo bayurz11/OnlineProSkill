@@ -92,7 +92,8 @@
                                                 <div class="instructor__cover-info">
                                                     <div class="instructor__cover-info-left">
                                                         <div class="thumb">
-                                                            <img src="{{ asset('public/assets/img/courses/details_instructors02.jpg') }}"
+                                                            <img id="profileImage"
+                                                                src="{{ asset('public/assets/img/courses/details_instructors02.jpg') }}"
                                                                 alt="img">
                                                         </div>
                                                     </div>
@@ -106,8 +107,8 @@
                                                         </a>
                                                     </div>
                                                 </div>
-
                                             </div>
+
                                             <div class="instructor__profile-form-wrap">
 
                                                 <div class="row">
@@ -234,4 +235,17 @@
         </div>
     </section>
     <!-- dashboard-area-end -->
+
+    <script>
+        document.getElementById('fileInput').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profileImage').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
 @endsection
