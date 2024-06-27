@@ -137,9 +137,9 @@
                         <h2 class="title">PESANAN ANDA</h2>
                         <ul class="list-wrap">
                             <li class="title">Kelas <span>Subtotal</span></li>
-                            <li>{{ $courses->nama_kursus }}<span>$19.99</span></li>
-                            <li>Subtotal <span>$19.99</span></li>
-                            <li>Total <span>$19.99</span></li>
+                            <li>{{ $courses->nama_kursus }}<span>Rp.{{ $courses->price }}</span></li>
+                            <li>Subtotal <span>Rp.{{ $courses->price }}</span></li>
+                            <li>Total <span>Rp.{{ $courses->price }}</span></li>
                         </ul>
                         <p>Sorry, it seems that there are no available payment methods for your state. Please contact us if
                             you require assistance or wish to make alternate arrangements.</p>
