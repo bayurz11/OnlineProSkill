@@ -143,9 +143,18 @@
                                 </ul>
                             </div>
                             @auth
-                                <div class="mobile-menu-dropdown">
-                                    <img src="{{ asset('public/assets/img/courses/course_author001.png') }}"
-                                        alt="img" style="border-radius: 50%;">
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        <img src="{{ asset('public/assets/img/courses/course_author001.png') }}"
+                                            alt="img" style="border-radius: 50%; width: 40px; height: 40px;">
+                                    </a>
+
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                                    </ul>
                                 </div>
                             @endauth
                             {{-- <div class="mobile-login-btn">
