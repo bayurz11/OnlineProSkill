@@ -85,6 +85,6 @@ class PaymentController extends Controller
         //update status
         $klsoffline->status = $result[0]['status'];
         $klsoffline->save();
-        return redirect()->route('classroom');
+        return redirect()->route('classroom')->with('success', 'Pembayaran Berhasil');
     }
 }
