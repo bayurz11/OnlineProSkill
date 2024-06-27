@@ -70,7 +70,7 @@ class HomeController extends Controller
         if (!$courses) {
             return redirect()->route('home')->with('error', 'Kelas tidak ditemukan.');
         }
-        return view('checkout', compact('user', 'profile', 'courses'));
+        return view('home.checkout', compact('user', 'profile', 'courses'));
     }
     // public function checkout($id)
     // {
