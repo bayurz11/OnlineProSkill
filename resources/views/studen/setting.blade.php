@@ -75,7 +75,7 @@
                                     </ul>
                                 </div>
                                 <div class="tab-content" id="myTabContent">
-                                    <form action="{{ route('updateProfile', ['id' => $user->id]) }}"
+                                    <form action="{{ route('updateProfile', ['id' => $profile->id]) }}"
                                         class="instructor__profile-form" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="tab-pane fade show active" id="itemOne-tab-pane" role="tabpanel"
