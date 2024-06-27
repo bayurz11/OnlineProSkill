@@ -100,10 +100,10 @@
                                                     </div>
 
                                                     <div class="instructor__cover-info-right">
-                                                        <input type="file" id="fileInput" style="display: none;"
-                                                            accept="image/*">
+                                                        <input type="file" id="foto" name="foto"
+                                                            style="display: none;" accept="image/*">
                                                         <a href="#" class="btn btn-two arrow-btn"
-                                                            onclick="document.getElementById('fileInput').click(); return false;">
+                                                            onclick="document.getElementById('foto').click(); return false;">
                                                             Ungah Foto Profil
                                                         </a>
                                                     </div>
@@ -238,7 +238,7 @@
     <!-- dashboard-area-end -->
 
     <script>
-        document.getElementById('fileInput').addEventListener('change', function(event) {
+        document.getElementById('foto').addEventListener('change', function(event) {
             const file = event.target.files[0];
             if (file) {
                 const reader = new FileReader();
