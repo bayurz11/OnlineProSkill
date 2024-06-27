@@ -25,19 +25,19 @@ class AuthController extends Controller
             $user->last_login = now()->setTimezone('Asia/Jakarta')->toDateTimeString();
             $user->save();
 
-            // Ambil peran pengguna
-            $userRole = $user->userRole;
-
-            // Jika pengguna tidak memiliki peran
-            if (!$userRole) {
-                return redirect()->back()->with('error', 'Pengguna tidak memiliki peran yang ditetapkan!');
-            }
+            // Ambil profile pengguna
+            $profile = UserProfile::where('user_id', $user->id)->first();
 
             // Pengecekan bagian profil pengguna
-            if (!$user->gambar || !$user->phone_number || !$user->address) {
+            if (!$profile || !$profile->gambar || !$profile->phone_number || !$profile->address) {
                 return redirect()->route('profil')->with('info', 'Silakan lengkapi profil Anda terlebih dahulu.');
             } else {
                 // Jika sudah lengkap, redirect berdasarkan peran pengguna
+                $userRole = $user->userRole;
+                if (!$userRole) {
+                    return redirect()->back()->with('error', 'Pengguna tidak memiliki peran yang ditetapkan!');
+                }
+
                 $roleName = $userRole->role->role_name;
                 $userName = $user->name;
                 switch ($roleName) {
@@ -45,8 +45,6 @@ class AuthController extends Controller
                         return redirect()->route('dashboard')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                         break;
                     case 'Instruktur':
-                        return redirect('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
-                        break;
                     case 'Student':
                         return redirect('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                         break;
