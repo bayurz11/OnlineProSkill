@@ -57,7 +57,7 @@
                 <div class="col-lg-7">
                     <form action="{{ route('payment') }}" class="customer__form-wrap" method="POST">
                         @csrf
-                        <input type="hidden" name="id" value="{{ $courses->id }}">
+                        <input type="hidden" name="id" value="{{ $course->id }}">
                         <span class="title">RINCIAN PENAGIHAN</span>
 
                         <div class="form-grp">
@@ -89,10 +89,10 @@
                         <h2 class="title">PESANAN ANDA</h2>
                         <ul class="list-wrap">
                             <li class="title">Kelas <span>Subtotal</span></li>
-                            <li>{{ $courses->nama_kursus }}<span>Rp.
-                                    {{ number_format($courses->price, 0, ',', '.') }}</span></li>
-                            <li>Subtotal <span>Rp. {{ number_format($courses->price, 0, ',', '.') }}</span></li>
-                            <li>Total <span>Rp. {{ number_format($courses->price, 0, ',', '.') }}</span></li>
+                            <li>{{ $course->nama_kursus }}<span>Rp.
+                                    {{ number_format($course->price, 0, ',', '.') }}</span></li>
+                            <li>Subtotal <span>Rp. {{ number_format($course->price, 0, ',', '.') }}</span></li>
+                            <li>Total <span>Rp. {{ number_format($course->price, 0, ',', '.') }}</span></li>
                         </ul>
                     </div>
                 </div>
