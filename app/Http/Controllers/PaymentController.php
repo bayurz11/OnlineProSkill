@@ -69,4 +69,22 @@ class PaymentController extends Controller
             return redirect()->back()->with('error', 'Pembayaran gagal. Silakan coba lagi.');
         }
     }
+
+    public function success($id)
+    {
+        $apiInstance = new InvoiceApi();
+
+        $result = $apiInstance->getInvoices(null, $id);
+
+        //get data
+        $klsoffline = Order::where('external_id', $id)->firstOrFail();
+
+        if ($klsoffline->status == 'settled') {
+            return response()->json('Pembayaran berhasil di proses');
+        }
+        //update status
+        $klsoffline->status = $result[0]['status'];
+        $klsoffline->save();
+        return redirect()->route('/');
+    }
 }
