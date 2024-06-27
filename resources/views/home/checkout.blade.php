@@ -55,25 +55,26 @@
                     </div>
                 </div>
                 <div class="col-lg-7">
-                    <form action="#" class="customer__form-wrap">
+                    <form action="{{ route('payment') }}" class="customer__form-wrap" method="POST">
+                        @csrf
                         <span class="title">RINCIAN PENAGIHAN</span>
 
                         <div class="form-grp">
-                            <label for="company-name">Nama *</label>
-                            <input type="text" id="company-name">
+                            <label for="name">Nama *</label>
+                            <input type="text" id="name" name="name" value="{{ Auth::user()->name }}">
                         </div>
 
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-grp">
                                     <label for="phone">Phone *</label>
-                                    <input type="number" id="phone" min="0">
+                                    <input type="number" id="phone" name="phone" min="0">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-grp">
                                     <label for="email">Email address *</label>
-                                    <input type="email" id="email">
+                                    <input type="email" id="email" name="email" value="{{ Auth::user()->email }}">
                                 </div>
                             </div>
                         </div>
