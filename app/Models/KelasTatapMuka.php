@@ -10,27 +10,9 @@ class KelasTatapMuka extends Model
     use HasFactory;
     // Nama tabel
     protected $table = 'classroom_master';
+    protected $primaryKey = 'id';
 
-    // Kolom yang dapat diisi
-    protected $fillable = [
-        'nama_kursus',
-        'kategori_id',
-        'subkategori_id',
-        'content',
-        'tingkat',
-        'include',
-        'harga',
-        'diskon',
-        'harga_setelah_diskon',
-        'gratis',
-        'gambar',
-        'tag',
-    ];
-
-    // Mengonversi kolom 'include' dari/ke format JSON
-    protected $casts = [
-        'include' => 'array',
-    ];
+    protected $guarded = [];
 
     // Relasi ke model Kategori
     public function kategori()
