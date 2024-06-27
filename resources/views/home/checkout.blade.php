@@ -56,7 +56,7 @@
                 </div>
                 <div class="col-lg-7">
                     <form action="#" class="customer__form-wrap">
-                        <span class="title">Billing Details</span>
+                        <span class="title">RINCIAN PENAGIHAN</span>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-grp">
@@ -145,7 +145,7 @@
                             you require assistance or wish to make alternate arrangements.</p>
                         <p>Your personal data will be used to process your order, support your experience throughout this
                             website, and for other purposes described in our <a href="#">privacy policy.</a></p>
-                        <button class="btn">Place order</button>
+                        <button class="btn">Bayar & gabung kelas</button>
                     </div>
                 </div>
             </div>
