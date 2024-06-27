@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categories;
+use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use App\Models\KelasTatapMuka;
 use App\Http\Controllers\Controller;
@@ -12,9 +13,12 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $user = Auth::user();
-        return view('home.index', compact('user'));
+        $user = Auth::user(); // Mengambil pengguna yang sedang login
+        $profile = UserProfile::where('user_id', $user->id)->first(); // Mengambil profil pengguna yang terkait
+
+        return view('home.index', compact('user', 'profile'));
     }
+
     public function classroom()
     {
         $user = Auth::user();
