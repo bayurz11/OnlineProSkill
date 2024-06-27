@@ -88,26 +88,25 @@
                                         enctype="multipart/form-data">
                                         <div class="tab-pane fade show active" id="itemOne-tab-pane" role="tabpanel"
                                             aria-labelledby="itemOne-tab" tabindex="0">
-                                            {{-- <div class="instructor__cover-bg"
-                                                data-background="{{ asset('public/assets/img/bg/student_bg.jpg') }}"> --}}
-                                            <div class="instructor__cover-info">
-                                                <div class="instructor__cover-info-left">
-                                                    <div class="thumb">
-                                                        <img src="{{ asset('public/assets/img/courses/details_instructors02.jpg') }}"
-                                                            alt="img">
-                                                    </div>
-                                                    {{-- <label for="upload-photo" title="Upload Photo">
+                                            <div class="instructor__cover-bg">
+                                                <div class="instructor__cover-info">
+                                                    <div class="instructor__cover-info-left">
+                                                        <div class="thumb">
+                                                            <img src="{{ asset('public/assets/img/courses/details_instructors02.jpg') }}"
+                                                                alt="img">
+                                                        </div>
+                                                        {{-- <label for="upload-photo" title="Upload Photo">
                                                             <i class="fas fa-camera">Upload Foto</i>
                                                         </label>
                                                         <input type="file" id="upload-photo" style="display: none;"> --}}
-                                                </div>
+                                                    </div>
 
-                                                <div class="instructor__cover-info-right">
-                                                    <a href="#" class="btn btn-two arrow-btn">Edit Foto
-                                                        Sampul</a>
+                                                    <div class="instructor__cover-info-right">
+                                                        <a href="#" class="btn btn-two arrow-btn">Edit Foto
+                                                            Sampul</a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            {{-- </div> --}}
                                             <div class="instructor__profile-form-wrap">
 
                                                 <div class="row">
