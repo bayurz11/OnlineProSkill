@@ -37,7 +37,7 @@
     <div class="cart__area section-py-120">
         <div class="container">
             <div class="row">
-                <div class="col-lg-7">
+                <div class="col-lg-6">
                     <table class="table cart__table">
                         <thead>
                             <tr>
@@ -72,7 +72,7 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col-lg-5">
+                <div class="col-lg-6">
                     <div class="cart__collaterals-wrap">
                         <h2 class="title">Total Keranjang</h2>
                         <ul class="list-wrap">
