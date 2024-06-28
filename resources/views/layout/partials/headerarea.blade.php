@@ -129,6 +129,9 @@
 
                                             </ul>
                                         </div> --}}
+                                        @php
+                                            use Illuminate\Support\Str;
+                                        @endphp
                                         <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-xl-flex">
                                             <ul class="navigation">
                                                 <li class="menu-item-has-children">
@@ -140,10 +143,10 @@
                                                     <ul class="sub-menu" style="left: 0; right: auto;">
                                                         <li>
                                                             <a class="dropdown-item">
-                                                                <b>{{ $user->name }}</b>
+                                                                <b>{{ Str::limit($user->name, 10) }}</b>
                                                                 <br>
                                                                 <span
-                                                                    style="font-size: 14px; color: #b2b2b2;">{{ $user->email }}</span>
+                                                                    style="font-size: 14px; color: #b2b2b2;">{{ Str::limit($user->email, 10) }}</span>
                                                             </a>
                                                         </li>
                                                         <li class="{{ Request::is('profil') ? 'active' : '' }}">
