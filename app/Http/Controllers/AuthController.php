@@ -37,14 +37,12 @@ class AuthController extends Controller
                 case 'Instruktur':
                     return redirect()->route('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                 case 'Studen':
-                    return redirect()->route('checkout', ['id' => $user->id])->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
-                    // case 'Studen':
-                    //     $profile = $user->userProfile; // Perbaiki penggunaan relasi di sini
-                    //     if (!$profile || !$profile->gambar || !$profile->date_of_birth || !$profile->phone_number) {
-                    //         return redirect()->route('profil')->with('info', 'Harap lengkapi profil Anda untuk melanjutkan.');
-                    //     } else {
-                    //         return redirect()->route('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
-                    //     }
+                    $profile = $user->userProfile; // Perbaiki penggunaan relasi di sini
+                    if (!$profile || !$profile->gambar || !$profile->date_of_birth || !$profile->phone_number) {
+                        return redirect()->route('profil')->with('info', 'Harap lengkapi profil Anda untuk melanjutkan.');
+                    } else {
+                        return redirect()->route('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+                    }
                 default:
                     return redirect()->route('/')->with('error', 'Peran pengguna tidak dikenali.');
             }
