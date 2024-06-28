@@ -64,15 +64,15 @@ class KelasTatapMukaController extends Controller
 
     public function edit($id)
     {
-        $course = KelasTatapMuka::find($id);
+        $kursus = KelasTatapMuka::find($id);
 
-        if (!$course) {
+        if (!$kursus) {
             // Jika kursus tidak ditemukan, kembalikan respons dengan kode status 404
             return response()->json(['message' => 'Kursus tidak ditemukan'], 404);
         }
 
         // Kembalikan respons dengan data kursus dalam format JSON
-        return response()->json($course);
+        return response()->json($kursus);
     }
 
     public function update(Request $request, $id)
