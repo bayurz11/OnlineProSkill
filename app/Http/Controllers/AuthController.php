@@ -156,6 +156,7 @@ class AuthController extends Controller
         return redirect()->route('profil')->with('success', 'Pendaftaran berhasil! Silahkan Masuk');
     }
 
+
     public function guestregister(Request $request)
     {
         $request->validate([
@@ -185,6 +186,6 @@ class AuthController extends Controller
         // Login user after registration
         Auth::login($user);
 
-        return redirect()->route('profil')->with('success', 'Pendaftaran berhasil! Silahkan Masuk');
+        return redirect()->route('checkout', ['id' => $user->id]);
     }
 }
