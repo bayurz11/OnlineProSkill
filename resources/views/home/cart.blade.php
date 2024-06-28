@@ -54,18 +54,19 @@
                                 <tr>
                                     <td class="product__thumb">
                                         <a href="shop-details.html"> <img
-                                                src="{{ asset('public/uploads/' . $item['gambar']) }}"alt="img"></a>
+                                                src="{{ asset('public/uploads/' . $item['gambar']) }}" alt="img"></a>
                                     </td>
                                     <td class="product__name">
                                         <a href="shop-details.html">{{ $item['name'] }}</a>
                                     </td>
-                                    <td class="product__price">Rp.{{ $item['price'] }}</td>
+                                    <td class="product__price">Rp.{{ number_format($item['price'], 0, ',', '.') }}</td>
                                     <td class="product__quantity">
                                         <div class="cart-plus-minus">
                                             <input type="text" value="{{ $item['quantity'] }}">
                                         </div>
                                     </td>
-                                    <td class="product__subtotal">Rp.{{ $item['price'] * $item['quantity'] }}</td>
+                                    <td class="product__subtotal">
+                                        Rp.{{ number_format($item['price'] * $item['quantity'], 0, ',', '.') }}</td>
                                     <td class="product__remove">
                                         <a href="#">×</a>
                                     </td>
@@ -78,10 +79,14 @@
                     <div class="cart__collaterals-wrap">
                         <h2 class="title">Total keranjang</h2>
                         <ul class="list-wrap">
-                            <li>Subtotal <span>Rp.{{ array_sum(array_column($cart, 'price')) }}</span></li>
-                            <li>Total <span class="amount">Rp.{{ array_sum(array_column($cart, 'price')) }}</span></li>
+                            <li>Subtotal
+                                <span>Rp.{{ number_format(array_sum(array_column($cart, 'price')), 0, ',', '.') }}</span>
+                            </li>
+                            <li>Total <span
+                                    class="amount">Rp.{{ number_format(array_sum(array_column($cart, 'price')), 0, ',', '.') }}</span>
+                            </li>
                         </ul>
-                        <a href="{{ route('checkout', ['id' => $cart->id]) }}" class="btn">Bayar & Gabung kelas</a>
+                        <a href="{{ route('checkout', ['id' => $cart[0]['id']]) }}" class="btn">Bayar & Gabung kelas</a>
                     </div>
                 </div>
             </div>
