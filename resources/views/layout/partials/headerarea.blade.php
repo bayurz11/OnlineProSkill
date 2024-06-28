@@ -90,6 +90,9 @@
                                             </a>
                                         </li>
                                     @endauth
+                                    @php
+                                        use Illuminate\Support\Str;
+                                    @endphp
                                     @auth
                                         {{-- <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-xl-flex">
                                             <ul class="navigation">
@@ -129,9 +132,7 @@
 
                                             </ul>
                                         </div> --}}
-                                        @php
-                                            use Illuminate\Support\Str;
-                                        @endphp
+
                                         <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-xl-flex">
                                             <ul class="navigation">
                                                 <li class="menu-item-has-children">
