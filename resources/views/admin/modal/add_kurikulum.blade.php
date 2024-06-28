@@ -12,7 +12,7 @@
                     <div class="mb-3">
                         <label for="title" class="form-label">Judul<span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="title" name="title"
-                            placeholder="Masukkan kudul Kurikulum anda">
+                            placeholder="Masukkan judul Kurikulum Anda">
                     </div>
                 </div>
                 <div class="modal-footer">
