@@ -158,7 +158,23 @@
                         createEditor(id, data.content);
                     }
 
+                    let editors = {};
+
                     function createEditor(id, content) {
+                        // Hapus editor yang sudah ada jika ada
+                        if (editors[id]) {
+                            editors[id].destroy()
+                                .then(() => {
+                                    delete editors[id];
+                                    initEditor(id, content);
+                                })
+                                .catch(error => console.error(error));
+                        } else {
+                            initEditor(id, content);
+                        }
+                    }
+
+                    function initEditor(id, content) {
                         ClassicEditor.create(document.querySelector('#edit_content'))
                             .then(editor => {
                                 editors[id] = editor;
@@ -171,6 +187,7 @@
                             })
                             .catch(error => console.error(error));
                     }
+
 
                     $('#edit_price').val(data.price);
                     $('#edit_discount').val(data.discount);
