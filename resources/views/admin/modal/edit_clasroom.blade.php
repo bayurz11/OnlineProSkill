@@ -117,6 +117,8 @@
             fetch(`/class/${id}/edit`)
                 .then(response => response.json())
                 .then(data => {
+                    console.log(data); // Tambahkan log untuk debugging
+
                     $('#editCourseForm').attr('action', `/class/${id}`);
                     $('#edit_nama_kursus').val(data.nama_kursus);
                     $('#edit_durasi').val(data.durasi);
@@ -191,15 +193,20 @@
 
                     const includeContainer = $('#edit-include-container');
                     includeContainer.html('');
-                    data.include.forEach(item => {
-                        const inputGroup = $(`
-                        <div class="input-group mb-2">
-                            <input type="text" class="form-control" name="include[]" value="${item}">
-                            <button class="btn btn-danger remove-edit-include" type="button">-</button>
-                        </div>
-                    `);
-                        includeContainer.append(inputGroup);
-                    });
+
+                    if (Array.isArray(data.include)) {
+                        data.include.forEach(item => {
+                            const inputGroup = $(`
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" name="include[]" value="${item}">
+                                <button class="btn btn-danger remove-edit-include" type="button">-</button>
+                            </div>
+                        `);
+                            includeContainer.append(inputGroup);
+                        });
+                    } else {
+                        console.error('include is not an array:', data.include);
+                    }
 
                     toggleEditPriceAndDiscount();
                 })
