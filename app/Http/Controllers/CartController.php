@@ -64,6 +64,7 @@ class CartController extends Controller
                 "id" => $id,
                 "name" => $course->nama_kursus, // Pastikan field name ada di model KelasTatapMuka
                 "price" => $course->price, // Pastikan field price ada di model KelasTatapMuka
+                "gambar" => $course->gambar,
                 "quantity" => 1,
             ];
         }

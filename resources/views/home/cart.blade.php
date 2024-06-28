@@ -54,7 +54,7 @@
                                 <tr>
                                     <td class="product__thumb">
                                         <a href="shop-details.html"> <img
-                                                src="{{ asset('public/uploads/' . $cours->gambar) }}"alt=""></a>
+                                                src="{{ asset('public/uploads/' . $item['gambar']) }}"alt="img"></a>
                                     </td>
                                     <td class="product__name">
                                         <a href="shop-details.html">{{ $item['name'] }}</a>
