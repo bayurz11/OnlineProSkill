@@ -13,7 +13,7 @@ use App\Http\Requests\UpdateKurikulumRequest;
 class KurikulumController extends Controller
 {
 
-    public function index()
+    public function index($id)
     {
         $user = Auth::user();
         $categori = Categories::all();
