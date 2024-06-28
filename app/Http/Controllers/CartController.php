@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\UserProfile;
+use Illuminate\Http\Request;
 use App\Models\KelasTatapMuka;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -45,6 +46,18 @@ class CartController extends Controller
     public function update(UpdateCartRequest $request, Cart $cart)
     {
         //
+    }
+    public function updateQuantity(Request $request, $id)
+    {
+        $cart = Session::get('cart', []);
+
+        if (isset($cart[$id])) {
+            $cart[$id]['quantity'] = $request->quantity;
+        }
+
+        Session::put('cart', $cart);
+
+        return redirect()->route('cart.view');
     }
 
     public function destroy(Cart $cart)

@@ -62,7 +62,12 @@
                                     <td class="product__price">Rp.{{ $item['price'] }}</td>
                                     <td class="product__quantity">
                                         <div class="cart-plus-minus">
-                                            <input type="text" value="{{ $item['quantity'] }}">
+                                            <form action="{{ route('cart.updateQuantity', $item['id']) }}" method="POST">
+                                                @csrf
+                                                <input type="number" name="quantity" value="{{ $item['quantity'] }}"
+                                                    min="1">
+                                                <button type="submit" class="btn btn-primary btn-sm">Update</button>
+                                            </form>
                                         </div>
                                     </td>
                                     <td class="product__subtotal">Rp.{{ $item['price'] * $item['quantity'] }}</td>
