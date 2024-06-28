@@ -14,7 +14,7 @@
                             placeholder="Masukkan kudul Kurikulum anda">
                     </div>
                     <!-- Tambahkan input untuk course_id -->
-                    {{-- <input type="hidden" name="course_id" value="{{ $course->id }}"> --}}
+                    <input type="hidden" name="course_id" value="{{ $course->id }}">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
