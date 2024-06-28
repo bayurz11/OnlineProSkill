@@ -84,7 +84,7 @@ class CartController extends Controller
 
         Session::put('cart', $cart);
 
-        return redirect()->route('cart.view');
+        return redirect()->route('classroom');
     }
     public function removeFromCart($id)
     {
