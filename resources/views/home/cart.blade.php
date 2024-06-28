@@ -37,9 +37,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <form action="{{ route('cart.updateQuantity', $item['id']) }}" method="POST">
+                    <form action="{{ route('cart.updateQuantity') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="_method" value="POST">
                         <table class="table cart__table">
                             <thead>
                                 <tr>
@@ -65,7 +64,8 @@
                                         <td class="product__price">Rp.{{ $item['price'] }}</td>
                                         <td class="product__quantity">
                                             <div class="cart-plus-minus">
-                                                <input type="number" name="quantity[]" value="{{ $item['quantity'] }}">
+                                                <input type="number" name="quantity[{{ $item['id'] }}]"
+                                                    value="{{ $item['quantity'] }}">
                                             </div>
                                         </td>
                                         <td class="product__subtotal">Rp.{{ $item['price'] * $item['quantity'] }}</td>
