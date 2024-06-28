@@ -37,7 +37,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <form action="{{ route('cart.updateQuantity', ['id' => $item['id']]) }}" method="POST">
+                    <form action="{{ route('cart.updateQuantity') }}" method="POST">
                         @csrf
                         <table class="table cart__table">
                             <thead>
