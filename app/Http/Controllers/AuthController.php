@@ -188,7 +188,7 @@ class AuthController extends Controller
         Auth::login($user);
 
         // Temukan course berdasarkan ID yang diterima sebagai parameter
-        $course = KelasTatapMuka::find($id);
+        // $course = KelasTatapMuka::find($id);
 
         // Redirect ke halaman checkout dengan ID course
         // return redirect()->route('checkout', ['id' => $course->id]);
