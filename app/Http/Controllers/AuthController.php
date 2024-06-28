@@ -153,6 +153,8 @@ class AuthController extends Controller
         $userProfile->role_id = 3;
         $userProfile->save();
 
+        Auth::login($user);
+
         return redirect()->route('profil')->with('success', 'Pendaftaran berhasil! Silahkan Masuk');
     }
 
@@ -183,7 +185,6 @@ class AuthController extends Controller
         $userProfile->role_id = 3;
         $userProfile->save();
 
-        // Login user after registration
         Auth::login($user);
 
         return redirect()->route('checkout');
