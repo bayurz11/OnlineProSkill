@@ -74,20 +74,37 @@
                 </div>
                 <div class="col-lg-5">
                     <div class="cart__collaterals-wrap">
-                        <h2 class="title">Total keranjang</h2>
-                        @foreach ($cart as $item)
-                            <ul class="list-wrap">
-                                <a href="{{ route('classroomdetail', $item['id']) }}"> <img
-                                        src="{{ asset('public/uploads/' . $item['gambar']) }}" alt="img"></a><a
-                                    href="{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}
-                                    Rp.{{ $item['price'] }}</a>
-                                <li>Subtotal <span>Rp.{{ array_sum(array_column($cart, 'price')) }}</span></li>
-                                <li>Total <span class="amount">Rp.{{ array_sum(array_column($cart, 'price')) }}</span></li>
-                            </ul>
-                            <a href="{{ route('checkout', $item['id']) }}" class="btn">Bayar & Gabung kelas</a>
-                        @endforeach
+                        <h2 class="title">Total Keranjang</h2>
+                        <ul class="list-wrap">
+                            @foreach ($cart as $item)
+                                <li class="cart-item" style="display: flex; align-items: center; margin-bottom: 10px;">
+                                    <a href="{{ route('classroomdetail', $item['id']) }}" style="margin-right: 10px;">
+                                        <img src="{{ asset('public/uploads/' . $item['gambar']) }}" alt="img"
+                                            style="width: 50px; height: 50px;">
+                                    </a>
+                                    <div class="cart-details" style="display: flex; flex-direction: column;">
+                                        <a href="{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}</a>
+                                        <span class="cart-price">Rp.{{ number_format($item['price'], 0, ',', '.') }}</span>
+                                    </div>
+                                </li>
+                            @endforeach
+                        </ul>
+                        <div class="cart-summary" style="margin-top: 20px;">
+                            <div class="subtotal"
+                                style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                <span>Subtotal</span>
+                                <span>Rp.{{ number_format(array_sum(array_column($cart, 'price')), 0, ',', '.') }}</span>
+                            </div>
+                            <div class="total" style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                <span>Total</span>
+                                <span
+                                    class="amount">Rp.{{ number_format(array_sum(array_column($cart, 'price')), 0, ',', '.') }}</span>
+                            </div>
+                            <a href="{{ route('checkout') }}" class="btn">Bayar & Gabung Kelas</a>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
