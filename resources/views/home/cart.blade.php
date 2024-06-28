@@ -57,7 +57,7 @@
                                                 alt=""></a>
                                     </td>
                                     <td class="product__name">
-                                        <a href="shop-details.html">{{ $item['name'] }}</a>
+                                        <a href="shop-details.html">{{ $item['nama_kursus'] }}</a>
                                     </td>
                                     <td class="product__price">Rp.{{ $item['price'] }}</td>
                                     <td class="product__quantity">
