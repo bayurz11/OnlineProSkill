@@ -164,20 +164,39 @@
                     function createEditor(id, content) {
                         const editorSelector = `#edit_content_${id}`;
                         const inputSelector = `#edit_content_input_${id}`;
+                        const editorElement = document.querySelector(editorSelector);
+                        const inputElement = document.querySelector(inputSelector);
 
-                        ClassicEditor.create(document.querySelector(editorSelector))
+                        if (!editorElement || !inputElement) {
+                            console.error(`Element with id ${id} not found`);
+                            return;
+                        }
+
+                        // Hapus editor sebelumnya jika ada
+                        if (editors[id]) {
+                            editors[id].destroy()
+                                .then(() => {
+                                    console.log(`Editor ${id} destroyed`);
+                                    initEditor(editorElement, inputElement, content, id);
+                                })
+                                .catch(error => console.error(`Error destroying editor ${id}:`,
+                                    error));
+                        } else {
+                            initEditor(editorElement, inputElement, content, id);
+                        }
+                    }
+
+                    function initEditor(editorElement, inputElement, content, id) {
+                        ClassicEditor.create(editorElement)
                             .then(editor => {
                                 editors[id] = editor;
                                 editor.setData(content);
                                 editor.model.document.on('change:data', () => {
-                                    const content_input = document.querySelector(
-                                        inputSelector);
-                                    content_input.value = editor.getData();
+                                    inputElement.value = editor.getData();
                                 });
                             })
-                            .catch(error => console.error(error));
+                            .catch(error => console.error(`Error creating editor ${id}:`, error));
                     }
-
 
                     $('#edit_price').val(data.price);
                     $('#edit_discount').val(data.discount);
