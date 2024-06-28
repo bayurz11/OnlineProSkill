@@ -33,16 +33,16 @@ class CartController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show()
     {
         $user = Auth::user();
         $course = KelasTatapMuka::all();
-        $profile = UserProfile::where('user_id', $user->id)->first();
+        $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
+
         return view('home.cart', compact('user', 'course', 'profile'));
     }
+
+
 
     /**
      * Show the form for editing the specified resource.

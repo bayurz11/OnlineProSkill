@@ -116,6 +116,28 @@
                     </div>
                 </div>
             </div>
+
+            <!-- User information and profile section -->
+            @if ($user)
+                <div class="row mt-5">
+                    <div class="col-12">
+                        <h2>Profil Pengguna</h2>
+                        <p>Nama: {{ $user->name }}</p>
+                        @if ($profile)
+                            <p>Alamat: {{ $profile->alamat }}</p>
+                            <!-- tampilkan informasi profil lainnya -->
+                        @else
+                            <p>Profil tidak ditemukan.</p>
+                        @endif
+                    </div>
+                </div>
+            @else
+                <div class="row mt-5">
+                    <div class="col-12">
+                        <p>Anda belum login. <a href="{{ route('login') }}">Login</a> untuk melihat profil Anda.</p>
+                    </div>
+                </div>
+            @endif
         </div>
     </div>
     <!-- cart-area-end -->
