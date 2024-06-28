@@ -126,6 +126,7 @@ class AuthController extends Controller
         // Redirect pengguna ke halaman login yang sesuai dengan pesan berhasil logout
         return redirect()->route($redirectRoute)->with('success', "Terimakasih, $userName! Anda Berhasil keluar.");
     }
+
     public function register(Request $request)
     {
         $request->validate([
@@ -151,6 +152,38 @@ class AuthController extends Controller
         $userProfile->user_id = $user->id;
         $userProfile->role_id = 3;
         $userProfile->save();
+
+        return redirect()->route('profil')->with('success', 'Pendaftaran berhasil! Silahkan Masuk');
+    }
+
+    public function guestregister(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:3|confirmed',
+        ]);
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'last_login' => Carbon::now(),
+            'status' => 1,
+        ]);
+
+        $userRole = new UserRoles();
+        $userRole->user_id = $user->id;
+        $userRole->role_id = 3;
+        $userRole->save();
+
+        $userProfile = new UserProfile();
+        $userProfile->user_id = $user->id;
+        $userProfile->role_id = 3;
+        $userProfile->save();
+
+        // Login user after registration
+        Auth::login($user);
 
         return redirect()->route('profil')->with('success', 'Pendaftaran berhasil! Silahkan Masuk');
     }
