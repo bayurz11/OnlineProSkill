@@ -116,7 +116,7 @@
                     </div>
                 </div>
             </div>
-
+            {{-- 
             <!-- User information and profile section -->
             @if ($user)
                 <div class="row mt-5">
@@ -137,7 +137,7 @@
                         <p>Anda belum login. <a href="{{ route('login') }}">Login</a> untuk melihat profil Anda.</p>
                     </div>
                 </div>
-            @endif
+            @endif --}}
         </div>
     </div>
     <!-- cart-area-end -->
