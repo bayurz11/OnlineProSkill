@@ -194,18 +194,24 @@
                     const includeContainer = $('#edit-include-container');
                     includeContainer.html('');
 
-                    if (Array.isArray(data.include)) {
-                        data.include.forEach(item => {
-                            const inputGroup = $(`
-                            <div class="input-group mb-2">
-                                <input type="text" class="form-control" name="include[]" value="${item}">
-                                <button class="btn btn-danger remove-edit-include" type="button">-</button>
-                            </div>
-                        `);
-                            includeContainer.append(inputGroup);
-                        });
-                    } else {
-                        console.error('include is not an array:', data.include);
+                    try {
+                        const includes = JSON.parse(data.include);
+
+                        if (Array.isArray(includes)) {
+                            includes.forEach(item => {
+                                const inputGroup = $(`
+                                <div class="input-group mb-2">
+                                    <input type="text" class="form-control" name="include[]" value="${item}">
+                                    <button class="btn btn-danger remove-edit-include" type="button">-</button>
+                                </div>
+                            `);
+                                includeContainer.append(inputGroup);
+                            });
+                        } else {
+                            console.error('Parsed include is not an array:', includes);
+                        }
+                    } catch (e) {
+                        console.error('Error parsing include:', e, data.include);
                     }
 
                     toggleEditPriceAndDiscount();
