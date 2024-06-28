@@ -324,6 +324,7 @@
                                         class="injectable">
                                 </a>
                             </div>
+                            <br>
                             <div class="tg-button-wrap">
                                 <a href="{{ route('cart.add', ['id' => $courses->id]) }}" class="btn btn-two arrow-btn">
                                     Masukkan keranjang
