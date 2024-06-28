@@ -57,7 +57,7 @@
                                                 src="{{ asset('public/uploads/' . $item['gambar']) }}" alt="img"></a>
                                     </td>
                                     <td class="product__name">
-                                        <a href="shop-details.html">{{ $item['name'] }}</a>
+                                        <a href="{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}</a>
                                     </td>
                                     <td class="product__price">Rp.{{ $item['price'] }}</td>
                                     <td class="product__quantity" style="text-align: left;">
