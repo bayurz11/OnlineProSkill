@@ -107,35 +107,8 @@
     </div>
 </div>
 
+
 <script>
-    // Ambil data kursus dan isi bidang-bidang formulir
-    $(document).ready(function() {
-        $('#editModal').on('show.bs.modal', function(event) {
-            var tombol = $(event.relatedTarget); // Tombol yang memicu modal
-            var idKursus = tombol.data('id-kursus'); // Ambil ID kursus dari atribut data
-
-            // Permintaan AJAX untuk mengambil data kursus
-            $.ajax({
-                url: '/kelas/' + idKursus + '/edit',
-                method: 'GET',
-                success: function(response) {
-                    // Isi bidang-bidang formulir dengan data yang diambil
-                    $('#edit_nama_kursus').val(response.nama_kursus);
-                    $('#edit_durasi').val(response.durasi);
-                    $('#edit_sertifikat').val(response.sertifikat);
-                    $('#edit_category').val(response.kategori_id).change();
-                    // Isi bidang-bidang lainnya dengan cara yang sama
-                },
-                error: function(xhr, status, error) {
-                    console.error('Error AJAX: ' + status + ': ' + error);
-                    alert('Gagal mengambil data kursus. Silakan coba lagi.');
-                }
-            });
-        });
-    });
-</script>
-
-{{-- <script>
     $(document).ready(function() {
         const editors = {};
 
@@ -297,4 +270,4 @@
 
         $('#edit_free').on('change', toggleEditPriceAndDiscount);
     });
-</script> --}}
+</script>

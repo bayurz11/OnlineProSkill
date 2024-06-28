@@ -62,7 +62,7 @@ Route::middleware('isAdmin')->group(function () {
     Route::get('/classroomsetting', [KelasTatapMukaController::class, 'index'])->name('classroomsetting');
     Route::post('/storeclas', [KelasTatapMukaController::class, 'store'])->name('storeclas');
     Route::post('/update-class-status/{id}', [KelasTatapMukaController::class, 'updateclassstatus']);
-    Route::get('/kelas/{id}/edit', [KelasTatapMukaController::class, 'edit'])->name('kelas.edit');
+    Route::get('/class/{id}/edit', [KelasTatapMukaController::class, 'edit'])->name('class.edit');
     Route::put('/class/{id}', [KelasTatapMukaController::class, 'update'])->name('class.update');
     Route::delete('/class_destroy/{id}', [KelasTatapMukaController::class, 'destroy'])->name('class.destroy');
 });
