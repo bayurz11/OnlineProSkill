@@ -162,76 +162,17 @@
                     }
 
                     function createEditor(id, content) {
-                        const editorSelector = `#edit_content_${id}`;
-                        const inputSelector = `#edit_content_input_${id}`;
-                        const editorElement = document.querySelector(editorSelector);
-                        const inputElement = document.querySelector(inputSelector);
-
-                        if (!editorElement || !inputElement) {
-                            console.error(`Element with id ${id} not found`);
-                            return;
-                        }
-
-                        // Hapus editor sebelumnya jika ada
-                        if (editors[id]) {
-                            editors[id].destroy()
-                                .then(() => {
-                                    console.log(`Editor ${id} destroyed`);
-                                    initEditor(editorElement, inputElement, content, id);
-                                })
-                                .catch(error => console.error(`Error destroying editor ${id}:`,
-                                    error));
-                        } else {
-                            initEditor(editorElement, inputElement, content, id);
-                        }
-                    }
-
-                    function initEditor(editorElement, inputElement, content, id) {
-                        ClassicEditor
-                            .create(editorElement, {
-                                // Konfigurasi opsional ClassicEditor
-                            })
+                        ClassicEditor.create(document.querySelector('#edit_content'))
                             .then(editor => {
                                 editors[id] = editor;
                                 editor.setData(content);
                                 editor.model.document.on('change:data', () => {
-                                    inputElement.value = editor.getData();
+                                    const content_input = document.querySelector(
+                                        '#edit_content_input');
+                                    content_input.value = editor.getData();
                                 });
                             })
-                            .catch(error => {
-                                console.error(`Error creating editor ${id}:`, error);
-                            });
-                    }
-
-
-                    function initEditor(editorElement, inputElement, content, id) {
-                        ClassicEditor
-                            .create(editorElement, {
-                                // Konfigurasi opsional ClassicEditor
-                            })
-                            .then(editor => {
-                                editors[id] = editor;
-                                editor.setData(content);
-                                editor.model.document.on('change:data', () => {
-                                    inputElement.value = editor.getData();
-                                });
-                            })
-                            .catch(error => {
-                                console.error(`Error creating editor ${id}:`, error);
-                            });
-                    }
-
-
-                    function initEditor(editorElement, inputElement, content, id) {
-                        ClassicEditor.create(editorElement)
-                            .then(editor => {
-                                editors[id] = editor;
-                                editor.setData(content);
-                                editor.model.document.on('change:data', () => {
-                                    inputElement.value = editor.getData();
-                                });
-                            })
-                            .catch(error => console.error(`Error creating editor ${id}:`, error));
+                            .catch(error => console.error(error));
                     }
 
                     $('#edit_price').val(data.price);
