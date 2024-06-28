@@ -156,6 +156,16 @@
                         </ul>
                     </div>
                 </div>
+                <div class="col-lg-5">
+                    <div class="cart__collaterals-wrap">
+                        <h2 class="title">Total keranjang</h2>
+                        <ul class="list-wrap">
+                            <li>Subtotal <span>Rp.{{ array_sum(array_column($cart, 'price')) }}</span></li>
+                            <li>Total <span class="amount">Rp.{{ array_sum(array_column($cart, 'price')) }}</span></li>
+                        </ul>
+                        <a href="{{ route('checkout', $item['id']) }}" class="btn">Bayar & Gabung kelas</a>
+                    </div>
+                </div>
             </div>
 
         </div>
