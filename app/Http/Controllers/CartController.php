@@ -8,6 +8,7 @@ use App\Models\KelasTatapMuka;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreCartRequest;
+use Illuminate\Support\Facades\Session;
 use App\Http\Requests\UpdateCartRequest;
 
 class CartController extends Controller
@@ -17,17 +18,11 @@ class CartController extends Controller
         return view('home.cart');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreCartRequest $request)
     {
         //
@@ -36,35 +31,45 @@ class CartController extends Controller
     public function show()
     {
         $user = Auth::user();
-        $course = KelasTatapMuka::all();
+        $cart = Session::get('cart', []);
         $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
 
-        return view('home.cart', compact('user', 'course', 'profile'));
+        return view('home.cart', compact('user', 'cart', 'profile'));
     }
 
-
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Cart $cart)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateCartRequest $request, Cart $cart)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Cart $cart)
     {
         //
+    }
+
+    public function addToCart($id)
+    {
+        $course = KelasTatapMuka::find($id);
+        $cart = Session::get('cart', []);
+
+        if (isset($cart[$id])) {
+            $cart[$id]['quantity']++;
+        } else {
+            $cart[$id] = [
+                "id" => $id,
+                "name" => $course->name, // Pastikan field name ada di model KelasTatapMuka
+                "price" => $course->price, // Pastikan field price ada di model KelasTatapMuka
+                "quantity" => 1,
+            ];
+        }
+
+        Session::put('cart', $cart);
+
+        return redirect()->route('cart.view');
     }
 }

@@ -1,10 +1,9 @@
+@extends('layout.mainlayout')
+
 @section('title', 'ProSkill Akademia | Cart')
 <?php $page = 'Cart'; ?>
 
-@extends('layout.mainlayout')
-
 @section('content')
-    <!-- breadcrumb-area -->
     <section class="breadcrumb__area breadcrumb__bg" data-background="{{ asset('public/assets/img/bg/breadcrumb_bg.jpg') }}">
         <div class="container">
             <div class="row">
@@ -34,9 +33,7 @@
                 data-aos-delay="400">
         </div>
     </section>
-    <!-- breadcrumb-area-end -->
 
-    <!-- cart-area -->
     <div class="cart__area section-py-120">
         <div class="container">
             <div class="row">
@@ -53,55 +50,27 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="product__thumb">
-                                    <a href="shop-details.html"><img src="assets/img/shop/shop_img01.jpg"
-                                            alt=""></a>
-                                </td>
-                                <td class="product__name">
-                                    <a href="shop-details.html">Antiaging and Longevity</a>
-                                </td>
-                                <td class="product__price">$13.00</td>
-                                <td class="product__quantity">
-                                    <div class="cart-plus-minus">
-                                        <input type="text" value="1">
-                                    </div>
-                                </td>
-                                <td class="product__subtotal">$13.00</td>
-                                <td class="product__remove">
-                                    <a href="#">×</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="product__thumb">
-                                    <a href="shop-details.html"><img src="assets/img/shop/shop_img02.jpg"
-                                            alt=""></a>
-                                </td>
-                                <td class="product__name">
-                                    <a href="shop-details.html">Time to Explore</a>
-                                </td>
-                                <td class="product__price">$19.00</td>
-                                <td class="product__quantity">
-                                    <div class="cart-plus-minus">
-                                        <input type="text" value="1">
-                                    </div>
-                                </td>
-                                <td class="product__subtotal">$19.00</td>
-                                <td class="product__remove">
-                                    <a href="#">×</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="6" class="cart__actions">
-                                    <form action="#" class="cart__actions-form">
-                                        <input type="text" placeholder="Coupon code">
-                                        <button type="submit" class="btn">Apply coupon</button>
-                                    </form>
-                                    <div class="update__cart-btn text-end f-right">
-                                        <button type="submit" class="btn">Update cart</button>
-                                    </div>
-                                </td>
-                            </tr>
+                            @foreach ($cart as $item)
+                                <tr>
+                                    <td class="product__thumb">
+                                        <a href="shop-details.html"><img src="assets/img/shop/shop_img01.jpg"
+                                                alt=""></a>
+                                    </td>
+                                    <td class="product__name">
+                                        <a href="shop-details.html">{{ $item['name'] }}</a>
+                                    </td>
+                                    <td class="product__price">${{ $item['price'] }}</td>
+                                    <td class="product__quantity">
+                                        <div class="cart-plus-minus">
+                                            <input type="text" value="{{ $item['quantity'] }}">
+                                        </div>
+                                    </td>
+                                    <td class="product__subtotal">${{ $item['price'] * $item['quantity'] }}</td>
+                                    <td class="product__remove">
+                                        <a href="#">×</a>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -109,36 +78,13 @@
                     <div class="cart__collaterals-wrap">
                         <h2 class="title">Cart totals</h2>
                         <ul class="list-wrap">
-                            <li>Subtotal <span>$32.00</span></li>
-                            <li>Total <span class="amount">$32.00</span></li>
+                            <li>Subtotal <span>${{ array_sum(array_column($cart, 'price')) }}</span></li>
+                            <li>Total <span class="amount">${{ array_sum(array_column($cart, 'price')) }}</span></li>
                         </ul>
                         <a href="check-out.html" class="btn">Proceed to checkout</a>
                     </div>
                 </div>
             </div>
-            {{-- 
-            <!-- User information and profile section -->
-            @if ($user)
-                <div class="row mt-5">
-                    <div class="col-12">
-                        <h2>Profil Pengguna</h2>
-                        <p>Nama: {{ $user->name }}</p>
-                        @if ($profile)
-                            <p>Alamat: {{ $profile->alamat }}</p>
-                            <!-- tampilkan informasi profil lainnya -->
-                        @else
-                            <p>Profil tidak ditemukan.</p>
-                        @endif
-                    </div>
-                </div>
-            @else
-                <div class="row mt-5">
-                    <div class="col-12">
-                        <p>Anda belum login. <a href="{{ route('login') }}">Login</a> untuk melihat profil Anda.</p>
-                    </div>
-                </div>
-            @endif --}}
         </div>
     </div>
-    <!-- cart-area-end -->
 @endsection

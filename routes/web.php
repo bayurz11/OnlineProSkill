@@ -109,5 +109,6 @@ Route::get('/classroomdetail/{id}', [HomeController::class, 'classroomdetail'])-
 Route::get('/checkout/{id}', [HomeController::class, 'checkout'])->name('checkout');
 
 //Cart
-Route::get('/cart', [CartController::class, 'show'])->name('cart');
-Route::get('/addcart/{id}', [CartController::class, 'index'])->name('addcart');
+Route::get('/cart', [CartController::class, 'show'])->name('cart.view');
+Route::get('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
+// Route::get('/addcart/{id}', [CartController::class, 'index'])->name('addcart');
