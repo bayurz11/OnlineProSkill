@@ -25,7 +25,7 @@ class KurikulumController extends Controller
         if (!$user) {
             return redirect()->route('login_admin');
         }
-        return view('admin.KelasTatapMuka.kurikulum', compact('user', 'categori', 'count', 'course'));
+        return view('admin.KelasTatapMuka.kurikulum', compact('user', 'categori', 'count', 'course', 'cours'));
     }
 
     /**
