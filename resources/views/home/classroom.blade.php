@@ -181,7 +181,7 @@
                                                                 <i class="flaticon-arrow-right"></i>
                                                             </a>
                                                         </div>
-                                                        <div class="button">
+                                                        <div class="button" style="color: rgb(206, 206, 206)">
                                                             <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}"
                                                                 class="cart-count">
                                                                 <img src="{{ asset('public/assets/img/icons/cart.svg') }}"
