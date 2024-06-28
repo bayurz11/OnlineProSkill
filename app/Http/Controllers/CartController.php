@@ -86,6 +86,27 @@ class CartController extends Controller
 
         return redirect()->route('classroom');
     }
+    public function addToCartdetail($id)
+    {
+        $course = KelasTatapMuka::find($id);
+        $cart = Session::get('cart', []);
+
+        if (isset($cart[$id])) {
+            $cart[$id]['quantity']++;
+        } else {
+            $cart[$id] = [
+                "id" => $id,
+                "name" => $course->nama_kursus, // Pastikan field name ada di model KelasTatapMuka
+                "price" => $course->price, // Pastikan field price ada di model KelasTatapMuka
+                "gambar" => $course->gambar,
+                "quantity" => 1,
+            ];
+        }
+
+        Session::put('cart', $cart);
+
+        return redirect()->route('classroom');
+    }
     public function removeFromCart($id)
     {
         $cart = Session::get('cart', []);
