@@ -128,7 +128,7 @@
                                                             </a>
                                                         </div>
                                                         <div class="button">
-                                                            <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}"
+                                                            <a href="{{ route('cart', ['id' => $cours->id]) }}"
                                                                 class="cart-count"
                                                                 style="color: #1d1d1d; background-color: #bbbbbb;">
                                                                 <img src="{{ asset('public/assets/img/icons/cart.svg') }}"
@@ -184,7 +184,7 @@
                                                             </a>
                                                         </div>
                                                         <div class="button">
-                                                            <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}"
+                                                            <a href="{{ route('cart', ['id' => $cours->id]) }}"
                                                                 class="cart-count"
                                                                 style="color: #ffffff; background-color: #007bff;">
                                                                 <img src="{{ asset('public/assets/img/icons/cart.svg') }}"
