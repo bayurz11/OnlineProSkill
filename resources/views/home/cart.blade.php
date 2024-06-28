@@ -30,7 +30,7 @@
                     <div class="col-lg-7">
                         <form action="{{ route('payment') }}" class="customer__form-wrap" method="POST">
                             @csrf
-                            <input type="hidden" name="id" value="{{ $courses->id }}">
+                            {{-- <input type="hidden" name="id" value="{{ $courses->id }}"> --}}
                             <span class="title">RINCIAN PENAGIHAN</span>
 
                             <div class="form-grp">
