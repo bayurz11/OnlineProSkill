@@ -28,14 +28,14 @@ class HomeController extends Controller
     {
         $user = Auth::user();
         $profile = null;
-
+        $cart = Session::get('cart', []);
         if ($user) {
             $profile = UserProfile::where('user_id', $user->id)->first();
         }
 
         $course = KelasTatapMuka::with('user')->where('status', 1)->get();
         $count = $course->count();
-        return view('home.classroom', compact('user', 'count', 'course', 'profile'));
+        return view('home.classroom', compact('user', 'count', 'course', 'profile', 'cart'));
     }
 
     public function classroomdetail($id)
