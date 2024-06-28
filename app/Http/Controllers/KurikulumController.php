@@ -41,29 +41,26 @@ class KurikulumController extends Controller
         // Validasi data input
         $request->validate([
             'title' => 'required|string|max:255',
-            'classroom_id' => 'required|exists:kelas_tatap_muka,id', // tambahkan validasi untuk classroom_id
         ]);
 
-        try {
-            // Ambil id kelas dari form atau URL
-            $classroomId = $request->input('classroom_id');
+        // Ambil id kelas dari form atau URL
+        $classroomId = $request->input('classroom_id'); // Ubah sesuai dengan nama field yang digunakan di form Anda
 
-            // Temukan kelas tatap muka berdasarkan $classroomId
-            $course = KelasTatapMuka::findOrFail($classroomId);
+        // Temukan kelas tatap muka berdasarkan $classroomId
+        $course = KelasTatapMuka::find($classroomId);
 
+        if ($course) {
             // Buat objek Section baru
             $section = new Section();
             $section->title = $request->title;
-            $section->classroom_id = $course->id;
+            $section->classroom_id = $course->id; // Sesuaikan dengan nama kolom yang sesuai
             $section->save();
 
-            return redirect()->route('kurikulum', ['id' => $course->id])->with('success', 'Kurikulum berhasil disimpan.');
-        } catch (\Exception $e) {
-            // Jika terjadi error, redirect dengan pesan error
-            return redirect()->route('kurikulum')->with('error', 'Gagal menyimpan kurikulum: ' . $e->getMessage());
+            return redirect()->route('classroomsetting')->with('success', 'Kurikulum berhasil disimpan.');
         }
-    }
 
+        return redirect()->route('classroomsetting')->with('error', 'Kelas tatap muka tidak ditemukan.');
+    }
 
 
     /**
