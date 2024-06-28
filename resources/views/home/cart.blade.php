@@ -61,23 +61,13 @@
                                     </td>
                                     <td class="product__price">Rp.{{ $item['price'] }}</td>
                                     <td class="product__quantity">
-                                        <div class="cart-plus-minus">
-                                            <input type="text" value="{{ $item['quantity'] }}">
-                                        </div>
+
+                                        <input type="text" value="{{ $item['quantity'] }}">
+
                                     </td>
                                     <td class="product__subtotal">Rp.{{ $item['price'] * $item['quantity'] }}</td>
                                     <td class="product__remove">
                                         <a href="{{ route('cart.remove', $item['id']) }}">×</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="6" class="cart__actions">
-                                        <div class="update__cart-btn text-end f-right">
-                                            <form action="{{ route('cart.updateQuantity', $item['id']) }}" method="POST">
-                                                @csrf
-                                                <button type="submit" class="btn">Update cart</button>
-                                            </form>
-                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
