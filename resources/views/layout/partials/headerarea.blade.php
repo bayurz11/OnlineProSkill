@@ -147,10 +147,20 @@
 
                             @auth
                                 <div class="mobile-menu-dropdown dropdown">
-                                    <a href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+                                    {{-- <a href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
                                         aria-expanded="false">
                                         <img src="{{ $profile->gambar ? asset('public/uploads/' . $profile->gambar) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
                                             alt="img" style="border-radius: 50%; width: 40px; height: 40px;">
+                                    </a> --}}
+                                    <a href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        @if ($profile->gambar)
+                                            <img src="{{ asset('public/uploads/' . $profile->gambar) }}" alt="img"
+                                                style="border-radius: 50%; width: 40px; height: 40px;">
+                                        @else
+                                            <img src="{{ asset('public/assets/img/courses/details_instructors02.jpg') }}"
+                                                alt="img" style="border-radius: 50%; width: 40px; height: 40px;">
+                                        @endif
                                     </a>
 
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
