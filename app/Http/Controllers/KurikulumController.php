@@ -45,12 +45,12 @@ class KurikulumController extends Controller
         ]);
 
         // Temukan course yang sesuai dengan course_id
-        $course = KelasTatapMuka::find($request->id);
+        $course = KelasTatapMuka::find($request->course_id);
 
         if ($course) {
             $section = new Section();
             $section->nama_kursus = $request->nama_kursus;
-            $section->classroom_id = $course->id;
+            $section->classroom_id = $course->id; // Menyimpan course_id ke classroom_id
             $section->save();
 
             return redirect()->route('kurikulum')->with('success', 'Kursus berhasil disimpan.');
