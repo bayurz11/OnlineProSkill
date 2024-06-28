@@ -8,11 +8,12 @@
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Kelas Tatap Muka</li>
+                <li class="breadcrumb-item"><a href="{{ route('classroomsetting') }}">Kelas Tatap Muka</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Kurikulum</li>
             </ol>
         </nav>
 
-        @include('admin.modal.add_clasroom')
+        {{-- @include('admin.modal.add_clasroom')
         @include('admin.modal.edit_clasroom')
 
         <div class="row">
@@ -62,11 +63,9 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <a href="{{ route('kurikulum') }}" class="btn btn-success btn-icon"
-                                                    title="Kurikulum">
+                                                <button class="btn btn-success btn-icon" title="Kurikulum">
                                                     <i data-feather="settings"></i>
-                                                </a>
-
+                                                </button>
                                                 <button type="button" class="btn btn-primary btn-icon edit-button"
                                                     title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
                                                     data-id="{{ $courses->id }}">
@@ -87,7 +86,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
     </div>
 
@@ -174,10 +173,6 @@
                 document.getElementById('confirmationModal').remove();
             };
         }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            feather.replace();
-        });
     </script>
 
 

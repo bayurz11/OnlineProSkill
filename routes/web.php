@@ -12,6 +12,7 @@ use App\Http\Controllers\SubcategoriesController;
 use App\Http\Controllers\KelasTatapMukaController;
 use App\Http\Controllers\DashboardStudenController;
 use App\Http\Controllers\DashboardInstrukturController;
+use App\Http\Controllers\KurikulumController;
 use App\Http\Controllers\OrderHistoryManagerController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\RiwayatTransaksiController;
@@ -58,6 +59,7 @@ Route::middleware('isAdmin')->group(function () {
     Route::get('/OrderHistoryManager', [OrderHistoryManagerController::class, 'index'])->name('OrderHistoryManager');
 
     //*******ADMIN OFFLINE COURSE SETTING*******//
+
     //Kursus Tatap Muka
     Route::get('/classroomsetting', [KelasTatapMukaController::class, 'index'])->name('classroomsetting');
     Route::post('/storeclas', [KelasTatapMukaController::class, 'store'])->name('storeclas');
@@ -65,6 +67,9 @@ Route::middleware('isAdmin')->group(function () {
     Route::get('/class/{id}/edit', [KelasTatapMukaController::class, 'edit'])->name('class.edit');
     Route::put('/class/{id}', [KelasTatapMukaController::class, 'update'])->name('class.update');
     Route::delete('/class_destroy/{id}', [KelasTatapMukaController::class, 'destroy'])->name('class.destroy');
+
+    //kurikulum
+    Route::get('/kurikulum', [KurikulumController::class, 'index'])->name('kurikulum');
 });
 
 //*********STUDEN*********//

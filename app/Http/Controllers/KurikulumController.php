@@ -3,17 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kurikulum;
+use App\Models\Categories;
+use App\Models\KelasTatapMuka;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreKurikulumRequest;
 use App\Http\Requests\UpdateKurikulumRequest;
 
 class KurikulumController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        //
+        $user = Auth::user();
+        $categori = Categories::all();
+        $course = KelasTatapMuka::with('user')->get();
+        $count = $course->count();
+        if (!$user) {
+            return redirect()->route('login_admin');
+        }
+        return view('admin.KelasTatapMuka.kurikulum', compact('user', 'categori', 'count', 'course'));
     }
 
     /**
