@@ -98,14 +98,43 @@
                             </div>
                         </div>
                     </div>
-                    {{-- <li class="header-btn login-btn">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn"
-                            style="background-color: white; color: black; border: 1px solid black;">Masuk</a>
-                    </li>
-                    <li class="header-btn login-btn">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalDaftar"
-                            class="btn">Daftar</a>
-                    </li> --}}
+                    <div class="modal-body">
+                        <div class="singUp-wrap">
+                            <h2 class="title">Buat Akun ProSkill</h2>
+                            <p>Silahkan isi form berikut untuk melanjutkan.</p>
+
+                            <form action="{{ route('regisStuden') }}" class="account__form" method="POST">
+                                @csrf
+                                <div class="form-grp">
+                                    <input type="text" id="name" name="name"
+                                        placeholder="Masukkan Nama Lengkap Anda">
+                                </div>
+                                <div class="form-grp">
+                                    <input type="email" id="email" placeholder="Email" name="email">
+                                </div>
+                                <div class="form-grp">
+                                    <input type="password" id="password" placeholder="Password" name="password">
+                                </div>
+                                <div class="form-grp">
+                                    <input type="password" id="password_confirmation" placeholder="Konfirmasi Password"
+                                        name="password_confirmation">
+                                </div>
+                                <button type="submit" class="btn btn-two arrow-btn">Daftar<img
+                                        src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
+                                        class="injectable"></button>
+                            </form><br>
+                            <div class="account__social">
+                                <a href="#" class="account__social-btn">
+                                    <img src="{{ asset('public/assets/img/icons/google.svg') }}" alt="img">
+                                    Daftar Dengan Google
+                                </a>
+                            </div>
+                            <div class="account__switch">
+                                <p>Apakah Punya Akun?<a href="#" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal">Masuk</a></p>
+                            </div>
+                        </div>
+                    </div>
                 @endguest
                 <div class="col-lg-5">
                     <div class="order__info-wrap">
