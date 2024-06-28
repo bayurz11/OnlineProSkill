@@ -1,7 +1,7 @@
 <div class="modal fade" id="kurikulumModal" tabindex="-1" aria-labelledby="kurikulumModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form action="{{ route('kurikulumstore', ['id' => $course_id]) }}" method="POST"
+            <form action="{{ route('kurikulumstore', ['id' => $courses->id]) }}" method="POST"
                 enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
