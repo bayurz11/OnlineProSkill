@@ -318,7 +318,8 @@
                         </div>
                         <div class="courses__details-enroll">
                             <div class="tg-button-wrap">
-                                <a href="{{ route('checkout', ['id' => $courses->id]) }}" class="btn btn-two arrow-btn">
+                                <a href="{{ route('cart.checkout', ['id' => $courses->id]) }}"
+                                    class="btn btn-two arrow-btn">
                                     Gabung Kelas
                                     <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                         class="injectable">
