@@ -113,10 +113,10 @@
 
         $('.edit-button').on('click', function() {
             const id = $(this).data('id');
-            fetch(`/Course/${id}/edit`)
+            fetch(`/class/${id}/edit`)
                 .then(response => response.json())
                 .then(data => {
-                    $('#editCourseForm').attr('action', `/Course/${id}`);
+                    $('#editCourseForm').attr('action', `/class/${id}`);
                     $('#edit_nama_kursus').val(data.nama_kursus);
                     $('#edit_durasi').val(data.durasi);
                     $('#edit_sertifikat').val(data.sertifikat);
@@ -206,7 +206,7 @@
 
                     toggleEditPriceAndDiscount();
                 })
-                .catch(error => console.error('Error fetching course data:', error));
+                .catch(error => console.error('Error fetching class data:', error));
         });
 
         $('#edit_gambar').change(function() {
