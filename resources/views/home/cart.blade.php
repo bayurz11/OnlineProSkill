@@ -78,14 +78,15 @@
                         <ul class="list-wrap">
                             @foreach ($cart as $item)
                                 <li class="cart-item" style="display: flex; align-items: center; margin-bottom: 10px;">
-                                    <a href="{{ route('classroomdetail', $item['id']) }}" style="margin-right: 5px;">
+                                    <a href="{{ route('cart.remove', $item['id']) }}"
+                                        style="margin-right: 10px; color: red; text-decoration: none;">×</a>
+                                    <a href="{{ route('classroomdetail', $item['id']) }}" style="margin-right: 10px;">
                                         <img src="{{ asset('public/uploads/' . $item['gambar']) }}" alt="img"
                                             style="width: 50px; height: 50px;">
                                     </a>
                                     <div class="cart-details" style="display: flex; flex-direction: column;">
                                         <a href="{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}</a>
                                         <span class="cart-price">Rp.{{ number_format($item['price'], 0, ',', '.') }}</span>
-                                        <a href="{{ route('cart.remove', $item['id']) }}">×</a>
                                     </div>
                                 </li>
                             @endforeach
@@ -101,10 +102,11 @@
                                 <span
                                     class="amount">Rp.{{ number_format(array_sum(array_column($cart, 'price')), 0, ',', '.') }}</span>
                             </div>
-                            <a href="" class="btn">Bayar & Gabung Kelas</a>
+                            <a href="{{ route('checkout') }}" class="btn">Bayar & Gabung Kelas</a>
                         </div>
                     </div>
                 </div>
+
 
             </div>
         </div>
