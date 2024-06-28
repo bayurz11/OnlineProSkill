@@ -158,7 +158,7 @@
                                 delete editors[id];
                                 createEditor(id, data.content);
                             })
-                            .catch(error => console.error(error));
+                            .catch(error => console.error('Error destroying editor:', error));
                     } else {
                         createEditor(id, data.content);
                     }
@@ -172,9 +172,10 @@
                     } else {
                         $('#edit_preview').hide();
                     }
+
                     let tagValue = '';
 
-                    // Coba parse data.tag jika itu adalah string JSON
+                    // Parse data.tag jika itu adalah JSON string
                     try {
                         const parsedTag = JSON.parse(data.tag);
 
@@ -186,7 +187,7 @@
                             tagValue = parsedTag;
                         }
                     } catch (e) {
-                        // Jika parsing gagal, langsung gunakan data.tag jika itu adalah string biasa
+                        // Jika parsing gagal, gunakan data.tag jika itu adalah string biasa
                         if (typeof data.tag === 'string') {
                             tagValue = data.tag;
                         }
@@ -194,17 +195,22 @@
 
                     $('#edit_tag').val(tagValue);
 
+                    // Populate include container
                     const includeContainer = $('#edit-include-container');
                     includeContainer.html('');
-                    data.include.forEach(item => {
-                        const inputGroup = $(`
-                    <div class="input-group mb-2">
-                        <input type="text" class="form-control" name="include[]" value="${item}">
-                        <button class="btn btn-danger remove-edit-include" type="button">-</button>
-                    </div>
-                `);
-                        includeContainer.append(inputGroup);
-                    });
+                    if (Array.isArray(data.include)) {
+                        data.include.forEach(item => {
+                            const inputGroup = $(`
+                                <div class="input-group mb-2">
+                                    <input type="text" class="form-control" name="include[]" value="${item}">
+                                    <button class="btn btn-danger remove-edit-include" type="button">-</button>
+                                </div>
+                            `);
+                            includeContainer.append(inputGroup);
+                        });
+                    } else {
+                        console.error('data.include bukan array:', data.include);
+                    }
 
                     toggleEditPriceAndDiscount();
                 })
@@ -212,11 +218,12 @@
         });
 
         function createEditor(id, content) {
-            // Buat id yang unik untuk setiap editor
             const editorId = `edit_content_${id}`;
             const editorInputId = `edit_content_input_${id}`;
 
-            ClassicEditor.create(document.querySelector(`#${editorId}`))
+            ClassicEditor.create(document.querySelector(`#${editorId}`), {
+                    // Konfigurasi opsional ClassicEditor di sini
+                })
                 .then(editor => {
                     editors[id] = editor;
                     editor.setData(content);
@@ -225,7 +232,9 @@
                         content_input.value = editor.getData();
                     });
                 })
-                .catch(error => console.error(error));
+                .catch(error => {
+                    console.error('Error creating editor:', error);
+                });
         }
 
         $('#edit_gambar').change(function() {
@@ -244,11 +253,11 @@
 
         $('#add-edit-include').on('click', function() {
             const inputGroup = $(`
-        <div class="input-group mb-2">
-            <input type="text" class="form-control" name="include[]">
-            <button class="btn btn-danger remove-edit-include" type="button">-</button>
-        </div>
-    `);
+                <div class="input-group mb-2">
+                    <input type="text" class="form-control" name="include[]">
+                    <button class="btn btn-danger remove-edit-include" type="button">-</button>
+                </div>
+            `);
             $('#edit-include-container').append(inputGroup);
         });
 
@@ -256,22 +265,22 @@
             $(this).closest('.input-group').remove();
         });
 
+        function toggleEditPriceAndDiscount() {
+            const isFree = $('#edit_free').is(':checked');
+            $('#edit_price, #edit_discount, #edit_discountedPrice').prop('disabled', isFree);
+            if (isFree) {
+                $('#edit_price, #edit_discount, #edit_discountedPrice').val('');
+            }
+        }
+
+        $('#edit_discount').on('input', calculateEditDiscountedPrice);
+
         function calculateEditDiscountedPrice() {
             const price = parseFloat($('#edit_price').val());
             const discount = parseFloat($('#edit_discount').val());
             if (!isNaN(price) && !isNaN(discount)) {
                 const discountedPrice = price - (price * (discount / 100));
                 $('#edit_discountedPrice').val(discountedPrice.toFixed(2));
-            }
-        }
-
-        $('#edit_discount').on('input', calculateEditDiscountedPrice);
-
-        function toggleEditPriceAndDiscount() {
-            const isFree = $('#edit_free').is(':checked');
-            $('#edit_price, #edit_discount, #edit_discountedPrice').prop('disabled', isFree);
-            if (isFree) {
-                $('#edit_price, #edit_discount, #edit_discountedPrice').val('');
             }
         }
 
