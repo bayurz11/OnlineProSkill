@@ -56,10 +56,10 @@ class KurikulumController extends Controller
             $section->classroom_id = $course->id; // Sesuaikan dengan nama kolom yang sesuai
             $section->save();
 
-            return redirect()->route('classroomsetting')->with('success', 'Kurikulum berhasil disimpan.');
+            return redirect()->route('kurikulum')->with('success', 'Kurikulum berhasil disimpan.');
         }
 
-        return redirect()->route('classroomsetting')->with('error', 'Kelas tatap muka tidak ditemukan.');
+        return redirect()->route('kurikulum')->with('error', 'Kelas tatap muka tidak ditemukan.');
     }
 
 
