@@ -59,12 +59,6 @@
                         <textarea id="edit_content" name="content" style="height: 400px; width: 100%; font-size: 18px;"></textarea>
                         <input type="hidden" id="edit_content_input" name="content">
                     </div>
-
-                    <script>
-                        // Panggil fungsi createEditor dengan ID yang benar
-                        createEditor('edit_content', 'Initial content here');
-                    </script>
-
                     <div class="mb-3">
                         <label for="edit_include" class="form-label">Yang akan dipelajari <span
                                 class="text-danger">*</span></label>
@@ -112,31 +106,7 @@
     </div>
 </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        function createEditor(id, content) {
-            const editorElement = document.querySelector('#' + id);
-            const inputElement = document.querySelector('#' + id + '_input');
 
-            if (editorElement && inputElement) {
-                ClassicEditor.create(editorElement)
-                    .then(editor => {
-                        editors[id] = editor;
-                        editor.setData(content);
-                        editor.model.document.on('change:data', () => {
-                            inputElement.value = editor.getData();
-                        });
-                    })
-                    .catch(error => console.error(error));
-            } else {
-                console.error('Editor element or input element not found');
-            }
-        }
-
-        // Inisialisasi editor dengan ID yang benar
-        createEditor('edit_content', 'Initial content here');
-    });
-</script>
 <script>
     $(document).ready(function() {
         const editors = {};
@@ -188,19 +158,19 @@
                         createEditor(id, data.content);
                     }
 
-                    // function createEditor(id, content) {
-                    //     ClassicEditor.create(document.querySelector('#edit_content'))
-                    //         .then(editor => {
-                    //             editors[id] = editor;
-                    //             editor.setData(content);
-                    //             editor.model.document.on('change:data', () => {
-                    //                 const content_input = document.querySelector(
-                    //                     '#edit_content_input');
-                    //                 content_input.value = editor.getData();
-                    //             });
-                    //         })
-                    //         .catch(error => console.error(error));
-                    // } 
+                    function createEditor(id, content) {
+                        ClassicEditor.create(document.querySelector('#edit_content'))
+                            .then(editor => {
+                                editors[id] = editor;
+                                editor.setData(content);
+                                editor.model.document.on('change:data', () => {
+                                    const content_input = document.querySelector(
+                                        '#edit_content_input');
+                                    content_input.value = editor.getData();
+                                });
+                            })
+                            .catch(error => console.error(error));
+                    }
 
                     $('#edit_price').val(data.price);
                     $('#edit_discount').val(data.discount);
