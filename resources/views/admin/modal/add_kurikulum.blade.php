@@ -3,7 +3,7 @@
         <div class="modal-content">
             <form action="{{ route('kurikulumstore') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <input type="hidden" name="course_id" value="{{ $cours->id }}">
+                <input type="hidden" name="course_id" value="">
                 <div class="modal-header">
                     <h5 class="modal-title" id="kurikulumModalLabel">Tambah Kurikulum</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
