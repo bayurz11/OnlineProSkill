@@ -55,13 +55,10 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="edit_content_1" class="form-label">Deskripsi<span
-                                class="text-danger">*</span></label>
-                        <textarea id="edit_content_1" name="content" style="height: 400px; width: 100%; font-size: 18px;"></textarea>
-                        <input type="hidden" id="edit_content_input_1" name="content">
+                        <label for="edit_content" class="form-label">Deskripsi<span class="text-danger">*</span></label>
+                        <textarea id="edit_content" name="content" style="height: 400px; width: 100%; font-size: 18px;"></textarea>
+                        <input type="hidden" id="edit_content_input" name="content">
                     </div>
-
-
                     <div class="mb-3">
                         <label for="edit_include" class="form-label">Yang akan dipelajari <span
                                 class="text-danger">*</span></label>
