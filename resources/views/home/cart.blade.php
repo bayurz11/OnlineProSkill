@@ -1,6 +1,7 @@
 @extends('layout.mainlayout')
 
 @section('title', 'ProSkill Akademia | Cart')
+<?php $page = 'Cart'; ?>
 
 @section('content')
     <section class="breadcrumb__area breadcrumb__bg" data-background="{{ asset('public/assets/img/bg/breadcrumb_bg.jpg') }}">
@@ -37,49 +38,51 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <form action="{{ route('cart.updateQuantity') }}" method="POST">
-                        @csrf
-                        <table class="table cart__table">
-                            <thead>
+                    <table class="table cart__table">
+                        <thead>
+                            <tr>
+                                <th class="product__thumb">&nbsp;</th>
+                                <th class="product__name">Kursus</th>
+                                <th class="product__price">Harga</th>
+                                <th class="product__quantity">Quantity</th>
+                                <th class="product__subtotal">Subtotal</th>
+                                <th class="product__remove">&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($cart as $item)
                                 <tr>
-                                    <th class="product__thumb">&nbsp;</th>
-                                    <th class="product__name">Kursus</th>
-                                    <th class="product__price">Harga</th>
-                                    <th class="product__quantity">Quantity</th>
-                                    <th class="product__subtotal">Subtotal</th>
-                                    <th class="product__remove">&nbsp;</th>
+                                    <td class="product__thumb">
+                                        <a href="shop-details.html"> <img
+                                                src="{{ asset('public/uploads/' . $item['gambar']) }}" alt="img"></a>
+                                    </td>
+                                    <td class="product__name">
+                                        <a href="shop-details.html">{{ $item['name'] }}</a>
+                                    </td>
+                                    <td class="product__price">Rp.{{ $item['price'] }}</td>
+                                    <td class="product__quantity">
+                                        <div class="cart-plus-minus">
+                                            <input type="text" value="{{ $item['quantity'] }}">
+                                        </div>
+                                    </td>
+                                    <td class="product__subtotal">Rp.{{ $item['price'] * $item['quantity'] }}</td>
+                                    <td class="product__remove">
+                                        <a href="{{ route('cart.remove', $item['id']) }}">×</a>
+                                    </td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($cart as $item)
-                                    <tr>
-                                        <td class="product__thumb">
-                                            <a href="shop-details.html">
-                                                <img src="{{ asset('public/uploads/' . $item['gambar']) }}" alt="img">
-                                            </a>
-                                        </td>
-                                        <td class="product__name">
-                                            <a href="shop-details.html">{{ $item['name'] }}</a>
-                                        </td>
-                                        <td class="product__price">Rp.{{ $item['price'] }}</td>
-                                        <td class="product__quantity">
-                                            <div class="cart-plus-minus">
-                                                <input type="number" name="quantity[{{ $item['id'] }}]"
-                                                    value="{{ $item['quantity'] }}">
-                                            </div>
-                                        </td>
-                                        <td class="product__subtotal">Rp.{{ $item['price'] * $item['quantity'] }}</td>
-                                        <td class="product__remove">
-                                            <a href="{{ route('cart.remove', $item['id']) }}">×</a>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                        <div class="update__cart-btn text-end f-right">
-                            <button type="submit" class="btn">Update cart</button>
-                        </div>
-                    </form>
+                                <tr>
+                                    <td colspan="6" class="cart__actions">
+                                        <div class="update__cart-btn text-end f-right">
+                                            <form action="{{ route('cart.updateQuantity', $item['id']) }}" method="POST">
+                                                @csrf
+                                                <button type="submit" class="btn">Update cart</button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
                 <div class="col-lg-4">
                     <div class="cart__collaterals-wrap">
