@@ -44,6 +44,19 @@
                 <div class="col-12">
                     <div class="coupon__code-wrap">
                         <div class="coupon__code-info">
+                            <span><i class="far fa-bookmark"></i> Sudah Memiliki Akun?</span>
+                            <a href="#" id="coupon-element">Klik di sini untuk memasukkan kode Anda</a>
+                        </div>
+                        <form action="#" class="coupon__code-form">
+                            <p>Jika Anda memiliki kode kupon, silakan gunakan di bawah ini.</p>
+                            <input type="text" placeholder="Kode kupon">
+                            <button type="submit" class="btn">Terapkan kupon</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="coupon__code-wrap">
+                        <div class="coupon__code-info">
                             <span><i class="far fa-bookmark"></i> Punya kupon?</span>
                             <a href="#" id="coupon-element">Klik di sini untuk memasukkan kode Anda</a>
                         </div>
