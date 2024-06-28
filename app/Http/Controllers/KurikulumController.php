@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreKurikulumRequest;
 use App\Http\Requests\UpdateKurikulumRequest;
+use App\Models\Section;
+use Illuminate\Http\Request;
 
 class KurikulumController extends Controller
 {
@@ -33,14 +35,29 @@ class KurikulumController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreKurikulumRequest $request)
-    {
-        //
-    }
 
+    public function store(Request $request)
+    {
+        // Validasi data
+        $request->validate([
+            'nama_kursus' => 'required|string|max:255',
+            'course_id' => 'required|exists:courses,id', // Pastikan course_id ada di request
+        ]);
+
+        // Temukan course yang sesuai dengan course_id
+        $course = KelasTatapMuka::find($request->id);
+
+        if ($course) {
+            $section = new Section();
+            $section->nama_kursus = $request->nama_kursus;
+            $section->classroom_id = $course->id;
+            $section->save();
+
+            return redirect()->route('kurikulum')->with('success', 'Kursus berhasil disimpan.');
+        }
+
+        return redirect()->route('kurikulum')->with('error', 'Kursus tidak ditemukan.');
+    }
     /**
      * Display the specified resource.
      */
