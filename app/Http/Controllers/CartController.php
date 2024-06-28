@@ -35,12 +35,10 @@ class CartController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show()
     {
-        $user = Auth::user();
-        $course = KelasTatapMuka::all();
-        $courses = KelasTatapMuka::find($id);
-        return view('home.cart', compact('user', 'course', 'courses'));
+
+        return view('home.cart');
     }
 
     /**
