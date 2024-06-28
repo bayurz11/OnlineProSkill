@@ -83,8 +83,7 @@ Route::middleware('isStuden')->group(function () {
     //Riwayat Transaksi
     Route::get('/history', [RiwayatTransaksiController::class, 'index'])->name('history');
 
-    //checkout
-    Route::get('/checkout/{id}', [HomeController::class, 'checkout'])->name('checkout');
+
 
     //payment
     Route::post('/payment', [PaymentController::class, 'payment'])->name('payment');
@@ -106,6 +105,8 @@ Route::get('/', [HomeController::class, 'index'])->name('/');
 Route::get('/classroom', [HomeController::class, 'classroom'])->name('classroom');
 Route::get('/classroomdetail/{id}', [HomeController::class, 'classroomdetail'])->name('classroomdetail');
 
+//checkout
+Route::get('/checkout/{id}', [HomeController::class, 'checkout'])->name('checkout');
 
 //Cart
 Route::get('/cart', [CartController::class, 'show'])->name('cart');
