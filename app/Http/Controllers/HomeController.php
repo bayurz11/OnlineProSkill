@@ -68,7 +68,7 @@ class HomeController extends Controller
         }
         $courses = KelasTatapMuka::find($id);
         if (!$courses) {
-            return redirect()->route('home')->with('error', 'Kelas tidak ditemukan.');
+            return redirect()->route('/')->with('error', 'Kelas tidak ditemukan.');
         }
         return view('home.checkout', compact('user', 'profile', 'courses'));
     }
