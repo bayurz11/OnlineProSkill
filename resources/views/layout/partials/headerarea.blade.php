@@ -191,18 +191,16 @@
                                     @endguest
                                 </ul>
                             </div>
-                            <div class="mobile-login-btn">
-                                <ul class="list-wrap">
-                                    <li class="mini-cart-icon">
-                                        <a href="{{ route('cart.view') }}" class="cart-count">
-                                            <img src="{{ asset('public/assets/img/icons/cart.svg') }}"
-                                                class="injectable" alt="img">
-                                            <span class="mini-cart-count">0</span>
-                                        </a>
-                                    </li>
 
-                                </ul>
+                            <div class="mobile-login-btn">
+                                <a href="{{ route('cart.view') }}" class="cart-count">
+                                    <img src="{{ asset('public/assets/img/icons/cart.svg') }}" class="injectable"
+                                        alt="img">
+                                    <span
+                                        class="mini-cart-count">{{ array_sum(array_column($cart, 'quantity')) }}</span>
+                                </a>
                             </div>
+
                             @auth
                                 <div class="mobile-menu-dropdown dropdown">
                                     <a href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
