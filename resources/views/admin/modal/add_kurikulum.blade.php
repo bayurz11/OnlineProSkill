@@ -14,10 +14,11 @@
                         <input type="text" class="form-control" id="nama_kursus" name="nama_kursus"
                             placeholder="Masukkan Nama Kursus Anda">
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
-                        <button type="submit" class="btn btn-primary">Simpan</button>
-                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
             </form>
         </div>
     </div>
