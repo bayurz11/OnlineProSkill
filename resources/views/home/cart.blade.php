@@ -52,11 +52,11 @@
                         <h2 class="title">Total keranjang</h2>
                         <ul class="list-wrap">
                             @foreach ($cart as $item)
-                                <tr>
+                                <li>
                                     <td class="product__name">
                                         <a href="{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}</a>
                                     </td>
-                                </tr>
+                                </li>
                             @endforeach
                             <li>Subtotal <span>Rp.{{ array_sum(array_column($cart, 'price')) }}</span></li>
                             <li>Total <span class="amount">Rp.{{ array_sum(array_column($cart, 'price')) }}</span></li>
