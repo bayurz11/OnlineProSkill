@@ -70,6 +70,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="mb-3">
                         <label for="edit_price" class="form-label">Harga (Rp)<span class="text-danger">*</span></label>
                         <input type="number" class="form-control" id="edit_price" name="price">
@@ -110,164 +111,168 @@
 
 <script>
     $(document).ready(function() {
-        const editors = {};
+                const editors = {};
 
-        $('.edit-button').on('click', function() {
-            const id = $(this).data('id');
-            fetch(`/class/${id}/edit`)
-                .then(response => response.json())
-                .then(data => {
-                    $('#editCourseForm').attr('action', `/class/${id}`);
-                    $('#edit_nama_kursus').val(data.nama_kursus);
-                    $('#edit_durasi').val(data.durasi);
-                    $('#edit_sertifikat').val(data.sertifikat);
-                    $('#edit_category').val(data.kategori_id);
+                $('.edit-button').on('click', function() {
+                    const id = $(this).data('id');
+                    fetch(`/class/${id}/edit`)
+                        .then(response => response.json())
+                        .then(data => {
+                            $('#editCourseForm').attr('action', `/class/${id}`);
+                            $('#edit_nama_kursus').val(data.nama_kursus);
+                            $('#edit_durasi').val(data.durasi);
+                            $('#edit_sertifikat').val(data.sertifikat);
+                            $('#edit_category').val(data.kategori_id);
 
-                    const categoryId = data.kategori_id;
-                    const subcategorySelect = $('#edit_subcategory');
-                    subcategorySelect.prop('disabled', !categoryId);
-                    if (categoryId) {
-                        fetch(`/get-subcategories/${categoryId}`)
-                            .then(response => response.json())
-                            .then(subcategories => {
-                                subcategorySelect.html(
-                                    '<option value="">Pilih Subkategori</option>');
-                                subcategories.forEach(subcategory => {
-                                    if (subcategory.status == 1) {
-                                        const option = $('<option></option>')
-                                            .attr('value', subcategory.id)
-                                            .text(subcategory.name);
-                                        if (subcategory.id == data.subkategori_id) {
-                                            option.prop('selected', true);
-                                        }
-                                        subcategorySelect.append(option);
-                                    }
+                            const categoryId = data.kategori_id;
+                            const subcategorySelect = $('#edit_subcategory');
+                            subcategorySelect.prop('disabled', !categoryId);
+                            if (categoryId) {
+                                fetch(`/get-subcategories/${categoryId}`)
+                                    .then(response => response.json())
+                                    .then(subcategories => {
+                                        subcategorySelect.html(
+                                            '<option value="">Pilih Subkategori</option>');
+                                        subcategories.forEach(subcategory => {
+                                            if (subcategory.status == 1) {
+                                                const option = $('<option></option>')
+                                                    .attr('value', subcategory.id)
+                                                    .text(subcategory.name);
+                                                if (subcategory.id == data.subkategori_id) {
+                                                    option.prop('selected', true);
+                                                }
+                                                subcategorySelect.append(option);
+                                            }
+                                        });
+                                    })
+                                    .catch(error => console.error('Error fetching subcategories:', error));
+                            } else {
+                                subcategorySelect.html('<option value="">Pilih Subkategori</option>');
+                            }
+
+                            $('#edit_tingkat').val(data.tingkat);
+
+                            if (editors[id]) {
+                                editors[id].destroy().then(() => {
+                                    delete editors[id];
+                                    createEditor(id, data.content);
+                                });
+                            } else {
+                                createEditor(id, data.content);
+                            }
+
+                            $('#edit_price').val(data.price);
+                            $('#edit_discount').val(data.discount);
+                            $('#edit_discountedPrice').val(data.discountedPrice);
+
+                            if (data.gambar) {
+                                $('#edit_preview').attr('src', `/public/uploads/${data.gambar}`).show();
+                            } else {
+                                $('#edit_preview').hide();
+                            }
+                            let tagValue = '';
+
+                            // Coba parse data.tag jika itu adalah string JSON
+                            try {
+                                const parsedTag = JSON.parse(data.tag);
+
+                                if (Array.isArray(parsedTag) && parsedTag.length > 0) {
+                                    tagValue = parsedTag[0].value;
+                                } else if (typeof parsedTag === 'object' && parsedTag !== null) {
+                                    tagValue = parsedTag.value;
+                                } else if (typeof parsedTag === 'string') {
+                                    tagValue = parsedTag;
+                                }
+                            } catch (e) {
+                                // Jika parsing gagal, langsung gunakan data.tag jika itu adalah string biasa
+                                if (typeof data.tag === 'string') {
+                                    tagValue = data.tag;
+                                }
+                            }
+
+                            $('#edit_tag').val(tagValue);
+
+                            const includeContainer = $('#edit-include-container');
+                            includeContainer.html(
+                                ''); // Mengosongkan kontainer sebelum menambahkan item baru
+
+                            data.include.forEach(item => {
+                                const inputGroup = $(`
+        <div class="input-group mb-2">
+            <input type="text" class="form-control" name="include[]" value="${item}">
+            <button class="btn btn-danger remove-edit-include" type="button">-</button>
+        </div>
+    `);
+                                includeContainer.append(
+                                    inputGroup); // Menambahkan setiap item ke dalam kontainer
+                            });
+
+                            toggleEditPriceAndDiscount
+                                (); // Memanggil fungsi lain setelah menambahkan elemen
+
+                        });
+
+                    function createEditor(id, content) {
+                        ClassicEditor.create(document.querySelector('#edit_content'))
+                            .then(editor => {
+                                editors[id] = editor;
+                                editor.setData(content);
+                                editor.model.document.on('change:data', () => {
+                                    const content_input = document.querySelector(
+                                        '#edit_content_input');
+                                    content_input.value = editor.getData();
                                 });
                             })
-                            .catch(error => console.error('Error fetching subcategories:', error));
-                    } else {
-                        subcategorySelect.html('<option value="">Pilih Subkategori</option>');
+                            .catch(error => console.error(error));
                     }
 
-                    $('#edit_tingkat').val(data.tingkat);
+                    $('#edit_gambar').change(function() {
+                        readURL(this);
+                    });
 
-                    if (editors[id]) {
-                        editors[id].destroy().then(() => {
-                            delete editors[id];
-                            createEditor(id, data.content);
-                        });
-                    } else {
-                        createEditor(id, data.content);
-                    }
-
-                    $('#edit_price').val(data.price);
-                    $('#edit_discount').val(data.discount);
-                    $('#edit_discountedPrice').val(data.discountedPrice);
-
-                    if (data.gambar) {
-                        $('#edit_preview').attr('src', `/public/uploads/${data.gambar}`).show();
-                    } else {
-                        $('#edit_preview').hide();
-                    }
-                    let tagValue = '';
-
-                    // Coba parse data.tag jika itu adalah string JSON
-                    try {
-                        const parsedTag = JSON.parse(data.tag);
-
-                        if (Array.isArray(parsedTag) && parsedTag.length > 0) {
-                            tagValue = parsedTag[0].value;
-                        } else if (typeof parsedTag === 'object' && parsedTag !== null) {
-                            tagValue = parsedTag.value;
-                        } else if (typeof parsedTag === 'string') {
-                            tagValue = parsedTag;
-                        }
-                    } catch (e) {
-                        // Jika parsing gagal, langsung gunakan data.tag jika itu adalah string biasa
-                        if (typeof data.tag === 'string') {
-                            tagValue = data.tag;
+                    function readURL(input) {
+                        if (input.files && input.files[0]) {
+                            var reader = new FileReader();
+                            reader.onload = function(e) {
+                                $('#edit_preview').attr('src', e.target.result).show();
+                            };
+                            reader.readAsDataURL(input.files[0]);
                         }
                     }
 
-                    $('#edit_tag').val(tagValue);
-
-                    const includeContainer = $('#edit-include-container');
-                    includeContainer.html('');
-                    data.include.forEach(item => {
+                    $('#add-edit-include').on('click', function() {
                         const inputGroup = $(`
-                    <div class="input-group mb-2">
-                        <input type="text" class="form-control" name="include[]" value="${item}">
-                        <button class="btn btn-danger remove-edit-include" type="button">-</button>
-                    </div>
-                `);
-                        includeContainer.append(inputGroup);
-                    });
-
-                    toggleEditPriceAndDiscount();
-                })
-                .catch(error => console.error('Error fetching class data:', error));
-        });
-
-        function createEditor(id, content) {
-            ClassicEditor.create(document.querySelector('#edit_content'))
-                .then(editor => {
-                    editors[id] = editor;
-                    editor.setData(content);
-                    editor.model.document.on('change:data', () => {
-                        const content_input = document.querySelector('#edit_content_input');
-                        content_input.value = editor.getData();
-                    });
-                })
-                .catch(error => console.error(error));
-        }
-
-        $('#edit_gambar').change(function() {
-            readURL(this);
-        });
-
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    $('#edit_preview').attr('src', e.target.result).show();
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-        $('#add-edit-include').on('click', function() {
-            const inputGroup = $(`
         <div class="input-group mb-2">
             <input type="text" class="form-control" name="include[]">
             <button class="btn btn-danger remove-edit-include" type="button">-</button>
         </div>
     `);
-            $('#edit-include-container').append(inputGroup);
-        });
+                        $('#edit-include-container').append(inputGroup);
+                    });
 
-        $(document).on('click', '.remove-edit-include', function() {
-            $(this).closest('.input-group').remove();
-        });
+                    $(document).on('click', '.remove-edit-include', function() {
+                        $(this).closest('.input-group').remove();
+                    });
 
-        function calculateEditDiscountedPrice() {
-            const price = parseFloat($('#edit_price').val());
-            const discount = parseFloat($('#edit_discount').val());
-            if (!isNaN(price) && !isNaN(discount)) {
-                const discountedPrice = price - (price * (discount / 100));
-                $('#edit_discountedPrice').val(discountedPrice.toFixed(2));
-            }
-        }
+                    function calculateEditDiscountedPrice() {
+                        const price = parseFloat($('#edit_price').val());
+                        const discount = parseFloat($('#edit_discount').val());
+                        if (!isNaN(price) && !isNaN(discount)) {
+                            const discountedPrice = price - (price * (discount / 100));
+                            $('#edit_discountedPrice').val(discountedPrice.toFixed(2));
+                        }
+                    }
 
-        $('#edit_discount').on('input', calculateEditDiscountedPrice);
+                    $('#edit_discount').on('input', calculateEditDiscountedPrice);
 
-        function toggleEditPriceAndDiscount() {
-            const isFree = $('#edit_free').is(':checked');
-            $('#edit_price, #edit_discount, #edit_discountedPrice').prop('disabled', isFree);
-            if (isFree) {
-                $('#edit_price, #edit_discount, #edit_discountedPrice').val('');
-            }
-        }
+                    function toggleEditPriceAndDiscount() {
+                        const isFree = $('#edit_free').is(':checked');
+                        $('#edit_price, #edit_discount, #edit_discountedPrice').prop('disabled', isFree);
+                        if (isFree) {
+                            $('#edit_price, #edit_discount, #edit_discountedPrice').val('');
+                        }
+                    }
 
-        $('#edit_free').on('change', toggleEditPriceAndDiscount);
-    });
+                    $('#edit_free').on('change', toggleEditPriceAndDiscount);
+                });
 </script>
