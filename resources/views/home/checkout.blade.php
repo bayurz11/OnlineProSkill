@@ -129,10 +129,7 @@
                                     Daftar Dengan Google
                                 </a>
                             </div>
-                            <div class="account__switch">
-                                <p>Apakah Punya Akun?<a href="#" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal">Masuk</a></p>
-                            </div>
+
                         </div>
                     </div>
                 @endguest
