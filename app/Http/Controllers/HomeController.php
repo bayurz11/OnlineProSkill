@@ -24,7 +24,7 @@ class HomeController extends Controller
         return view('home.index', compact('user', 'profile'));
     }
 
-    public function classroom($id)
+    public function classroom()
     {
         $user = Auth::user();
         $profile = null;
@@ -35,22 +35,6 @@ class HomeController extends Controller
 
         $course = KelasTatapMuka::with('user')->where('status', 1)->get();
         $count = $course->count();
-        $cart = Session::get('cart', []);
-
-        if (isset($cart[$id])) {
-            $cart[$id]['quantity']++;
-        } else {
-            $cart[$id] = [
-                "id" => $id,
-                "name" => $course->nama_kursus, // Pastikan field name ada di model KelasTatapMuka
-                "price" => $course->price, // Pastikan field price ada di model KelasTatapMuka
-                "gambar" => $course->gambar,
-                "quantity" => 1,
-            ];
-        }
-
-        Session::put('cart', $cart);
-
         return view('home.classroom', compact('user', 'count', 'course', 'profile'));
     }
 
