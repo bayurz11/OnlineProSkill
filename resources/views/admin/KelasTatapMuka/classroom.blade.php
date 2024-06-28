@@ -95,9 +95,6 @@
             const formSwitches = document.querySelectorAll('.formSwitch');
 
             formSwitches.forEach(function(formSwitch) {
-
-
-                // Set initial state of the switch based on the status
                 formSwitch.checked = formSwitch.dataset.status == 1;
 
                 formSwitch.addEventListener('change', function() {
@@ -153,13 +150,13 @@
                     },
                     body: JSON.stringify({
                         _method: 'DELETE'
-                    }) // Menambahkan _method override
+                    })
                 }).then(response => {
                     document.getElementById('confirmationModal').remove();
                     if (response.ok) {
                         console.log(
                             'subcategory berhasil dihapus. Mengalihkan ke halaman pengaturan subcategory.');
-                        window.location.href = '{{ route('CourseMaster') }}';
+                        window.location.href = '{{ route('classroomsetting') }}';
                     } else {
                         response.text().then(text => {
                             console.error('Gagal menghapus subcategory:', text);
