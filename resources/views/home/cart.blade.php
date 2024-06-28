@@ -54,7 +54,7 @@
                                 <tr>
                                     <td class="product__thumb">
                                         <a href="shop-details.html"> <img
-                                                src="{{ asset('public/uploads/' . $item['gambar']) }}"alt="img"></a>
+                                                src="{{ asset('public/uploads/' . $item['gambar']) }}" alt="img"></a>
                                     </td>
                                     <td class="product__name">
                                         <a href="shop-details.html">{{ $item['name'] }}</a>
@@ -67,7 +67,7 @@
                                     </td>
                                     <td class="product__subtotal">Rp.{{ $item['price'] * $item['quantity'] }}</td>
                                     <td class="product__remove">
-                                        <a href="#">×</a>
+                                        <a href="{{ route('cart.remove', $item['id']) }}">×</a>
                                     </td>
                                 </tr>
                             @endforeach

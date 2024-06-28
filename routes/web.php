@@ -111,4 +111,5 @@ Route::get('/checkout/{id}', [HomeController::class, 'checkout'])->name('checkou
 //Cart
 Route::get('/cart', [CartController::class, 'show'])->name('cart.view');
 Route::get('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
+Route::get('cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
 // Route::get('/addcart/{id}', [CartController::class, 'index'])->name('addcart');
