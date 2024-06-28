@@ -31,7 +31,7 @@
                         <label class="form-label">Kategori<span class="text-danger">*</span></label>
                         <select id="edit_category" class="form-select" name="kategori_id">
                             <option value="">Pilih Kategori</option>
-                            @foreach ($categories as $category)
+                            @foreach ($categori as $category)
                                 @if ($category->status == 1)
                                     <option value="{{ $category->id }}">{{ $category->name_category }}</option>
                                 @endif
