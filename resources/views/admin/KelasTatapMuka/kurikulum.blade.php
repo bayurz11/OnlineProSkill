@@ -21,7 +21,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h6 class="card-title">Kurikulum</h6>
-                        <button type="button" class="btn btn-outline-primary position-absolute top-0 end-0 mt-12 me-3"
+                        <button type="button" class="btn btn-outline-primary position-absolute top-0 end-6 mt-3 me-3"
                             data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="btn-icon-prepend"
                                 data-feather="plus-circle"></i>
                             Kurikulum
