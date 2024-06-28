@@ -91,7 +91,7 @@
                                         </li>
                                     @endauth
                                     @auth
-                                        <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-xl-flex">
+                                        {{-- <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-xl-flex">
                                             <ul class="navigation">
                                                 <li class="menu-item-has-children">
                                                     <a href="#">
@@ -128,6 +128,40 @@
                                                 </li>
 
                                             </ul>
+                                        </div> --}}
+                                        <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-xl-flex">
+                                            <ul class="navigation">
+                                                <li class="menu-item-has-children">
+                                                    <a href="#">
+                                                        <img src="{{ $profile && $profile->gambar ? asset('public/uploads/' . $profile->gambar) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
+                                                            alt="img" width="50" height="50"
+                                                            style="border-radius: 50%;">
+                                                    </a>
+                                                    <ul class="sub-menu dropdown-menu-left">
+                                                        <li>
+                                                            <a class="dropdown-item">
+                                                                <b>{{ $user->name }}</b>
+                                                                <br>
+                                                                <span
+                                                                    style="font-size: 14px; color: #b2b2b2;">{{ $user->email }}</span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="{{ Request::is('profil') ? 'active' : '' }}">
+                                                            <a href="{{ route('profil') }}">Profil</a>
+                                                        </li>
+                                                        <li>
+                                                            <form id="logout-form" action="{{ route('logout') }}"
+                                                                method="POST" style="display: none;">
+                                                                @csrf
+                                                            </form>
+                                                            <a href="{{ route('logout') }}"
+                                                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                                Logout
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
                                         </div>
 
                                     @endauth
@@ -147,20 +181,10 @@
 
                             @auth
                                 <div class="mobile-menu-dropdown dropdown">
-                                    {{-- <a href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+                                    <a href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
                                         aria-expanded="false">
                                         <img src="{{ $profile->gambar ? asset('public/uploads/' . $profile->gambar) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
                                             alt="img" style="border-radius: 50%; width: 40px; height: 40px;">
-                                    </a> --}}
-                                    <a href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
-                                        aria-expanded="false">
-                                        @if ($profile->gambar)
-                                            <img src="{{ asset('public/uploads/' . $profile->gambar) }}" alt="img"
-                                                style="border-radius: 50%; width: 40px; height: 40px;">
-                                        @else
-                                            <img src="{{ asset('public/assets/img/courses/details_instructors02.jpg') }}"
-                                                alt="img" style="border-radius: 50%; width: 40px; height: 40px;">
-                                        @endif
                                     </a>
 
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
