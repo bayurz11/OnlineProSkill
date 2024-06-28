@@ -21,22 +21,23 @@
                 <div class="card">
                     <div class="card-body">
                         <h6 class="card-title">Kurikulum</h6>
-                        <button type="button" class="btn btn-outline-primary position-absolute top-0 end-0 mt-3 me-3"
-                            data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="btn-icon-prepend"
-                                data-feather="plus-circle"></i>
-                            Kurikulum
-                        </button>
-                        <button type="button" class="btn btn-outline-primary position-absolute top-0 end-0 mt-3 me-3"
-                            data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="btn-icon-prepend"
-                                data-feather="plus-circle"></i>
-                            Sub
-                        </button>
+                        <div class="d-flex justify-content-end">
+                            <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"><i class="btn-icon-prepend" data-feather="plus-circle"></i>
+                                Kurikulum
+                            </button>
+                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"><i class="btn-icon-prepend" data-feather="plus-circle"></i>
+                                Sub
+                            </button>
+                        </div>
                         <p class="text-muted mb-3"> Jumlah Kurikulum : {{ $course->count() }}</p>
                         <div class="table-responsive">
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
 
     </div>
