@@ -36,27 +36,32 @@ class KurikulumController extends Controller
     }
 
 
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
-        // Validasi data
+        // Validasi data input
         $request->validate([
             'title' => 'required|string|max:255',
         ]);
 
-        // Temukan course yang sesuai dengan course_id
-        $course = KelasTatapMuka::find($id);
+        // Ambil id kelas dari form atau URL
+        $classroomId = $request->input('classroom_id'); // Ubah sesuai dengan nama field yang digunakan di form Anda
+
+        // Temukan kelas tatap muka berdasarkan $classroomId
+        $course = KelasTatapMuka::find($classroomId);
 
         if ($course) {
+            // Buat objek Section baru
             $section = new Section();
             $section->title = $request->title;
-            $section->classroom_id = $course->id; // Make sure to use ->id to get the id of the course
+            $section->classroom_id = $course->id; // Sesuaikan dengan nama kolom yang sesuai
             $section->save();
 
-            return redirect()->route('kurikulum')->with('success', 'Kursus berhasil disimpan.');
+            return redirect()->route('kurikulum')->with('success', 'Kurikulum berhasil disimpan.');
         }
 
-        return redirect()->route('kurikulum')->with('error', 'Kursus tidak ditemukan.');
+        return redirect()->route('kurikulum')->with('error', 'Kelas tatap muka tidak ditemukan.');
     }
+
 
     /**
      * Display the specified resource.
