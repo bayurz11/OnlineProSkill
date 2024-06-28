@@ -103,7 +103,7 @@
                             <div class="coupon__code-info">
                                 <span></i> Sudah memiliki akun?</span>
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Klik di sini untuk
-                                    memas</a>
+                                    Masuk</a>
                             </div>
                         </div>
                     </div>
