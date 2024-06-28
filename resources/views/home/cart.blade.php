@@ -42,8 +42,8 @@
                         <thead>
                             <tr>
                                 <th class="product__thumb">&nbsp;</th>
-                                <th class="product__name">Product</th>
-                                <th class="product__price">Price</th>
+                                <th class="product__name">Kursus</th>
+                                <th class="product__price">Harga</th>
                                 <th class="product__quantity">Quantity</th>
                                 <th class="product__subtotal">Subtotal</th>
                                 <th class="product__remove">&nbsp;</th>
@@ -76,12 +76,12 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="cart__collaterals-wrap">
-                        <h2 class="title">Cart totals</h2>
+                        <h2 class="title">Total keranjang</h2>
                         <ul class="list-wrap">
                             <li>Subtotal <span>Rp.{{ array_sum(array_column($cart, 'price')) }}</span></li>
                             <li>Total <span class="amount">Rp.{{ array_sum(array_column($cart, 'price')) }}</span></li>
                         </ul>
-                        <a href="check-out.html" class="btn">Proceed to checkout</a>
+                        <a href="check-out.html" class="btn">Bayar & Gabung kelas</a>
                     </div>
                 </div>
             </div>
