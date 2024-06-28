@@ -12,15 +12,15 @@
                 <li class="breadcrumb-item active" aria-current="page">Kurikulum</li>
             </ol>
         </nav>
-
-        {{-- @include('admin.modal.add_clasroom')
-        @include('admin.modal.edit_clasroom')
+        {{-- 
+        @include('admin.modal.add_clasroom')
+        @include('admin.modal.edit_clasroom') --}}
 
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h6 class="card-title">Kelas Tatap Muka</h6>
+                        <h6 class="card-title">Kurikulum</h6>
                         <button type="button" class="btn btn-outline-primary position-absolute top-0 end-0 mt-3 me-3"
                             data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="btn-icon-prepend"
                                 data-feather="plus-circle"></i>
@@ -28,65 +28,11 @@
                         </button>
                         <p class="text-muted mb-3"> Jumlah Kelas Tatap Muka : {{ $course->count() }}</p>
                         <div class="table-responsive">
-                            <table id="dataTableExample" class="table">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nama Kursus</th>
-                                        <th>Kursus Owner</th>
-                                        <th>Harga</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($course as $key => $courses)
-                                        <tr>
-                                            <td>{{ $key + 1 }}</td>
-                                            <td>{{ $courses->nama_kursus }}</td>
-                                            <td>{{ $courses->user->name }}</td>
-                                            <td>
-                                                @if ($courses->free)
-                                                    Free
-                                                @elseif(!empty($courses->discount) && !empty($courses->discountedPrice))
-                                                    Rp. {{ number_format($courses->discountedPrice, 0, ',', '.') }}
-                                                @else
-                                                    Rp. {{ number_format($courses->price, 0, ',', '.') }}
-                                                @endif
-                                            </td>
-
-                                            <td>
-                                                <div class="form-check form-switch mb-2">
-                                                    <input type="checkbox" class="form-check-input formSwitch"
-                                                        id="formSwitch{{ $courses->id }}" data-id="{{ $courses->id }}"
-                                                        data-status="{{ $courses->status }}">
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-success btn-icon" title="Kurikulum">
-                                                    <i data-feather="settings"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-primary btn-icon edit-button"
-                                                    title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
-                                                    data-id="{{ $courses->id }}">
-                                                    <i data-feather="edit"></i>
-                                                </button>
-
-                                                <button onclick="hapus('{{ $courses->id }}')"
-                                                    class="btn btn-danger btn-icon" title="Hapus">
-                                                    <i data-feather="trash-2"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-
                         </div>
                     </div>
                 </div>
             </div>
-        </div> --}}
+        </div>
 
     </div>
 
