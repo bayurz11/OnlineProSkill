@@ -194,7 +194,8 @@
 
                                     <li class="mini-cart-icon">
                                         <a href="cart.html" class="cart-count">
-                                            <img src="assets/img/icons/cart.svg" class="injectable" alt="img">
+                                            <img src="{{ asset('public/assets/img/icons/cart.svg') }}"
+                                                class="injectable" alt="img">
                                             <span class="mini-cart-count">0</span>
                                         </a>
                                     </li>
