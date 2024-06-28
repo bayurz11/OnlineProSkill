@@ -75,7 +75,7 @@
 
                         <div class="form-grp">
                             <label for="name">Nama *</label>
-                            <input type="text" id="name" name="name" value="{{ Auth::user()->name }}" required>
+                            <input type="text" id="name" name="name">
                         </div>
 
                         <div class="row">
@@ -88,8 +88,7 @@
                             <div class="col-md-6">
                                 <div class="form-grp">
                                     <label for="email">Alamat Email *</label>
-                                    <input type="email" id="email" name="email" value="{{ Auth::user()->email }}"
-                                        required>
+                                    <input type="email" id="email" name="email">
                                 </div>
                             </div>
                         </div>
