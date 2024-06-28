@@ -221,7 +221,8 @@
             const editorId = `edit_content_${id}`;
             const editorInputId = `edit_content_input_${id}`;
 
-            ClassicEditor.create(document.querySelector(`#${editorId}`), {
+            ClassicEditor
+                .create(document.querySelector(`#${editorId}`), {
                     // Konfigurasi opsional ClassicEditor di sini
                 })
                 .then(editor => {
