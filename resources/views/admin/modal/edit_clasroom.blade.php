@@ -111,40 +111,47 @@
     $(document).ready(function() {
         $('#editModal').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget); // Tombol yang memicu modal
-            var courseId = button.data('course-id'); // Ambil ID kursus dari atribut data
+            var courseId = button.data('id'); // Ambil ID kursus dari atribut data-id
 
-            // Panggil API untuk mendapatkan data kursus
-            $.ajax({
-                url: '/class/' + courseId + '/edit',
-                type: 'GET',
-                success: function(response) {
-                    // Mengisi nilai form dengan data yang diterima dari API
-                    $('#edit_nama_kursus').val(response.nama_kursus);
-                    $('#edit_durasi').val(response.durasi);
-                    $('#edit_sertifikat').val(response.sertifikat);
-                    $('#edit_category').val(response.kategori_id)
-                        .change(); // Ubah pilihan kategori
-                    $('#edit_tingkat').val(response.tingkat);
-                    $('#edit_content').summernote('code', response
+            // Pastikan courseId tidak undefined atau null sebelum membuat permintaan AJAX
+            if (typeof courseId !== 'undefined' && courseId !== null) {
+                // Panggil API untuk mendapatkan data kursus
+                $.ajax({
+                    url: '/class/' + courseId + '/edit',
+                    type: 'GET',
+                    success: function(response) {
+                        // Mengisi nilai form dengan data yang diterima dari API
+                        $('#edit_nama_kursus').val(response.nama_kursus);
+                        $('#edit_durasi').val(response.durasi);
+                        $('#edit_sertifikat').val(response.sertifikat);
+                        $('#edit_category').val(response.kategori_id)
+                    .change(); // Ubah pilihan kategori
+                        $('#edit_tingkat').val(response.tingkat);
+                        $('#edit_content').summernote('code', response
                         .content); // Isi konten menggunakan Summernote (atau editor lain)
-                    $('#edit_price').val(response.price);
-                    $('#edit_discount').val(response.discount);
-                    $('#edit_discountedPrice').val(response.discountedPrice);
-                    $('#edit_tag').val(response.tag);
+                        $('#edit_price').val(response.price);
+                        $('#edit_discount').val(response.discount);
+                        $('#edit_discountedPrice').val(response.discountedPrice);
+                        $('#edit_tag').val(response.tag);
 
-                    // Gambar preview (jika ada)
-                    if (response.gambar) {
-                        $('#edit_preview').attr('src', response.gambar).show();
-                    } else {
-                        $('#edit_preview').hide();
+                        // Gambar preview (jika ada)
+                        if (response.gambar) {
+                            $('#edit_preview').attr('src', response.gambar).show();
+                        } else {
+                            $('#edit_preview').hide();
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('AJAX Error:', status, error);
+                        // Tampilkan pesan kesalahan jika gagal mengambil data
+                        alert('Gagal memuat data kursus untuk diedit. Silakan coba lagi.');
                     }
-                },
-                error: function(xhr, status, error) {
-                    console.error('AJAX Error:', status, error);
-                    // Tampilkan pesan kesalahan jika gagal mengambil data
-                    alert('Gagal memuat data kursus untuk diedit. Silakan coba lagi.');
-                }
-            });
+                });
+            } else {
+                console.error('Course ID tidak valid atau tidak ditemukan.');
+                alert(
+                    'Gagal memuat data kursus untuk diedit. Course ID tidak valid atau tidak ditemukan.');
+            }
         });
     });
 </script>
