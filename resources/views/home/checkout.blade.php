@@ -151,7 +151,7 @@
                             <li><img src="{{ asset('public/uploads/' . $courses->gambar) }}" alt="img"
                                     style="width: 50px; height: 50px;">
                                 {{ $courses->nama_kursus }}<span>Rp.
-                                    {{ number_format($courses->price, 0, ',', '.') }}</span></li>
+                                </span></li>
                             <li>Subtotal <span>Rp. {{ number_format($courses->price, 0, ',', '.') }}</span></li>
                             <li>Total <span>Rp. {{ number_format($courses->price, 0, ',', '.') }}</span></li>
                         </ul>
