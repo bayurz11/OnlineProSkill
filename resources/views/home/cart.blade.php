@@ -77,7 +77,9 @@
                         <h2 class="title">Total keranjang</h2>
                         @foreach ($cart as $item)
                             <ul class="list-wrap">
-                                <a href="{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}
+                                <a href="{{ route('classroomdetail', $item['id']) }}"> <img
+                                        src="{{ asset('public/uploads/' . $item['gambar']) }}" alt="img"></a><a
+                                    href="{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}
                                     Rp.{{ $item['price'] }}</a>
                                 <li>Subtotal <span>Rp.{{ array_sum(array_column($cart, 'price')) }}</span></li>
                                 <li>Total <span class="amount">Rp.{{ array_sum(array_column($cart, 'price')) }}</span></li>
