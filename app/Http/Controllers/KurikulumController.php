@@ -41,7 +41,6 @@ class KurikulumController extends Controller
         // Validasi data
         $request->validate([
             'title' => 'required|string|max:255',
-
         ]);
 
         // Temukan course yang sesuai dengan course_id
@@ -50,7 +49,7 @@ class KurikulumController extends Controller
         if ($course) {
             $section = new Section();
             $section->title = $request->title;
-            $section->classroom_id = $course;
+            $section->classroom_id = $course->id; // Make sure to use ->id to get the id of the course
             $section->save();
 
             return redirect()->route('kurikulum')->with('success', 'Kursus berhasil disimpan.');
@@ -58,6 +57,7 @@ class KurikulumController extends Controller
 
         return redirect()->route('kurikulum')->with('error', 'Kursus tidak ditemukan.');
     }
+
     /**
      * Display the specified resource.
      */

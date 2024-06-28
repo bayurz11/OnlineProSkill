@@ -1,4 +1,4 @@
-@section('title', 'ProSkill Akademia | Kelas Tatap Muka')
+@section('title', 'ProSkill Akademia | Kurikulum')
 <?php $page = 'Ofline_class'; ?>
 
 @extends('layout.mainlayout_admin')
