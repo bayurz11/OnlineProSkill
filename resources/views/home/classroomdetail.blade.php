@@ -97,10 +97,8 @@
                             <div class="tab-pane fade" id="curriculum-tab-pane" role="tabpanel"
                                 aria-labelledby="curriculum-tab" tabindex="0">
                                 <div class="courses__curriculum-wrap">
-                                    <h3 class="title">Course Curriculum</h3>
-                                    <p>Dorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua Quis ipsum suspendisse ultrices gravida.
-                                        Risus commodo viverra maecenas accumsan.</p>
+                                    <h3 class="title">Kurikulum Kelas</h3>
+                                    <p>Apa saja yang akan dipelajari di kelas ini</p>
                                     <div class="accordion" id="accordionExample">
                                         <div class="accordion-item">
                                             <h2 class="accordion-header" id="headingOne">

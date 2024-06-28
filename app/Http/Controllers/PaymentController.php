@@ -14,6 +14,11 @@ use Xendit\Invoice\CreateInvoiceRequest;
 
 class PaymentController extends Controller
 {
+    public function __construct()
+    {
+        Configuration::setXenditKey("xnd_development_Dk99ZuALmDeKEquMQlyWZDozXzyOMFayljkE46Z3dVHhkIBMLGygOzEgwOXYhaa");
+        // Configuration::setXenditKey("xnd_production_1X2OuC1am3i41Q3y4ljRGCJzI01eUz0gQyIFucfMbJXXIsO5HozEabDP3AHxr"); //LIVE
+    }
 
     // public function payment(Request $request)
     // {
