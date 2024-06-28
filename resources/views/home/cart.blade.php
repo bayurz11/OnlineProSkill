@@ -61,9 +61,7 @@
                                     </td>
                                     <td class="product__price">Rp.{{ $item['price'] }}</td>
                                     <td class="product__quantity">
-
-                                        <input type="text" value="{{ $item['quantity'] }}">
-
+                                        {{ $item['quantity'] }}
                                     </td>
                                     <td class="product__subtotal">Rp.{{ $item['price'] * $item['quantity'] }}</td>
                                     <td class="product__remove">
