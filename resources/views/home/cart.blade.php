@@ -53,8 +53,8 @@
                             @foreach ($cart as $item)
                                 <tr>
                                     <td class="product__thumb">
-                                        <a href="shop-details.html"><img src="assets/img/shop/shop_img01.jpg"
-                                                alt=""></a>
+                                        <a href="shop-details.html"> <img
+                                                src="{{ asset('public/uploads/' . $cours->gambar) }}"alt=""></a>
                                     </td>
                                     <td class="product__name">
                                         <a href="shop-details.html">{{ $item['name'] }}</a>
