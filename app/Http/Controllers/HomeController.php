@@ -42,6 +42,7 @@ class HomeController extends Controller
     {
         $user = Auth::user();
         $profile = null;
+        $cart = Session::get('cart', []);
         if ($user) {
             $profile = UserProfile::where('user_id', $user->id)->first();
         }
@@ -55,7 +56,7 @@ class HomeController extends Controller
             $courseList = [];
         }
         $fasilitas = json_decode($courses->fasilitas, true);
-        return view('home.classroomdetail', compact('user', 'courses', 'courseList', 'profile'));
+        return view('home.classroomdetail', compact('user', 'courses', 'courseList', 'profile', 'cart'));
     }
 
 
@@ -80,21 +81,7 @@ class HomeController extends Controller
         }
         $cart = Session::get('cart', []);
 
-        if (isset($cart[$id])) {
-            $cart[$id]['quantity']++;
-        } else {
-            $cart[$id] = [
-                "id" => $id,
-                "name" => $courses->nama_kursus, // Pastikan field name ada di model KelasTatapMuka
-                "price" => $courses->price, // Pastikan field price ada di model KelasTatapMuka
-                "gambar" => $courses->gambar,
-                "quantity" => 1,
-            ];
-        }
-
-        Session::put('cart', $cart);
-
-        return view('home.checkout', compact('user', 'profile', 'courses'));
+        return view('home.checkout', compact('user', 'profile', 'courses', 'cart'));
     }
 
     // public function checkout($id)
