@@ -101,7 +101,7 @@
                     <div class="col-7">
                         <div class="coupon__code-wrap">
                             <div class="coupon__code-info">
-                                <span><i class="far fa-bookmark"></i> Sudah memiliki akun?</span>
+                                <span></i> Sudah memiliki akun?</span>
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Klik di sini untuk
                                     memas</a>
                             </div>
