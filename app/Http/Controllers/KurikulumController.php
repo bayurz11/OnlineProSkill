@@ -36,27 +36,32 @@ class KurikulumController extends Controller
     }
 
 
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
-        // Validasi data
+        // Validasi data input
         $request->validate([
             'title' => 'required|string|max:255',
+            'classroom_id' => 'required|exists:kelas_tatap_muka,id', // tambahkan validasi untuk classroom_id
         ]);
 
-        // Temukan kelas tatap muka berdasarkan $id
-        $kelasTatapMuka = KelasTatapMuka::find($id);
+        try {
+            // Ambil id kelas dari form atau URL
+            $classroomId = $request->input('classroom_id');
 
-        if (!$kelasTatapMuka) {
-            return redirect()->route('kurikulum')->with('error', 'Kelas Tatap Muka tidak ditemukan.');
+            // Temukan kelas tatap muka berdasarkan $classroomId
+            $course = KelasTatapMuka::findOrFail($classroomId);
+
+            // Buat objek Section baru
+            $section = new Section();
+            $section->title = $request->title;
+            $section->classroom_id = $course->id;
+            $section->save();
+
+            return redirect()->route('kurikulum', ['id' => $course->id])->with('success', 'Kurikulum berhasil disimpan.');
+        } catch (\Exception $e) {
+            // Jika terjadi error, redirect dengan pesan error
+            return redirect()->route('kurikulum')->with('error', 'Gagal menyimpan kurikulum: ' . $e->getMessage());
         }
-
-        // Simpan data baru ke dalam model Section
-        $section = new Section();
-        $section->title = $request->title;
-        $section->classroom_id = $kelasTatapMuka->id;
-        $section->save();
-
-        return redirect()->route('kurikulum', ['id' => $id])->with('success', 'Kurikulum berhasil disimpan.');
     }
 
 
