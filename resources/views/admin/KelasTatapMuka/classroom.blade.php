@@ -62,10 +62,11 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <a href="{{ route('kurikulum'), ['id' => $courses->id] }}"
+                                                <a href="{{ route('kurikulum', ['id' => $courses->id]) }}"
                                                     class="btn btn-success btn-icon" title="Kurikulum">
                                                     <i data-feather="settings"></i>
                                                 </a>
+
 
                                                 <button type="button" class="btn btn-primary btn-icon edit-button"
                                                     title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
