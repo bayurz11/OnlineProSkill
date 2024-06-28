@@ -159,7 +159,7 @@ class AuthController extends Controller
         return redirect()->route('profil')->with('info', 'Pendaftaran berhasil! Harap lengkapi profil Anda');
     }
 
-    public function guestregister(Request $request, $id)
+    public function guestregister(Request $request)
     {
         $request->validate([
             'name' => 'required|string|max:255',
