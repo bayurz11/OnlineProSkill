@@ -16,12 +16,12 @@ class HomeController extends Controller
     {
         $user = Auth::user(); // Mengambil pengguna yang sedang login
         $profile = null;
-
+        $cart = Session::get('cart', []);
         if ($user) {
             $profile = UserProfile::where('user_id', $user->id)->first(); // Mengambil profil pengguna yang terkait
         }
 
-        return view('home.index', compact('user', 'profile'));
+        return view('home.index', compact('user', 'profile', 'cart'));
     }
 
     public function classroom()
