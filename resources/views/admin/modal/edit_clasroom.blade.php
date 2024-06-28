@@ -282,6 +282,8 @@
         $('#edit_free').on('change', toggleEditPriceAndDiscount);
     });
 </script>
+
+
 {{-- <script>
     $(document).ready(function() {
         const editors = {};
