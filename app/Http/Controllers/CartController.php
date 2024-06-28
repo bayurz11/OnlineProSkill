@@ -62,7 +62,7 @@ class CartController extends Controller
         } else {
             $cart[$id] = [
                 "id" => $id,
-                "name" => $course->name, // Pastikan field name ada di model KelasTatapMuka
+                "name" => $course->nama_kursus, // Pastikan field name ada di model KelasTatapMuka
                 "price" => $course->price, // Pastikan field price ada di model KelasTatapMuka
                 "quantity" => 1,
             ];
