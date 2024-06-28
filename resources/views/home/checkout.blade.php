@@ -78,7 +78,6 @@
                                 <input type="text" id="name" name="name">
                             </div>
 
-
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-grp">
@@ -113,8 +112,7 @@
                             <h2 class="title">Buat Akun ProSkill</h2>
                             <p>Silahkan isi form berikut untuk melanjutkan.</p>
 
-                            <form action="{{ route('guestregister', ['id' => $courseId]) }}" class="account__form"
-                                method="POST">
+                            <form action="{{ route('guestregister') }}" class="account__form" method="POST">
                                 @csrf
                                 <div class="form-grp">
                                     <input type="text" id="name" name="name"
