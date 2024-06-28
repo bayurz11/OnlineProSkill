@@ -182,14 +182,7 @@
                         $('#edit_preview').hide();
                     }
 
-                    let tagValue = '';
-                    if (Array.isArray(data.tag) && data.tag.length > 0) {
-                        tagValue = data.tag[0].value;
-                    } else if (typeof data.tag === 'object' && data.tag !== null) {
-                        tagValue = data.tag.value;
-                    } else if (typeof data.tag === 'string') {
-                        tagValue = data.tag;
-                    }
+                    let tagValue = data.tag || '';
                     $('#edit_tag').val(tagValue);
 
                     const includeContainer = $('#edit-include-container');
