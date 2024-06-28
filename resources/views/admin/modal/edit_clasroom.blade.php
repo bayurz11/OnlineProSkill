@@ -59,6 +59,7 @@
                         <textarea id="edit_content" name="content" style="height: 400px; width: 100%; font-size: 18px;"></textarea>
                         <input type="hidden" id="edit_content_input" name="content">
                     </div>
+
                     <div class="mb-3">
                         <label for="edit_include" class="form-label">Yang akan dipelajari <span
                                 class="text-danger">*</span></label>
@@ -152,24 +153,11 @@
 
                     if (editors[id]) {
                         editors[id].destroy().then(() => {
+                            delete editors[id];
                             createEditor(id, data.content);
                         });
                     } else {
                         createEditor(id, data.content);
-                    }
-
-                    function createEditor(id, content) {
-                        ClassicEditor.create(document.querySelector('#edit_content'))
-                            .then(editor => {
-                                editors[id] = editor;
-                                editor.setData(content);
-                                editor.model.document.on('change:data', () => {
-                                    const content_input = document.querySelector(
-                                        '#edit_content_input');
-                                    content_input.value = editor.getData();
-                                });
-                            })
-                            .catch(error => console.error(error));
                     }
 
                     $('#edit_price').val(data.price);
@@ -203,7 +191,6 @@
 
                     $('#edit_tag').val(tagValue);
 
-
                     const includeContainer = $('#edit-include-container');
                     includeContainer.html('');
                     data.include.forEach(item => {
@@ -220,6 +207,19 @@
                 })
                 .catch(error => console.error('Error fetching class data:', error));
         });
+
+        function createEditor(id, content) {
+            ClassicEditor.create(document.querySelector('#edit_content'))
+                .then(editor => {
+                    editors[id] = editor;
+                    editor.setData(content);
+                    editor.model.document.on('change:data', () => {
+                        const content_input = document.querySelector('#edit_content_input');
+                        content_input.value = editor.getData();
+                    });
+                })
+                .catch(error => console.error(error));
+        }
 
         $('#edit_gambar').change(function() {
             readURL(this);
