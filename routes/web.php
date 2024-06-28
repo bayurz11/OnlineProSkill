@@ -69,7 +69,7 @@ Route::middleware('isAdmin')->group(function () {
     Route::delete('/class_destroy/{id}', [KelasTatapMukaController::class, 'destroy'])->name('class.destroy');
 
     //kurikulum
-    Route::get('/kurikulum', [KurikulumController::class, 'index'])->name('kurikulum');
+    Route::get('/kurikulum/{id}', [KurikulumController::class, 'index'])->name('kurikulum');
 });
 
 //*********STUDEN*********//

@@ -62,8 +62,8 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <a href="{{ route('kurikulum') }}" class="btn btn-success btn-icon"
-                                                    title="Kurikulum">
+                                                <a href="{{ route('kurikulum'), ['id' => $courses->id] }}"
+                                                    class="btn btn-success btn-icon" title="Kurikulum">
                                                     <i data-feather="settings"></i>
                                                 </a>
 
