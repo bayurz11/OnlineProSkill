@@ -187,6 +187,24 @@
                     }
 
                     function initEditor(editorElement, inputElement, content, id) {
+                        ClassicEditor
+                            .create(editorElement, {
+                                // Konfigurasi opsional ClassicEditor
+                            })
+                            .then(editor => {
+                                editors[id] = editor;
+                                editor.setData(content);
+                                editor.model.document.on('change:data', () => {
+                                    inputElement.value = editor.getData();
+                                });
+                            })
+                            .catch(error => {
+                                console.error(`Error creating editor ${id}:`, error);
+                            });
+                    }
+
+
+                    function initEditor(editorElement, inputElement, content, id) {
                         ClassicEditor.create(editorElement)
                             .then(editor => {
                                 editors[id] = editor;
