@@ -53,7 +53,7 @@
                             <li>Total <span class="amount">Rp.{{ array_sum(array_column($cart, 'price')) }}</span></li>
                             <li>Jumlah Quantity <span>{{ array_sum(array_column($cart, 'quantity')) }}</span></li>
                         </ul>
-                        <a href="{{ route('checkout') }}" class="btn">Bayar & Gabung kelas</a>
+                        <a href="" class="btn">Bayar & Gabung kelas</a>
                     </div>
                 </div>
             </div>
