@@ -1,7 +1,7 @@
 <div class="modal fade" id="kurikulumModal" tabindex="-1" aria-labelledby="kurikulumModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form action="{{ route('your.store.route') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('kurikulumstore') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
                     <h5 class="modal-title" id="kurikulumModalLabel">Tambah Kurikulum</h5>
@@ -9,9 +9,9 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="nama_kursus" class="form-label">Judul<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="nama_kursus" name="nama_kursus"
-                            placeholder="Masukkan Nama Kursus Anda">
+                        <label for="title" class="form-label">Judul<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="title" name="title"
+                            placeholder="Masukkan kudul Kurikulum anda">
                     </div>
                     <!-- Tambahkan input untuk course_id -->
                     <input type="hidden" name="course_id" value="{{ $course->id }}">
