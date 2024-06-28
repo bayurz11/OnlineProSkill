@@ -19,14 +19,14 @@ class KurikulumController extends Controller
     {
         $user = Auth::user();
         $categori = Categories::all();
-        $course = KelasTatapMuka::with('user')->get();
-        $cours = KelasTatapMuka::all();
-        $count = $course->count();
+        $courses = KelasTatapMuka::all(); // Ambil semua data kelas tatap muka
+        $count = $courses->count(); // Menghitung jumlah kelas tatap muka
         if (!$user) {
             return redirect()->route('login_admin');
         }
-        return view('admin.KelasTatapMuka.kurikulum', compact('user', 'categori', 'count', 'course', 'cours'));
+        return view('admin.KelasTatapMuka.kurikulum', compact('user', 'categori', 'count', 'courses'));
     }
+
 
     /**
      * Show the form for creating a new resource.
