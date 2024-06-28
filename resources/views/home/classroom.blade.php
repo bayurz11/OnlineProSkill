@@ -130,7 +130,7 @@
                                                         <div class="button">
                                                             <a href="{{ route('cart.add', ['id' => $cours->id]) }}"
                                                                 class="cart-count"
-                                                                style="color: #ffffff; background-color: #007bff;">
+                                                                style="color: #ffffff; background-color: #007F73;">
                                                                 <img src="{{ asset('public/assets/img/icons/cart.svg') }}"
                                                                     class="injectable" alt="img">
                                                             </a>
