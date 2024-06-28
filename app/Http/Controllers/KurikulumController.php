@@ -20,6 +20,7 @@ class KurikulumController extends Controller
         $user = Auth::user();
         $categori = Categories::all();
         $course = KelasTatapMuka::with('user')->get();
+        $cours = KelasTatapMuka::all();
         $count = $course->count();
         if (!$user) {
             return redirect()->route('login_admin');
