@@ -58,7 +58,7 @@ class HomeController extends Controller
     }
 
 
-    public function checkout($id)
+    public function checkout(Request $request)
     {
         $user = Auth::user();
         $profile = null;
@@ -66,12 +66,21 @@ class HomeController extends Controller
         if ($user) {
             $profile = UserProfile::where('user_id', $user->id)->first();
         }
-        $courses = KelasTatapMuka::find($id);
-        if (!$courses) {
+
+        $cart = json_decode($request->input('cart'), true);
+
+        if (!$cart) {
+            return redirect()->route('/')->with('error', 'Keranjang belanja kosong.');
+        }
+
+        $courses = KelasTatapMuka::whereIn('id', array_column($cart, 'id'))->get();
+        if ($courses->isEmpty()) {
             return redirect()->route('/')->with('error', 'Kelas tidak ditemukan.');
         }
+
         return view('home.checkout', compact('user', 'profile', 'courses'));
     }
+
     // public function checkout($id)
     // {
     //     $courses = KelasTatapMuka::find($id);

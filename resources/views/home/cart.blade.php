@@ -81,7 +81,7 @@
                             <li>Subtotal <span>Rp.{{ array_sum(array_column($cart, 'price')) }}</span></li>
                             <li>Total <span class="amount">Rp.{{ array_sum(array_column($cart, 'price')) }}</span></li>
                         </ul>
-                        <a href="check-out.html" class="btn">Bayar & Gabung kelas</a>
+                        <a href="{{ route('checkout', ['id' => $cart->id]) }}" class="btn">Bayar & Gabung kelas</a>
                     </div>
                 </div>
             </div>
