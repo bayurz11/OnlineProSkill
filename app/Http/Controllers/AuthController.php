@@ -6,8 +6,9 @@ use App\Models\User;
 use App\Models\UserRoles;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Models\KelasTatapMuka;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -158,8 +159,7 @@ class AuthController extends Controller
         return redirect()->route('profil')->with('success', 'Pendaftaran berhasil! Silahkan Masuk');
     }
 
-
-    public function guestregister(Request $request)
+    public function guestregister(Request $request, $id)
     {
         $request->validate([
             'name' => 'required|string|max:255',
@@ -187,6 +187,40 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('checkout');
+        // Temukan course berdasarkan ID yang diterima sebagai parameter
+        $course = KelasTatapMuka::find($id);
+
+        // Redirect ke halaman checkout dengan ID course
+        return redirect()->route('checkout', ['id' => $course->id]);
     }
+    // public function guestregister(Request $request)
+    // {
+    //     $request->validate([
+    //         'name' => 'required|string|max:255',
+    //         'email' => 'required|string|email|max:255|unique:users',
+    //         'password' => 'required|string|min:3|confirmed',
+    //     ]);
+
+    //     $user = User::create([
+    //         'name' => $request->name,
+    //         'email' => $request->email,
+    //         'password' => bcrypt($request->password),
+    //         'last_login' => Carbon::now(),
+    //         'status' => 1,
+    //     ]);
+
+    //     $userRole = new UserRoles();
+    //     $userRole->user_id = $user->id;
+    //     $userRole->role_id = 3;
+    //     $userRole->save();
+
+    //     $userProfile = new UserProfile();
+    //     $userProfile->user_id = $user->id;
+    //     $userProfile->role_id = 3;
+    //     $userProfile->save();
+
+    //     Auth::login($user);
+
+    //     return redirect()->route('checkout');
+    // }
 }
