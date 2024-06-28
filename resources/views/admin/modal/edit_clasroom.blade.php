@@ -59,6 +59,12 @@
                         <textarea id="edit_content" name="content" style="height: 400px; width: 100%; font-size: 18px;"></textarea>
                         <input type="hidden" id="edit_content_input" name="content">
                     </div>
+
+                    <script>
+                        // Panggil fungsi createEditor dengan ID yang benar
+                        createEditor('edit_content', 'Initial content here');
+                    </script>
+
                     <div class="mb-3">
                         <label for="edit_include" class="form-label">Yang akan dipelajari <span
                                 class="text-danger">*</span></label>
@@ -112,162 +118,178 @@
         const editors = {};
 
         $('.edit-button').on('click', function() {
-            const id = $(this).data('id');
-            fetch(`/class/${id}/edit`)
-                .then(response => response.json())
-                .then(data => {
-                    $('#editCourseForm').attr('action', `/class/${id}`);
-                    $('#edit_nama_kursus').val(data.nama_kursus);
-                    $('#edit_durasi').val(data.durasi);
-                    $('#edit_sertifikat').val(data.sertifikat);
-                    $('#edit_category').val(data.kategori_id);
+                const id = $(this).data('id');
+                fetch(`/class/${id}/edit`)
+                    .then(response => response.json())
+                    .then(data => {
+                            $('#editCourseForm').attr('action', `/class/${id}`);
+                            $('#edit_nama_kursus').val(data.nama_kursus);
+                            $('#edit_durasi').val(data.durasi);
+                            $('#edit_sertifikat').val(data.sertifikat);
+                            $('#edit_category').val(data.kategori_id);
 
-                    const categoryId = data.kategori_id;
-                    const subcategorySelect = $('#edit_subcategory');
-                    subcategorySelect.prop('disabled', !categoryId);
-                    if (categoryId) {
-                        fetch(`/get-subcategories/${categoryId}`)
-                            .then(response => response.json())
-                            .then(subcategories => {
-                                subcategorySelect.html(
-                                    '<option value="">Pilih Subkategori</option>');
-                                subcategories.forEach(subcategory => {
-                                    if (subcategory.status == 1) {
-                                        const option = $('<option></option>')
-                                            .attr('value', subcategory.id)
-                                            .text(subcategory.name);
-                                        if (subcategory.id == data.subkategori_id) {
-                                            option.prop('selected', true);
-                                        }
-                                        subcategorySelect.append(option);
-                                    }
+                            const categoryId = data.kategori_id;
+                            const subcategorySelect = $('#edit_subcategory');
+                            subcategorySelect.prop('disabled', !categoryId);
+                            if (categoryId) {
+                                fetch(`/get-subcategories/${categoryId}`)
+                                    .then(response => response.json())
+                                    .then(subcategories => {
+                                        subcategorySelect.html(
+                                            '<option value="">Pilih Subkategori</option>');
+                                        subcategories.forEach(subcategory => {
+                                            if (subcategory.status == 1) {
+                                                const option = $('<option></option>')
+                                                    .attr('value', subcategory.id)
+                                                    .text(subcategory.name);
+                                                if (subcategory.id == data.subkategori_id) {
+                                                    option.prop('selected', true);
+                                                }
+                                                subcategorySelect.append(option);
+                                            }
+                                        });
+                                    })
+                                    .catch(error => console.error('Error fetching subcategories:', error));
+                            } else {
+                                subcategorySelect.html('<option value="">Pilih Subkategori</option>');
+                            }
+
+                            $('#edit_tingkat').val(data.tingkat);
+
+                            if (editors[id]) {
+                                editors[id].destroy().then(() => {
+                                    createEditor(id, data.content);
                                 });
-                            })
-                            .catch(error => console.error('Error fetching subcategories:', error));
-                    } else {
-                        subcategorySelect.html('<option value="">Pilih Subkategori</option>');
-                    }
+                            } else {
+                                createEditor(id, data.content);
+                            }
 
-                    $('#edit_tingkat').val(data.tingkat);
+                            // function createEditor(id, content) {
+                            //     ClassicEditor.create(document.querySelector('#edit_content'))
+                            //         .then(editor => {
+                            //             editors[id] = editor;
+                            //             editor.setData(content);
+                            //             editor.model.document.on('change:data', () => {
+                            //                 const content_input = document.querySelector(
+                            //                     '#edit_content_input');
+                            //                 content_input.value = editor.getData();
+                            //             });
+                            //         })
+                            //         .catch(error => console.error(error));
+                            // } function createEditor(id, content) {
+                            const editorElement = document.querySelector('#' + id);
+                            const inputElement = document.querySelector('#' + id + '_input');
 
-                    if (editors[id]) {
-                        editors[id].destroy().then(() => {
-                            createEditor(id, data.content);
-                        });
-                    } else {
-                        createEditor(id, data.content);
-                    }
-
-                    function createEditor(id, content) {
-                        ClassicEditor.create(document.querySelector('#edit_content'))
-                            .then(editor => {
-                                editors[id] = editor;
-                                editor.setData(content);
-                                editor.model.document.on('change:data', () => {
-                                    const content_input = document.querySelector(
-                                        '#edit_content_input');
-                                    content_input.value = editor.getData();
-                                });
-                            })
-                            .catch(error => console.error(error));
-                    }
-
-                    $('#edit_price').val(data.price);
-                    $('#edit_discount').val(data.discount);
-                    $('#edit_discountedPrice').val(data.discountedPrice);
-
-                    if (data.gambar) {
-                        $('#edit_preview').attr('src', `/public/uploads/${data.gambar}`).show();
-                    } else {
-                        $('#edit_preview').hide();
-                    }
-                    let tagValue = '';
-
-                    // Coba parse data.tag jika itu adalah string JSON
-                    try {
-                        const parsedTag = JSON.parse(data.tag);
-
-                        if (Array.isArray(parsedTag) && parsedTag.length > 0) {
-                            tagValue = parsedTag[0].value;
-                        } else if (typeof parsedTag === 'object' && parsedTag !== null) {
-                            tagValue = parsedTag.value;
-                        } else if (typeof parsedTag === 'string') {
-                            tagValue = parsedTag;
+                            if (editorElement && inputElement) {
+                                ClassicEditor.create(editorElement)
+                                    .then(editor => {
+                                        editors[id] = editor;
+                                        editor.setData(content);
+                                        editor.model.document.on('change:data', () => {
+                                            inputElement.value = editor.getData();
+                                        });
+                                    })
+                                    .catch(error => console.error(error));
+                            } else {
+                                console.error('Editor element or input element not found');
+                            }
                         }
-                    } catch (e) {
-                        // Jika parsing gagal, langsung gunakan data.tag jika itu adalah string biasa
-                        if (typeof data.tag === 'string') {
-                            tagValue = data.tag;
+
+
+                        $('#edit_price').val(data.price); $('#edit_discount').val(data.discount); $(
+                            '#edit_discountedPrice').val(data.discountedPrice);
+
+                        if (data.gambar) {
+                            $('#edit_preview').attr('src', `/public/uploads/${data.gambar}`).show();
+                        } else {
+                            $('#edit_preview').hide();
                         }
-                    }
+                        let tagValue = '';
 
-                    $('#edit_tag').val(tagValue);
+                        // Coba parse data.tag jika itu adalah string JSON
+                        try {
+                            const parsedTag = JSON.parse(data.tag);
+
+                            if (Array.isArray(parsedTag) && parsedTag.length > 0) {
+                                tagValue = parsedTag[0].value;
+                            } else if (typeof parsedTag === 'object' && parsedTag !== null) {
+                                tagValue = parsedTag.value;
+                            } else if (typeof parsedTag === 'string') {
+                                tagValue = parsedTag;
+                            }
+                        } catch (e) {
+                            // Jika parsing gagal, langsung gunakan data.tag jika itu adalah string biasa
+                            if (typeof data.tag === 'string') {
+                                tagValue = data.tag;
+                            }
+                        }
+
+                        $('#edit_tag').val(tagValue);
 
 
-                    const includeContainer = $('#edit-include-container');
-                    includeContainer.html('');
-                    data.include.forEach(item => {
-                        const inputGroup = $(`
+                        const includeContainer = $('#edit-include-container'); includeContainer.html(
+                        ''); data.include.forEach(item => {
+                            const inputGroup = $(`
                     <div class="input-group mb-2">
                         <input type="text" class="form-control" name="include[]" value="${item}">
                         <button class="btn btn-danger remove-edit-include" type="button">-</button>
                     </div>
                 `);
-                        includeContainer.append(inputGroup);
-                    });
+                            includeContainer.append(inputGroup);
+                        });
 
-                    toggleEditPriceAndDiscount();
-                })
-                .catch(error => console.error('Error fetching class data:', error));
+                        toggleEditPriceAndDiscount();
+                    })
+            .catch(error => console.error('Error fetching class data:', error));
         });
 
-        $('#edit_gambar').change(function() {
-            readURL(this);
-        });
+    $('#edit_gambar').change(function() {
+        readURL(this);
+    });
 
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    $('#edit_preview').attr('src', e.target.result).show();
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#edit_preview').attr('src', e.target.result).show();
+            };
+            reader.readAsDataURL(input.files[0]);
         }
+    }
 
-        $('#add-edit-include').on('click', function() {
-            const inputGroup = $(`
+    $('#add-edit-include').on('click', function() {
+        const inputGroup = $(`
         <div class="input-group mb-2">
             <input type="text" class="form-control" name="include[]">
             <button class="btn btn-danger remove-edit-include" type="button">-</button>
         </div>
     `);
-            $('#edit-include-container').append(inputGroup);
-        });
+        $('#edit-include-container').append(inputGroup);
+    });
 
-        $(document).on('click', '.remove-edit-include', function() {
-            $(this).closest('.input-group').remove();
-        });
+    $(document).on('click', '.remove-edit-include', function() {
+        $(this).closest('.input-group').remove();
+    });
 
-        function calculateEditDiscountedPrice() {
-            const price = parseFloat($('#edit_price').val());
-            const discount = parseFloat($('#edit_discount').val());
-            if (!isNaN(price) && !isNaN(discount)) {
-                const discountedPrice = price - (price * (discount / 100));
-                $('#edit_discountedPrice').val(discountedPrice.toFixed(2));
-            }
+    function calculateEditDiscountedPrice() {
+        const price = parseFloat($('#edit_price').val());
+        const discount = parseFloat($('#edit_discount').val());
+        if (!isNaN(price) && !isNaN(discount)) {
+            const discountedPrice = price - (price * (discount / 100));
+            $('#edit_discountedPrice').val(discountedPrice.toFixed(2));
         }
+    }
 
-        $('#edit_discount').on('input', calculateEditDiscountedPrice);
+    $('#edit_discount').on('input', calculateEditDiscountedPrice);
 
-        function toggleEditPriceAndDiscount() {
-            const isFree = $('#edit_free').is(':checked');
-            $('#edit_price, #edit_discount, #edit_discountedPrice').prop('disabled', isFree);
-            if (isFree) {
-                $('#edit_price, #edit_discount, #edit_discountedPrice').val('');
-            }
+    function toggleEditPriceAndDiscount() {
+        const isFree = $('#edit_free').is(':checked');
+        $('#edit_price, #edit_discount, #edit_discountedPrice').prop('disabled', isFree);
+        if (isFree) {
+            $('#edit_price, #edit_discount, #edit_discountedPrice').val('');
         }
+    }
 
-        $('#edit_free').on('change', toggleEditPriceAndDiscount);
+    $('#edit_free').on('change', toggleEditPriceAndDiscount);
     });
 </script>
