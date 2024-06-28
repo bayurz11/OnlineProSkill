@@ -175,6 +175,5 @@
             </div>
         </div>
     </div>
-@endisset
-@endauth
+
 @endsection
