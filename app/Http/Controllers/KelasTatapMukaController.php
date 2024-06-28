@@ -67,9 +67,11 @@ class KelasTatapMukaController extends Controller
         $course = KelasTatapMuka::find($id);
 
         if (!$course) {
-            return response()->json(['message' => 'course not found'], 404);
+            // Jika kursus tidak ditemukan, kembalikan respons dengan kode status 404
+            return response()->json(['message' => 'Kursus tidak ditemukan'], 404);
         }
 
+        // Kembalikan respons dengan data kursus dalam format JSON
         return response()->json($course);
     }
 

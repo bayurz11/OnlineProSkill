@@ -107,8 +107,48 @@
     </div>
 </div>
 
-
 <script>
+    $(document).ready(function() {
+        $('#editModal').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget); // Tombol yang memicu modal
+            var courseId = button.data('course-id'); // Ambil ID kursus dari atribut data
+
+            // Panggil API untuk mendapatkan data kursus
+            $.ajax({
+                url: '/class/' + courseId + '/edit',
+                type: 'GET',
+                success: function(response) {
+                    // Mengisi nilai form dengan data yang diterima dari API
+                    $('#edit_nama_kursus').val(response.nama_kursus);
+                    $('#edit_durasi').val(response.durasi);
+                    $('#edit_sertifikat').val(response.sertifikat);
+                    $('#edit_category').val(response.kategori_id)
+                        .change(); // Ubah pilihan kategori
+                    $('#edit_tingkat').val(response.tingkat);
+                    $('#edit_content').summernote('code', response
+                        .content); // Isi konten menggunakan Summernote (atau editor lain)
+                    $('#edit_price').val(response.price);
+                    $('#edit_discount').val(response.discount);
+                    $('#edit_discountedPrice').val(response.discountedPrice);
+                    $('#edit_tag').val(response.tag);
+
+                    // Gambar preview (jika ada)
+                    if (response.gambar) {
+                        $('#edit_preview').attr('src', response.gambar).show();
+                    } else {
+                        $('#edit_preview').hide();
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('AJAX Error:', status, error);
+                    // Tampilkan pesan kesalahan jika gagal mengambil data
+                    alert('Gagal memuat data kursus untuk diedit. Silakan coba lagi.');
+                }
+            });
+        });
+    });
+</script>
+{{-- <script>
     $(document).ready(function() {
         const editors = {};
 
@@ -151,14 +191,11 @@
 
                     $('#edit_tingkat').val(data.tingkat);
 
-                    // Hapus editor lama jika ada sebelum membuat yang baru
                     if (editors[id]) {
-                        editors[id].destroy()
-                            .then(() => {
-                                delete editors[id];
-                                createEditor(id, data.content);
-                            })
-                            .catch(error => console.error('Error destroying editor:', error));
+                        editors[id].destroy().then(() => {
+                            delete editors[id];
+                            createEditor(id, data.content);
+                        });
                     } else {
                         createEditor(id, data.content);
                     }
@@ -172,10 +209,9 @@
                     } else {
                         $('#edit_preview').hide();
                     }
-
                     let tagValue = '';
 
-                    // Parse data.tag jika itu adalah JSON string
+                    // Coba parse data.tag jika itu adalah string JSON
                     try {
                         const parsedTag = JSON.parse(data.tag);
 
@@ -187,7 +223,7 @@
                             tagValue = parsedTag;
                         }
                     } catch (e) {
-                        // Jika parsing gagal, gunakan data.tag jika itu adalah string biasa
+                        // Jika parsing gagal, langsung gunakan data.tag jika itu adalah string biasa
                         if (typeof data.tag === 'string') {
                             tagValue = data.tag;
                         }
@@ -195,22 +231,17 @@
 
                     $('#edit_tag').val(tagValue);
 
-                    // Populate include container
                     const includeContainer = $('#edit-include-container');
                     includeContainer.html('');
-                    if (Array.isArray(data.include)) {
-                        data.include.forEach(item => {
-                            const inputGroup = $(`
-                                <div class="input-group mb-2">
-                                    <input type="text" class="form-control" name="include[]" value="${item}">
-                                    <button class="btn btn-danger remove-edit-include" type="button">-</button>
-                                </div>
-                            `);
-                            includeContainer.append(inputGroup);
-                        });
-                    } else {
-                        console.error('data.include bukan array:', data.include);
-                    }
+                    data.include.forEach(item => {
+                        const inputGroup = $(`
+                    <div class="input-group mb-2">
+                        <input type="text" class="form-control" name="include[]" value="${item}">
+                        <button class="btn btn-danger remove-edit-include" type="button">-</button>
+                    </div>
+                `);
+                        includeContainer.append(inputGroup);
+                    });
 
                     toggleEditPriceAndDiscount();
                 })
@@ -218,24 +249,16 @@
         });
 
         function createEditor(id, content) {
-            const editorId = `edit_content_${id}`;
-            const editorInputId = `edit_content_input_${id}`;
-
-            ClassicEditor
-                .create(document.querySelector(`#${editorId}`), {
-                    // Konfigurasi opsional ClassicEditor di sini
-                })
+            ClassicEditor.create(document.querySelector('#edit_content'))
                 .then(editor => {
                     editors[id] = editor;
                     editor.setData(content);
                     editor.model.document.on('change:data', () => {
-                        const content_input = document.querySelector(`#${editorInputId}`);
+                        const content_input = document.querySelector('#edit_content_input');
                         content_input.value = editor.getData();
                     });
                 })
-                .catch(error => {
-                    console.error('Error creating editor:', error);
-                });
+                .catch(error => console.error(error));
         }
 
         $('#edit_gambar').change(function() {
@@ -254,27 +277,17 @@
 
         $('#add-edit-include').on('click', function() {
             const inputGroup = $(`
-                <div class="input-group mb-2">
-                    <input type="text" class="form-control" name="include[]">
-                    <button class="btn btn-danger remove-edit-include" type="button">-</button>
-                </div>
-            `);
+        <div class="input-group mb-2">
+            <input type="text" class="form-control" name="include[]">
+            <button class="btn btn-danger remove-edit-include" type="button">-</button>
+        </div>
+    `);
             $('#edit-include-container').append(inputGroup);
         });
 
         $(document).on('click', '.remove-edit-include', function() {
             $(this).closest('.input-group').remove();
         });
-
-        function toggleEditPriceAndDiscount() {
-            const isFree = $('#edit_free').is(':checked');
-            $('#edit_price, #edit_discount, #edit_discountedPrice').prop('disabled', isFree);
-            if (isFree) {
-                $('#edit_price, #edit_discount, #edit_discountedPrice').val('');
-            }
-        }
-
-        $('#edit_discount').on('input', calculateEditDiscountedPrice);
 
         function calculateEditDiscountedPrice() {
             const price = parseFloat($('#edit_price').val());
@@ -285,6 +298,16 @@
             }
         }
 
+        $('#edit_discount').on('input', calculateEditDiscountedPrice);
+
+        function toggleEditPriceAndDiscount() {
+            const isFree = $('#edit_free').is(':checked');
+            $('#edit_price, #edit_discount, #edit_discountedPrice').prop('disabled', isFree);
+            if (isFree) {
+                $('#edit_price, #edit_discount, #edit_discountedPrice').val('');
+            }
+        }
+
         $('#edit_free').on('change', toggleEditPriceAndDiscount);
     });
-</script>
+</script> --}}
