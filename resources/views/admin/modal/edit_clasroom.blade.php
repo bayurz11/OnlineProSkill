@@ -151,11 +151,14 @@
 
                     $('#edit_tingkat').val(data.tingkat);
 
+                    // Hapus editor lama jika ada sebelum membuat yang baru
                     if (editors[id]) {
-                        editors[id].destroy().then(() => {
-                            delete editors[id];
-                            createEditor(id, data.content);
-                        });
+                        editors[id].destroy()
+                            .then(() => {
+                                delete editors[id];
+                                createEditor(id, data.content);
+                            })
+                            .catch(error => console.error(error));
                     } else {
                         createEditor(id, data.content);
                     }
@@ -209,12 +212,16 @@
         });
 
         function createEditor(id, content) {
-            ClassicEditor.create(document.querySelector('#edit_content'))
+            // Buat id yang unik untuk setiap editor
+            const editorId = `edit_content_${id}`;
+            const editorInputId = `edit_content_input_${id}`;
+
+            ClassicEditor.create(document.querySelector(`#${editorId}`))
                 .then(editor => {
                     editors[id] = editor;
                     editor.setData(content);
                     editor.model.document.on('change:data', () => {
-                        const content_input = document.querySelector('#edit_content_input');
+                        const content_input = document.querySelector(`#${editorInputId}`);
                         content_input.value = editor.getData();
                     });
                 })
