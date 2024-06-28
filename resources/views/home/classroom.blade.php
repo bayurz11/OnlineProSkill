@@ -175,11 +175,12 @@
                                                             </a>
                                                         </div>
                                                         <div class="button">
-                                                            <a
-                                                                href="{{ route('classroomdetail', ['id' => $cours->id]) }}">
-                                                                <span class="text">Detail Kelas</span>
-                                                                <i class="flaticon-arrow-right"></i>
+                                                            <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}"
+                                                                class="cart-count">
+                                                                <img src="{{ asset('public/assets/img/icons/cart.svg') }}"
+                                                                    class="injectable" alt="img">
                                                             </a>
+
                                                         </div>
                                                     </div>
                                                 </div>
