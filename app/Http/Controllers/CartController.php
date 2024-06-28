@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\UserProfile;
 use App\Models\KelasTatapMuka;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -39,8 +40,8 @@ class CartController extends Controller
     {
         $user = Auth::user();
         $course = KelasTatapMuka::all();
-
-        return view('home.cart', compact('user', 'course'));
+        $profile = UserProfile::where('user_id', $user->id)->first();
+        return view('home.cart', compact('user', 'course', 'profile'));
     }
 
     /**
