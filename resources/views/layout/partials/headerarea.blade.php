@@ -86,7 +86,7 @@
                                         <a href="{{ route('cart.view') }}" class="cart-count">
                                             <img src="{{ asset('public/assets/img/icons/cart.svg') }}"
                                                 class="injectable" alt="img">
-                                            <span class="mini-cart-count">0</span>
+                                            <span class="mini-cart-count"> {{ $item['quantity'] }}</span>
                                         </a>
                                     </li>
                                     @auth
