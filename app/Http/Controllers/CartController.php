@@ -34,8 +34,11 @@ class CartController extends Controller
         $user = Auth::user();
         $cart = Session::get('cart', []);
         $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
-
-        return view('home.cart', compact('user', 'cart', 'profile'));
+        $courses = KelasTatapMuka::whereIn('id', array_column($cart, 'id'))->get();
+        if ($courses->isEmpty()) {
+            return redirect()->route('/')->with('error', 'Kelas tidak ditemukan.');
+        }
+        return view('home.cart', compact('user', 'cart', 'profile', 'courses'));
     }
 
     public function edit(Cart $cart)
