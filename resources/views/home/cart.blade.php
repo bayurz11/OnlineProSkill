@@ -72,13 +72,14 @@
                                 </tr>
                                 <tr>
                                     <td colspan="6" class="cart__actions">
-                                        <form action="{{ route('cart.updateQuantity', $item['id']) }}" method="POST">
-                                            @csrf
-                                            <input type="hidden" name="_method" value="POST">
-                                            <!-- Tambahkan ini untuk menentukan method POST -->
-                                            <input type="text" name="quantity" value="{{ $item['quantity'] }}">
-                                            <button type="submit">Update</button>
-                                        </form>
+                                        <div class="update__cart-btn text-end f-right">
+                                            <form action="{{ route('cart.updateQuantity', $item['id']) }}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="_method" value="POST">
+                                                <!-- Tambahkan ini untuk menentukan method POST -->
+                                                <button type="submit" class="btn">Update cart</button>
+                                            </form>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
