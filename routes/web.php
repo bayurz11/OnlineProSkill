@@ -85,8 +85,6 @@ Route::middleware('isStuden')->group(function () {
     //Riwayat Transaksi
     Route::get('/history', [RiwayatTransaksiController::class, 'index'])->name('history');
 
-
-
     //payment
     Route::post('/payment', [PaymentController::class, 'payment'])->name('payment');
     Route::get('/success/{uuid}', [PaymentController::class, 'success'])->name('success');

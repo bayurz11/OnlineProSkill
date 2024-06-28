@@ -82,6 +82,13 @@
 
                             <div class="tgmenu__action tgmenu__action-two">
                                 <ul class="list-wrap">
+                                    <li class="mini-cart-icon">
+                                        <a href="cart.html" class="cart-count">
+                                            <img src="{{ asset('public/assets/img/icons/cart.svg') }}"
+                                                class="injectable" alt="img">
+                                            <span class="mini-cart-count">0</span>
+                                        </a>
+                                    </li>
                                     @auth
                                         <li class="mini-cart-icon">
                                             <a href="#" class="cart-count-two">
