@@ -83,7 +83,7 @@
                             <div class="tgmenu__action tgmenu__action-two">
                                 <ul class="list-wrap">
                                     <li class="mini-cart-icon">
-                                        <a href="{{ route('cart') }}" class="cart-count">
+                                        <a href="{{ route('cart.view') }}" class="cart-count">
                                             <img src="{{ asset('public/assets/img/icons/cart.svg') }}"
                                                 class="injectable" alt="img">
                                             <span class="mini-cart-count">0</span>
@@ -192,7 +192,7 @@
                             <div class="mobile-login-btn">
                                 <ul class="list-wrap">
                                     <li class="mini-cart-icon">
-                                        <a href="{{ route('cart') }}" class="cart-count">
+                                        <a href="{{ route('cart.view') }}" class="cart-count">
                                             <img src="{{ asset('public/assets/img/icons/cart.svg') }}"
                                                 class="injectable" alt="img">
                                             <span class="mini-cart-count">0</span>
