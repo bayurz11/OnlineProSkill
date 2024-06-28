@@ -59,7 +59,7 @@
                     <div class="col-lg-7">
                         <form action="{{ route('payment') }}" class="customer__form-wrap" method="POST">
                             @csrf
-                            <input type="hidden" name="id" value="{{ $courses->id }}">
+                            <input type="hidden" name="id" value="$item['id']">
                             <span class="title">RINCIAN PENAGIHAN</span>
 
                             <div class="form-grp">
@@ -101,8 +101,7 @@
                             <h2 class="title">Buat Akun ProSkill</h2>
                             <p>Silahkan isi form berikut untuk melanjutkan.</p>
 
-                            <form action="{{ route('guestregister', ['id' => $courses->id]) }}" class="account__form"
-                                method="POST">
+                            <form action="{{ route('guestregister', $item['id']) }}" class="account__form" method="POST">
                                 @csrf
                                 <div class="form-grp">
                                     <input type="text" id="name" name="name"
