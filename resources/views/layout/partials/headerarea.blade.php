@@ -189,7 +189,18 @@
                                     @endguest
                                 </ul>
                             </div>
+                            <div class="mobile-login-btn">
+                                <ul class="list-wrap">
 
+                                    <li class="mini-cart-icon">
+                                        <a href="cart.html" class="cart-count">
+                                            <img src="assets/img/icons/cart.svg" class="injectable" alt="img">
+                                            <span class="mini-cart-count">0</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
                             @auth
                                 <div class="mobile-menu-dropdown dropdown">
                                     <a href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
