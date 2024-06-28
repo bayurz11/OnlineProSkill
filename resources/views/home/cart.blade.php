@@ -5,33 +5,7 @@
 
 @section('content')
     <section class="breadcrumb__area breadcrumb__bg" data-background="{{ asset('public/assets/img/bg/breadcrumb_bg.jpg') }}">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="breadcrumb__content">
-                        <h3 class="title">Cart</h3>
-                        <nav class="breadcrumb">
-                            <span property="itemListElement" typeof="ListItem">
-                                <a href="{{ route('/') }}">Beranda</a>
-                            </span>
-                            <span class="breadcrumb-separator"><i class="fas fa-angle-right"></i></span>
-                            <span property="itemListElement" typeof="ListItem">Cart</span>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="breadcrumb__shape-wrap">
-            <img src="{{ asset('public/assets/img/others/breadcrumb_shape01.svg') }}" alt="img" class="alltuchtopdown">
-            <img src="{{ asset('public/assets/img/others/breadcrumb_shape02.svg') }}" alt="img" data-aos="fade-right"
-                data-aos-delay="300">
-            <img src="{{ asset('public/assets/img/others/breadcrumb_shape03.svg') }}" alt="img" data-aos="fade-up"
-                data-aos-delay="400">
-            <img src="{{ asset('public/assets/img/others/breadcrumb_shape04.svg') }}" alt="img"
-                data-aos="fade-down-left" data-aos-delay="400">
-            <img src="{{ asset('public/assets/img/others/breadcrumb_shape05.svg') }}" alt="img" data-aos="fade-left"
-                data-aos-delay="400">
-        </div>
+        <!-- Breadcrumb section content -->
     </section>
 
     <div class="cart__area section-py-120">
@@ -60,9 +34,7 @@
                                         <a href="{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}</a>
                                     </td>
                                     <td class="product__price">Rp.{{ $item['price'] }}</td>
-                                    <td class="product__quantity" style="text-align: left;">
-                                        {{ $item['quantity'] }}
-                                    </td>
+                                    <td class="product__quantity">{{ $item['quantity'] }}</td>
                                     <td class="product__subtotal">Rp.{{ $item['price'] * $item['quantity'] }}</td>
                                     <td class="product__remove">
                                         <a href="{{ route('cart.remove', $item['id']) }}">×</a>
@@ -79,8 +51,9 @@
                         <ul class="list-wrap">
                             <li>Subtotal <span>Rp.{{ array_sum(array_column($cart, 'price')) }}</span></li>
                             <li>Total <span class="amount">Rp.{{ array_sum(array_column($cart, 'price')) }}</span></li>
+                            <li>Jumlah Quantity <span>{{ array_sum(array_column($cart, 'quantity')) }}</span></li>
                         </ul>
-                        <a href="{{ route('checkout', $item['id']) }}" class="btn">Bayar & Gabung kelas</a>
+                        <a href="{{ route('checkout') }}" class="btn">Bayar & Gabung kelas</a>
                     </div>
                 </div>
             </div>
