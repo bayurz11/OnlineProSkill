@@ -126,7 +126,13 @@
                                                                 <span class="text">Detail Kelas</span>
                                                                 <i class="flaticon-arrow-right"></i>
                                                             </a>
+                                                            <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}"
+                                                                class="cart-count">
+                                                                <img src="{{ asset('public/assets/img/icons/cart.svg') }}"
+                                                                    class="injectable" alt="img">
+                                                            </a>
                                                         </div>
+
                                                         <h5 class="price">Rp.
                                                             {{ number_format($cours->price, 0, ',', '.') }}</h5>
                                                     </div>
@@ -180,7 +186,6 @@
                                                                 <img src="{{ asset('public/assets/img/icons/cart.svg') }}"
                                                                     class="injectable" alt="img">
                                                             </a>
-
                                                         </div>
                                                     </div>
                                                 </div>
