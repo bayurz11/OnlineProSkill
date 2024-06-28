@@ -98,7 +98,7 @@
                     </div>
                 @endauth
                 @guest
-                    <div class="col-7">
+                    <div class="col-12">
                         <div class="coupon__code-wrap">
                             <div class="coupon__code-info">
                                 <span></i> Sudah memiliki akun?</span>
