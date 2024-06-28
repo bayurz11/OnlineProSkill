@@ -40,8 +40,9 @@
     <!-- checkout-area -->
     <div class="checkout__area section-py-120">
         <div class="container">
-            @auth
-                <div class="row">
+
+            <div class="row">
+                @auth
                     <div class="col-12">
                         <div class="coupon__code-wrap">
                             <div class="coupon__code-info">
@@ -55,6 +56,8 @@
                             </form>
                         </div>
                     </div>
+                @endauth
+                @auth
                     <div class="col-lg-7">
                         <form action="{{ route('payment') }}" class="customer__form-wrap" method="POST">
                             @csrf
@@ -84,20 +87,21 @@
                             <button type="submit" class="btn">Bayar & gabung kelas</button>
                         </form>
                     </div>
-                    <div class="col-lg-5">
-                        <div class="order__info-wrap">
-                            <h2 class="title">PESANAN ANDA</h2>
-                            <ul class="list-wrap">
-                                <li class="title">Kelas <span>Subtotal</span></li>
-                                <li>{{ $courses->nama_kursus }}<span>Rp.
-                                        {{ number_format($courses->price, 0, ',', '.') }}</span></li>
-                                <li>Subtotal <span>Rp. {{ number_format($courses->price, 0, ',', '.') }}</span></li>
-                                <li>Total <span>Rp. {{ number_format($courses->price, 0, ',', '.') }}</span></li>
-                            </ul>
-                        </div>
+                @endauth
+                <div class="col-lg-5">
+                    <div class="order__info-wrap">
+                        <h2 class="title">PESANAN ANDA</h2>
+                        <ul class="list-wrap">
+                            <li class="title">Kelas <span>Subtotal</span></li>
+                            <li>{{ $courses->nama_kursus }}<span>Rp.
+                                    {{ number_format($courses->price, 0, ',', '.') }}</span></li>
+                            <li>Subtotal <span>Rp. {{ number_format($courses->price, 0, ',', '.') }}</span></li>
+                            <li>Total <span>Rp. {{ number_format($courses->price, 0, ',', '.') }}</span></li>
+                        </ul>
                     </div>
                 </div>
-            @endauth
+            </div>
+
         </div>
     </div>
     <!-- checkout-area-end -->
