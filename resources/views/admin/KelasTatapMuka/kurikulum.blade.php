@@ -24,9 +24,9 @@
                         <button type="button" class="btn btn-outline-primary position-absolute top-0 end-0 mt-3 me-3"
                             data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="btn-icon-prepend"
                                 data-feather="plus-circle"></i>
-                            Kelas
+                            Kurikulum
                         </button>
-                        <p class="text-muted mb-3"> Jumlah Kelas Tatap Muka : {{ $course->count() }}</p>
+                        <p class="text-muted mb-3"> Jumlah Kurikulum : {{ $course->count() }}</p>
                         <div class="table-responsive">
                         </div>
                     </div>
