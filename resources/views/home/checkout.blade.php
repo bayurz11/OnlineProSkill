@@ -89,13 +89,23 @@
                     </div>
                 @endauth
                 @guest
-                    <li class="header-btn login-btn">
+                    <div class="col-12">
+                        <div class="coupon__code-wrap">
+                            <div class="coupon__code-info">
+                                <span><i class="far fa-bookmark"></i> Punya kupon?</span>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Klik di sini untuk
+                                    memas</a>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- <li class="header-btn login-btn">
                         <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn"
                             style="background-color: white; color: black; border: 1px solid black;">Masuk</a>
                     </li>
                     <li class="header-btn login-btn">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalDaftar" class="btn">Daftar</a>
-                    </li>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalDaftar"
+                            class="btn">Daftar</a>
+                    </li> --}}
                 @endguest
                 <div class="col-lg-5">
                     <div class="order__info-wrap">
