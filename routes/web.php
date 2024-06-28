@@ -23,7 +23,6 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('/regisInstruktur', [DashboardInstrukturController::class, 'register'])->name('regisInstruktur');
 Route::post('/regisStuden', [AuthController::class, 'register'])->name('regisStuden');
-// Route::post('/guestregister', [AuthController::class, 'guestregister'])->name('guestregister');
 Route::post('/guestregister/{id}', [AuthController::class, 'guestregister'])->name('guestregister');
 
 

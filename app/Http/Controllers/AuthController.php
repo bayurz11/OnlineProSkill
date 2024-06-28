@@ -156,7 +156,7 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('profil')->with('success', 'Pendaftaran berhasil! Silahkan Masuk');
+        return redirect()->route('profil')->with('info', 'Pendaftaran berhasil! Harap lengkapi profil Anda');
     }
 
     public function guestregister(Request $request, $id)
