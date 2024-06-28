@@ -60,9 +60,10 @@
                                         <a href="shop-details.html">{{ $item['name'] }}</a>
                                     </td>
                                     <td class="product__price">Rp.{{ $item['price'] }}</td>
-                                    <td class="product__quantity">
+                                    <td class="product__quantity text-left">
                                         {{ $item['quantity'] }}
                                     </td>
+
                                     <td class="product__subtotal">Rp.{{ $item['price'] * $item['quantity'] }}</td>
                                     <td class="product__remove">
                                         <a href="{{ route('cart.remove', $item['id']) }}">×</a>
