@@ -30,6 +30,10 @@
                                 data-bs-target="#exampleModal"><i class="btn-icon-prepend" data-feather="plus-circle"></i>
                                 Sub
                             </button>
+                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal"><i class="btn-icon-prepend" data-feather="plus-circle"></i>
+                                Sub
+                            </button>
                         </div>
                         <p class="text-muted mb-3"> Jumlah Kurikulum : {{ $course->count() }}</p>
                         <div class="table-responsive">
