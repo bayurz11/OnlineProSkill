@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\KelasTatapMuka;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -58,7 +59,7 @@ class HomeController extends Controller
     }
 
 
-    public function checkout(Request $request)
+    public function checkout(Request $request, $id)
     {
         $user = Auth::user();
         $profile = null;
@@ -77,6 +78,21 @@ class HomeController extends Controller
         if ($courses->isEmpty()) {
             return redirect()->route('/')->with('error', 'Kelas tidak ditemukan.');
         }
+        $cart = Session::get('cart', []);
+
+        if (isset($cart[$id])) {
+            $cart[$id]['quantity']++;
+        } else {
+            $cart[$id] = [
+                "id" => $id,
+                "name" => $courses->nama_kursus, // Pastikan field name ada di model KelasTatapMuka
+                "price" => $courses->price, // Pastikan field price ada di model KelasTatapMuka
+                "gambar" => $courses->gambar,
+                "quantity" => 1,
+            ];
+        }
+
+        Session::put('cart', $cart);
 
         return view('home.checkout', compact('user', 'profile', 'courses'));
     }

@@ -148,9 +148,11 @@
                         <h2 class="title">PESANAN ANDA</h2>
                         <ul class="list-wrap">
                             <li class="title">Kelas <span>Subtotal</span></li>
-                            <li><img src="{{ asset('public/uploads/' . $courses->gambar) }}" alt="img"
-                                    style="width: 50px; height: 50px;">
-                                {{ $courses->nama_kursus }} <span></span> </li>
+                            @foreach ($cart as $item)
+                                <li><img src="{{ asset('public/uploads/' . $item['gambar']) }}" alt="img"
+                                        style="width: 50px; height: 50px;">
+                                    {{ $item['name'] }} <span></span> </li>
+                            @endforeach
                             <li>Subtotal <span>Rp. {{ number_format($courses->price, 0, ',', '.') }}</span></li>
                             <li>Total <span>Rp. {{ number_format($courses->price, 0, ',', '.') }}</span></li>
                         </ul>
