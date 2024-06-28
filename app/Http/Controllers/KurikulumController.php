@@ -60,6 +60,7 @@ class KurikulumController extends Controller
     }
 
 
+
     /**
      * Display the specified resource.
      */

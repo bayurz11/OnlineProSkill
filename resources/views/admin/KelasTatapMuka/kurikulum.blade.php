@@ -22,11 +22,12 @@
                     <div class="card-body">
                         <h6 class="card-title">Kurikulum</h6>
                         <div class="d-flex justify-content-end">
-                            <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal"
-                                data-bs-target="#kurikulumModal" data-id="{{ $course->id }}">
-                                <i class="btn-icon-prepend" data-feather="plus-circle"></i> Kurikulum
-                            </button>
-
+                            @foreach ($courses as $course)
+                                <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal"
+                                    data-bs-target="#kurikulumModal" data-id="{{ $course->id }}">
+                                    <i class="btn-icon-prepend" data-feather="plus-circle"></i> Kurikulum
+                                </button>
+                            @endforeach
 
                             <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal"><i class="btn-icon-prepend" data-feather="plus-circle"></i>
@@ -56,6 +57,7 @@
             });
         });
     </script>
+
 
 
 
