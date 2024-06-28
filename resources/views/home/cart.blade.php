@@ -85,6 +85,7 @@
                                     <div class="cart-details" style="display: flex; flex-direction: column;">
                                         <a href="{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}</a>
                                         <span class="cart-price">Rp.{{ number_format($item['price'], 0, ',', '.') }}</span>
+                                        <a href="{{ route('cart.remove', $item['id']) }}">×</a>
                                     </div>
                                 </li>
                             @endforeach
