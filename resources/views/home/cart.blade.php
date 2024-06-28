@@ -118,7 +118,7 @@
                             <li>Subtotal <span>Rp.{{ array_sum(array_column($cart, 'price')) }}</span></li>
                             <li>Total <span class="amount">Rp.{{ array_sum(array_column($cart, 'price')) }}</span></li>
                         </ul>
-                        <a href="" class="btn">Bayar & Gabung kelas</a>
+                        {{-- <a href="" class="btn">Bayar & Gabung kelas</a> --}}
                     </div>
                 </div>
             </div>
