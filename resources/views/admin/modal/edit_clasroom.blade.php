@@ -158,46 +158,19 @@
                         createEditor(id, data.content);
                     }
 
-                    let editors = {};
-
                     function createEditor(id, content) {
-                        // Hapus editor yang sudah ada jika ada
-                        if (editors[id]) {
-                            console.log(`Destroying existing editor for id: ${id}`);
-                            editors[id].destroy()
-                                .then(() => {
-                                    delete editors[id];
-                                    initEditor(id, content);
-                                })
-                                .catch(error => console.error(error));
-                        } else {
-                            initEditor(id, content);
-                        }
+                        ClassicEditor.create(document.querySelector('#edit_content'))
+                            .then(editor => {
+                                editors[id] = editor;
+                                editor.setData(content);
+                                editor.model.document.on('change:data', () => {
+                                    const content_input = document.querySelector(
+                                        '#edit_content_input');
+                                    content_input.value = editor.getData();
+                                });
+                            })
+                            .catch(error => console.error(error));
                     }
-
-                    function initEditor(id, content) {
-                        const editorElement = document.querySelector('#edit_content');
-                        const contentInputElement = document.querySelector('#edit_content_input');
-
-                        // Pastikan elemen DOM ada
-                        if (editorElement && contentInputElement) {
-                            console.log(
-                                `Creating new editor for id: ${id} with content: ${content}`);
-                            ClassicEditor.create(editorElement)
-                                .then(editor => {
-                                    editors[id] = editor;
-                                    editor.setData(content);
-                                    editor.model.document.on('change:data', () => {
-                                        console.log(`Content changed for id: ${id}`);
-                                        contentInputElement.value = editor.getData();
-                                    });
-                                })
-                                .catch(error => console.error(error));
-                        } else {
-                            console.error('Editor element or content input element not found.');
-                        }
-                    }
-
 
                     $('#edit_price').val(data.price);
                     $('#edit_discount').val(data.discount);
