@@ -186,6 +186,6 @@ class AuthController extends Controller
         // Login user after registration
         Auth::login($user);
 
-        return redirect()->route('checkout', ['id' => $user->id]);
+        return redirect()->route('checkout');
     }
 }
