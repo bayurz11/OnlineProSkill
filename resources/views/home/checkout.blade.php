@@ -98,7 +98,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="modal-body">
+                    <div class="col-lg-7">
                         <div class="singUp-wrap">
                             <h2 class="title">Buat Akun ProSkill</h2>
                             <p>Silahkan isi form berikut untuk melanjutkan.</p>
