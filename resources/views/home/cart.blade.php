@@ -11,41 +11,98 @@
     <div class="cart__area section-py-120">
         <div class="container">
             <div class="row">
-                <div class="col-lg-7">
-                    <table class="table cart__table">
-                        <thead>
-                            <tr>
-                                <th class="product__thumb">&nbsp;</th>
-                                <th class="product__name">Kursus</th>
-                                <th class="product__price">Harga</th>
-                                <th class="product__quantity">Quantity</th>
-                                <th class="product__subtotal">Subtotal</th>
-                                <th class="product__remove">&nbsp;</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($cart as $item)
-                                <tr>
-                                    <td class="product__thumb">
-                                        <a href="{{ route('classroomdetail', $item['id']) }}"> <img
-                                                src="{{ asset('public/uploads/' . $item['gambar']) }}" alt="img"></a>
-                                    </td>
-                                    <td class="product__name">
-                                        <a href="{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}</a>
-                                    </td>
-                                    <td class="product__price">Rp.{{ $item['price'] }}</td>
-                                    <td class="product__quantity" style="text-align: left;">
-                                        {{ $item['quantity'] }}
-                                    </td>
-                                    <td class="product__subtotal">Rp.{{ $item['price'] * $item['quantity'] }}</td>
-                                    <td class="product__remove">
-                                        <a href="{{ route('cart.remove', $item['id']) }}">×</a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
+                @auth
+                    <div class="col-12">
+                        <div class="coupon__code-wrap">
+                            <div class="coupon__code-info">
+                                <span><i class="far fa-bookmark"></i> Punya kupon?</span>
+                                <a href="#" id="coupon-element">Klik di sini untuk memasukkan kode Anda</a>
+                            </div>
+                            <form action="#" class="coupon__code-form">
+                                <p>Jika Anda memiliki kode kupon, silakan gunakan di bawah ini.</p>
+                                <input type="text" placeholder="Kode kupon">
+                                <button type="submit" class="btn">Terapkan kupon</button>
+                            </form>
+                        </div>
+                    </div>
+                @endauth
+                @auth
+                    <div class="col-lg-7">
+                        <form action="{{ route('payment') }}" class="customer__form-wrap" method="POST">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $courses->id }}">
+                            <span class="title">RINCIAN PENAGIHAN</span>
+
+                            <div class="form-grp">
+                                <label for="name">Nama *</label>
+                                <input type="text" id="name" name="name">
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-grp">
+                                        <label for="phone">Telepon *</label>
+                                        <input type="number" id="phone" name="phone" min="0" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-grp">
+                                        <label for="email">Alamat Email *</label>
+                                        <input type="email" id="email" name="email">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn">Bayar & gabung kelas</button>
+                        </form>
+                    </div>
+                @endauth
+                @guest
+                    <div class="col-12">
+                        <div class="coupon__code-wrap">
+                            <div class="coupon__code-info">
+                                <span></i> Sudah memiliki akun?</span>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Klik di sini untuk
+                                    Masuk</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="singUp-wrap">
+                            <h2 class="title">Buat Akun ProSkill</h2>
+                            <p>Silahkan isi form berikut untuk melanjutkan.</p>
+
+                            <form action="{{ route('guestregister', ['id' => $courses->id]) }}" class="account__form"
+                                method="POST">
+                                @csrf
+                                <div class="form-grp">
+                                    <input type="text" id="name" name="name"
+                                        placeholder="Masukkan Nama Lengkap Anda">
+                                </div>
+                                <div class="form-grp">
+                                    <input type="email" id="email" placeholder="Email" name="email">
+                                </div>
+                                <div class="form-grp">
+                                    <input type="password" id="password" placeholder="Password" name="password">
+                                </div>
+                                <div class="form-grp">
+                                    <input type="password" id="password_confirmation" placeholder="Konfirmasi Password"
+                                        name="password_confirmation">
+                                </div>
+                                <button type="submit" class="btn btn-two arrow-btn">Daftar<img
+                                        src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
+                                        class="injectable"></button>
+                            </form><br>
+                            <div class="account__social">
+                                <a href="#" class="account__social-btn">
+                                    <img src="{{ asset('public/assets/img/icons/google.svg') }}" alt="img">
+                                    Daftar Dengan Google
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                @endguest
 
                 <div class="col-lg-5">
                     <div class="cart__collaterals-wrap">
@@ -58,9 +115,9 @@
                                     </td>
                                 </li>
                             @endforeach
+                            <li>Jumlah Quantity <span>{{ array_sum(array_column($cart, 'quantity')) }}</span></li>
                             <li>Subtotal <span>Rp.{{ array_sum(array_column($cart, 'price')) }}</span></li>
                             <li>Total <span class="amount">Rp.{{ array_sum(array_column($cart, 'price')) }}</span></li>
-                            <li>Jumlah Quantity <span>{{ array_sum(array_column($cart, 'quantity')) }}</span></li>
                         </ul>
                         <a href="" class="btn">Bayar & Gabung kelas</a>
                     </div>
