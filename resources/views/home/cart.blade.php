@@ -30,7 +30,6 @@
                     <div class="col-lg-7">
                         <form action="{{ route('payment') }}" class="customer__form-wrap" method="POST">
                             @csrf
-                            {{-- <input type="hidden" name="id" value="{{ $courses->id }}"> --}}
                             <span class="title">RINCIAN PENAGIHAN</span>
 
                             <div class="form-grp">
@@ -88,9 +87,10 @@
                                     <input type="password" id="password_confirmation" placeholder="Konfirmasi Password"
                                         name="password_confirmation">
                                 </div>
-                                <button type="submit" class="btn btn-two arrow-btn">Daftar<img
-                                        src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
-                                        class="injectable"></button>
+                                <button type="submit" class="btn btn-two arrow-btn">Daftar
+                                    <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
+                                        class="injectable">
+                                </button>
                             </form><br>
                             <div class="account__social">
                                 <a href="#" class="account__social-btn">
@@ -98,7 +98,6 @@
                                     Daftar Dengan Google
                                 </a>
                             </div>
-
                         </div>
                     </div>
                 @endguest
@@ -106,19 +105,24 @@
                 <div class="col-lg-5">
                     <div class="cart__collaterals-wrap">
                         <h2 class="title">Total keranjang</h2>
-                        <ul class="list-wrap">
-                            @foreach ($cart as $item)
-                                <li>
-                                    <td class="product__name">
-                                        <a href="{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}</a>
-                                    </td>
-                                </li>
-                            @endforeach
-                            <li>Jumlah Quantity <span>{{ array_sum(array_column($cart, 'quantity')) }}</span></li>
-                            <li>Subtotal <span>Rp.{{ array_sum(array_column($cart, 'price')) }}</span></li>
-                            <li>Total <span class="amount">Rp.{{ array_sum(array_column($cart, 'price')) }}</span></li>
-                        </ul>
-                        {{-- <a href="" class="btn">Bayar & Gabung kelas</a> --}}
+                        <form action="{{ route('payment') }}" method="POST">
+                            @csrf
+                            <ul class="list-wrap">
+                                @foreach ($cart as $item)
+                                    <li>
+                                        <td class="product__name">
+                                            <a href="{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}</a>
+                                        </td>
+                                        <input type="hidden" name="cart_items[]" value="{{ $item['id'] }}">
+                                        <!-- Input hidden untuk setiap ID item -->
+                                    </li>
+                                @endforeach
+                                <li>Jumlah Quantity <span>{{ array_sum(array_column($cart, 'quantity')) }}</span></li>
+                                <li>Subtotal <span>Rp.{{ array_sum(array_column($cart, 'price')) }}</span></li>
+                                <li>Total <span class="amount">Rp.{{ array_sum(array_column($cart, 'price')) }}</span></li>
+                            </ul>
+                            <button type="submit" class="btn">Bayar & Gabung kelas</button>
+                        </form>
                     </div>
                 </div>
             </div>
