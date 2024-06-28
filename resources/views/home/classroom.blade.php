@@ -129,11 +129,13 @@
                                                         </div>
                                                         <div class="button">
                                                             <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}"
-                                                                class="cart-count">
+                                                                class="cart-count"
+                                                                style="color: #ffffff; background-color: #007bff;">
                                                                 <img src="{{ asset('public/assets/img/icons/cart.svg') }}"
                                                                     class="injectable" alt="img">
                                                             </a>
                                                         </div>
+
                                                         <h5 class="price">Rp.
                                                             {{ number_format($cours->price, 0, ',', '.') }}</h5>
                                                     </div>
@@ -181,13 +183,15 @@
                                                                 <i class="flaticon-arrow-right"></i>
                                                             </a>
                                                         </div>
-                                                        <div class="button" style="color: rgb(206, 206, 206)">
+                                                        <div class="button">
                                                             <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}"
-                                                                class="cart-count">
+                                                                class="cart-count"
+                                                                style="color: #ffffff; background-color: #007bff;">
                                                                 <img src="{{ asset('public/assets/img/icons/cart.svg') }}"
                                                                     class="injectable" alt="img">
                                                             </a>
                                                         </div>
+
                                                     </div>
                                                 </div>
                                             </div>
