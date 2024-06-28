@@ -22,12 +22,13 @@
                     <div class="card-body">
                         <h6 class="card-title">Kurikulum</h6>
                         <div class="d-flex justify-content-end">
-                            @foreach ($courses as $course)
+                            @if ($course)
                                 <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal"
                                     data-bs-target="#kurikulumModal" data-id="{{ $course->id }}">
                                     <i class="btn-icon-prepend" data-feather="plus-circle"></i> Kurikulum
                                 </button>
-                            @endforeach
+                            @endif
+
 
                             <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal"><i class="btn-icon-prepend" data-feather="plus-circle"></i>
@@ -53,7 +54,7 @@
                 var course_id = button.data('id'); // Ambil nilai dari atribut data-id
                 var modal = $(this);
                 modal.find('.modal-body input[name="course_id"]').val(
-                course_id); // Set nilai input course_id dalam modal
+                    course_id); // Set nilai input course_id dalam modal
             });
         });
     </script>
