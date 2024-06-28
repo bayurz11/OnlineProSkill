@@ -174,6 +174,13 @@
                                                                 <i class="flaticon-arrow-right"></i>
                                                             </a>
                                                         </div>
+                                                        <div class="button">
+                                                            <a
+                                                                href="{{ route('classroomdetail', ['id' => $cours->id]) }}">
+                                                                <span class="text">Detail Kelas</span>
+                                                                <i class="flaticon-arrow-right"></i>
+                                                            </a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
