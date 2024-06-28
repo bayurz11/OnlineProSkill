@@ -161,22 +161,18 @@
                     }
 
                     function createEditor(id, content) {
-                        const editorSelector = `#edit_content_${id}`;
-                        const inputSelector = `#edit_content_input_${id}`;
-
-                        ClassicEditor.create(document.querySelector(editorSelector))
+                        ClassicEditor.create(document.querySelector('#edit_content'))
                             .then(editor => {
                                 editors[id] = editor;
                                 editor.setData(content);
                                 editor.model.document.on('change:data', () => {
                                     const content_input = document.querySelector(
-                                        inputSelector);
+                                        '#edit_content_input');
                                     content_input.value = editor.getData();
                                 });
                             })
                             .catch(error => console.error(error));
                     }
-
 
                     $('#edit_price').val(data.price);
                     $('#edit_discount').val(data.discount);
