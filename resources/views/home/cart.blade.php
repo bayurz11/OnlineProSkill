@@ -62,17 +62,23 @@
                                     <td class="product__price">Rp.{{ $item['price'] }}</td>
                                     <td class="product__quantity">
                                         <div class="cart-plus-minus">
-                                            <form action="{{ route('cart.updateQuantity', $item['id']) }}" method="POST">
-                                                @csrf
-                                                <input type="number" name="quantity" value="{{ $item['quantity'] }}"
-                                                    min="1">
-                                                <button type="submit" class="btn btn-primary btn-sm">Update</button>
-                                            </form>
+                                            <input type="text" value="{{ $item['quantity'] }}">
                                         </div>
                                     </td>
                                     <td class="product__subtotal">Rp.{{ $item['price'] * $item['quantity'] }}</td>
                                     <td class="product__remove">
                                         <a href="{{ route('cart.remove', $item['id']) }}">×</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6" class="cart__actions">
+                                        <form action="{{ route('cart.updateQuantity', $item['id']) }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="_method" value="POST">
+                                            <!-- Tambahkan ini untuk menentukan method POST -->
+                                            <input type="text" name="quantity" value="{{ $item['quantity'] }}">
+                                            <button type="submit">Update</button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
