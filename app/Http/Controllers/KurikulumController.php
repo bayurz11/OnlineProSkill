@@ -40,8 +40,8 @@ class KurikulumController extends Controller
     {
         // Validasi data
         $request->validate([
-            'nama_kursus' => 'required|string|max:255',
-            'course_id' => 'required|exists:courses,id', // Pastikan course_id ada di request
+            'title' => 'required|string|max:255',
+
         ]);
 
         // Temukan course yang sesuai dengan course_id
@@ -49,8 +49,8 @@ class KurikulumController extends Controller
 
         if ($course) {
             $section = new Section();
-            $section->nama_kursus = $request->nama_kursus;
-            $section->classroom_id = $course; // Menyimpan course_id ke classroom_id
+            $section->title = $request->title;
+            $section->classroom_id = $course;
             $section->save();
 
             return redirect()->route('kurikulum')->with('success', 'Kursus berhasil disimpan.');
