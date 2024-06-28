@@ -100,7 +100,7 @@
                                 <span
                                     class="amount">Rp.{{ number_format(array_sum(array_column($cart, 'price')), 0, ',', '.') }}</span>
                             </div>
-                            <a href="{{ route('checkout') }}" class="btn">Bayar & Gabung Kelas</a>
+                            <a href="" class="btn">Bayar & Gabung Kelas</a>
                         </div>
                     </div>
                 </div>
