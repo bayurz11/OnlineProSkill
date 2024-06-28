@@ -137,7 +137,7 @@
                                                             alt="img" width="50" height="50"
                                                             style="border-radius: 50%;">
                                                     </a>
-                                                    <ul class="sub-menu dropdown-menu-left">
+                                                    <ul class="sub-menu" style="left: 0; right: auto;">
                                                         <li>
                                                             <a class="dropdown-item">
                                                                 <b>{{ $user->name }}</b>
