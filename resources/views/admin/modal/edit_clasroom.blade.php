@@ -183,15 +183,26 @@
                     }
                     let tagValue = '';
 
-                    if (Array.isArray(data.tag) && data.tag.length > 0) {
-                        tagValue = data.tag[0].value;
-                    } else if (typeof data.tag === 'object' && data.tag !== null) {
-                        tagValue = data.tag.value;
-                    } else if (typeof data.tag === 'string') {
-                        tagValue = data.tag;
+                    // Coba parse data.tag jika itu adalah string JSON
+                    try {
+                        const parsedTag = JSON.parse(data.tag);
+
+                        if (Array.isArray(parsedTag) && parsedTag.length > 0) {
+                            tagValue = parsedTag[0].value;
+                        } else if (typeof parsedTag === 'object' && parsedTag !== null) {
+                            tagValue = parsedTag.value;
+                        } else if (typeof parsedTag === 'string') {
+                            tagValue = parsedTag;
+                        }
+                    } catch (e) {
+                        // Jika parsing gagal, langsung gunakan data.tag jika itu adalah string biasa
+                        if (typeof data.tag === 'string') {
+                            tagValue = data.tag;
+                        }
                     }
 
                     $('#edit_tag').val(tagValue);
+
 
                     const includeContainer = $('#edit-include-container');
                     includeContainer.html('');
