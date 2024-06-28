@@ -70,7 +70,7 @@ Route::middleware('isAdmin')->group(function () {
 
     //kurikulum
     Route::get('/kurikulum/{id}', [KurikulumController::class, 'index'])->name('kurikulum');
-    Route::post('/kurikulumstore/{id}', [KurikulumController::class, 'store'])->name('kurikulumstore');
+    Route::post('/kurikulumstore', [KurikulumController::class, 'store'])->name('kurikulumstore');
 });
 
 //*********STUDEN*********//
