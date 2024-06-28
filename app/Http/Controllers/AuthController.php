@@ -191,7 +191,8 @@ class AuthController extends Controller
         $course = KelasTatapMuka::find($id);
 
         // Redirect ke halaman checkout dengan ID course
-        return redirect()->route('checkout', ['id' => $course->id]);
+        // return redirect()->route('checkout', ['id' => $course->id]);
+        return redirect()->route('cart.view');
     }
     // public function guestregister(Request $request)
     // {
