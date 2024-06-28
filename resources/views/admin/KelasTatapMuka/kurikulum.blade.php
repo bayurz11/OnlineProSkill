@@ -22,9 +22,9 @@
                     <div class="card-body">
                         <h6 class="card-title">Kurikulum</h6>
                         <div class="d-flex justify-content-end">
-                            @if ($course)
+                            @if ($courses)
                                 <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal"
-                                    data-bs-target="#kurikulumModal" data-id="{{ $course->id }}">
+                                    data-bs-target="#kurikulumModal" data-id="{{ $courses->id }}">
                                     <i class="btn-icon-prepend" data-feather="plus-circle"></i> Kurikulum
                                 </button>
                             @endif
