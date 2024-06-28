@@ -26,7 +26,7 @@
                                 data-feather="plus-circle"></i>
                             Kurikulum
                         </button>
-                        <button type="button" class="btn btn-outline-primary position-absolute top-0 end-0 mt-6 me-6"
+                        <button type="button" class="btn btn-outline-primary position-absolute top-0 end-0 mt-3 me-8"
                             data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="btn-icon-prepend"
                                 data-feather="plus-circle"></i>
                             Sub
