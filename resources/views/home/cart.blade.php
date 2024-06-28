@@ -78,7 +78,7 @@
                         <ul class="list-wrap">
                             @foreach ($cart as $item)
                                 <li class="cart-item" style="display: flex; align-items: center; margin-bottom: 10px;">
-                                    <a href="{{ route('classroomdetail', $item['id']) }}" style="margin-right: 10px;">
+                                    <a href="{{ route('classroomdetail', $item['id']) }}" style="margin-right: 5px;">
                                         <img src="{{ asset('public/uploads/' . $item['gambar']) }}" alt="img"
                                             style="width: 50px; height: 50px;">
                                     </a>
