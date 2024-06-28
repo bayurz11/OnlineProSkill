@@ -45,9 +45,9 @@
                         <thead>
                             <tr>
                                 <th class="product__thumb">&nbsp;</th>
-                                <th class="product__name">Produk</th>
-                                <th class="product__price">Harga</th>
-                                {{-- <th class="product__quantity">Quantity</th> --}}
+                                <th class="product__name">Product</th>
+                                <th class="product__price">Price</th>
+                                <th class="product__quantity">Quantity</th>
                                 <th class="product__subtotal">Subtotal</th>
                                 <th class="product__remove">&nbsp;</th>
                             </tr>
@@ -55,24 +55,42 @@
                         <tbody>
                             <tr>
                                 <td class="product__thumb">
-                                    <a href="shop-details.html"><img src="{{ asset('public/uploads/' . $courses->gambar) }}"
+                                    <a href="shop-details.html"><img src="assets/img/shop/shop_img01.jpg"
                                             alt=""></a>
                                 </td>
                                 <td class="product__name">
-                                    <a href="shop-details.html">{{ $courses->nama_kursus }}</a>
+                                    <a href="shop-details.html">Antiaging and Longevity</a>
                                 </td>
-                                <td class="product__price">Rp. {{ number_format($courses->price, 0, ',', '.') }}</td>
-                                {{-- <td class="product__quantity">
+                                <td class="product__price">$13.00</td>
+                                <td class="product__quantity">
                                     <div class="cart-plus-minus">
                                         <input type="text" value="1">
                                     </div>
-                                </td> --}}
-                                <td class="product__subtotal">Rp. {{ number_format($courses->price, 0, ',', '.') }}</td>
+                                </td>
+                                <td class="product__subtotal">$13.00</td>
                                 <td class="product__remove">
                                     <a href="#">×</a>
                                 </td>
                             </tr>
-
+                            <tr>
+                                <td class="product__thumb">
+                                    <a href="shop-details.html"><img src="assets/img/shop/shop_img02.jpg"
+                                            alt=""></a>
+                                </td>
+                                <td class="product__name">
+                                    <a href="shop-details.html">Time to Explore</a>
+                                </td>
+                                <td class="product__price">$19.00</td>
+                                <td class="product__quantity">
+                                    <div class="cart-plus-minus">
+                                        <input type="text" value="1">
+                                    </div>
+                                </td>
+                                <td class="product__subtotal">$19.00</td>
+                                <td class="product__remove">
+                                    <a href="#">×</a>
+                                </td>
+                            </tr>
                             <tr>
                                 <td colspan="6" class="cart__actions">
                                     <form action="#" class="cart__actions-form">
@@ -94,7 +112,7 @@
                             <li>Subtotal <span>$32.00</span></li>
                             <li>Total <span class="amount">$32.00</span></li>
                         </ul>
-                        <a href="{{ route('checkout') }}" class="btn">Bayar Sekarang</a>
+                        <a href="check-out.html" class="btn">Proceed to checkout</a>
                     </div>
                 </div>
             </div>
