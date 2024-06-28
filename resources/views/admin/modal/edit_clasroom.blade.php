@@ -55,11 +55,12 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="edit_content_${id}" class="form-label">Deskripsi<span
+                        <label for="edit_content_1" class="form-label">Deskripsi<span
                                 class="text-danger">*</span></label>
-                        <textarea id="edit_content_${id}" name="content" style="height: 400px; width: 100%; font-size: 18px;"></textarea>
-                        <input type="hidden" id="edit_content_input_${id}" name="content">
+                        <textarea id="edit_content_1" name="content" style="height: 400px; width: 100%; font-size: 18px;"></textarea>
+                        <input type="hidden" id="edit_content_input_1" name="content">
                     </div>
+
 
                     <div class="mb-3">
                         <label for="edit_include" class="form-label">Yang akan dipelajari <span
@@ -161,18 +162,22 @@
                     }
 
                     function createEditor(id, content) {
-                        ClassicEditor.create(document.querySelector('#edit_content'))
+                        const editorSelector = `#edit_content_${id}`;
+                        const inputSelector = `#edit_content_input_${id}`;
+
+                        ClassicEditor.create(document.querySelector(editorSelector))
                             .then(editor => {
                                 editors[id] = editor;
                                 editor.setData(content);
                                 editor.model.document.on('change:data', () => {
                                     const content_input = document.querySelector(
-                                        '#edit_content_input');
+                                        inputSelector);
                                     content_input.value = editor.getData();
                                 });
                             })
                             .catch(error => console.error(error));
                     }
+
 
                     $('#edit_price').val(data.price);
                     $('#edit_discount').val(data.discount);
