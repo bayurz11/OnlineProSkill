@@ -12,9 +12,9 @@
                 <li class="breadcrumb-item active" aria-current="page">Kurikulum</li>
             </ol>
         </nav>
-        {{-- 
-        @include('admin.modal.add_clasroom')
-        @include('admin.modal.edit_clasroom') --}}
+
+        @include('admin.modal.add_kurikulum')
+        @include('admin.modal.edit_clasroom')
 
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
@@ -23,7 +23,7 @@
                         <h6 class="card-title">Kurikulum</h6>
                         <div class="d-flex justify-content-end">
                             <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal"><i class="btn-icon-prepend" data-feather="plus-circle"></i>
+                                data-bs-target="#kurikulumModal"><i class="btn-icon-prepend" data-feather="plus-circle"></i>
                                 Kurikulum
                             </button>
                             <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
