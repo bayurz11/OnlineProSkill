@@ -29,15 +29,28 @@ class CartController extends Controller
         //
     }
 
+    // public function show()
+    // {
+    //     $user = Auth::user();
+    //     $cart = Session::get('cart', []);
+    //     $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
+    //     $courses = KelasTatapMuka::whereIn('id', array_column($cart, 'id'))->get();
+    //     if ($courses->isEmpty()) {
+    //         return redirect()->route('cart.view')->with('info', 'Kelas tidak ditemukan.');
+    //     }
+    //     return view('home.cart', compact('user', 'cart', 'profile', 'courses'));
+    // }
     public function show()
     {
         $user = Auth::user();
         $cart = Session::get('cart', []);
         $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
         $courses = KelasTatapMuka::whereIn('id', array_column($cart, 'id'))->get();
-        if ($courses->isEmpty()) {
+
+        if ($courses->isEmpty() && !empty($cart)) {
             return redirect()->route('cart.view')->with('info', 'Kelas tidak ditemukan.');
         }
+
         return view('home.cart', compact('user', 'cart', 'profile', 'courses'));
     }
 
