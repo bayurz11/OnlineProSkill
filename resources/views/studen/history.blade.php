@@ -85,7 +85,7 @@
                                                         <p>App Development</p>
                                                     </td>
                                                     <td>
-                                                        <p>January 31, 2024</p>
+                                                        <p>{{ $notif->created_at->format('d M Y, H:i') }}</p>
                                                     </td>
                                                     <td>
                                                         <p>$99.99</p>
@@ -94,24 +94,25 @@
                                                         <span class="dashboard__quiz-result">Success</span>
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <td>
-                                                        <p>#4585</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>Graphic</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>{{ $notif->created_at->format('d M Y, H:i') }}</p>
-                                                    </td>
-                                                    <td>
-                                                        <p>$199.99</p>
-                                                    </td>
-                                                    <td>
-                                                        <span class="dashboard__quiz-result processing">Processing</span>
-                                                    </td>
-                                                </tr>
                                             @endforeach
+                                            <tr>
+                                                <td>
+                                                    <p>#4585</p>
+                                                </td>
+                                                <td>
+                                                    <p>Graphic</p>
+                                                </td>
+                                                <td>
+                                                    <p>{{ $notif->created_at->format('d M Y, H:i') }}</p>
+                                                </td>
+                                                <td>
+                                                    <p>$199.99</p>
+                                                </td>
+                                                <td>
+                                                    <span class="dashboard__quiz-result processing">Processing</span>
+                                                </td>
+                                            </tr>
+
                                         </tbody>
                                     </table>
                                 </div>
