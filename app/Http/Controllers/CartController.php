@@ -46,6 +46,7 @@ class CartController extends Controller
         //
     }
 
+
     public function update(UpdateCartRequest $request, Cart $cart)
     {
         //
