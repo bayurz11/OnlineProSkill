@@ -85,7 +85,7 @@
                                                         <p>{{ $notif->product_id }}</p>
                                                     </td>
                                                     <td>
-                                                        <p>{{ $notif->created_at->format('d M Y, H:i') }}</p>
+                                                        <p>{{ $notif->created_at->format('d M Y') }}</p>
                                                     </td>
                                                     <td>
                                                         <p>$99.99</p>
