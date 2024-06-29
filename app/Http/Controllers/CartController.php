@@ -36,7 +36,7 @@ class CartController extends Controller
         $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
         $courses = KelasTatapMuka::whereIn('id', array_column($cart, 'id'))->get();
         if ($courses->isEmpty()) {
-            return redirect()->route('cart.view')->with('info', 'Keranjang Kosong.');
+            return redirect()->route('/')->with('error', 'Kelas tidak ditemukan.');
         }
         return view('home.cart', compact('user', 'cart', 'profile', 'courses'));
     }
