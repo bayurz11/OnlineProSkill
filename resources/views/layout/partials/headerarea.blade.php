@@ -204,8 +204,8 @@
                                 </ul>
                             </div>
 
-                            <div class="mobile-login-btn">
-                                <a href="{{ route('cart.view') }}" class="cart-count">
+                            <div class="mobile-chart">
+                                <a href="{{ route('cart.view') }}" class="cart-count" role="button">
                                     <img src="{{ asset('public/assets/img/icons/cart.svg') }}" class="injectable"
                                         alt="img">
                                     <span

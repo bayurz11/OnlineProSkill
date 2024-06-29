@@ -2770,6 +2770,10 @@ textarea {
   margin-left: auto;
   display: none;
 }
+.mobile-chart {
+  margin-left: auto;
+  display: none;
+}
 .mobile-login-btn {
   margin-left: auto;
   display: none;
@@ -2780,12 +2784,20 @@ textarea {
   }
 }
 @media (max-width: 767.98px) {
+  .mobile-chart{
+    display: flex;
+  }
+}
+@media (max-width: 767.98px) {
   .mobile-menu-dropdown{
     display: flex;
   }
 }
 
 .mobile-menu-dropdown img{
+ margin-right: 20px;
+};
+.mobile-chart img{
  margin-right: 20px;
 };
 
