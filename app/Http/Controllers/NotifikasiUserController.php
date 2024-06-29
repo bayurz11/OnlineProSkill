@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\NotifikasiUser;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use App\Http\Requests\StoreNotifikasiUserRequest;
 use App\Http\Requests\UpdateNotifikasiUserRequest;
 
@@ -13,6 +14,7 @@ class NotifikasiUserController extends Controller
 
     public function index()
     {
+        $cart = Session::get('cart', []);
         // Dapatkan ID pengguna yang sedang login
         $userId = Auth::id();
 
@@ -20,7 +22,7 @@ class NotifikasiUserController extends Controller
         $notifikasi = Notifikasiuser::where('user_id', $userId)->orderBy('created_at', 'desc')->get();
 
         // Kirim notifikasi ke view
-        return view('studen.notifikasi.index', compact('notifikasi'));
+        return view('studen.notifikasi.index', compact('notifikasi', 'cart'));
     }
     /**
      * Show the form for creating a new resource.
