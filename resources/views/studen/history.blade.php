@@ -91,7 +91,13 @@
                                                         <p>{{ $notif->message }}</p>
                                                     </td>
                                                     <td>
-                                                        <span class="dashboard__quiz-result">{{ $notif->status }}</span>
+                                                        <span class="dashboard__quiz-result">
+                                                            @if ($notif->status == 1)
+                                                                Sukses
+                                                            @else
+                                                                Belum Dibayar
+                                                            @endif
+                                                        </span>
                                                     </td>
                                                 </tr>
                                             @endforeach
