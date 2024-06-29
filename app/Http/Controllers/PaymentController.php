@@ -141,6 +141,23 @@ class PaymentController extends Controller
             return redirect()->back()->with('error', 'Pembayaran gagal. Silakan coba lagi.');
         }
     }
+    // public function success($uuid)
+    // {
+    //     $apiInstance = new InvoiceApi();
+
+    //     $result = $apiInstance->getInvoices(null, $uuid);
+
+    //     //get data
+    //     $klsoffline = Order::where('external_id', $uuid)->firstOrFail();
+
+    //     if ($klsoffline->status == 'settled') {
+    //         return response()->json('Pembayaran berhasil di proses');
+    //     }
+    //     //update status
+    //     $klsoffline->status = $result[0]['status'];
+    //     $klsoffline->save();
+    //     return redirect()->route('classroom')->with('success', 'Pembayaran Berhasil');
+    // }
     public function success($uuid)
     {
         $apiInstance = new InvoiceApi();
@@ -148,14 +165,22 @@ class PaymentController extends Controller
         $result = $apiInstance->getInvoices(null, $uuid);
 
         //get data
-        $klsoffline = Order::where('external_id', $uuid)->firstOrFail();
+        $order = Order::where('external_id', $uuid)->firstOrFail();
 
-        if ($klsoffline->status == 'settled') {
+        if ($order->status == 'settled') {
+            // Mengosongkan cart di dalam session
+            session()->forget('cart');
+
             return response()->json('Pembayaran berhasil di proses');
         }
+
         //update status
-        $klsoffline->status = $result[0]['status'];
-        $klsoffline->save();
+        $order->status = $result[0]['status'];
+        $order->save();
+
+        // Mengosongkan cart di dalam session
+        session()->forget('cart');
+
         return redirect()->route('classroom')->with('success', 'Pembayaran Berhasil');
     }
 }
