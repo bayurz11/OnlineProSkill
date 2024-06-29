@@ -13,6 +13,7 @@ use App\Http\Controllers\KelasTatapMukaController;
 use App\Http\Controllers\DashboardStudenController;
 use App\Http\Controllers\DashboardInstrukturController;
 use App\Http\Controllers\KurikulumController;
+use App\Http\Controllers\NotifikasiUserController;
 use App\Http\Controllers\OrderHistoryManagerController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\RiwayatTransaksiController;
@@ -116,4 +117,6 @@ Route::get('/cart/adddetail/{id}', [CartController::class, 'addToCartdetail'])->
 Route::get('/cart/checkout/{id}', [CartController::class, 'addToCartceckout'])->name('cart.checkout');
 Route::get('cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
 Route::post('cart/update/{id}', [CartController::class, 'updateQuantity'])->name('cart.updateQuantity');
-// Route::get('/addcart/{id}', [CartController::class, 'index'])->name('addcart');
+
+//notifikasi
+Route::get('/notifikasi', [NotifikasiUserController::class, 'index'])->name('notifikasi.index');
