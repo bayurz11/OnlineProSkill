@@ -2771,7 +2771,7 @@ textarea {
   display: none;
 }
 .mobile-chart {
-  margin-left: auto;
+  margin-left: 10px;
   display: none;
 }
 .mobile-login-btn {
