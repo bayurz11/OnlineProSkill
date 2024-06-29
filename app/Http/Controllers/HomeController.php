@@ -6,7 +6,6 @@ use App\Models\Categories;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use App\Models\KelasTatapMuka;
-use App\Models\NotifikasiUser;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -15,40 +14,32 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $notifikasi = [];
         $user = Auth::user(); // Mengambil pengguna yang sedang login
         $profile = null;
         $cart = Session::get('cart', []);
         if ($user) {
             $profile = UserProfile::where('user_id', $user->id)->first(); // Mengambil profil pengguna yang terkait
         }
-        if ($user) {
-            $notifikasi = NotifikasiUser::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
-        }
 
-        return view('home.index', compact('user', 'profile', 'cart', ' notifikasi'));
+        return view('home.index', compact('user', 'profile', 'cart'));
     }
 
     public function classroom()
     {
-        $notifikasi = [];
         $user = Auth::user();
         $profile = null;
         $cart = Session::get('cart', []);
         if ($user) {
             $profile = UserProfile::where('user_id', $user->id)->first();
         }
-        if ($user) {
-            $notifikasi = NotifikasiUser::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
-        }
+
         $course = KelasTatapMuka::with('user')->where('status', 1)->get();
         $count = $course->count();
-        return view('home.classroom', compact('user', 'count', 'course', 'profile', 'cart', ' notifikasi'));
+        return view('home.classroom', compact('user', 'count', 'course', 'profile', 'cart'));
     }
 
     public function classroomdetail($id)
     {
-        $notifikasi = [];
         $user = Auth::user();
         $profile = null;
         $cart = Session::get('cart', []);
@@ -64,11 +55,8 @@ class HomeController extends Controller
         if (!is_array($courseList)) {
             $courseList = [];
         }
-        if ($user) {
-            $notifikasi = NotifikasiUser::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
-        }
         $fasilitas = json_decode($courses->fasilitas, true);
-        return view('home.classroomdetail', compact('user', 'courses', 'courseList', 'profile', 'cart', ' notifikasi'));
+        return view('home.classroomdetail', compact('user', 'courses', 'courseList', 'profile', 'cart'));
     }
 
 
