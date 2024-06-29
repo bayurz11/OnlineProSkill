@@ -38,6 +38,6 @@ class NotifikasiUserController extends Controller
             $notifikasi = Notifikasiuser::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
         }
 
-        return view('partials.notifications', compact('notifikasi'));
+        return view('layout.partials.notifications', compact('notifikasi'));
     }
 }
