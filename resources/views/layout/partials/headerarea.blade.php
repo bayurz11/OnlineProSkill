@@ -109,7 +109,7 @@
                                                     <span class="mini-cart-count">{{ $notifikasi->count() }}</span>
                                                 </a>
                                                 <ul class="dropdown-menu" aria-labelledby="notificationDropdown">
-                                                    @include('partials.notifications')
+                                                    @include('layout.partials.notifications')
                                                 </ul>
                                             </li>
                                         @endauth
