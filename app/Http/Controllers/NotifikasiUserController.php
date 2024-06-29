@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\UserProfile;
 use App\Models\NotifikasiUser;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +18,9 @@ class NotifikasiUserController extends Controller
         $cart = Session::get('cart', []);
         $profile = null;
         $user = Auth::user();
-
+        if ($user) {
+            $profile = UserProfile::where('user_id', $user->id)->first();
+        }
         // Ambil notifikasi untuk pengguna yang sedang login
         $notifikasi = Notifikasiuser::where('user_id', $user)->orderBy('created_at', 'desc')->get();
 
