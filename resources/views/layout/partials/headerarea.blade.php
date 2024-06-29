@@ -93,39 +93,30 @@
                                     </li>
                                     @auth
 
-                                        <li class="mini-cart-icon">
-                                            <a href="{{ route('cart.view') }}" class="cart-count">
-                                                <img src="{{ asset('public/assets/img/icons/cart.svg') }}"
-                                                    class="injectable" alt="img">
-                                                <span
-                                                    class="mini-cart-count">{{ array_sum(array_column($cart, 'quantity')) }}</span>
+
+                                        <li class="dropdown mini-cart-icon">
+                                            <a href="#" class="cart-count-two dropdown-toggle"
+                                                id="notificationDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="far fa-bell" style="color: #007F73;"></i>
+                                                <span class="mini-cart-count">{{ $notifikasi->count() }}</span>
                                             </a>
+                                            <ul class="dropdown-menu" aria-labelledby="notificationDropdown">
+                                                @include('layout.partials.notifications')
+                                            </ul>
                                         </li>
-                                        @auth
-                                            <li class="dropdown mini-cart-icon">
-                                                <a href="#" class="cart-count-two dropdown-toggle"
-                                                    id="notificationDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="far fa-bell" style="color: #007F73;"></i>
-                                                    <span class="mini-cart-count">{{ $notifikasi->count() }}</span>
-                                                </a>
-                                                <ul class="dropdown-menu" aria-labelledby="notificationDropdown">
-                                                    @include('layout.partials.notifications')
-                                                </ul>
-                                            </li>
-                                        @endauth
-                                        < </div>
-                                            {{-- <li class="mini-cart-icon">
+
+                                        {{-- <li class="mini-cart-icon">
                                             <a href="#" class="cart-count-two">
                                                 <i class="far fa-bell" style="color: #007F73;"></i>
                                                 <span class="mini-cart-count">0</span>
                                             </a>
                                         </li> --}}
-                                        @endauth
-                                        @php
-                                            use Illuminate\Support\Str;
-                                        @endphp
-                                        @auth
-                                            {{-- <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-xl-flex">
+                                    @endauth
+                                    @php
+                                        use Illuminate\Support\Str;
+                                    @endphp
+                                    @auth
+                                        {{-- <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-xl-flex">
                                             <ul class="navigation">
                                                 <li class="menu-item-has-children">
                                                     <a href="#">
@@ -164,53 +155,53 @@
                                             </ul>
                                         </div> --}}
 
-                                            <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-xl-flex">
-                                                <ul class="navigation">
-                                                    <li class="menu-item-has-children">
-                                                        <a href="#">
-                                                            <img src="{{ $profile && $profile->gambar ? asset('public/uploads/' . $profile->gambar) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
-                                                                alt="img" width="50" height="50"
-                                                                style="border-radius: 50%;">
-                                                        </a>
-                                                        <ul class="sub-menu" style="left: 0; right: auto;">
-                                                            <li>
-                                                                <a class="dropdown-item">
-                                                                    <b>{{ Str::limit($user->name, 10) }}</b>
-                                                                    <br>
-                                                                    <span
-                                                                        style="font-size: 14px; color: #b2b2b2;">{{ Str::limit($user->email, 10) }}</span>
-                                                                </a>
-                                                            </li>
-                                                            <li class="{{ Request::is('profil') ? 'active' : '' }}">
-                                                                <a href="{{ route('profil') }}">Profil</a>
-                                                            </li>
-                                                            <li>
-                                                                <form id="logout-form" action="{{ route('logout') }}"
-                                                                    method="POST" style="display: none;">
-                                                                    @csrf
-                                                                </form>
-                                                                <a href="{{ route('logout') }}"
-                                                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                                                    Logout
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                        <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-xl-flex">
+                                            <ul class="navigation">
+                                                <li class="menu-item-has-children">
+                                                    <a href="#">
+                                                        <img src="{{ $profile && $profile->gambar ? asset('public/uploads/' . $profile->gambar) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
+                                                            alt="img" width="50" height="50"
+                                                            style="border-radius: 50%;">
+                                                    </a>
+                                                    <ul class="sub-menu" style="left: 0; right: auto;">
+                                                        <li>
+                                                            <a class="dropdown-item">
+                                                                <b>{{ Str::limit($user->name, 10) }}</b>
+                                                                <br>
+                                                                <span
+                                                                    style="font-size: 14px; color: #b2b2b2;">{{ Str::limit($user->email, 10) }}</span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="{{ Request::is('profil') ? 'active' : '' }}">
+                                                            <a href="{{ route('profil') }}">Profil</a>
+                                                        </li>
+                                                        <li>
+                                                            <form id="logout-form" action="{{ route('logout') }}"
+                                                                method="POST" style="display: none;">
+                                                                @csrf
+                                                            </form>
+                                                            <a href="{{ route('logout') }}"
+                                                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                                Logout
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
 
-                                        @endauth
-                                        @guest
-                                            <li class="header-btn login-btn">
-                                                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                                    class="btn"
-                                                    style="background-color: white; color: black; border: 1px solid black;">Masuk</a>
-                                            </li>
-                                            <li class="header-btn login-btn">
-                                                <a href="#" data-bs-toggle="modal"
-                                                    data-bs-target="#exampleModalDaftar" class="btn">Daftar</a>
-                                            </li>
-                                        @endguest
+                                    @endauth
+                                    @guest
+                                        <li class="header-btn login-btn">
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                class="btn"
+                                                style="background-color: white; color: black; border: 1px solid black;">Masuk</a>
+                                        </li>
+                                        <li class="header-btn login-btn">
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalDaftar"
+                                                class="btn">Daftar</a>
+                                        </li>
+                                    @endguest
                                 </ul>
                             </div>
 
