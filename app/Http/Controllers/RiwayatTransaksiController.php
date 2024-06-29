@@ -13,19 +13,17 @@ class RiwayatTransaksiController extends Controller
 {
     public function index()
     {
-
         $cart = Session::get('cart', []);
         $user = Auth::user();
         if (!$user) {
-            return redirect()->route('/');
-        }
-        $profile = UserProfile::where('user_id', $user->id)->first();
-        if ($user) {
-            $profile = UserProfile::where('user_id', $user->id)->first();
+            return redirect()->route('home'); // pastikan route 'home' benar
         }
 
-        // Ambil notifikasi untuk pengguna yang sedang login
-        $notifikasi = NotifikasiUser::where('user_id', $user->id)->orderBy('created_at', 'product_id', 'desc')->get();
+        $profile = UserProfile::where('user_id', $user->id)->first();
+
+        // Ambil notifikasi untuk pengguna yang sedang login dengan relasi product
+        $notifikasi = NotifikasiUser::with('product')->where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
+
         return view('studen.history', compact('user', 'profile', 'cart', 'notifikasi'));
     }
 }

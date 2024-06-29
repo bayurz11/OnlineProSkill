@@ -77,24 +77,24 @@
                                         <tbody>
                                             @foreach ($notifikasi as $notif)
                                                 <tr>
-
                                                     <td>
-                                                        <p>#5478</p>
+                                                        <p>#{{ $notif->id }}</p>
                                                     </td>
                                                     <td>
-                                                        <p>{{ $notif->product_id }}</p>
+                                                        <p>{{ $notif->product->name }}</p> <!-- Menampilkan nama produk -->
                                                     </td>
                                                     <td>
                                                         <p>{{ $notif->created_at->format('d M Y') }}</p>
                                                     </td>
                                                     <td>
-                                                        <p>$99.99</p>
+                                                        <p>{{ $notif->message }}</p>
                                                     </td>
                                                     <td>
-                                                        <span class="dashboard__quiz-result">Success</span>
+                                                        <span class="dashboard__quiz-result">{{ $notif->status }}</span>
                                                     </td>
                                                 </tr>
                                             @endforeach
+
                                             {{-- <tr>
                                                 <td>
                                                     <p>#4585</p>
