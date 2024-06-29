@@ -16,10 +16,10 @@ class NotifikasiUserController extends Controller
     {
         $cart = Session::get('cart', []);
         $profile = null;
-        $userId = Auth::id();
+        $user = Auth::user();
 
         // Ambil notifikasi untuk pengguna yang sedang login
-        $notifikasi = Notifikasiuser::where('user_id', $userId)->orderBy('created_at', 'desc')->get();
+        $notifikasi = Notifikasiuser::where('user_id', $user)->orderBy('created_at', 'desc')->get();
 
         // Kirim notifikasi ke view
         return view('studen.notifikasi.index', compact('notifikasi', 'cart', 'profile'));
