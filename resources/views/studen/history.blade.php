@@ -95,7 +95,7 @@
                                                     </td>
                                                 </tr>
                                             @endforeach
-                                            <tr>
+                                            {{-- <tr>
                                                 <td>
                                                     <p>#4585</p>
                                                 </td>
@@ -111,7 +111,7 @@
                                                 <td>
                                                     <span class="dashboard__quiz-result processing">Processing</span>
                                                 </td>
-                                            </tr>
+                                            </tr> --}}
 
                                         </tbody>
                                     </table>
