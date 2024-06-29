@@ -158,25 +158,56 @@ class PaymentController extends Controller
     //     $klsoffline->save();
     //     return redirect()->route('classroom')->with('success', 'Pembayaran Berhasil');
     // }
+
+    // public function success($uuid)
+    // {
+    //     $apiInstance = new InvoiceApi();
+
+    //     $result = $apiInstance->getInvoices(null, $uuid);
+
+    //     //get data
+    //     $order = Order::where('external_id', $uuid)->firstOrFail();
+
+    //     if ($order->status == 'settled') {
+    //         // Mengosongkan cart di dalam session
+    //         session()->forget('cart');
+
+    //         return response()->json('Pembayaran berhasil di proses');
+    //     }
+
+    //     //update status
+    //     $order->status = $result[0]['status'];
+    //     $order->save();
+
+    //     // Mengosongkan cart di dalam session
+    //     session()->forget('cart');
+
+    //     return redirect()->route('classroom')->with('success', 'Pembayaran Berhasil');
+    // }
+
     public function success($uuid)
     {
         $apiInstance = new InvoiceApi();
-
         $result = $apiInstance->getInvoices(null, $uuid);
 
-        //get data
-        $order = Order::where('external_id', $uuid)->firstOrFail();
+        // Ambil semua pesanan yang cocok dengan external_id
+        $orders = Order::where('external_id', $uuid)->get();
 
-        if ($order->status == 'settled') {
-            // Mengosongkan cart di dalam session
-            session()->forget('cart');
-
-            return response()->json('Pembayaran berhasil di proses');
+        if ($orders->isEmpty()) {
+            return redirect()->route('cart.view')->with('error', 'Pesanan tidak ditemukan.');
         }
 
-        //update status
-        $order->status = $result[0]['status'];
-        $order->save();
+        foreach ($orders as $order) {
+            if ($order->status == 'settled') {
+                // Mengosongkan cart di dalam session
+                session()->forget('cart');
+                return response()->json('Pembayaran berhasil di proses');
+            }
+
+            //update status
+            $order->status = $result[0]['status'];
+            $order->save();
+        }
 
         // Mengosongkan cart di dalam session
         session()->forget('cart');
