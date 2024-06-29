@@ -24,7 +24,7 @@ class NotifikasiUserController extends Controller
         }
 
         // Ambil notifikasi untuk pengguna yang sedang login
-        $notifikasi = Notifikasiuser::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
+        $notifikasi = NotifikasiUser::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
 
         // Kirim notifikasi ke view
         return view('studen.notifikasi.index', compact('notifikasi', 'cart', 'profile', 'user'));
@@ -35,7 +35,7 @@ class NotifikasiUserController extends Controller
         $notifikasi = [];
 
         if ($user) {
-            $notifikasi = Notifikasiuser::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
+            $notifikasi = NotifikasiUser::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
         }
 
         return view('layout.partials.notifications', compact('notifikasi'));
