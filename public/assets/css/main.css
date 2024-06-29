@@ -2771,7 +2771,8 @@ textarea {
   display: none;
 }
 .mobile-chart {
-  padding-left: 80px;
+  position: relative;
+  left: 40px; /* Sesuaikan nilainya sesuai kebutuhan */
   display: none;
 }
 .mobile-login-btn {
