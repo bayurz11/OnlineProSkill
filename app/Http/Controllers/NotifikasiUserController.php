@@ -22,7 +22,7 @@ class NotifikasiUserController extends Controller
         $notifikasi = Notifikasiuser::where('user_id', $user)->orderBy('created_at', 'desc')->get();
 
         // Kirim notifikasi ke view
-        return view('studen.notifikasi.index', compact('notifikasi', 'cart', 'profile'));
+        return view('studen.notifikasi.index', compact('notifikasi', 'cart', 'profile', 'user'));
     }
     /**
      * Show the form for creating a new resource.
