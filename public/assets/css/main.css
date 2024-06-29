@@ -2772,7 +2772,7 @@ textarea {
 }
 .mobile-chart {
   position: relative;
-  left: 40px; /* Sesuaikan nilainya sesuai kebutuhan */
+  left: 80px; /* Sesuaikan nilainya sesuai kebutuhan */
   display: none;
 }
 .mobile-login-btn {
