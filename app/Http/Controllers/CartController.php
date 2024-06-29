@@ -78,8 +78,8 @@ class CartController extends Controller
         } else {
             $cart[$id] = [
                 "id" => $id,
-                "name" => $course->nama_kursus, // Pastikan field name ada di model KelasTatapMuka
-                "price" => $course->price, // Pastikan field price ada di model KelasTatapMuka
+                "name" => $course->nama_kursus,
+                "price" => $course->price,
                 "gambar" => $course->gambar,
                 "quantity" => 1,
             ];
@@ -99,8 +99,8 @@ class CartController extends Controller
         } else {
             $cart[$id] = [
                 "id" => $id,
-                "name" => $course->nama_kursus, // Pastikan field name ada di model KelasTatapMuka
-                "price" => $course->price, // Pastikan field price ada di model KelasTatapMuka
+                "name" => $course->nama_kursus,
+                "price" => $course->price,
                 "gambar" => $course->gambar,
                 "quantity" => 1,
             ];
@@ -120,8 +120,8 @@ class CartController extends Controller
         } else {
             $cart[$id] = [
                 "id" => $id,
-                "name" => $course->nama_kursus, // Pastikan field name ada di model KelasTatapMuka
-                "price" => $course->price, // Pastikan field price ada di model KelasTatapMuka
+                "name" => $course->nama_kursus,
+                "price" => $course->price,
                 "gambar" => $course->gambar,
                 "quantity" => 1,
             ];

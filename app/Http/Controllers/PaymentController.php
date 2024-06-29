@@ -36,6 +36,9 @@ class PaymentController extends Controller
     //         return redirect()->back()->with('error', 'Kelas tidak ditemukan.');
     //     }
 
+    //     // Ambil user ID
+    //     $userId = Auth::id();
+
     //     $uuid = (string) Str::uuid();
 
     //     // Panggil Xendit
@@ -59,6 +62,7 @@ class PaymentController extends Controller
 
     //         // Masukkan ke tabel orders
     //         $order = new Order();
+    //         $order->user_id = $userId;  // Tambahkan user ID
     //         $order->product_id = $klsoffline->id;
     //         $order->checkout_link = $result['invoice_url'];
     //         $order->external_id = $uuid;
@@ -70,33 +74,44 @@ class PaymentController extends Controller
     //         return redirect()->back()->with('error', 'Pembayaran gagal. Silakan coba lagi.');
     //     }
     // }
+
     public function payment(Request $request)
     {
         // Validasi permintaan
         $request->validate([
-            'id' => 'required',
             'name' => 'required|string',
             'email' => 'required|email',
             'phone' => 'required',
+            'cart_items' => 'required|array',
         ]);
-
-        // Ambil data produk
-        $klsoffline = KelasTatapMuka::find($request->id);
-        if (!$klsoffline) {
-            return redirect()->back()->with('error', 'Kelas tidak ditemukan.');
-        }
 
         // Ambil user ID
         $userId = Auth::id();
-
         $uuid = (string) Str::uuid();
+        $description = "Pembelian Kelas";
+
+        // Hitung total harga
+        $totalAmount = 0;
+        $items = [];
+
+        foreach ($request->cart_items as $itemId) {
+            $kelas = KelasTatapMuka::find($itemId);
+            if ($kelas) {
+                $totalAmount += $kelas->price;
+                $items[] = $kelas;
+            }
+        }
+
+        if (empty($items)) {
+            return redirect()->back()->with('error', 'Tidak ada kelas yang valid di keranjang.');
+        }
 
         // Panggil Xendit
         $apiInstance = new InvoiceApi();
         $createInvoiceRequest = new CreateInvoiceRequest([
             'external_id' => $uuid,
-            'description' => $klsoffline->description,
-            'amount' => $klsoffline->price,
+            'description' => $description,
+            'amount' => $totalAmount,
             'currency' => 'IDR',
             "customer" => [
                 "given_names" => $request->name,
@@ -111,20 +126,21 @@ class PaymentController extends Controller
             $result = $apiInstance->createInvoice($createInvoiceRequest);
 
             // Masukkan ke tabel orders
-            $order = new Order();
-            $order->user_id = $userId;  // Tambahkan user ID
-            $order->product_id = $klsoffline->id;
-            $order->checkout_link = $result['invoice_url'];
-            $order->external_id = $uuid;
-            $order->status = "pending";
-            $order->save();
+            foreach ($items as $kelas) {
+                $order = new Order();
+                $order->user_id = $userId;
+                $order->product_id = $kelas->id;
+                $order->checkout_link = $result['invoice_url'];
+                $order->external_id = $uuid;
+                $order->status = "pending";
+                $order->save();
+            }
 
             return redirect($result['invoice_url']);
         } catch (\Xendit\XenditSdkException $e) {
             return redirect()->back()->with('error', 'Pembayaran gagal. Silakan coba lagi.');
         }
     }
-
     public function success($uuid)
     {
         $apiInstance = new InvoiceApi();

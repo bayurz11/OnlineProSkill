@@ -30,8 +30,11 @@
                     <div class="col-lg-7">
                         <form action="{{ route('payment') }}" class="customer__form-wrap" method="POST">
                             @csrf
-                            {{-- <input type="hidden" name="id" value="{{ $courses->id }}"> --}}
                             <span class="title">RINCIAN PENAGIHAN</span>
+
+                            @foreach ($cart as $item)
+                                <input type="hidden" name="cart_items[]" value="{{ $item['id'] }}">
+                            @endforeach
 
                             <div class="form-grp">
                                 <label for="name">Nama *</label>
@@ -56,6 +59,7 @@
                             <button type="submit" class="btn">Bayar & gabung kelas</button>
                         </form>
                     </div>
+
                 @endauth
                 @guest
                     <div class="col-12">
