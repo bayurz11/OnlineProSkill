@@ -81,8 +81,8 @@
                                                         <p>#{{ $notif->id }}</p>
                                                     </td>
                                                     <td>
-                                                        <p>{{ $notif->product->nama_kelas }}</p>
-                                                        <!-- Menampilkan nama produk -->
+                                                        <p>{{ $notif->product ? $notif->product->nama_kelas : 'N/A' }}</p>
+                                                        <!-- Cek jika relasi product ada -->
                                                     </td>
                                                     <td>
                                                         <p>{{ $notif->created_at->format('d M Y') }}</p>
@@ -95,6 +95,7 @@
                                                     </td>
                                                 </tr>
                                             @endforeach
+
 
                                             {{-- <tr>
                                                 <td>

@@ -16,7 +16,7 @@ class RiwayatTransaksiController extends Controller
         $cart = Session::get('cart', []);
         $user = Auth::user();
         if (!$user) {
-            return redirect()->route('home'); // pastikan route 'home' benar
+            return redirect()->route('home');
         }
 
         $profile = UserProfile::where('user_id', $user->id)->first();
