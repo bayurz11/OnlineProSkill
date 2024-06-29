@@ -29,51 +29,15 @@ class NotifikasiUserController extends Controller
         // Kirim notifikasi ke view
         return view('studen.notifikasi.index', compact('notifikasi', 'cart', 'profile', 'user'));
     }
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function getNotifications()
     {
-        //
-    }
+        $user = Auth::user();
+        $notifikasi = [];
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreNotifikasiUserRequest $request)
-    {
-        //
-    }
+        if ($user) {
+            $notifikasi = Notifikasiuser::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
+        }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(NotifikasiUser $notifikasiUser)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(NotifikasiUser $notifikasiUser)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateNotifikasiUserRequest $request, NotifikasiUser $notifikasiUser)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(NotifikasiUser $notifikasiUser)
-    {
-        //
+        return view('partials.notifications', compact('notifikasi'));
     }
 }

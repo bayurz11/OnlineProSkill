@@ -120,3 +120,4 @@ Route::post('cart/update/{id}', [CartController::class, 'updateQuantity'])->name
 
 //notifikasi
 Route::get('/notifikasi', [NotifikasiUserController::class, 'index'])->name('notifikasi.index');
+Route::get('/notifications', [NotifikasiUserController::class, 'getNotifications'])->name('notifications');
