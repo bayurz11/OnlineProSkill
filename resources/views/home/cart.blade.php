@@ -115,6 +115,14 @@
                                 <li>
                                     <td class="product__name">
                                         <a href="{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}</a>
+                                        <form action="{{ route('cart.remove', $item['id']) }}" method="POST"
+                                            style="display:inline;">
+                                            @csrf
+                                            <button type="submit" class="btn-remove"
+                                                style="background:none; border:none; color:red; cursor:pointer;">
+                                                x
+                                            </button>
+                                        </form>
                                     </td>
                                 </li>
                             @endforeach
@@ -125,6 +133,7 @@
                         {{-- <a href="" class="btn">Bayar & Gabung kelas</a> --}}
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
