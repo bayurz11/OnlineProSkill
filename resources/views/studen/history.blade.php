@@ -81,7 +81,8 @@
                                                         <p>#{{ $notif->id }}</p>
                                                     </td>
                                                     <td>
-                                                        <p>{{ $notif->product->name }}</p> <!-- Menampilkan nama produk -->
+                                                        <p>{{ $notif->product->nama_kelas }}</p>
+                                                        <!-- Menampilkan nama produk -->
                                                     </td>
                                                     <td>
                                                         <p>{{ $notif->created_at->format('d M Y') }}</p>
