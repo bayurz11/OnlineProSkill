@@ -14,6 +14,7 @@ class HomeController extends Controller
 {
     public function index()
     {
+        $notifikasi = [];
         $user = Auth::user(); // Mengambil pengguna yang sedang login
         $profile = null;
         $cart = Session::get('cart', []);
@@ -21,11 +22,12 @@ class HomeController extends Controller
             $profile = UserProfile::where('user_id', $user->id)->first(); // Mengambil profil pengguna yang terkait
         }
 
-        return view('home.index', compact('user', 'profile', 'cart'));
+        return view('home.index', compact('user', 'profile', 'cart', ' notifikasi'));
     }
 
     public function classroom()
     {
+        $notifikasi = [];
         $user = Auth::user();
         $profile = null;
         $cart = Session::get('cart', []);
@@ -35,11 +37,12 @@ class HomeController extends Controller
 
         $course = KelasTatapMuka::with('user')->where('status', 1)->get();
         $count = $course->count();
-        return view('home.classroom', compact('user', 'count', 'course', 'profile', 'cart'));
+        return view('home.classroom', compact('user', 'count', 'course', 'profile', 'cart', ' notifikasi'));
     }
 
     public function classroomdetail($id)
     {
+        $notifikasi = [];
         $user = Auth::user();
         $profile = null;
         $cart = Session::get('cart', []);
@@ -56,7 +59,7 @@ class HomeController extends Controller
             $courseList = [];
         }
         $fasilitas = json_decode($courses->fasilitas, true);
-        return view('home.classroomdetail', compact('user', 'courses', 'courseList', 'profile', 'cart'));
+        return view('home.classroomdetail', compact('user', 'courses', 'courseList', 'profile', 'cart', ' notifikasi'));
     }
 
 

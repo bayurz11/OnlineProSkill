@@ -12,6 +12,7 @@ class SettingController extends Controller
 {
     public function index()
     {
+        $notifikasi = [];
         $cart = Session::get('cart', []);
         $user = Auth::user();
         if (!$user) {
@@ -20,7 +21,7 @@ class SettingController extends Controller
         // Mengambil profil pengguna yang sedang login
         $profile = UserProfile::where('user_id', $user->id)->first();
 
-        return view('studen.setting', compact('user', 'profile', 'cart'));
+        return view('studen.setting', compact('user', 'profile', 'cart', 'notifikasi'));
     }
 
     public function updateprofil(Request $request, $id)
