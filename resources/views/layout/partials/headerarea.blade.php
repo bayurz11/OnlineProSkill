@@ -94,7 +94,7 @@
                                     @auth
 
 
-                                        <li class="dropdown mini-cart-icon">
+                                        <li class=" mini-cart-icon">
                                             <a href="#" class="cart-count-two dropdown-toggle"
                                                 id="notificationDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                                 <i class="far fa-bell" style="color: #007F73;"></i>
