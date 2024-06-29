@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\KelasTatapMuka;
 use Xendit\Invoice\InvoiceApi;
 use App\Http\Controllers\Controller;
+use App\Models\NotifikasiUser;
 use Illuminate\Support\Facades\Auth;
 use Xendit\Invoice\CreateInvoiceRequest;
 
@@ -183,8 +184,37 @@ class PaymentController extends Controller
     //     session()->forget('cart');
 
     //     return redirect()->route('classroom')->with('success', 'Pembayaran Berhasil');
-    // }
+    // } tgl290624
 
+    // public function success($uuid)
+    // {
+    //     $apiInstance = new InvoiceApi();
+    //     $result = $apiInstance->getInvoices(null, $uuid);
+
+    //     // Ambil semua pesanan yang cocok dengan external_id
+    //     $orders = Order::where('external_id', $uuid)->get();
+
+    //     if ($orders->isEmpty()) {
+    //         return redirect()->route('cart.view')->with('error', 'Pesanan tidak ditemukan.');
+    //     }
+
+    //     foreach ($orders as $order) {
+    //         if ($order->status == 'settled') {
+    //             // Mengosongkan cart di dalam session
+    //             session()->forget('cart');
+    //             return response()->json('Pembayaran berhasil di proses');
+    //         }
+
+    //         //update status
+    //         $order->status = $result[0]['status'];
+    //         $order->save();
+    //     }
+
+    //     // Mengosongkan cart di dalam session
+    //     session()->forget('cart');
+
+    //     return redirect()->route('classroom')->with('success', 'Pembayaran Berhasil');
+    // }
     public function success($uuid)
     {
         $apiInstance = new InvoiceApi();
@@ -201,6 +231,14 @@ class PaymentController extends Controller
             if ($order->status == 'settled') {
                 // Mengosongkan cart di dalam session
                 session()->forget('cart');
+
+                // Tambahkan notifikasi untuk pengguna
+                Notifikasiuser::create([
+                    'user_id' => $order->user_id,
+                    'status' => 1,
+                    'message' => 'Pembayaran berhasil di proses'
+                ]);
+
                 return response()->json('Pembayaran berhasil di proses');
             }
 
@@ -211,6 +249,13 @@ class PaymentController extends Controller
 
         // Mengosongkan cart di dalam session
         session()->forget('cart');
+
+        // Tambahkan notifikasi untuk pengguna
+        NotifikasiUser::create([
+            'user_id' => $orders->first()->user_id,
+            'status' => 1,
+            'message' => 'Pembayaran Berhasil'
+        ]);
 
         return redirect()->route('classroom')->with('success', 'Pembayaran Berhasil');
     }
