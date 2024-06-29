@@ -82,7 +82,7 @@
                                                         <p>#5478</p>
                                                     </td>
                                                     <td>
-                                                        <p>App Development</p>
+                                                        <p>{{ $notif->product_id }}</p>
                                                     </td>
                                                     <td>
                                                         <p>{{ $notif->created_at->format('d M Y, H:i') }}</p>
