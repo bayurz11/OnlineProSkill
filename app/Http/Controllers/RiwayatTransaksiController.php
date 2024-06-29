@@ -25,7 +25,7 @@ class RiwayatTransaksiController extends Controller
         }
 
         // Ambil notifikasi untuk pengguna yang sedang login
-        $notifikasi = NotifikasiUser::all();
+        $notifikasi = NotifikasiUser::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
         return view('studen.history', compact('user', 'profile', 'cart', 'notifikasi'));
     }
 }
