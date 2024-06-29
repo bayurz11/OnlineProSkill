@@ -100,9 +100,9 @@
                                                 <i class="far fa-bell" style="color: #007F73;"></i>
                                                 <span class="mini-cart-count">{{ $notifikasi->count() }}</span>
                                             </a>
-                                            <ul class="dropdown-menu" aria-labelledby="notificationDropdown">
+                                            {{-- <ul class="dropdown-menu" aria-labelledby="notificationDropdown">
                                                 @include('layout.partials.notifications')
-                                            </ul>
+                                            </ul> --}}
                                         </li>
 
                                         {{-- <li class="mini-cart-icon">
