@@ -2773,7 +2773,7 @@ textarea {
 .mobile-chart {
   position: relative;
   left: 80px; /* Sesuaikan nilainya sesuai kebutuhan */
-  display: none;
+  border-radius: 50%;
 }
 .mobile-login-btn {
   margin-left: auto;
