@@ -86,7 +86,7 @@
                                                         <p>{{ $notif->created_at->format('d M Y') }}</p>
                                                     </td>
                                                     <td>
-                                                        <p>{{ $notif->message }}</p>
+                                                        <p>{{ $notif->price }}</p>
                                                     </td>
                                                     <td>
                                                         <span class="dashboard__quiz-result">
