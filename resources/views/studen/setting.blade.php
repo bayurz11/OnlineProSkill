@@ -143,13 +143,13 @@
                                                     <div class="col-md-6">
                                                         <div class="form-grp">
                                                             <label for="phonenumber">No.HP<span
-                                                                    style="color: red">*</span> </label>
-                                                            <input id="phonenumber" type="number" min="0"
-                                                                maxlength="12" name="phonenumber"
-                                                                value="{{ $profile->phone_number }}"
+                                                                    style="color: red">*</span></label>
+                                                            <input id="phonenumber" type="tel" name="phonenumber"
+                                                                maxlength="12" value="{{ $profile->phone_number }}"
                                                                 placeholder="masukan no telepon">
                                                         </div>
                                                     </div>
+
                                                     <div class="col-md-6">
                                                         <div class="form-grp">
                                                             <label for="alamat">Alamat <span
