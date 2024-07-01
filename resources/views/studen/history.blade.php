@@ -78,7 +78,7 @@
                                             @foreach ($notifikasi as $notif)
                                                 <tr>
                                                     <td>
-                                                        <p>#{{ $notif->id }}</p>
+                                                        <p>#{{ $notif->external_id }}</p>
                                                     </td>
                                                     <td>
                                                         <p>{{ $notif->product ? $notif->product->nama_kursus : 'N/A' }}</p>
