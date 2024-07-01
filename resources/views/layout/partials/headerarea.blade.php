@@ -136,7 +136,7 @@
                                                 position: absolute;
                                                 background: #fff;
                                                 border: 0px solid #ddd;
-
+                                                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
                                                 width: 300px;
                                                 max-height: 400px;
                                                 overflow-y: auto;
