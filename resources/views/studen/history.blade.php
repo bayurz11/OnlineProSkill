@@ -34,7 +34,7 @@
                                 alt="img" width="120" height="120">
                         </div>
                         <div class="content">
-                            <h4 class="title">{{ $user->nama_kursus }}</h4>
+                            <h4 class="title">{{ $user->name }}</h4>
                             <ul class="list-wrap">
                                 <li>
                                     <img src="{{ asset('public/assets/img/icons/course_icon03.svg') }}" alt="img"
@@ -81,7 +81,8 @@
                                                         <p>#{{ $notif->id }}</p>
                                                     </td>
                                                     <td>
-                                                        <p>{{ $notif->product ? $notif->product->nama_kelas : 'N/A' }}</p>
+                                                        <p>{{ $notif->nama_kursus ? $notif->product->nama_kursus : 'N/A' }}
+                                                        </p>
                                                         <!-- Cek jika relasi product ada -->
                                                     </td>
                                                     <td>
