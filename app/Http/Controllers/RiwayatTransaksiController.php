@@ -21,9 +21,10 @@ class RiwayatTransaksiController extends Controller
 
         $profile = UserProfile::where('user_id', $user->id)->first();
 
-        $notifikasi = NotifikasiUser::where('user_id', $user->id)
+        $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
             ->orderBy('created_at', 'desc')
-            ->get();
+            ->get()
+            : collect();
 
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
