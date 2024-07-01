@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
+use App\Models\NotifikasiUser;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -12,7 +13,7 @@ class SettingController extends Controller
 {
     public function index()
     {
-        $notifikasi = [];
+
         $cart = Session::get('cart', []);
         $user = Auth::user();
         if (!$user) {
@@ -20,8 +21,14 @@ class SettingController extends Controller
         }
         // Mengambil profil pengguna yang sedang login
         $profile = UserProfile::where('user_id', $user->id)->first();
+        // Ambil notifikasi untuk pengguna yang sedang login
+        $notifikasi = NotifikasiUser::where('user_id', $user->id)
+            ->orderBy('created_at', 'desc')
+            ->get();
 
-        return view('studen.setting', compact('user', 'profile', 'cart', 'notifikasi'));
+        // Hitung jumlah notifikasi dengan status = 1
+        $notifikasiCount = $notifikasi->where('status', 1)->count();
+        return view('studen.setting', compact('user', 'profile', 'cart', 'notifikasi', 'notifikasiCount'));
     }
 
     public function updateprofil(Request $request, $id)
