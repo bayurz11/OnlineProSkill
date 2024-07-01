@@ -34,7 +34,7 @@
                                 alt="img" width="120" height="120">
                         </div>
                         <div class="content">
-                            <h4 class="title">{{ $user->name }}</h4>
+                            <h4 class="title">{{ $user->nama_kursus }}</h4>
                             <ul class="list-wrap">
                                 <li>
                                     <img src="{{ asset('public/assets/img/icons/course_icon03.svg') }}" alt="img"
