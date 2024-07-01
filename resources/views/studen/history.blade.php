@@ -77,7 +77,7 @@
                                             @foreach ($orders as $notif)
                                                 <tr>
                                                     <td>
-                                                        <p>#{{ $notif->external_id }}</p>
+                                                        <p>{{ $notif->external_id }}</p>
                                                     </td>
                                                     <td>
                                                         <p>{{ $notif->product_id }}</p>
