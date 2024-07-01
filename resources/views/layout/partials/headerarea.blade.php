@@ -118,6 +118,8 @@
                                             <div id="notification-dropdown" class="notification-dropdown"
                                                 style="display: none;">
                                                 @if ($notifikasiCount > 0)
+                                                    <button id="mark-all-read" style="margin: 10px;">Tandai Semua Telah
+                                                        Dibaca</button>
                                                     <ul>
                                                         @foreach ($notifikasi as $notif)
                                                             <li>{{ $notif->message }} -
@@ -173,6 +175,25 @@
                                                 } else {
                                                     dropdown.style.display = 'none';
                                                 }
+                                            });
+
+                                            document.getElementById('mark-all-read').addEventListener('click', function(event) {
+                                                event.preventDefault();
+                                                fetch('{{ route('notifikasi.bacaSemua') }}', {
+                                                        method: 'POST',
+                                                        headers: {
+                                                            'Content-Type': 'application/json',
+                                                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                                        },
+                                                        body: JSON.stringify({})
+                                                    })
+                                                    .then(response => response.json())
+                                                    .then(data => {
+                                                        alert(data.message);
+                                                        document.querySelector('.mini-cart-count').innerText = '0';
+                                                        document.getElementById('notification-dropdown').style.display = 'none';
+                                                    })
+                                                    .catch(error => console.error('Error:', error));
                                             });
                                         </script>
 

@@ -6,6 +6,7 @@ use App\Models\UserProfile;
 use App\Models\NotifikasiUser;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\StoreNotifikasiUserRequest;
 use App\Http\Requests\UpdateNotifikasiUserRequest;
@@ -43,5 +44,15 @@ class NotifikasiUserController extends Controller
         }
 
         return view('layout.partials.notifications', compact('notifikasi'));
+    }
+
+    public function bacaSemua(Request $request)
+    {
+        $user = Auth::user();
+        if ($user) {
+            NotifikasiUser::where('user_id', $user->id)->update(['status' => 0]);
+        }
+
+        return response()->json(['message' => 'Semua notifikasi telah dibaca.']);
     }
 }
