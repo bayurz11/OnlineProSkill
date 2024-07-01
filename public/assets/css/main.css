@@ -2769,10 +2769,50 @@ textarea {
 .mobile-menu-dropdown {
   margin-left: auto;
   display: none;
+  align-items: center; /* Tambahkan ini agar gambar dan konten lain dalam elemen ini terpusat secara vertikal */
 }
 .mobile-chart {
   position: relative;
   left: 80px; /* Sesuaikan nilainya sesuai kebutuhan */
+  display: none;
+  align-items: center; /* Tambahkan ini agar gambar dan konten lain dalam elemen ini terpusat secara vertikal */
+}
+.mobile-login-btn {
+  margin-left: auto;
+  display: none;
+}
+@media (max-width: 767.98px) {
+  .mobile-login-btn {
+    display: flex;
+  }
+}
+@media (max-width: 767.98px) {
+  .mobile-chart {
+    display: flex;
+  }
+}
+@media (max-width: 767.98px) {
+  .mobile-menu-dropdown {
+    display: flex;
+  }
+}
+
+.mobile-menu-dropdown img {
+  margin-right: 20px;
+  /* Tambahkan padding atau margin lain di sini jika diperlukan untuk penyesuaian posisi */
+}
+.mobile-chart img {
+  margin-right: 20px;
+  /* Tambahkan padding atau margin lain di sini jika diperlukan untuk penyesuaian posisi */
+}
+
+/* .mobile-menu-dropdown {
+  margin-left: auto;
+  display: none;
+}
+.mobile-chart {
+  position: relative;
+  left: 80px; 
   display: none;
 }
 .mobile-login-btn {
@@ -2800,7 +2840,7 @@ textarea {
 };
 .mobile-chart img{
  margin-right: 20px;
-};
+}; */
 
 .mobile-login-btn a {
   margin-right: 20px;
