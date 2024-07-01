@@ -166,6 +166,16 @@
                                         </style>
 
                                         <script>
+                                            document.getElementById('notification-icon').addEventListener('click', function(event) {
+                                                event.preventDefault();
+                                                var dropdown = document.getElementById('notification-dropdown');
+                                                if (dropdown && (dropdown.style.display === 'none' || dropdown.style.display === '')) {
+                                                    dropdown.style.display = 'block';
+                                                } else if (dropdown) {
+                                                    dropdown.style.display = 'none';
+                                                }
+                                            });
+
                                             document.getElementById('mark-all-read').addEventListener('click', function(event) {
                                                 event.preventDefault();
                                                 fetch('{{ route('notifikasi.bacaSemua') }}', {
@@ -184,8 +194,6 @@
                                                         if (dropdown) {
                                                             dropdown.style.display = 'none';
                                                         }
-                                                        // Tambahkan perintah untuk reload halaman
-                                                        location.reload();
                                                     })
                                                     .catch(error => console.error('Error:', error));
                                             });
@@ -254,7 +262,7 @@
                                                             </a>
                                                         </li>
                                                         <li class="{{ Request::is('profil') ? 'active' : '' }}">
-                                                            <a href="{{ route('profil') }}">Profil Saya</a>
+                                                            <a href="{{ route('profil') }}">Profil</a>
                                                         </li>
                                                         <li>
                                                             <form id="logout-form" action="{{ route('logout') }}"
