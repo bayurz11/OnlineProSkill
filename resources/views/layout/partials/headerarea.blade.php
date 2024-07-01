@@ -94,22 +94,22 @@
                                     @auth
 
 
-                                        <li class=" mini-cart-icon">
+                                        {{-- <li class=" mini-cart-icon">
                                             <a href="#" class="cart-count-two">
                                                 <i class="far fa-bell" style="color: #007F73;"></i>
-                                                {{-- <span class="mini-cart-count">{{ $notifikasi->count() }}</span> --}}
+                                                <span class="mini-cart-count">{{ $notifikasi->count() }}</span>
                                             </a>
-                                            {{-- <ul class="dropdown-menu" aria-labelledby="notificationDropdown">
+                                            <ul class="dropdown-menu" aria-labelledby="notificationDropdown">
                                                 @include('layout.partials.notifications')
-                                            </ul> --}}
-                                        </li>
+                                            </ul>
+                                        </li> --}}
 
-                                        {{-- <li class="mini-cart-icon">
+                                        <li class="mini-cart-icon">
                                             <a href="#" class="cart-count-two">
                                                 <i class="far fa-bell" style="color: #007F73;"></i>
                                                 <span class="mini-cart-count">0</span>
                                             </a>
-                                        </li> --}}
+                                        </li>
                                     @endauth
                                     @php
                                         use Illuminate\Support\Str;
