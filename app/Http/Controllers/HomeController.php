@@ -26,7 +26,7 @@ class HomeController extends Controller
 
         // Hitung jumlah notifikasi
         $notifikasiCount = $notifikasi->count();
-        return view('home.index', compact('user', 'profile', 'cart', 'notifikasiCount'));
+        return view('home.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi'));
     }
 
     public function classroom()
