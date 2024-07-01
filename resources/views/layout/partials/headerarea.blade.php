@@ -115,9 +115,9 @@
                                                 <i class="far fa-bell" style="color: #007F73;"></i>
                                                 <span class="mini-cart-count">{{ $notifikasiCount }}</span>
                                             </a>
-                                            <div id="notification-dropdown" class="notification-dropdown"
-                                                style="display: none;">
-                                                @if ($notifikasiCount > 0)
+                                            @if ($notifikasiCount > 0)
+                                                <div id="notification-dropdown" class="notification-dropdown"
+                                                    style="display: none;">
                                                     <button id="mark-all-read" style="margin: 10px;">Tandai Semua Telah
                                                         Dibaca</button>
                                                     <ul>
@@ -126,10 +126,8 @@
                                                                 <small>{{ $notif->created_at }}</small></li>
                                                         @endforeach
                                                     </ul>
-                                                @else
-                                                    <p>Tidak ada notifikasi.</p>
-                                                @endif
-                                            </div>
+                                                </div>
+                                            @endif
                                         </li>
 
                                         <style>
@@ -170,9 +168,9 @@
                                             document.getElementById('notification-icon').addEventListener('click', function(event) {
                                                 event.preventDefault();
                                                 var dropdown = document.getElementById('notification-dropdown');
-                                                if (dropdown.style.display === 'none' || dropdown.style.display === '') {
+                                                if (dropdown && (dropdown.style.display === 'none' || dropdown.style.display === '')) {
                                                     dropdown.style.display = 'block';
-                                                } else {
+                                                } else if (dropdown) {
                                                     dropdown.style.display = 'none';
                                                 }
                                             });
@@ -191,7 +189,10 @@
                                                     .then(data => {
                                                         alert(data.message);
                                                         document.querySelector('.mini-cart-count').innerText = '0';
-                                                        document.getElementById('notification-dropdown').style.display = 'none';
+                                                        var dropdown = document.getElementById('notification-dropdown');
+                                                        if (dropdown) {
+                                                            dropdown.style.display = 'none';
+                                                        }
                                                     })
                                                     .catch(error => console.error('Error:', error));
                                             });
