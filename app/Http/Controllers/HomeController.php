@@ -35,25 +35,28 @@ class HomeController extends Controller
         return view('home.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi'));
     }
 
-
     public function classroom()
     {
         $user = Auth::user();
         $profile = null;
         $cart = Session::get('cart', []);
+
         if ($user) {
             $profile = UserProfile::where('user_id', $user->id)->first();
         }
 
         $course = KelasTatapMuka::with('user')->where('status', 1)->get();
         $count = $course->count();
+
         // Ambil notifikasi untuk pengguna yang sedang login
-        $notifikasi = NotifikasiUser::where('user_id', $user->id)
+        $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
             ->orderBy('created_at', 'desc')
-            ->get();
+            ->get()
+            : collect(); // Menggunakan collect() untuk membuat koleksi kosong jika pengguna belum login
 
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
+
         return view('home.classroom', compact('user', 'count', 'course', 'profile', 'cart', 'notifikasiCount', 'notifikasi'));
     }
 
@@ -62,26 +65,34 @@ class HomeController extends Controller
         $user = Auth::user();
         $profile = null;
         $cart = Session::get('cart', []);
+
         if ($user) {
             $profile = UserProfile::where('user_id', $user->id)->first();
         }
+
         $courses = KelasTatapMuka::find($id);
+
         if (!$courses) {
             abort(404, 'Kelas tatap muka tidak ditemukan.');
         }
+
         $courseList = json_decode($courses->include, true);
 
         if (!is_array($courseList)) {
             $courseList = [];
         }
+
         $fasilitas = json_decode($courses->fasilitas, true);
+
         // Ambil notifikasi untuk pengguna yang sedang login
-        $notifikasi = NotifikasiUser::where('user_id', $user->id)
+        $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
             ->orderBy('created_at', 'desc')
-            ->get();
+            ->get()
+            : collect(); // Menggunakan collect() untuk membuat koleksi kosong jika pengguna belum login
 
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
+
         return view('home.classroomdetail', compact('user', 'courses', 'courseList', 'profile', 'cart', 'notifikasiCount', 'notifikasi'));
     }
 
@@ -102,17 +113,22 @@ class HomeController extends Controller
         }
 
         $courses = KelasTatapMuka::whereIn('id', array_column($cart, 'id'))->get();
+
         if ($courses->isEmpty()) {
             return redirect()->route('/')->with('error', 'Kelas tidak ditemukan.');
         }
+
         $cart = Session::get('cart', []);
+
         // Ambil notifikasi untuk pengguna yang sedang login
-        $notifikasi = NotifikasiUser::where('user_id', $user->id)
+        $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
             ->orderBy('created_at', 'desc')
-            ->get();
+            ->get()
+            : collect(); // Menggunakan collect() untuk membuat koleksi kosong jika pengguna belum login
 
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
+
         return view('home.checkout', compact('user', 'profile', 'courses', 'cart', 'notifikasiCount', 'notifikasi'));
     }
 
