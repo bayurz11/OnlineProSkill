@@ -80,7 +80,7 @@
                                                         <p>#{{ $notif->external_id }}</p>
                                                     </td>
                                                     <td>
-                                                        <p>{{ $notif->KelasTatapMuka->nama_kelas }}</p>
+                                                        <p>{{ $notif->KelasTatapMuka->nama_kursus }}</p>
                                                     </td>
                                                     <td>
                                                         <p>{{ $notif->created_at->format('d M Y') }}</p>
