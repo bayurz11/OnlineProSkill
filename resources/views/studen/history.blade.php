@@ -74,7 +74,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($notifikasi as $notif)
+                                            @foreach ($orders as $notif)
                                                 <tr>
                                                     <td>
                                                         <p>#{{ $notif->external_id }}</p>
@@ -89,12 +89,11 @@
                                                         <p>{{ $notif->message }}</p>
                                                     </td>
                                                     <td>
-                                                        {{ $notif->status == 'PAID' }}
-                                                        {{-- @if ($notif->status == 'PAID')
+                                                        @if ($notif->status == 'PAID')
                                                             <span class="badge badge-success">Sukses</span>
                                                         @else
                                                             <span class="badge badge-warning">Belum Dibayar</span>
-                                                        @endif --}}
+                                                        @endif
                                                     </td>
                                                 </tr>
                                             @endforeach
