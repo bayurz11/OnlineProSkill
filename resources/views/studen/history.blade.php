@@ -81,8 +81,7 @@
                                                         <p>#{{ $notif->id }}</p>
                                                     </td>
                                                     <td>
-                                                        <p>{{ $notif->nama_kursus ? $notif->product->nama_kursus : 'N/A' }}
-                                                        </p>
+                                                        <p>{{ $notif->product ? $notif->product->nama_kursus : 'N/A' }}</p>
                                                         <!-- Cek jika relasi product ada -->
                                                     </td>
                                                     <td>
