@@ -6,6 +6,7 @@ use App\Models\Cart;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use App\Models\KelasTatapMuka;
+use App\Models\NotifikasiUser;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreCartRequest;
@@ -17,16 +18,6 @@ class CartController extends Controller
     public function index()
     {
         return view('home.cart');
-    }
-
-    public function create()
-    {
-        //
-    }
-
-    public function store(StoreCartRequest $request)
-    {
-        //
     }
 
     // public function show()
@@ -50,20 +41,16 @@ class CartController extends Controller
         if ($courses->isEmpty() && !empty($cart)) {
             return redirect()->route('cart.view')->with('info', 'Kelas tidak ditemukan.');
         }
+        // Ambil notifikasi untuk pengguna yang sedang login
+        $notifikasi = NotifikasiUser::where('user_id', $user->id)
+            ->orderBy('created_at', 'desc')
+            ->get();
 
-        return view('home.cart', compact('user', 'cart', 'profile', 'courses'));
+        // Hitung jumlah notifikasi dengan status = 1
+        $notifikasiCount = $notifikasi->where('status', 1)->count();
+        return view('home.cart', compact('user', 'cart', 'profile', 'courses', 'notifikasiCount', 'notifikasi'));
     }
 
-    public function edit(Cart $cart)
-    {
-        //
-    }
-
-
-    public function update(UpdateCartRequest $request, Cart $cart)
-    {
-        //
-    }
     public function updateQuantity(Request $request, $id)
     {
         $cart = Session::get('cart', []);
@@ -75,11 +62,6 @@ class CartController extends Controller
         Session::put('cart', $cart);
 
         return redirect()->route('cart.view');
-    }
-
-    public function destroy(Cart $cart)
-    {
-        //
     }
 
     public function addToCartceckout($id)
