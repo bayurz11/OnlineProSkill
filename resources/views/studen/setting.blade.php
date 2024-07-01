@@ -123,6 +123,7 @@
                                                         </div>
                                                     </div>
 
+
                                                     <div class="col-md-6">
                                                         <div class="form-grp select-grp">
                                                             <label for="gender">Gender<span
@@ -197,6 +198,16 @@
                 };
                 reader.readAsDataURL(file);
             }
+        });
+        document.addEventListener("DOMContentLoaded", function() {
+            const dateInput = document.getElementById('dateofBirth');
+            const today = new Date();
+            const maxDate = today.toISOString().split('T')[0];
+            const minDate = new Date(today.getFullYear() - 5, today.getMonth(), today.getDate()).toISOString()
+                .split('T')[0];
+
+            dateInput.setAttribute('max', maxDate);
+            dateInput.setAttribute('min', minDate);
         });
     </script>
 @endsection
