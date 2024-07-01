@@ -124,6 +124,12 @@
                                                 <a class="dropdown-item" href="#">Notification 3</a>
                                             </div>
                                         </li>
+                                        <style>
+                                            .mini-cart-icon .dropdown-menu {
+                                                min-width: 200px;
+                                                padding: 10px;
+                                            }
+                                        </style>
                                     @endauth
                                     @php
                                         use Illuminate\Support\Str;
