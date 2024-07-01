@@ -146,7 +146,7 @@
                                                                     style="color: red">*</span></label>
                                                             <input id="phonenumber" type="tel" name="phonenumber"
                                                                 maxlength="12" value="{{ $profile->phone_number }}"
-                                                                placeholder="masukan no telepon">
+                                                                placeholder="masukan no HP">
                                                         </div>
                                                     </div>
 
