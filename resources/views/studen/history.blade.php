@@ -1,4 +1,4 @@
-@section('title', 'ProSkill Akademia | Riwayat Transaksi')
+@section('title', 'ProSkill Akademia | Profil Saya')
 <?php $page = 'index'; ?>
 
 @extends('layout.mainlayout')
@@ -80,7 +80,7 @@
                                                         <p>#{{ $notif->external_id }}</p>
                                                     </td>
                                                     <td>
-                                                        <p>{{ $notif->KelasTatapMuka->nama_kursus }}</p>
+                                                        <p>{{ $notif->product_id }}</p>
                                                     </td>
                                                     <td>
                                                         <p>{{ $notif->created_at->format('d M Y') }}</p>
