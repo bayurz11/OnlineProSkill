@@ -126,7 +126,11 @@
                                                 <li><a class="dropdown-item" href="#">Something else here</a></li>
                                             </ul>
                                         </li>
-
+                                        <style>
+                                            .no-caret::after {
+                                                display: none !important;
+                                            }
+                                        </style>
                                     @endauth
                                     @php
                                         use Illuminate\Support\Str;
