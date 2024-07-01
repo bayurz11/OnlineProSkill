@@ -22,10 +22,12 @@ class HomeController extends Controller
             $profile = UserProfile::where('user_id', $user->id)->first(); // Mengambil profil pengguna yang terkait
         }
         // Ambil notifikasi untuk pengguna yang sedang login
-        $notifikasi = NotifikasiUser::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
+        $notifikasi = NotifikasiUser::where('user_id', $user->id)
+            ->orderBy('created_at', 'desc')
+            ->get();
 
-        // Hitung jumlah notifikasi
-        $notifikasiCount = $notifikasi->count();
+        // Hitung jumlah notifikasi dengan status = 1
+        $notifikasiCount = $notifikasi->where('status', 1)->count();
         return view('home.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi'));
     }
 
