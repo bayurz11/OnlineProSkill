@@ -30,7 +30,7 @@ class NotifikasiUserController extends Controller
         $notifikasiCount = $notifikasi->count();
 
         // Kirim notifikasi dan jumlah notifikasi ke view
-        return view('studen.notifikasi.index', compact('notifikasi', 'cart', 'profile', 'user', 'notifikasiCount'));
+        return view('studen.notifikasi.index', compact('notifikasi', 'cart', 'profile', 'user', 'notifikasiCount', 'notifikasi'));
     }
 
     public function getNotifications()
