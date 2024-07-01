@@ -155,7 +155,8 @@
                                                             <label for="alamat">Alamat <span
                                                                     style="color: red">*</span></label>
                                                             <input id="alamat" name="alamat" type="text"
-                                                                value="{{ $profile->address }}">
+                                                                value="{{ $profile->address }}"
+                                                                placeholder="Masukkan alamat">
                                                         </div>
                                                     </div>
                                                 </div>
