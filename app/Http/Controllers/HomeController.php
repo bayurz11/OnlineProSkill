@@ -6,6 +6,7 @@ use App\Models\Categories;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use App\Models\KelasTatapMuka;
+use App\Models\NotifikasiUser;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -20,8 +21,12 @@ class HomeController extends Controller
         if ($user) {
             $profile = UserProfile::where('user_id', $user->id)->first(); // Mengambil profil pengguna yang terkait
         }
+        // Ambil notifikasi untuk pengguna yang sedang login
+        $notifikasi = NotifikasiUser::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
 
-        return view('home.index', compact('user', 'profile', 'cart'));
+        // Hitung jumlah notifikasi
+        $notifikasiCount = $notifikasi->count();
+        return view('home.index', compact('user', 'profile', 'cart', 'notifikasiCount'));
     }
 
     public function classroom()
