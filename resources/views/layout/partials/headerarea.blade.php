@@ -130,6 +130,12 @@
                                                 padding: 10px;
                                             }
                                         </style>
+                                        <script>
+                                            $(document).ready(function() {
+                                                $('.dropdown-toggle').dropdown();
+                                            });
+                                        </script>
+
                                     @endauth
                                     @php
                                         use Illuminate\Support\Str;
