@@ -23,7 +23,7 @@ class RiwayatTransaksiController extends Controller
 
         // Ambil notifikasi untuk pengguna yang sedang login
         $notifikasi = NotifikasiUser::where('user_id', $user->id)
-            ->orderBy('created_at', 'desc')
+            ->orderBy('created_at', 'desc', 'external_id', 'product_id')
             ->get();
 
         // Hitung jumlah notifikasi dengan status = 1
