@@ -70,7 +70,14 @@ class HomeController extends Controller
             $courseList = [];
         }
         $fasilitas = json_decode($courses->fasilitas, true);
-        return view('home.classroomdetail', compact('user', 'courses', 'courseList', 'profile', 'cart'));
+        // Ambil notifikasi untuk pengguna yang sedang login
+        $notifikasi = NotifikasiUser::where('user_id', $user->id)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        // Hitung jumlah notifikasi dengan status = 1
+        $notifikasiCount = $notifikasi->where('status', 1)->count();
+        return view('home.classroomdetail', compact('user', 'courses', 'courseList', 'profile', 'cart', 'notifikasiCount', 'notifikasi'));
     }
 
 
@@ -94,8 +101,14 @@ class HomeController extends Controller
             return redirect()->route('/')->with('error', 'Kelas tidak ditemukan.');
         }
         $cart = Session::get('cart', []);
+        // Ambil notifikasi untuk pengguna yang sedang login
+        $notifikasi = NotifikasiUser::where('user_id', $user->id)
+            ->orderBy('created_at', 'desc')
+            ->get();
 
-        return view('home.checkout', compact('user', 'profile', 'courses', 'cart'));
+        // Hitung jumlah notifikasi dengan status = 1
+        $notifikasiCount = $notifikasi->where('status', 1)->count();
+        return view('home.checkout', compact('user', 'profile', 'courses', 'cart', 'notifikasiCount', 'notifikasi'));
     }
 
     // public function checkout($id)
