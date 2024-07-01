@@ -49,7 +49,7 @@ class RiwayatTransaksiController extends Controller
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
         // Fetching orders related to the user
-        $orders = Order::where('user_id', $user->id)->get();
+        $orders = Order::where('user_id', $user->id)->with('kelasTatapMuka')->get();
 
         return view('studen.history', compact('user', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders'));
     }
