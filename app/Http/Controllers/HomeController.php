@@ -42,7 +42,14 @@ class HomeController extends Controller
 
         $course = KelasTatapMuka::with('user')->where('status', 1)->get();
         $count = $course->count();
-        return view('home.classroom', compact('user', 'count', 'course', 'profile', 'cart'));
+        // Ambil notifikasi untuk pengguna yang sedang login
+        $notifikasi = NotifikasiUser::where('user_id', $user->id)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        // Hitung jumlah notifikasi dengan status = 1
+        $notifikasiCount = $notifikasi->where('status', 1)->count();
+        return view('home.classroom', compact('user', 'count', 'course', 'profile', 'cart', 'notifikasiCount', 'notifikasi'));
     }
 
     public function classroomdetail($id)
