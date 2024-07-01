@@ -89,11 +89,15 @@
                                                         <p>{{ $notif->message }}</p>
                                                     </td>
                                                     <td>
-                                                        @if ($notif->status == 'PAID')
-                                                            <span class="badge badge-success">Sukses</span>
-                                                        @else
-                                                            <span class="badge badge-warning">Belum Dibayar</span>
-                                                        @endif
+                                                        <span class="dashboard__quiz-result">
+                                                            @if ($notif->status == 'PAID')
+                                                                Sukses
+                                                            @else
+                                                                <span class="dashboard__quiz-result processing">
+                                                                    Belum Dibayar
+                                                                </span>
+                                                            @endif
+                                                        </span>
                                                     </td>
                                                 </tr>
                                             @endforeach
