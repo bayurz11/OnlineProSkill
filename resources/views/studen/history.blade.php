@@ -90,13 +90,16 @@
                                                     </td>
                                                     <td>
                                                         <span class="dashboard__quiz-result">
-                                                            @if ($notif->status == 1)
+                                                            @if ($notif->status == 'PAID')
                                                                 Sukses
-                                                            @else<span class="dashboard__quiz-result processing">
+                                                            @else
+                                                                <span class="dashboard__quiz-result processing">
                                                                     Belum Dibayar
+                                                                </span>
                                                             @endif
                                                         </span>
                                                     </td>
+
                                                 </tr>
                                             @endforeach
                                         </tbody>
