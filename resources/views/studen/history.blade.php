@@ -1,6 +1,10 @@
+@section('title', 'ProSkill Akademia | Profil Saya')
+<?php $page = 'index'; ?>
+
 @extends('layout.mainlayout')
 
 @section('content')
+
     <!-- breadcrumb-area -->
     <div class="breadcrumb__area breadcrumb__bg breadcrumb__bg-three"
         data-background="{{ asset('public/assets/img/bg/breadcrumb_bg.jpg') }}">
@@ -76,7 +80,7 @@
                                                         <p>#{{ $notif->external_id }}</p>
                                                     </td>
                                                     <td>
-                                                        <p>{{ $notif->kelasTatapMuka->nama_kursus }}</p>
+                                                        <p>{{ $notif->product_id }}</p>
                                                     </td>
                                                     <td>
                                                         <p>{{ $notif->created_at->format('d M Y') }}</p>
