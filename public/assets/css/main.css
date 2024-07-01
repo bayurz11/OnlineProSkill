@@ -2773,7 +2773,7 @@ textarea {
 }
 .mobile-chart {
   position: relative;
-  left: 100px; /* Sesuaikan nilainya sesuai kebutuhan */
+  left: 60px; /* Sesuaikan nilainya sesuai kebutuhan */
   display: none;
   align-items: center; /* Tambahkan ini agar gambar dan konten lain dalam elemen ini terpusat secara vertikal */
 }
