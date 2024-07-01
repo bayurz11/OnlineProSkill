@@ -167,7 +167,7 @@ class PaymentController extends Controller
             if ($kelas) {
                 $totalAmount += $kelas->price;
                 $items[] = $kelas;
-                $classNames[] = $kelas->name; // Asumsikan bahwa nama kelas ada di properti 'name'
+                $classNames[] = $kelas->nama_kursus; // Asumsikan bahwa nama kelas ada di properti 'name'
             }
         }
 
