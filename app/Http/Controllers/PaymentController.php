@@ -76,6 +76,73 @@ class PaymentController extends Controller
     //     }
     // }
 
+    // public function payment(Request $request)
+    // {
+    //     // Validasi permintaan
+    //     $request->validate([
+    //         'name' => 'required|string',
+    //         'email' => 'required|email',
+    //         'phone' => 'required',
+    //         'cart_items' => 'required|array',
+    //     ]);
+
+    //     // Ambil user ID
+    //     $userId = Auth::id();
+    //     $uuid = (string) Str::uuid();
+    //     $description = "Pembelian Kelas";
+
+    //     // Hitung total harga
+    //     $totalAmount = 0;
+    //     $items = [];
+
+    //     foreach ($request->cart_items as $itemId) {
+    //         $kelas = KelasTatapMuka::find($itemId);
+    //         if ($kelas) {
+    //             $totalAmount += $kelas->price;
+    //             $items[] = $kelas;
+    //         }
+    //     }
+
+    //     if (empty($items)) {
+    //         return redirect()->back()->with('error', 'Tidak ada kelas yang valid di keranjang.');
+    //     }
+
+    //     // Panggil Xendit
+    //     $apiInstance = new InvoiceApi();
+    //     $createInvoiceRequest = new CreateInvoiceRequest([
+    //         'external_id' => $uuid,
+    //         'description' => $description,
+    //         'amount' => $totalAmount,
+    //         'currency' => 'IDR',
+    //         "customer" => [
+    //             "given_names" => $request->name,
+    //             "email" => $request->email,
+    //             "mobile_number" => $request->phone,
+    //         ],
+    //         "success_redirect_url" => route('success', ['uuid' => $uuid]),
+    //         "failure_redirect_url" => route('cart.view'), // Arahkan ke halaman Cart jika gagal
+    //     ]);
+
+    //     try {
+    //         $result = $apiInstance->createInvoice($createInvoiceRequest);
+
+    //         // Masukkan ke tabel orders
+    //         foreach ($items as $kelas) {
+    //             $order = new Order();
+    //             $order->user_id = $userId;
+    //             $order->product_id = $kelas->id;
+    //             $order->checkout_link = $result['invoice_url'];
+    //             $order->external_id = $uuid;
+    //             $order->status = "pending";
+    //             $order->save();
+    //         }
+
+    //         return redirect($result['invoice_url']);
+    //     } catch (\Xendit\XenditSdkException $e) {
+    //         return redirect()->back()->with('error', 'Pembayaran gagal. Silakan coba lagi.');
+    //     }
+    // }
+
     public function payment(Request $request)
     {
         // Validasi permintaan
@@ -89,23 +156,27 @@ class PaymentController extends Controller
         // Ambil user ID
         $userId = Auth::id();
         $uuid = (string) Str::uuid();
-        $description = "Pembelian Kelas";
 
         // Hitung total harga
         $totalAmount = 0;
         $items = [];
+        $classNames = [];
 
         foreach ($request->cart_items as $itemId) {
             $kelas = KelasTatapMuka::find($itemId);
             if ($kelas) {
                 $totalAmount += $kelas->price;
                 $items[] = $kelas;
+                $classNames[] = $kelas->name; // Asumsikan bahwa nama kelas ada di properti 'name'
             }
         }
 
         if (empty($items)) {
             return redirect()->back()->with('error', 'Tidak ada kelas yang valid di keranjang.');
         }
+
+        // Gabungkan nama-nama kelas menjadi satu string untuk deskripsi
+        $description = "Pembelian Kelas: " . implode(', ', $classNames);
 
         // Panggil Xendit
         $apiInstance = new InvoiceApi();
@@ -142,6 +213,7 @@ class PaymentController extends Controller
             return redirect()->back()->with('error', 'Pembayaran gagal. Silakan coba lagi.');
         }
     }
+
     // public function success($uuid)
     // {
     //     $apiInstance = new InvoiceApi();
