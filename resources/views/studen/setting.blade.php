@@ -202,12 +202,13 @@
         document.addEventListener("DOMContentLoaded", function() {
             const dateInput = document.getElementById('dateofBirth');
             const today = new Date();
-            const maxDate = today.toISOString().split('T')[0];
-            const minDate = new Date(today.getFullYear() - 5, today.getMonth(), today.getDate()).toISOString()
-                .split('T')[0];
+            const minDate = new Date(today.getFullYear() - 100, today.getMonth(), today.getDate()).toISOString()
+                .split('T')[0]; // Set minimum date to 100 years ago
+            const maxDate = new Date(today.getFullYear() - 5, today.getMonth(), today.getDate()).toISOString()
+                .split('T')[0]; // Set maximum date to 5 years ago
 
-            dateInput.setAttribute('max', maxDate);
             dateInput.setAttribute('min', minDate);
+            dateInput.setAttribute('max', maxDate);
         });
     </script>
 @endsection
