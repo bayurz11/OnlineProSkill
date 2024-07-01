@@ -7,16 +7,16 @@
 
     <!-- breadcrumb-area -->
     <div class="breadcrumb__area breadcrumb__bg breadcrumb__bg-three"
-        data-background="public/assets/img/bg/breadcrumb_bg.jpg">
+        data-background="{{ asset('public/assets/img/bg/breadcrumb_bg.jpg') }}">
         <div class="breadcrumb__shape-wrap">
-            <img src="public/assets/img/others/breadcrumb_shape01.svg" alt="img" class="alltuchtopdown">
-            <img src="public/assets/img/others/breadcrumb_shape02.svg" alt="img" data-aos="fade-right"
+            <img src="{{ asset('public/assets/img/others/breadcrumb_shape01.svg') }}" alt="img" class="alltuchtopdown">
+            <img src="{{ asset('public/assets/img/others/breadcrumb_shape02.svg') }}" alt="img" data-aos="fade-right"
                 data-aos-delay="300">
-            <img src="public/assets/img/others/breadcrumb_shape03.svg" alt="img" data-aos="fade-up"
+            <img src="{{ asset('public/assets/img/others/breadcrumb_shape03.svg') }}" alt="img" data-aos="fade-up"
                 data-aos-delay="400">
-            <img src="public/assets/img/others/breadcrumb_shape04.svg" alt="img" data-aos="fade-down-left"
-                data-aos-delay="400">
-            <img src="public/assets/img/others/breadcrumb_shape05.svg" alt="img" data-aos="fade-left"
+            <img src="{{ asset('public/assets/img/others/breadcrumb_shape04.svg') }}" alt="img"
+                data-aos="fade-down-left" data-aos-delay="400">
+            <img src="{{ asset('public/assets/img/others/breadcrumb_shape05.svg') }}" alt="img" data-aos="fade-left"
                 data-aos-delay="400">
         </div>
     </div>
@@ -49,7 +49,6 @@
                             </ul>
                         </div>
                     </div>
-
                 </div>
             </div>
             <div class="row">
@@ -82,7 +81,6 @@
                                                     </td>
                                                     <td>
                                                         <p>{{ $notif->product ? $notif->product->nama_kursus : 'N/A' }}</p>
-                                                        <!-- Cek jika relasi product ada -->
                                                     </td>
                                                     <td>
                                                         <p>{{ $notif->created_at->format('d M Y') }}</p>
@@ -101,26 +99,6 @@
                                                     </td>
                                                 </tr>
                                             @endforeach
-
-
-                                            {{-- <tr>
-                                                <td>
-                                                    <p>#4585</p>
-                                                </td>
-                                                <td>
-                                                    <p>Graphic</p>
-                                                </td>
-                                                <td>
-                                                    <p>{{ $notif->created_at->format('d M Y, H:i') }}</p>
-                                                </td>
-                                                <td>
-                                                    <p>$199.99</p>
-                                                </td>
-                                                <td>
-                                                    <span class="dashboard__quiz-result processing">Processing</span>
-                                                </td>
-                                            </tr> --}}
-
                                         </tbody>
                                     </table>
                                 </div>
@@ -142,10 +120,9 @@
                     const img = document.getElementById('profileImage');
                     img.src = e.target.result;
                     img.onload = function() {
-                        // Set width and height attributes to 120x120
                         img.style.width = '120px';
                         img.style.height = '120px';
-                        img.style.objectFit = 'cover'; // Optional: ensure the image covers the area
+                        img.style.objectFit = 'cover';
                     };
                 };
                 reader.readAsDataURL(file);
