@@ -51,6 +51,6 @@ class RiwayatTransaksiController extends Controller
         // Fetching orders related to the user
         $orders = Order::where('user_id', $user->id)->get();
 
-        return view('student.history', compact('user', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders'));
+        return view('studen.history', compact('user', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders'));
     }
 }
