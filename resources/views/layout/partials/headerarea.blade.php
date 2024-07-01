@@ -104,12 +104,12 @@
                                             </ul>
                                         </li> --}}
 
-                                        {{-- <li class="mini-cart-icon" style="margin-left: 20px;">
+                                        <li class="mini-cart-icon" style="margin-left: 20px;">
                                             <a href="#" class="cart-count-two">
                                                 <i class="far fa-bell" style="color: #007F73;"></i>
                                                 <span class="mini-cart-count">0</span>
                                             </a>
-                                        </li> --}}
+                                        </li>
 
                                     @endauth
                                     @php
