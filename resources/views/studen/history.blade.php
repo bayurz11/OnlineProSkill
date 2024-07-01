@@ -92,8 +92,8 @@
                                                         <span class="dashboard__quiz-result">
                                                             @if ($notif->status == 1)
                                                                 Sukses
-                                                            @else
-                                                                Belum Dibayar
+                                                            @else<span class="dashboard__quiz-result processing">
+                                                                    Belum Dibayar
                                                             @endif
                                                         </span>
                                                     </td>
