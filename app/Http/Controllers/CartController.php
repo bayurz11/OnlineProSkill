@@ -42,9 +42,10 @@ class CartController extends Controller
             return redirect()->route('cart.view')->with('info', 'Kelas tidak ditemukan.');
         }
         // Ambil notifikasi untuk pengguna yang sedang login
-        $notifikasi = NotifikasiUser::where('user_id', $user->id)
+        $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
             ->orderBy('created_at', 'desc')
-            ->get();
+            ->get()
+            : collect();
 
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
