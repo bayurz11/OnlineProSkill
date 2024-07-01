@@ -118,9 +118,8 @@
                                             @if ($notifikasiCount > 0)
                                                 <div id="notification-dropdown" class="notification-dropdown"
                                                     style="display: none;">
-                                                    <a href="#" id="mark-all-read" style="margin: 10px;">Tandai Semua
-                                                        Telah Dibaca</a>
-
+                                                    <button id="mark-all-read" style="margin: 10px;">Tandai Semua Telah
+                                                        Dibaca</button>
                                                     <ul>
                                                         @foreach ($notifikasi as $notif)
                                                             <li>{{ $notif->message }} -
