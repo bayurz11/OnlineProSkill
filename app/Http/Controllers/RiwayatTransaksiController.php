@@ -21,9 +21,13 @@ class RiwayatTransaksiController extends Controller
 
         $profile = UserProfile::where('user_id', $user->id)->first();
 
-        // Ambil notifikasi untuk pengguna yang sedang login dengan relasi product
-        $notifikasi = NotifikasiUser::with('product')->where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
+        // Ambil notifikasi untuk pengguna yang sedang login
+        $notifikasi = NotifikasiUser::where('user_id', $user->id)
+            ->orderBy('created_at', 'desc')
+            ->get();
 
-        return view('studen.history', compact('user', 'profile', 'cart', 'notifikasi'));
+        // Hitung jumlah notifikasi dengan status = 1
+        $notifikasiCount = $notifikasi->where('status', 1)->count();
+        return view('studen.history', compact('user', 'profile', 'cart', 'notifikasi', 'notifikasiCount'));
     }
 }
