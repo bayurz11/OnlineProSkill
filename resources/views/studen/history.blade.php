@@ -90,11 +90,14 @@
                                                     </td>
                                                     <td>
                                                         @if ($notif->status == 'PAID')
-                                                            <span class="badge badge-success">Sukses</span>
+                                                            <span class="badge badge-success">Paid</span>
+                                                        @elseif ($notif->status == 'PENDING')
+                                                            <span class="badge badge-warning">Pending</span>
                                                         @else
-                                                            <span class="badge badge-warning">Belum Dibayar</span>
+                                                            <span class="badge badge-secondary">Status Tidak Dikenali</span>
                                                         @endif
                                                     </td>
+
                                                 </tr>
                                             @endforeach
                                         </tbody>
