@@ -205,6 +205,7 @@ class PaymentController extends Controller
                 $order->checkout_link = $result['invoice_url'];
                 $order->external_id = $uuid;
                 $order->status = "pending";
+                $order->price = $kelas->price;
                 $order->save();
             }
 
