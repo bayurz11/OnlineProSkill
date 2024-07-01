@@ -118,12 +118,14 @@
                                             @if ($notifikasiCount > 0)
                                                 <div id="notification-dropdown" class="notification-dropdown"
                                                     style="display: none;">
-                                                    <button id="mark-all-read" style="margin: 10px;">Tandai Semua Telah
-                                                        Dibaca</button>
+                                                    <a href="#" id="mark-all-read" style="margin: 10px;">Tandai Semua
+                                                        Telah Dibaca</a>
+
                                                     <ul>
                                                         @foreach ($notifikasi as $notif)
                                                             <li>{{ $notif->message }} -
-                                                                <small>{{ $notif->created_at }}</small></li>
+                                                                <small>{{ $notif->created_at }}</small>
+                                                            </li>
                                                         @endforeach
                                                     </ul>
                                                 </div>
@@ -165,16 +167,6 @@
                                         </style>
 
                                         <script>
-                                            document.getElementById('notification-icon').addEventListener('click', function(event) {
-                                                event.preventDefault();
-                                                var dropdown = document.getElementById('notification-dropdown');
-                                                if (dropdown && (dropdown.style.display === 'none' || dropdown.style.display === '')) {
-                                                    dropdown.style.display = 'block';
-                                                } else if (dropdown) {
-                                                    dropdown.style.display = 'none';
-                                                }
-                                            });
-
                                             document.getElementById('mark-all-read').addEventListener('click', function(event) {
                                                 event.preventDefault();
                                                 fetch('{{ route('notifikasi.bacaSemua') }}', {
@@ -193,6 +185,8 @@
                                                         if (dropdown) {
                                                             dropdown.style.display = 'none';
                                                         }
+                                                        // Tambahkan perintah untuk reload halaman
+                                                        location.reload();
                                                     })
                                                     .catch(error => console.error('Error:', error));
                                             });
@@ -261,7 +255,7 @@
                                                             </a>
                                                         </li>
                                                         <li class="{{ Request::is('profil') ? 'active' : '' }}">
-                                                            <a href="{{ route('profil') }}">Profil</a>
+                                                            <a href="{{ route('profil') }}">Profil Saya</a>
                                                         </li>
                                                         <li>
                                                             <form id="logout-form" action="{{ route('logout') }}"
