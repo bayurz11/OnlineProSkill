@@ -15,7 +15,8 @@
                     <form action="{{ route('login') }}" class="account__form" method="POST">
                         @csrf
                         <div class="form-grp">
-                            <input id="email" type="text" placeholder="Email" name="email" autofocus>
+                            <input id="login" type="text" placeholder="Email atau Nomor Telepon" name="login"
+                                autofocus>
                         </div>
                         <div class="form-grp">
                             <input id="password" type="password" placeholder="Password" name="password">
@@ -33,7 +34,8 @@
                             <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                 class="injectable">
                         </button>
-                    </form><br>
+                    </form>
+
                     <div class="account__social">
                         <a href="{{ route('oauth.google') }}" class="account__social-btn">
                             <img src="{{ asset('public/assets/img/icons/google.svg') }}" alt="img">
