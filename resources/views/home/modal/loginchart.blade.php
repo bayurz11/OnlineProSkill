@@ -42,7 +42,7 @@
                     </div>
                     <div class="account__switch">
                         <p>Belum punya akun?<a href="#" data-bs-toggle="modal"
-                                data-bs-target="#exampleModalDaftar">Daftar</a></p>
+                                data-bs-target="#exampleModalchartDaftar">Daftar</a></p>
                     </div>
                 </div>
             </div>
