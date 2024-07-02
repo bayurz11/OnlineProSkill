@@ -79,8 +79,8 @@
                             <form action="{{ route('guestregister') }}" class="account__form" method="POST">
                                 @csrf
                                 <div class="form-grp">
-                                    <input type="text" id="name" name="name"
-                                        placeholder="Masukkan Nama Lengkap Anda">
+                                    <input type="text" id="name" name="name" placeholder="Masukkan Nama Lengkap Anda"
+                                        value="{{ $user->name }}">
                                 </div>
                                 <div class="form-grp">
                                     <input type="email" id="email" placeholder="Email" name="email">
