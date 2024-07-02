@@ -66,7 +66,7 @@
                         <div class="coupon__code-wrap">
                             <div class="coupon__code-info">
                                 <span></i> Sudah memiliki akun?</span>
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalchart">Klik di sini untuk
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Klik di sini untuk
                                     Masuk</a>
                             </div>
                         </div>
@@ -97,7 +97,7 @@
                                         class="injectable"></button>
                             </form><br>
                             <div class="account__social">
-                                <a href="{{ route('oauth.google.cart') }}" class="account__social-btn">
+                                <a href="{{ route('oauth.google') }}" class="account__social-btn">
                                     <img src="{{ asset('public/assets/img/icons/google.svg') }}" alt="img">
                                     Daftar Dengan Google
                                 </a>

@@ -30,9 +30,7 @@ Route::post('/regisStuden', [AuthController::class, 'register'])->name('regisStu
 Route::post('/guestregister', [AuthController::class, 'guestregister'])->name('guestregister');
 
 Route::get('oauth/google', [OauthController::class, 'redirectToProvider'])->name('oauth.google');
-Route::get('oauth/google/cart', [OauthController::class, 'redirectToProvidercart'])->name('oauth.google.cart');
 Route::get('oauth/google/callback', [OauthController::class, 'handleProviderCallback'])->name('oauth.google.callback');
-Route::get('oauth/google/callback/cart', [OauthController::class, 'handleProviderCallbackcart'])->name('oauth.google.callback.cart');
 
 
 Route::middleware('isAdmin')->group(function () {
