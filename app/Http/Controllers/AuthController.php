@@ -201,6 +201,7 @@ class AuthController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:3|confirmed',
+            'phone_number' => 'required|string|max:12',
         ]);
 
         $user = User::create([
@@ -219,6 +220,7 @@ class AuthController extends Controller
         $userProfile = new UserProfile();
         $userProfile->user_id = $user->id;
         $userProfile->role_id = 3;
+        $userProfile->phone_number = $request->phone_number;
         $userProfile->save();
 
         Auth::login($user);
