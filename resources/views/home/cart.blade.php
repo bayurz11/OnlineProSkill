@@ -38,20 +38,21 @@
 
                             <div class="form-grp">
                                 <label for="name">Nama *</label>
-                                <input type="text" id="name" name="name">
+                                <input type="text" id="name" name="name" value="{{ $user->name }}">
                             </div>
 
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-grp">
                                         <label for="phone">Telepon *</label>
-                                        <input type="number" id="phone" name="phone" min="0" required>
+                                        <input type="number" id="phone" name="phone" min="0" required
+                                            value="{{ $user->phone }}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-grp">
                                         <label for="email">Alamat Email *</label>
-                                        <input type="email" id="email" name="email">
+                                        <input type="email" id="email" name="email" value="{{ $user->email }}">
                                     </div>
                                 </div>
                             </div>
@@ -79,8 +80,8 @@
                             <form action="{{ route('guestregister') }}" class="account__form" method="POST">
                                 @csrf
                                 <div class="form-grp">
-                                    <input type="text" id="name" name="name" placeholder="Masukkan Nama Lengkap Anda"
-                                        value="{{ $user->name }}">
+                                    <input type="text" id="name" name="name"
+                                        placeholder="Masukkan Nama Lengkap Anda">
                                 </div>
                                 <div class="form-grp">
                                     <input type="email" id="email" placeholder="Email" name="email">
