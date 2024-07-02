@@ -76,7 +76,7 @@ class AuthController extends Controller
                     if (!$profile || !$profile->gambar || !$profile->date_of_birth || !$profile->phone_number) {
                         return redirect()->route('profil')->with('info', 'Harap lengkapi profil Anda untuk melanjutkan.');
                     } else {
-                        return redirect()->route('cart')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+                        return redirect()->route('cart.view')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                     }
                 default:
                     return redirect()->route('/')->with('error', 'Peran pengguna tidak dikenali.');
