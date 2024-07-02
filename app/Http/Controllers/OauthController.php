@@ -41,9 +41,11 @@ class OauthController extends Controller
 
             $user = Auth::user();
             $userRole = $user->userRole;
+
             if (!$userRole) {
                 return redirect()->back()->with('error', 'Pengguna tidak memiliki peran yang ditetapkan!');
             }
+
             $roleName = $userRole->role->role_name;
             $userName = $user->name;
             switch ($roleName) {
@@ -52,7 +54,7 @@ class OauthController extends Controller
                 case 'Instruktur':
                     return redirect()->route('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                 case 'Studen':
-                    $profile = $user->userProfile; // Perbaiki penggunaan relasi di sini
+                    $profile = $user->userProfile;
                     if (!$profile || !$profile->gambar || !$profile->date_of_birth || !$profile->phone_number) {
                         return redirect()->route('profil')->with('info', 'Harap lengkapi profil Anda untuk melanjutkan.');
                     } else {
