@@ -40,10 +40,7 @@
                             Masuk Dengan Google
                         </a>
                     </div>
-                    <div class="account__switch">
-                        <p>Belum punya akun?<a href="#" data-bs-toggle="modal"
-                                data-bs-target="#exampleModalchartDaftar">Daftar</a></p>
-                    </div>
+
                 </div>
             </div>
         </div>
