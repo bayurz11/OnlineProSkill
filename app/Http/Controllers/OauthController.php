@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Log;
 use Exception;
 use App\Models\User;
 use App\Models\UserRoles;
@@ -88,7 +89,7 @@ class OauthController extends Controller
     public function handleProviderCallback(Request $request)
     {
         try {
-            $userSocial = Socialite::driver('google')->stateless()->user();
+            $userSocial = Socialite::driver('google')->user();
             $findUser = User::where('email', $userSocial->getEmail())->first();
 
             if ($findUser) {
@@ -119,7 +120,7 @@ class OauthController extends Controller
                 $userProfile->user_id = $newUser->id;
                 $userProfile->role_id = 3; // Sesuaikan role_id sesuai kebutuhan
                 $userProfile->gambar = $userSocial->getAvatar(); // Menyimpan foto profil
-                \Log::info('Avatar URL: ' . $userSocial->getAvatar()); // Debug URL Avatar
+                Log::info('Avatar URL: ' . $userSocial->getAvatar()); // Debug URL Avatar
                 $userProfile->save();
 
                 Auth::login($newUser);
