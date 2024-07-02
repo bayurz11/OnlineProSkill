@@ -16,34 +16,53 @@ class OauthController extends Controller
         return Socialite::driver('google')->redirect();
     }
 
-    public function handleProviderCallback()
+    public function handleProviderCallback(Request $request)
     {
         try {
+            $userSocial = Socialite::driver('google')->stateless()->user();
+            $findUser = User::where('email', $userSocial->getEmail())->first();
 
-            $user = Socialite::driver('google')->user();
-
-            $finduser = User::where('gauth_id', $user->id)->first();
-
-            if ($finduser) {
-
-                Auth::login($finduser);
-
-                return redirect('/dashboard');
+            if ($findUser) {
+                Auth::login($findUser);
+                $findUser->last_login = now()->setTimezone('Asia/Jakarta')->toDateTimeString();
+                $findUser->save();
             } else {
                 $newUser = User::create([
-                    'name' => $user->name,
-                    'email' => $user->email,
-                    'gauth_id' => $user->id,
-                    'gauth_type' => 'google',
-                    'password' => encrypt('admin@123')
+                    'name' => $userSocial->getName(),
+                    'email' => $userSocial->getEmail(),
+                    'google_id' => $userSocial->getId(),
+                    'password' => bcrypt('123456dummy') // Atau buatlah password secara acak
                 ]);
 
                 Auth::login($newUser);
+                $newUser->last_login = now()->setTimezone('Asia/Jakarta')->toDateTimeString();
+                $newUser->save();
+            }
 
-                return redirect('/dashboard');
+            $user = Auth::user();
+            $userRole = $user->userRole;
+            if (!$userRole) {
+                return redirect()->back()->with('error', 'Pengguna tidak memiliki peran yang ditetapkan!');
+            }
+            $roleName = $userRole->role->role_name;
+            $userName = $user->name;
+            switch ($roleName) {
+                case 'Administrator':
+                    return redirect()->route('dashboard')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+                case 'Instruktur':
+                    return redirect()->route('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+                case 'Studen':
+                    $profile = $user->userProfile; // Perbaiki penggunaan relasi di sini
+                    if (!$profile || !$profile->gambar || !$profile->date_of_birth || !$profile->phone_number) {
+                        return redirect()->route('profil')->with('info', 'Harap lengkapi profil Anda untuk melanjutkan.');
+                    } else {
+                        return redirect()->route('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+                    }
+                default:
+                    return redirect()->route('/')->with('error', 'Peran pengguna tidak dikenali.');
             }
         } catch (Exception $e) {
-            dd($e->getMessage());
+            return redirect()->route('login')->with('error', 'Terjadi kesalahan saat login menggunakan Google.');
         }
     }
 }
