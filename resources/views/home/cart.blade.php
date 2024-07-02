@@ -46,7 +46,7 @@
                                     <div class="form-grp">
                                         <label for="phone">Telepon *</label>
                                         <input type="number" id="phone" name="phone" min="0" required
-                                            value="{{ $profile->phone_number }}">
+                                            value="{{ $profile->phone_number }}" maxlength="12">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
