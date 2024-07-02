@@ -119,8 +119,8 @@ class OauthController extends Controller
                 $userProfile = new UserProfile();
                 $userProfile->user_id = $newUser->id;
                 $userProfile->role_id = 3; // Sesuaikan role_id sesuai kebutuhan
-                $userProfile->gambar = $userSocial->getAvatar(); // Menyimpan foto profil
-                Log::info('Avatar URL: ' . $userSocial->getAvatar()); // Debug URL Avatar
+                $userProfile->gambar = $userSocial->getAvatar(); // Menyimpan URL gambar langsung dari Google
+                \Log::info('Avatar URL: ' . $userSocial->getAvatar()); // Debug URL Avatar
                 $userProfile->save();
 
                 Auth::login($newUser);
