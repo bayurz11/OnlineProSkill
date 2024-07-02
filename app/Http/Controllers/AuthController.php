@@ -51,6 +51,40 @@ class AuthController extends Controller
             return redirect()->back()->with('error', 'Email atau password salah.');
         }
     }
+    public function loginstuden(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+            $user->last_login = now()->setTimezone('Asia/Jakarta')->toDateTimeString();
+            $user->save();
+
+            $userRole = $user->userRole;
+            if (!$userRole) {
+                return redirect()->back()->with('error', 'Pengguna tidak memiliki peran yang ditetapkan!');
+            }
+            $roleName = $userRole->role->role_name;
+            $userName = $user->name;
+            switch ($roleName) {
+                case 'Administrator':
+                    return redirect()->route('dashboard')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+                case 'Instruktur':
+                    return redirect()->route('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+                case 'Studen':
+                    $profile = $user->userProfile; // Perbaiki penggunaan relasi di sini
+                    if (!$profile || !$profile->gambar || !$profile->date_of_birth || !$profile->phone_number) {
+                        return redirect()->route('profil')->with('info', 'Harap lengkapi profil Anda untuk melanjutkan.');
+                    } else {
+                        return redirect()->route('cart')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+                    }
+                default:
+                    return redirect()->route('/')->with('error', 'Peran pengguna tidak dikenali.');
+            }
+        } else {
+            return redirect()->back()->with('error', 'Email atau password salah.');
+        }
+    }
 
 
     // public function login(Request $request)

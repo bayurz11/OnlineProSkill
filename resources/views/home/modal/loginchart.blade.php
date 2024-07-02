@@ -12,7 +12,7 @@
                     <h2 class="title">Masuk Ke ProSkill</h2>
                     <p>Silahkan masukkan informasi akun kamu.</p>
 
-                    <form action="{{ route('login') }}" class="account__form" method="POST">
+                    <form action="{{ route('loginstuden') }}" class="account__form" method="POST">
                         @csrf
                         <div class="form-grp">
                             <input id="email" type="text" placeholder="Email" name="email" autofocus>

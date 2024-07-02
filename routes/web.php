@@ -22,6 +22,7 @@ use App\Http\Controllers\OrderHistoryManagerController;
 
 //Authentikasi
 Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/loginstuden', [AuthController::class, 'loginstuden'])->name('loginstuden');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('/regisInstruktur', [DashboardInstrukturController::class, 'register'])->name('regisInstruktur');
 Route::post('/regisStuden', [AuthController::class, 'register'])->name('regisStuden');
