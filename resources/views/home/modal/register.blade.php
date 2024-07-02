@@ -21,6 +21,9 @@
                             <input type="email" id="email" placeholder="Email" name="email">
                         </div>
                         <div class="form-grp">
+                            <input type="phone" id="phone_number" placeholder="Nomor HP" name="phone_number">
+                        </div>
+                        <div class="form-grp">
                             <input type="password" id="password" placeholder="Password" name="password">
                         </div>
                         <div class="form-grp">
