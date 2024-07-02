@@ -5,19 +5,20 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Middleware\AdminMiddleware;
+use App\Http\Controllers\OauthController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KurikulumController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\CourseMasterController;
 use App\Http\Controllers\SubcategoriesController;
 use App\Http\Controllers\KelasTatapMukaController;
-use App\Http\Controllers\DashboardStudenController;
-use App\Http\Controllers\DashboardInstrukturController;
-use App\Http\Controllers\KurikulumController;
 use App\Http\Controllers\NotifikasiUserController;
-use App\Http\Controllers\OrderHistoryManagerController;
-use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\DashboardStudenController;
 use App\Http\Controllers\RiwayatTransaksiController;
-use App\Http\Controllers\SettingController;
+use App\Http\Controllers\DashboardInstrukturController;
+use App\Http\Controllers\OrderHistoryManagerController;
 
 //Authentikasi
 Route::post('/login', [AuthController::class, 'login'])->name('login');
@@ -26,6 +27,9 @@ Route::post('/regisInstruktur', [DashboardInstrukturController::class, 'register
 Route::post('/regisStuden', [AuthController::class, 'register'])->name('regisStuden');
 // Route::post('/guestregister/{id}', [AuthController::class, 'guestregister'])->name('guestregister');
 Route::post('/guestregister', [AuthController::class, 'guestregister'])->name('guestregister');
+
+Route::get('oauth/google', [OauthController::class, 'redirectToProvider'])->name('oauth.google');
+Route::get('oauth/google/callback', [OauthController::class, 'handleProviderCallback'])->name('oauth.google.callback');
 
 
 Route::middleware('isAdmin')->group(function () {
