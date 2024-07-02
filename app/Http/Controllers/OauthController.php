@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Models\User;
+use App\Models\UserRoles;
+use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
-use Exception;
 
 class OauthController extends Controller
 {
@@ -19,7 +21,7 @@ class OauthController extends Controller
     public function handleProviderCallback(Request $request)
     {
         try {
-            $userSocial = Socialite::driver('google')->stateless()->user();
+            $userSocial = Socialite::driver('google')->user();
             $findUser = User::where('email', $userSocial->getEmail())->first();
 
             if ($findUser) {
@@ -31,12 +33,27 @@ class OauthController extends Controller
                     'name' => $userSocial->getName(),
                     'email' => $userSocial->getEmail(),
                     'google_id' => $userSocial->getId(),
-                    'password' => bcrypt('123456dummy') // Atau buatlah password secara acak
+                    'password' => bcrypt('123456dummy'), // Atau buatlah password secara acak
+                    'status' => 1 // Menambahkan status pengguna baru
                 ]);
 
-                Auth::login($newUser);
+                // Menyimpan last_login pengguna baru
                 $newUser->last_login = now()->setTimezone('Asia/Jakarta')->toDateTimeString();
                 $newUser->save();
+
+                // Menyimpan role pengguna baru
+                $userRole = new UserRoles();
+                $userRole->user_id = $newUser->id;
+                $userRole->role_id = 3; // Sesuaikan role_id sesuai kebutuhan
+                $userRole->save();
+
+                // Menyimpan profil pengguna baru
+                $userProfile = new UserProfile();
+                $userProfile->user_id = $newUser->id;
+                $userProfile->role_id = 3; // Sesuaikan role_id sesuai kebutuhan
+                $userProfile->save();
+
+                Auth::login($newUser);
             }
 
             $user = Auth::user();
