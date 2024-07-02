@@ -65,7 +65,10 @@ class AuthController extends Controller
             $user->last_login = now()->setTimezone('Asia/Jakarta')->toDateTimeString();
             $user->save();
 
-            $userProfile = $user->userProfile; // Ambil profile pengguna
+            // Ambil profile pengguna
+            $userProfile = $user->userProfile;
+
+            // Periksa apakah profile ada dan memiliki phone_number
             if (!$userProfile || !$userProfile->phone_number) {
                 return redirect()->route('profil')->with('info', 'Harap lengkapi profil Anda untuk melanjutkan.');
             }
@@ -87,7 +90,6 @@ class AuthController extends Controller
             return redirect()->back()->with('error', 'Email atau password salah.');
         }
     }
-
 
     public function loginstuden(Request $request)
     {
