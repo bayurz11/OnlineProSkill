@@ -17,72 +17,33 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    // public function login(Request $request)
-    // {
-    //     $credentials = $request->only('email', 'password');
-
-    //     if (Auth::attempt($credentials)) {
-    //         $user = Auth::user();
-    //         $user->last_login = now()->setTimezone('Asia/Jakarta')->toDateTimeString();
-    //         $user->save();
-
-    //         $userRole = $user->userRole;
-    //         if (!$userRole) {
-    //             return redirect()->back()->with('error', 'Pengguna tidak memiliki peran yang ditetapkan!');
-    //         }
-    //         $roleName = $userRole->role->role_name;
-    //         $userName = $user->name;
-    //         switch ($roleName) {
-    //             case 'Administrator':
-    //                 return redirect()->route('dashboard')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
-    //             case 'Instruktur':
-    //                 return redirect()->route('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
-    //             case 'Studen':
-    //                 $profile = $user->userProfile; // Perbaiki penggunaan relasi di sini
-    //                 if (!$profile || !$profile->gambar || !$profile->date_of_birth || !$profile->phone_number) {
-    //                     return redirect()->route('profil')->with('info', 'Harap lengkapi profil Anda untuk melanjutkan.');
-    //                 } else {
-    //                     return redirect()->route('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
-    //                 }
-    //             default:
-    //                 return redirect()->route('/')->with('error', 'Peran pengguna tidak dikenali.');
-    //         }
-    //     } else {
-    //         return redirect()->back()->with('error', 'Email atau password salah.');
-    //     }
-    // }
     public function login(Request $request)
     {
-        $login = $request->input('login'); // Bisa berupa email atau nomor telepon
-        $password = $request->input('password');
-
-        // Cek apakah login adalah email atau nomor telepon
-        $fieldType = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'phone_number';
-        $credentials = [$fieldType => $login, 'password' => $password];
+        $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
             $user->last_login = now()->setTimezone('Asia/Jakarta')->toDateTimeString();
             $user->save();
 
-            // Ambil profile pengguna
-            $userProfile = $user->userProfile;
-
-            // Periksa apakah profile ada dan memiliki phone_number
-            if (!$userProfile || !$userProfile->phone_number) {
-                return redirect()->route('profil')->with('info', 'Harap lengkapi profil Anda untuk melanjutkan.');
+            $userRole = $user->userRole;
+            if (!$userRole) {
+                return redirect()->back()->with('error', 'Pengguna tidak memiliki peran yang ditetapkan!');
             }
-
+            $roleName = $userRole->role->role_name;
             $userName = $user->name;
-            $roleName = $user->userRole->role->role_name;
-
             switch ($roleName) {
                 case 'Administrator':
                     return redirect()->route('dashboard')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                 case 'Instruktur':
                     return redirect()->route('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
-                case 'Student':
-                    return redirect()->route('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+                case 'Studen':
+                    $profile = $user->userProfile; // Perbaiki penggunaan relasi di sini
+                    if (!$profile || !$profile->gambar || !$profile->date_of_birth || !$profile->phone_number) {
+                        return redirect()->route('profil')->with('info', 'Harap lengkapi profil Anda untuk melanjutkan.');
+                    } else {
+                        return redirect()->route('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+                    }
                 default:
                     return redirect()->route('/')->with('error', 'Peran pengguna tidak dikenali.');
             }
