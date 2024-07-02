@@ -408,5 +408,6 @@
     </div>
 </header>
 @include('home.modal.login')
+@include('home.modal.loginchart')
 @include('home.modal.register')
 <!-- header-area-end -->
