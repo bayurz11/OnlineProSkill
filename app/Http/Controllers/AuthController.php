@@ -168,7 +168,7 @@ class AuthController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'phone_number' => 'required|string|max:12',
+            'phone_number' => 'string|max:12',
             'password' => 'required|string|min:3|confirmed',
         ]);
 
@@ -202,7 +202,7 @@ class AuthController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:3|confirmed',
-            'phone_number' => 'required|string|max:12',
+            'phone_number' => 'string|max:12',
         ]);
 
         $user = User::create([
