@@ -35,7 +35,7 @@
                         </button>
                     </form><br>
                     <div class="account__social">
-                        <a href="{{ route('oauth.google') }}" class="account__social-btn">
+                        <a href="{{ route('oauth.google.cart') }}" class="account__social-btn">
                             <img src="{{ asset('public/assets/img/icons/google.svg') }}" alt="img">
                             Masuk Dengan Google
                         </a>
