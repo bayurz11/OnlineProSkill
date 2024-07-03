@@ -31,11 +31,14 @@
                                 name="password_confirmation">
                         </div>
 
-                        <button type="submit" class=" g-recaptcha btn btn-two arrow-btn "
+                        <button type="submit" class=" g-recaptcha btn btn-two arrow-btn ">Daftar<img
+                                src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
+                                class="injectable"></button>
+                        {{-- <button type="submit" class=" g-recaptcha btn btn-two arrow-btn "
                             data-sitekey="{{ config('services.recaptcha_v3.siteKey') }}" data-callback="onSubmit"
                             data-action="submitContact">Daftar<img
                                 src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
-                                class="injectable"></button>
+                                class="injectable"></button> --}}
                     </form><br>
                     <div class="account__social">
                         <a href="{{ route('oauth.google') }}" class="account__social-btn">
