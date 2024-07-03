@@ -31,7 +31,7 @@
                                 name="password_confirmation">
                         </div>
 
-                        <button type="submit" class=" btn btn-two arrow-btn ">Daftar<img
+                        <button type="submit" class="btn btn-two arrow-btn ">Daftar<img
                                 src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                 class="injectable"></button>
                     </form><br>
