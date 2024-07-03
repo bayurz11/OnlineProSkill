@@ -79,7 +79,10 @@
                                                     <td>
                                                         <p>{{ $order->external_id }}</p>
                                                     </td>
-                                                    <td>{{ $order->KelasTatapMuka->nama_kursus ?? 'Nama kelas tidak tersedia' }}
+                                                    {{-- <td>{{ $order->KelasTatapMuka->nama_kursus ?? 'Nama kelas tidak tersedia' }}
+                                                    </td> --}}
+                                                    <td>
+                                                        <p>{{ $order->product_id }}</p>
                                                     </td>
                                                     <td>
                                                         <p>{{ $order->created_at->format('d M Y') }}</p>
