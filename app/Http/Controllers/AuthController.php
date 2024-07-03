@@ -257,75 +257,19 @@ class AuthController extends Controller
         return redirect()->route($redirectRoute)->with('success', "Terimakasih, $userName! Anda Berhasil keluar.");
     }
 
-    // public function register(Request $request)
-    // {
-    //     // dd($request);
-
-    //     $request->validate([
-    //         'name' => 'required|string|max:255',
-    //         'email' => 'required|string|email|max:255|unique:users',
-    //         'phone_number' => 'string|max:12',
-    //         'password' => 'required|string|min:3|confirmed',
-    //         'g-recaptcha-response' => 'required|captcha',
-
-    //     ]);
-
-    //     $user = User::create([
-    //         'name' => $request->name,
-    //         'email' => $request->email,
-    //         'password' => bcrypt($request->password),
-    //         'last_login' => Carbon::now(),
-    //         'status' => 1,
-    //     ]);
-
-    //     $userRole = new UserRoles();
-    //     $userRole->user_id = $user->id;
-    //     $userRole->role_id = 3;
-    //     $userRole->save();
-
-    //     $userProfile = new UserProfile();
-    //     $userProfile->user_id = $user->id;
-    //     $userProfile->role_id = 3;
-    //     $userProfile->phone_number = $request->phone_number;
-    //     $userProfile->save();
-
-    //     Auth::login($user);
-
-    //     return redirect()->route('profil')->with('info', 'Pendaftaran berhasil! Harap lengkapi profil Anda');
-    // }
     public function register(Request $request)
     {
-        // Debug request
         // dd($request);
 
-        // Validate the request
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'phone_number' => 'string|max:12',
             'password' => 'required|string|min:3|confirmed',
-            'g-recaptcha-response' => [
-                'required',
-                function (string $attribute, mixed $value, Closure $fail) {
-                    // Make the HTTP request to Google reCAPTCHA API
-                    $g_response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
-                        'secret' => config('public.config.services.recaptcha_v3.secretKey'),
-                        'response' => $value,
-                        'remoteip' => \request()->ip()
-                    ]);
+            'g-recaptcha-response' => 'required|captcha',
 
-                    // Debug Google reCAPTCHA response
-                    dd($g_response->json());
-
-                    // Custom validation logic
-                    if ($value === 'foo') {
-                        $fail("The {$attribute} is invalid.");
-                    }
-                }
-            ]
         ]);
 
-        // Create new user
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -334,24 +278,80 @@ class AuthController extends Controller
             'status' => 1,
         ]);
 
-        // Assign user role
         $userRole = new UserRoles();
         $userRole->user_id = $user->id;
         $userRole->role_id = 3;
         $userRole->save();
 
-        // Create user profile
         $userProfile = new UserProfile();
         $userProfile->user_id = $user->id;
+        $userProfile->role_id = 3;
         $userProfile->phone_number = $request->phone_number;
         $userProfile->save();
 
-        // Log the user in
         Auth::login($user);
 
-        // Redirect to profile page with a success message
         return redirect()->route('profil')->with('info', 'Pendaftaran berhasil! Harap lengkapi profil Anda');
     }
+    // public function register(Request $request)
+    // {
+    //     // Debug request
+    //     // dd($request);
+
+    //     // Validate the request
+    //     $request->validate([
+    //         'name' => 'required|string|max:255',
+    //         'email' => 'required|string|email|max:255|unique:users',
+    //         'phone_number' => 'string|max:12',
+    //         'password' => 'required|string|min:3|confirmed',
+    //         'g-recaptcha-response' => [
+    //             'required',
+    //             function (string $attribute, mixed $value, Closure $fail) {
+    //                 // Make the HTTP request to Google reCAPTCHA API
+    //                 $g_response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+    //                     'secret' => config('services.recaptcha_v3.secretKey'),
+    //                     'response' => $value,
+    //                     'remoteip' => \request()->ip()
+    //                 ]);
+
+    //                 // Debug Google reCAPTCHA response
+    //                 dd($g_response->json());
+
+    //                 // Custom validation logic
+    //                 if ($value === 'foo') {
+    //                     $fail("The {$attribute} is invalid.");
+    //                 }
+    //             }
+    //         ]
+    //     ]);
+
+    //     // Create new user
+    //     $user = User::create([
+    //         'name' => $request->name,
+    //         'email' => $request->email,
+    //         'password' => bcrypt($request->password),
+    //         'last_login' => Carbon::now(),
+    //         'status' => 1,
+    //     ]);
+
+    //     // Assign user role
+    //     $userRole = new UserRoles();
+    //     $userRole->user_id = $user->id;
+    //     $userRole->role_id = 3;
+    //     $userRole->save();
+
+    //     // Create user profile
+    //     $userProfile = new UserProfile();
+    //     $userProfile->user_id = $user->id;
+    //     $userProfile->phone_number = $request->phone_number;
+    //     $userProfile->save();
+
+    //     // Log the user in
+    //     Auth::login($user);
+
+    //     // Redirect to profile page with a success message
+    //     return redirect()->route('profil')->with('info', 'Pendaftaran berhasil! Harap lengkapi profil Anda');
+    // } captcha
 
 
     public function guestregister(Request $request)
