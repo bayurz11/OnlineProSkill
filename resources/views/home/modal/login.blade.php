@@ -34,7 +34,7 @@
                             <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                 class="injectable">
                         </button>
-                    </form>
+                    </form><br>
 
                     <div class="account__social">
                         <a href="{{ route('oauth.google') }}" class="account__social-btn">
