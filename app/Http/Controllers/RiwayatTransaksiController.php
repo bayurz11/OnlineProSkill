@@ -78,8 +78,11 @@ class RiwayatTransaksiController extends Controller
         // Debugging data
         foreach ($orders as $order) {
             Log::info('Order ID: ' . $order->id);
-            Log::info('Kelas Tatap Muka: ' . ($order->KelasTatapMuka ? $order->KelasTatapMuka->nama_kursus : 'Not Found'));
+            Log::info('Kelas Tatap Muka ID: ' . $order->KelasTatapMuka->id);
+            Log::info('Kelas Tatap Muka Name: ' . $order->KelasTatapMuka->nama_kelas);
         }
+
+        dd($orders);
 
         return view('studen.history', compact('user', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders'));
     }
