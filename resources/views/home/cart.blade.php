@@ -67,7 +67,7 @@
                         <div class="coupon__code-wrap">
                             <div class="coupon__code-info">
                                 <span></i> Sudah memiliki akun?</span>
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Klik di sini untuk
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalchart">Klik di sini untuk
                                     Masuk</a>
                             </div>
                         </div>
