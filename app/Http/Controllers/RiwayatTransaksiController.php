@@ -78,7 +78,7 @@ class RiwayatTransaksiController extends Controller
         // Debugging data
         foreach ($orders as $order) {
             Log::info('Order ID: ' . $order->id);
-            Log::info('Kelas Tatap Muka ID: ' . $order->KelasTatapMuka->id);
+            // Log::info('Kelas Tatap Muka ID: ' . $order->KelasTatapMuka->id);
             Log::info('Kelas Tatap Muka Name: ' . $order->KelasTatapMuka->nama_kelas);
         }
 
