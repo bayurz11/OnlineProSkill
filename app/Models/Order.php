@@ -12,9 +12,12 @@ class Order extends Model
 
     protected $guarded = [];
 
-
     public function KelasTatapMuka()
     {
-        return $this->belongsTo(KelasTatapMuka::class);
+        return $this->belongsTo(KelasTatapMuka::class, 'id');
     }
+    // public function KelasTatapMuka()
+    // {
+    //     return $this->belongsTo(KelasTatapMuka::class);
+    // }
 }

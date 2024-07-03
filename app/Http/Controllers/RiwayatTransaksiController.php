@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use App\Models\NotifikasiUser;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -73,6 +74,12 @@ class RiwayatTransaksiController extends Controller
 
         // Fetching orders related to the user
         $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
+
+        // Debugging data
+        foreach ($orders as $order) {
+            Log::info('Order ID: ' . $order->id);
+            Log::info('Kelas Tatap Muka: ' . ($order->KelasTatapMuka ? $order->KelasTatapMuka->nama_kursus : 'Not Found'));
+        }
 
         return view('studen.history', compact('user', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders'));
     }
