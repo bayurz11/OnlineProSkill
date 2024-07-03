@@ -123,7 +123,7 @@
                                                     <ul>
                                                         @foreach ($notifikasi as $notif)
                                                             <li>{{ $notif->message }} -
-                                                                <small>{{ $notif->created_at->format('M/d/Y') }}</small>
+                                                                <small>{{ $notif->created_at->format('M-d-Y') }}</small>
                                                             </li>
                                                         @endforeach
                                                     </ul>
