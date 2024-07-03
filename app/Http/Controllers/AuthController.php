@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Closure;
 use App\Models\User;
 use App\Models\UserRoles;
 use App\Models\UserProfile;
@@ -11,6 +12,7 @@ use Illuminate\Support\Carbon;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 
 class AuthController extends Controller
 {
@@ -264,7 +266,17 @@ class AuthController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'phone_number' => 'string|max:12',
             'password' => 'required|string|min:3|confirmed',
-            // 'g-recaptcha-response' => 'required|captcha',
+            'g-recaptcha-response' => ['required',function (string $attribute, mixed $value, Closure $fail) {
+            $g_response = Http::asForm()->post(url: "https://www.google.com/recaptcha/api/siteverify", {
+                    'secret' => config(key:'services.recaptcha_v3.siteKey'),
+                    'response' =>$value,
+                    'remoteip'=>\request()->ip()
+                });
+                dd($g_response-json());
+                if ($value === 'foo') {
+                    $fail("The {$attribute} is invalid.");
+                }
+            },]
 
         ]);
 
