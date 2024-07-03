@@ -14,7 +14,7 @@ class Order extends Model
 
     public function KelasTatapMuka()
     {
-        return $this->belongsTo(KelasTatapMuka::class, 'id');
+        return $this->belongsTo(KelasTatapMuka::class, 'kelas_tatap_muka_id');
     }
     // public function KelasTatapMuka()
     // {
