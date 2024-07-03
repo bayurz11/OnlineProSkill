@@ -11,7 +11,7 @@
                     <h2 class="title">Buat Akun ProSkill</h2>
                     <p>Silahkan isi form berikut untuk melanjutkan.</p>
 
-                    <form action="{{ route('regisStuden') }}" class="account__form" method="POST">
+                    <form action="{{ route('regisStuden') }}" class="account__form" method="POST" id="regisStuden">
                         @csrf
                         <div class="form-grp">
                             <input type="text" id="name" name="name"
@@ -31,14 +31,9 @@
                                 name="password_confirmation">
                         </div>
 
-                        <button type="submit" class=" g-recaptcha btn btn-two arrow-btn ">Daftar<img
+                        <button type="submit" class=" btn btn-two arrow-btn ">Daftar<img
                                 src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                 class="injectable"></button>
-                        {{-- <button type="submit" class=" g-recaptcha btn btn-two arrow-btn "
-                            data-sitekey="{{ config('services.recaptcha_v3.siteKey') }}" data-callback="onSubmit"
-                            data-action="submitContact">Daftar<img
-                                src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
-                                class="injectable"></button> --}}
                     </form><br>
                     <div class="account__social">
                         <a href="{{ route('oauth.google') }}" class="account__social-btn">
