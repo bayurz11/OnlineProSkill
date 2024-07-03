@@ -31,6 +31,6 @@ class KelasTatapMuka extends Model
     }
     public function orders()
     {
-        return $this->hasMany(Order::class, 'kelas_tatap_muka_id');
+        return $this->hasMany(Order::class, 'product_id');
     }
 }
