@@ -80,7 +80,7 @@
                                                         <p>{{ $order->external_id }}</p>
                                                     </td>
                                                     <td>
-                                                        <p>{{ $order->KelasTatapMuka->nama_kelas ?? 'Nama kelas tidak tersedia' }}
+                                                        <p>{{ $order->KelasTatapMuka->nama_kursus ?? 'Nama kelas tidak tersedia' }}
                                                         </p>
                                                     </td>
                                                     <td>
