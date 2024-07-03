@@ -285,7 +285,6 @@ class AuthController extends Controller
         $userProfile->phone_number = $request->phone_number;
         $userProfile->save();
 
-        Auth::login($user);
 
         Auth::login($user);
 
