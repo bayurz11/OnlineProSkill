@@ -30,11 +30,16 @@
                             <input type="password" id="password_confirmation" placeholder="Konfirmasi Password"
                                 name="password_confirmation">
                         </div>
-
-                        <button type="submit" class=" btn btn-two arrow-btn ">Daftar<img
+                        <div class="form-grp">
+                            {!! NoCaptcha::display() !!}
+                        </div>
+                        <button type="submit" class="btn btn-two arrow-btn">Daftar<img
                                 src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                 class="injectable"></button>
-                    </form><br>
+                    </form>
+
+                    {!! NoCaptcha::renderJs() !!}
+
                     <div class="account__social">
                         <a href="{{ route('oauth.google') }}" class="account__social-btn">
                             <img src="{{ asset('public/assets/img/icons/google.svg') }}" alt="img">

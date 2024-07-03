@@ -257,6 +257,39 @@ class AuthController extends Controller
         return redirect()->route($redirectRoute)->with('success', "Terimakasih, $userName! Anda Berhasil keluar.");
     }
 
+    // public function register(Request $request)
+    // {
+    //     $request->validate([
+    //         'name' => 'required|string|max:255',
+    //         'email' => 'required|string|email|max:255|unique:users',
+    //         'password' => 'required|string|min:3|confirmed',
+    //         'phone_number' => 'string|max:12',
+    //     ]);
+
+    //     $user = User::create([
+    //         'name' => $request->name,
+    //         'email' => $request->email,
+    //         'password' => bcrypt($request->password),
+    //         'last_login' => Carbon::now(),
+    //         'status' => 1,
+    //     ]);
+
+    //     $userRole = new UserRoles();
+    //     $userRole->user_id = $user->id;
+    //     $userRole->role_id = 3;
+    //     $userRole->save();
+
+    //     $userProfile = new UserProfile();
+    //     $userProfile->user_id = $user->id;
+    //     $userProfile->role_id = 3;
+    //     $userProfile->phone_number = $request->phone_number;
+    //     $userProfile->save();
+
+
+    //     Auth::login($user);
+
+    //     return redirect()->route('profil')->with('info', 'Pendaftaran berhasil! Harap lengkapi profil Anda');
+    // }
     public function register(Request $request)
     {
         $request->validate([
@@ -264,6 +297,7 @@ class AuthController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:3|confirmed',
             'phone_number' => 'string|max:12',
+            'g-recaptcha-response' => 'required|captcha'
         ]);
 
         $user = User::create([
@@ -284,7 +318,6 @@ class AuthController extends Controller
         $userProfile->role_id = 3;
         $userProfile->phone_number = $request->phone_number;
         $userProfile->save();
-
 
         Auth::login($user);
 

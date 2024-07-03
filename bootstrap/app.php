@@ -15,7 +15,9 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'isAdmin' => \App\Http\Middleware\AdminMiddleware::class,
             'isStuden' => \App\Http\Middleware\StudenMiddleware::class,
+            'captcha' => \Anhskohbo\NoCaptcha\Middleware\Captcha::class,
             \Illuminate\Session\Middleware\AuthenticateSession::class,
+
         ]);
         // $middleware->append(AdminMiddleware::class);
     })
