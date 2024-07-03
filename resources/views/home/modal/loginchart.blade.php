@@ -15,7 +15,8 @@
                     <form action="{{ route('loginstuden') }}" class="account__form" method="POST">
                         @csrf
                         <div class="form-grp">
-                            <input id="email" type="text" placeholder="Email" name="email" autofocus>
+                            <input id="email_or_phone" type="text" placeholder="Email atau Nomor Telepon"
+                                name="email_or_phone" autofocus>
                         </div>
                         <div class="form-grp">
                             <input id="password" type="password" placeholder="Password" name="password">
