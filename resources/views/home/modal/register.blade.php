@@ -30,9 +30,7 @@
                             <input type="password" id="password_confirmation" placeholder="Konfirmasi Password"
                                 name="password_confirmation">
                         </div>
-                        <div class="form-grp">
-                            {!! NoCaptcha::display() !!}
-                        </div>
+
                         <button type="submit" class="btn btn-two arrow-btn">Daftar<img
                                 src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                 class="injectable"></button>
