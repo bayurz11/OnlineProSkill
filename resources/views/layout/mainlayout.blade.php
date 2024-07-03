@@ -156,7 +156,7 @@
     <script src="{{ asset('public/assets/js/wow.min.js') }}"></script>
     <script src="{{ asset('public/assets/js/aos.js') }}"></script>
     <script src="{{ asset('public/assets/js/main.js') }}"></script>
-
+    {!! NoCaptcha::renderJs() !!}
     <script>
         SVGInject(document.querySelectorAll("img.injectable"));
     </script>
