@@ -53,6 +53,10 @@ class NotifikasiUserController extends Controller
             NotifikasiUser::where('user_id', $user->id)->update(['status' => 0]);
         }
 
-        return response()->json(['message' => 'Semua notifikasi telah dibaca.']);
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Semua notifikasi telah dibaca.',
+            'timestamp' => now()->toDateTimeString()
+        ]);
     }
 }

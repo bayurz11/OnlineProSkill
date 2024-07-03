@@ -123,7 +123,8 @@
                                                     <ul>
                                                         @foreach ($notifikasi as $notif)
                                                             <li>{{ $notif->message }} -
-                                                                <small>{{ $notif->created_at }}</small></li>
+                                                                <small>{{ $notif->created_at }}</small>
+                                                            </li>
                                                         @endforeach
                                                     </ul>
                                                 @else
@@ -190,16 +191,17 @@
                                                         })
                                                         .then(response => response.json())
                                                         .then(data => {
-                                                            alert(data.message);
-                                                            location.reload(); // Tambahkan baris ini untuk me-refresh halaman
+                                                            if (data.status === 'success') {
+                                                                alert(data.message);
+                                                                location.reload(); // Tambahkan baris ini untuk me-refresh halaman
+                                                            } else {
+                                                                alert('Gagal menandai semua notifikasi sebagai telah dibaca.');
+                                                            }
                                                         })
                                                         .catch(error => console.error('Error:', error));
                                                 });
                                             @endif
                                         </script>
-
-
-
                                     @endauth
                                     @php
                                         use Illuminate\Support\Str;
