@@ -74,24 +74,25 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($orders as $notif)
+                                            @foreach ($orders as $order)
                                                 <tr>
                                                     <td>
-                                                        <p>{{ $notif->external_id }}</p>
+                                                        <p>{{ $order->external_id }}</p>
                                                     </td>
                                                     <td>
-                                                        <p>{{ $notif->product_id }}</p>
+                                                        <p>{{ $order->KelasTatapMuka->nama_kelas ?? 'Nama kelas tidak tersedia' }}
+                                                        </p>
                                                     </td>
                                                     <td>
-                                                        <p>{{ $notif->created_at->format('d M Y') }}</p>
+                                                        <p>{{ $order->created_at->format('d M Y') }}</p>
                                                     </td>
                                                     <td>
-                                                        <p>{{ number_format($notif->price, 0) }}</p>
+                                                        <p>{{ number_format($order->price, 0) }}</p>
 
                                                     </td>
                                                     <td>
                                                         <span class="dashboard__quiz-result">
-                                                            @if ($notif->status == 'PAID')
+                                                            @if ($order->status == 'PAID')
                                                                 Sukses
                                                             @else
                                                                 <span class="dashboard__quiz-result processing">
