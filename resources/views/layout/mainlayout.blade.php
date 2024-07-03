@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="{{ asset('public/assets/css/spacing.css') }}">
     <link rel="stylesheet" href="{{ asset('public/assets/css/tg-cursor.css') }}">
     <link rel="stylesheet" href="{{ asset('public/assets/css/main.css') }}">
-
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     @if (session('success'))
         <div id="success-message" class="notify alert alert-success show" role="alert">
             {{ session('success') }}

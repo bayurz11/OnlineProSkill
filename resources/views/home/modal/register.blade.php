@@ -33,7 +33,8 @@
 
                         <button type="submit" class="btn btn-two arrow-btn">Daftar<img
                                 src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
-                                class="injectable"></button>
+                                data-sitekey="{{ config('services.recaptcha_v3.siteKey') }}" data-callback="onSubmit"
+                                data-action="submitContact" class="injectable"></button>
                     </form><br>
                     <div class="account__social">
                         <a href="{{ route('oauth.google') }}" class="account__social-btn">

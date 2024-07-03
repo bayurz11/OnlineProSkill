@@ -262,6 +262,7 @@ class AuthController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'phone_number' => 'string|max:12',
             'password' => 'required|string|min:3|confirmed',
+            'g-recaptcha-response' => 'required|captcha',
         ]);
 
         $user = User::create([
