@@ -32,8 +32,8 @@
                         </div>
 
                         <button type="submit" class=" g-recaptcha btn btn-two arrow-btn "
-                            data-sitekey="{{ config('services.recaptcha_v3.siteKey') }}" data-callback="onSubmit"
-                            data-action="submitContact">Daftar<img
+                            data-sitekey="{{ config('public.config.services.recaptcha_v3.secretKey') }}"
+                            data-callback="onSubmit" data-action="submitContact">Daftar<img
                                 src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                 class="injectable"></button>
                     </form><br>

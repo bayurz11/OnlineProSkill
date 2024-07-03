@@ -309,7 +309,7 @@ class AuthController extends Controller
                 function (string $attribute, mixed $value, Closure $fail) {
                     // Make the HTTP request to Google reCAPTCHA API
                     $g_response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
-                        'secret' => config('services.recaptcha_v3.siteKey'),
+                        'secret' => config('public.config.services.recaptcha_v3.secretKey'),
                         'response' => $value,
                         'remoteip' => \request()->ip()
                     ]);
