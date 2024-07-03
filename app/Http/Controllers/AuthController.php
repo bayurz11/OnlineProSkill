@@ -259,15 +259,11 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-        // dd($request);
-
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'phone_number' => 'string|max:12',
             'password' => 'required|string|min:3|confirmed',
-            // 'g-recaptcha-response' => 'required|captcha',
-
+            'phone_number' => 'string|max:12',
         ]);
 
         $user = User::create([
@@ -288,6 +284,8 @@ class AuthController extends Controller
         $userProfile->role_id = 3;
         $userProfile->phone_number = $request->phone_number;
         $userProfile->save();
+
+        Auth::login($user);
 
         Auth::login($user);
 
