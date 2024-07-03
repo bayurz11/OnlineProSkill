@@ -191,9 +191,7 @@
                                                         .then(response => response.json())
                                                         .then(data => {
                                                             alert(data.message);
-                                                            document.querySelector('.mini-cart-count').innerText = '0';
-                                                            var dropdown = document.getElementById('notification-dropdown');
-                                                            dropdown.style.display = 'none';
+                                                            location.reload(); // Tambahkan baris ini untuk me-refresh halaman
                                                         })
                                                         .catch(error => console.error('Error:', error));
                                                 });
