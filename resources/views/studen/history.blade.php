@@ -71,6 +71,7 @@
                                                 <th>Tanggal</th>
                                                 <th>Harga</th>
                                                 <th>Status</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -99,6 +100,7 @@
                                                             @endif
                                                         </span>
                                                     </td>
+                                                    <td> <button>Prin</button> </td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
