@@ -115,21 +115,21 @@
                                                 <i class="far fa-bell" style="color: #007F73;"></i>
                                                 <span class="mini-cart-count">{{ $notifikasiCount }}</span>
                                             </a>
-                                            @if ($notifikasiCount > 0)
-                                                <div id="notification-dropdown" class="notification-dropdown"
-                                                    style="display: none;">
+                                            <div id="notification-dropdown" class="notification-dropdown"
+                                                style="display: none;">
+                                                @if ($notifikasiCount > 0)
                                                     <button id="mark-all-read" style="margin: 10px; border: none;">Tandai
                                                         Semua Telah Dibaca</button>
-
                                                     <ul>
                                                         @foreach ($notifikasi as $notif)
                                                             <li>{{ $notif->message }} -
-                                                                <small>{{ $notif->created_at }}</small>
-                                                            </li>
+                                                                <small>{{ $notif->created_at }}</small></li>
                                                         @endforeach
                                                     </ul>
-                                                </div>
-                                            @endif
+                                                @else
+                                                    <p style="margin: 10px;">Tidak ada notifikasi</p>
+                                                @endif
+                                            </div>
                                         </li>
 
                                         <style>
@@ -170,35 +170,36 @@
                                             document.getElementById('notification-icon').addEventListener('click', function(event) {
                                                 event.preventDefault();
                                                 var dropdown = document.getElementById('notification-dropdown');
-                                                if (dropdown && (dropdown.style.display === 'none' || dropdown.style.display === '')) {
+                                                if (dropdown.style.display === 'none' || dropdown.style.display === '') {
                                                     dropdown.style.display = 'block';
-                                                } else if (dropdown) {
+                                                } else {
                                                     dropdown.style.display = 'none';
                                                 }
                                             });
 
-                                            document.getElementById('mark-all-read').addEventListener('click', function(event) {
-                                                event.preventDefault();
-                                                fetch('{{ route('notifikasi.bacaSemua') }}', {
-                                                        method: 'POST',
-                                                        headers: {
-                                                            'Content-Type': 'application/json',
-                                                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                                                        },
-                                                        body: JSON.stringify({})
-                                                    })
-                                                    .then(response => response.json())
-                                                    .then(data => {
-                                                        alert(data.message);
-                                                        document.querySelector('.mini-cart-count').innerText = '0';
-                                                        var dropdown = document.getElementById('notification-dropdown');
-                                                        if (dropdown) {
+                                            @if ($notifikasiCount > 0)
+                                                document.getElementById('mark-all-read').addEventListener('click', function(event) {
+                                                    event.preventDefault();
+                                                    fetch('{{ route('notifikasi.bacaSemua') }}', {
+                                                            method: 'POST',
+                                                            headers: {
+                                                                'Content-Type': 'application/json',
+                                                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                                            },
+                                                            body: JSON.stringify({})
+                                                        })
+                                                        .then(response => response.json())
+                                                        .then(data => {
+                                                            alert(data.message);
+                                                            document.querySelector('.mini-cart-count').innerText = '0';
+                                                            var dropdown = document.getElementById('notification-dropdown');
                                                             dropdown.style.display = 'none';
-                                                        }
-                                                    })
-                                                    .catch(error => console.error('Error:', error));
-                                            });
+                                                        })
+                                                        .catch(error => console.error('Error:', error));
+                                                });
+                                            @endif
                                         </script>
+
 
 
                                     @endauth
