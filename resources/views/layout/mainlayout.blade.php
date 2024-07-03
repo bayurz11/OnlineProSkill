@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="{{ asset('public/assets/css/spacing.css') }}">
     <link rel="stylesheet" href="{{ asset('public/assets/css/tg-cursor.css') }}">
     <link rel="stylesheet" href="{{ asset('public/assets/css/main.css') }}">
+    {!! NoCaptcha::renderJs() !!}
     @if (session('success'))
         <div id="success-message" class="notify alert alert-success show" role="alert">
             {{ session('success') }}
@@ -156,7 +157,7 @@
     <script src="{{ asset('public/assets/js/wow.min.js') }}"></script>
     <script src="{{ asset('public/assets/js/aos.js') }}"></script>
     <script src="{{ asset('public/assets/js/main.js') }}"></script>
-    {!! NoCaptcha::renderJs() !!}
+
     <script>
         SVGInject(document.querySelectorAll("img.injectable"));
     </script>
