@@ -30,9 +30,13 @@
                                 <a href="registration.html">Lupa Password?</a>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-two arrow-btn">Masuk
+                        {{-- <button type="submit" class="btn btn-two arrow-btn">Masuk
                             <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
-                                class="injectable">
+                                class="injectable"> --}}
+                        <button class="g-recaptcha btn btn-two arrow-btn"
+                            data-sitekey="{{ config('services.recaptcha_v3.siteKey') }}" data-callback='onSubmit'
+                            data-action='submit'>Masuk<img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}"
+                                alt="img" class="injectable"></button>
                         </button>
                     </form><br>
 
