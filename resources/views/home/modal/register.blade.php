@@ -20,7 +20,7 @@
                             <input type="email" id="email" placeholder="Email" name="email">
                         </div>
                         <div class="form-grp">
-                            <input type="phone" id="phone_number" placeholder="Nomor HP" name="phone_number"
+                            <input type="phone" id="phone_number" placeholder="08**********" name="phone_number"
                                 maxlength="12">
                         </div>
                         <div class="form-grp">
