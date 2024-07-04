@@ -268,7 +268,7 @@ class AuthController extends Controller
             'phone_number' => 'string|max:12',
             'g-recaptcha-response' => ['required', function (string $attribute, mixed $value, Closure $fail) {
                 $g_response = Http::asForm()->post("https://www.google.com/recaptcha/api/siteverify", [
-                    'secret' => config('services.recaptcha_v3.secretKey'),
+                    'secret' => config('services.recaptcha_v3.secret'),
                     'response	' => $value,
                     'remoteip' => \request()->ip()
                 ]);
