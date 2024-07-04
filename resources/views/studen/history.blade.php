@@ -102,8 +102,8 @@
                                                     </td>
                                                     <td>
                                                         <div class="dashboard__review-action">
-                                                            <a href="{{ route('cetak') }}" title="Cetak"><i
-                                                                    class="fas fa-print"></i></a>
+                                                            <a href="{{ route('cetak', ['id' => $order->id]) }}"
+                                                                title="Cetak"><i class="fas fa-print"></i></a>
 
                                                         </div>
 
