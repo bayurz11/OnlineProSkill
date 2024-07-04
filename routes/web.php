@@ -91,6 +91,8 @@ Route::middleware('isStuden')->group(function () {
 
     //Riwayat Transaksi
     Route::get('/history', [RiwayatTransaksiController::class, 'index'])->name('history');
+    //invoic
+    Route::get('/cetak', [RiwayatTransaksiController::class, 'cetak'])->name('cetak');
 
     //payment
     Route::post('/payment', [PaymentController::class, 'payment'])->name('payment');

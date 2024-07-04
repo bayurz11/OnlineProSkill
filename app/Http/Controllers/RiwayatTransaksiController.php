@@ -88,4 +88,9 @@ class RiwayatTransaksiController extends Controller
 
         return view('studen.history', compact('user', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders'));
     }
+
+    public function cetak()
+    {
+        return view('studen.cetak');
+    }
 }
