@@ -292,7 +292,6 @@ class AuthController extends Controller
     // }
     public function register(Request $request)
     {
-
         // dd($request);
         $request->validate([
             'name' => 'required|string|max:255',
@@ -302,13 +301,13 @@ class AuthController extends Controller
             'g-recaptcha-response' => ['required', function (string $attribute, mixed $value, Closure $fail) {
                 $g_response = Http::asForm()->post("https://www.google.com/recaptcha/api/siteverify", [
                     'secret' => config('services.recaptcha_v3.secret'),
-                    'response	' => $value,
+                    'response' => $value,
                     'remoteip' => \request()->ip()
                 ]);
 
-                dd($g_response->json());
-                if ($value === 'foo') {
-                    $fail("The {$attribute} is invalid.");
+                $g_response = $g_response->json();
+                if (!$g_response['success']) {
+                    $fail("The {$attribute} is invalid: " . implode(', ', $g_response['error-codes']));
                 }
             },]
         ]);
@@ -332,11 +331,11 @@ class AuthController extends Controller
         $userProfile->phone_number = $request->phone_number;
         $userProfile->save();
 
-
         Auth::login($user);
 
         return redirect()->route('profil')->with('info', 'Pendaftaran berhasil! Harap lengkapi profil Anda');
     }
+
 
 
     public function guestregister(Request $request)
