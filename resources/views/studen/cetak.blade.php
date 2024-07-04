@@ -80,7 +80,7 @@
                     <table>
                         <tr>
                             <td class="title">
-                                <h2>ProSkill Akademia</h2>
+                                <img src="{{ asset('public/assets/img/logo/logo.svg') }}" alt="img">
                             </td>
                             <td>
                                 Invoice #: {{ $order->external_id }}<br>
