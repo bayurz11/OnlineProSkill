@@ -12,6 +12,10 @@
             margin: 0;
             padding: 0;
             background-color: #f6f6f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
         .invoice-box {
@@ -21,6 +25,7 @@
             border: 1px solid #eee;
             background: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+            box-sizing: border-box;
         }
 
         .invoice-box table {
