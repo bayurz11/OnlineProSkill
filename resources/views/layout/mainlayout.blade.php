@@ -36,6 +36,11 @@
             document.getElementById("regisStuden").submit();
         }
     </script>
+    <script>
+        function onSubmit(token) {
+            document.getElementById("login").submit();
+        }
+    </script>
     @if (session('success'))
         <div id="success-message" class="notify alert alert-success show" role="alert">
             {{ session('success') }}
