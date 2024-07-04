@@ -102,7 +102,6 @@ class AuthController extends Controller
     // }
     public function login(Request $request)
     {
-        // Validasi input
         $request->validate([
             'email_or_phone' => 'required|string',
             'password' => 'required|string',
@@ -117,7 +116,7 @@ class AuthController extends Controller
                 if (!$g_response['success']) {
                     $fail("The {$attribute} is invalid: " . implode(', ', $g_response['error-codes']));
                 }
-            }]
+            },]
         ]);
 
         $credentials = $request->only('password');
@@ -147,13 +146,13 @@ class AuthController extends Controller
                 case 'Administrator':
                     return redirect()->route('dashboard')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                 case 'Instruktur':
-                    return redirect()->route('instruktur.dashboard')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+                    return redirect()->route('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                 case 'Studen':
                     $profile = $user->userProfile;
                     if (!$profile || !$profile->gambar || !$profile->date_of_birth || !$profile->phone_number) {
                         return redirect()->route('profil')->with('info', 'Harap lengkapi profil Anda untuk melanjutkan.');
                     } else {
-                        return redirect()->route('student.dashboard')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+                        return redirect()->route('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                     }
                 default:
                     return redirect()->route('/')->with('error', 'Peran pengguna tidak dikenali.');
@@ -162,6 +161,7 @@ class AuthController extends Controller
             return redirect()->back()->with('error', 'Email, nomor telepon, atau password salah.');
         }
     }
+
     public function loginstuden(Request $request)
     {
         $credentials = $request->only('password');
