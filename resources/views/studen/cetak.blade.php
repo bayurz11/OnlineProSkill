@@ -135,6 +135,7 @@
                             <td>
                                 Invoice #: {{ $order->external_id }}<br>
                                 Tanggal: {{ $order->created_at->format('d M Y') }}<br>
+                                Tanggal Cetak: <span id="print-date"></span><br>
                                 Status: {{ $order->status == 'PAID' ? 'Sukses' : 'Belum Dibayar' }}
                             </td>
                         </tr>
@@ -174,6 +175,14 @@
     <div class="print-button">
         <button onclick="window.print()">Cetak Invoice</button>
     </div>
+
+    <script>
+        document.getElementById('print-date').innerText = new Date().toLocaleDateString('id-ID', {
+            day: '2-digit',
+            month: 'short',
+            year: 'numeric'
+        });
+    </script>
 </body>
 
 </html>
