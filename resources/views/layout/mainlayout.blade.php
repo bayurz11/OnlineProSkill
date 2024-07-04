@@ -141,7 +141,7 @@
     <!--Preloader-end -->
 
     <!-- Whatsapp popup -->
-    {{-- @include('layout.partials.whatsapp') --}}
+    @include('layout.partials.whatsapp')
 
     <!-- header-area -->
     @include('layout.partials.headerarea')
