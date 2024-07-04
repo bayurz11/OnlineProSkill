@@ -96,8 +96,8 @@
                     <table>
                         <tr>
                             <td>
-                                {{-- {{ $user->name }}<br>
-                                {{ $user->email }} --}}
+                                {{ $user->name }}<br>
+                                {{ $user->email }}
                             </td>
                             <td>
                                 ProSkill Akademia<br>

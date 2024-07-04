@@ -91,7 +91,8 @@ class RiwayatTransaksiController extends Controller
 
     public function cetak($id)
     {
+        $user = Auth::user();
         $order = Order::findOrFail($id);
-        return view('studen.cetak', compact('order'));
+        return view('studen.cetak', compact('order', 'user'));
     }
 }
