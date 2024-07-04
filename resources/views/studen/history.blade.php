@@ -103,7 +103,8 @@
                                                     <td>
                                                         <div class="dashboard__review-action">
                                                             <a href="{{ route('cetak', ['id' => $order->id]) }}"
-                                                                title="Cetak"><i class="fas fa-print"></i></a>
+                                                                title="Cetak" target="_blank"><i
+                                                                    class="fas fa-print"></i></a>
 
                                                         </div>
 
