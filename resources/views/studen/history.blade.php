@@ -100,7 +100,11 @@
                                                             @endif
                                                         </span>
                                                     </td>
-                                                    <td> <button class="btn">Prin</button> </td>
+                                                    <td>
+                                                        <button class="btn">
+                                                            <i class="fas fa-print"></i> Print
+                                                        </button>
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                         </tbody>
