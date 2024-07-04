@@ -39,9 +39,9 @@ return [
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
         'redirect' => env('GOOGLE_REDIRECT_URI'),
     ],
-    // 'recaptcha_v3' => [
-    //     'siteKey' => env('RECAPTCHA_SITE_KEY'),
-    //     'secretKey' => env('RECAPTCHA_SECRET_KEY'),
-    // ]
+    'recaptcha_v3' => [
+        'siteKey' => env('RECAPTCHA_SITE_KEY'),
+        'secretKey' => env('RECAPTCHA_SECRET_KEY'),
+    ]
 
 ];

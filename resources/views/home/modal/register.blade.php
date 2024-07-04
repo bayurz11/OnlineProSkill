@@ -34,10 +34,10 @@
                         {{-- <button type="submit" class="btn btn-two arrow-btn ">Daftar<img
                                 src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                 class="injectable"></button> --}}
-                        <button class="g-recaptcha btn btn-two arrow-btn" data-sitekey="reCAPTCHA_site_key"
-                            data-callback='onSubmit' data-action='submit'>Daftar<img
-                                src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
-                                class="injectable"></button>
+                        <button class="g-recaptcha btn btn-two arrow-btn"
+                            data-sitekey="{{ 'config.services.recaptcha_v3' }}" data-callback='onSubmit'
+                            data-action='submit'>Daftar<img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}"
+                                alt="img" class="injectable"></button>
                     </form><br>
                     <div class="account__social">
                         <a href="{{ route('oauth.google') }}" class="account__social-btn">
