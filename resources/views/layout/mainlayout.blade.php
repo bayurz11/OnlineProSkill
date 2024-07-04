@@ -48,6 +48,10 @@
         function onSubmitLogin(token) {
             document.getElementById("login").submit();
         }
+
+        function onSubmitloginstuden(token) {
+            document.getElementById("loginstuden").submit();
+        }
     </script>
 
     @if (session('success'))
