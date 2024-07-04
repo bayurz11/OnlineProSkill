@@ -41,6 +41,10 @@
             document.getElementById("regisStuden").submit();
         }
 
+        function onSubmitguestregister(token) {
+            document.getElementById("guestregister").submit();
+        }
+
         function onSubmitLogin(token) {
             document.getElementById("login").submit();
         }

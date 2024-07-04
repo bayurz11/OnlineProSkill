@@ -97,9 +97,11 @@
                                         name="password_confirmation">
                                 </div>
                                 <button class="g-recaptcha btn btn-two arrow-btn"
-                                    data-sitekey="{{ config('services.recaptcha_v3.siteKey') }}" data-callback='onSubmit'
-                                    data-action='submit'>Daftar<img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}"
-                                        alt="img" class="injectable"></button>
+                                    data-sitekey="{{ config('services.recaptcha_v3.siteKey') }}"
+                                    data-callback="onSubmitguestregister" data-action='submit'>Daftar
+                                    <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
+                                        class="injectable">
+                                </button>
                             </form><br>
                             <div class="account__social">
                                 <a href="{{ route('oauth.google') }}" class="account__social-btn">
