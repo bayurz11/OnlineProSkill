@@ -34,9 +34,10 @@
                             <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                 class="injectable"> --}}
                         <button class="g-recaptcha btn btn-two arrow-btn"
-                            data-sitekey="{{ config('services.recaptcha_v3.siteKey') }}" data-callback='onSubmit'
-                            data-action='submit'>Masuk<img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}"
-                                alt="img" class="injectable"></button>
+                            data-sitekey="{{ config('services.recaptcha_v3.siteKey') }}"
+                            data-callback="recaptchaCallback('logins')" data-action="submit">Daftar
+                            <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
+                                class="injectable">
                         </button>
                     </form><br>
 
