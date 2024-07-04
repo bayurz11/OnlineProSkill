@@ -459,7 +459,7 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('cart.view');
+        return redirect()->route('cart.view')->with('info', 'Pendaftaran berhasil! Silahkan Gabung Kelas Kami');
     }
     // public function guestregister(Request $request)
     // {
