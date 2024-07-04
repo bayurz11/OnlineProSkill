@@ -260,6 +260,7 @@ class AuthController extends Controller
     public function register(Request $request)
     {
 
+        dd($request);
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
@@ -272,7 +273,7 @@ class AuthController extends Controller
                     'remoteip' => \request()->ip()
                 ]);
 
-                dd($g_response->json());
+                // dd($g_response->json());
                 if ($value === 'foo') {
                     $fail("The {$attribute} is invalid.");
                 }
