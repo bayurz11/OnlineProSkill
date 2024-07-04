@@ -101,6 +101,25 @@
             background-color: #45a049;
         }
 
+        .download-button {
+            display: none;
+            text-align: center;
+        }
+
+        .download-button button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .download-button button:hover {
+            background-color: #45a049;
+        }
+
         @media only screen and (max-width: 600px) {
             .invoice-box table tr.top table td {
                 width: 100%;
@@ -117,10 +136,20 @@
             .invoice-box table tr td:nth-child(2) {
                 text-align: center;
             }
+
+            .print-button {
+                display: none;
+            }
+
+            .download-button {
+                display: block;
+            }
         }
 
         @media print {
-            .print-button {
+
+            .print-button,
+            .download-button {
                 display: none;
             }
         }
@@ -181,13 +210,27 @@
     <div class="print-button">
         <button onclick="window.print()">Cetak Invoice</button>
     </div>
+    <div class="download-button">
+        <button onclick="downloadPDF()">Unduh Invoice</button>
+    </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
     <script>
         document.getElementById('print-date').innerText = new Date().toLocaleDateString('id-ID', {
             day: '2-digit',
             month: 'short',
             year: 'numeric'
         });
+
+        function downloadPDF() {
+            html2canvas(document.querySelector('.invoice-box')).then(canvas => {
+                let pdf = new jsPDF('p', 'pt', 'a4');
+                pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, pdf.internal.pageSize.width, canvas
+                    .height * (pdf.internal.pageSize.width / canvas.width));
+                pdf.save('invoice.pdf');
+            });
+        }
     </script>
 </body>
 
