@@ -40,11 +40,15 @@ class NotifikasiUserController extends Controller
         $notifikasi = [];
 
         if ($user) {
-            $notifikasi = NotifikasiUser::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
+            $notifikasi = NotifikasiUser::where('user_id', $user->id)
+                ->where('status', 1)
+                ->orderBy('created_at', 'desc')
+                ->get();
         }
 
         return view('layout.partials.notifications', compact('notifikasi'));
     }
+
 
     public function bacaSemua(Request $request)
     {
