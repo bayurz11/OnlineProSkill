@@ -8,7 +8,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('public/assets/img/favicon.png') }}">
     <style>
         body {
-            font-family: "Times New Roman", Times, serif;
+            font-family: Tahoma, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f6f6f6;
