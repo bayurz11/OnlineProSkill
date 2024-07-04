@@ -70,6 +70,25 @@
             border-top: 2px solid #eee;
             font-weight: bold;
         }
+
+        .print-button {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .print-button button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .print-button button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 
@@ -121,6 +140,9 @@
                 <td>Total: {{ number_format($order->price, 0) }}</td>
             </tr>
         </table>
+    </div>
+    <div class="print-button">
+        <button onclick="window.print()">Cetak Invoice</button>
     </div>
 </body>
 
