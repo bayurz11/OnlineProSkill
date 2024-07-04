@@ -108,14 +108,7 @@
                     </table>
                 </td>
             </tr>
-            <tr class="heading">
-                <td>Metode Pembayaran</td>
-                <td>Detail</td>
-            </tr>
-            <tr class="details">
-                <td>Transfer Bank</td>
-                <td>{{ $order->payment_method }}</td>
-            </tr>
+
             <tr class="heading">
                 <td>Nama Kelas</td>
                 <td>Harga</td>
