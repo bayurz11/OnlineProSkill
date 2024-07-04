@@ -37,8 +37,12 @@
         }
     </script> --}}
     <script>
-        function onSubmit(token, formId) {
-            document.getElementById(formId).submit();
+        function onSubmitRegisStuden(token) {
+            document.getElementById("regisStuden").submit();
+        }
+
+        function onSubmitLogin(token) {
+            document.getElementById("login").submit();
         }
     </script>
 

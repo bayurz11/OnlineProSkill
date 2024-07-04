@@ -59,7 +59,6 @@
                 <h5 class="modal-title" id="exampleModalLabel"></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <!-- Modal Body -->
             <div class="modal-body">
                 <div class="singUp-wrap">
                     <h2 class="title">Buat Akun ProSkill</h2>
@@ -87,7 +86,7 @@
 
                         <button class="g-recaptcha btn btn-two arrow-btn"
                             data-sitekey="{{ config('services.recaptcha_v3.siteKey') }}"
-                            data-callback="onSubmit.bind(this, 'regisStuden')" data-action='submit'>Daftar
+                            data-callback="onSubmitRegisStuden" data-action='submit'>Daftar
                             <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                 class="injectable">
                         </button>
