@@ -101,7 +101,7 @@
                                                         </span>
                                                     </td>
                                                     <td>
-                                                        <button class="btn">
+                                                        <button class="btn" title="Cetak Invoic">
                                                             <i class="fas fa-print"></i>
                                                         </button>
                                                     </td>
