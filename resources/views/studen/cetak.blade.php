@@ -15,17 +15,19 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             height: 100vh;
         }
 
         .invoice-box {
             max-width: 800px;
-            margin: auto;
+            width: 100%;
             padding: 30px;
             border: 1px solid #eee;
             background: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
             box-sizing: border-box;
+            margin-bottom: 20px;
         }
 
         .invoice-box table {
@@ -83,7 +85,6 @@
 
         .print-button {
             text-align: center;
-            margin-top: 20px;
         }
 
         .print-button button {
