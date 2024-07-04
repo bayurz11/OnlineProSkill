@@ -304,7 +304,7 @@ class AuthController extends Controller
                     'response' => $value,
                     'remoteip' => \request()->ip()
                 ]);
-
+                dd($g_response->json());
                 $g_response = $g_response->json();
                 if (!$g_response['success']) {
                     $fail("The {$attribute} is invalid: " . implode(', ', $g_response['error-codes']));
