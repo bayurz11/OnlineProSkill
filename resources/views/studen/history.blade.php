@@ -101,9 +101,12 @@
                                                         </span>
                                                     </td>
                                                     <td>
-                                                        <button class="btn" title="Cetak">
-                                                            <i class="fas fa-print"></i>
-                                                        </button>
+                                                        <div class="dashboard__review-action">
+                                                            <a href="#" title="Cetak"><i
+                                                                    class="fas fa-print"></i></a>
+
+                                                        </div>
+
                                                     </td>
                                                 </tr>
                                             @endforeach
