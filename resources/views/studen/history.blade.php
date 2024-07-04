@@ -102,7 +102,7 @@
                                                     </td>
                                                     <td>
                                                         <button class="btn">
-                                                            <i class="fas fa-print"></i> Print
+                                                            <i class="fas fa-print"></i>
                                                         </button>
                                                     </td>
                                                 </tr>
