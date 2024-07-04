@@ -96,9 +96,7 @@
                     <table>
                         <tr>
                             <td>
-                                ProSkill Akademia<br>
-                                Jalan Akademia No. 1<br>
-                                Jakarta, Indonesia
+                                Jl. H. Ungar No.2C, Kota Tanjung Pinang, Kepulauan Riau
                             </td>
                             <td>
                                 {{ $user->name }}<br>
