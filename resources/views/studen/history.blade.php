@@ -101,7 +101,7 @@
                                                         </span>
                                                     </td>
                                                     <td>
-                                                        <button class="btn">
+                                                        <button class="dashboard__review-action">
                                                             <i class="fas fa-print"></i>
                                                         </button>
                                                     </td>
