@@ -9,6 +9,9 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f6f6f6;
         }
 
         .invoice-box {
@@ -16,6 +19,7 @@
             margin: auto;
             padding: 30px;
             border: 1px solid #eee;
+            background: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
         }
 
@@ -23,6 +27,7 @@
             width: 100%;
             line-height: inherit;
             text-align: left;
+            border-collapse: collapse;
         }
 
         .invoice-box table td {
@@ -72,8 +77,7 @@
         }
 
         .print-button {
-            display: flex;
-            justify-content: center;
+            text-align: center;
             margin-top: 20px;
         }
 
@@ -84,10 +88,29 @@
             border: none;
             cursor: pointer;
             font-size: 16px;
+            border-radius: 5px;
         }
 
         .print-button button:hover {
             background-color: #45a049;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .invoice-box table tr.top table td {
+                width: 100%;
+                display: block;
+                text-align: center;
+            }
+
+            .invoice-box table tr.information table td {
+                width: 100%;
+                display: block;
+                text-align: center;
+            }
+
+            .invoice-box table tr td:nth-child(2) {
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -100,7 +123,8 @@
                     <table>
                         <tr>
                             <td class="title">
-                                <img src="{{ asset('public/assets/img/logo/logo.svg') }}" alt="img">
+                                <img src="{{ asset('public/assets/img/logo/logo.svg') }}" alt="ProSkill Akademia Logo"
+                                    style="width: 100%; max-width: 150px;">
                             </td>
                             <td>
                                 Invoice #: {{ $order->external_id }}<br>
