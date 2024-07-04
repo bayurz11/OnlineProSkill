@@ -31,7 +31,11 @@
                                 name="password_confirmation">
                         </div>
 
-                        <button type="submit" class="btn btn-two arrow-btn ">Daftar<img
+                        {{-- <button type="submit" class="btn btn-two arrow-btn ">Daftar<img
+                                src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
+                                class="injectable"></button> --}}
+                        <button class="g-recaptcha btn btn-two arrow-btn" data-sitekey="reCAPTCHA_site_key"
+                            data-callback='onSubmit' data-action='submit'>Daftar<img
                                 src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                 class="injectable"></button>
                     </form><br>
