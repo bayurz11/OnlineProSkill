@@ -96,13 +96,13 @@
                     <table>
                         <tr>
                             <td>
-                                {{ $user->name }}<br>
-                                {{ $user->email }}
-                            </td>
-                            <td>
                                 ProSkill Akademia<br>
                                 Jalan Akademia No. 1<br>
                                 Jakarta, Indonesia
+                            </td>
+                            <td>
+                                {{ $user->name }}<br>
+                                {{ $user->email }}
                             </td>
                         </tr>
                     </table>
