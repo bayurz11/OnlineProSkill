@@ -113,11 +113,11 @@
                                         <li class="mini-cart-icon" style="margin-left: 20px;">
                                             <a href="#" class="cart-count-two" id="notification-icon">
                                                 <i class="far fa-bell" style="color: #007F73;"></i>
-                                                <span class="mini-cart-count">{{ $notifikasi->count() }}</span>
+                                                <span class="mini-cart-count">{{ $notifikasiCount }}</span>
                                             </a>
                                             <div id="notification-dropdown" class="notification-dropdown"
                                                 style="display: none;">
-                                                @if ($notifikasi->count() > 0)
+                                                @if ($notifikasiCount > 0)
                                                     <button id="mark-all-read" style="margin: 10px; border: none;">Tandai
                                                         Semua Telah Dibaca</button>
                                                     <ul>
@@ -178,7 +178,7 @@
                                                 }
                                             });
 
-                                            @if ($notifikasi->count() > 0)
+                                            @if ($notifikasiCount > 0)
                                                 document.getElementById('mark-all-read').addEventListener('click', function(event) {
                                                     event.preventDefault();
                                                     fetch('{{ route('notifikasi.bacaSemua') }}', {
@@ -202,7 +202,6 @@
                                                 });
                                             @endif
                                         </script>
-
                                     @endauth
                                     @php
                                         use Illuminate\Support\Str;
