@@ -31,20 +31,9 @@
     <link rel="stylesheet" href="{{ asset('public/assets/css/tg-cursor.css') }}">
     <link rel="stylesheet" href="{{ asset('public/assets/css/main.css') }}">
     <script src="https://www.google.com/recaptcha/api.js"></script>
-    {{-- <script>
+    <script>
         function onSubmit(token) {
             document.getElementById("regisStuden").submit();
-        }
-    </script> --}}
-    <script>
-        function onSubmit(token, formId) {
-            document.getElementById(formId).submit();
-        }
-
-        function recaptchaCallback(formId) {
-            return function(token) {
-                onSubmit(token, formId);
-            };
         }
     </script>
     @if (session('success'))
