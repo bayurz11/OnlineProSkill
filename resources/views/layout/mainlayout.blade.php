@@ -38,7 +38,17 @@
     </script>
     <script>
         function onSubmit(token) {
+            document.getElementById("guestregister").submit();
+        }
+    </script>
+    <script>
+        function onSubmit(token) {
             document.getElementById("login").submit();
+        }
+    </script>
+    <script>
+        function onSubmit(token) {
+            document.getElementById("loginstuden").submit();
         }
     </script>
     @if (session('success'))

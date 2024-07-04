@@ -164,6 +164,23 @@ class AuthController extends Controller
 
     public function loginstuden(Request $request)
     {
+        $request->validate([
+            'email_or_phone' => 'required|string',
+            'password' => 'required|string',
+            'g-recaptcha-response' => ['required', function (string $attribute, mixed $value, Closure $fail) {
+                $g_response = Http::asForm()->post("https://www.google.com/recaptcha/api/siteverify", [
+                    'secret' => config('services.recaptcha_v3.secret'),
+                    'response' => $value,
+                    'remoteip' => \request()->ip()
+                ]);
+
+                $g_response = $g_response->json();
+                if (!$g_response['success']) {
+                    $fail("The {$attribute} is invalid: " . implode(', ', $g_response['error-codes']));
+                }
+            },]
+        ]);
+
         $credentials = $request->only('password');
         $emailOrPhone = $request->input('email_or_phone');
 
@@ -407,6 +424,18 @@ class AuthController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:3|confirmed',
             'phone_number' => 'string|max:12',
+            'g-recaptcha-response' => ['required', function (string $attribute, mixed $value, Closure $fail) {
+                $g_response = Http::asForm()->post("https://www.google.com/recaptcha/api/siteverify", [
+                    'secret' => config('services.recaptcha_v3.secret'),
+                    'response' => $value,
+                    'remoteip' => \request()->ip()
+                ]);
+
+                $g_response = $g_response->json();
+                if (!$g_response['success']) {
+                    $fail("The {$attribute} is invalid: " . implode(', ', $g_response['error-codes']));
+                }
+            },]
         ]);
 
         $user = User::create([
@@ -430,11 +459,6 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        // Temukan course berdasarkan ID yang diterima sebagai parameter
-        // $course = KelasTatapMuka::find($id);
-
-        // Redirect ke halaman checkout dengan ID course
-        // return redirect()->route('checkout', ['id' => $course->id]);
         return redirect()->route('cart.view');
     }
     // public function guestregister(Request $request)
