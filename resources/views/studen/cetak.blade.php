@@ -118,6 +118,12 @@
                 text-align: center;
             }
         }
+
+        @media print {
+            .print-button {
+                display: none;
+            }
+        }
     </style>
 </head>
 
