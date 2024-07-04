@@ -6,7 +6,7 @@
     <div class="container">
         <h1>Notifikasi</h1>
         @if ($notifikasi->isEmpty())
-            <p>Tidak ada notifikasi saat ini.</p>
+            <p>Tidak ada notifikasi saat .</p>
         @else
             <ul class="list-group">
                 @foreach ($notifikasi as $notif)
