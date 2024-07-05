@@ -112,9 +112,7 @@
                                                                                 src="{{ asset('public/assets/img/courses/course_author001.png') }}"
                                                                                 alt="img">{{ $order->KelasTatapMuka->user->name }}</a>
                                                                     </div>
-                                                                    <div class="avg-rating">
-                                                                        <i class="fas fa-star"></i> (4.8 Reviews)
-                                                                    </div>
+
                                                                 </div>
                                                                 <div class="progress-item progress-item-two">
                                                                     <h6 class="title">Selesai <span>12.5%</span></h6>
