@@ -110,7 +110,7 @@
                                                                     <div class="author-two">
                                                                         <a href="instructor-details.html"><img
                                                                                 src="{{ asset('public/assets/img/courses/course_author001.png') }}"
-                                                                                alt="img">{{ $order->KelasTatapMuka->user_id }}</a>
+                                                                                alt="img">{{ $order->KelasTatapMuka->user->name }}</a>
                                                                     </div>
                                                                     <div class="avg-rating">
                                                                         <i class="fas fa-star"></i> (4.8 Reviews)
