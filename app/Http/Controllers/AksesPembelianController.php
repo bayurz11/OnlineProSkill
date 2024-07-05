@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
+use App\Models\KelasTatapMuka;
 use App\Models\NotifikasiUser;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
@@ -43,6 +44,8 @@ class AksesPembelianController extends Controller
                 Log::info('Kelas Tatap Muka: Not Found');
             }
         }
-        return view('studen.aksespembelian', compact('user', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders'));
+        $course = KelasTatapMuka::with('user')->where('status', 1)->get();
+        $count = $course->count();
+        return view('studen.aksespembelian', compact('user', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'course'));
     }
 }

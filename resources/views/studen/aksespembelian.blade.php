@@ -102,11 +102,7 @@
                                                                 </a>
                                                             </div>
                                                             <div class="courses__item-content courses__item-content-two">
-                                                                <ul class="courses__item-meta list-wrap">
-                                                                    <li class="courses__item-tag">
-                                                                        <a href="course.html">Development</a>
-                                                                    </li>
-                                                                </ul>
+
                                                                 <h5 class="title"><a
                                                                         href="course-details.html">{{ $order->KelasTatapMuka->nama_kursus ?? 'Nama kelas tidak tersedia' }}</a>
                                                                 </h5>
@@ -114,7 +110,7 @@
                                                                     <div class="author-two">
                                                                         <a href="instructor-details.html"><img
                                                                                 src="{{ asset('public/assets/img/courses/course_author001.png') }}"
-                                                                                alt="img">David Millar</a>
+                                                                                alt="img">{{ $cours->user->name }}</a>
                                                                     </div>
                                                                     <div class="avg-rating">
                                                                         <i class="fas fa-star"></i> (4.8 Reviews)
