@@ -103,7 +103,7 @@ Route::middleware('isStuden')->group(function () {
     Route::get('/akses_pembelian', [AksesPembelianController::class, 'index'])->name('akses_pembelian');
 
     //lesson
-    Route::get('/lesson', [AksesPembelianController::class, 'lesson'])->name('lesson');
+    Route::get('/lesson/{id}', [AksesPembelianController::class, 'lesson'])->name('lesson');
 });
 
 
