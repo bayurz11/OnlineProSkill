@@ -66,7 +66,7 @@
                     <div class="col-12">
                         <div class="coupon__code-wrap">
                             <div class="coupon__code-info">
-                                <span></i> Sudah memiliki akun?</span>
+                                <span>Sudah memiliki akun?</span>
                                 <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalchart">Klik di sini untuk
                                     Masuk</a>
                             </div>
@@ -99,7 +99,8 @@
                                 </div>
                                 <button class="g-recaptcha btn btn-two arrow-btn"
                                     data-sitekey="{{ config('services.recaptcha_v3.siteKey') }}"
-                                    data-callback="onSubmitguestregister" data-action='submit'>Daftar
+                                    data-callback="onSubmitguestregister" data-action='submit'>
+                                    Daftar
                                     <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                         class="injectable">
                                 </button>
@@ -118,27 +119,30 @@
                 <div class="col-lg-5">
                     <div class="cart__collaterals-wrap">
                         <h2 class="title">Total keranjang</h2>
-                        <ul class="list-wrap">
-                            @foreach ($cart as $item)
-                                <li>
-                                    <td class="product__name">
-                                        <a href="{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}</a>
-                                        <form action="{{ route('cart.remove', $item['id']) }}" method="POST"
-                                            style="display:inline;">
-                                            @csrf
-                                            <button type="submit" class="btn-remove"
-                                                style="background:none; border:none; color:red; cursor:pointer;">
-                                                x
-                                            </button>
-                                        </form>
-                                    </td>
+                        @if (count($cart) > 0)
+                            <ul class="list-wrap">
+                                @foreach ($cart as $item)
+                                    <li>
+                                        <td class="product__name">
+                                            <a href="{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}</a>
+                                            <form action="{{ route('cart.remove', $item['id']) }}" method="POST"
+                                                style="display:inline;">
+                                                @csrf
+                                                <button type="submit" class="btn-remove"
+                                                    style="background:none; border:none; color:red; cursor:pointer;">x</button>
+                                            </form>
+                                        </td>
+                                    </li>
+                                @endforeach
+                                <li>Jumlah Quantity <span>{{ array_sum(array_column($cart, 'quantity')) }}</span></li>
+                                <li>Subtotal <span>Rp.{{ array_sum(array_column($cart, 'price')) }}</span></li>
+                                <li>Total <span class="amount">Rp.{{ array_sum(array_column($cart, 'price')) }}</span>
                                 </li>
-                            @endforeach
-                            <li>Jumlah Quantity <span>{{ array_sum(array_column($cart, 'quantity')) }}</span></li>
-                            <li>Subtotal <span>Rp.{{ array_sum(array_column($cart, 'price')) }}</span></li>
-                            <li>Total <span class="amount">Rp.{{ array_sum(array_column($cart, 'price')) }}</span></li>
-                        </ul>
-                        {{-- <a href="" class="btn">Bayar & Gabung kelas</a> --}}
+                            </ul>
+                        @else
+                            <p>Keranjang Anda kosong. <a href="{{ route('classroom') }}">Lihat kelas yang tersedia.</a>
+                            </p>
+                        @endif
                     </div>
                 </div>
 
