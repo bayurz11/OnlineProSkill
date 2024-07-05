@@ -97,7 +97,7 @@
                                                         <div class="courses__item courses__item-two shine__animate-item">
                                                             <div class="courses__item-thumb courses__item-thumb-two">
                                                                 <a href="course-details.html" class="shine__animate-link">
-                                                                    <img src="{{ asset('public/assets/img/courses/course_thumb01.jpg') }}"
+                                                                    <img src="{{ $order->KelasTatapMuka->gambar ? asset('public/uploads/' . $order->KelasTatapMuka->gambar) : asset('public/assets/img/courses/course_thumb01.jpg') }}"
                                                                         alt="img">
                                                                 </a>
                                                             </div>
