@@ -106,12 +106,7 @@
                                                                 <h5 class="title"><a
                                                                         href="course-details.html">{{ $order->KelasTatapMuka->nama_kursus ?? 'Nama kelas tidak tersedia' }}</a>
                                                                 </h5>
-                                                                <div class="courses__item-content-bottom">
 
-                                                                    <div class="avg-rating">
-                                                                        <i class="fas fa-star"></i> (4.8 Reviews)
-                                                                    </div>
-                                                                </div>
                                                                 <div class="progress-item progress-item-two">
                                                                     <h6 class="title">COMPLETE <span>88%</span></h6>
                                                                     <div class="progress" role="progressbar"
