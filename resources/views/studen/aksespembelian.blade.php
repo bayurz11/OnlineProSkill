@@ -98,35 +98,32 @@
                                                             <div class="courses__item-thumb courses__item-thumb-two">
                                                                 <a href="course-details.html" class="shine__animate-link">
                                                                     <img src="{{ $order->KelasTatapMuka->gambar ? asset('public/uploads/' . $order->KelasTatapMuka->gambar) : asset('public/assets/img/courses/course_thumb01.jpg') }}"
-                                                                        alt="img"
-                                                                        class="wd-100 wd-sm-150>
+                                                                        alt="img" class="wd-100 wd-sm-150">
                                                                 </a>
                                                             </div>
-                                                            <div class="courses__item-content
-                                                                        courses__item-content-two">
-
-                                                                    <h5 class="title"><a
-                                                                            href="course-details.html">{{ $order->KelasTatapMuka->nama_kursus ?? 'Nama kelas tidak tersedia' }}</a>
-                                                                    </h5>
-                                                                    <div class="courses__item-content-bottom">
-                                                                        <div class="author-two">
-                                                                            <a href="instructor-details.html"><img
-                                                                                    src="{{ asset('public/assets/img/courses/course_author001.png') }}"
-                                                                                    alt="img">{{ $order->KelasTatapMuka->user->name }}</a>
-                                                                        </div>
-
+                                                            <div class="courses__item-content courses__item-content-two">
+                                                                <h5 class="title">
+                                                                    <a
+                                                                        href="course-details.html">{{ $order->KelasTatapMuka->nama_kursus ?? 'Nama kelas tidak tersedia' }}</a>
+                                                                </h5>
+                                                                <div class="courses__item-content-bottom">
+                                                                    <div class="author-two">
+                                                                        <a href="instructor-details.html">
+                                                                            <img src="{{ asset('public/assets/img/courses/course_author001.png') }}"
+                                                                                alt="img">
+                                                                            {{ $order->KelasTatapMuka->user->name }}
+                                                                        </a>
                                                                     </div>
-                                                                    <div class="progress-item progress-item-two">
-                                                                        <h6 class="title">Selesai <span>12.5%</span></h6>
-                                                                        <div class="progress" role="progressbar"
-                                                                            aria-label="Example with label"
-                                                                            aria-valuenow="25" aria-valuemin="0"
-                                                                            aria-valuemax="100">
-                                                                            <div class="progress-bar"
-                                                                                style="width: 12.5%">
-                                                                            </div>
+                                                                </div>
+                                                                <div class="progress-item progress-item-two">
+                                                                    <h6 class="title">Selesai <span>12.5%</span></h6>
+                                                                    <div class="progress" role="progressbar"
+                                                                        aria-label="Example with label" aria-valuenow="25"
+                                                                        aria-valuemin="0" aria-valuemax="100">
+                                                                        <div class="progress-bar" style="width: 12.5%">
                                                                         </div>
                                                                     </div>
+                                                                </div>
                                                             </div>
                                                             <div class="courses__item-bottom-two">
                                                                 <ul class="list-wrap">
@@ -141,6 +138,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="tab-pane fade" id="design-tab-pane" role="tabpanel"
                                         aria-labelledby="design-tab" tabindex="0">
                                         <div class="swiper dashboard-courses-active">
