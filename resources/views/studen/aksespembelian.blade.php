@@ -108,7 +108,7 @@
                                                                 </h5>
 
                                                                 <div class="progress-item progress-item-two">
-                                                                    <h6 class="title">Selesai <span>12,5%</span></h6>
+                                                                    <h6 class="title">Selesai <span>12.5%</span></h6>
                                                                     <div class="progress" role="progressbar"
                                                                         aria-label="Example with label" aria-valuenow="25"
                                                                         aria-valuemin="0" aria-valuemax="100">
