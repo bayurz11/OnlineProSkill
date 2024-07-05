@@ -11,7 +11,7 @@
             <div class="row gx-0">
                 <div class="col-xl-3 col-lg-4">
                     <div class="lesson__content">
-                        <h2 class="title">Course Content</h2>
+                        <h2 class="title">Konten Kursus</h2>
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
@@ -194,7 +194,7 @@
                                     class="flaticon-arrow-right"></i></button>
                         </div>
                     </div>
-                    <div class="courses__details-content lesson__details-content">
+                    {{-- <div class="courses__details-content lesson__details-content">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link active" id="overview-tab" data-bs-toggle="tab"
@@ -375,7 +375,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
