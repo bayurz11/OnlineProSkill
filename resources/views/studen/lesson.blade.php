@@ -189,7 +189,7 @@
                                 <span>The Complete Design Course: From Zero to Expert!</span>
                             </div>
                             <div class="lesson__video-wrap-top-right">
-                                <a href="#"><i class="fas fa-times"></i></a>
+                                <a href="{{ route('akses_pembelian') }}"><i class="fas fa-times"></i></a>
                             </div>
                         </div>
                         <video id="player" playsinline controls data-poster="assets/img/bg/video_bg.webp">
