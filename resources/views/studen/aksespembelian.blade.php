@@ -111,7 +111,7 @@
                                                             <div class="courses__item-content-bottom">
                                                                 <div class="author-two">
                                                                     <a href="instructor-details.html"><img
-                                                                            src="assets/img/courses/course_author001.png"
+                                                                            src="{{ asset('public/assets/img/courses/course_author001.png') }}"
                                                                             alt="img">David Millar</a>
                                                                 </div>
                                                                 <div class="avg-rating">
