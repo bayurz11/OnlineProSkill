@@ -107,8 +107,9 @@
                                                                         <a href="course.html">Development</a>
                                                                     </li>
                                                                 </ul>
-                                                                <h5 class="title"><a href="course-details.html">Learning
-                                                                        JavaScript With Imagination</a></h5>
+                                                                <h5 class="title"><a
+                                                                        href="course-details.html">{{ $order->KelasTatapMuka->nama_kursus ?? 'Nama kelas tidak tersedia' }}</a>
+                                                                </h5>
                                                                 <div class="courses__item-content-bottom">
                                                                     <div class="author-two">
                                                                         <a href="instructor-details.html"><img
