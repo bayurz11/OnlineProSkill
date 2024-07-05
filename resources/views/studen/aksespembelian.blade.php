@@ -148,7 +148,7 @@
                                                     <div class="courses__item courses__item-two shine__animate-item">
                                                         <div class="courses__item-thumb courses__item-thumb-two">
                                                             <a href="course-details.html" class="shine__animate-link">
-                                                                <img src="assets/img/courses/course_thumb02.jpg"
+                                                                <img src="{{ asset('public/assets/img/courses/course_thumb01.jpg') }}"
                                                                     alt="img">
                                                             </a>
                                                         </div>
@@ -164,7 +164,7 @@
                                                             <div class="courses__item-content-bottom">
                                                                 <div class="author-two">
                                                                     <a href="instructor-details.html"><img
-                                                                            src="assets/img/courses/course_author002.png"
+                                                                            src="{{ asset('public/assets/img/courses/course_author001.png') }}"
                                                                             alt="img">Wilson</a>
                                                                 </div>
                                                                 <div class="avg-rating">
@@ -193,7 +193,7 @@
                                                     <div class="courses__item courses__item-two shine__animate-item">
                                                         <div class="courses__item-thumb courses__item-thumb-two">
                                                             <a href="course-details.html" class="shine__animate-link">
-                                                                <img src="assets/img/courses/course_thumb01.jpg"
+                                                                <img src="{{ asset('public/assets/img/courses/course_thumb01.jpg') }}"
                                                                     alt="img">
                                                             </a>
                                                         </div>
@@ -208,7 +208,7 @@
                                                             <div class="courses__item-content-bottom">
                                                                 <div class="author-two">
                                                                     <a href="instructor-details.html"><img
-                                                                            src="assets/img/courses/course_author001.png"
+                                                                            src="{{ asset('public/assets/img/courses/course_author001.png') }}"
                                                                             alt="img">David Millar</a>
                                                                 </div>
                                                                 <div class="avg-rating">
