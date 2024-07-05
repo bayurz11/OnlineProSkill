@@ -12,8 +12,8 @@
                         Profil Saya
                     </a>
                 </li>
-                <li class="{{ Request::is('student-enrolled-courses') ? 'active' : '' }}">
-                    <a href="student-enrolled-courses.html">
+                <li class="{{ Request::is('akses_pembelian') ? 'active' : '' }}">
+                    <a href="{{ route('akses_pembelian') }}">
                         <i class="skillgro-book"></i>
                         Akses Pembelian
                     </a>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AksesPembelianController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
@@ -98,7 +99,8 @@ Route::middleware('isStuden')->group(function () {
     Route::post('/payment', [PaymentController::class, 'payment'])->name('payment');
     Route::get('/success/{uuid}', [PaymentController::class, 'success'])->name('success');
 
-    //Skses Pembelian
+    //Akses Pembelian
+    Route::get('/akses_pembelian', [AksesPembelianController::class, 'index'])->name('akses_pembelian');
 });
 
 
