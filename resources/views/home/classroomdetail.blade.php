@@ -133,7 +133,7 @@
                                                                     <div class="course-item-meta">
                                                                         <span class="item-meta duration">07:48</span>
                                                                         <span class="item-meta course-item-status">
-                                                                            <img src="public/assets/img/icons/lock.svg"
+                                                                            <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
                                                                                 alt="icon">
                                                                         </span>
                                                                     </div>
@@ -145,7 +145,7 @@
                                                                     <div class="course-item-meta">
                                                                         <span class="item-meta duration">10:48</span>
                                                                         <span class="item-meta course-item-status">
-                                                                            <img src="public/assets/img/icons/lock.svg"
+                                                                            <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
                                                                                 alt="icon">
                                                                         </span>
                                                                     </div>
