@@ -19,13 +19,12 @@ class KurikulumController extends Controller
     {
         $user = Auth::user();
         $categori = Categories::all();
-        $kurikulum = Kurikulum::with('user')->get();
+        $$kurikulum = Kurikulum::where('id', $course_id)->get();
         $cours = KelasTatapMuka::all();
-        $count = $kurikulum->count();
         if (!$user) {
             return redirect()->route('login_admin');
         }
-        return view('admin.KelasTatapMuka.kurikulum', compact('user', 'categori', 'count', 'kurikulum', 'cours'));
+        return view('admin.KelasTatapMuka.kurikulum', compact('user', 'categori', 'kurikulum', 'cours'));
     }
 
     /**
