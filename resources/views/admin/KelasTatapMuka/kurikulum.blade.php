@@ -34,12 +34,15 @@
                         </div><br>
                         {{-- <p class="text-muted mb-3"> Jumlah Kurikulum : {{ $kurikulum->count() }}</p> --}}
                         <div class="table-responsive">
-                            <div class="col-md-12 grid-margin stretch-card">
-                                <div class="card">
-                                    <div class="card-body">
+                            @foreach ($kurikulum as $kurikulum)
+                                <div class="col-md-12 grid-margin stretch-card">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            {{ $kurikulum->title }}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
