@@ -41,7 +41,7 @@ class KurikulumController extends Controller
         // Validasi data
         $request->validate([
             'title' => 'required|string|max:255',
-            'course_id' => 'required|exists:kelas_tatap_muka,id', // Memastikan course_id ada dalam tabel kelas_tatap_muka
+            // 'course_id' => 'required|exists:kelas_tatap_muka,id', // Memastikan course_id ada dalam tabel kelas_tatap_muka
         ]);
 
         // Temukan course yang sesuai dengan course_id
