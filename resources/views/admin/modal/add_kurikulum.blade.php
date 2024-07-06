@@ -1,9 +1,10 @@
+<!-- Modal Tambah Kurikulum -->
 <div class="modal fade" id="kurikulumModal" tabindex="-1" aria-labelledby="kurikulumModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <form action="{{ route('kurikulumstore') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <input type="hidden" name="course_id" value="">
+                <input type="hidden" name="course_id" id="course_id">
                 <div class="modal-header">
                     <h5 class="modal-title" id="kurikulumModalLabel">Tambah Kurikulum</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
@@ -23,3 +24,14 @@
         </div>
     </div>
 </div>
+
+<!-- Script untuk mengambil ID kursus dari localStorage -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const courseId = localStorage.getItem('selectedCourseId');
+        if (courseId) {
+            document.getElementById('course_id').value = courseId;
+            localStorage.removeItem('selectedCourseId'); // Hapus setelah digunakan
+        }
+    });
+</script>

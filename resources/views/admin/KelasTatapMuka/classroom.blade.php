@@ -63,7 +63,8 @@
                                             </td>
                                             <td>
                                                 <a href="{{ route('kurikulum', ['id' => $courses->id]) }}"
-                                                    class="btn btn-success btn-icon" title="Kurikulum">
+                                                    class="btn btn-success btn-icon kurikulum-btn"
+                                                    data-id="{{ $courses->id }}" title="Kurikulum">
                                                     <i data-feather="settings"></i>
                                                 </a>
 
@@ -179,11 +180,15 @@
         document.addEventListener('DOMContentLoaded', function() {
             feather.replace();
         });
-        $(document).ready(function() {
-            $('.btn-icon').on('click', function() {
-                var courseId = $(this).data('course-id');
-                console.log('Course ID:', courseId);
-                // Lakukan sesuatu dengan courseId, seperti mengirimkannya ke modal atau form
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const kurikulumButtons = document.querySelectorAll('.kurikulum-btn');
+
+            kurikulumButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    const courseId = button.getAttribute('data-id');
+                    localStorage.setItem('selectedCourseId', courseId);
+                });
             });
         });
     </script>
