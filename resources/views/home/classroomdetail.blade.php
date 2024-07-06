@@ -121,6 +121,7 @@
                                                                 <a href="#" class="course-item-link">
                                                                     Create a Simple React App
                                                                     <div class="course-item-meta">
+                                                                        <span class="item-meta duration">07:48</span>
                                                                         <span class="item-meta course-item-status">
                                                                             <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
                                                                                 alt="icon">
