@@ -16,4 +16,8 @@ class Kurikulum extends Model
     {
         return $this->belongsTo(KelasTatapMuka::class, 'course_id');
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
