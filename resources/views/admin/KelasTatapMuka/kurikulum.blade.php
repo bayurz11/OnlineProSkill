@@ -46,13 +46,20 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
-            // Example of retrieving data-id attribute from the button
             $('#kurikulumModal, #exampleModal').on('show.bs.modal', function(event) {
                 var button = $(event.relatedTarget); // Button that triggered the modal
                 var kurikulumId = button.data('id'); // Extract info from data-* attributes
 
-                // If needed, you can now use the kurikulumId variable
+                // Jika perlu, gunakan nilai kurikulumId
                 console.log('Kurikulum ID:', kurikulumId);
+
+                // Isi ulang nilai course_id di dalam modal
+                $(this).find('input[name="course_id"]').val(kurikulumId);
+            });
+
+            // Reset nilai saat modal ditutup
+            $('#kurikulumModal, #exampleModal').on('hidden.bs.modal', function() {
+                $(this).find('input[name="course_id"]').val('');
             });
         });
     </script>
