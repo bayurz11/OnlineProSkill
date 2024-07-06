@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kurikulum;
 use App\Models\Categories;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
@@ -65,7 +66,7 @@ class HomeController extends Controller
         $user = Auth::user();
         $profile = null;
         $cart = Session::get('cart', []);
-
+        $kurikulum = Kurikulum::with('user')->where('course_id', $id)->get();
         if ($user) {
             $profile = UserProfile::where('user_id', $user->id)->first();
         }
@@ -93,7 +94,7 @@ class HomeController extends Controller
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
-        return view('home.classroomdetail', compact('user', 'courses', 'courseList', 'profile', 'cart', 'notifikasiCount', 'notifikasi'));
+        return view('home.classroomdetail', compact('user', 'courses', 'kurikulum', 'courseList', 'profile', 'cart', 'notifikasiCount', 'notifikasi'));
     }
 
 
