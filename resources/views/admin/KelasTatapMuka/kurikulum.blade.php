@@ -31,7 +31,7 @@
                                 data-bs-target="#exampleModal">
                                 <i class="btn-icon-prepend" data-feather="plus-circle"></i> Tambah Sub
                             </button>
-                        </div>
+                        </div><br>
                         {{-- <p class="text-muted mb-3"> Jumlah Kurikulum : {{ $kurikulum->count() }}</p> --}}
                         <div class="table-responsive">
                             <div class="col-md-12 grid-margin stretch-card">
