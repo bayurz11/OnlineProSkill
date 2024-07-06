@@ -32,7 +32,7 @@
                                 <i class="btn-icon-prepend" data-feather="plus-circle"></i> Tambah Sub
                             </button>
                         </div><br>
-                        {{-- <p class="text-muted mb-3"> Jumlah Kurikulum : {{ $kurikulum->count() }}</p> --}}
+                        <p class="text-muted mb-3"> Jumlah Kurikulum : {{ $kurikulum->count() }}</p>
                         <div class="table-responsive">
                             @foreach ($kurikulum as $kurikulum)
                                 <div class="col-md-12 grid-margin stretch-card">
