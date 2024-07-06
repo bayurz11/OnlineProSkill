@@ -19,7 +19,7 @@ class KurikulumController extends Controller
     {
         $user = Auth::user();
         $categori = Categories::all();
-        $$kurikulum = Kurikulum::where('id', $id)->get();
+        $kurikulum = Kurikulum::where('id', $id)->get();
         $cours = KelasTatapMuka::all();
         if (!$user) {
             return redirect()->route('login_admin');
