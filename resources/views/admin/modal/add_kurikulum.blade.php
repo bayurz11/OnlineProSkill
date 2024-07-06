@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('kurikulum.store') }}" method="POST">
+                <form action="{{ route('kurikulumstore') }}" method="POST">
                     @csrf
                     <input type="hidden" id="kurikulumIdInput" name="kurikulum_id">
                     <!-- Other form fields -->
