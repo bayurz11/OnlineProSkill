@@ -34,7 +34,9 @@
                         </div>
                         {{-- <p class="text-muted mb-3"> Jumlah Kurikulum : {{ $kurikulum->count() }}</p> --}}
                         <div class="table-responsive">
-                            <!-- table content -->
+                            <div class="d-flex justify-content-end">
+                                aaaa
+                            </div>
                         </div>
                     </div>
                 </div>
