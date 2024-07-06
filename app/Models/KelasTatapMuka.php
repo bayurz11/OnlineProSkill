@@ -33,4 +33,8 @@ class KelasTatapMuka extends Model
     {
         return $this->hasMany(Order::class, 'product_id');
     }
+    public function kurikulum()
+    {
+        return $this->hasMany(Order::class, 'course_id');
+    }
 }
