@@ -106,7 +106,7 @@
                                                     <button class="accordion-button" type="button"
                                                         data-bs-toggle="collapse" data-bs-target="#collapseOne"
                                                         aria-expanded="true" aria-controls="collapseOne">
-                                                        Introduction
+                                                        {{ $kurikulum->title }}
                                                     </button>
                                                 </h2>
                                                 <div id="collapseOne" class="accordion-collapse collapse show"
