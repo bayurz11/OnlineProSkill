@@ -45,7 +45,7 @@ class KurikulumController extends Controller
         ]);
 
         // Temukan course yang sesuai dengan course_id
-        $course = KelasTatapMuka::find($request->course_id);
+        $course = Kurikulum::find($request->course_id);
 
         if ($course) {
             $section = new Section();
