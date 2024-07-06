@@ -28,7 +28,7 @@
                             </button>
 
                             <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal" data-id="{{ $kurikulum->id }}">
+                                data-bs-target="#exampleModal">
                                 <i class="btn-icon-prepend" data-feather="plus-circle"></i> Tambah Sub
                             </button>
                         </div>
