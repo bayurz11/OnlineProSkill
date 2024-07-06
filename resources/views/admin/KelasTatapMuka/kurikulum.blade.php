@@ -23,17 +23,18 @@
                         <h6 class="card-title">Kurikulum</h6>
                         <div class="d-flex justify-content-end">
                             <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal"
-                                data-bs-target="#kurikulumModal">
+                                data-bs-target="#kurikulumModal" data-id="{{ $kurikulum->id }}">
                                 <i class="btn-icon-prepend" data-feather="plus-circle"></i> Kurikulum
                             </button>
 
                             <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal"><i class="btn-icon-prepend" data-feather="plus-circle"></i>
-                                Sub
+                                data-bs-target="#exampleModal" data-id="{{ $kurikulum->id }}">
+                                <i class="btn-icon-prepend" data-feather="plus-circle"></i> Sub
                             </button>
                         </div>
                         <p class="text-muted mb-3"> Jumlah Kurikulum : {{ $kurikulum->count() }}</p>
                         <div class="table-responsive">
+                            <!-- table content -->
                         </div>
                     </div>
                 </div>
@@ -44,7 +45,17 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Example of retrieving data-id attribute from the button
+            $('#kurikulumModal, #exampleModal').on('show.bs.modal', function(event) {
+                var button = $(event.relatedTarget); // Button that triggered the modal
+                var kurikulumId = button.data('id'); // Extract info from data-* attributes
 
-
+                // If needed, you can now use the kurikulumId variable
+                console.log('Kurikulum ID:', kurikulumId);
+            });
+        });
+    </script>
 
 @endsection
