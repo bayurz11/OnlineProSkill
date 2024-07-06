@@ -41,7 +41,6 @@ class KurikulumController extends Controller
         // Validasi data
         $request->validate([
             'title' => 'required|string|max:255',
-
         ]);
 
         // Temukan course yang sesuai dengan course_id
@@ -53,11 +52,12 @@ class KurikulumController extends Controller
             $section->classroom_id = $course->id; // Menggunakan ->id untuk mendapatkan id kelas
             $section->save();
 
-            return redirect()->route('kurikulum')->with('success', 'Kurikulum berhasil disimpan.');
+            return redirect()->route('kurikulum', ['id' => $course->id])->with('success', 'Kurikulum berhasil disimpan.');
         }
 
-        return redirect()->route('kurikulum')->with('error', 'Kelas tidak ditemukan.');
+        return redirect()->route('kurikulum', ['id' => $request->course_id])->with('error', 'Kelas tidak ditemukan.');
     }
+
 
 
 
