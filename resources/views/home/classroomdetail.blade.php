@@ -117,15 +117,6 @@
                                                     data-bs-parent="#accordionExample">
                                                     <div class="accordion-body">
                                                         <ul class="list-wrap">
-                                                            <li class="course-item open-item">
-                                                                <a href="https://www.youtube.com/watch?v=b2Az7_lLh3g"
-                                                                    class="course-item-link popup-video">
-                                                                    <span class="item-name">Course Installation</span>
-                                                                    <div class="course-item-meta">
-                                                                        <span class="item-meta duration">03:03</span>
-                                                                    </div>
-                                                                </a>
-                                                            </li>
                                                             <li class="course-item">
                                                                 <a href="#" class="course-item-link">
                                                                     <span class="item-name">Create a Simple React
