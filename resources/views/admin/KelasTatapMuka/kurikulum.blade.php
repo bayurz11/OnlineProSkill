@@ -34,10 +34,12 @@
                             @foreach ($kurikulum as $kurikulum)
                                 <div class="col-md-12 grid-margin stretch-card">
                                     <div class="card">
-                                        <div class="card-body">
-                                            {{ $kurikulum->no_urut }}.
-                                            {{ $kurikulum->title }} <button type="button" class="btn btn-outline-primary"
-                                                data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <div class="card-body d-flex justify-content-between align-items-center">
+                                            <div>
+                                                {{ $kurikulum->no_urut }}. {{ $kurikulum->title }}
+                                            </div>
+                                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal">
                                                 <i class="btn-icon-prepend" data-feather="plus-circle"></i> Tambah Sub
                                             </button>
                                         </div>
@@ -45,6 +47,7 @@
                                 </div>
                             @endforeach
                         </div>
+
                     </div>
                 </div>
             </div>
