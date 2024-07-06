@@ -179,6 +179,13 @@
         document.addEventListener('DOMContentLoaded', function() {
             feather.replace();
         });
+        $(document).ready(function() {
+            $('.btn-icon').on('click', function() {
+                var courseId = $(this).data('course-id');
+                console.log('Course ID:', courseId);
+                // Lakukan sesuatu dengan courseId, seperti mengirimkannya ke modal atau form
+            });
+        });
     </script>
 
 
