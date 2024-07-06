@@ -119,8 +119,7 @@
                                                         <ul class="list-wrap">
                                                             <li class="course-item">
                                                                 <a href="#" class="course-item-link">
-                                                                    <span class="item-name">Create a Simple React
-                                                                        App</span>
+                                                                    Create a Simple React App
                                                                     <div class="course-item-meta">
                                                                         <span class="item-meta duration">07:48</span>
                                                                         <span class="item-meta course-item-status">
