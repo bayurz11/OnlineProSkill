@@ -14,7 +14,7 @@
         </nav>
 
         @include('admin.modal.add_kurikulum')
-        @include('admin.modal.edit_clasroom')
+        @include('admin.modal.edit_kurikulum')
 
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
@@ -23,12 +23,12 @@
                         <h6 class="card-title">Kurikulum</h6>
                         <div class="d-flex justify-content-end">
                             <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal"
-                                data-bs-target="#kurikulumModal">
+                                data-bs-target="#kurikulumModal" data-id="new">
                                 <i class="btn-icon-prepend" data-feather="plus-circle"></i> Tambah Kurikulum
                             </button>
 
                             <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">
+                                data-bs-target="#exampleModal" data-id="{{ $kurikulum->id }}">
                                 <i class="btn-icon-prepend" data-feather="plus-circle"></i> Tambah Sub
                             </button>
                         </div>
@@ -50,16 +50,10 @@
                 var button = $(event.relatedTarget); // Button that triggered the modal
                 var kurikulumId = button.data('id'); // Extract info from data-* attributes
 
-                // Jika perlu, gunakan nilai kurikulumId
                 console.log('Kurikulum ID:', kurikulumId);
 
-                // Isi ulang nilai course_id di dalam modal
-                $(this).find('input[name="course_id"]').val(kurikulumId);
-            });
-
-            // Reset nilai saat modal ditutup
-            $('#kurikulumModal, #exampleModal').on('hidden.bs.modal', function() {
-                $(this).find('input[name="course_id"]').val('');
+                // Use the kurikulumId variable to set a hidden input field value
+                $('#kurikulumIdInput').val(kurikulumId); // Assuming you have an input field with this ID
             });
         });
     </script>
