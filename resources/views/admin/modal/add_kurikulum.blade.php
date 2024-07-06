@@ -2,7 +2,7 @@
 <div class="modal fade" id="kurikulumModal" tabindex="-1" aria-labelledby="kurikulumModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form action="{{ route('kurikulumstore') }}" method="POST" enctype="multipart/form-data">
+            <form id="kurikulumForm" action="{{ route('kurikulumstore') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="course_id" id="course_id">
                 <div class="modal-header">
@@ -25,13 +25,21 @@
     </div>
 </div>
 
-<!-- Script untuk mengambil ID kursus dari localStorage -->
+<!-- Script untuk mengambil ID kursus dari localStorage dan mereset form -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const courseId = localStorage.getItem('selectedCourseId');
-        if (courseId) {
-            document.getElementById('course_id').value = courseId;
-            localStorage.removeItem('selectedCourseId'); // Hapus setelah digunakan
-        }
+        const kurikulumModal = document.getElementById('kurikulumModal');
+        kurikulumModal.addEventListener('show.bs.modal', function(event) {
+            const courseId = localStorage.getItem('selectedCourseId');
+            if (courseId) {
+                console.log('Course ID found in localStorage:', courseId);
+                document.getElementById('course_id').value = courseId;
+            }
+        });
+
+        kurikulumModal.addEventListener('hide.bs.modal', function(event) {
+            console.log('Modal closed, resetting form.');
+            document.getElementById('kurikulumForm').reset();
+        });
     });
 </script>
