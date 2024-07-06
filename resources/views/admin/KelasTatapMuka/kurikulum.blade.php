@@ -23,7 +23,7 @@
                         <h6 class="card-title">Kurikulum</h6>
                         <div class="d-flex justify-content-end">
                             <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal"
-                                data-bs-target="#kurikulumModal" data-course-id="{{ $courses->id }}">
+                                data-bs-target="#kurikulumModal" data-course-id="{{ $cours->id }}">
                                 <i class="btn-icon-prepend" data-feather="plus-circle"></i> Kurikulum
                             </button>
 
