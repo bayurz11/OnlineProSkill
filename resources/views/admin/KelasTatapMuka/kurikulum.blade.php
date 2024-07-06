@@ -38,6 +38,7 @@
                                 <div class="col-md-12 grid-margin stretch-card">
                                     <div class="card">
                                         <div class="card-body">
+                                            {{ $kurikulum->no_urut }}.
                                             {{ $kurikulum->title }}
                                         </div>
                                     </div>
