@@ -150,29 +150,18 @@
                                                 padding: 10px;
                                             }
                                         </style>
-                                        <!-- Modal Alert -->
-                                        <div class="modal fade" id="alertModal" tabindex="-1" role="dialog"
-                                            aria-labelledby="alertModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="alertModalLabel">Notifikasi</h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <p id="alertMessage"></p>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-primary"
-                                                            data-dismiss="modal">OK</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                         <script>
+                                            document.getElementById('notification-icon').addEventListener('click', function(event) {
+                                                event.preventDefault();
+                                                var dropdown = document.getElementById('notification-dropdown');
+                                                if (dropdown.style.display === 'none' || dropdown.style.display === '') {
+                                                    dropdown.style.display = 'block';
+                                                } else {
+                                                    dropdown.style.display = 'none';
+                                                }
+                                            });
+
                                             @if ($notifikasiCount > 0)
                                                 document.getElementById('mark-all-read').addEventListener('click', function(event) {
                                                     event.preventDefault();
@@ -187,19 +176,14 @@
                                                         .then(response => response.json())
                                                         .then(data => {
                                                             if (data.status === 'success') {
-                                                                showAlert(data.message);
-                                                                setTimeout(() => location.reload(), 2000); // Refresh halaman setelah 2 detik
+                                                                alert(data.message);
+                                                                location.reload(); // Tambahkan baris ini untuk me-refresh halaman
                                                             } else {
-                                                                showAlert('Gagal menandai semua notifikasi sebagai telah dibaca.');
+                                                                alert('Gagal menandai semua notifikasi sebagai telah dibaca.');
                                                             }
                                                         })
                                                         .catch(error => console.error('Error:', error));
                                                 });
-
-                                                function showAlert(message) {
-                                                    document.getElementById('alertMessage').textContent = message;
-                                                    $('#alertModal').modal('show');
-                                                }
                                             @endif
                                         </script>
 
