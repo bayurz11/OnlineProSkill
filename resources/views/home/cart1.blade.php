@@ -27,39 +27,6 @@
                     </div>
                 @endauth
                 @auth
-                    {{-- <div class="col-lg-7">
-                        <form action="{{ route('payment') }}" class="customer__form-wrap" method="POST">
-                            @csrf
-                            <span class="title">RINCIAN PENAGIHAN</span>
-
-                            @foreach ($cart as $item)
-                                <input type="hidden" name="cart_items[]" value="{{ $item['id'] }}">
-                            @endforeach
-
-                            <div class="form-grp">
-                                <label for="name">Nama *</label>
-                                <input type="text" id="name" name="name" value="{{ $user->name }}">
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-grp">
-                                        <label for="phone">Telepon *</label>
-                                        <input type="number" id="phone" name="phone" min="0" required
-                                            value="{{ $profile->phone_number }}" maxlength="12" placeholder="08**********">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-grp">
-                                        <label for="email">Alamat Email *</label>
-                                        <input type="email" id="email" name="email" value="{{ $user->email }}">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <button type="submit" class="btn">Bayar & gabung kelas</button>
-                        </form>
-                    </div> --}}
                     <div class="col-lg-7">
                         <table class="table cart__table">
                             <thead>
@@ -100,46 +67,52 @@
                                         </tr>
                                     @endforeach
                                 @else
-                                    <p>Keranjang Anda kosong. <a href="{{ route('classroom') }}">Lihat kelas yang tersedia.</a>
-                                    </p>
+                                    <tr>
+                                        <td colspan="5">
+                                            <p>Keranjang Anda kosong. <a href="{{ route('classroom') }}">Lihat kelas yang
+                                                    tersedia.</a></p>
+                                        </td>
+                                    </tr>
                                 @endif
                             </tbody>
                         </table>
-                        <form action="{{ route('payment') }}" class="customer__form-wrap" method="POST">
-                            @csrf
-                            <span class="title" hidden>RINCIAN PENAGIHAN</span>
 
-                            @foreach ($cart as $item)
-                                <input type="hidden" name="cart_items[]" value="{{ $item['id'] }}" hidden>
-                            @endforeach
+                        @if (count($cart) > 0)
+                            <form action="{{ route('payment') }}" class="customer__form-wrap" method="POST">
+                                @csrf
+                                <span class="title">RINCIAN PENAGIHAN</span>
 
-                            <div class="form-grp" hidden>
-                                <label for="name">Nama *</label>
-                                <input type="text" id="name" name="name" value="{{ $user->name }}">
-                            </div>
+                                @foreach ($cart as $item)
+                                    <input type="hidden" name="cart_items[]" value="{{ $item['id'] }}">
+                                @endforeach
 
-                            <div class="row" hidden>
-                                <div class="col-md-6">
-                                    <div class="form-grp">
-                                        <label for="phone">Telepon *</label>
-                                        <input type="number" id="phone" name="phone" min="0" required
-                                            value="{{ $profile->phone_number }}" maxlength="12" placeholder="08**********">
+                                <div class="form-grp">
+                                    <label for="name">Nama *</label>
+                                    <input type="text" id="name" name="name" value="{{ $user->name }}">
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-grp">
+                                            <label for="phone">Telepon *</label>
+                                            <input type="number" id="phone" name="phone" min="0" required
+                                                value="{{ $profile->phone_number }}" maxlength="12" placeholder="08**********">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-grp">
+                                            <label for="email">Alamat Email *</label>
+                                            <input type="email" id="email" name="email" value="{{ $user->email }}">
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-grp">
-                                        <label for="email">Alamat Email *</label>
-                                        <input type="email" id="email" name="email" value="{{ $user->email }}">
-                                    </div>
-                                </div>
-                            </div>
 
-                            <button type="submit" class="btn">Bayar & gabung kelas</button>
-                        </form>
+                                <button type="submit" class="btn">Bayar & gabung kelas</button>
+                            </form>
+                        @endif
                     </div>
-
-
                 @endauth
+
                 @guest
                     <div class="col-12">
                         <div class="coupon__code-wrap">
