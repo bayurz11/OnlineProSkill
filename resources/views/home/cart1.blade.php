@@ -80,7 +80,7 @@
                         @if (count($cart) > 0)
                             <form action="{{ route('payment') }}" class="customer__form-wrap" method="POST">
                                 @csrf
-                                <span class="title">RINCIAN PENAGIHAN</span>
+
 
                                 @foreach ($cart as $item)
                                     <input type="hidden" name="cart_items[]" value="{{ $item['id'] }}">
