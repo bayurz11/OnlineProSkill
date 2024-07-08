@@ -189,7 +189,7 @@
                                                         .then(data => {
                                                             if (data.status === 'success') {
                                                                 showAlert(data.message);
-                                                                setTimeout(() => location.reload(), 2000); // Refresh halaman setelah 2 detik
+                                                                setTimeout(() => location.reload(), 2000);
                                                             } else {
                                                                 showAlert('Gagal menandai semua notifikasi sebagai telah dibaca.');
                                                             }
