@@ -76,7 +76,7 @@
                                             <button class="nav-link" id="business-tab" data-bs-toggle="tab"
                                                 data-bs-target="#business-tab-pane" type="button" role="tab"
                                                 aria-controls="business-tab-pane" aria-selected="false">
-                                                Kursus yang Telah Selesai
+                                                Kursus Selesai
                                             </button>
                                         </li>
                                     </ul>
