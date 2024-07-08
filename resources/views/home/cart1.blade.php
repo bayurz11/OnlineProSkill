@@ -192,7 +192,7 @@
 
                             </ul>
                         @else
-                            <p>Keranjang Anda kosong.
+                            <p>
                             </p>
                         @endif
                     </div>
