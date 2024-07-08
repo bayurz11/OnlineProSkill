@@ -87,8 +87,7 @@
                                             </td>
                                             <td class="product__price">Rp.{{ array_sum(array_column($cart, 'price')) }}</td>
                                             <td class="product__quantity">
-                                                <div class="cart-plus-minus">
-
+                                                <div class="">
                                                     {{ array_sum(array_column($cart, 'quantity')) }}
                                                 </div>
                                             </td>
