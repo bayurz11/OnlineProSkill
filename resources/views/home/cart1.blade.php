@@ -139,7 +139,7 @@
                         @if (count($cart) > 0)
                             <ul class="list-wrap">
 
-                                <li>Jumlah Quantity <span>{{ array_sum(array_column($cart, 'quantity')) }}</span></li>
+                                {{-- <li>Jumlah Quantity <span>{{ array_sum(array_column($cart, 'quantity')) }}</span></li> --}}
                                 <li>Subtotal
                                     <span>Rp
                                         {{ number_format(array_sum(array_column($cart, 'price')), 0, ',', ',') }}</span>
