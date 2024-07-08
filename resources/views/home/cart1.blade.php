@@ -65,8 +65,8 @@
                             <thead>
                                 <tr>
                                     <th class="product__thumb">&nbsp;</th>
-                                    <th class="product__name">Product</th>
-                                    <th class="product__price">Price</th>
+                                    <th class="product__name">Kelas</th>
+                                    <th class="product__price">Harga</th>
                                     <th class="product__quantity">Quantity</th>
                                     <th class="product__subtotal">Subtotal</th>
                                     <th class="product__remove">&nbsp;</th>
