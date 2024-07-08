@@ -150,8 +150,6 @@
                             </ul>
                             <form action="{{ route('payment') }}" class="customer__form-wrap" method="POST">
                                 @csrf
-
-
                                 @foreach ($cart as $item)
                                     <input type="hidden" name="cart_items[]" value="{{ $item['id'] }}">
                                 @endforeach
