@@ -83,14 +83,14 @@
                                             <td class="product__name">
                                                 <a href="{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}</a>
                                             </td>
-                                            <td class="product__price">{{ array_sum(array_column($cart, 'price')) }}</td>
+                                            <td class="product__price">Rp.{{ array_sum(array_column($cart, 'price')) }}</td>
                                             <td class="product__quantity">
                                                 <div class="cart-plus-minus">
                                                     <input type="text"
                                                         value="{{ array_sum(array_column($cart, 'quantity')) }}">
                                                 </div>
                                             </td>
-                                            <td class="product__subtotal">{{ array_sum(array_column($cart, 'price')) }}</td>
+                                            <td class="product__subtotal">Rp.{{ array_sum(array_column($cart, 'price')) }}</td>
                                             <td class="product__remove">
                                                 <form action="{{ route('cart.remove', $item['id']) }}" method="POST"
                                                     style="display:inline;">
