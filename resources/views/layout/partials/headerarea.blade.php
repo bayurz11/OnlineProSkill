@@ -104,9 +104,11 @@
                                                         Semua Telah Dibaca</button>
                                                     <ul>
                                                         @foreach ($notifikasi as $notif)
-                                                            <li>{{ $notif->message }} -
-                                                                <small>{{ $notif->created_at->format('d-M-Y') }}</small>
-                                                            </li>
+                                                            @if ($notifikasiCount == 1)
+                                                                <li>{{ $notif->message }} -
+                                                                    <small>{{ $notif->created_at->format('d-M-Y') }}</small>
+                                                                </li>
+                                                            @endif
                                                         @endforeach
                                                     </ul>
                                                 @else
