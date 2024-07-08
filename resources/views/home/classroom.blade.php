@@ -136,7 +136,7 @@
                                                             </a>
                                                         </div>
                                                         <h5 class="price">Rp
-                                                            {{ number_format($cours->price, 0, ',', '.') }}</h5>
+                                                            {{ number_format($cours->price, 0, ',', ',') }}</h5>
                                                     </div>
                                                 </div>
                                             </div>
