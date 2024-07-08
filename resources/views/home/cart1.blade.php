@@ -31,18 +31,18 @@
                     @endif
                 @endauth
                 @auth
-                    <div class="col-lg-7">
-                        <table class="table cart__table">
-                            <thead>
-                                <tr>
-                                    <th class="product__thumb">&nbsp;</th>
-                                    <th class="product__name">Kelas</th>
-                                    <th class="product__price">Harga</th>
-                                    <th class="product__remove">&nbsp;</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @if (count($cart) > 0)
+                    @if (count($cart) > 0)
+                        <div class="col-lg-7">
+                            <table class="table cart__table">
+                                <thead>
+                                    <tr>
+                                        <th class="product__thumb">&nbsp;</th>
+                                        <th class="product__name">Kelas</th>
+                                        <th class="product__price">Harga</th>
+                                        <th class="product__remove">&nbsp;</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
                                     @foreach ($cart as $item)
                                         <tr>
                                             <td class="product__thumb">
@@ -66,21 +66,17 @@
                                             </td>
                                         </tr>
                                     @endforeach
-                                @else
-                                    <tr>
-                                        <td colspan="5">
-                                            <p>Keranjang Anda kosong. <a href="{{ route('classroom') }}">Lihat kelas yang
-                                                    tersedia.</a></p>
-                                        </td>
-                                    </tr>
-                                @endif
-
-
-                            </tbody>
-                        </table>
-
-
-                    </div>
+                                </tbody>
+                            </table>
+                        </div>
+                    @else
+                        <tr>
+                            <td colspan="5">
+                                <p>Keranjang Anda kosong. <a href="{{ route('classroom') }}">Lihat kelas yang
+                                        tersedia.</a></p>
+                            </td>
+                        </tr>
+                    @endif
                 @endauth
 
                 @guest
