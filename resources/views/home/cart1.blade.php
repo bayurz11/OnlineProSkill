@@ -171,22 +171,22 @@
                 <div class="col-lg-5">
                     <div class="cart__collaterals-wrap">
                         <h2 class="title">Total keranjang</h2>
+                        @if (count($cart) > 0)
+                            <ul class="list-wrap">
 
-                        <ul class="list-wrap">
+                                <li>Jumlah Quantity <span>{{ array_sum(array_column($cart, 'quantity')) }}</span></li>
+                                <li>Subtotal
+                                    <span>Rp
+                                        {{ number_format(array_sum(array_column($cart, 'price')), 0, ',', '.') }}</span>
+                                </li>
+                                <li>Total <span class="amount">Rp
+                                        {{ number_format(array_sum(array_column($cart, 'price')), 0, ',', '.') }}</span>
+                                </li>
 
-                            <li>Jumlah Quantity <span>{{ array_sum(array_column($cart, 'quantity')) }}</span></li>
-                            <li>Subtotal
-                                <span>Rp
-                                    {{ number_format(array_sum(array_column($cart, 'price')), 0, ',', '.') }}</span>
-                            </li>
-                            <li>Total <span class="amount">Rp
-                                    {{ number_format(array_sum(array_column($cart, 'price')), 0, ',', '.') }}</span>
-                            </li>
-
-                        </ul>
-                    @else
-                        <p>Keranjang Anda kosong.
-                        </p>
+                            </ul>
+                        @else
+                            <p>Keranjang Anda kosong.
+                            </p>
                         @endif
                     </div>
                 </div>
