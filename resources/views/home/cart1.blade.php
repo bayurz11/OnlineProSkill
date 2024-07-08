@@ -130,11 +130,11 @@
                         </div>
                     </div>
                 @endguest
+                @if (count($cart) > 0)
+                    <div class="col-lg-5">
+                        <div class="cart__collaterals-wrap">
+                            <h2 class="title">Total keranjang</h2>
 
-                <div class="col-lg-5">
-                    <div class="cart__collaterals-wrap">
-                        <h2 class="title">Total keranjang</h2>
-                        @if (count($cart) > 0)
                             <ul class="list-wrap">
 
                                 {{-- <li>Jumlah Quantity <span>{{ array_sum(array_column($cart, 'quantity')) }}</span></li> --}}
@@ -177,13 +177,13 @@
 
                                 <button type="submit" class="btn">Bayar & gabung kelas</button>
                             </form>
-                        @else
-                            <p>
-                            </p>
-                        @endif
-                    </div>
-                </div>
 
+                        </div>
+                    </div>
+                @else
+                    <p>
+                    </p>
+                @endif
             </div>
         </div>
     </div>
