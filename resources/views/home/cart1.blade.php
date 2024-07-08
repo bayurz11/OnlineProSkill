@@ -81,7 +81,8 @@
                                                         alt=""></a>
                                             </td>
                                             <td class="product__name">
-                                                <a href="shop-details.html">Antiaging and Longevity</a>
+                                                <a
+                                                    href="shop-details.html">{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}</a>
                                             </td>
                                             <td class="product__price">$13.00</td>
                                             <td class="product__quantity">
@@ -91,7 +92,12 @@
                                             </td>
                                             <td class="product__subtotal">$13.00</td>
                                             <td class="product__remove">
-                                                <a href="#">×</a>
+                                                <form action="{{ route('cart.remove', $item['id']) }}" method="POST"
+                                                    style="display:inline;">
+                                                    @csrf
+                                                    <button type="submit" class="btn-remove"
+                                                        style="background:none; border:none; color:red; cursor:pointer;">x</button>
+                                                </form>
                                             </td>
                                         @endforeach
                                     </tr>
@@ -151,7 +157,8 @@
                             <h2 class="title">Buat Akun ProSkill</h2>
                             <p>Silahkan isi form berikut untuk melanjutkan.</p>
 
-                            <form action="{{ route('guestregister') }}" class="account__form" method="POST" id="guestregister">
+                            <form action="{{ route('guestregister') }}" class="account__form" method="POST"
+                                id="guestregister">
                                 @csrf
                                 <div class="form-grp">
                                     <input type="text" id="name" name="name"
