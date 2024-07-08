@@ -78,7 +78,7 @@
                                         @foreach ($cart as $item)
                                             <td class="product__thumb">
                                                 <a href="{{ route('classroomdetail', $item['id']) }}"><img
-                                                        src="{{ $item->gambar ? asset('public/uploads/' . $item->gambar) : asset('public/assets/img/shop/shop_img01.jpg') }}"
+                                                        src="{{ $cart->gambar ? asset('public/uploads/' . $cart->gambar) : asset('public/assets/img/shop/shop_img01.jpg') }}"
                                                         alt=""></a>
                                             </td>
                                             <td class="product__name">
