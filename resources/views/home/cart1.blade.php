@@ -86,7 +86,8 @@
                                             <td class="product__price">$13.00</td>
                                             <td class="product__quantity">
                                                 <div class="cart-plus-minus">
-                                                    {{ array_sum(array_column($cart, 'quantity')) }}
+                                                    <input type="text"
+                                                        value="{{ array_sum(array_column($cart, 'quantity')) }}">
                                                 </div>
                                             </td>
                                             <td class="product__subtotal">$13.00</td>
