@@ -146,38 +146,39 @@
                                         {{ number_format(array_sum(array_column($cart, 'price')), 0, ',', ',') }}</span>
                                 </li>
                             </ul>
-                            <form action="{{ route('payment') }}" class="customer__form-wrap" method="POST">
-                                @csrf
-                                @foreach ($cart as $item)
-                                    <input type="hidden" name="cart_items[]" value="{{ $item['id'] }}">
-                                @endforeach
+                            @auth
+                                <form action="{{ route('payment') }}" class="customer__form-wrap" method="POST">
+                                    @csrf
+                                    @foreach ($cart as $item)
+                                        <input type="hidden" name="cart_items[]" value="{{ $item['id'] }}">
+                                    @endforeach
 
-                                <div class="form-grp" hidden>
-                                    <label for="name">Nama *</label>
-                                    <input type="text" id="name" name="name" value="{{ $user->name }}">
-                                </div>
+                                    <div class="form-grp" hidden>
+                                        <label for="name">Nama *</label>
+                                        <input type="text" id="name" name="name" value="{{ $user->name }}">
+                                    </div>
 
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-grp" hidden>
-                                            <label for="phone">Telepon *</label>
-                                            <input type="number" id="phone" name="phone" min="0" required
-                                                value="{{ $profile->phone_number }}" maxlength="12"
-                                                placeholder="08**********">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-grp" hidden>
+                                                <label for="phone">Telepon *</label>
+                                                <input type="number" id="phone" name="phone" min="0" required
+                                                    value="{{ $profile->phone_number }}" maxlength="12"
+                                                    placeholder="08**********">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-grp" hidden>
+                                                <label for="email">Alamat Email *</label>
+                                                <input type="email" id="email" name="email"
+                                                    value="{{ $user->email }}">
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-grp" hidden>
-                                            <label for="email">Alamat Email *</label>
-                                            <input type="email" id="email" name="email"
-                                                value="{{ $user->email }}">
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <button type="submit" class="btn">Bayar & gabung kelas</button>
-                            </form>
-
+                                    <button type="submit" class="btn">Bayar & gabung kelas</button>
+                                </form>
+                            @endauth
                         </div>
                     </div>
                 @else
