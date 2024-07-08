@@ -99,12 +99,12 @@
                                             </a>
                                             <div id="notification-dropdown" class="notification-dropdown"
                                                 style="display: none;">
-                                                @if ($notifikasiCount > 0)
+                                                @if ($status > 0)
                                                     <button id="mark-all-read" style="margin: 10px; border: none;">Tandai
                                                         Semua Telah Dibaca</button>
                                                     <ul>
                                                         @foreach ($notifikasi as $notif)
-                                                            @if ($notifikasiCount == 1)
+                                                            @if ($status == 1)
                                                                 <li>{{ $notif->message }} -
                                                                     <small>{{ $notif->created_at->format('d-M-Y') }}</small>
                                                                 </li>
