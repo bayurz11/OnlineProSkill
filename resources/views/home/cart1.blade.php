@@ -87,8 +87,10 @@
                                             </td>
                                             <td class="product__price">Rp.{{ array_sum(array_column($cart, 'price')) }}</td>
                                             <td class="product__quantity">
-                                                <input type="text" value="{{ $item['quantity'] }}" readonly>
+                                                <input type="text" value="{{ $item['quantity'] }}" readonly
+                                                    style="border: none;">
                                             </td>
+
                                             <td class="product__subtotal">Rp.{{ array_sum(array_column($cart, 'price')) }}</td>
                                             <td class="product__remove">
                                                 <form action="{{ route('cart.remove', $item['id']) }}" method="POST"
