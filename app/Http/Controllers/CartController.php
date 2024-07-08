@@ -70,9 +70,7 @@ class CartController extends Controller
         $course = KelasTatapMuka::find($id);
         $cart = Session::get('cart', []);
 
-        if (isset($cart[$id])) {
-            $cart[$id]['quantity']++;
-        } else {
+        if (!isset($cart[$id])) {
             $cart[$id] = [
                 "id" => $id,
                 "name" => $course->nama_kursus,
@@ -80,6 +78,10 @@ class CartController extends Controller
                 "gambar" => $course->gambar,
                 "quantity" => 1,
             ];
+
+            Session::flash('success', 'Item telah ditambahkan ke keranjang!');
+        } else {
+            Session::flash('info', 'Item sudah ada di keranjang!');
         }
 
         Session::put('cart', $cart);
