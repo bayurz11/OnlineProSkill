@@ -77,9 +77,10 @@
                                     <tr>
                                         @foreach ($cart as $item)
                                             <td class="product__thumb">
-                                                <a href="{{ route('classroomdetail', $item['id']) }}"><img
-                                                        src="{{ $course->gambar ? asset('public/uploads/' . $course->gambar) : asset('public/assets/img/shop/shop_img01.jpg') }}"
-                                                        alt=""></a>
+                                                <a href="{{ route('classroomdetail', $item['id']) }}">
+                                                    <img src="{{ $item['gambar'] ? asset('public/uploads/' . $item['gambar']) : asset('public/assets/img/shop/shop_img01.jpg') }}"
+                                                        alt="">
+                                                </a>
                                             </td>
                                             <td class="product__name">
                                                 <a href="{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}</a>
