@@ -60,7 +60,7 @@
                             <button type="submit" class="btn">Bayar & gabung kelas</button>
                         </form>
                     </div> --}}
-                    <div class="col-lg-8">
+                    <div class="col-lg-7">
                         <table class="table cart__table">
                             <thead>
                                 <tr>
