@@ -84,7 +84,7 @@
                                             <td class="product__name">
                                                 <a href="{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}</a>
                                             </td>
-                                            <td class="product__price">Rp.{{ array_sum(array_column($cart, 'price')) }}</td>
+                                            <td class="product__price">Rp.{{ array_column($cart, 'price') }}</td>
                                             <td class="product__quantity">
                                                 <input type="text" value="{{ $item['quantity'] }}" readonly
                                                     style="border: none;">
