@@ -94,7 +94,7 @@
                                                     style="display:inline;">
                                                     @csrf
                                                     <button type="submit" class="btn-remove"
-                                                        style="background:none; border:none; color:red; cursor:pointer;">x</button>
+                                                        style="background:none; border:none; color:rgb(20, 20, 20); cursor:pointer;">x</button>
                                                 </form>
                                             </td>
                                         </tr>
