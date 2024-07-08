@@ -4,9 +4,9 @@
 <?php $page = 'Cart'; ?>
 
 @section('content')
-    <section class="breadcrumb__area breadcrumb__bg" data-background="{{ asset('public/assets/img/bg/breadcrumb_bg.jpg') }}">
+    {{-- <section class="breadcrumb__area breadcrumb__bg" data-background="{{ asset('public/assets/img/bg/breadcrumb_bg.jpg') }}">
         <!-- Breadcrumb section content -->
-    </section>
+    </section> --}}
 
     <div class="cart__area section-py-120">
         <div class="container">
