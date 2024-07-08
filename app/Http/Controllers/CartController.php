@@ -120,12 +120,19 @@ class CartController extends Controller
                 "gambar" => $course->gambar,
                 "quantity" => 1,
             ];
+
+            // Set flash message for item added to cart
+            Session::flash('success', 'Item telah ditambahkan ke keranjang!');
+        } else {
+            // Set flash message if item already in cart
+            Session::flash('info', 'Item sudah ada di keranjang!');
         }
 
         Session::put('cart', $cart);
 
         return redirect()->route('classroom');
     }
+
 
     public function addToCartdetail($id)
     // {
