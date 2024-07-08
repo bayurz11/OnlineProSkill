@@ -34,7 +34,6 @@
                                     <th class="product__thumb">&nbsp;</th>
                                     <th class="product__name">Kelas</th>
                                     <th class="product__price">Harga</th>
-                                    <th class="product__quantity">Quantity</th>
                                     <th class="product__remove">&nbsp;</th>
                                 </tr>
                             </thead>
@@ -52,10 +51,7 @@
                                                 <a href="{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}</a>
                                             </td>
                                             <td class="product__price">Rp {{ number_format($item['price'], 0, ',', ',') }}</td>
-                                            <td class="product__quantity">
-                                                <input type="text" value="{{ $item['quantity'] }}" readonly
-                                                    style="border: none;">
-                                            </td>
+
                                             <td class="product__remove">
                                                 <form action="{{ route('cart.remove', $item['id']) }}" method="POST"
                                                     style="display:inline;">
