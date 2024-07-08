@@ -74,8 +74,8 @@
                             </thead>
                             <tbody>
                                 @if (count($cart) > 0)
-                                    <tr>
-                                        @foreach ($cart as $item)
+                                    @foreach ($cart as $item)
+                                        <tr>
                                             <td class="product__thumb">
                                                 <a href="{{ route('classroomdetail', $item['id']) }}">
                                                     <img src="{{ $item['gambar'] ? asset('public/uploads/' . $item['gambar']) : asset('public/assets/img/shop/shop_img01.jpg') }}"
@@ -100,8 +100,8 @@
                                                         style="background:none; border:none; color:red; cursor:pointer;">x</button>
                                                 </form>
                                             </td>
-                                        @endforeach
-                                    </tr>
+                                        </tr>
+                                    @endforeach
                                 @else
                                     <p>Keranjang Anda kosong. <a href="{{ route('classroom') }}">Lihat kelas yang tersedia.</a>
                                     </p>
