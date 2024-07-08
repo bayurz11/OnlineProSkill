@@ -184,7 +184,10 @@
                             </li>
 
                         </ul>
-
+                    @else
+                        <p>Keranjang Anda kosong. <a href="{{ route('classroom') }}">Lihat kelas yang tersedia.</a>
+                        </p>
+                        @endif
                     </div>
                 </div>
 
