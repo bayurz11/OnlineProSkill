@@ -49,7 +49,7 @@ class CartController extends Controller
 
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
-        return view('home.cart1', compact('user', 'cart', 'profile', 'courses', 'notifikasiCount', 'notifikasi'));
+        return view('home.cart', compact('user', 'cart', 'profile', 'courses', 'notifikasiCount', 'notifikasi'));
     }
 
     public function updateQuantity(Request $request, $id)
