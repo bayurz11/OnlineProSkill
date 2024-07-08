@@ -51,7 +51,7 @@
                                             <td class="product__name">
                                                 <a href="{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}</a>
                                             </td>
-                                            <td class="product__price">Rp {{ number_format($item['price'], 0, ',', '.') }}</td>
+                                            <td class="product__price">Rp {{ number_format($item['price'], 0, ',', ',') }}</td>
                                             <td class="product__quantity">
                                                 <input type="text" value="{{ $item['quantity'] }}" readonly
                                                     style="border: none;">
@@ -177,10 +177,10 @@
                                 <li>Jumlah Quantity <span>{{ array_sum(array_column($cart, 'quantity')) }}</span></li>
                                 <li>Subtotal
                                     <span>Rp
-                                        {{ number_format(array_sum(array_column($cart, 'price')), 0, ',', '.') }}</span>
+                                        {{ number_format(array_sum(array_column($cart, 'price')), 0, ',', ',') }}</span>
                                 </li>
                                 <li>Total <span class="amount">Rp
-                                        {{ number_format(array_sum(array_column($cart, 'price')), 0, ',', '.') }}</span>
+                                        {{ number_format(array_sum(array_column($cart, 'price')), 0, ',', ',') }}</span>
                                 </li>
 
                             </ul>
