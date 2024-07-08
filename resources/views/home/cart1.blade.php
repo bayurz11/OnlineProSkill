@@ -84,7 +84,7 @@
                                             <td class="product__name">
                                                 <a href="{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}</a>
                                             </td>
-                                            <td class="product__price">Rp.{{ $item['price'] }}</td>
+                                            <td class="product__price">Rp.{{ number_format($item['price'], 0, ',', '.') }}</td>
                                             <td class="product__quantity">
                                                 <input type="text" value="{{ $item['quantity'] }}" readonly
                                                     style="border: none;">
