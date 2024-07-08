@@ -70,12 +70,10 @@
                             </table>
                         </div>
                     @else
-                        <tr>
-                            <td colspan="5">
-                                <p>Keranjang Anda kosong. <a href="{{ route('classroom') }}">Lihat kelas yang
-                                        tersedia.</a></p>
-                            </td>
-                        </tr>
+                        <div class="col-lg-7">
+                            <p>Keranjang Anda kosong. <a href="{{ route('classroom') }}">Lihat kelas yang
+                                    tersedia.</a></p>
+                        </div>
                     @endif
                 @endauth
 
