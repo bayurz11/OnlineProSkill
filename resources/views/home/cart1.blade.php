@@ -68,7 +68,6 @@
                                     <th class="product__name">Kelas</th>
                                     <th class="product__price">Harga</th>
                                     <th class="product__quantity">Quantity</th>
-                                    <th class="product__subtotal">Subtotal</th>
                                     <th class="product__remove">&nbsp;</th>
                                 </tr>
                             </thead>
@@ -90,8 +89,6 @@
                                                 <input type="text" value="{{ $item['quantity'] }}" readonly
                                                     style="border: none;">
                                             </td>
-
-                                            <td class="product__subtotal">Rp.{{ array_sum(array_column($cart, 'price')) }}</td>
                                             <td class="product__remove">
                                                 <form action="{{ route('cart.remove', $item['id']) }}" method="POST"
                                                     style="display:inline;">
