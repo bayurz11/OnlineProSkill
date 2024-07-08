@@ -86,14 +86,33 @@ class CartController extends Controller
 
         return redirect()->route('cart.view');
     }
+    // public function addToCart($id)
+    // {
+    //     $course = KelasTatapMuka::find($id);
+    //     $cart = Session::get('cart', []);
+
+    //     if (isset($cart[$id])) {
+    //         $cart[$id]['quantity']++;
+    //     } else {
+    //         $cart[$id] = [
+    //             "id" => $id,
+    //             "name" => $course->nama_kursus,
+    //             "price" => $course->price,
+    //             "gambar" => $course->gambar,
+    //             "quantity" => 1,
+    //         ];
+    //     }
+
+    //     Session::put('cart', $cart);
+
+    //     return redirect()->route('classroom');
+    // }
     public function addToCart($id)
     {
         $course = KelasTatapMuka::find($id);
         $cart = Session::get('cart', []);
 
-        if (isset($cart[$id])) {
-            $cart[$id]['quantity']++;
-        } else {
+        if (!isset($cart[$id])) {
             $cart[$id] = [
                 "id" => $id,
                 "name" => $course->nama_kursus,
@@ -107,14 +126,33 @@ class CartController extends Controller
 
         return redirect()->route('classroom');
     }
+
     public function addToCartdetail($id)
+    // {
+    //     $course = KelasTatapMuka::find($id);
+    //     $cart = Session::get('cart', []);
+
+    //     if (isset($cart[$id])) {
+    //         $cart[$id]['quantity']++;
+    //     } else {
+    //         $cart[$id] = [
+    //             "id" => $id,
+    //             "name" => $course->nama_kursus,
+    //             "price" => $course->price,
+    //             "gambar" => $course->gambar,
+    //             "quantity" => 1,
+    //         ];
+    //     }
+
+    //     Session::put('cart', $cart);
+
+    //     return redirect()->route('classroomdetail', ['id' => $id]);
+    // }
     {
         $course = KelasTatapMuka::find($id);
         $cart = Session::get('cart', []);
 
-        if (isset($cart[$id])) {
-            $cart[$id]['quantity']++;
-        } else {
+        if (!isset($cart[$id])) {
             $cart[$id] = [
                 "id" => $id,
                 "name" => $course->nama_kursus,
