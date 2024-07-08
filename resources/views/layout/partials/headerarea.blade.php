@@ -117,7 +117,7 @@
                                             </a>
                                             <div id="notification-dropdown" class="notification-dropdown"
                                                 style="display: none;">
-                                                @if ($notifikasiCount > 1)
+                                                @if ($notifikasiCount > 0)
                                                     <button id="mark-all-read" style="margin: 10px; border: none;">Tandai
                                                         Semua Telah Dibaca</button>
                                                     <ul>
