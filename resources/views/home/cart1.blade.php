@@ -73,25 +73,32 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="product__thumb">
-                                        <a href="shop-details.html"><img src="assets/img/shop/shop_img01.jpg"
-                                                alt=""></a>
-                                    </td>
-                                    <td class="product__name">
-                                        <a href="shop-details.html">Antiaging and Longevity</a>
-                                    </td>
-                                    <td class="product__price">$13.00</td>
-                                    <td class="product__quantity">
-                                        <div class="cart-plus-minus">
-                                            <input type="text" value="1">
-                                        </div>
-                                    </td>
-                                    <td class="product__subtotal">$13.00</td>
-                                    <td class="product__remove">
-                                        <a href="#">×</a>
-                                    </td>
-                                </tr>
+                                @if (count($cart) > 0)
+                                    <tr>
+                                        @foreach ($cart as $item)
+                                            <td class="product__thumb">
+                                                <a href="shop-details.html"><img src="assets/img/shop/shop_img01.jpg"
+                                                        alt=""></a>
+                                            </td>
+                                            <td class="product__name">
+                                                <a href="shop-details.html">Antiaging and Longevity</a>
+                                            </td>
+                                            <td class="product__price">$13.00</td>
+                                            <td class="product__quantity">
+                                                <div class="cart-plus-minus">
+                                                    <input type="text" value="1">
+                                                </div>
+                                            </td>
+                                            <td class="product__subtotal">$13.00</td>
+                                            <td class="product__remove">
+                                                <a href="#">×</a>
+                                            </td>
+                                        @endforeach
+                                    </tr>
+                                @else
+                                    <p>Keranjang Anda kosong. <a href="{{ route('classroom') }}">Lihat kelas yang tersedia.</a>
+                                    </p>
+                                @endif
                             </tbody>
                         </table>
                         <form action="{{ route('payment') }}" class="customer__form-wrap" method="POST">
