@@ -92,23 +92,22 @@
                                         <a href="#">×</a>
                                     </td>
                                 </tr>
-
                             </tbody>
                         </table>
                         <form action="{{ route('payment') }}" class="customer__form-wrap" method="POST">
                             @csrf
-                            <span class="title">RINCIAN PENAGIHAN</span>
+                            <span class="title" hidden>RINCIAN PENAGIHAN</span>
 
                             @foreach ($cart as $item)
-                                <input type="hidden" name="cart_items[]" value="{{ $item['id'] }}">
+                                <input type="hidden" name="cart_items[]" value="{{ $item['id'] }}" hidden>
                             @endforeach
 
-                            <div class="form-grp">
+                            <div class="form-grp" hidden>
                                 <label for="name">Nama *</label>
                                 <input type="text" id="name" name="name" value="{{ $user->name }}">
                             </div>
 
-                            <div class="row">
+                            <div class="row" hidden>
                                 <div class="col-md-6">
                                     <div class="form-grp">
                                         <label for="phone">Telepon *</label>
@@ -127,6 +126,7 @@
                             <button type="submit" class="btn">Bayar & gabung kelas</button>
                         </form>
                     </div>
+
 
                 @endauth
                 @guest
