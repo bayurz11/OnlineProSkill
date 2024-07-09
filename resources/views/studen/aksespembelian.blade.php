@@ -200,27 +200,15 @@
     <!-- dashboard-area-end -->
 
     <script>
-        var courseSlides = document.querySelectorAll('.dashboard-courses-active .swiper-slide');
+        document.addEventListener('DOMContentLoaded', function() {
+            var courseSlides = document.querySelectorAll('.dashboard-courses-active .swiper-slide');
 
-        if (courseSlides.length <= 2) {
-            var coursesSwiper = new Swiper('.dashboard-courses-active', {
-                slidesPerView: 1,
-                spaceBetween: 30,
-                observer: true,
-                observeParents: true,
-                loop: false, // Nonaktifkan mode loop jika slide kurang dari 3
-                navigation: {
-                    nextEl: ".courses-button-next",
-                    prevEl: ".courses-button-prev",
-                },
-            });
-        } else {
-            var coursesSwiper = new Swiper('.dashboard-courses-active', {
+            var swiperConfig = {
                 slidesPerView: 4,
                 spaceBetween: 30,
                 observer: true,
                 observeParents: true,
-                loop: true, // Aktifkan mode loop jika slide lebih dari 2
+                loop: true,
                 breakpoints: {
                     '1500': {
                         slidesPerView: 4,
@@ -247,8 +235,17 @@
                     nextEl: ".courses-button-next",
                     prevEl: ".courses-button-prev",
                 },
-            });
-        }
+            };
+
+            if (courseSlides.length <= 2) {
+                swiperConfig.loop = false; // Nonaktifkan mode loop jika slide kurang dari 3
+                swiperConfig.slidesPerView = 1;
+            } else if (courseSlides.length <= 4) {
+                swiperConfig.slidesPerView = 2; // Sesuaikan slidesPerView jika slide kurang dari 4
+            }
+
+            var coursesSwiper = new Swiper('.dashboard-courses-active', swiperConfig);
+        });
 
         document.getElementById('foto').addEventListener('change', function(event) {
             const file = event.target.files[0];
