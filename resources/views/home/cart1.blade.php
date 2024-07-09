@@ -4,10 +4,6 @@
 <?php $page = 'Cart'; ?>
 
 @section('content')
-    {{-- <section class="breadcrumb__area breadcrumb__bg" data-background="{{ asset('public/assets/img/bg/breadcrumb_bg.jpg') }}">
-        <!-- Breadcrumb section content -->
-    </section> --}}
-
     <div class="cart__area section-py-120">
         <div class="container">
             <div class="row">
@@ -145,20 +141,21 @@
                             <h2 class="title">Total keranjang</h2>
 
                             <ul class="list-wrap">
-
-                                @foreach ($cart as $item)
-                                    <li>
-                                        <td class="product__name">
-                                            <a href="{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}</a>
-                                            <form action="{{ route('cart.remove', $item['id']) }}" method="POST"
-                                                style="display:inline;">
-                                                @csrf
-                                                <button type="submit" class="btn-remove"
-                                                    style="background:none; border:none; color:red; cursor:pointer;">x</button>
-                                            </form>
-                                        </td>
-                                    </li>
-                                @endforeach
+                                @guest
+                                    @foreach ($cart as $item)
+                                        <li>
+                                            <td class="product__name">
+                                                <a href="{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}</a>
+                                                <form action="{{ route('cart.remove', $item['id']) }}" method="POST"
+                                                    style="display:inline;">
+                                                    @csrf
+                                                    <button type="submit" class="btn-remove"
+                                                        style="background:none; border:none; color:red; cursor:pointer;">x</button>
+                                                </form>
+                                            </td>
+                                        </li>
+                                    @endforeach
+                                @endguest
                                 {{-- <li>Jumlah Quantity <span>{{ array_sum(array_column($cart, 'quantity')) }}</span></li> --}}
                                 <li>Subtotal
                                     <span>Rp
