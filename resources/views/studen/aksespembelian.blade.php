@@ -199,7 +199,7 @@
     </section>
     <!-- dashboard-area-end -->
 
-    <script>
+    {{-- <script>
         document.getElementById('foto').addEventListener('change', function(event) {
             const file = event.target.files[0];
             if (file) {
@@ -216,5 +216,5 @@
                 reader.readAsDataURL(file);
             }
         });
-    </script>
+    </script> --}}
 @endsection
