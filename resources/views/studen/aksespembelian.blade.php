@@ -87,9 +87,9 @@
 
                                         <div class="swiper dashboard-courses-active">
                                             <div class="swiper-wrapper">
-                                                <div class="swiper-slide">
-                                                    <div class="courses__item courses__item-two shine__animate-item">
-                                                        @foreach ($orders as $order)
+                                                @foreach ($orders as $order)
+                                                    <div class="swiper-slide">
+                                                        <div class="courses__item courses__item-two shine__animate-item">
                                                             <div class="courses__item-thumb courses__item-thumb-two">
                                                                 <a href="{{ route('lesson', ['id' => $order->id]) }}"
                                                                     class="shine__animate-link">
@@ -128,9 +128,9 @@
                                                                     <li><i class="flaticon-mortarboard"></i>22</li>
                                                                 </ul>
                                                             </div>
-                                                        @endforeach
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                @endforeach
                                             </div>
                                         </div>
 
