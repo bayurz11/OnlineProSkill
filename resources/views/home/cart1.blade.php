@@ -78,57 +78,66 @@
                 @endauth
 
                 @guest
-                    <div class="col-12">
-                        <div class="coupon__code-wrap">
-                            <div class="coupon__code-info">
-                                <span>Sudah memiliki akun?</span>
-                                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalchart">Klik di sini untuk
-                                    Masuk</a>
+                    @if (count($cart) > 0)
+                        <div class="col-12">
+                            <div class="coupon__code-wrap">
+                                <div class="coupon__code-info">
+                                    <span>Sudah memiliki akun?</span>
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalchart">Klik di sini
+                                        untuk
+                                        Masuk</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-7">
-                        <div class="singUp-wrap">
-                            <h2 class="title">Buat Akun ProSkill</h2>
-                            <p>Silahkan isi form berikut untuk melanjutkan.</p>
+                        <div class="col-lg-7">
+                            <div class="singUp-wrap">
+                                <h2 class="title">Buat Akun ProSkill</h2>
+                                <p>Silahkan isi form berikut untuk melanjutkan.</p>
 
-                            <form action="{{ route('guestregister') }}" class="account__form" method="POST" id="guestregister">
-                                @csrf
-                                <div class="form-grp">
-                                    <input type="text" id="name" name="name"
-                                        placeholder="Masukkan Nama Lengkap Anda">
+                                <form action="{{ route('guestregister') }}" class="account__form" method="POST"
+                                    id="guestregister">
+                                    @csrf
+                                    <div class="form-grp">
+                                        <input type="text" id="name" name="name"
+                                            placeholder="Masukkan Nama Lengkap Anda">
+                                    </div>
+                                    <div class="form-grp">
+                                        <input type="email" id="email" placeholder="Email" name="email">
+                                    </div>
+                                    <div class="form-grp">
+                                        <input type="phone" id="phone_number" placeholder="08**********" name="phone_number"
+                                            maxlength="12">
+                                    </div>
+                                    <div class="form-grp">
+                                        <input type="password" id="password" placeholder="Password" name="password">
+                                    </div>
+                                    <div class="form-grp">
+                                        <input type="password" id="password_confirmation" placeholder="Konfirmasi Password"
+                                            name="password_confirmation">
+                                    </div>
+                                    <button class="g-recaptcha btn btn-two arrow-btn"
+                                        data-sitekey="{{ config('services.recaptcha_v3.siteKey') }}"
+                                        data-callback="onSubmitguestregister" data-action='submit'>
+                                        Daftar
+                                        <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
+                                            class="injectable">
+                                    </button>
+                                </form><br>
+                                <div class="account__social">
+                                    <a href="{{ route('oauth.google') }}" class="account__social-btn">
+                                        <img src="{{ asset('public/assets/img/icons/google.svg') }}" alt="img">
+                                        Daftar Dengan Google
+                                    </a>
                                 </div>
-                                <div class="form-grp">
-                                    <input type="email" id="email" placeholder="Email" name="email">
-                                </div>
-                                <div class="form-grp">
-                                    <input type="phone" id="phone_number" placeholder="08**********" name="phone_number"
-                                        maxlength="12">
-                                </div>
-                                <div class="form-grp">
-                                    <input type="password" id="password" placeholder="Password" name="password">
-                                </div>
-                                <div class="form-grp">
-                                    <input type="password" id="password_confirmation" placeholder="Konfirmasi Password"
-                                        name="password_confirmation">
-                                </div>
-                                <button class="g-recaptcha btn btn-two arrow-btn"
-                                    data-sitekey="{{ config('services.recaptcha_v3.siteKey') }}"
-                                    data-callback="onSubmitguestregister" data-action='submit'>
-                                    Daftar
-                                    <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
-                                        class="injectable">
-                                </button>
-                            </form><br>
-                            <div class="account__social">
-                                <a href="{{ route('oauth.google') }}" class="account__social-btn">
-                                    <img src="{{ asset('public/assets/img/icons/google.svg') }}" alt="img">
-                                    Daftar Dengan Google
-                                </a>
+
                             </div>
-
                         </div>
-                    </div>
+                    @else
+                        <div class="col-lg-7">
+                            <p>Keranjang Anda kosong. <a href="{{ route('classroom') }}">Lihat kelas yang
+                                    tersedia.</a></p>
+                        </div>
+                    @endif
                 @endguest
                 @if (count($cart) > 0)
                     <div class="col-lg-5">
