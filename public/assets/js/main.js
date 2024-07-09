@@ -272,7 +272,7 @@ var coursesSwiper = new Swiper('.dashboard-courses-active', {
     spaceBetween: 30,
     observer: true,
     observeParents: true,
-    loop: true,
+    loop: false,
     breakpoints: {
         '1500': {
             slidesPerView: 3,
