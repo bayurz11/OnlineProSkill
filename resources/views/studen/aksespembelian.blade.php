@@ -84,10 +84,11 @@
                                 <div class="tab-content" id="courseTabContent">
                                     <div class="tab-pane fade show active" id="all-tab-pane" role="tabpanel"
                                         aria-labelledby="all-tab" tabindex="0">
-                                        @foreach ($orders as $order)
-                                            <div class="swiper dashboard-courses-active">
-                                                <div class="swiper-wrapper">
-                                                    <div class="swiper-slide">
+
+                                        <div class="swiper dashboard-courses-active">
+                                            <div class="swiper-wrapper">
+                                                <div class="swiper-slide">
+                                                    @foreach ($orders as $order)
                                                         <div class="courses__item courses__item-two shine__animate-item">
                                                             <div class="courses__item-thumb courses__item-thumb-two">
                                                                 <a href="{{ route('lesson', ['id' => $order->id]) }}"
@@ -128,10 +129,11 @@
                                                                 </ul>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    @endforeach
                                                 </div>
                                             </div>
-                                        @endforeach
+                                        </div>
+
                                     </div>
 
 
