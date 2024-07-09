@@ -111,19 +111,19 @@
                                                                 </div>
                                                             </div>
                                                             <div class="progress-item progress-item-two">
-                                                                <h6 class="title">Selesai <span>12.5%</span></h6>
+                                                                <h6 class="title">Selesai <span>12%</span></h6>
                                                                 <div class="progress" role="progressbar"
                                                                     aria-label="Example with label" aria-valuenow="25"
                                                                     aria-valuemin="0" aria-valuemax="100">
-                                                                    <div class="progress-bar" style="width: 12.5%">
+                                                                    <div class="progress-bar" style="width: 12%">
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="courses__item-bottom-two">
                                                             <ul class="list-wrap">
-                                                                <li><i class="flaticon-book"></i>05</li>
-                                                                <li><i class="flaticon-clock"></i>11h 20m</li>
+                                                                <li><i class="flaticon-book"></i>15</li>
+                                                                <li><i class="flaticon-clock"></i>8</li>
                                                                 <li><i class="flaticon-mortarboard"></i>22</li>
                                                             </ul>
                                                         </div>
