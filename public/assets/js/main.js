@@ -152,7 +152,7 @@ var categoriesSwiper = new Swiper('.categories-active', {
     // Optional parameters
     slidesPerView: 6,
     spaceBetween: 44,
-    loop: false,
+    loop: true,
     breakpoints: {
         '1500': {
             slidesPerView: 6,
