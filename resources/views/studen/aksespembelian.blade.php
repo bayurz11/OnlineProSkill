@@ -1,7 +1,7 @@
-@extends('layout.mainlayout')
-
 @section('title', 'ProSkill Akademia | Akses Pembelian')
 <?php $page = 'index'; ?>
+
+@extends('layout.mainlayout')
 
 @section('content')
 
@@ -85,7 +85,7 @@
                                     <div class="tab-pane fade show active" id="all-tab-pane" role="tabpanel"
                                         aria-labelledby="all-tab" tabindex="0">
 
-                                        <div class="swiper-container dashboard-courses-active">
+                                        <div class="swiper dashboard-courses-active">
                                             <div class="swiper-wrapper">
                                                 @foreach ($orders as $order)
                                                     <div class="swiper-slide">
@@ -139,7 +139,7 @@
 
                                     <div class="tab-pane fade" id="business-tab-pane" role="tabpanel"
                                         aria-labelledby="business-tab" tabindex="0">
-                                        <div class="swiper-container dashboard-courses-active">
+                                        <div class="swiper dashboard-courses-active">
                                             <div class="swiper-wrapper">
                                                 <div class="swiper-slide">
                                                     <div class="courses__item courses__item-two shine__animate-item">
@@ -199,41 +199,5 @@
     </section>
     <!-- dashboard-area-end -->
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var swiperContainers = document.querySelectorAll('.swiper-container');
-            swiperContainers.forEach(function(container) {
-                var slides = container.querySelectorAll('.swiper-slide');
-                var slidesNeeded = 3; // Set jumlah slide yang dibutuhkan untuk loop
-
-                // Duplikasi slide jika jumlah slide kurang dari yang dibutuhkan
-                if (slides.length < slidesNeeded) {
-                    for (var i = slides.length; i < slidesNeeded; i++) {
-                        var clone = slides[i % slides.length].cloneNode(true);
-                        container.querySelector('.swiper-wrapper').appendChild(clone);
-                    }
-                }
-
-                // Perbarui jumlah slide setelah duplikasi
-                slides = container.querySelectorAll('.swiper-slide');
-
-                // Tentukan apakah loop harus diaktifkan
-                var loopMode = slides.length >= slidesNeeded;
-
-                new Swiper(container, {
-                    loop: loopMode,
-                    slidesPerView: 1,
-                    spaceBetween: 30,
-                    pagination: {
-                        el: '.swiper-pagination',
-                        clickable: true,
-                    },
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    },
-                });
-            });
-        });
-    </script>
+    {{-- <script></script> --}}
 @endsection
