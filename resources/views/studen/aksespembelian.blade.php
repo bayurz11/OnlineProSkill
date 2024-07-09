@@ -85,8 +85,8 @@
                                     <div class="tab-pane fade show active" id="all-tab-pane" role="tabpanel"
                                         aria-labelledby="all-tab" tabindex="0">
                                         <div class="swiper dashboard-courses-active">
-                                            <div class="swiper-wrapper">
-                                                @foreach ($orders as $order)
+                                            @foreach ($orders as $order)
+                                                <div class="swiper-wrapper">
                                                     <div class="swiper-slide">
                                                         <div class="courses__item courses__item-two shine__animate-item">
                                                             <div class="courses__item-thumb courses__item-thumb-two">
@@ -129,8 +129,8 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                @endforeach
-                                            </div>
+                                                </div>
+                                            @endforeach
                                         </div>
                                     </div>
 
