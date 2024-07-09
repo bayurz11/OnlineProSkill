@@ -1,7 +1,6 @@
 @extends('layout.mainlayout')
 
 @section('title', 'ProSkill Akademia | Akses Pembelian')
-<?php $page = 'index'; ?>
 
 @section('content')
 
@@ -85,16 +84,17 @@
                                     <div class="tab-pane fade show active" id="all-tab-pane" role="tabpanel"
                                         aria-labelledby="all-tab" tabindex="0">
 
-                                        <div class="swiper-container dashboard-courses-active">
+                                        <div class="swiper dashboard-courses-active">
                                             <div class="swiper-wrapper">
                                                 @foreach ($orders as $order)
                                                     <div class="swiper-slide">
-                                                        <div class="courses__item courses__item-two shine__animate-item">
+                                                        <div class="courses__item courses__item-two shine__animate-item"
+                                                            style="padding: 15px;">
                                                             <div class="courses__item-thumb courses__item-thumb-two">
                                                                 <a href="{{ route('lesson', ['id' => $order->id]) }}"
                                                                     class="shine__animate-link">
                                                                     <img src="{{ $order->KelasTatapMuka->gambar ? asset('public/uploads/' . $order->KelasTatapMuka->gambar) : asset('public/assets/img/courses/course_thumb01.jpg') }}"
-                                                                        alt="img" class="wd-100 wd-sm-150">
+                                                                        alt="img" width="150">
                                                                 </a>
                                                             </div>
                                                             <div class="courses__item-content courses__item-content-two">
@@ -139,14 +139,15 @@
 
                                     <div class="tab-pane fade" id="business-tab-pane" role="tabpanel"
                                         aria-labelledby="business-tab" tabindex="0">
-                                        <div class="swiper-container dashboard-courses-active">
+                                        <div class="swiper dashboard-courses-active">
                                             <div class="swiper-wrapper">
                                                 <div class="swiper-slide">
-                                                    <div class="courses__item courses__item-two shine__animate-item">
+                                                    <div class="courses__item courses__item-two shine__animate-item"
+                                                        style="padding: 15px;">
                                                         <div class="courses__item-thumb courses__item-thumb-two">
                                                             <a href="course-details.html" class="shine__animate-link">
                                                                 <img src="{{ asset('public/assets/img/courses/course_thumb01.jpg') }}"
-                                                                    alt="img">
+                                                                    alt="img" width="150">
                                                             </a>
                                                         </div>
                                                         <div class="courses__item-content courses__item-content-two">
