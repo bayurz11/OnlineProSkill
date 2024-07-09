@@ -95,7 +95,7 @@
                                                                 <a href="{{ route('lesson', ['id' => $order->id]) }}"
                                                                     class="shine__animate-link">
                                                                     <img src="{{ $order->KelasTatapMuka->gambar ? asset('public/uploads/' . $order->KelasTatapMuka->gambar) : asset('public/assets/img/courses/course_thumb01.jpg') }}"
-                                                                        alt="img" width="150">
+                                                                        alt="img" width="10">
                                                                 </a>
                                                             </div>
                                                             <div class="courses__item-content courses__item-content-two">
