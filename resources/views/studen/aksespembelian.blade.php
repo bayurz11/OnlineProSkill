@@ -200,6 +200,56 @@
     <!-- dashboard-area-end -->
 
     <script>
+        var courseSlides = document.querySelectorAll('.dashboard-courses-active .swiper-slide');
+
+        if (courseSlides.length <= 2) {
+            var coursesSwiper = new Swiper('.dashboard-courses-active', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                observer: true,
+                observeParents: true,
+                loop: false, // Nonaktifkan mode loop jika slide kurang dari 3
+                navigation: {
+                    nextEl: ".courses-button-next",
+                    prevEl: ".courses-button-prev",
+                },
+            });
+        } else {
+            var coursesSwiper = new Swiper('.dashboard-courses-active', {
+                slidesPerView: 4,
+                spaceBetween: 30,
+                observer: true,
+                observeParents: true,
+                loop: true, // Aktifkan mode loop jika slide lebih dari 2
+                breakpoints: {
+                    '1500': {
+                        slidesPerView: 4,
+                    },
+                    '1200': {
+                        slidesPerView: 4,
+                    },
+                    '992': {
+                        slidesPerView: 3,
+                        spaceBetween: 24,
+                    },
+                    '768': {
+                        slidesPerView: 2,
+                        spaceBetween: 24,
+                    },
+                    '576': {
+                        slidesPerView: 1,
+                    },
+                    '0': {
+                        slidesPerView: 1,
+                    },
+                },
+                navigation: {
+                    nextEl: ".courses-button-next",
+                    prevEl: ".courses-button-prev",
+                },
+            });
+        }
+
         document.getElementById('foto').addEventListener('change', function(event) {
             const file = event.target.files[0];
             if (file) {
