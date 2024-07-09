@@ -268,24 +268,24 @@ var coursesSwiperTwo = new Swiper('.courses-swiper-active-two', {
 =============================================*/
 var coursesSwiper = new Swiper('.dashboard-courses-active', {
     // Optional parameters
-    slidesPerView: 1,
+    slidesPerView: 3,
     spaceBetween: 30,
     observer: true,
     observeParents: true,
     loop: true,
     breakpoints: {
         '1500': {
-            slidesPerView: 3,
+            slidesPerView: 1.5,
         },
         '1200': {
-            slidesPerView: 3,
+            slidesPerView: 1.5,
         },
         '992': {
-            slidesPerView: 2,
+            slidesPerView: 1.5,
             spaceBetween: 24,
         },
         '768': {
-            slidesPerView: 2,
+            slidesPerView: 1.5,
             spaceBetween: 24,
         },
         '576': {
