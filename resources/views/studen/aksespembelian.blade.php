@@ -204,15 +204,21 @@
             var swiperContainers = document.querySelectorAll('.swiper-container');
             swiperContainers.forEach(function(container) {
                 var slides = container.querySelectorAll('.swiper-slide');
+                var slidesNeeded = 3; // Set jumlah slide yang dibutuhkan untuk loop
 
-                if (slides.length < 3) {
-                    for (var i = slides.length; i < 3; i++) {
+                // Duplikasi slide jika jumlah slide kurang dari yang dibutuhkan
+                if (slides.length < slidesNeeded) {
+                    for (var i = slides.length; i < slidesNeeded; i++) {
                         var clone = slides[i % slides.length].cloneNode(true);
                         container.querySelector('.swiper-wrapper').appendChild(clone);
                     }
                 }
 
-                var loopMode = slides.length > 2;
+                // Perbarui jumlah slide setelah duplikasi
+                slides = container.querySelectorAll('.swiper-slide');
+
+                // Tentukan apakah loop harus diaktifkan
+                var loopMode = slides.length >= slidesNeeded;
 
                 new Swiper(container, {
                     loop: loopMode,
