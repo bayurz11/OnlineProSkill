@@ -200,53 +200,6 @@
     <!-- dashboard-area-end -->
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var courseSlides = document.querySelectorAll('.dashboard-courses-active .swiper-slide');
-
-            var swiperConfig = {
-                slidesPerView: 4,
-                spaceBetween: 30,
-                observer: true,
-                observeParents: true,
-                loop: true,
-                breakpoints: {
-                    '1500': {
-                        slidesPerView: 4,
-                    },
-                    '1200': {
-                        slidesPerView: 4,
-                    },
-                    '992': {
-                        slidesPerView: 3,
-                        spaceBetween: 24,
-                    },
-                    '768': {
-                        slidesPerView: 2,
-                        spaceBetween: 24,
-                    },
-                    '576': {
-                        slidesPerView: 1,
-                    },
-                    '0': {
-                        slidesPerView: 1,
-                    },
-                },
-                navigation: {
-                    nextEl: ".courses-button-next",
-                    prevEl: ".courses-button-prev",
-                },
-            };
-
-            if (courseSlides.length <= 2) {
-                swiperConfig.loop = false; // Nonaktifkan mode loop jika slide kurang dari 3
-                swiperConfig.slidesPerView = 1;
-            } else if (courseSlides.length <= 4) {
-                swiperConfig.slidesPerView = 2; // Sesuaikan slidesPerView jika slide kurang dari 4
-            }
-
-            var coursesSwiper = new Swiper('.dashboard-courses-active', swiperConfig);
-        });
-
         document.getElementById('foto').addEventListener('change', function(event) {
             const file = event.target.files[0];
             if (file) {
