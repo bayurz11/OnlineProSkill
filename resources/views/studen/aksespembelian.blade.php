@@ -199,22 +199,35 @@
     </section>
     <!-- dashboard-area-end -->
 
-    {{-- <script>
-        document.getElementById('foto').addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const img = document.getElementById('profileImage');
-                    img.src = e.target.result;
-                    img.onload = function() {
-                        img.style.width = '120px';
-                        img.style.height = '120px';
-                        img.style.objectFit = 'cover';
-                    };
-                };
-                reader.readAsDataURL(file);
-            }
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var swiperContainers = document.querySelectorAll('.swiper-container');
+            swiperContainers.forEach(function(container) {
+                var slides = container.querySelectorAll('.swiper-slide');
+
+                if (slides.length < 3) {
+                    for (var i = slides.length; i < 3; i++) {
+                        var clone = slides[i % slides.length].cloneNode(true);
+                        container.querySelector('.swiper-wrapper').appendChild(clone);
+                    }
+                }
+
+                var loopMode = slides.length > 2;
+
+                new Swiper(container, {
+                    loop: loopMode,
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                });
+            });
         });
-    </script> --}}
+    </script>
 @endsection
