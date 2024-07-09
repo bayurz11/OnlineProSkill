@@ -168,7 +168,7 @@
     <script src="{{ asset('public/assets/js/jquery.appear.js') }}"></script>
     <script src="{{ asset('public/assets/js/tween-max.min.js') }}"></script>
     <script src="{{ asset('public/assets/js/select2.min.js') }}"></script>
-    <script src="{{ asset('public/assets/js/swiper-bundle.min.js') }}"></script>
+    {{-- <script src="{{ asset('public/assets/js/swiper-bundle.min.js') }}"></script> --}}
     <script src="{{ asset('public/assets/js/jquery.marquee.min.js') }}"></script>
     <script src="{{ asset('public/assets/js/tg-cursor.min.js') }}"></script>
     <script src="{{ asset('public/assets/js/vivus.min.js') }}"></script>
