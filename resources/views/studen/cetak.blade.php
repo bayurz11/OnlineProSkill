@@ -169,7 +169,7 @@
                                     Pinang, Kepulauan Riau</span>
                             </td>
                             <td>
-                                Invoice #: {{ $order->nomor_invoice }}<br>
+                                {{ $order->nomor_invoice }}<br>
                                 Tanggal: {{ $order->created_at->format('d M Y') }}<br>
                                 Tanggal Cetak: <span id="print-date"></span><br>
                                 Status: {{ $order->status == 'PAID' ? 'Sukses' : 'Belum Dibayar' }}
