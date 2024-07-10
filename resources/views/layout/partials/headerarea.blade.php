@@ -301,6 +301,7 @@
     </div>
 </header>
 @include('home.modal.login')
-@include('home.modal.loginchart')
+@include('home.modal.logincart')
 @include('home.modal.register')
+@include('home.modal.registercart')
 <!-- header-area-end -->

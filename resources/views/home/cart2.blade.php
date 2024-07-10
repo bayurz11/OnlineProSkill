@@ -118,7 +118,7 @@
                                 </form>
                             @else
                                 <button type="button" class="btn" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModalchart">
+                                    data-bs-target="#exampleModalDaftarcart">
                                     Bayar & gabung kelas
                                 </button>
                             @endauth
