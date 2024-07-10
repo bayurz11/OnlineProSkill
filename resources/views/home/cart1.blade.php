@@ -98,8 +98,7 @@
                                             placeholder="Masukkan Nama Lengkap Anda">
                                     </div>
                                     <div class="form-grp">
-                                        <input type="email" id="email" placeholder="Email tidak boleh kosong"
-                                            name="email">
+                                        <input type="email" id="email" placeholder="Email tidak" name="email">
                                     </div>
                                     <div class="form-grp">
                                         <input type="phone" id="phone_number" placeholder="08**********" name="phone_number"
