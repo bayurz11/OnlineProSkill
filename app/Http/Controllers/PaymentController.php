@@ -221,7 +221,7 @@ class PaymentController extends Controller
         $request->validate([
             'name' => 'required|string',
             'email' => 'required|email',
-            'phone' => 'required',
+            'phone' => 'phone',
             'cart_items' => 'required|array',
         ]);
 
