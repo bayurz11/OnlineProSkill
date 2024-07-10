@@ -59,7 +59,7 @@ class HomeController extends Controller
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
         $jumlahPendaftaran = Order::where('product_id')->count();
-        return view('home.classroom', compact('user', 'count', 'course', 'profile', 'cart', 'notifikasiCount', 'notifikasi'));
+        return view('home.classroom', compact('user', 'count', 'course', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'jumlahPendaftaran'));
     }
 
     public function classroomdetail($id)
