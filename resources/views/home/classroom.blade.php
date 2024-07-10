@@ -158,7 +158,7 @@
                         <div class="tab-pane fade" id="list" role="tabpanel" aria-labelledby="list-tab">
                             <div class="row courses__list-wrap row-cols-1">
                                 @foreach ($course as $cours)
-                                    @if ($cours->status == 1)
+                                    @if ($cours->status == 1 && $jumlahPendaftaran->get($cours->id, 0) < 8)
                                         <div class="col">
                                             <div class="courses__item courses__item-three shine__animate-item">
                                                 <div class="courses__item-thumb">
