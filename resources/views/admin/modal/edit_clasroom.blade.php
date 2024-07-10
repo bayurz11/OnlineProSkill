@@ -27,6 +27,12 @@
                             placeholder="Apakah mendapatkan sertifikat">
                     </div>
                     <div class="mb-3">
+                        <label for="kuota" class="form-label">Kuota Perkelas<span
+                                class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="edit_kuota" name="kuota"
+                            placeholder="Masukkan Jumlah Kuota yang Disediakan">
+                    </div>
+                    <div class="mb-3">
                         <label class="form-label">Kategori<span class="text-danger">*</span></label>
                         <select id="edit_category" class="form-select" name="kategori_id">
                             <option value="">Pilih Kategori</option>
@@ -72,7 +78,8 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="edit_price" class="form-label">Harga (Rp)<span class="text-danger">*</span></label>
+                        <label for="edit_price" class="form-label">Harga (Rp)<span
+                                class="text-danger">*</span></label>
                         <input type="number" class="form-control" id="edit_price" name="price">
                     </div>
                     <div class="mb-3">
@@ -123,6 +130,7 @@
                     $('#edit_nama_kursus').val(data.nama_kursus);
                     $('#edit_durasi').val(data.durasi);
                     $('#edit_sertifikat').val(data.sertifikat);
+                    $('#edit_kuota').val(data.kuota);
                     $('#edit_category').val(data.kategori_id);
 
                     const categoryId = data.kategori_id;
