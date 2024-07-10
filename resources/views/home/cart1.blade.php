@@ -208,4 +208,40 @@
             </div>
         </div>
     </div>
+    <script>
+        function validateForm() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const passwordConfirmation = document.getElementById('password_confirmation').value;
+
+            // Validasi Nama
+            if (name === "") {
+                alert("Nama tidak boleh kosong");
+                return false;
+            }
+
+            // Validasi Email
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert("Masukkan email yang valid");
+                return false;
+            }
+
+            // Validasi Password
+            const passwordPattern = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if (!passwordPattern.test(password)) {
+                alert("Password harus terdiri dari huruf, angka, dan simbol, serta minimal 8 karakter");
+                return false;
+            }
+
+            // Validasi Konfirmasi Password
+            if (password !== passwordConfirmation) {
+                alert("Konfirmasi password tidak sesuai");
+                return false;
+            }
+
+            return true; // Jika semua validasi terpenuhi, form akan dikirim
+        }
+    </script>
 @endsection
