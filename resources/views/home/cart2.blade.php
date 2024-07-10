@@ -144,25 +144,13 @@
 
                             <ul class="list-wrap">
 
-                                @foreach ($cart as $item)
-                                    <li>
-                                        <td class="product__name">
-                                            <a href="{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}</a>
-                                            <form action="{{ route('cart.remove', $item['id']) }}" method="POST"
-                                                style="display:inline;">
-                                                @csrf
-                                                <button type="submit" class="btn-remove"
-                                                    style="background:none; border:none; color:red; cursor:pointer;">x</button>
-                                            </form>
-                                        </td>
-                                    </li>
-                                @endforeach
 
-                                {{-- <li>Jumlah Quantity <span>{{ array_sum(array_column($cart, 'quantity')) }}</span></li> --}}
-                                <li>Subtotal
+
+                                <li>Jumlah Quantity <span>{{ array_sum(array_column($cart, 'quantity')) }}</span></li>
+                                {{-- <li>Subtotal
                                     <span>Rp
                                         {{ number_format(array_sum(array_column($cart, 'price')), 0, ',', ',') }}</span>
-                                </li>
+                                </li> --}}
                                 <li>Total <span class="amount">Rp
                                         {{ number_format(array_sum(array_column($cart, 'price')), 0, ',', ',') }}</span>
                                 </li>
