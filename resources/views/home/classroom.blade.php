@@ -120,9 +120,16 @@
                                                     </h5>
                                                     <p class="author">By <a href="#">{{ $cours->user->name }}</a>
                                                     </p>
+                                                    <div>
+                                                        <img src="{{ asset('public/assets/img/icons/course_icon06.svg') }}"
+                                                            alt="img" class="injectable">
+                                                        Kuota Kelas
+                                                        <span>{{ $jumlahPendaftaran }}/{{ $cours->kuota }}</span>
+                                                    </div>
                                                     <div class="courses__item-bottom">
                                                         <div class="button">
-                                                            <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}">
+                                                            <a
+                                                                href="{{ route('classroomdetail', ['id' => $cours->id]) }}">
                                                                 <span class="text">Detail</span>
                                                                 <i class="flaticon-arrow-right"></i>
                                                             </a>
