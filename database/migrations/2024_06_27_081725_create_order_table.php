@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('checkout_link');
             $table->string('external_id');
             $table->string('status');
+            $table->string('nomor_invoice');
             $table->foreign('product_id')->references('id')->on('classroom_master')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
