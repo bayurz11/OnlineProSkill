@@ -166,7 +166,7 @@
                             <td class="title">
                                 <img src="{{ asset('public/assets/img/logo/logo.svg') }}" alt="ProSkill Akademia Logo"
                                     style="width: 100%; max-width: 150px;">
-                                <div style="margin-top: 10px; font-size:12px">Jl. H. Ungar No.2C, Kota Tanjung Pinang,
+                                <div style="margin-top: 8px; font-size:12px">Jl. H. Ungar No.2C, Kota Tanjung Pinang,
                                     Kepulauan Riau
                                 </div>
                             </td>
