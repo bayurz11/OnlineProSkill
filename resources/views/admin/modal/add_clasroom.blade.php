@@ -24,6 +24,12 @@
                         <input type="text" class="form-control" id="sertifikat" name="sertifikat"
                             placeholder="apakah mendapatkan sertifikat">
                     </div>
+                    <div class="mb-3">
+                        <label for="kuota" class="form-label">Kuota Perkelas<span
+                                class="text-danger">*</span></label>
+                        <input type="number" class="form-control" id="kuota" name="kuota"
+                            placeholder="Masukkan Jumlah Kuota yang Disediakan">
+                    </div>
 
                     <div class="mb-3">
                         <label class="form-label">Kategori<span class="text-danger">*</span></label>
