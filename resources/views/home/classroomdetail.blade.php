@@ -203,7 +203,7 @@
                             <div class="tg-button-wrap">
                                 <a href="{{ route('cart.checkout', ['id' => $courses->id]) }}"
                                     class="btn btn-two arrow-btn">
-                                    Gabung Kelas
+                                    Checkout
                                     <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                         class="injectable">
                                 </a>
