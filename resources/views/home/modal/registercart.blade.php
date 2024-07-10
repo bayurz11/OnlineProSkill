@@ -35,7 +35,8 @@
                             huruf, dan angka</span>
                         <button class="g-recaptcha btn btn-two arrow-btn"
                             data-sitekey="{{ config('services.recaptcha_v3.siteKey') }}"
-                            data-callback="onSubmitRegisStuden" data-action='submit'>Daftar
+                            data-callback="onSubmitguestregister" data-action='submit'>
+                            Daftar
                             <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                 class="injectable">
                         </button>
