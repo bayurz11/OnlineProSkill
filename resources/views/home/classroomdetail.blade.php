@@ -181,7 +181,7 @@
                                     <img src="{{ asset('public/assets/img/icons/course_icon06.svg') }}" alt="img"
                                         class="injectable">
                                     Kuota Kelas
-                                    <span>0/8</span>
+                                    <span>0/{{ $courses->kuota }}</span>
                                 </li>
                             </ul>
                         </div>
