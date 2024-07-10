@@ -38,32 +38,6 @@ class HomeController extends Controller
         return view('home.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi'));
     }
 
-    // public function classroom()
-    // {
-    //     $user = Auth::user();
-    //     $profile = null;
-    //     $cart = Session::get('cart', []);
-
-    //     if ($user) {
-    //         $profile = UserProfile::where('user_id', $user->id)->first();
-    //     }
-
-    //     $course = KelasTatapMuka::with('user')->where('status', 1)->get();
-    //     $count = $course->count();
-
-    //     // Ambil notifikasi untuk pengguna yang sedang login
-    //     $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
-    //         ->orderBy('created_at', 'desc')
-    //         ->get()
-    //         : collect(); // Menggunakan collect() untuk membuat koleksi kosong jika pengguna belum login
-
-    //     // Hitung jumlah notifikasi dengan status = 1
-    //     $notifikasiCount = $notifikasi->where('status', 1)->count();
-    //     $jumlahPendaftaran = Order::select('product_id', DB::raw('count(*) as total'))
-    //         ->groupBy('product_id')
-    //         ->pluck('total', 'product_id');
-    //     return view('home.classroom', compact('user', 'count', 'course', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'jumlahPendaftaran'));
-    // } 10-07-24
     public function classroom()
     {
         $user = Auth::user();
@@ -74,27 +48,22 @@ class HomeController extends Controller
             $profile = UserProfile::where('user_id', $user->id)->first();
         }
 
-        // Mengambil semua kelas tatap muka yang memiliki status aktif (status = 1)
         $course = KelasTatapMuka::with('user')->where('status', 1)->get();
         $count = $course->count();
 
-        // Mengambil notifikasi untuk pengguna yang sedang login
+        // Ambil notifikasi untuk pengguna yang sedang login
         $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
             ->orderBy('created_at', 'desc')
             ->get()
             : collect(); // Menggunakan collect() untuk membuat koleksi kosong jika pengguna belum login
 
-        // Menghitung jumlah notifikasi dengan status = 1
+        // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
-
-        // Mengambil jumlah pendaftaran untuk setiap kursus
         $jumlahPendaftaran = Order::select('product_id', DB::raw('count(*) as total'))
             ->groupBy('product_id')
             ->pluck('total', 'product_id');
-
         return view('home.classroom', compact('user', 'count', 'course', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'jumlahPendaftaran'));
     }
-
 
     public function classroomdetail($id)
     {
