@@ -180,8 +180,8 @@
                                 <li>
                                     <img src="{{ asset('public/assets/img/icons/course_icon06.svg') }}" alt="img"
                                         class="injectable">
-                                    Kelulusan
-                                    <span>25K</span>
+                                    Kuota Kelas
+                                    <span>0/8</span>
                                 </li>
                             </ul>
                         </div>
