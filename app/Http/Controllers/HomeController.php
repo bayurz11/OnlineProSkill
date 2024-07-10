@@ -9,6 +9,7 @@ use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use App\Models\KelasTatapMuka;
 use App\Models\NotifikasiUser;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -58,7 +59,9 @@ class HomeController extends Controller
 
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
-        $jumlahPendaftaran = Order::where('product_id')->count();
+        $jumlahPendaftaran = Order::select('product_id', DB::raw('count(*) as total'))
+            ->groupBy('product_id')
+            ->pluck('total', 'product_id');
         return view('home.classroom', compact('user', 'count', 'course', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'jumlahPendaftaran'));
     }
 
