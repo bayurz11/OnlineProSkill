@@ -85,7 +85,7 @@
                                 </div>
                             </div>
                         </div>
-                        {{-- <div class="col-lg-7">
+                        <div class="col-lg-7">
                             <div class="singUp-wrap">
                                 <h2 class="title">Buat Akun ProSkill</h2>
                                 <p>Silahkan isi form berikut untuk melanjutkan.</p>
@@ -128,106 +128,7 @@
                                 </div>
 
                             </div>
-                        </div> --}}
-                        <div class="col-lg-7">
-                            <div class="singUp-wrap">
-                                <h2 class="title">Buat Akun ProSkill</h2>
-                                <p>Silahkan isi form berikut untuk melanjutkan.</p>
-
-                                <form action="{{ route('guestregister') }}" class="account__form" method="POST"
-                                    id="guestregister" onsubmit="return validateForm()">
-                                    @csrf
-                                    <div class="form-grp">
-                                        <input type="text" id="name" name="name"
-                                            placeholder="Masukkan Nama Lengkap Anda">
-                                        <span class="error-message" id="name-error">Nama tidak boleh kosong</span>
-                                    </div>
-                                    <div class="form-grp">
-                                        <input type="email" id="email" name="email" placeholder="Email">
-                                        <span class="error-message" id="email-error">Masukkan email yang valid</span>
-                                    </div>
-                                    <div class="form-grp">
-                                        <input type="tel" id="phone_number" name="phone_number" placeholder="08**********"
-                                            maxlength="12">
-                                    </div>
-                                    <div class="form-grp">
-                                        <input type="password" id="password" name="password" placeholder="Password">
-                                        <span class="error-message" id="password-error">Password harus terdiri dari huruf,
-                                            angka, dan simbol, serta minimal 8 karakter</span>
-                                    </div>
-                                    <div class="form-grp">
-                                        <input type="password" id="password_confirmation" name="password_confirmation"
-                                            placeholder="Konfirmasi Password">
-                                        <span class="error-message" id="password_confirmation-error">Konfirmasi password tidak
-                                            sesuai</span>
-                                    </div>
-                                    <button class="g-recaptcha btn btn-two arrow-btn"
-                                        data-sitekey="{{ config('services.recaptcha_v3.siteKey') }}"
-                                        data-callback="onSubmitguestregister" data-action='submit'>
-                                        Daftar
-                                        <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
-                                            class="injectable">
-                                    </button>
-                                </form><br>
-                                <div class="account__social">
-                                    <a href="{{ route('oauth.google') }}" class="account__social-btn">
-                                        <img src="{{ asset('public/assets/img/icons/google.svg') }}" alt="img">
-                                        Daftar Dengan Google
-                                    </a>
-                                </div>
-                            </div>
                         </div>
-
-                        <script>
-                            function validateForm() {
-                                let isValid = true;
-
-                                // Clear previous error messages
-                                document.querySelectorAll('.error-message').forEach(function(element) {
-                                    element.style.display = 'none';
-                                });
-                                document.querySelectorAll('.form-grp input').forEach(function(element) {
-                                    element.style.borderColor = '';
-                                });
-
-                                const name = document.getElementById('name').value;
-                                const email = document.getElementById('email').value;
-                                const password = document.getElementById('password').value;
-                                const passwordConfirmation = document.getElementById('password_confirmation').value;
-
-                                // Validasi Nama
-                                if (name === "") {
-                                    document.getElementById('name').style.borderColor = 'red';
-                                    document.getElementById('name-error').style.display = 'block';
-                                    isValid = false;
-                                }
-
-                                // Validasi Email
-                                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                                if (!emailPattern.test(email)) {
-                                    document.getElementById('email').style.borderColor = 'red';
-                                    document.getElementById('email-error').style.display = 'block';
-                                    isValid = false;
-                                }
-
-                                // Validasi Password
-                                const passwordPattern = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-                                if (!passwordPattern.test(password)) {
-                                    document.getElementById('password').style.borderColor = 'red';
-                                    document.getElementById('password-error').style.display = 'block';
-                                    isValid = false;
-                                }
-
-                                // Validasi Konfirmasi Password
-                                if (password !== passwordConfirmation) {
-                                    document.getElementById('password_confirmation').style.borderColor = 'red';
-                                    document.getElementById('password_confirmation-error').style.display = 'block';
-                                    isValid = false;
-                                }
-
-                                return isValid; // Jika semua validasi terpenuhi, form akan dikirim
-                            }
-                        </script>
                     @else
                         <div class="col-lg-7">
                             <p>Keranjang Anda kosong. <a href="{{ route('classroom') }}">Lihat kelas yang
