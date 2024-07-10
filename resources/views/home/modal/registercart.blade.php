@@ -41,12 +41,7 @@
                                 class="injectable">
                         </button>
                     </form><br>
-                    <div class="account__social">
-                        <a href="{{ route('oauth.google') }}" class="account__social-btn">
-                            <img src="{{ asset('public/assets/img/icons/google.svg') }}" alt="img">
-                            Daftar Dengan Google
-                        </a>
-                    </div>
+
                     <div class="account__switch">
                         <p>Apakah Punya Akun?<a href="#" data-bs-toggle="modal"
                                 data-bs-target="#exampleModalchart">Masuk</a></p>
