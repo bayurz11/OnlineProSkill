@@ -85,7 +85,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-7">
+                        {{-- <div class="col-lg-7">
                             <div class="singUp-wrap">
                                 <h2 class="title">Buat Akun ProSkill</h2>
                                 <p>Silahkan isi form berikut untuk melanjutkan.</p>
@@ -127,6 +127,49 @@
                                     </a>
                                 </div>
 
+                            </div>
+                        </div> --}}
+                        <div class="col-lg-7">
+                            <div class="singUp-wrap">
+                                <h2 class="title">Buat Akun ProSkill</h2>
+                                <p>Silahkan isi form berikut untuk melanjutkan.</p>
+
+                                <form action="{{ route('guestregister') }}" class="account__form" method="POST"
+                                    id="guestregister" onsubmit="return validateForm()">
+                                    @csrf
+                                    <div class="form-grp">
+                                        <input type="text" id="name" name="name"
+                                            placeholder="Masukkan Nama Lengkap Anda">
+                                    </div>
+                                    <div class="form-grp">
+                                        <input type="email" id="email" placeholder="Email" name="email">
+                                    </div>
+                                    <div class="form-grp">
+                                        <input type="phone" id="phone_number" placeholder="08**********" name="phone_number"
+                                            maxlength="12">
+                                    </div>
+                                    <div class="form-grp">
+                                        <input type="password" id="password" placeholder="Password" name="password">
+                                    </div>
+                                    <div class="form-grp">
+                                        <input type="password" id="password_confirmation" placeholder="Konfirmasi Password"
+                                            name="password_confirmation">
+                                        <span>Password minimal 8 karakter terdiri simbol, huruf, dan angka</span>
+                                    </div>
+                                    <button class="g-recaptcha btn btn-two arrow-btn"
+                                        data-sitekey="{{ config('services.recaptcha_v3.siteKey') }}"
+                                        data-callback="onSubmitguestregister" data-action='submit'>
+                                        Daftar
+                                        <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
+                                            class="injectable">
+                                    </button>
+                                </form><br>
+                                <div class="account__social">
+                                    <a href="{{ route('oauth.google') }}" class="account__social-btn">
+                                        <img src="{{ asset('public/assets/img/icons/google.svg') }}" alt="img">
+                                        Daftar Dengan Google
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     @else
