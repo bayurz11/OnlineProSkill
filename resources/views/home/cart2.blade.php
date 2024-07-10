@@ -26,52 +26,52 @@
                         <p></p>
                     @endif
                 @endauth
-                @auth
-                    @if (count($cart) > 0)
-                        <div class="col-lg-7">
-                            <table class="table cart__table">
-                                <thead>
-                                    <tr>
-                                        <th class="product__thumb">&nbsp;</th>
-                                        <th class="product__name">Kelas</th>
-                                        <th class="product__price">Harga</th>
-                                        <th class="product__remove">&nbsp;</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($cart as $item)
-                                        <tr>
-                                            <td class="product__thumb">
-                                                <a href="{{ route('classroomdetail', $item['id']) }}">
-                                                    <img src="{{ $item['gambar'] ? asset('public/uploads/' . $item['gambar']) : asset('public/assets/img/shop/shop_img01.jpg') }}"
-                                                        alt="">
-                                                </a>
-                                            </td>
-                                            <td class="product__name">
-                                                <a href="{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}</a>
-                                            </td>
-                                            <td class="product__price">Rp {{ number_format($item['price'], 0, ',', ',') }}</td>
 
-                                            <td class="product__remove">
-                                                <form action="{{ route('cart.remove', $item['id']) }}" method="POST"
-                                                    style="display:inline;">
-                                                    @csrf
-                                                    <button type="submit" class="btn-remove"
-                                                        style="background:none; border:none; color:rgb(20, 20, 20); cursor:pointer;">x</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    @else
-                        <div class="col-lg-7">
-                            <p>Keranjang Anda kosong. <a href="{{ route('classroom') }}">Lihat kelas yang
-                                    tersedia.</a></p>
-                        </div>
-                    @endif
-                @endauth
+                @if (count($cart) > 0)
+                    <div class="col-lg-7">
+                        <table class="table cart__table">
+                            <thead>
+                                <tr>
+                                    <th class="product__thumb">&nbsp;</th>
+                                    <th class="product__name">Kelas</th>
+                                    <th class="product__price">Harga</th>
+                                    <th class="product__remove">&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($cart as $item)
+                                    <tr>
+                                        <td class="product__thumb">
+                                            <a href="{{ route('classroomdetail', $item['id']) }}">
+                                                <img src="{{ $item['gambar'] ? asset('public/uploads/' . $item['gambar']) : asset('public/assets/img/shop/shop_img01.jpg') }}"
+                                                    alt="">
+                                            </a>
+                                        </td>
+                                        <td class="product__name">
+                                            <a href="{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}</a>
+                                        </td>
+                                        <td class="product__price">Rp {{ number_format($item['price'], 0, ',', ',') }}</td>
+
+                                        <td class="product__remove">
+                                            <form action="{{ route('cart.remove', $item['id']) }}" method="POST"
+                                                style="display:inline;">
+                                                @csrf
+                                                <button type="submit" class="btn-remove"
+                                                    style="background:none; border:none; color:rgb(20, 20, 20); cursor:pointer;">x</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                @else
+                    <div class="col-lg-7">
+                        <p>Keranjang Anda kosong. <a href="{{ route('classroom') }}">Lihat kelas yang
+                                tersedia.</a></p>
+                    </div>
+                @endif
+
 
                 {{-- @guest
                     @if (count($cart) > 0)
