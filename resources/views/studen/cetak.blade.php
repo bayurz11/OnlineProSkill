@@ -185,8 +185,8 @@
                     <table>
                         <tr>
                             <td>
-                                {{ $user->name }}<br>
-                                {{ $user->email }}
+                                Nama :{{ $user->name }}<br>
+                                Email :{{ $user->email }}
                             </td>
                         </tr>
                     </table>
