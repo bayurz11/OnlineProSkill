@@ -30,7 +30,8 @@
                             <input type="password" id="password_confirmation" placeholder="Konfirmasi Password"
                                 name="password_confirmation">
                         </div>
-
+                        <span>Password minimal 8 karakter terdiri simbol,
+                            huruf, dan angka</span>
                         <button class="g-recaptcha btn btn-two arrow-btn"
                             data-sitekey="{{ config('services.recaptcha_v3.siteKey') }}"
                             data-callback="onSubmitRegisStuden" data-action='submit'>Daftar
