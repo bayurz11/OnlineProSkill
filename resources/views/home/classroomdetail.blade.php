@@ -197,6 +197,10 @@
                                     </a>
                                 </div>
                             </div>
+                        @else
+                            <div class="courses__details-enroll">
+                                <p>Kuota kelas telah terpenuhi. Tunggu batch berikutnya untuk daftar.</p>
+                            </div>
                         @endif
                     </div>
                 </div>
