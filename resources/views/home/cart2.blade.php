@@ -155,6 +155,7 @@
                                         {{ number_format(array_sum(array_column($cart, 'price')), 0, ',', ',') }}</span>
                                 </li>
                             </ul>
+                            <button type="submit" class="btn">Bayar & gabung kelas</button>
                             @auth
                                 <form action="{{ route('payment') }}" class="customer__form-wrap" method="POST">
                                     @csrf
