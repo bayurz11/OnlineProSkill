@@ -11,7 +11,7 @@
                     <h2 class="title">Buat Akun ProSkill</h2>
                     <p>Silahkan isi form berikut untuk melanjutkan.</p>
 
-                    <form action="{{ route('guestregister') }}" class="account__form" method="POST" id="regisStuden">
+                    <form action="{{ route('guestregister') }}" class="account__form" method="POST" id="guestregister">
                         @csrf
                         <div class="form-grp">
                             <input type="text" id="name" name="name"
