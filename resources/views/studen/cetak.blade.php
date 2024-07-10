@@ -165,7 +165,8 @@
                         <tr>
                             <td class="title">
                                 <img src="{{ asset('public/assets/img/logo/logo.svg') }}" alt="ProSkill Akademia Logo"
-                                    style="width: 100%; max-width: 150px;">
+                                    style="width: 100%; max-width: 150px;"><span>Jl. H. Ungar No.2C, Kota Tanjung
+                                    Pinang, Kepulauan Riau</span>
                             </td>
                             <td>
                                 Invoice #: {{ $order->nomor_invoice }}<br>
@@ -181,9 +182,9 @@
                 <td colspan="2">
                     <table>
                         <tr>
-                            <td>
+                            {{-- <td>
                                 Jl. H. Ungar No.2C, Kota Tanjung Pinang, Kepulauan Riau
-                            </td>
+                            </td> --}}
                             <td>
                                 {{ $user->name }}<br>
                                 {{ $user->email }}
