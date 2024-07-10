@@ -164,13 +164,6 @@
                                     Durasi
                                     <span>{{ $courses->durasi }}</span>
                                 </li>
-                                {{-- <li>
-                                    <img src="{{ asset('public/assets/img/icons/course_icon03.svg') }}" alt="img"
-                                        class="injectable">
-                                    Pelajaran
-                                    <span>12</span>
-                                </li> --}}
-
                                 <li>
                                     <img src="{{ asset('public/assets/img/icons/course_icon05.svg') }}" alt="img"
                                         class="injectable">
@@ -181,42 +174,30 @@
                                     <img src="{{ asset('public/assets/img/icons/course_icon06.svg') }}" alt="img"
                                         class="injectable">
                                     Kuota Kelas
-                                    <span>0/{{ $courses->kuota }}</span>
+                                    <span>{{ $jumlahPendaftaran }}/{{ $courses->kuota }}</span>
                                 </li>
                             </ul>
                         </div>
-                        <div class="courses__payment">
-                            <h5 class="title">Pembayaran</h5>
-                            <img src="{{ asset('public/assets/img/others/payment.png') }}" alt="img">
-                        </div>
-                        <div class="courses__details-social">
-                            <h5 class="title">Share this course:</h5>
-                            <ul class="list-wrap">
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-whatsapp"></i></a></li>
-                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="courses__details-enroll">
-                            <div class="tg-button-wrap">
-                                <a href="{{ route('cart.checkout', ['id' => $courses->id]) }}"
-                                    class="btn btn-two arrow-btn">
-                                    Checkout
-                                    <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
-                                        class="injectable">
-                                </a>
+                        @if ($jumlahPendaftaran < 8)
+                            <div class="courses__details-enroll">
+                                <div class="tg-button-wrap">
+                                    <a href="{{ route('cart.checkout', ['id' => $courses->id]) }}"
+                                        class="btn btn-two arrow-btn">
+                                        Checkout
+                                        <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
+                                            class="injectable">
+                                    </a>
+                                </div>
+                                <br>
+                                <div class="tg-button-wrap">
+                                    <a href="{{ route('cart.adddetail', ['id' => $courses->id]) }}" class="btn">
+                                        Masukkan keranjang
+                                        <img src="{{ asset('public/assets/img/icons/cart.svg') }}" class="injectable"
+                                            alt="img">
+                                    </a>
+                                </div>
                             </div>
-                            <br>
-                            <div class="tg-button-wrap">
-                                <a href="{{ route('cart.adddetail', ['id' => $courses->id]) }}" class="btn">
-                                    Masukkan keranjang
-                                    <img src="{{ asset('public/assets/img/icons/cart.svg') }}" class="injectable"
-                                        alt="img">
-                                </a>
-                            </div>
-                        </div>
+                        @endif
                     </div>
                 </div>
             </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Kurikulum;
 use App\Models\Categories;
 use App\Models\UserProfile;
@@ -93,8 +94,8 @@ class HomeController extends Controller
 
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
-
-        return view('home.classroomdetail', compact('user', 'courses', 'kurikulum', 'courseList', 'profile', 'cart', 'notifikasiCount', 'notifikasi'));
+        $jumlahPendaftaran = Order::where('product_id', $id)->count();
+        return view('home.classroomdetail', compact('user', 'jumlahPendaftaran', 'courses', 'kurikulum', 'courseList', 'profile', 'cart', 'notifikasiCount', 'notifikasi'));
     }
 
 
