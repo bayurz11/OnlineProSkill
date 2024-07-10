@@ -134,21 +134,14 @@
                                                                 <i class="flaticon-arrow-right"></i>
                                                             </a>
                                                         </div>
-                                                        @if ($jumlahPendaftaran < 8)
-                                                            <div class="button">
-                                                                <a href="{{ route('cart.add', ['id' => $cours->id]) }}"
-                                                                    class="cart-count"
-                                                                    style="color: #ffffff; background-color: #007F73;">Keranjang
-                                                                    <img src="{{ asset('public/assets/img/icons/cart.svg') }}"
-                                                                        class="injectable" alt="img">
-                                                                </a>
-                                                            </div>
-                                                        @else
-                                                            <div class="courses__details-enroll">
-                                                                <p>Kuota kelas telah terpenuhi. Tunggu batch berikutnya
-                                                                    untuk mendaftar.</p>
-                                                            </div>
-                                                        @endif
+                                                        {{-- <div class="button">
+                                                            <a href="{{ route('cart.add', ['id' => $cours->id]) }}"
+                                                                class="cart-count"
+                                                                style="color: #ffffff; background-color: #007F73;">Keranjang
+                                                                <img src="{{ asset('public/assets/img/icons/cart.svg') }}"
+                                                                    class="injectable" alt="img">
+                                                            </a>
+                                                        </div> --}}
                                                         <h5 class="price">Rp
                                                             {{ number_format($cours->price, 0, ',', ',') }}</h5>
                                                     </div>
