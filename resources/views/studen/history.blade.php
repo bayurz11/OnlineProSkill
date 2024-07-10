@@ -71,14 +71,14 @@
                                                 <th>Tanggal</th>
                                                 <th>Harga</th>
                                                 <th>Status</th>
-                                                <th>Action</th>
+                                                <th>Invoice</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach ($orders as $order)
                                                 <tr>
                                                     <td>
-                                                        <p>{{ $order->external_id }}</p>
+                                                        <p>{{ $order->nomor_invoice }}</p>
                                                     </td>
                                                     <td>{{ $order->KelasTatapMuka->nama_kursus ?? 'Nama kelas tidak tersedia' }}
                                                     </td>
