@@ -168,7 +168,7 @@
                                     style="width: 100%; max-width: 150px;">
                             </td>
                             <td>
-                                Invoice #: {{ $order->external_id }}<br>
+                                Invoice #: {{ $order->nomor_invoice }}<br>
                                 Tanggal: {{ $order->created_at->format('d M Y') }}<br>
                                 Tanggal Cetak: <span id="print-date"></span><br>
                                 Status: {{ $order->status == 'PAID' ? 'Sukses' : 'Belum Dibayar' }}
