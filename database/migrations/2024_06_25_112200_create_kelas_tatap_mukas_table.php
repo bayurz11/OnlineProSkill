@@ -24,6 +24,7 @@ return new class extends Migration
             $table->boolean('content');
             $table->string('gambar');
             $table->string('tag');
+            $table->string('kuota');
             $table->string('durasi');
             $table->string('user_id')->nullable();
             $table->boolean('status')->default(1);

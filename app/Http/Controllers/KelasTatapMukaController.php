@@ -56,6 +56,7 @@ class KelasTatapMukaController extends Controller
         $course->tag = $request->tag;
         $course->durasi = $request->durasi;
         $course->sertifikat = $request->sertifikat;
+        $course->kuota = $request->kuota;
         $course->user_id = $userId;
         $course->save();
 
