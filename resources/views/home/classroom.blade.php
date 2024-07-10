@@ -108,15 +108,15 @@
                                             <div class="courses__item shine__animate-item">
                                                 <div class="courses__item-thumb">
                                                     <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}"
-                                                        class="shine__animate-link">
+                                                        class="shine__animate-link" title="{!! $cours->content !!}">
                                                         <img src="{{ asset('public/uploads/' . $cours->gambar) }}"
                                                             alt="Banner" class="wd-100 wd-sm-150 me-3">
                                                     </a>
                                                 </div>
                                                 <div class="courses__item-content">
                                                     <h5 class="title">
-                                                        <a
-                                                            href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
+                                                        <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}"
+                                                            title="{!! $cours->content !!}">{{ $cours->nama_kursus }}</a>
                                                     </h5>
                                                     <p class="author">By <a href="#">{{ $cours->user->name }}</a>
                                                     </p>
