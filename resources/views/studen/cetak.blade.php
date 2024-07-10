@@ -170,7 +170,7 @@
                                     Kepulauan Riau
                                 </div>
                             </td>
-                            <td style="text-align: left;">
+                            <td>
                                 <span style="font-size: 14px;">{{ $order->nomor_invoice }}<br>
                                     Tanggal: {{ $order->created_at->format('d M Y') }}<br>
                                     Tanggal Cetak: <span id="print-date"></span><br>
