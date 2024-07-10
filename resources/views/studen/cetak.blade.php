@@ -169,11 +169,11 @@
                                 <div style="margin-top: 10px;">Jl. H. Ungar No.2C, Kota Tanjung Pinang, Kepulauan Riau
                                 </div>
                             </td>
-                            <td>
-                                {{ $order->nomor_invoice }}<br>
-                                Tanggal: {{ $order->created_at->format('d M Y') }}<br>
-                                Tanggal Cetak: <span id="print-date"></span><br>
-                                Status: {{ $order->status == 'PAID' ? 'Sukses' : 'Belum Dibayar' }}
+                            <td style="text-align: left;">
+                                <span style="font-size: 14px;">{{ $order->nomor_invoice }}<br>
+                                    Tanggal: {{ $order->created_at->format('d M Y') }}<br>
+                                    Tanggal Cetak: <span id="print-date"></span><br>
+                                    Status: {{ $order->status == 'PAID' ? 'Sukses' : 'Belum Dibayar' }}</span>
                             </td>
                         </tr>
                     </table>

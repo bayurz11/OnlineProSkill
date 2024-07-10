@@ -270,7 +270,7 @@ class PaymentController extends Controller
             $result = $apiInstance->createInvoice($createInvoiceRequest);
 
             // Generate nomor invoice unik
-            $invoiceNumber = 'INV-' . time() . '-' . $userId;
+            $invoiceNumber = 'PSA-' . time() . '-' . $userId;
 
             // Masukkan ke tabel orders
             foreach ($items as $kelas) {
