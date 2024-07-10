@@ -182,14 +182,14 @@
                                                                 <i class="flaticon-arrow-right"></i>
                                                             </a>
                                                         </div>
-                                                        <div class="button">
+                                                        {{-- <div class="button">
                                                             <a href="{{ route('cart.add', ['id' => $cours->id]) }}"
                                                                 class="cart-count"
                                                                 style="color: #ffffff; background-color: #007F73;">Keranjang
                                                                 <img src="{{ asset('public/assets/img/icons/cart.svg') }}"
                                                                     class="injectable" alt="img">
                                                             </a>
-                                                        </div>
+                                                        </div> --}}
                                                     </div>
                                                 </div>
                                             </div>
