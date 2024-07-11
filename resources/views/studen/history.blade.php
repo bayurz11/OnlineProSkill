@@ -96,7 +96,7 @@
                                                             @if ($order->status == 'PAID')
                                                                 Sukses
                                                             @elseif ($order->status == 'SETTLED')
-                                                                Tuntas
+                                                                Sukses
                                                             @else
                                                                 <span class="dashboard__quiz-result processing">
                                                                     Belum Dibayar
