@@ -91,14 +91,20 @@
                                                     </td>
                                                     <td>
                                                         <span class="dashboard__quiz-result">
+                                                    <td>
+                                                        <span class="dashboard__quiz-result">
                                                             @if ($order->status == 'PAID')
                                                                 Sukses
+                                                            @elseif ($order->status == 'SETTLED')
+                                                                Tuntas
                                                             @else
                                                                 <span class="dashboard__quiz-result processing">
                                                                     Belum Dibayar
                                                                 </span>
                                                             @endif
                                                         </span>
+                                                    </td>
+                                                    </span>
                                                     </td>
                                                     <td>
                                                         <div class="dashboard__review-action">
