@@ -43,7 +43,7 @@
                                                 <button type="button" class="btn btn-outline-primary"
                                                     data-bs-toggle="modal" data-bs-placement="bottom"
                                                     data-bs-target="#exampleModalEdit" title="Edit Kurikulum"
-                                                    data-id="KURIKULUM_ID">
+                                                    data-id="{{ $kurikulum->id }}">
                                                     <i class="btn-icon-prepend" data-feather="edit"></i>
                                                 </button>
                                                 <button type="button" class="btn btn-outline-danger"
