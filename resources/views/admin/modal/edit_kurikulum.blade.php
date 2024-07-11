@@ -1,9 +1,9 @@
 <div class="modal fade" id="exampleModalEdit" tabindex="-1" aria-labelledby="exampleModalEditLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form id="kurikulumForm" action="{{ route('kurikulum.edit', ['id' => '']) }}" method="POST"
-                enctype="multipart/form-data">
+            <form id="kurikulumForm" method="POST" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
                 <input type="hidden" name="course_id" id="course_id">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalEditLabel">Edit Kurikulum</h5>
