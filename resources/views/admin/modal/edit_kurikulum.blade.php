@@ -1,5 +1,4 @@
-<form id="kurikulumForm" method="POST" action="{{ route('kurikulum.update', ['id' => $course->id]) }}"
-    enctype="multipart/form-data">
+<form id="kurikulumForm" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
     <input type="hidden" name="course_id" id="course_id">
