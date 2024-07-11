@@ -113,8 +113,7 @@
                     document.getElementById('confirmationModal').remove();
                     if (response.ok) {
                         console.log('subcategory berhasil dihapus. Mengalihkan ke halaman kurikulum.');
-                        window.location.href =
-                            '{{ route('kurikulum', ['id' => '$kurikulum->id ']) }}'; // Ganti 'ID_KURIKULUM' dengan ID yang sesuai
+                        window.location.href = `{{ route('kurikulum', ['id' => $kurikulum->id]) }}`;
                     } else {
                         response.text().then(text => {
                             console.error('Gagal menghapus subcategory:', text);
