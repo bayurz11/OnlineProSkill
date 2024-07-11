@@ -44,7 +44,7 @@
                                                     data-bs-target="#exampleModal" title="Edit Kurikulum">
                                                     <i class="btn-icon-prepend" data-feather="edit"></i>
                                                 </button>
-                                                <button type="button" class="btn btn-outline-primary"
+                                                <button type="button" class="btn btn-outline-danger"
                                                     data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                     data-bs-target="#exampleModal" title="Hapus Kurikulum">
                                                     <i class="btn-icon-prepend" data-feather="trash-2"></i>
