@@ -44,7 +44,7 @@
                                                     <i class="btn-icon-prepend" data-feather="edit"></i>
                                                 </button>
                                                 <button onclick="hapus('{{ $kurikulum->id }}')"
-                                                    class="btn btn-danger btn-icon" title="Hapus">
+                                                    class="btn btn-outline-danger btn-icon" title="Hapus">
                                                     <i data-feather="trash-2"></i>
                                                 </button>
                                                 <button type="button" class="btn btn-outline-primary"
