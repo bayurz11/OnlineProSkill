@@ -14,6 +14,7 @@
         </nav>
 
         @include('admin.modal.add_kurikulum')
+        @include('admin.modal.add_materi')
         {{-- @include('admin.modal.edit_kurikulum') --}}
 
         <div class="row">
@@ -50,7 +51,7 @@
                                                     <i class="btn-icon-prepend" data-feather="trash-2"></i>
                                                 </button>
                                                 <button type="button" class="btn btn-outline-primary"
-                                                    data-bs-toggle="modal" data-bs-target="#kurikulumModal">
+                                                    data-bs-toggle="modal" data-bs-target="#materiModal">
                                                     <i class="btn-icon-prepend" data-feather="plus-circle"></i> Tambah Sub
                                                 </button>
 
