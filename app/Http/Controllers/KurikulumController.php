@@ -71,9 +71,17 @@ class KurikulumController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Kurikulum $kurikulum)
+    public function edit($id)
     {
-        //
+        $course = Kurikulum::find($id);
+
+        if (!$course) {
+            // Jika kursus tidak ditemukan, kembalikan respons dengan kode status 404
+            return response()->json(['message' => 'Kursus tidak ditemukan'], 404);
+        }
+
+        // Kembalikan respons dengan data kursus dalam format JSON
+        return response()->json($course);
     }
 
     /**

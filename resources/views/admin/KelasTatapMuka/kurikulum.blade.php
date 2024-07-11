@@ -15,7 +15,7 @@
 
         @include('admin.modal.add_kurikulum')
         @include('admin.modal.add_materi')
-        {{-- @include('admin.modal.edit_kurikulum') --}}
+        @include('admin.modal.edit_kurikulum')
 
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
@@ -42,7 +42,7 @@
                                             <div class="d-flex gap-2"> <!-- Tambahkan div ini untuk menampung tombol -->
                                                 <button type="button" class="btn btn-outline-primary"
                                                     data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                    data-bs-target="#exampleModal" title="Edit Kurikulum">
+                                                    data-bs-target="#exampleModalEdit" title="Edit Kurikulum">
                                                     <i class="btn-icon-prepend" data-feather="edit"></i>
                                                 </button>
                                                 <button type="button" class="btn btn-outline-danger"

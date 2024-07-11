@@ -1,23 +1,33 @@
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="exampleModalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalEditLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Sub</h5>
+                <h5 class="modal-title" id="exampleModalEditLabel">Edit Kurikulum</h5>
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('sub.store') }}" method="POST">
+                <form action="{{ route('kurikulumedit') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <input type="hidden" id="kurikulumIdInput" name="kurikulum_id">
-                    <!-- Other form fields -->
-                    <div class="form-group">
-                        <label for="nama_sub">Nama Sub</label>
-                        <input type="text" class="form-control" id="nama_sub" name="nama_sub" required>
+                    <input type="hidden" name="course_id" id="course_id">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="kurikulumModalLabel">Tambah Kurikulum</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="btn-close"></button>
                     </div>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Judul<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="title" name="title"
+                                placeholder="Masukkan judul Kurikulum Anda">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
                 </form>
             </div>
         </div>
