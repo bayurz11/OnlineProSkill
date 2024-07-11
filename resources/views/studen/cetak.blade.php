@@ -174,7 +174,8 @@
                                 <span style="font-size: 14px;">{{ $order->nomor_invoice }}<br>
                                     Tanggal: {{ $order->created_at->format('d M Y') }}<br>
                                     Tanggal Cetak: <span id="print-date"></span><br>
-                                    Status: {{ $order->status == 'PAID' ? 'Sukses' : 'Belum Dibayar' }}</span>
+                                    Status: {{ $order->status == 'PAID' ? 'Sukses (SETTLED)' : 'Belum Dibayar' }}
+
                             </td>
                         </tr>
                     </table>
