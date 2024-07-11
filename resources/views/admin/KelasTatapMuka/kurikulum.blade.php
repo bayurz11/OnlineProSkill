@@ -40,9 +40,9 @@
                                             </div>
                                             <div class="d-flex gap-2"> <!-- Tambahkan div ini untuk menampung tombol -->
                                                 <button type="button" class="btn btn-outline-primary"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    <i class="btn-icon-prepend" data-feather="edit"
-                                                        title="Edit Kurikulum"></i>
+                                                    data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                                    title="Edit Kurikulum">
+                                                    <i class="btn-icon-prepend" data-feather="edit"></i>
                                                 </button>
                                                 <button type="button" class="btn btn-outline-primary"
                                                     data-bs-toggle="modal" data-bs-target="#exampleModal">
