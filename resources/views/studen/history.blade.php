@@ -89,8 +89,7 @@
                                                         <p>{{ number_format($order->price, 0) }}</p>
 
                                                     </td>
-                                                    <td>
-                                                        <span class="dashboard__quiz-result">
+
                                                     <td>
                                                         <span class="dashboard__quiz-result">
                                                             @if ($order->status == 'PAID')
