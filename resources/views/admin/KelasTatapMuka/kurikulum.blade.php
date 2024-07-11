@@ -53,7 +53,7 @@
                                                     data-bs-toggle="modal" data-bs-target="#kurikulumModal">
                                                     <i class="btn-icon-prepend" data-feather="plus-circle"></i> Tambah Sub
                                                 </button>
-                                                @include('admin.modal.add_kurikulum')
+
                                             </div>
                                         </div>
                                     </div>
