@@ -86,9 +86,27 @@ class KurikulumController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateKurikulumRequest $request, Kurikulum $kurikulum)
+    public function update(Request $request, $id)
     {
-        //
+        $course = Kurikulum::find($id);
+
+        if (!$course) {
+            return redirect()->back()->with('error', 'Kursus tidak ditemukan');
+        }
+
+        // Validasi data yang diterima
+        $request->validate([
+            'title' => 'required|string|max:255',
+            // Tambahkan validasi lainnya sesuai kebutuhan
+        ]);
+
+        // Update data kursus
+        $course->title = $request->input('title');
+        // Tambahkan update field lainnya sesuai kebutuhan
+
+        $course->save();
+
+        return redirect()->back()->with('success', 'Kursus berhasil diperbarui');
     }
 
     /**

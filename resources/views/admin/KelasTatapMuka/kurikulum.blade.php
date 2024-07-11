@@ -104,6 +104,9 @@
                         console.log('Error:', xhr);
                     }
                 });
+
+                // Set the action attribute of the form dynamically
+                $('#kurikulumForm').attr('action', '/kurikulum/' + kurikulumId);
             });
         });
     </script>
