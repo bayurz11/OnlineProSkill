@@ -1,7 +1,8 @@
 <div class="modal fade" id="exampleModalEdit" tabindex="-1" aria-labelledby="exampleModalEditLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form id="kurikulumForm" action="{{ route('kurikulumstore') }}" method="POST" enctype="multipart/form-data">
+            <form id="kurikulumForm" action="{{ route('kurikulum.edit', ['id' => '']) }}" method="POST"
+                enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="course_id" id="course_id">
                 <div class="modal-header">
@@ -23,3 +24,67 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    $(document).ready(function() {
+        const editors = {};
+
+        $('.edit-button').on('click', function() {
+            const id = $(this).data('id');
+            fetch(`/class/${id}/edit`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+
+                    $('#kurikulumForm').attr('action', `/kurikulum/${id}/edit`);
+                    $('#course_id').val(id);
+                    $('#title').val(data.title);
+
+                    if (editors[id]) {
+                        editors[id].destroy().then(() => {
+                            delete editors[id];
+                            createEditor(id, data.content);
+                        });
+                    } else {
+                        createEditor(id, data.content);
+                    }
+                })
+                .catch(error => console.error('Error fetching class data:', error));
+        });
+
+        function createEditor(id, content) {
+            ClassicEditor.create(document.querySelector('#edit_content'))
+                .then(editor => {
+                    editors[id] = editor;
+                    editor.setData(content);
+                    editor.model.document.on('change:data', () => {
+                        const content_input = document.querySelector('#edit_content_input');
+                        content_input.value = editor.getData();
+                    });
+                })
+                .catch(error => console.error(error));
+        }
+
+        $('#kurikulumForm').on('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+
+            $.ajax({
+                url: $(this).attr('action'),
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    alert('Kurikulum berhasil diperbarui');
+                    $('#exampleModalEdit').modal('hide');
+                    // Lakukan tindakan lain setelah berhasil diperbarui
+                },
+                error: function(response) {
+                    alert('Terjadi kesalahan saat memperbarui kurikulum');
+                }
+            });
+        });
+    });
+</script>
