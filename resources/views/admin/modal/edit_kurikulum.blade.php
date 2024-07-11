@@ -12,7 +12,7 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="title" class="form-label">Judul<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="title" name="title"
+                        <input type="text" class="form-control" id="edittitle" name="title"
                             placeholder="Masukkan judul Kurikulum Anda">
                     </div>
                 </div>
@@ -39,7 +39,7 @@
 
                     $('#kurikulumForm').attr('action', `/kurikulum/${id}/edit`);
                     $('#course_id').val(id);
-                    $('#title').val(data.title);
+                    $('#edittitle').val(data.title);
 
                     if (editors[id]) {
                         editors[id].destroy().then(() => {
