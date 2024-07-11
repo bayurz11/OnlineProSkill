@@ -5,7 +5,7 @@
                 @csrf
                 <input type="hidden" name="course_id" id="course_id">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalEditLabel">Tambah Kurikulum</h5>
+                    <h5 class="modal-title" id="exampleModalEditLabel">Edit Kurikulum</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
                 </div>
                 <div class="modal-body">
