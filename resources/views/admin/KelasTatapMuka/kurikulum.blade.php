@@ -41,7 +41,7 @@
                                             </div>
                                             <div class="d-flex gap-2"> <!-- Tambahkan div ini untuk menampung tombol -->
                                                 <button type="button" class="btn btn-outline-primary"
-                                                    data-bs-toggle="tooltip modal" data-bs-placement="bottom"
+                                                    data-bs-toggle="modal" data-bs-placement="bottom"
                                                     data-bs-target="#exampleModalEdit" title="Edit Kurikulum">
                                                     <i class="btn-icon-prepend" data-feather="edit"></i>
                                                 </button>
