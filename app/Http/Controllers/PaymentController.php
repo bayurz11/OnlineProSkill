@@ -361,7 +361,7 @@ class PaymentController extends Controller
                     'message' => 'Pembayaran berhasil di proses'
                 ]);
 
-                return response()->json('Pembayaran berhasil di proses');
+                return redirect()->route('classroom')->with('success', 'Pembayaran berhasil di proses');
             }
         }
 
