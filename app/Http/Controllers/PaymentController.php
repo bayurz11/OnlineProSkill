@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Order;
 use Xendit\Configuration;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\KelasTatapMuka;
+use App\Models\NotifikasiUser;
 use Xendit\Invoice\InvoiceApi;
 use App\Http\Controllers\Controller;
-use App\Models\NotifikasiUser;
 use Illuminate\Support\Facades\Auth;
 use Xendit\Invoice\CreateInvoiceRequest;
 
@@ -270,7 +271,7 @@ class PaymentController extends Controller
             $result = $apiInstance->createInvoice($createInvoiceRequest);
 
             // Generate nomor invoice unik
-            $invoiceNumber = 'PSA-' . time() . '-' . $userId;
+            $invoiceNumber = 'PSA-' . Carbon::now('Asia/Jakarta')->timestamp . '-' . $userId;
 
             // Masukkan ke tabel orders
             foreach ($items as $kelas) {
