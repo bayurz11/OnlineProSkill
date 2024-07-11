@@ -76,13 +76,12 @@ class KurikulumController extends Controller
         $course = Kurikulum::find($id);
 
         if (!$course) {
-            // Jika kursus tidak ditemukan, kembalikan respons dengan kode status 404
-            return response()->json(['message' => 'Kursus tidak ditemukan'], 404);
+            return response()->json(['message' => 'Kurikulum tidak ditemukan'], 404);
         }
 
-        // Kembalikan respons dengan data kursus dalam format JSON
         return response()->json($course);
     }
+
 
     /**
      * Update the specified resource in storage.

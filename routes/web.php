@@ -81,7 +81,7 @@ Route::middleware('isAdmin')->group(function () {
     //kurikulum
     Route::get('/kurikulum/{id}', [KurikulumController::class, 'index'])->name('kurikulum');
     Route::post('/kurikulum/store', [KurikulumController::class, 'store'])->name('kurikulumstore');
-    Route::post('/kurikulum/{id}/edit', [KurikulumController::class, 'edit'])->name('kurikulum.edit');
+    Route::get('/kurikulum/{id}/edit', [KurikulumController::class, 'edit'])->name('kurikulum.edit');
 });
 
 //*********STUDEN*********//
