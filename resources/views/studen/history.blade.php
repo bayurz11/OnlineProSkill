@@ -103,8 +103,7 @@
                                                             @endif
                                                         </span>
                                                     </td>
-                                                    </span>
-                                                    </td>
+
                                                     <td>
                                                         <div class="dashboard__review-action">
                                                             <a href="{{ route('cetak', ['id' => $order->id]) }}"
