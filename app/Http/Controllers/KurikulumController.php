@@ -109,6 +109,7 @@ class KurikulumController extends Controller
         return redirect()->back()->with('success', 'Kursus berhasil diperbarui');
     }
 
+
     /**
      * Remove the specified resource from storage.
      */

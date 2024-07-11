@@ -1,10 +1,10 @@
+@extends('layout.mainlayout_admin')
+
 @section('title', 'ProSkill Akademia | Kurikulum')
 <?php $page = 'Ofline_class'; ?>
 
-@extends('layout.mainlayout_admin')
 @section('content')
     <div class="page-content">
-
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
@@ -27,8 +27,6 @@
                                 data-bs-target="#kurikulumModal" data-id="new">
                                 <i class="btn-icon-prepend" data-feather="plus-circle"></i> Kurikulum
                             </button>
-
-
                         </div><br>
                         <p class="text-muted mb-3"> Jumlah Kurikulum : {{ $kurikulum->count() }}</p>
                         <div class="table-responsive">
@@ -39,11 +37,10 @@
                                             <div>
                                                 {{ $kurikulum->no_urut }}. {{ $kurikulum->title }}
                                             </div>
-                                            <div class="d-flex gap-2"> <!-- Tambahkan div ini untuk menampung tombol -->
+                                            <div class="d-flex gap-2">
                                                 <button type="button" class="btn btn-outline-primary"
-                                                    data-bs-toggle="modal" data-bs-placement="bottom"
-                                                    data-bs-target="#exampleModalEdit" title="Edit Kurikulum"
-                                                    data-id="{{ $kurikulum->id }}">
+                                                    data-bs-toggle="modal" data-bs-target="#exampleModalEdit"
+                                                    title="Edit Kurikulum" data-id="{{ $kurikulum->id }}">
                                                     <i class="btn-icon-prepend" data-feather="edit"></i>
                                                 </button>
                                                 <button type="button" class="btn btn-outline-danger"
@@ -55,7 +52,6 @@
                                                     data-bs-toggle="modal" data-bs-target="#materiModal">
                                                     <i class="btn-icon-prepend" data-feather="plus-circle"></i> Tambah Sub
                                                 </button>
-
                                             </div>
                                         </div>
                                     </div>
@@ -66,38 +62,26 @@
                 </div>
             </div>
         </div>
-
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
             $('#kurikulumModal, #exampleModal').on('show.bs.modal', function(event) {
-                var button = $(event.relatedTarget); // Button that triggered the modal
-                var kurikulumId = button.data('id'); // Extract info from data-* attributes
-
-                console.log('Kurikulum ID:', kurikulumId);
-
-                // Use the kurikulumId variable to set a hidden input field value
-                $('#kurikulumIdInput').val(kurikulumId); // Assuming you have an input field with this ID
+                var button = $(event.relatedTarget);
+                var kurikulumId = button.data('id');
+                $('#kurikulumIdInput').val(kurikulumId);
             });
-        });
-        $(document).ready(function() {
+
             $('#exampleModalEdit').on('show.bs.modal', function(event) {
-                var button = $(event.relatedTarget); // Button that triggered the modal
-                var kurikulumId = button.data('id'); // Extract info from data-* attributes
-
-                console.log('Kurikulum ID:', kurikulumId);
-
-                // Set the hidden input field value
+                var button = $(event.relatedTarget);
+                var kurikulumId = button.data('id');
                 $('#course_id').val(kurikulumId);
 
-                // Fetch the data for the specific kurikulum
                 $.ajax({
                     url: '/kurikulum/' + kurikulumId + '/edit',
                     method: 'GET',
                     success: function(response) {
-                        // Fill the form fields with the response data
                         $('#edittitle').val(response.title);
                     },
                     error: function(xhr) {
@@ -107,5 +91,4 @@
             });
         });
     </script>
-
 @endsection
