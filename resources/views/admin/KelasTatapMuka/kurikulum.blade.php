@@ -67,12 +67,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#kurikulumModal, #exampleModal').on('show.bs.modal', function(event) {
-                var button = $(event.relatedTarget);
-                var kurikulumId = button.data('id');
-                $('#kurikulumIdInput').val(kurikulumId);
-            });
-
+            // Set ID to hidden input when showing edit modal
             $('#exampleModalEdit').on('show.bs.modal', function(event) {
                 var button = $(event.relatedTarget);
                 var kurikulumId = button.data('id');
