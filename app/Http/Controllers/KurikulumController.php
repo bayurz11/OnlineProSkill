@@ -113,8 +113,17 @@ class KurikulumController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Kurikulum $kurikulum)
+    public function destroy($id)
     {
-        //
+
+        $course = Kurikulum::find($id);
+
+        if (!$course) {
+            return redirect()->back()->with('error', 'Kategori tidak ditemukan');
+        }
+
+        $course->delete();
+
+        return redirect()->back()->with('success', 'Kategori berhasil dihapus');
     }
 }
