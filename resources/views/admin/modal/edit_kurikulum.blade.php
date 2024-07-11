@@ -24,29 +24,3 @@
         </div>
     </div>
 </div>
-<script>
-    $(document).ready(function() {
-        $('#exampleModalEdit').on('show.bs.modal', function(event) {
-            var button = $(event.relatedTarget); // Button that triggered the modal
-            var kurikulumId = button.data('id'); // Extract info from data-* attributes
-
-            console.log('Kurikulum ID:', kurikulumId);
-
-            // Set the hidden input field value
-            $('#course_id').val(kurikulumId);
-
-            // Fetch the data for the specific kurikulum
-            $.ajax({
-                url: '/kurikulum/' + kurikulumId + '/edit',
-                method: 'GET',
-                success: function(response) {
-                    // Fill the form fields with the response data
-                    $('#edittitle').val(response.title);
-                },
-                error: function(xhr) {
-                    console.log('Error:', xhr);
-                }
-            });
-        });
-    });
-</script>
