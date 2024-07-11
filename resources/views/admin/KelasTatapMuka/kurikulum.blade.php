@@ -113,11 +113,11 @@
                     document.getElementById('confirmationModal').remove();
                     if (response.ok) {
                         console.log(
-                            'subcategory berhasil dihapus. Mengalihkan ke halaman pengaturan subcategory.');
-                        window.location.href = '/kurikulum/${id}';
+                            'Kurikulum berhasil dihapus. Mengalihkan ke halaman kurikulum.');
+                        window.location.href = `/kurikulum/${id}`; // Mengarahkan ke halaman kurikulum
                     } else {
                         response.text().then(text => {
-                            console.error('Gagal menghapus subcategory:', text);
+                            console.error('Gagal menghapus kurikulum:', text);
                         });
                     }
                 }).catch(error => {
