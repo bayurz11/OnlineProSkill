@@ -32,7 +32,7 @@
 
         $('.edit-button').on('click', function() {
             const id = $(this).data('id');
-            fetch(`/class/${id}/edit`)
+            fetch(`/kurikulum/${id}/edit`)
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);
