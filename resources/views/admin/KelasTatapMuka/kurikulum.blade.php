@@ -92,7 +92,7 @@
                     },
                     success: function(response) {
                         document.getElementById('confirmationModal').remove();
-                        console.log('Kurikulum berhasil dihapus. Mengalihkan ke halaman kurikulum.');
+                        toastr.success('Kurikulum berhasil dihapus');
                         location.reload(); // Refresh halaman setelah penghapusan berhasil
                     },
                     error: function(xhr) {
