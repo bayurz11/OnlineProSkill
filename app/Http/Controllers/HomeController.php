@@ -66,7 +66,7 @@ class HomeController extends Controller
         return view('home.classroom', compact('user', 'count', 'course', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'jumlahPendaftaran'));
     }
 
-    public function classroomdetail($id)
+    public function classroomdetail($id, $slug)
     {
         $user = Auth::user();
         $profile = null;
@@ -76,7 +76,7 @@ class HomeController extends Controller
             $profile = UserProfile::where('user_id', $user->id)->first();
         }
 
-        $courses = KelasTatapMuka::find($id);
+        $courses = KelasTatapMuka::find($slug);
 
         if (!$courses) {
             abort(404, 'Kelas tatap muka tidak ditemukan.');
