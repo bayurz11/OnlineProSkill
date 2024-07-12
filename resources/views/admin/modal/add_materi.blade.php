@@ -35,3 +35,15 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        $('#materiModal').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget); // Tombol yang membuka modal
+            var kurikulumId = button.data('id'); // Ambil data-id dari tombol
+            console.log('Kurikulum ID:', kurikulumId); // Debugging line
+
+            var modal = $(this);
+            modal.find('.modal-body #kurikulum_id').val(kurikulumId);
+        });
+    });
+</script>
