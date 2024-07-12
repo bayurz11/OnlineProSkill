@@ -27,7 +27,6 @@
     </div>
 </div>
 
-
 <script>
     $(document).ready(function() {
         $('#sectionModalEdit').on('show.bs.modal', function(event) {
@@ -41,15 +40,15 @@
                 method: 'GET',
                 success: function(response) {
                     console.log(response); // Debugging line
-                    $('#course_id').val(response.id); // Set nilai course_id di dalam modal
+                    $('#kurikulum_id').val(response
+                        .kurikulum_id); // Set nilai kurikulum_id di dalam modal
                     $('#edittitle1').val(response
                         .title); // Set nilai judul section di dalam modal
                     $('#linkedit').val(response
-                        .link); // Set nilai judul section di dalam modal
+                        .link); // Set nilai link section di dalam modal
 
                     // Set action form dengan id yang benar
-                    $('#editSectionForm').attr('action', '/sectionupdate/' +
-                        sectionId);
+                    $('#editSectionForm').attr('action', '/sectionupdate/' + sectionId);
                 },
                 error: function(xhr) {
                     console.log('Error:', xhr);
