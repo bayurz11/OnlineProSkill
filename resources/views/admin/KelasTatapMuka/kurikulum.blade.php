@@ -63,7 +63,7 @@
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
     <script>
         function hapus(id) {
             const confirmationBox = `
@@ -95,7 +95,7 @@
                     if (response.ok) {
                         console.log(
                             'Kurikulum berhasil dihapus. Mengalihkan ke halaman kurikulum.');
-                        window.location.href = '{{ route('kurikulum') }}';
+                        window.location.href = `/kurikulum/${kurikulumId}`;
                     } else {
                         response.text().then(text => {
                             console.error('Gagal menghapus kurikulum:', text);
