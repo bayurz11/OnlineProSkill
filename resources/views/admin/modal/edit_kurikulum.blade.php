@@ -2,8 +2,7 @@
 <div class="modal fade" id="exampleModalEdit" tabindex="-1" aria-labelledby="exampleModalEditLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form id="editKurikulumForm" method="POST" enctype="multipart/form-data"
-                action="{{ route('kurikulum.update', ['id' => '']) }}">
+            <form id="editKurikulumForm" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <input type="hidden" name="course_id" id="course_id">
@@ -23,25 +22,36 @@
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
             </form>
-
         </div>
     </div>
 </div>
 
-<script>
-    $.ajax({
-        url: '/kurikulum/' + kurikulumId + '/edit',
-        method: 'GET',
-        success: function(response) {
-            console.log(response); // Debugging line
-            $('#course_id').val(response.id); // Set nilai course_id di dalam modal
-            $('#edittitle').val(response.title); // Set nilai judul kurikulum di dalam modal
 
-            // Set action form dengan id yang benar
-            $('#editKurikulumForm').attr('action', '/kurikulum/' + kurikulumId);
-        },
-        error: function(xhr) {
-            console.log('Error:', xhr);
-        }
+<script>
+    $(document).ready(function() {
+        $('#exampleModalEdit').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget); // Tombol yang membuka modal
+            var kurikulumId = button.data('id'); // Ambil data-id dari tombol
+            console.log('Kurikulum ID:', kurikulumId); // Debugging line
+
+            // AJAX request untuk mengambil data kurikulum
+            $.ajax({
+                url: '/kurikulum/' + kurikulumId + '/edit',
+                method: 'GET',
+                success: function(response) {
+                    console.log(response); // Debugging line
+                    $('#course_id').val(response.id); // Set nilai course_id di dalam modal
+                    $('#edittitle').val(response
+                        .title); // Set nilai judul kurikulum di dalam modal
+
+                    // Set action form dengan id yang benar
+                    $('#editKurikulumForm').attr('action', '/kurikulumupdate/' +
+                        kurikulumId);
+                },
+                error: function(xhr) {
+                    console.log('Error:', xhr);
+                }
+            });
+        });
     });
 </script>
