@@ -65,26 +65,6 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        // $(document).ready(function() {
-        //     // Set ID to hidden input when showing edit modal
-        //     $('#exampleModalEdit').on('show.bs.modal', function(event) {
-        //         var button = $(event.relatedTarget);
-        //         var kurikulumId = button.data('id');
-        //         $('#course_id').val(kurikulumId);
-
-        //         $.ajax({
-        //             url: '/kurikulum/' + kurikulumId + '/edit',
-        //             method: 'GET',
-        //             success: function(response) {
-        //                 $('#edittitle').val(response.title);
-        //             },
-        //             error: function(xhr) {
-        //                 console.log('Error:', xhr);
-        //             }
-        //         });
-        //     });
-        // });
-
         function hapus(id) {
             const confirmationBox = `
                 <div id="confirmationModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">

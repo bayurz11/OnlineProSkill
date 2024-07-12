@@ -25,3 +25,25 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        // Set ID to hidden input when showing edit modal
+        $('#exampleModalEdit').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget);
+            var kurikulumId = button.data('id');
+            $('#course_id').val(kurikulumId); // Pastikan ada elemen dengan id 'course_id'
+
+            $.ajax({
+                url: '/kurikulum/' + kurikulumId + '/edit',
+                method: 'GET',
+                success: function(response) {
+                    $('#edittitle').val(response
+                        .title); // Pastikan ada elemen dengan id 'edittitle'
+                },
+                error: function(xhr) {
+                    console.log('Error:', xhr);
+                }
+            });
+        });
+    });
+</script>

@@ -73,14 +73,15 @@ class KurikulumController extends Controller
      */
     public function edit($id)
     {
-        $course = Kurikulum::find($id);
+        $kurikulum = Kurikulum::find($id);
 
-        if (!$course) {
+        if (!$kurikulum) {
             return response()->json(['message' => 'Kurikulum tidak ditemukan'], 404);
         }
 
-        return response()->json($course);
+        return response()->json($kurikulum);
     }
+
 
 
     /**
