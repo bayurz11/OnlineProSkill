@@ -107,7 +107,7 @@
                                         <div class="col">
                                             <div class="courses__item shine__animate-item">
                                                 <div class="courses__item-thumb">
-                                                    <a href="{{ route('classroomdetail', ['id' => $courses->id, 'slug' => $courses->slug]) }}"
+                                                    <a href="{{ route('classroomdetail', ['id' => $cours->id, 'slug' => $cours->slug]) }}"
                                                         class="shine__animate-link">
                                                         <img src="{{ asset('public/uploads/' . $cours->gambar) }}"
                                                             alt="Banner" class="wd-100 wd-sm-150 me-3">
@@ -116,7 +116,7 @@
                                                 <div class="courses__item-content">
                                                     <h5 class="title">
                                                         <a
-                                                            href="{{ route('classroomdetail', ['id' => $courses->id, 'slug' => $courses->slug]) }}">{{ $cours->nama_kursus }}</a>
+                                                            href="{{ route('classroomdetail', ['id' => $cours->id, 'slug' => $cours->slug]) }}">{{ $cours->nama_kursus }}</a>
                                                     </h5>
                                                     <p class="author">By <a
                                                             href="#">{{ $cours->user->name }}</a>&nbsp;&nbsp; <img
@@ -129,7 +129,7 @@
                                                     <div class="courses__item-bottom">
                                                         <div class="button">
                                                             <a
-                                                                href="{{ route('classroomdetail', ['id' => $courses->id, 'slug' => $courses->slug]) }}">
+                                                                href="{{ route('classroomdetail', ['id' => $cours->id, 'slug' => $cours->slug]) }}">
                                                                 <span class="text">Detail</span>
                                                                 <i class="flaticon-arrow-right"></i>
                                                             </a>
@@ -162,7 +162,7 @@
                                         <div class="col">
                                             <div class="courses__item courses__item-three shine__animate-item">
                                                 <div class="courses__item-thumb">
-                                                    <a href="{{ route('classroomdetail', ['id' => $courses->id, 'slug' => $courses->slug]) }}"
+                                                    <a href="{{ route('classroomdetail', ['id' => $cours->id, 'slug' => $cours->slug]) }}"
                                                         class="shine__animate-link">
                                                         <img src="{{ asset('public/uploads/' . $cours->gambar) }}"
                                                             alt="Banner" class="wd-100 wd-sm-150 me-3">
@@ -176,7 +176,7 @@
                                                         </li>
                                                     </ul>
                                                     <h5 class="title"><a
-                                                            href="{{ route('classroomdetail', ['id' => $courses->id, 'slug' => $courses->slug]) }}">{{ $cours->nama_kursus }}</a>
+                                                            href="{{ route('classroomdetail', ['id' => $cours->id, 'slug' => $cours->slug]) }}">{{ $cours->nama_kursus }}</a>
                                                     </h5>
                                                     <p class="author">By <a
                                                             href="#">{{ $cours->user->name }}</a>&nbsp;&nbsp; <img
@@ -189,7 +189,7 @@
                                                     <div class="courses__item-bottom">
                                                         <div class="button">
                                                             <a
-                                                                href="{{ route('classroomdetail', ['id' => $courses->id, 'slug' => $courses->slug]) }}">
+                                                                href="{{ route('classroomdetail', ['id' => $cours->id, 'slug' => $cours->slug]) }}">
                                                                 <span class="text">Detail</span>
                                                                 <i class="flaticon-arrow-right"></i>
                                                             </a>
