@@ -2,19 +2,28 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class KelasTatapMuka extends Model
 {
     use HasFactory;
-
+    use Sluggable;
     // Nama tabel
     protected $table = 'classroom_master';
     protected $primaryKey = 'id';
 
     protected $guarded = [];
 
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'nama_kursus'
+            ]
+        ];
+    }
     // Relasi ke model Kategori
     public function kategori()
     {
