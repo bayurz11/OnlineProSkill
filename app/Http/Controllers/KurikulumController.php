@@ -19,7 +19,7 @@ class KurikulumController extends Controller
     {
         $user = Auth::user();
         $categori = Categories::all();
-        $kurikulum = Kurikulum::with('user')->where('kurikulum_id', $id)->get();
+        $kurikulum = Kurikulum::with('user')->where('course_id', $id)->get();
         $cours = KelasTatapMuka::all();
         if (!$user) {
             return redirect()->route('login_admin');
@@ -39,16 +39,16 @@ class KurikulumController extends Controller
     {
         // Validasi data
         $validatedData = $request->validate([
-            'kurikulum_id' => 'required|integer',
+            'course_id' => 'required|integer',
             'title' => 'required|string|max:255',
         ]);
 
         // Hitung jumlah entri yang ada untuk mendapatkan no_urut baru
-        $noUrut = Kurikulum::where('kurikulum_id', $validatedData['kurikulum_id'])->count() + 1;
+        $noUrut = Kurikulum::where('course_id', $validatedData['course_id'])->count() + 1;
 
         // Buat entitas Kurikulum baru
         $kurikulum = new Kurikulum;
-        $kurikulum->kurikulum_id = $validatedData['kurikulum_id'];
+        $kurikulum->course_id = $validatedData['course_id'];
         $kurikulum->title = $validatedData['title'];
         $kurikulum->no_urut = $noUrut;
         $kurikulum->save();
@@ -117,13 +117,13 @@ class KurikulumController extends Controller
     public function destroy($id)
     {
 
-        $kurikulum = Kurikulum::find($id);
+        $course = Kurikulum::find($id);
 
-        if (!$kurikulum) {
+        if (!$course) {
             return redirect()->back()->with('error', 'Kategori tidak ditemukan');
         }
 
-        $kurikulum->delete();
+        $course->delete();
 
         return redirect()->back()->with('success', 'Kategori berhasil dihapus');
     }
