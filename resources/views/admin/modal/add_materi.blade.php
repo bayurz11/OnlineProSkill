@@ -15,19 +15,16 @@
                         <input type="text" class="form-control" id="kurikulum_id" name="kurikulum_id"
                             placeholder="Masukkan judul Kurikulum Anda">
                     </div>
-                </div>
-                <div class="modal-body">
                     <div class="mb-3">
                         <label for="title" class="form-label">Judul<span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="title" name="title"
                             placeholder="Masukkan judul Kurikulum Anda">
                     </div>
-                </div>
-                <div class="modal-body">
                     <div class="mb-3">
-                        <label for="title" class="form-label">Link Materi<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="title" name="title"
-                            placeholder="Masukkan judul Kurikulum Anda">
+                        <label for="link_materi" class="form-label">Link Materi<span
+                                class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="link_materi" name="link_materi"
+                            placeholder="Masukkan link materi Anda">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -39,21 +36,20 @@
     </div>
 </div>
 
-<!-- Script untuk mengambil ID kursus dari localStorage dan mereset form -->
+<!-- Script untuk mengambil ID kursus dari tombol dan mereset form -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const materiModal = document.getElementById('materiModal');
         materiModal.addEventListener('show.bs.modal', function(event) {
-            const kurikulumId = localStorage.getItem('selectedkurikulumId');
-            if (kurikulumId) {
-                console.log('Course ID found in localStorage:', kurikulumId);
-                document.getElementById('course_id').value = kurikulumId;
-            }
+            const button = event.relatedTarget; // Tombol yang memicu modal
+            const kurikulumId = button.getAttribute('data-id'); // Ambil nilai data-id
+            console.log('Course ID from button data-id:', kurikulumId);
+            document.getElementById('course_id').value = kurikulumId; // Set nilai course_id
         });
 
         materiModal.addEventListener('hide.bs.modal', function(event) {
             console.log('Modal closed, resetting form.');
-            document.getElementById('kurikulumForm').reset();
+            document.getElementById('kurikulumForm').reset(); // Reset form
         });
     });
 </script>
