@@ -40,23 +40,27 @@
                 console.log('Course ID found in localStorage:', courseId);
                 document.getElementById('course_id').value = courseId;
 
-                // AJAX request untuk mengambil data kurikulum
-                $.ajax({
-                    url: '/kurikulum/' + courseId + '/edit',
-                    method: 'GET',
-                    success: function(response) {
-                        console.log('Response from server:', response); // Tambahkan log ini
-                        if (response.message) {
-                            alert(response.message);
-                        } else {
-                            console.log('Setting title:', response
-                            .title); // Tambahkan log ini
-                            document.getElementById('edittitle').value = response.title;
-                        }
-                    },
-                    error: function(xhr) {
-                        console.log('Error:', xhr);
-                    }
+                $(document).ready(function() {
+                    $('#exampleModalEdit').on('show.bs.modal', function(event) {
+                        var button = $(event.relatedTarget);
+                        var kurikulumId = button.data('id');
+                        console.log('Kurikulum ID:', kurikulumId); // Debugging line
+                        $('#course_id').val(
+                        kurikulumId); // Pastikan ada elemen dengan id 'course_id'
+
+                        $.ajax({
+                            url: '/kurikulum/' + kurikulumId + '/edit',
+                            method: 'GET',
+                            success: function(response) {
+                                $('#edittitle').val(response
+                                    .title
+                                    ); // Pastikan ada elemen dengan id 'edittitle'
+                            },
+                            error: function(xhr) {
+                                console.log('Error:', xhr);
+                            }
+                        });
+                    });
                 });
             }
         });
