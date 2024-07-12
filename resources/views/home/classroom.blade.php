@@ -128,11 +128,16 @@
 
                                                     <div class="courses__item-bottom">
                                                         <div class="button">
-                                                            <a
+                                                            {{-- <a
                                                                 href="{{ route('classroomdetail', ['id' => $cours->id]) }}">
                                                                 <span class="text">Detail</span>
                                                                 <i class="flaticon-arrow-right"></i>
+                                                            </a> --}}
+                                                            <a
+                                                                href="{{ route('classroomdetail', ['slug' => $classroom->slug]) }}">
+                                                                {{ $classroom->name }}
                                                             </a>
+
                                                         </div>
                                                         {{-- <div class="button">
                                                             <a href="{{ route('cart.add', ['id' => $cours->id]) }}"

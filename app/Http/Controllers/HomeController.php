@@ -99,7 +99,11 @@ class HomeController extends Controller
     //     // Hitung jumlah notifikasi dengan status = 1
     //     $notifikasiCount = $notifikasi->where('status', 1)->count();
     //     $jumlahPendaftaran = Order::where('product_id', $id)->count();
-    //     return view('home.classroomdetail', compact('user', 'jumlahPendaftaran', 'courses', 'kurikulum', 'courseList', 'profile', 'cart', 'notifikasiCount', 'notifikasi'));
+
+    //     // Ambil section yang relevan dengan kurikulum
+    //     $section = Section::whereIn('kurikulum_id', $kurikulum->pluck('id'))->get()->groupBy('kurikulum_id');
+
+    //     return view('home.classroomdetail', compact('user', 'jumlahPendaftaran', 'courses', 'kurikulum', 'courseList', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'section'));
     // } 12-07-24
     public function classroomdetail($id)
     {
