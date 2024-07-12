@@ -107,7 +107,7 @@
                                         <div class="col">
                                             <div class="courses__item shine__animate-item">
                                                 <div class="courses__item-thumb">
-                                                    <a href="{{ route('classroomdetail', ['slug' => $cours->slug]) }}"
+                                                    <a href="{{ route('classroomdetail', ['slug' => $kelasTatapMuka->slug]) }}"
                                                         class="shine__animate-link">
                                                         <img src="{{ asset('public/uploads/' . $cours->gambar) }}"
                                                             alt="Banner" class="wd-100 wd-sm-150 me-3">
@@ -116,7 +116,7 @@
                                                 <div class="courses__item-content">
                                                     <h5 class="title">
                                                         <a
-                                                            href="{{ route('classroomdetail', ['slug' => $cours->slug]) }}">{{ $cours->nama_kursus }}</a>
+                                                            href="{{ route('classroomdetail', ['slug' => $kelasTatapMuka->slug]) }}">{{ $cours->nama_kursus }}</a>
                                                     </h5>
                                                     <p class="author">By <a
                                                             href="#">{{ $cours->user->name }}</a>&nbsp;&nbsp; <img
@@ -129,13 +129,13 @@
                                                     <div class="courses__item-bottom">
                                                         <div class="button">
                                                             <a
-                                                                href="{{ route('classroomdetail', ['slug' => $cours->slug]) }}">
+                                                                href="{{ route('classroomdetail', ['slug' => $kelasTatapMuka->slug]) }}">
                                                                 <span class="text">Detail</span>
                                                                 <i class="flaticon-arrow-right"></i>
                                                             </a>
                                                         </div>
                                                         {{-- <div class="button">
-                                                            <a href="{{ route('cart.add', ['slug' => $cours->slug]) }}"
+                                                            <a href="{{ route('cart.add', ['slug' => $kelasTatapMuka->slug]) }}"
                                                                 class="cart-count"
                                                                 style="color: #ffffff; background-color: #007F73;">Keranjang
                                                                 <img src="{{ asset('public/assets/img/icons/cart.svg') }}"
@@ -162,7 +162,7 @@
                                         <div class="col">
                                             <div class="courses__item courses__item-three shine__animate-item">
                                                 <div class="courses__item-thumb">
-                                                    <a href="{{ route('classroomdetail', ['slug' => $cours->slug]) }}"
+                                                    <a href="{{ route('classroomdetail', ['slug' => $kelasTatapMuka->slug]) }}"
                                                         class="shine__animate-link">
                                                         <img src="{{ asset('public/uploads/' . $cours->gambar) }}"
                                                             alt="Banner" class="wd-100 wd-sm-150 me-3">
@@ -176,7 +176,7 @@
                                                         </li>
                                                     </ul>
                                                     <h5 class="title"><a
-                                                            href="{{ route('classroomdetail', ['slug' => $cours->slug]) }}">{{ $cours->nama_kursus }}</a>
+                                                            href="{{ route('classroomdetail', ['slug' => $kelasTatapMuka->slug]) }}">{{ $cours->nama_kursus }}</a>
                                                     </h5>
                                                     <p class="author">By <a
                                                             href="#">{{ $cours->user->name }}</a>&nbsp;&nbsp; <img
@@ -189,13 +189,13 @@
                                                     <div class="courses__item-bottom">
                                                         <div class="button">
                                                             <a
-                                                                href="{{ route('classroomdetail', ['slug' => $cours->slug]) }}">
+                                                                href="{{ route('classroomdetail', ['slug' => $kelasTatapMuka->slug]) }}">
                                                                 <span class="text">Detail</span>
                                                                 <i class="flaticon-arrow-right"></i>
                                                             </a>
                                                         </div>
                                                         {{-- <div class="button">
-                                                            <a href="{{ route('cart.add', ['slug' => $cours->slug]) }}"
+                                                            <a href="{{ route('cart.add', ['slug' => $kelasTatapMuka->slug]) }}"
                                                                 class="cart-count"
                                                                 style="color: #ffffff; background-color: #007F73;">Keranjang
                                                                 <img src="{{ asset('public/assets/img/icons/cart.svg') }}"
