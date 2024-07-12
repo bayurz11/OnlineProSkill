@@ -28,7 +28,7 @@
                                 <i class="btn-icon-prepend" data-feather="plus-circle"></i> Kurikulum
                             </button>
                         </div><br>
-                        <p class="text-muted mb-3"> Jumlah Bagian Kurikulum : {{ $kurikulum->count() }}</p>
+                        <p class="text-muted mb-3"> Jumlah Pertemuan : {{ $kurikulum->count() }}</p>
                         <div class="table-responsive">
                             @foreach ($kurikulum as $kuri)
                                 <div class="col-md-12 grid-margin stretch-card">
