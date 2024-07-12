@@ -63,7 +63,7 @@
         </div>
     </div>
 
-    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         function hapus(id) {
             const confirmationBox = `
@@ -81,29 +81,24 @@
 
             document.getElementById('confirmDelete').onclick = function() {
                 const kurikulumId = this.getAttribute('data-id');
-                fetch(`/kurikulum_destroy/${kurikulumId}`, {
-                    method: 'POST', // Menggunakan POST bukan DELETE
+                $.ajax({
+                    url: `/kurikulum_destroy/${kurikulumId}`,
+                    method: 'POST',
                     headers: {
                         'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                        'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({
+                    data: {
                         _method: 'DELETE'
-                    })
-                }).then(response => {
-                    document.getElementById('confirmationModal').remove();
-                    if (response.ok) {
-                        console.log(
-                            'Kurikulum berhasil dihapus. Mengalihkan ke halaman kurikulum.');
-                        window.location.href = `/kurikulum/${kurikulumId}`;
-                    } else {
-                        response.text().then(text => {
-                            console.error('Gagal menghapus kurikulum:', text);
-                        });
+                    },
+                    success: function(response) {
+                        document.getElementById('confirmationModal').remove();
+                        console.log('Kurikulum berhasil dihapus. Mengalihkan ke halaman kurikulum.');
+                        location.reload(); // Refresh halaman setelah penghapusan berhasil
+                    },
+                    error: function(xhr) {
+                        document.getElementById('confirmationModal').remove();
+                        console.error('Gagal menghapus kurikulum:', xhr.responseText);
                     }
-                }).catch(error => {
-                    document.getElementById('confirmationModal').remove();
-                    console.error('Terjadi kesalahan:', error);
                 });
             };
 
