@@ -202,48 +202,33 @@
                                     aria-controls="overview-tab-pane" aria-selected="true">Ringkasan</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="curriculum-tab" data-bs-toggle="tab"
-                                    data-bs-target="#curriculum-tab-pane" type="button" role="tab"
-                                    aria-controls="curriculum-tab-pane" aria-selected="false">Kurikulum</button>
+                                <button class="nav-link" id="instructors-tab" data-bs-toggle="tab"
+                                    data-bs-target="#instructors-tab-pane" type="button" role="tab"
+                                    aria-controls="instructors-tab-pane" aria-selected="false">Instructors</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="reviews-tab" data-bs-toggle="tab"
+                                    data-bs-target="#reviews-tab-pane" type="button" role="tab"
+                                    aria-controls="reviews-tab-pane" aria-selected="false">reviews</button>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="overview-tab-pane" role="tabpanel"
                                 aria-labelledby="overview-tab" tabindex="0">
                                 <div class="courses__overview-wrap">
-                                    <h3 class="title">Course Description</h3>
-                                    <p>Dorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua Quis ipsum suspendisse ultrices gravida.
-                                        Risus commodo viverra maecenas accumsan lacus vel facilisis.dolor sit amet,
-                                        consectetur adipiscing elited do eiusmod tempor incididunt ut labore et dolore magna
-                                        aliqua.</p>
-                                    <h3 class="title">What you'll learn in this course?</h3>
-                                    <p>Dorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua Quis ipsum suspendisse ultrices gravida.
-                                        Risus commodo viverra maecenas accumsan.</p>
+                                    <h3 class="title">Deskripsi Kelas</h3>
+                                    <p> {!! $courses->content !!}</p>
+                                    <h3 class="title">Pelajaran yang Didapat</h3>
+
                                     <ul class="about__info-list list-wrap">
-                                        <li class="about__info-list-item">
-                                            <i class="flaticon-angle-right"></i>
-                                            <p class="content">Work with color & Gradients & Grids</p>
-                                        </li>
-                                        <li class="about__info-list-item">
-                                            <i class="flaticon-angle-right"></i>
-                                            <p class="content">All the useful shortcuts</p>
-                                        </li>
-                                        <li class="about__info-list-item">
-                                            <i class="flaticon-angle-right"></i>
-                                            <p class="content">Be able to create Flyers, Brochures, Advertisements</p>
-                                        </li>
-                                        <li class="about__info-list-item">
-                                            <i class="flaticon-angle-right"></i>
-                                            <p class="content">How to work with Images & Text</p>
-                                        </li>
+                                        @foreach ($courseList as $course)
+                                            <li class="about__info-list-item">
+                                                <i class="flaticon-angle-right"></i>
+                                                <p class="content">{{ $course }}</p>
+                                            </li>
+                                        @endforeach
                                     </ul>
-                                    <p class="last-info">Morem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                        eiusmod tempor incididunt ut labore et dolore magna aliqua Quis ipsum suspendisse
-                                        ultrices gravida. Risus commodo viverra maecenas accumsan.Dorem ipsum dolor sit
-                                        amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                                        dolore magn.</p>
+
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="instructors-tab-pane" role="tabpanel"
