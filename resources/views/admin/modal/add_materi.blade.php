@@ -20,9 +20,8 @@
                             placeholder="Masukkan judul Kurikulum Anda">
                     </div>
                     <div class="mb-3">
-                        <label for="link_materi" class="form-label">Link Materi<span
-                                class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="link_materi" name="link_materi"
+                        <label for="link" class="form-label">Link Materi<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="link" name="link"
                             placeholder="Masukkan link materi Anda">
                     </div>
                 </div>
