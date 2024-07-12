@@ -18,7 +18,7 @@
                                     <h2 class="accordion-header">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            Introduction
+                                            {{ $item->title }}
                                             <span>1/3</span>
                                         </button>
                                     </h2>
