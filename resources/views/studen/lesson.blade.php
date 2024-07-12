@@ -12,32 +12,123 @@
                 <div class="col-xl-3 col-lg-4">
                     <div class="lesson__content">
                         <h2 class="title">Konten Kursus</h2>
-                        <div class="accordion" id="accordionExample">
-                            @foreach ($kurikulum as $item)
+                        @foreach ($kurikulum as $item)
+                            <div class="accordion" id="accordionExample">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header">
-                                        <button class="accordion-button {{ $item->no_urut == 1 ? '' : 'collapsed' }}"
-                                            type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse{{ $item->no_urut }}"
-                                            aria-expanded="{{ $item->no_urut == 1 ? 'true' : 'false' }}"
-                                            aria-controls="collapse{{ $item->no_urut }}">
-                                            {{ $item->judul }}
-                                            <span>1/5</span> {{-- Adjust the span content as needed --}}
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            Introduction
+                                            <span>1/3</span>
                                         </button>
                                     </h2>
-                                    <div id="collapse{{ $item->no_urut }}"
-                                        class="accordion-collapse collapse {{ $item->no_urut == 1 ? 'show' : '' }}"
+                                    <div id="collapseOne" class="accordion-collapse collapse show"
                                         data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
                                             <ul class="list-wrap">
+                                                <li class="course-item open-item">
+                                                    <a href="#" class="course-item-link active">
+                                                        <span class="item-name">Course Installation</span>
+                                                        <div class="course-item-meta">
+                                                            <span class="item-meta duration">03:03</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
 
+                                                <a href="#" class="course-item-link">
+                                                    <span class="item-name">React for the Rest of us</span>
+                                                    <div class="course-item-meta">
+                                                        <span class="item-meta duration">10:48</span>
+                                                        <span class="item-meta course-item-status">
+                                                            <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
+                                                                alt="icon">
+                                                        </span>
+                                                    </div>
+                                                </a>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
-                            @endforeach
-                        </div>
 
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            Capacitance and Inductance
+                                            <span>1/5</span>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <ul class="list-wrap">
+                                                <li class="course-item">
+                                                    <a href="#" class="course-item-link">
+                                                        <span class="item-name">Course Installation</span>
+                                                        <div class="course-item-meta">
+                                                            <span class="item-meta duration">03:03</span>
+                                                            <span class="item-meta course-item-status">
+                                                                <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
+                                                                    alt="icon">
+                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="course-item">
+                                                    <a href="#" class="course-item-link">
+                                                        <span class="item-name">Create a Simple React App</span>
+                                                        <div class="course-item-meta">
+                                                            <span class="item-meta duration">07:48</span>
+                                                            <span class="item-meta course-item-status">
+                                                                <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
+                                                                    alt="icon">
+                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="course-item">
+                                                    <a href="#" class="course-item-link">
+                                                        <span class="item-name">React for the Rest of us</span>
+                                                        <div class="course-item-meta">
+                                                            <span class="item-meta duration">10:48</span>
+                                                            <span class="item-meta course-item-status">
+                                                                <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
+                                                                    alt="icon">
+                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="course-item">
+                                                    <a href="#" class="course-item-link">
+                                                        <span class="item-name">Create a Simple React App</span>
+                                                        <div class="course-item-meta">
+                                                            <span class="item-meta duration">07:48</span>
+                                                            <span class="item-meta course-item-status">
+                                                                <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
+                                                                    alt="icon">
+                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="course-item">
+                                                    <a href="#" class="course-item-link">
+                                                        <span class="item-name">React for the Rest of us</span>
+                                                        <div class="course-item-meta">
+                                                            <span class="item-meta duration">10:48</span>
+                                                            <span class="item-meta course-item-status">
+                                                                <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
+                                                                    alt="icon">
+                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="col-xl-9 col-lg-8">
