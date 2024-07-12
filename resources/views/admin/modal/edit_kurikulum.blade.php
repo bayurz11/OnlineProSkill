@@ -1,13 +1,13 @@
 <!-- Modal untuk Edit Kurikulum -->
-<div class="modal fade" id="exampleModalEdit" tabindex="-1" aria-labelledby="exampleModalEditLabel" aria-hidden="true">
+<div class="modal fade" id="kurikulumModal" tabindex="-1" aria-labelledby="kurikulumModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form id="editKurikulumForm" method="POST" enctype="multipart/form-data">
+            <form id="kurikulumForm" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <input type="hidden" name="course_id" id="course_id">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalEditLabel">Edit Kurikulum</h5>
+                    <h5 class="modal-title" id="kurikulumModalLabel">Edit Kurikulum</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -26,27 +26,42 @@
     </div>
 </div>
 
-<!-- JavaScript untuk menangani pembukaan modal dan pengambilan data kurikulum -->
+<!-- Script untuk mengambil ID kursus dari localStorage dan mereset form -->
 <script>
-    $(document).ready(function() {
-        $('#exampleModalEdit').on('show.bs.modal', function(event) {
-            var button = $(event.relatedTarget); // Tombol yang membuka modal
-            var kurikulumId = button.data('id'); // Ambil data-id dari tombol
-            console.log('Kurikulum ID:', kurikulumId); // Debugging line
-            $('#course_id').val(kurikulumId); // Set nilai course_id di dalam modal
+    document.addEventListener('DOMContentLoaded', function() {
+        const kurikulumModal = document.getElementById('kurikulumModal');
 
-            // AJAX request untuk mengambil data kurikulum
-            $.ajax({
-                url: '/kurikulum/' + kurikulumId + '/edit',
-                method: 'GET',
-                success: function(response) {
-                    $('#edittitle').val(response
-                    .title); // Set nilai judul kurikulum di dalam modal
-                },
-                error: function(xhr) {
-                    console.log('Error:', xhr);
-                }
-            });
+        kurikulumModal.addEventListener('show.bs.modal', function(event) {
+            const button = event.relatedTarget;
+            const kurikulumId = button.getAttribute('data-id');
+            localStorage.setItem('selectedCourseId', kurikulumId);
+            const courseId = localStorage.getItem('selectedCourseId');
+            if (courseId) {
+                console.log('Course ID found in localStorage:', courseId);
+                document.getElementById('course_id').value = courseId;
+
+                // AJAX request untuk mengambil data kurikulum
+                $.ajax({
+                    url: '/kurikulum/' + courseId + '/edit',
+                    method: 'GET',
+                    success: function(response) {
+                        if (response.message) {
+                            alert(response.message);
+                        } else {
+                            document.getElementById('edittitle').value = response.title;
+                        }
+                    },
+                    error: function(xhr) {
+                        console.log('Error:', xhr);
+                    }
+                });
+            }
+        });
+
+        kurikulumModal.addEventListener('hide.bs.modal', function(event) {
+            console.log('Modal closed, resetting form.');
+            document.getElementById('kurikulumForm').reset();
+            localStorage.removeItem('selectedCourseId');
         });
     });
 </script>
