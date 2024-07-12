@@ -35,14 +35,28 @@
     </div>
 </div>
 <script>
-    $(document).ready(function() {
-        $('#materiModal').on('show.bs.modal', function(event) {
-            var button = $(event.relatedTarget); // Tombol yang membuka modal
-            var kurikulumId = button.data('id'); // Ambil data-id dari tombol
-            console.log('Kurikulum ID:', kurikulumId); // Debugging line
+    document.addEventListener('DOMContentLoaded', function() {
+                const kurikulumModal = document.getElementById('kurikulumModal');
+                kurikulumModal.addEventListener('show.bs.modal', function(event) {
+                    const courseId = localStorage.getItem('selectedCourseId');
+                    if (courseId) {
+                        console.log('Course ID found in localStorage:', courseId);
+                        document.getElementById('course_id').value = courseId;
+                    }
+                });
 
-            var modal = $(this);
-            modal.find('.modal-body #kurikulum_id').val(kurikulumId);
-        });
-    });
+                kurikulumModal.addEventListener('hide.bs.modal', function(event) {
+                    console.log('Modal closed, resetting form.');
+                    document.getElementById('kurikulumForm').reset();
+                });
+                $(document).ready(function() {
+                    $('#materiModal').on('show.bs.modal', function(event) {
+                        var button = $(event.relatedTarget); // Tombol yang membuka modal
+                        var kurikulumId = button.data('id'); // Ambil data-id dari tombol
+                        console.log('Kurikulum ID:', kurikulumId); // Debugging line
+
+                        var modal = $(this);
+                        modal.find('.modal-body #kurikulum_id').val(kurikulumId);
+                    });
+                });
 </script>
