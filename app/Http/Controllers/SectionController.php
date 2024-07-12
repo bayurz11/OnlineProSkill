@@ -54,11 +54,13 @@ class SectionController extends Controller
         // Validasi data yang diterima
         $section->validate([
             'title' => 'required|string|max:255',
+            'link' => 'required|string|max:255',
             // Tambahkan validasi lainnya sesuai kebutuhan
         ]);
 
         // Update data kursus
         $section->title = $request->input('title');
+        $section->link = $request->input('link');
         // Tambahkan update field lainnya sesuai kebutuhan
 
         $section->save();
