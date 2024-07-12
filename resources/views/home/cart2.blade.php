@@ -42,11 +42,8 @@
                                 @foreach ($cart as $item)
                                     <tr>
                                         <td class="product__thumb">
-                                            {{-- <a href="{{ route('classroomdetail', $item['id']) }}">
-                                                <img src="{{ $item['gambar'] ? asset('public/uploads/' . $item['gambar']) : asset('public/assets/img/shop/shop_img01.jpg') }}"
-                                                    alt="">
-                                            </a> --}}<a
-                                                href="{{ route('classroomdetail', ['id' => $item['id'], 'slug' => $item['slug']]) }}">
+                                            <a
+                                                href="{{ route('classroomdetail', ['id' => $item['id'], 'slug' => $item['slug'] ?? '']) }}">
                                                 <img src="{{ $item['gambar'] ? asset('public/uploads/' . $item['gambar']) : asset('public/assets/img/shop/shop_img01.jpg') }}"
                                                     alt="">
                                             </a>
@@ -55,7 +52,6 @@
                                             <a href="{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}</a>
                                         </td>
                                         <td class="product__price">Rp {{ number_format($item['price'], 0, ',', ',') }}</td>
-
                                         <td class="product__remove">
                                             <form action="{{ route('cart.remove', $item['id']) }}" method="POST"
                                                 style="display:inline;">
@@ -71,8 +67,7 @@
                     </div>
                 @else
                     <div class="col-lg-7">
-                        <p>Keranjang Anda kosong. <a href="{{ route('classroom') }}">Lihat kelas yang
-                                tersedia.</a></p>
+                        <p>Keranjang Anda kosong. <a href="{{ route('classroom') }}">Lihat kelas yang tersedia.</a></p>
                     </div>
                 @endif
 
@@ -80,26 +75,22 @@
                     <div class="col-lg-5">
                         <div class="cart__collaterals-wrap">
                             <h2 class="title">Total keranjang</h2>
-
                             <ul class="list-wrap">
                                 <li>Jumlah Quantity <span>{{ array_sum(array_column($cart, 'quantity')) }}</span></li>
                                 <li>Total <span class="amount">Rp
                                         {{ number_format(array_sum(array_column($cart, 'price')), 0, ',', ',') }}</span>
                                 </li>
                             </ul>
-
                             @auth
                                 <form action="{{ route('payment') }}" class="customer__form-wrap" method="POST">
                                     @csrf
                                     @foreach ($cart as $item)
                                         <input type="hidden" name="cart_items[]" value="{{ $item['id'] }}">
                                     @endforeach
-
                                     <div class="form-grp" hidden>
                                         <label for="name">Nama *</label>
                                         <input type="text" id="name" name="name" value="{{ $user->name }}">
                                     </div>
-
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-grp" hidden>
@@ -117,7 +108,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     <button type="submit" class="btn">Bayar & gabung kelas</button>
                                 </form>
                             @else
@@ -132,7 +122,6 @@
                     <p></p>
                 @endif
             </div>
-
         </div>
     </div>
 @endsection
