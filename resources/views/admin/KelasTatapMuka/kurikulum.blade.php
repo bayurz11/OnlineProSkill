@@ -53,8 +53,8 @@
                                                 </button>
                                             </div>
                                         </div>
-
                                     </div>
+                                    <div class="card">a </div>
                                 </div>
                             @endforeach
                         </div>
