@@ -90,6 +90,6 @@ class AksesPembelianController extends Controller
         }
 
         $fasilitas = json_decode($courses->fasilitas, true);
-        return view('studen.lesson', compact('user', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders'));
+        return view('studen.lesson', compact('user', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'courses'));
     }
 }
