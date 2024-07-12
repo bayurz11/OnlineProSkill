@@ -199,17 +199,12 @@
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link active" id="overview-tab" data-bs-toggle="tab"
                                     data-bs-target="#overview-tab-pane" type="button" role="tab"
-                                    aria-controls="overview-tab-pane" aria-selected="true">Overview</button>
+                                    aria-controls="overview-tab-pane" aria-selected="true">Ringkasan</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="instructors-tab" data-bs-toggle="tab"
-                                    data-bs-target="#instructors-tab-pane" type="button" role="tab"
-                                    aria-controls="instructors-tab-pane" aria-selected="false">Instructors</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="reviews-tab" data-bs-toggle="tab"
-                                    data-bs-target="#reviews-tab-pane" type="button" role="tab"
-                                    aria-controls="reviews-tab-pane" aria-selected="false">reviews</button>
+                                <button class="nav-link" id="curriculum-tab" data-bs-toggle="tab"
+                                    data-bs-target="#curriculum-tab-pane" type="button" role="tab"
+                                    aria-controls="curriculum-tab-pane" aria-selected="false">Kurikulum</button>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
