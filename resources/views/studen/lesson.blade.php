@@ -11,7 +11,7 @@
             <div class="row gx-0">
                 <div class="col-xl-3 col-lg-4">
                     <div class="lesson__content">
-                        <h2 class="title">Konten Kursus</h2>
+                        <h2 class="title">Course Content</h2>
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
@@ -39,8 +39,7 @@
                                                     <div class="course-item-meta">
                                                         <span class="item-meta duration">07:48</span>
                                                         <span class="item-meta course-item-status">
-                                                            <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
-                                                                alt="icon">
+                                                            <img src="assets/img/icons/lock.svg" alt="icon">
                                                         </span>
                                                     </div>
                                                 </a>
@@ -51,8 +50,7 @@
                                                     <div class="course-item-meta">
                                                         <span class="item-meta duration">10:48</span>
                                                         <span class="item-meta course-item-status">
-                                                            <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
-                                                                alt="icon">
+                                                            <img src="assets/img/icons/lock.svg" alt="icon">
                                                         </span>
                                                     </div>
                                                 </a>
@@ -79,8 +77,7 @@
                                                     <div class="course-item-meta">
                                                         <span class="item-meta duration">03:03</span>
                                                         <span class="item-meta course-item-status">
-                                                            <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
-                                                                alt="icon">
+                                                            <img src="assets/img/icons/lock.svg" alt="icon">
                                                         </span>
                                                     </div>
                                                 </a>
@@ -91,8 +88,7 @@
                                                     <div class="course-item-meta">
                                                         <span class="item-meta duration">07:48</span>
                                                         <span class="item-meta course-item-status">
-                                                            <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
-                                                                alt="icon">
+                                                            <img src="assets/img/icons/lock.svg" alt="icon">
                                                         </span>
                                                     </div>
                                                 </a>
@@ -103,8 +99,7 @@
                                                     <div class="course-item-meta">
                                                         <span class="item-meta duration">10:48</span>
                                                         <span class="item-meta course-item-status">
-                                                            <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
-                                                                alt="icon">
+                                                            <img src="assets/img/icons/lock.svg" alt="icon">
                                                         </span>
                                                     </div>
                                                 </a>
@@ -115,8 +110,7 @@
                                                     <div class="course-item-meta">
                                                         <span class="item-meta duration">07:48</span>
                                                         <span class="item-meta course-item-status">
-                                                            <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
-                                                                alt="icon">
+                                                            <img src="assets/img/icons/lock.svg" alt="icon">
                                                         </span>
                                                     </div>
                                                 </a>
@@ -127,8 +121,7 @@
                                                     <div class="course-item-meta">
                                                         <span class="item-meta duration">10:48</span>
                                                         <span class="item-meta course-item-status">
-                                                            <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
-                                                                alt="icon">
+                                                            <img src="assets/img/icons/lock.svg" alt="icon">
                                                         </span>
                                                     </div>
                                                 </a>
@@ -156,8 +149,7 @@
                                                     <div class="course-item-meta">
                                                         <span class="item-meta duration">03:03</span>
                                                         <span class="item-meta course-item-status">
-                                                            <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
-                                                                alt="icon">
+                                                            <img src="assets/img/icons/lock.svg" alt="icon">
                                                         </span>
                                                     </div>
                                                 </a>
@@ -168,8 +160,7 @@
                                                     <div class="course-item-meta">
                                                         <span class="item-meta duration">07:48</span>
                                                         <span class="item-meta course-item-status">
-                                                            <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
-                                                                alt="icon">
+                                                            <img src="assets/img/icons/lock.svg" alt="icon">
                                                         </span>
                                                     </div>
                                                 </a>
@@ -189,7 +180,7 @@
                                 <span>The Complete Design Course: From Zero to Expert!</span>
                             </div>
                             <div class="lesson__video-wrap-top-right">
-                                <a href="{{ route('akses_pembelian') }}"><i class="fas fa-times"></i></a>
+                                <a href="#"><i class="fas fa-times"></i></a>
                             </div>
                         </div>
                         <video id="player" playsinline controls data-poster="assets/img/bg/video_bg.webp">
@@ -203,7 +194,7 @@
                                     class="flaticon-arrow-right"></i></button>
                         </div>
                     </div>
-                    {{-- <div class="courses__details-content lesson__details-content">
+                    <div class="courses__details-content lesson__details-content">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link active" id="overview-tab" data-bs-toggle="tab"
@@ -384,7 +375,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div> --}}
+                    </div>
                 </div>
             </div>
         </div>
