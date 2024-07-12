@@ -129,8 +129,8 @@ Route::get('/', [HomeController::class, 'index'])->name('/');
 
 //Classroom
 Route::get('/classroom', [HomeController::class, 'classroom'])->name('classroom');
-// Route::get('/classroomdetail/{id}', [HomeController::class, 'classroomdetail'])->name('classroomdetail');
-Route::get('classroomdetail/{id}/{slug}', [HomeController::class, 'classroomdetail'])->name('classroomdetail');
+Route::get('/classroomdetail/{id}', [HomeController::class, 'classroomdetail'])->name('classroomdetail');
+// Route::get('classroomdetail/{id}/{slug}', [HomeController::class, 'classroomdetail'])->name('classroomdetail');
 
 
 

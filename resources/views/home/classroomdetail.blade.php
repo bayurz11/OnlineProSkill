@@ -184,7 +184,7 @@
                         @if ($jumlahPendaftaran < 8)
                             <div class="courses__details-enroll">
                                 <div class="tg-button-wrap">
-                                    <a href="{{ route('cart.checkout', ['id' => $courses->id, 'slug' => $courses->slug]) }}"
+                                    <a href="{{ route('cart.checkout', ['id' => $courses->id]) }}"
                                         class="btn btn-two arrow-btn">
                                         Checkout
                                         <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"

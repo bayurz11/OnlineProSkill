@@ -100,7 +100,6 @@ class CartController extends Controller
                 "price" => $course->price,
                 "gambar" => $course->gambar,
                 "quantity" => 1,
-                "slug" => $course->slug,
             ];
 
             Session::flash('success', 'Item telah ditambahkan ke keranjang!');
