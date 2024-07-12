@@ -37,10 +37,10 @@
     document.addEventListener('DOMContentLoaded', function() {
         const materiModal = document.getElementById('materiModal');
         materiModal.addEventListener('show.bs.modal', function(event) {
-            const courseId = localStorage.getItem('selectedCourseId');
-            if (courseId) {
-                console.log('Course ID found in localStorage:', courseId);
-                document.getElementById('course_id').value = courseId;
+            const kurikulumId = localStorage.getItem('selectedkurikulumId');
+            if (kurikulumId) {
+                console.log('Course ID found in localStorage:', kurikulumId);
+                document.getElementById('course_id').value = kurikulumId;
             }
         });
 
