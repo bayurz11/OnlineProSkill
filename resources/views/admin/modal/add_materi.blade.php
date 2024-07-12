@@ -35,21 +35,3 @@
         </div>
     </div>
 </div>
-
-<!-- Script untuk mengambil ID kursus dari tombol dan mereset form -->
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const materiModal = document.getElementById('materiModal');
-        materiModal.addEventListener('show.bs.modal', function(event) {
-            const button = event.relatedTarget; // Tombol yang memicu modal
-            const kurikulumId = button.getAttribute('data-id'); // Ambil nilai data-id
-            console.log('Course ID from button data-id:', kurikulumId);
-            document.getElementById('course_id').value = kurikulumId; // Set nilai course_id
-        });
-
-        materiModal.addEventListener('hide.bs.modal', function(event) {
-            console.log('Modal closed, resetting form.');
-            document.getElementById('kurikulumForm').reset(); // Reset form
-        });
-    });
-</script>
