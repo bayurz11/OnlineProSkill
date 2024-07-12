@@ -4,15 +4,12 @@
         <div class="modal-content">
             <form id="materiForm" action="{{ route('section.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <input type="hidden" name="course_id" id="course_id">
+                <input type="hidden" name="kurikulum_id" id="kurikulum_id">
                 <div class="modal-header">
                     <h5 class="modal-title" id="materiModalLabel">Tambah Materi</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
                 </div>
                 <div class="modal-body">
-
-                    <input type="hidden" class="form-control" id="kurikulum_id" name="kurikulum_id"
-                        placeholder="Masukkan judul Kurikulum Anda">
 
                     <div class="mb-3">
                         <label for="title" class="form-label">Judul<span class="text-danger">*</span></label>

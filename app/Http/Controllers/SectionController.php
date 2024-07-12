@@ -10,7 +10,6 @@ class SectionController extends Controller
 {
     public function store(Request $request)
     {
-
         // Validasi data
         $validatedData = $request->validate([
             'kurikulum_id' => 'required|integer',
@@ -21,8 +20,8 @@ class SectionController extends Controller
         // Hitung jumlah entri yang ada untuk mendapatkan no_urut baru
         $noUrut = Section::where('kurikulum_id', $validatedData['kurikulum_id'])->count() + 1;
 
-        // Buat entitas Kurikulum baru
-        $section = new Kurikulum;
+        // Buat entitas Section baru
+        $section = new Section;
         $section->kurikulum_id = $validatedData['kurikulum_id'];
         $section->title = $validatedData['title'];
         $section->link = $validatedData['link'];
@@ -30,6 +29,6 @@ class SectionController extends Controller
         $section->save();
 
         // Redirect ke halaman sebelumnya dengan pesan sukses
-        return redirect()->back()->with('success', 'Kurikulum berhasil ditambahkan.');
+        return redirect()->back()->with('success', 'Section berhasil ditambahkan.');
     }
 }
