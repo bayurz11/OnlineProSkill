@@ -63,7 +63,7 @@
                                     </div>
                                 </div>
                             @endforeach
-                            <div class="accordion-item">
+                            {{-- <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -179,11 +179,11 @@
                                         </ul>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-9 col-lg-8">
+                {{-- <div class="col-xl-9 col-lg-8">
                     <div class="lesson__video-wrap">
                         <div class="lesson__video-wrap-top">
                             <div class="lesson__video-wrap-top-left">
@@ -387,8 +387,8 @@
                             </div>
                         </div>
                     </div> --}}
-                </div>
-            </div>
+            </div> --}}
+        </div>
         </div>
     </section>
     <!-- lesson-area-end -->
