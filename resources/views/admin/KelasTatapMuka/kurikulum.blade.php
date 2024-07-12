@@ -56,6 +56,18 @@
                                         <div class="card">
                                             <div class="card-body d-flex justify-content-between align-items-center">
                                                 <div>aaa</div>
+                                                <div class="d-flex gap-2">
+                                                    <button type="button" class="btn btn-outline-primary"
+                                                        data-bs-toggle="modal" data-bs-target="#exampleModalEdit"
+                                                        title="Edit Kurikulum" data-id="{{ $kurikulum->id }}">
+                                                        <i class="btn-icon-prepend" data-feather="edit"></i>
+                                                    </button>
+                                                    <button onclick="hapus('{{ $kurikulum->id }}')"
+                                                        class="btn btn-outline-danger btn-icon" title="Hapus">
+                                                        <i data-feather="trash-2"></i>
+                                                    </button>
+
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
