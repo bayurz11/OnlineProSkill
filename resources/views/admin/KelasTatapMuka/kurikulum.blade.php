@@ -145,9 +145,9 @@
             document.body.insertAdjacentHTML('beforeend', confirmationBox);
 
             document.getElementById('confirmDelete').onclick = function() {
-                const kurikulumId = this.getAttribute('data-id');
+                const sectionId = this.getAttribute('data-id');
                 $.ajax({
-                    url: `/section_destroy/${kurikulumId}`,
+                    url: `/section_destroy/${sectionId}`,
                     method: 'POST',
                     headers: {
                         'X-CSRF-TOKEN': '{{ csrf_token() }}',
