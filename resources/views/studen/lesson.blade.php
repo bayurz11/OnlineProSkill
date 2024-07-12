@@ -183,7 +183,7 @@
                         </div>
                     </div>
                 </div>
-                {{-- <div class="col-xl-9 col-lg-8">
+                <div class="col-xl-9 col-lg-8">
                     <div class="lesson__video-wrap">
                         <div class="lesson__video-wrap-top">
                             <div class="lesson__video-wrap-top-left">
@@ -387,8 +387,8 @@
                             </div>
                         </div>
                     </div> --}}
-            </div> --}}
-        </div>
+                </div>
+            </div>
         </div>
     </section>
     <!-- lesson-area-end -->
