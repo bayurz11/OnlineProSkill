@@ -66,16 +66,7 @@ class AksesPembelianController extends Controller
         // Fetching orders related to the user
         $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
 
-        // Debugging data
-        foreach ($orders as $order) {
-            Log::info('Order ID: ' . $order->id);
-            if ($order->KelasTatapMuka) {
-                Log::info('Kelas Tatap Muka ID: ' . $order->KelasTatapMuka->id);
-                Log::info('Kelas Tatap Muka Name: ' . $order->KelasTatapMuka->nama_kelas);
-            } else {
-                Log::info('Kelas Tatap Muka: Not Found');
-            }
-        }
+
 
         return view('studen.lesson', compact('user', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders'));
     }
