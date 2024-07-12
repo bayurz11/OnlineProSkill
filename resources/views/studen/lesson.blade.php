@@ -11,7 +11,7 @@
             <div class="row gx-0">
                 <div class="col-xl-3 col-lg-4">
                     <div class="lesson__content">
-                        <h2 class="title">Course Content</h2>
+                        <h2 class="title">Konten Kursus</h2>
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
@@ -39,7 +39,8 @@
                                                     <div class="course-item-meta">
                                                         <span class="item-meta duration">07:48</span>
                                                         <span class="item-meta course-item-status">
-                                                            <img src="assets/img/icons/lock.svg" alt="icon">
+                                                            <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
+                                                                alt="icon">
                                                         </span>
                                                     </div>
                                                 </a>
@@ -50,7 +51,8 @@
                                                     <div class="course-item-meta">
                                                         <span class="item-meta duration">10:48</span>
                                                         <span class="item-meta course-item-status">
-                                                            <img src="assets/img/icons/lock.svg" alt="icon">
+                                                            <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
+                                                                alt="icon">
                                                         </span>
                                                     </div>
                                                 </a>
@@ -77,7 +79,8 @@
                                                     <div class="course-item-meta">
                                                         <span class="item-meta duration">03:03</span>
                                                         <span class="item-meta course-item-status">
-                                                            <img src="assets/img/icons/lock.svg" alt="icon">
+                                                            <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
+                                                                alt="icon">
                                                         </span>
                                                     </div>
                                                 </a>
@@ -88,7 +91,8 @@
                                                     <div class="course-item-meta">
                                                         <span class="item-meta duration">07:48</span>
                                                         <span class="item-meta course-item-status">
-                                                            <img src="assets/img/icons/lock.svg" alt="icon">
+                                                            <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
+                                                                alt="icon">
                                                         </span>
                                                     </div>
                                                 </a>
@@ -99,7 +103,8 @@
                                                     <div class="course-item-meta">
                                                         <span class="item-meta duration">10:48</span>
                                                         <span class="item-meta course-item-status">
-                                                            <img src="assets/img/icons/lock.svg" alt="icon">
+                                                            <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
+                                                                alt="icon">
                                                         </span>
                                                     </div>
                                                 </a>
@@ -110,7 +115,8 @@
                                                     <div class="course-item-meta">
                                                         <span class="item-meta duration">07:48</span>
                                                         <span class="item-meta course-item-status">
-                                                            <img src="assets/img/icons/lock.svg" alt="icon">
+                                                            <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
+                                                                alt="icon">
                                                         </span>
                                                     </div>
                                                 </a>
@@ -121,7 +127,8 @@
                                                     <div class="course-item-meta">
                                                         <span class="item-meta duration">10:48</span>
                                                         <span class="item-meta course-item-status">
-                                                            <img src="assets/img/icons/lock.svg" alt="icon">
+                                                            <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
+                                                                alt="icon">
                                                         </span>
                                                     </div>
                                                 </a>
@@ -149,7 +156,8 @@
                                                     <div class="course-item-meta">
                                                         <span class="item-meta duration">03:03</span>
                                                         <span class="item-meta course-item-status">
-                                                            <img src="assets/img/icons/lock.svg" alt="icon">
+                                                            <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
+                                                                alt="icon">
                                                         </span>
                                                     </div>
                                                 </a>
@@ -160,7 +168,8 @@
                                                     <div class="course-item-meta">
                                                         <span class="item-meta duration">07:48</span>
                                                         <span class="item-meta course-item-status">
-                                                            <img src="assets/img/icons/lock.svg" alt="icon">
+                                                            <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
+                                                                alt="icon">
                                                         </span>
                                                     </div>
                                                 </a>
@@ -180,7 +189,7 @@
                                 <span>The Complete Design Course: From Zero to Expert!</span>
                             </div>
                             <div class="lesson__video-wrap-top-right">
-                                <a href="#"><i class="fas fa-times"></i></a>
+                                <a href="{{ route('akses_pembelian') }}"><i class="fas fa-times"></i></a>
                             </div>
                         </div>
                         <video id="player" playsinline controls data-poster="assets/img/bg/video_bg.webp">
@@ -194,12 +203,12 @@
                                     class="flaticon-arrow-right"></i></button>
                         </div>
                     </div>
-                    <div class="courses__details-content lesson__details-content">
+                    {{-- <div class="courses__details-content lesson__details-content">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link active" id="overview-tab" data-bs-toggle="tab"
                                     data-bs-target="#overview-tab-pane" type="button" role="tab"
-                                    aria-controls="overview-tab-pane" aria-selected="true">Ringkasan</button>
+                                    aria-controls="overview-tab-pane" aria-selected="true">Overview</button>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="instructors-tab" data-bs-toggle="tab"
@@ -216,19 +225,39 @@
                             <div class="tab-pane fade show active" id="overview-tab-pane" role="tabpanel"
                                 aria-labelledby="overview-tab" tabindex="0">
                                 <div class="courses__overview-wrap">
-                                    <h3 class="title">Deskripsi Kelas</h3>
-                                    <p> {!! $courses->content !!}</p>
-                                    <h3 class="title">Pelajaran yang Didapat</h3>
-
+                                    <h3 class="title">Course Description</h3>
+                                    <p>Dorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua Quis ipsum suspendisse ultrices gravida.
+                                        Risus commodo viverra maecenas accumsan lacus vel facilisis.dolor sit amet,
+                                        consectetur adipiscing elited do eiusmod tempor incididunt ut labore et dolore magna
+                                        aliqua.</p>
+                                    <h3 class="title">What you'll learn in this course?</h3>
+                                    <p>Dorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua Quis ipsum suspendisse ultrices gravida.
+                                        Risus commodo viverra maecenas accumsan.</p>
                                     <ul class="about__info-list list-wrap">
-                                        @foreach ($courseList as $course)
-                                            <li class="about__info-list-item">
-                                                <i class="flaticon-angle-right"></i>
-                                                <p class="content">{{ $course }}</p>
-                                            </li>
-                                        @endforeach
+                                        <li class="about__info-list-item">
+                                            <i class="flaticon-angle-right"></i>
+                                            <p class="content">Work with color & Gradients & Grids</p>
+                                        </li>
+                                        <li class="about__info-list-item">
+                                            <i class="flaticon-angle-right"></i>
+                                            <p class="content">All the useful shortcuts</p>
+                                        </li>
+                                        <li class="about__info-list-item">
+                                            <i class="flaticon-angle-right"></i>
+                                            <p class="content">Be able to create Flyers, Brochures, Advertisements</p>
+                                        </li>
+                                        <li class="about__info-list-item">
+                                            <i class="flaticon-angle-right"></i>
+                                            <p class="content">How to work with Images & Text</p>
+                                        </li>
                                     </ul>
-
+                                    <p class="last-info">Morem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                                        eiusmod tempor incididunt ut labore et dolore magna aliqua Quis ipsum suspendisse
+                                        ultrices gravida. Risus commodo viverra maecenas accumsan.Dorem ipsum dolor sit
+                                        amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                                        dolore magn.</p>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="instructors-tab-pane" role="tabpanel"
@@ -355,7 +384,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
