@@ -49,7 +49,8 @@
                                                 </button>
                                                 <button type="button" class="btn btn-outline-primary"
                                                     data-bs-toggle="modal" data-bs-target="#materiModal">
-                                                    <i class="btn-icon-prepend" data-feather="plus-circle"></i> Tambah Sub
+                                                    <i class="btn-icon-prepend" data-feather="plus-circle"></i> Tambah
+                                                    Materi
                                                 </button>
                                             </div>
                                         </div>
