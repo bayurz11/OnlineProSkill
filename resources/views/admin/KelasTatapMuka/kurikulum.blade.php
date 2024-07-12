@@ -16,6 +16,7 @@
         @include('admin.modal.add_kurikulum')
         @include('admin.modal.add_materi')
         @include('admin.modal.edit_kurikulum')
+        @include('admin.modal.edit_section')
 
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
@@ -62,7 +63,7 @@
                                                     Pelajaran {{ $section->no_urut }}. {{ $section->title }}
                                                     <div class="d-flex gap-2">
                                                         <button type="button" class="btn btn-outline-primary"
-                                                            data-bs-toggle="modal" data-bs-target="#exampleModalEdit"
+                                                            data-bs-toggle="modal" data-bs-target="#sectionModalEdit"
                                                             title="Edit Section" data-id="{{ $section->id }}">
                                                             <i class="btn-icon-prepend" data-feather="edit"></i>
                                                         </button>

@@ -88,6 +88,8 @@ Route::middleware('isAdmin')->group(function () {
 
     //Section Kurikulum
     Route::post('/section/store', [SectionController::class, 'store'])->name('section.store');
+    Route::get('/section/{id}/edit', [SectionController::class, 'edit'])->name('section.edit');
+    Route::put('/sectionupdate/{id}', [SectionController::class, 'update'])->name('section.update');
 });
 
 //*********STUDEN*********//

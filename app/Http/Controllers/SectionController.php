@@ -31,4 +31,38 @@ class SectionController extends Controller
         // Redirect ke halaman sebelumnya dengan pesan sukses
         return redirect()->back()->with('success', 'Section berhasil ditambahkan.');
     }
+
+    public function edit($id)
+    {
+        $section = Section::find($id);
+
+        if (!$section) {
+            return response()->json(['message' => 'Kurikulum tidak ditemukan'], 404);
+        }
+
+        return response()->json($section);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $section = Section::find($id);
+
+        if (!$section) {
+            return redirect()->back()->with('error', 'Section tidak ditemukan');
+        }
+
+        // Validasi data yang diterima
+        $section->validate([
+            'title' => 'required|string|max:255',
+            // Tambahkan validasi lainnya sesuai kebutuhan
+        ]);
+
+        // Update data kursus
+        $section->title = $request->input('title');
+        // Tambahkan update field lainnya sesuai kebutuhan
+
+        $section->save();
+
+        return redirect()->back()->with('success', 'Section berhasil diperbarui');
+    }
 }
