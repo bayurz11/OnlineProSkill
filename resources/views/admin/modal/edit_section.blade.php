@@ -8,8 +8,8 @@
                 <div class="modal-body">
                     <input type="hidden" class="form-control" id="kurikulum_id" name="kurikulum_id">
                     <div class="mb-3">
-                        <label for="edittitle" class="form-label">Judul<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="edittitle" name="title"
+                        <label for="edittitle1" class="form-label">Judul<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="edittitle1" name="title"
                             placeholder="Masukkan judul Kurikulum Anda">
                     </div>
                     <div class="mb-3">
@@ -42,7 +42,7 @@
                 success: function(response) {
                     console.log(response); // Debugging line
                     $('#course_id').val(response.id); // Set nilai course_id di dalam modal
-                    $('#edittitle').val(response
+                    $('#edittitle1').val(response
                         .title); // Set nilai judul section di dalam modal
                     $('#linkedit').val(response
                         .link); // Set nilai judul section di dalam modal
