@@ -25,13 +25,13 @@
         </div>
     </div>
 </div>
+
 <script>
     $(document).ready(function() {
         $('#exampleModalEdit').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget); // Tombol yang membuka modal
             var kurikulumId = button.data('id'); // Ambil data-id dari tombol
             console.log('Kurikulum ID:', kurikulumId); // Debugging line
-            $('#course_id').val(kurikulumId); // Set nilai course_id di dalam modal
 
             // AJAX request untuk mengambil data kurikulum
             $.ajax({
@@ -39,6 +39,8 @@
                 method: 'GET',
                 success: function(response) {
                     console.log(response); // Debugging line
+                    $('#course_id').val(response
+                        .course_id); // Set nilai course_id di dalam modal
                     $('#edittitle').val(response
                         .title); // Set nilai judul kurikulum di dalam modal
                 },
