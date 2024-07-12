@@ -57,7 +57,7 @@
                                         <div class="card">
                                             <div class="card-body d-flex justify-content-between align-items-center">
                                                 <div>
-                                                    {{ $kurikulum->no_urut }}. Materi/ link materi
+                                                    Materi/ link materi
                                                 </div>
                                                 <div class="d-flex gap-2">
                                                     <button type="button" class="btn btn-outline-primary"
