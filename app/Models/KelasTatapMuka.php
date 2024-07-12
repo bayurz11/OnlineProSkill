@@ -4,24 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 
 class KelasTatapMuka extends Model
 {
     use HasFactory;
-    public static function boot()
-    {
-        parent::boot();
 
-        static::creating(function ($classroom) {
-            $classroom->slug = Str::slug($classroom->name);
-        });
-    }
-
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
     // Nama tabel
     protected $table = 'classroom_master';
     protected $primaryKey = 'id';
