@@ -11,8 +11,8 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="title" class="form-label">Bagian<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="title" name="title"
+                        <label for="kurikulum_id" class="form-label">Bagian<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="kurikulum_id" name="kurikulum_id"
                             placeholder="Masukkan judul Kurikulum Anda">
                     </div>
                 </div>
