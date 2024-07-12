@@ -71,7 +71,7 @@
                     <div style="background: white; padding: 40px; border-radius: 8px; text-align: center;">
                         <h4>Konfirmasi Penghapusan</h4><br>
                         <p>Apakah Anda yakin ingin menghapus ini?</p><br>
-                        <button id="confirmDelete" class="btn btn-danger btn-lg">Ya, Hapus</button>
+                        <button id="confirmDelete" class="btn btn-danger btn-lg" data-id="${id}">Ya, Hapus</button>
                         <button id="cancelDelete" class="btn btn-secondary btn-lg">Batal</button>
                     </div>
                 </div>
@@ -80,7 +80,8 @@
             document.body.insertAdjacentHTML('beforeend', confirmationBox);
 
             document.getElementById('confirmDelete').onclick = function() {
-                fetch(`/kurikulum_destroy/${id}`, {
+                const kurikulumId = this.getAttribute('data-id');
+                fetch(`/kurikulum_destroy/${kurikulumId}`, {
                     method: 'POST', // Menggunakan POST bukan DELETE
                     headers: {
                         'X-CSRF-TOKEN': '{{ csrf_token() }}',
@@ -93,11 +94,11 @@
                     document.getElementById('confirmationModal').remove();
                     if (response.ok) {
                         console.log(
-                            'subcategory berhasil dihapus. Mengalihkan ke halaman pengaturan subcategory.');
-                        window.location.href = '{{ route('kurikulum', ['id' => $kurikulum->id]) }}';
+                            'Kurikulum berhasil dihapus. Mengalihkan ke halaman kurikulum.');
+                        window.location.href = '{{ route('kurikulum') }}';
                     } else {
                         response.text().then(text => {
-                            console.error('Gagal menghapus subcategory:', text);
+                            console.error('Gagal menghapus kurikulum:', text);
                         });
                     }
                 }).catch(error => {
