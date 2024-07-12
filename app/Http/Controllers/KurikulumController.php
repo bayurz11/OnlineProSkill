@@ -21,10 +21,11 @@ class KurikulumController extends Controller
         $categori = Categories::all();
         $kurikulum = Kurikulum::with('user')->where('course_id', $id)->get();
         $cours = KelasTatapMuka::all();
+        $section = Section::all();
         if (!$user) {
             return redirect()->route('login_admin');
         }
-        return view('admin.KelasTatapMuka.kurikulum', compact('user', 'categori', 'kurikulum', 'cours'));
+        return view('admin.KelasTatapMuka.kurikulum', compact('user', 'categori', 'kurikulum', 'cours', 'section'));
     }
 
     /**
