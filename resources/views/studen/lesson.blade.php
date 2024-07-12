@@ -13,54 +13,56 @@
                     <div class="lesson__content">
                         <h2 class="title">Konten Kursus</h2>
                         <div class="accordion" id="accordionExample">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Introduction
-                                        <span>1/3</span>
-                                    </button>
-                                </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse show"
-                                    data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <ul class="list-wrap">
-                                            <li class="course-item open-item">
-                                                <a href="#" class="course-item-link active">
-                                                    <span class="item-name">Course Installation</span>
-                                                    <div class="course-item-meta">
-                                                        <span class="item-meta duration">03:03</span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="course-item">
-                                                <a href="#" class="course-item-link">
-                                                    <span class="item-name">Create a Simple React App</span>
-                                                    <div class="course-item-meta">
-                                                        <span class="item-meta duration">07:48</span>
-                                                        <span class="item-meta course-item-status">
-                                                            <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
-                                                                alt="icon">
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="course-item">
-                                                <a href="#" class="course-item-link">
-                                                    <span class="item-name">React for the Rest of us</span>
-                                                    <div class="course-item-meta">
-                                                        <span class="item-meta duration">10:48</span>
-                                                        <span class="item-meta course-item-status">
-                                                            <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
-                                                                alt="icon">
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
+                            @foreach ($kurikulum as $item)
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            Introduction
+                                            <span>1/3</span>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show"
+                                        data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <ul class="list-wrap">
+                                                <li class="course-item open-item">
+                                                    <a href="#" class="course-item-link active">
+                                                        <span class="item-name">Course Installation</span>
+                                                        <div class="course-item-meta">
+                                                            <span class="item-meta duration">03:03</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="course-item">
+                                                    <a href="#" class="course-item-link">
+                                                        <span class="item-name">Create a Simple React App</span>
+                                                        <div class="course-item-meta">
+                                                            <span class="item-meta duration">07:48</span>
+                                                            <span class="item-meta course-item-status">
+                                                                <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
+                                                                    alt="icon">
+                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="course-item">
+                                                    <a href="#" class="course-item-link">
+                                                        <span class="item-name">React for the Rest of us</span>
+                                                        <div class="course-item-meta">
+                                                            <span class="item-meta duration">10:48</span>
+                                                            <span class="item-meta course-item-status">
+                                                                <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
+                                                                    alt="icon">
+                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endforeach
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
