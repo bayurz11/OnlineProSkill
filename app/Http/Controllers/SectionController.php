@@ -53,7 +53,7 @@ class SectionController extends Controller
 
         // Validasi data yang diterima
         $validatedData = $request->validate([
-            'kurikulum_id' => 'required|integer',
+
             'title' => 'required|string|max:255',
             'link' => 'required|string|max:255',
             // Tambahkan validasi lainnya sesuai kebutuhan
