@@ -51,23 +51,29 @@ class AksesPembelianController extends Controller
     {
         $cart = Session::get('cart', []);
         $user = Auth::user();
+
         if (!$user) {
             return redirect()->route('home');
         }
 
         $profile = UserProfile::where('user_id', $user->id)->first();
 
-        $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
+        $notifikasi = NotifikasiUser::where('user_id', $user->id)
             ->orderBy('created_at', 'desc')
-            ->get()
-            : collect();
+            ->get();
 
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
         // Fetching orders related to the user
         $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
+
+        // Fetching curriculum
         $kurikulum = Kurikulum::all();
 
+        // Check if $kurikulum is empty or null
+        if ($kurikulum->isEmpty()) {
+            $kurikulum = []; // Assign an empty array if $kurikulum is empty
+        }
 
         return view('studen.lesson', compact('user', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum'));
     }
