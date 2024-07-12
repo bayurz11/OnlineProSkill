@@ -99,7 +99,7 @@
                                                         <div class="courses__item-content courses__item-content-two">
                                                             <h5 class="title">
                                                                 <a
-                                                                    href="{{ route('lesson', ['id' => $order->id]) }}">{{ $order->KelasTatapMuka->nama_kursus ?? 'Nama kelas tidak tersedia' }}</a>
+                                                                    href="{{ route('lesson', ['id' => $order->product_id]) }}">{{ $order->KelasTatapMuka->nama_kursus ?? 'Nama kelas tidak tersedia' }}</a>
                                                             </h5>
                                                             <div class="courses__item-content-bottom">
                                                                 <div class="author-two">
