@@ -16,16 +16,14 @@
                             <div class="accordion" id="accordionExample{{ $key }}">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header">
-                                        <button class="accordion-button {{ $key === 0 ? 'active' : '' }}" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapse{{ $key }}"
-                                            aria-expanded="{{ $key === 0 ? 'true' : 'false' }}"
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapse{{ $key }}" aria-expanded="true"
                                             aria-controls="collapse{{ $key }}">
                                             {{ $item->title }}
                                             <span>1/3</span>
                                         </button>
                                     </h2>
-                                    <div id="collapse{{ $key }}"
-                                        class="accordion-collapse collapse {{ $key === 0 ? 'show' : '' }}"
+                                    <div id="collapse{{ $key }}" class="accordion-collapse collapse show"
                                         data-bs-parent="#accordionExample{{ $key }}">
                                         <div class="accordion-body">
                                             <ul class="list-wrap">
@@ -47,41 +45,6 @@
                         @endforeach
                     </div>
                 </div>
-
-                <script>
-                    // Script untuk mengatur perilaku accordion saat diklik
-                    document.addEventListener('DOMContentLoaded', function() {
-                        var accordions = document.querySelectorAll('.accordion-button');
-
-                        accordions.forEach(function(accordion) {
-                            accordion.addEventListener('click', function() {
-                                var target = this.getAttribute('data-bs-target');
-                                var parent = this.closest('.accordion');
-
-                                // Tutup semua accordion lain
-                                var allAccordions = parent.querySelectorAll('.accordion-button');
-                                allAccordions.forEach(function(item) {
-                                    if (item.getAttribute('data-bs-target') !== target) {
-                                        item.classList.remove('active');
-                                        var collapseTarget = item.getAttribute('data-bs-target');
-                                        var collapseElement = document.querySelector(collapseTarget);
-                                        if (collapseElement) {
-                                            collapseElement.classList.remove('show');
-                                        }
-                                    }
-                                });
-
-                                // Buka atau tutup accordion yang diklik
-                                if (!this.classList.contains('active')) {
-                                    this.classList.add('active');
-                                } else {
-                                    this.classList.remove('active');
-                                }
-                            });
-                        });
-                    });
-                </script>
-
 
                 <div class="col-xl-9 col-lg-8">
                     <div class="lesson__video-wrap">
