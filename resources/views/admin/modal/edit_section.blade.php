@@ -27,17 +27,7 @@
     </div>
 </div>
 
-<script>
-    $(document).ready(function() {
-        $('#materiModal').on('show.bs.modal', function(event) {
-            var button = $(event.relatedTarget); // Tombol yang membuka modal
-            var kurikulumId = button.data('id'); // Ambil data-id dari tombol
-            console.log('Kurikulum ID:', kurikulumId); // Debugging line
-
-            var modal = $(this);
-            modal.find('.modal-body #kurikulum_id').val(kurikulumId);
-        });
-    });
+{{-- <script>
     $(document).ready(function() {
         $('#sectionModalEdit').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget); // Tombol yang membuka modal
@@ -50,7 +40,42 @@
                 method: 'GET',
                 success: function(response) {
                     console.log(response); // Debugging line
+                    $('#kurikulum_id').val(response
+                        .kurikulum_id); // Set nilai kurikulum_id di dalam modal
+                    $('#edittitle1').val(response
+                        .title); // Set nilai judul section di dalam modal
+                    $('#linkedit').val(response
+                        .link); // Set nilai link section di dalam modal
 
+                    // Set action form dengan id yang benar
+                    $('#editSectionForm').attr('action', '/sectionupdate/' + sectionId);
+                },
+                error: function(xhr) {
+                    console.log('Error:', xhr);
+                }
+            });
+        });
+    });
+</script> --}}
+<script>
+    $(document).ready(function() {
+        $('#sectionModalEdit').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget); // Tombol yang membuka modal
+            var sectionId = button.data('id'); // Ambil data-id dari tombol
+            console.log('section ID:', sectionId); // Debugging line
+
+            // AJAX request untuk mengambil data section
+            $.ajax({
+                url: '/section/' + sectionId + '/edit',
+                method: 'GET',
+                success: function(response) {
+                    console.log(response); // Debugging line
+                    if (response.kurikulum_id) {
+                        $('#kurikulum_id').val(response
+                            .kurikulum_id); // Set nilai kurikulum_id di dalam modal
+                    } else {
+                        console.log('kurikulum_id is missing in response');
+                    }
                     $('#edittitle1').val(response
                         .title); // Set nilai judul section di dalam modal
                     $('#linkedit').val(response
