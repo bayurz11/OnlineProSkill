@@ -82,7 +82,7 @@ Route::middleware('isAdmin')->group(function () {
     Route::get('/kurikulum/{id}', [KurikulumController::class, 'index'])->name('kurikulum');
     Route::post('/kurikulum/store', [KurikulumController::class, 'store'])->name('kurikulumstore');
     Route::get('/kurikulum/{id}/edit', [KurikulumController::class, 'edit'])->name('kurikulum.edit');
-    Route::put('/kurikulum/{id}', [KurikulumController::class, 'update'])->name('kurikulum.update');
+    Route::put('/kurikulumupdate/{id}', [KurikulumController::class, 'update'])->name('kurikulum.update');
     Route::delete('/kurikulum_destroy/{id}', [KurikulumController::class, 'destroy'])->name('class.destroy');
 });
 
