@@ -13,11 +13,9 @@ return new class extends Migration
     {
         Schema::create('section', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('course_id');
             $table->unsignedBigInteger('kurikulum_id');
             $table->string('title');
             $table->string('no_urut');
-            $table->foreign('course_id')->references('id')->on('classroom_master')->onDelete('cascade');
             $table->foreign('kurikulum_id')->references('id')->on('kurikulum')->onDelete('cascade');
             $table->timestamps();
         });
