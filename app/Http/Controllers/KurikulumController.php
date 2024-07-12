@@ -92,7 +92,7 @@ class KurikulumController extends Controller
         $kurikulum = Kurikulum::find($id);
 
         if (!$kurikulum) {
-            return redirect()->back()->with('error', 'Kursus tidak ditemukan');
+            return redirect()->back()->with('error', 'Kurikulum tidak ditemukan');
         }
 
         // Validasi data yang diterima
@@ -107,7 +107,7 @@ class KurikulumController extends Controller
 
         $kurikulum->save();
 
-        return redirect()->back()->with('success', 'Kursus berhasil diperbarui');
+        return redirect()->back()->with('success', 'Kurikulum berhasil diperbarui');
     }
 
 
