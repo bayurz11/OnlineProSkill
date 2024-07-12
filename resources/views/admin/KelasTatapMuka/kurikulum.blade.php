@@ -28,14 +28,14 @@
                                 <i class="btn-icon-prepend" data-feather="plus-circle"></i> Kurikulum
                             </button>
                         </div><br>
-                        <p class="text-muted mb-3"> Jumlah Kurikulum : {{ $kurikulum->count() }}</p>
+                        <p class="text-muted mb-3"> Jumlah Bagian Kurikulum : {{ $kurikulum->count() }}</p>
                         <div class="table-responsive">
                             @foreach ($kurikulum as $kurikulum)
                                 <div class="col-md-12 grid-margin stretch-card">
                                     <div class="card">
                                         <div class="card-body d-flex justify-content-between align-items-center">
                                             <div>
-                                                {{ $kurikulum->no_urut }}. {{ $kurikulum->title }}
+                                                Bagian{{ $kurikulum->no_urut }}. {{ $kurikulum->title }}
                                             </div>
                                             <div class="d-flex gap-2">
                                                 <button type="button" class="btn btn-outline-primary"
@@ -54,30 +54,6 @@
                                             </div>
                                         </div>
 
-                                    </div>
-                                </div>
-                                <div class="col-md-12 grid-margin stretch-card">
-                                    <div class="card">
-                                        <div class="card-body d-flex justify-content-between align-items-center">
-                                            <div>
-                                                {{ $kurikulum->no_urut }}. {{ $kurikulum->title }}
-                                            </div>
-                                            <div class="d-flex gap-2">
-                                                <button type="button" class="btn btn-outline-primary"
-                                                    data-bs-toggle="modal" data-bs-target="#exampleModalEdit"
-                                                    title="Edit Kurikulum" data-id="{{ $kurikulum->id }}">
-                                                    <i class="btn-icon-prepend" data-feather="edit"></i>
-                                                </button>
-                                                <button onclick="hapus('{{ $kurikulum->id }}')"
-                                                    class="btn btn-outline-danger btn-icon" title="Hapus">
-                                                    <i data-feather="trash-2"></i>
-                                                </button>
-                                                <button type="button" class="btn btn-outline-primary"
-                                                    data-bs-toggle="modal" data-bs-target="#materiModal">
-                                                    <i class="btn-icon-prepend" data-feather="plus-circle"></i> Tambah Sub
-                                                </button>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             @endforeach
