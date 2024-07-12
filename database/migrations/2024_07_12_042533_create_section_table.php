@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('kurikulum_id');
             $table->string('title');
             $table->string('no_urut');
+            $table->string('link');
             $table->foreign('kurikulum_id')->references('id')->on('kurikulum')->onDelete('cascade');
             $table->timestamps();
         });

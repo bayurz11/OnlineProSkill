@@ -2,7 +2,7 @@
 <div class="modal fade" id="materiModal" tabindex="-1" aria-labelledby="materiModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form id="materiForm" action="{{ route('kurikulumstore') }}" method="POST" enctype="multipart/form-data">
+            <form id="materiForm" action="{{ route('section.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="course_id" id="course_id">
                 <div class="modal-header">

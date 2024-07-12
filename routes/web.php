@@ -20,6 +20,7 @@ use App\Http\Controllers\DashboardStudenController;
 use App\Http\Controllers\RiwayatTransaksiController;
 use App\Http\Controllers\DashboardInstrukturController;
 use App\Http\Controllers\OrderHistoryManagerController;
+use App\Http\Controllers\SectionController;
 
 //Authentikasi
 Route::post('/login', [AuthController::class, 'login'])->name('login');
@@ -86,6 +87,7 @@ Route::middleware('isAdmin')->group(function () {
     Route::delete('/kurikulum_destroy/{id}', [KurikulumController::class, 'destroy'])->name('class.destroy');
 
     //Section Kurikulum
+    Route::post('/section/store', [SectionController::class, 'store'])->name('section.store');
 });
 
 //*********STUDEN*********//
