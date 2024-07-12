@@ -76,7 +76,7 @@ class HomeController extends Controller
             $profile = UserProfile::where('user_id', $user->id)->first();
         }
 
-        $courses = KelasTatapMuka::find($slug);
+        $courses = KelasTatapMuka::find($id);
 
         if (!$courses) {
             abort(404, 'Kelas tatap muka tidak ditemukan.');
