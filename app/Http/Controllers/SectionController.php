@@ -23,7 +23,7 @@ class SectionController extends Controller
 
         // Buat entitas Kurikulum baru
         $section = new Kurikulum;
-        $section->kurikulum_id = $validatedData['kurikulum_id'];
+        $section->kurikulum_id = $validatedData['kurikulum'];
         $section->title = $validatedData['title'];
         $section->link = $validatedData['link'];
         $section->no_urut = $noUrut;
