@@ -54,7 +54,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card">a </div>
+                                    <div class="card">
+                                        <div class="card-body d-flex justify-content-between align-items-center">
+                                            <div>aaa</div>
+                                        </div>
+                                    </div>
                                 </div>
                             @endforeach
                         </div>
