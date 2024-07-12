@@ -30,35 +30,36 @@
                         </div><br>
                         <p class="text-muted mb-3"> Jumlah Bagian Kurikulum : {{ $kurikulum->count() }}</p>
                         <div class="table-responsive">
-                            @foreach ($kurikulum as $kurikulum)
+                            @foreach ($kurikulum as $kuri)
                                 <div class="col-md-12 grid-margin stretch-card">
                                     <div class="card">
                                         <div class="card-body d-flex justify-content-between align-items-center">
                                             <div>
-                                                Bagian {{ $kurikulum->no_urut }}. {{ $kurikulum->title }}
+                                                Bagian {{ $kuri->no_urut }}. {{ $kuri->title }}
                                             </div>
                                             <div class="d-flex gap-2">
                                                 <button type="button" class="btn btn-outline-primary"
                                                     data-bs-toggle="modal" data-bs-target="#exampleModalEdit"
-                                                    title="Edit Kurikulum" data-id="{{ $kurikulum->id }}">
+                                                    title="Edit Kurikulum" data-id="{{ $kuri->id }}">
                                                     <i class="btn-icon-prepend" data-feather="edit"></i>
                                                 </button>
-                                                <button onclick="hapus('{{ $kurikulum->id }}')"
+                                                <button onclick="hapus('{{ $kuri->id }}')"
                                                     class="btn btn-outline-danger btn-icon" title="Hapus">
                                                     <i data-feather="trash-2"></i>
                                                 </button>
                                                 <button type="button" class="btn btn-outline-primary"
-                                                    data-bs-toggle="modal" data-id="{{ $kurikulum->id }}"
+                                                    data-bs-toggle="modal" data-id="{{ $kuri->id }}"
                                                     data-bs-target="#materiModal">
                                                     <i class="btn-icon-prepend" data-feather="plus-circle"></i> Tambah
                                                     Materi
                                                 </button>
                                             </div>
                                         </div>
-                                        @foreach ($section as $section)
+
+                                        @foreach ($kuri->sections as $section)
                                             <div class="card">
                                                 <div class="card-body d-flex justify-content-between align-items-center">
-                                                    Pelajaran {{ $section->no_urut }}. Data
+                                                    Pelajaran {{ $section->no_urut }}. {{ $section->title }}
                                                     <div class="d-flex gap-2">
                                                         <button type="button" class="btn btn-outline-primary"
                                                             data-bs-toggle="modal" data-bs-target="#exampleModalEdit"
@@ -69,7 +70,6 @@
                                                             class="btn btn-outline-danger btn-icon" title="Hapus">
                                                             <i data-feather="trash-2"></i>
                                                         </button>
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -77,6 +77,7 @@
                                     </div>
                                 </div>
                             @endforeach
+
                         </div>
                     </div>
                 </div>
