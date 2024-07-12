@@ -38,6 +38,7 @@
                                                 {{ $kurikulum->no_urut }}. {{ $kurikulum->title }}
                                             </div>
                                             <div class="d-flex gap-2">
+                                                <!-- Tombol untuk membuka modal Edit Kurikulum -->
                                                 <button type="button" class="btn btn-outline-primary"
                                                     data-bs-toggle="modal" data-bs-target="#exampleModalEdit"
                                                     title="Edit Kurikulum" data-id="{{ $kurikulum->id }}">

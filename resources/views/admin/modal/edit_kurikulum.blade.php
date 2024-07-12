@@ -26,20 +26,22 @@
     </div>
 </div>
 
+<!-- JavaScript untuk menangani pembukaan modal dan pengambilan data kurikulum -->
 <script>
     $(document).ready(function() {
         $('#exampleModalEdit').on('show.bs.modal', function(event) {
-            var button = $(event.relatedTarget);
-            var kurikulumId = button.data('id');
+            var button = $(event.relatedTarget); // Tombol yang membuka modal
+            var kurikulumId = button.data('id'); // Ambil data-id dari tombol
             console.log('Kurikulum ID:', kurikulumId); // Debugging line
-            $('#course_id').val(kurikulumId); // Pastikan ada elemen dengan id 'course_id'
+            $('#course_id').val(kurikulumId); // Set nilai course_id di dalam modal
 
+            // AJAX request untuk mengambil data kurikulum
             $.ajax({
                 url: '/kurikulum/' + kurikulumId + '/edit',
                 method: 'GET',
                 success: function(response) {
                     $('#edittitle').val(response
-                        .title); // Pastikan ada elemen dengan id 'edittitle'
+                    .title); // Set nilai judul kurikulum di dalam modal
                 },
                 error: function(xhr) {
                     console.log('Error:', xhr);
