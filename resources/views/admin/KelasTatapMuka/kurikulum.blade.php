@@ -58,17 +58,17 @@
                                         @foreach ($section as $section)
                                             <div class="card">
                                                 <div class="card-body d-flex justify-content-between align-items-center">
-                                                    Pelajaran . Data
+                                                    Pelajaran {{ $section->no_urut }}. Data
                                                     <div class="d-flex gap-2">
                                                         <button type="button" class="btn btn-outline-primary"
                                                             data-bs-toggle="modal" data-bs-target="#exampleModalEdit"
-                                                            title="Edit Section" data-id="#">
+                                                            title="Edit Section" data-id="{{ $section->id }}">
                                                             <i class="btn-icon-prepend" data-feather="edit"></i>
                                                         </button>
-                                                        <button class="btn btn-outline-danger btn-icon" title="Hapus">
+                                                        <button onclick="hapus('{{ $section->id }}')"
+                                                            class="btn btn-outline-danger btn-icon" title="Hapus">
                                                             <i data-feather="trash-2"></i>
                                                         </button>
-                                                        {{-- onclick="hapus('{{ $section->id }}')" --}}
 
                                                     </div>
                                                 </div>

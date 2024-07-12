@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Section;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Kurikulum extends Model
 {
@@ -19,5 +20,9 @@ class Kurikulum extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+    public function sections()
+    {
+        return $this->hasMany(Section::class);
     }
 }
