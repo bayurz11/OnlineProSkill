@@ -15,7 +15,7 @@
 
         @include('admin.modal.add_kurikulum')
         @include('admin.modal.add_materi')
-        {{-- @include('admin.modal.edit_kurikulum') --}}
+        @include('admin.modal.edit_kurikulum')
 
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
@@ -38,9 +38,8 @@
                                                 {{ $kurikulum->no_urut }}. {{ $kurikulum->title }}
                                             </div>
                                             <div class="d-flex gap-2">
-                                                <!-- Tombol untuk membuka modal Edit Kurikulum -->
                                                 <button type="button" class="btn btn-outline-primary"
-                                                    data-bs-toggle="modal" data-bs-target="#editkurikulumModal"
+                                                    data-bs-toggle="modal" data-bs-target="#exampleModalEdit"
                                                     title="Edit Kurikulum" data-id="{{ $kurikulum->id }}">
                                                     <i class="btn-icon-prepend" data-feather="edit"></i>
                                                 </button>

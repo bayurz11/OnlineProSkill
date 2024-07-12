@@ -1,5 +1,5 @@
 <!-- Modal untuk Edit Kurikulum -->
-<div class="modal fade" id="editkurikulumModal" tabindex="-1" aria-labelledby="editkurikulumModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModalEdit" tabindex="-1" aria-labelledby="exampleModalEditLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <form id="editKurikulumForm" method="POST" enctype="multipart/form-data">
@@ -7,7 +7,7 @@
                 @method('PUT')
                 <input type="hidden" name="course_id" id="course_id">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editkurikulumModalLabel">Edit Kurikulum</h5>
+                    <h5 class="modal-title" id="exampleModalEditLabel">Edit Kurikulum</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -27,7 +27,7 @@
 </div>
 <script>
     $(document).ready(function() {
-        $('#editkurikulumModal').on('show.bs.modal', function(event) {
+        $('#exampleModalEdit').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget); // Tombol yang membuka modal
             var kurikulumId = button.data('id'); // Ambil data-id dari tombol
             console.log('Kurikulum ID:', kurikulumId); // Debugging line
