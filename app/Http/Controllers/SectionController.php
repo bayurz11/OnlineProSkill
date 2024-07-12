@@ -52,7 +52,7 @@ class SectionController extends Controller
         }
 
         // Validasi data yang diterima
-        $section->validate([
+        $validatedData = $request->validate([
             'kurikulum_id' => 'required|integer',
             'title' => 'required|string|max:255',
             'link' => 'required|string|max:255',
@@ -60,9 +60,9 @@ class SectionController extends Controller
         ]);
 
         // Update data kursus
-        $section->kurikulum_id = $request['kurikulum_id'];
-        $section->title = $request->input('title');
-        $section->link = $request->input('link');
+        $section->kurikulum_id = $validatedData['kurikulum_id'];
+        $section->title = $validatedData['title'];
+        $section->link = $validatedData['link'];
         // Tambahkan update field lainnya sesuai kebutuhan
 
         $section->save();
