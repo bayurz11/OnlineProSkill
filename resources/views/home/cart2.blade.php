@@ -46,7 +46,7 @@
                                                 <img src="{{ $item['gambar'] ? asset('public/uploads/' . $item['gambar']) : asset('public/assets/img/shop/shop_img01.jpg') }}"
                                                     alt="">
                                             </a> --}}<a
-                                                href="{{ route('classroomdetail', ['id' => $item->id, 'slug' => $item->slug]) }}">
+                                                href="{{ route('classroomdetail', ['id' => $item['id'], 'slug' => $item['slug']]) }}">
                                                 <img src="{{ $item['gambar'] ? asset('public/uploads/' . $item['gambar']) : asset('public/assets/img/shop/shop_img01.jpg') }}"
                                                     alt="">
                                             </a>
