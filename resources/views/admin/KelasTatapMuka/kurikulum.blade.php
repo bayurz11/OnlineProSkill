@@ -54,7 +54,7 @@
                                             </div>
                                         </div>
                                         <div class="card">
-                                            <div class="card-body d-flex justify-content-between align-items-center">
+                                            <div class="card-body  align-items-center">
                                                 <div>aaa</div>
                                             </div>
                                         </div>
