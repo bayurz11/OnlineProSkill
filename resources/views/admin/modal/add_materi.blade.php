@@ -1,3 +1,4 @@
+<!-- Modal Tambah Kurikulum -->
 <div class="modal fade" id="materiModal" tabindex="-1" aria-labelledby="materiModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -9,11 +10,10 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="kurikulum_id" class="form-label">Bagian<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="kurikulum_id" name="kurikulum_id"
-                            placeholder="Masukkan judul Kurikulum Anda">
-                    </div>
+
+                    <input type="hidden" class="form-control" id="kurikulum_id" name="kurikulum_id"
+                        placeholder="Masukkan judul Kurikulum Anda">
+
                     <div class="mb-3">
                         <label for="title" class="form-label">Judul<span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="title" name="title"
@@ -34,28 +34,15 @@
         </div>
     </div>
 </div>
-
 <script>
     $(document).ready(function() {
         $('#materiModal').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget); // Tombol yang membuka modal
             var kurikulumId = button.data('id'); // Ambil data-id dari tombol
+            console.log('Kurikulum ID:', kurikulumId); // Debugging line
 
-            // Permintaan AJAX ke backend untuk mendapatkan data kurikulum
-            $.ajax({
-                url: '/getKurikulum/' + kurikulumId,
-                type: 'GET',
-                dataType: 'json',
-                success: function(response) {
-                    // Mengisi nilai-nilai modal dengan data yang diterima dari backend
-                    $('#kurikulum_id').val(response.kurikulum_id);
-                    $('#title').val(response.title);
-                    $('#link_materi').val(response.link_materi);
-                },
-                error: function(xhr, status, error) {
-                    console.error('Terjadi kesalahan dalam permintaan AJAX:', error);
-                }
-            });
+            var modal = $(this);
+            modal.find('.modal-body #kurikulum_id').val(kurikulumId);
         });
     });
 </script>
