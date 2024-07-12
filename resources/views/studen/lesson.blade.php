@@ -23,7 +23,8 @@
                                             data-bs-target="#collapse{{ $kelasTatapMuka->id }}" aria-expanded="false"
                                             aria-controls="collapse{{ $kelasTatapMuka->id }}">
                                             {{ $kelasTatapMuka->name }}
-                                            <span>{{ count($kelasTatapMuka->lessons) }}/{{ count($kelasTatapMuka->lessons) }}</span>
+                                            <span>{{ is_countable($kelasTatapMuka->lessons) ? count($kelasTatapMuka->lessons) : 0 }}/{{ is_countable($kelasTatapMuka->lessons) ? count($kelasTatapMuka->lessons) : 0 }}</span>
+
                                         </button>
                                     </h2>
                                     <div id="collapse{{ $kelasTatapMuka->id }}" class="accordion-collapse collapse"
