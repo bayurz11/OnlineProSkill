@@ -117,24 +117,27 @@
                                                     data-bs-parent="#accordionExample">
                                                     <div class="accordion-body">
                                                         <ul class="list-wrap">
-                                                            <li class="course-item">
-                                                                <a href="#" class="course-item-link">
-                                                                    Create a Simple React App
-                                                                    <div class="course-item-meta">
-                                                                        <span class="item-meta duration">07:48</span>
-                                                                        <span class="item-meta course-item-status">
-                                                                            <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
-                                                                                alt="icon">
-                                                                        </span>
-                                                                    </div>
-                                                                </a>
-                                                            </li>
-
+                                                            @foreach ($section[$kurikulumItem->id] ?? [] as $sectionItem)
+                                                                <li class="course-item">
+                                                                    <a href="#" class="course-item-link">
+                                                                        {{ $sectionItem->title }}
+                                                                        <div class="course-item-meta">
+                                                                            <span
+                                                                                class="item-meta duration">{{ $sectionItem->duration }}</span>
+                                                                            <span class="item-meta course-item-status">
+                                                                                <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
+                                                                                    alt="icon">
+                                                                            </span>
+                                                                        </div>
+                                                                    </a>
+                                                                </li>
+                                                            @endforeach
                                                         </ul>
                                                     </div>
                                                 </div>
                                             </div>
                                         @endforeach
+
                                     </div>
 
                                 </div>
