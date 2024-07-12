@@ -15,7 +15,7 @@
 
         @include('admin.modal.add_kurikulum')
         @include('admin.modal.add_materi')
-        @include('admin.modal.edit_kurikulum')
+        {{-- @include('admin.modal.edit_kurikulum') --}}
 
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
