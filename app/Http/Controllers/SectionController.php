@@ -69,4 +69,18 @@ class SectionController extends Controller
 
         return redirect()->back()->with('success', 'Section berhasil diperbarui');
     }
+
+    public function destroy($id)
+    {
+
+        $section = Section::find($id);
+
+        if (!$section) {
+            return redirect()->back()->with('error', 'Kategori tidak ditemukan');
+        }
+
+        $section->delete();
+
+        return redirect()->back()->with('success', 'Kategori berhasil dihapus');
+    }
 }

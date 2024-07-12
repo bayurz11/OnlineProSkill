@@ -67,7 +67,7 @@
                                                             title="Edit Section" data-id="{{ $section->id }}">
                                                             <i class="btn-icon-prepend" data-feather="edit"></i>
                                                         </button>
-                                                        <button onclick="hapus('{{ $section->id }}')"
+                                                        <button onclick="hapus1('{{ $section->id }}')"
                                                             class="btn btn-outline-danger btn-icon" title="Hapus">
                                                             <i data-feather="trash-2"></i>
                                                         </button>
@@ -121,6 +121,48 @@
                     error: function(xhr) {
                         document.getElementById('confirmationModal').remove();
                         console.error('Gagal menghapus kurikulum:', xhr.responseText);
+                    }
+                });
+            };
+
+            document.getElementById('cancelDelete').onclick = function() {
+                document.getElementById('confirmationModal').remove();
+            };
+        }
+
+        function hapus1(id) {
+            const confirmationBox = `
+                <div id="confirmationModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">
+                    <div style="background: white; padding: 40px; border-radius: 8px; text-align: center;">
+                        <h4>Konfirmasi Penghapusan</h4><br>
+                        <p>Apakah Anda yakin ingin menghapus ini?</p><br>
+                        <button id="confirmDelete" class="btn btn-danger btn-lg" data-id="${id}">Ya, Hapus</button>
+                        <button id="cancelDelete" class="btn btn-secondary btn-lg">Batal</button>
+                    </div>
+                </div>
+            `;
+
+            document.body.insertAdjacentHTML('beforeend', confirmationBox);
+
+            document.getElementById('confirmDelete').onclick = function() {
+                const kurikulumId = this.getAttribute('data-id');
+                $.ajax({
+                    url: `/section_destroy/${kurikulumId}`,
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    },
+                    data: {
+                        _method: 'DELETE'
+                    },
+                    success: function(response) {
+                        document.getElementById('confirmationModal').remove();
+                        console.log('Section berhasil dihapus. Mengalihkan ke halaman kurikulum.');
+                        location.reload(); // Refresh halaman setelah penghapusan berhasil
+                    },
+                    error: function(xhr) {
+                        document.getElementById('confirmationModal').remove();
+                        console.error('Gagal menghapus Section:', xhr.responseText);
                     }
                 });
             };
