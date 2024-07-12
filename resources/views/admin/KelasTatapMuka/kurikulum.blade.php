@@ -65,23 +65,43 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+        // $(document).ready(function() {
+        //     // Set ID to hidden input when showing edit modal
+        //     $('#exampleModalEdit').on('show.bs.modal', function(event) {
+        //         var button = $(event.relatedTarget);
+        //         var kurikulumId = button.data('id');
+        //         $('#course_id').val(kurikulumId);
+
+        //         $.ajax({
+        //             url: '/kurikulum/' + kurikulumId + '/edit',
+        //             method: 'GET',
+        //             success: function(response) {
+        //                 $('#edittitle').val(response.title);
+        //             },
+        //             error: function(xhr) {
+        //                 console.log('Error:', xhr);
+        //             }
+        //         });
+        //     });
+        // });
+
         function hapus(id) {
             const confirmationBox = `
-        <div id="confirmationModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">
-            <div style="background: white; padding: 40px; border-radius: 8px; text-align: center;">
-                <h4>Konfirmasi Penghapusan</h4><br>
-                <p>Apakah Anda yakin ingin menghapus ini?</p><br>
-                <button id="confirmDelete" class="btn btn-danger btn-lg">Ya, Hapus</button>
-                <button id="cancelDelete" class="btn btn-secondary btn-lg">Batal</button>
-            </div>
-        </div>
-    `;
+                <div id="confirmationModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">
+                    <div style="background: white; padding: 40px; border-radius: 8px; text-align: center;">
+                        <h4>Konfirmasi Penghapusan</h4><br>
+                        <p>Apakah Anda yakin ingin menghapus ini?</p><br>
+                        <button id="confirmDelete" class="btn btn-danger btn-lg">Ya, Hapus</button>
+                        <button id="cancelDelete" class="btn btn-secondary btn-lg">Batal</button>
+                    </div>
+                </div>
+            `;
 
             document.body.insertAdjacentHTML('beforeend', confirmationBox);
 
             document.getElementById('confirmDelete').onclick = function() {
                 fetch(`/kurikulum_destroy/${id}`, {
-                    method: 'POST',
+                    method: 'POST', // Menggunakan POST bukan DELETE
                     headers: {
                         'X-CSRF-TOKEN': '{{ csrf_token() }}',
                         'Content-Type': 'application/json'
@@ -94,7 +114,7 @@
                     if (response.ok) {
                         console.log(
                             'subcategory berhasil dihapus. Mengalihkan ke halaman pengaturan subcategory.');
-                        window.location.href = `/kurikulum/${id}`;
+                        window.location.href = '{{ route('kurikulum', ['id' => $kurikulum->id]) }}';
                     } else {
                         response.text().then(text => {
                             console.error('Gagal menghapus subcategory:', text);
@@ -110,25 +130,5 @@
                 document.getElementById('confirmationModal').remove();
             };
         }
-
-        $(document).ready(function() {
-            // Set ID to hidden input when showing edit modal
-            $('#exampleModalEdit').on('show.bs.modal', function(event) {
-                var button = $(event.relatedTarget);
-                var kurikulumId = button.data('id');
-                $('#course_id').val(kurikulumId);
-
-                $.ajax({
-                    url: '/kurikulum/' + kurikulumId + '/edit',
-                    method: 'GET',
-                    success: function(response) {
-                        $('#edittitle').val(response.title);
-                    },
-                    error: function(xhr) {
-                        console.log('Error:', xhr);
-                    }
-                });
-            });
-        });
     </script>
 @endsection
