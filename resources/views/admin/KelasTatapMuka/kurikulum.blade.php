@@ -58,7 +58,7 @@
                                         @foreach ($section as $section)
                                             <div class="card">
                                                 <div class="card-body d-flex justify-content-between align-items-center">
-                                                    Pelajaran {{ $section->no_urut }}. Data
+                                                    Pelajaran . Data
                                                     <div class="d-flex gap-2">
                                                         <button type="button" class="btn btn-outline-primary"
                                                             data-bs-toggle="modal" data-bs-target="#exampleModalEdit"
