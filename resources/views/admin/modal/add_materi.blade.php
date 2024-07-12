@@ -2,7 +2,7 @@
 <div class="modal fade" id="materiModal" tabindex="-1" aria-labelledby="materiModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form id="kurikulumForm" action="{{ route('kurikulumstore') }}" method="POST" enctype="multipart/form-data">
+            <form id="materiForm" action="{{ route('kurikulumstore') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="course_id" id="course_id">
                 <div class="modal-header">
@@ -46,7 +46,6 @@
         });
     });
 </script> --}}
-
 <script>
     $(document).ready(function() {
         $('#materiModal').on('show.bs.modal', function(event) {
@@ -57,17 +56,17 @@
             var modal = $(this);
             modal.find('.modal-body #kurikulum_id').val(kurikulumId);
 
-            // Ambil courseId dari localStorage dan set ke course_id input
+            // Mengambil nilai dari localStorage untuk course_id
             var courseId = localStorage.getItem('selectedCourseId');
             if (courseId) {
                 console.log('Course ID found in localStorage:', courseId);
-                modal.find('.modal-body #course_id').val(courseId);
+                $('#course_id').val(courseId);
             }
         });
 
         $('#materiModal').on('hide.bs.modal', function(event) {
             console.log('Modal closed, resetting form.');
-            $('#kurikulumForm')[0].reset();
+            $('#materiForm')[0].reset();
         });
     });
 </script>
