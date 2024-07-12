@@ -45,9 +45,12 @@
                     url: '/kurikulum/' + courseId + '/edit',
                     method: 'GET',
                     success: function(response) {
+                        console.log('Response from server:', response); // Tambahkan log ini
                         if (response.message) {
                             alert(response.message);
                         } else {
+                            console.log('Setting title:', response
+                            .title); // Tambahkan log ini
                             document.getElementById('edittitle').value = response.title;
                         }
                     },
