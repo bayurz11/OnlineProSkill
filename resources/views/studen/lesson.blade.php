@@ -12,28 +12,34 @@
                 <div class="col-xl-3 col-lg-4">
                     <div class="lesson__content">
                         <h2 class="title">Konten Kursus</h2>
-                        @foreach ($kurikulum as $item)
-                            <div class="accordion" id="accordionExample">
+                        <div class="accordion" id="accordionExample">
+                            @foreach ($kurikulum as $item)
                                 <div class="accordion-item">
                                     <h2 class="accordion-header">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse{{ $item->no_urut }}" aria-expanded="true"
+                                        <button class="accordion-button {{ $item->no_urut == 1 ? '' : 'collapsed' }}"
+                                            type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapse{{ $item->no_urut }}"
+                                            aria-expanded="{{ $item->no_urut == 1 ? 'true' : 'false' }}"
                                             aria-controls="collapse{{ $item->no_urut }}">
                                             {{ $item->judul }}
-                                            <span>{{ $item->no_urut }}/3</span>
+                                            <span>1/5</span> {{-- Adjust the span content as needed --}}
                                         </button>
                                     </h2>
-                                    <div id="collapse{{ $item->no_urut }}" class="accordion-collapse collapse show"
+                                    <div id="collapse{{ $item->no_urut }}"
+                                        class="accordion-collapse collapse {{ $item->no_urut == 1 ? 'show' : '' }}"
                                         data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
                                             <ul class="list-wrap">
                                                 @foreach ($item->courses as $course)
+                                                    {{-- Assuming courses are related to each curriculum item --}}
                                                     <li class="course-item">
                                                         <a href="#" class="course-item-link">
-                                                            <span class="item-name">{{ $course->title }}</span>
+                                                            <span class="item-name">{{ $course->nama }}</span>
+                                                            {{-- Adjust field name based on your data --}}
                                                             <div class="course-item-meta">
                                                                 <span
                                                                     class="item-meta duration">{{ $course->duration }}</span>
+                                                                {{-- Adjust field name based on your data --}}
                                                                 @if ($course->locked)
                                                                     <span class="item-meta course-item-status">
                                                                         <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
@@ -48,8 +54,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        </div>
 
                     </div>
                 </div>
