@@ -62,13 +62,13 @@
                                                     <div class="d-flex gap-2">
                                                         <button type="button" class="btn btn-outline-primary"
                                                             data-bs-toggle="modal" data-bs-target="#exampleModalEdit"
-                                                            title="Edit Section" data-id="{{ $section->id }}">
+                                                            title="Edit Section" data-id="#">
                                                             <i class="btn-icon-prepend" data-feather="edit"></i>
                                                         </button>
-                                                        <button onclick="hapus('{{ $section->id }}')"
-                                                            class="btn btn-outline-danger btn-icon" title="Hapus">
+                                                        <button class="btn btn-outline-danger btn-icon" title="Hapus">
                                                             <i data-feather="trash-2"></i>
                                                         </button>
+                                                        {{-- onclick="hapus('{{ $section->id }}')" --}}
 
                                                     </div>
                                                 </div>
