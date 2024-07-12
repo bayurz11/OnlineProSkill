@@ -46,7 +46,7 @@ class AksesPembelianController extends Controller
 
         return view('studen.aksespembelian', compact('user', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders'));
     }
-    public function lesson()
+    public function lesson($id)
     {
         $cart = Session::get('cart', []);
         $user = Auth::user();
