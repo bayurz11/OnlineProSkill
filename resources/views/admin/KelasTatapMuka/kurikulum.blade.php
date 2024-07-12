@@ -48,7 +48,8 @@
                                                     <i data-feather="trash-2"></i>
                                                 </button>
                                                 <button type="button" class="btn btn-outline-primary"
-                                                    data-bs-toggle="modal" data-bs-target="#materiModal">
+                                                    data-bs-toggle="modal" data-id="{{ $kurikulum->id }}"
+                                                    data-bs-target="#materiModal">
                                                     <i class="btn-icon-prepend" data-feather="plus-circle"></i> Tambah
                                                     Materi
                                                 </button>
