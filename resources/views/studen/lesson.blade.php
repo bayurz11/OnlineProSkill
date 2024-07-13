@@ -125,7 +125,9 @@
                 }
             } else if (fileType === 'pdf' || fileUrl.includes('uploads/')) {
                 // Check if the fileUrl doesn't start with 'public/uploads/' and add it
-                if (!fileUrl.startsWith('public/uploads/')) {
+                if (fileUrl.startsWith('https://')) {
+                    fileSrc = '/public/' + fileUrl.split('/').slice(3).join('/');
+                } else if (!fileUrl.startsWith('/public/uploads/')) {
                     fileSrc = '/public/' + fileUrl;
                 } else {
                     fileSrc = fileUrl;
