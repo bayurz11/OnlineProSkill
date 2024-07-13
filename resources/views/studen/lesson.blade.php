@@ -1,10 +1,6 @@
-@section('title', 'ProSkill Akademia | Materi Pelajaran')
-<?php $page = 'index'; ?>
-
 @extends('layout.mainlayout')
 
 @section('content')
-
     <!-- lesson-area -->
     <section class="lesson__area section-pb-120">
         <div class="container-fluid p-0">
@@ -58,15 +54,15 @@
                         <div class="lesson__video-wrap-top">
                             <div class="lesson__video-wrap-top-left">
                                 <a href="#"><i class="flaticon-arrow-right"></i></a>
-                                <span>The Complete Design Course: From Zero to Expert!</span>
+                                <span>{{ $kurikulum[0]->sections->first()->title }}</span>
                             </div>
                             <div class="lesson__video-wrap-top-right">
                                 <a href="#"><i class="fas fa-times"></i></a>
                             </div>
                         </div>
                         <video id="player" playsinline controls data-poster="assets/img/bg/video_bg.webp">
-                            <source src="assets/video/video.mp4" type="video/mp4" />
-                            <source src="/path/to/video.webm" type="video/webm" />
+                            <source src="{{ $kurikulum[0]->sections->first()->link }}" type="video/mp4" />
+                            <!-- Tambahkan source lain jika diperlukan -->
                         </video>
                         <div class="lesson__next-prev-button">
                             <button class="prev-button" title="Create a Simple React App"><i
@@ -80,6 +76,4 @@
         </div>
     </section>
     <!-- lesson-area-end -->
-
-
 @endsection
