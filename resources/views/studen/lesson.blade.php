@@ -62,7 +62,7 @@
                         </div>
                         <div class="lesson__video-embed">
                             <iframe width="100%" height="500"
-                                src="https://www.youtube.com/embed/{{ $kurikulum[0]->sections->first()->link }}"
+                                src="https://www.youtube.com/embed/{{ getYoutubeId($kurikulum[0]->sections->first()->link) }}"
                                 frameborder="0" allowfullscreen></iframe>
                         </div>
                         <div class="lesson__next-prev-button">
@@ -72,8 +72,8 @@
                                     class="flaticon-arrow-right"></i></button>
                         </div>
                     </div>
-
                 </div>
+
             </div>
         </div>
     </section>
