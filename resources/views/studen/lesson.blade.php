@@ -32,7 +32,7 @@
                                                             class="course-item-link {{ $loop->first ? 'active' : '' }}"
                                                             data-title="{{ $section->title }}"
                                                             data-link="{{ $section->link }}"
-                                                            data-type="{{ $section->type }}" onclick="changeVideo(this)">
+                                                            data-type="{{ $section->type }}" onclick="changeContent(this)">
                                                             <span class="item-name">{{ $section->title }}</span>
                                                             <div class="course-item-meta">
                                                                 <span
@@ -54,23 +54,21 @@
                         <div class="lesson__video-wrap-top">
                             <div class="lesson__video-wrap-top-left">
                                 <a href="#"><i class="flaticon-arrow-right"></i></a>
-                                <span id="currentVideoTitle">{{ $kurikulum[0]->sections->first()->title }}</span>
+                                <span id="currentContentTitle">{{ $kurikulum[0]->sections->first()->title }}</span>
                             </div>
                             <div class="lesson__video-wrap-top-right">
                                 <a href="#"><i class="fas fa-times"></i></a>
                             </div>
                         </div>
                         <div class="lesson__video-embed">
-                            <iframe id="lessonVideo" width="100%" height="500" src="" frameborder="0"
+                            <iframe id="lessonContent" width="100%" height="500" src="" frameborder="0"
                                 allowfullscreen></iframe>
                         </div>
                         <div class="lesson__next-prev-button">
-                            <button class="prev-button" title="Previous Video" onclick="prevVideo()"><i
+                            <button class="prev-button" title="Previous Content" onclick="prevContent()"><i
                                     class="flaticon-arrow-left"></i></button>
-                            <button class="next-button" title="Next Video" onclick="nextVideo()"><i
+                            <button class="next-button" title="Next Content" onclick="nextContent()"><i
                                     class="flaticon-arrow-right"></i></button>
-
-
                         </div>
                     </div>
                 </div>
@@ -81,10 +79,11 @@
 
     <script>
         // Function to change the iframe source
-        function changeVideo(element) {
+        function changeContent(element) {
             var fileUrl = element.getAttribute('data-link');
             var youtubeRegex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
-            var driveRegex = /(?:drive\.google\.com\/file\/d\/|drive\.google\.com\/open\?id=)([^"&?\/\s]+)/;
+            var driveRegex =
+                /(?:drive\.google\.com\/file\/d\/|drive\.google\.com\/open\?id=|docs.google\.com\/(?:presentation|document|spreadsheets)\/d\/)([^"&?\/\s]+)/;
             var youtubeMatch = fileUrl.match(youtubeRegex);
             var driveMatch = fileUrl.match(driveRegex);
             var fileSrc = '';
@@ -98,12 +97,14 @@
 
                 if (fileType === 'video') {
                     fileSrc = 'https://drive.google.com/file/d/' + driveId + '/preview';
-                } else if (fileType === 'presentation') {
-                    fileSrc = 'https://docs.google.com/presentation/d/' + driveId + '/preview';
-                } else if (fileType === 'document') {
-                    fileSrc = 'https://docs.google.com/document/d/' + driveId + '/preview';
-                } else if (fileType === 'spreadsheet') {
-                    fileSrc = 'https://docs.google.com/spreadsheets/d/' + driveId + '/preview';
+                } else if (fileType === 'presentation' || fileType === 'pptx') {
+                    fileSrc = 'https://docs.google.com/presentation/d/' + driveId + '/embed';
+                } else if (fileType === 'document' || fileType === 'docx') {
+                    fileSrc = 'https://docs.google.com/document/d/' + driveId + '/embed';
+                } else if (fileType === 'spreadsheet' || fileType === 'xlsx') {
+                    fileSrc = 'https://docs.google.com/spreadsheets/d/' + driveId + '/embed';
+                } else if (fileType === 'pdf') {
+                    fileSrc = 'https://drive.google.com/file/d/' + driveId + '/preview';
                 } else {
                     alert('Jenis file tidak didukung.');
                     return;
@@ -113,8 +114,8 @@
                 return;
             }
 
-            document.getElementById('lessonVideo').src = fileSrc;
-            document.getElementById('currentVideoTitle').innerText = element.getAttribute('data-title');
+            document.getElementById('lessonContent').src = fileSrc;
+            document.getElementById('currentContentTitle').innerText = element.getAttribute('data-title');
 
             // Remove active class from previously active links
             var activeLinks = document.querySelectorAll('.course-item-link.active');
@@ -130,25 +131,25 @@
         document.addEventListener('DOMContentLoaded', function() {
             var firstFileLink = document.querySelector('.course-item-link.active');
             if (firstFileLink) {
-                changeVideo(firstFileLink);
+                changeContent(firstFileLink);
             }
         });
 
         // Function to get the next file
-        function nextVideo() {
+        function nextContent() {
             var activeLink = document.querySelector('.course-item-link.active');
             var nextLink = activeLink.parentElement.nextElementSibling?.querySelector('.course-item-link');
             if (nextLink) {
-                changeVideo(nextLink);
+                changeContent(nextLink);
             }
         }
 
         // Function to get the previous file
-        function prevVideo() {
+        function prevContent() {
             var activeLink = document.querySelector('.course-item-link.active');
             var prevLink = activeLink.parentElement.previousElementSibling?.querySelector('.course-item-link');
             if (prevLink) {
-                changeVideo(prevLink);
+                changeContent(prevLink);
             }
         }
     </script>
