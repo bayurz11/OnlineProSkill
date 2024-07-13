@@ -5,7 +5,7 @@
     <section class="lesson__area section-pb-120">
         <div class="container-fluid p-0">
             <div class="row gx-0">
-                <div class="col-xl-9 col-lg-7">
+                <div class="col-xl-8 col-lg-8">
                     <div class="lesson__video-wrap" style="padding: 20px">
                         <div class="lesson__video-wrap-top">
                             <div class="lesson__video-wrap-top-left">
@@ -28,7 +28,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-5">
+                <div class="col-xl-4 col-lg-4">
                     <div class="lesson__content" style="padding: 20px">
                         <h2 class="title">Konten Kursus</h2>
                         <div class="accordion" id="accordionExample">
