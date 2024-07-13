@@ -65,8 +65,10 @@
                                 allowfullscreen></iframe>
                         </div>
                         <div class="lesson__next-prev-button">
-                            <button class="prev-button" title="Previous Video"><i class="flaticon-arrow-right"></i></button>
-                            <button class="next-button" title="Next Video"><i class="flaticon-arrow-right"></i></button>
+                            <button class="prev-button" title="Previous Video" onclick="prevVideo()"><i
+                                    class="flaticon-arrow-left"></i></button>
+                            <button class="next-button" title="Next Video" onclick="nextVideo()"><i
+                                    class="flaticon-arrow-right"></i></button>
                         </div>
                     </div>
                 </div>
@@ -102,5 +104,23 @@
                 changeVideo(firstVideoLink);
             }
         });
+
+        // Function to get the next video
+        function nextVideo() {
+            var activeLink = document.querySelector('.course-item-link.active');
+            var nextLink = activeLink.parentElement.nextElementSibling?.querySelector('.course-item-link');
+            if (nextLink) {
+                changeVideo(nextLink);
+            }
+        }
+
+        // Function to get the previous video
+        function prevVideo() {
+            var activeLink = document.querySelector('.course-item-link.active');
+            var prevLink = activeLink.parentElement.previousElementSibling?.querySelector('.course-item-link');
+            if (prevLink) {
+                changeVideo(prevLink);
+            }
+        }
     </script>
 @endsection
