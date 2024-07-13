@@ -28,17 +28,28 @@
                                             <ul class="list-wrap">
                                                 @foreach ($item->sections as $section)
                                                     <li class="course-item {{ $loop->first ? 'open-item' : '' }}">
-                                                        <a href="#"
-                                                            class="course-item-link {{ $loop->first ? 'active' : '' }}"
-                                                            data-title="{{ $section->title }}"
-                                                            data-link="{{ $section->link }}"
-                                                            data-type="{{ $section->type }}" onclick="changeContent(this)">
-                                                            <span class="item-name">{{ $section->title }}</span>
-                                                            <div class="course-item-meta">
-                                                                <span
-                                                                    class="item-meta duration">{{ $section->duration }}</span>
-                                                            </div>
-                                                        </a>
+                                                        @if ($section->link || $section->file_path)
+                                                            <a href="#"
+                                                                class="course-item-link {{ $loop->first ? 'active' : '' }}"
+                                                                data-title="{{ $section->title }}"
+                                                                data-link="{{ $section->link ?? $section->file_path }}"
+                                                                data-type="{{ $section->type }}"
+                                                                onclick="changeContent(this)">
+                                                                <span class="item-name">{{ $section->title }}</span>
+                                                                <div class="course-item-meta">
+                                                                    <span
+                                                                        class="item-meta duration">{{ $section->duration }}</span>
+                                                                </div>
+                                                            </a>
+                                                        @else
+                                                            <span class="course-item-link inactive">
+                                                                <span class="item-name">{{ $section->title }}</span>
+                                                                <div class="course-item-meta">
+                                                                    <span
+                                                                        class="item-meta duration">{{ $section->duration }}</span>
+                                                                </div>
+                                                            </span>
+                                                        @endif
                                                     </li>
                                                 @endforeach
                                             </ul>
