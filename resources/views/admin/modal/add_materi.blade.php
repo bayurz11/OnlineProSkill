@@ -17,12 +17,12 @@
                             placeholder="Masukkan judul Kurikulum Anda">
                     </div>
                     <div class="mb-3">
-                        <label for="link" class="form-label">Link Materi<span class="text-danger">*</span></label>
+                        <label for="link" class="form-label">Link Materi</label>
                         <input type="text" class="form-control" id="link" name="link"
                             placeholder="Masukkan link materi Anda">
                     </div>
                     <div class="mb-3">
-                        <label for="file" class="form-label">Upload Materi<span class="text-danger">*</span></label>
+                        <label for="file" class="form-label">Upload Materi</label>
                         <input type="file" class="form-control" id="file" name="file"
                             placeholder="Masukkan link materi Anda">
                     </div>
