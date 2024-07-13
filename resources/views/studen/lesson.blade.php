@@ -84,52 +84,62 @@
     <!-- lesson-area-end -->
 
     <script>
-        document.querySelectorAll('.course-item-link').forEach(item => {
-            item.addEventListener('click', function(e) {
-                e.preventDefault();
-                let title = this.getAttribute('data-title');
-                let link = this.getAttribute('data-link');
-                let type = this.getAttribute('data-type');
+        document.addEventListener('DOMContentLoaded', function() {
+            let firstSectionLink = document.querySelector('.course-item-link');
+            if (firstSectionLink) {
+                loadContent(firstSectionLink);
+            }
 
-                document.getElementById('section-title').textContent = title;
-
-                let contentDisplay = document.getElementById('content-display');
-                contentDisplay.innerHTML = ''; // Clear previous content
-
-                if (type === 'video') {
-                    let video = document.createElement('video');
-                    video.setAttribute('id', 'player');
-                    video.setAttribute('playsinline', '');
-                    video.setAttribute('controls', '');
-                    video.setAttribute('data-poster', 'assets/img/bg/video_bg.webp');
-
-                    let sourceMP4 = document.createElement('source');
-                    sourceMP4.setAttribute('src', link);
-                    sourceMP4.setAttribute('type', 'video/mp4');
-
-                    video.appendChild(sourceMP4);
-                    contentDisplay.appendChild(video);
-                } else if (type === 'pdf') {
-                    let iframe = document.createElement('iframe');
-                    iframe.setAttribute('src', link);
-                    iframe.setAttribute('width', '100%');
-                    iframe.setAttribute('height', '500px');
-
-                    contentDisplay.appendChild(iframe);
-                } else if (type === 'youtube') {
-                    let iframe = document.createElement('iframe');
-                    iframe.setAttribute('width', '100%');
-                    iframe.setAttribute('height', '500px');
-                    iframe.setAttribute('src', `https://www.youtube.com/embed/${link.split('v=')[1]}`);
-                    iframe.setAttribute('frameborder', '0');
-                    iframe.setAttribute('allow',
-                        'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-                        );
-                    iframe.setAttribute('allowfullscreen', '');
-
-                    contentDisplay.appendChild(iframe);
-                }
+            document.querySelectorAll('.course-item-link').forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    loadContent(this);
+                });
             });
         });
+
+        function loadContent(element) {
+            let title = element.getAttribute('data-title');
+            let link = element.getAttribute('data-link');
+            let type = element.getAttribute('data-type');
+
+            document.getElementById('section-title').textContent = title;
+
+            let contentDisplay = document.getElementById('content-display');
+            contentDisplay.innerHTML = ''; // Clear previous content
+
+            if (type === 'video') {
+                let video = document.createElement('video');
+                video.setAttribute('id', 'player');
+                video.setAttribute('playsinline', '');
+                video.setAttribute('controls', '');
+                video.setAttribute('data-poster', 'assets/img/bg/video_bg.webp');
+
+                let sourceMP4 = document.createElement('source');
+                sourceMP4.setAttribute('src', link);
+                sourceMP4.setAttribute('type', 'video/mp4');
+
+                video.appendChild(sourceMP4);
+                contentDisplay.appendChild(video);
+            } else if (type === 'pdf') {
+                let iframe = document.createElement('iframe');
+                iframe.setAttribute('src', link);
+                iframe.setAttribute('width', '100%');
+                iframe.setAttribute('height', '500px');
+
+                contentDisplay.appendChild(iframe);
+            } else if (type === 'youtube') {
+                let iframe = document.createElement('iframe');
+                iframe.setAttribute('width', '100%');
+                iframe.setAttribute('height', '500px');
+                iframe.setAttribute('src', `https://www.youtube.com/embed/${link.split('v=')[1]}`);
+                iframe.setAttribute('frameborder', '0');
+                iframe.setAttribute('allow',
+                    'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+                iframe.setAttribute('allowfullscreen', '');
+
+                contentDisplay.appendChild(iframe);
+            }
+        }
     </script>
 @endsection
