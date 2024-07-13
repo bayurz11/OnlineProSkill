@@ -48,30 +48,30 @@
                     console.log(response); // Debugging line
                     if (response.kurikulum_id) {
                         $('#kurikulum_id').val(response
-                            .kurikulum_id); // Set nilai kurikulum_id di dalam modal
+                        .kurikulum_id); // Set nilai kurikulum_id di dalam modal
                     } else {
                         console.log('kurikulum_id is missing in response');
                     }
                     $('#edittitle1').val(response
-                        .title); // Set nilai judul section di dalam modal
+                    .title); // Set nilai judul section di dalam modal
                     $('#linkedit').val(response
-                        .link); // Set nilai link section di dalam modal
+                    .link); // Set nilai link section di dalam modal
 
                     // Handle file display or download link
                     if (response.file_path) {
-                        var fileName = response.file_name; // Nama file jika tersedia
+                        var fileName = response.file_name ||
+                        'File'; // Nama file jika tersedia atau default 'File'
                         var fileDownloadUrl = '/public/' + response
-                            .file_path; // URL untuk mengunduh file
+                        .file_path; // URL untuk mengunduh file
 
                         // Tampilkan informasi file atau buat tautan unduh
                         var fileDisplayHtml = '<p>File: <a href="' + fileDownloadUrl +
                             '" target="_blank">' + fileName + '</a></p>';
                         $('#fileDisplay').html(
-                            fileDisplayHtml); // Ganti #fileDisplay dengan ID elemen Anda
+                        fileDisplayHtml); // Ganti #fileDisplay dengan ID elemen Anda
                     } else {
                         $('#fileDisplay').html(
-                            '<p>No file uploaded.</p>'
-                            ); // Kasus di mana tidak ada file yang diunggah
+                        '<p>No file uploaded.</p>'); // Kasus di mana tidak ada file yang diunggah
                     }
 
                     // Set action form dengan id yang benar
