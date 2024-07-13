@@ -22,7 +22,7 @@
                                             aria-expanded="{{ $index === 0 ? 'true' : 'false' }}"
                                             aria-controls="collapse{{ $index }}">
                                             {{ $item->title }}
-                                            <span>1/3</span>
+                                            <span>{{ $item->sections->count() }}/{{ $item->sections->count() }}</span>
                                         </button>
                                     </h2>
                                     <div id="collapse{{ $index }}"
@@ -30,15 +30,18 @@
                                         data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
                                             <ul class="list-wrap">
-                                                <li class="course-item open-item">
-                                                    <a href="#" class="course-item-link active">
-                                                        <span class="item-name">Course Installation</span>
-                                                        <div class="course-item-meta">
-                                                            <span class="item-meta duration">03:03</span>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <!-- Tambahkan item lain di sini sesuai kebutuhan -->
+                                                @foreach ($item->sections as $section)
+                                                    <li class="course-item {{ $loop->first ? 'open-item' : '' }}">
+                                                        <a href="#"
+                                                            class="course-item-link {{ $loop->first ? 'active' : '' }}">
+                                                            <span class="item-name">{{ $section->title }}</span>
+                                                            <div class="course-item-meta">
+                                                                <span
+                                                                    class="item-meta duration">{{ $section->duration }}</span>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                     </div>
