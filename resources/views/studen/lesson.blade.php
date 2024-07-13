@@ -81,6 +81,10 @@
         // Function to change the iframe source
         function changeContent(element) {
             var fileUrl = element.getAttribute('data-link');
+            var fileType = element.getAttribute('data-type');
+            console.log('fileUrl:', fileUrl);
+            console.log('fileType:', fileType);
+
             var youtubeRegex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
             var driveRegex =
                 /(?:drive\.google\.com\/file\/d\/|drive\.google\.com\/open\?id=|docs.google\.com\/(?:presentation|document|spreadsheets)\/d\/)([^"&?\/\s]+)/;
@@ -93,7 +97,6 @@
                 fileSrc = 'https://www.youtube.com/embed/' + youtubeId;
             } else if (driveMatch) {
                 var driveId = driveMatch[1];
-                var fileType = element.getAttribute('data-type');
 
                 if (fileType === 'video') {
                     fileSrc = 'https://drive.google.com/file/d/' + driveId + '/preview';
@@ -106,11 +109,11 @@
                 } else if (fileType === 'pdf') {
                     fileSrc = 'https://drive.google.com/file/d/' + driveId + '/preview';
                 } else {
-                    alert('Jenis file tidak didukung.');
+                    alert('Jenis file tidak didukung: ' + fileType);
                     return;
                 }
             } else {
-                alert('Link file tidak valid.');
+                alert('Link file tidak valid: ' + fileUrl);
                 return;
             }
 
