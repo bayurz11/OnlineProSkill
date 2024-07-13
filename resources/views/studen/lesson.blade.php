@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-4">
-                    <div class="lesson__content">
+                    <div class="lesson__content" style="padding: 20px">
                         <h2 class="title">Konten Kursus</h2>
                         <div class="accordion" id="accordionExample">
                             @foreach ($kurikulum as $index => $item)
