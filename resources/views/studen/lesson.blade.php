@@ -58,7 +58,7 @@
                         <div class="lesson__video-wrap-top d-flex justify-content-between align-items-center">
                             <div class="lesson__video-wrap-top-left d-flex align-items-center">
                                 <a href="#"><i class="flaticon-arrow-right"></i></a>
-                                <span id="section-title">The Complete Design Course: From Zero to Expert!</span>
+                                <span id="section-title"></span>
                             </div>
                             <div class="lesson__video-wrap-top-right">
                                 <a href="{{ route('akses_pembelian') }}"><i class="fas fa-times"></i></a>
