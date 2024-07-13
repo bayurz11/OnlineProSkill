@@ -65,7 +65,7 @@
                             </div>
                         </div>
                         <div id="content-display">
-                            <iframe id="content-iframe"></iframe>
+                            <iframe id="content-iframe" style="width: 100%; height: 500px;"></iframe>
                         </div>
                         <div class="lesson__next-prev-button">
                             <button class="prev-button" title="Create a Simple React App"><i
@@ -92,15 +92,31 @@
 
                     const title = this.getAttribute('data-title');
                     const link = this.getAttribute('data-link');
+                    const type = this.getAttribute('data-type');
 
                     contentTitle.textContent = title;
-                    contentIframe.src = link;
+
+                    if (type === 'youtube') {
+                        contentIframe.src =
+                            `https://www.youtube.com/embed/${extractYouTubeID(link)}`;
+                    } else if (type === 'pdf') {
+                        contentIframe.src = link;
+                    } else {
+                        contentIframe.src = '';
+                    }
 
                     // Remove active class from all links and add to the clicked one
                     courseLinks.forEach(link => link.classList.remove('active'));
                     this.classList.add('active');
                 });
             });
+
+            function extractYouTubeID(url) {
+                const regExp =
+                    /^.*(youtu.be\/|v\/|\/u\/\w\/|embed\/|watch\?v=|&v=|^.*(?:www\.)?youtube.com\/(embed\/|v\/|watch\?v=|\S*\/\S*\/)?)([^#\&\?]*).*/;
+                const match = url.match(regExp);
+                return (match && match[2].length == 11) ? match[2] : null;
+            }
         });
     </script>
 
