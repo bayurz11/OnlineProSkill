@@ -61,7 +61,8 @@
                             </div>
                         </div>
                         <div class="lesson__video-embed">
-                            <video id="lessonVideo" width="100%" height="500" controls></video>
+                            <iframe id="lessonVideo" width="100%" height="500" src="" frameborder="0"
+                                allowfullscreen></iframe>
                         </div>
                         <div class="lesson__next-prev-button">
                             <button class="prev-button" title="Previous Video" onclick="prevVideo()"><i
@@ -79,21 +80,11 @@
     <script>
         // Function to change the video iframe source
         function changeVideo(element) {
-            var videoElement = document.getElementById('lessonVideo');
-            var videoType = element.getAttribute('data-type');
-            var videoUrl = element.getAttribute('data-link');
-
-            if (videoType === 'youtube') {
-                var regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
-                var match = videoUrl.match(regex);
-                if (match) {
-                    var youtubeId = match[1];
-                    videoElement.src = 'https://www.youtube.com/embed/' + youtubeId;
-                }
-            } else if (videoType === 'file') {
-                videoElement.src = videoUrl;
-            }
-
+            var youtubeUrl = element.getAttribute('data-link');
+            var regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+            var match = youtubeUrl.match(regex);
+            var youtubeId = match[1];
+            document.getElementById('lessonVideo').src = 'https://www.youtube.com/embed/' + youtubeId;
             document.getElementById('currentVideoTitle').innerText = element.getAttribute('data-title');
 
             // Remove active class from previously active links
