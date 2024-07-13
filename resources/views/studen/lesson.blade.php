@@ -32,7 +32,8 @@
                                                             class="course-item-link {{ $loop->first ? 'active' : '' }}"
                                                             data-title="{{ $section->title }}"
                                                             data-link="{{ $section->link }}"
-                                                            data-type="{{ $section->type }}" onclick="changeVideo(this)">
+                                                            data-type="{{ $section->type }}"
+                                                            onclick="changeVideo(this, event)">
                                                             <span class="item-name">{{ $section->title }}</span>
                                                             <div class="course-item-meta">
                                                                 <span
@@ -99,7 +100,13 @@
         }
 
         // Function to change the video iframe source
-        function changeVideo(element) {
+        function changeVideo(element, event) {
+            if (!videoFinished) {
+                event.preventDefault();
+                alert("Selesaikan video saat ini sebelum melanjutkan ke video berikutnya.");
+                return;
+            }
+
             var youtubeUrl = element.getAttribute('data-link');
             var regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
             var match = youtubeUrl.match(regex);
