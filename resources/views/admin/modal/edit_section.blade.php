@@ -17,6 +17,11 @@
                         <input type="text" class="form-control" id="linkedit" name="link"
                             placeholder="Masukkan link materi Anda">
                     </div>
+                    <div class="mb-3">
+                        <label for="fileedit" class="form-label">Upload Materi<span class="text-danger">*</span></label>
+                        <input type="file" class="form-control" id="fileedit" name="file"
+                            placeholder="Masukkan link materi Anda">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
@@ -80,6 +85,8 @@
                         .title); // Set nilai judul section di dalam modal
                     $('#linkedit').val(response
                         .link); // Set nilai link section di dalam modal
+                    $('#fileedit').val(response
+                        .file); // Set nilai link section di dalam modal
 
                     // Set action form dengan id yang benar
                     $('#editSectionForm').attr('action', '/sectionupdate/' + sectionId);
