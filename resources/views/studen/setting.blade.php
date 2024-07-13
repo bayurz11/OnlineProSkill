@@ -5,10 +5,10 @@
 
 @section('content')
 
-    {{-- <!-- breadcrumb-area -->
+    <!-- breadcrumb-area -->
     <div class="breadcrumb__area breadcrumb__bg breadcrumb__bg-three"
         data-background="public/assets/img/bg/breadcrumb_bg.jpg">
-        <div class="breadcrumb__shape-wrap">
+        {{-- <div class="breadcrumb__shape-wrap">
             <img src="public/assets/img/others/breadcrumb_shape01.svg" alt="img" class="alltuchtopdown">
             <img src="public/assets/img/others/breadcrumb_shape02.svg" alt="img" data-aos="fade-right"
                 data-aos-delay="300">
@@ -18,9 +18,9 @@
                 data-aos-delay="400">
             <img src="public/assets/img/others/breadcrumb_shape05.svg" alt="img" data-aos="fade-left"
                 data-aos-delay="400">
-        </div>
+        </div> --}}
     </div>
-    <!-- breadcrumb-area-end --> --}}
+    <!-- breadcrumb-area-end -->
 
     <!-- dashboard-area -->
     <section class="dashboard__area section-pb-120">
