@@ -14,7 +14,8 @@ class SectionController extends Controller
         $validatedData = $request->validate([
             'kurikulum_id' => 'required|integer',
             'title' => 'required|string|max:255',
-            'link' => 'required|string|max:255',
+            'link' => 'string|max:255',
+            'materi' => 'string|max:255',
         ]);
 
         // Hitung jumlah entri yang ada untuk mendapatkan no_urut baru
@@ -25,6 +26,7 @@ class SectionController extends Controller
         $section->kurikulum_id = $validatedData['kurikulum_id'];
         $section->title = $validatedData['title'];
         $section->link = $validatedData['link'];
+        $section->materi = $validatedData['materi'];
         $section->no_urut = $noUrut;
         $section->save();
 
@@ -55,7 +57,8 @@ class SectionController extends Controller
         $validatedData = $request->validate([
             // 'kurikulum_id' => 'required|integer',
             'title' => 'required|string|max:255',
-            'link' => 'required|string|max:255',
+            'link' => 'string|max:255',
+            'materi' => 'string|max:255',
             // Tambahkan validasi lainnya sesuai kebutuhan
         ]);
 
@@ -63,6 +66,7 @@ class SectionController extends Controller
         // $section->kurikulum_id = $validatedData['kurikulum_id'];
         $section->title = $validatedData['title'];
         $section->link = $validatedData['link'];
+        $section->materi = $validatedData['materi'];
         // Tambahkan update field lainnya sesuai kebutuhan
 
         $section->save();
