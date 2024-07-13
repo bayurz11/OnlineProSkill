@@ -60,10 +60,11 @@
                                 <a href="#"><i class="fas fa-times"></i></a>
                             </div>
                         </div>
-                        <video id="player" playsinline controls data-poster="assets/img/bg/video_bg.webp">
-                            <source src="{{ $kurikulum[0]->sections->first()->link }}" type="video/mp4" />
-                            <!-- Tambahkan source lain jika diperlukan -->
-                        </video>
+                        <div class="lesson__video-embed">
+                            <iframe width="100%" height="500"
+                                src="https://www.youtube.com/embed/{{ $kurikulum[0]->sections->first()->youtube_id }}"
+                                frameborder="0" allowfullscreen></iframe>
+                        </div>
                         <div class="lesson__next-prev-button">
                             <button class="prev-button" title="Create a Simple React App"><i
                                     class="flaticon-arrow-right"></i></button>
@@ -71,6 +72,7 @@
                                     class="flaticon-arrow-right"></i></button>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
