@@ -41,7 +41,7 @@ class SectionController extends Controller
             'kurikulum_id' => 'required|integer',
             'title' => 'required|string|max:255',
             'link' => 'nullable|string|max:255',
-            'file' => 'nullable|file|mimes:pdf,doc,docx,txt|max:10048', // Validasi file upload
+            'file' => 'nullable|file|mimes:pdf,doc,docx,txt,xlsx|max:10048', // Validasi file upload
         ]);
 
         // Hitung jumlah entri yang ada untuk mendapatkan no_urut baru
@@ -119,7 +119,7 @@ class SectionController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|string|max:255',
             'link' => 'nullable|string|max:255',
-            'file' => 'nullable|file|mimes:pdf,doc,docx,txt|max:10048', // Validasi file upload
+            'file' => 'nullable|file|mimes:pdf,doc,docx,txt,xlsx|max:10048', // Validasi file upload
         ]);
 
         // Update data section
