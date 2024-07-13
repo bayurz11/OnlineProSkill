@@ -91,16 +91,16 @@
                     e.preventDefault();
 
                     const title = this.getAttribute('data-title');
-                    const link = this.getAttribute('data-link');
+                    const linkUrl = this.getAttribute('data-link');
                     const type = this.getAttribute('data-type');
 
                     contentTitle.textContent = title;
 
                     if (type === 'youtube') {
                         contentIframe.src =
-                            `https://www.youtube.com/embed/${extractYouTubeID(link)}`;
+                            `https://www.youtube.com/embed/${extractYouTubeID(linkUrl)}`;
                     } else if (type === 'pdf') {
-                        contentIframe.src = link;
+                        contentIframe.src = linkUrl;
                     } else {
                         contentIframe.src = '';
                     }
@@ -112,10 +112,9 @@
             });
 
             function extractYouTubeID(url) {
-                const regExp =
-                    /^.*(youtu.be\/|v\/|\/u\/\w\/|embed\/|watch\?v=|&v=|^.*(?:www\.)?youtube.com\/(embed\/|v\/|watch\?v=|\S*\/\S*\/)?)([^#\&\?]*).*/;
+                const regExp = /^.*(?:youtu.be\/|v\/|embed\/|watch\?v=|&v=)([^#\&\?]*).*/;
                 const match = url.match(regExp);
-                return (match && match[2].length == 11) ? match[2] : null;
+                return (match && match[1].length === 11) ? match[1] : null;
             }
         });
     </script>
