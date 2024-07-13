@@ -65,7 +65,7 @@
                             </div>
                         </div>
                         <div id="content-display">
-                            <!-- Konten pelajaran pertama akan diinisialisasi di sini menggunakan JavaScript -->
+                            <iframe></iframe>
                         </div>
                         <div class="lesson__next-prev-button">
                             <button class="prev-button" title="Create a Simple React App"><i
