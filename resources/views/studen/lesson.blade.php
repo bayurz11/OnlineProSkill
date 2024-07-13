@@ -55,18 +55,19 @@
                 </div>
                 <div class="col-xl-9 col-lg-8">
                     <div class="lesson__video-wrap">
-                        <div class="lesson__video-wrap-top d-flex justify-content-between align-items-center">
-                            <div class="lesson__video-wrap-top-left d-flex align-items-center">
+                        <div class="lesson__video-wrap-top">
+                            <div class="lesson__video-wrap-top-left">
                                 <a href="#"><i class="flaticon-arrow-right"></i></a>
-                                <span id="section-title">The Complete Design Course: From Zero to Expert!</span>
+                                <span>The Complete Design Course: From Zero to Expert!</span>
                             </div>
                             <div class="lesson__video-wrap-top-right">
-                                <a href="{{ route('akses_pembelian') }}"><i class="fas fa-times"></i></a>
+                                <a href="#"><i class="fas fa-times"></i></a>
                             </div>
                         </div>
-                        <div id="content-display">
-                            <iframe id="content-iframe" style="width: 100%; height: 500px;"></iframe>
-                        </div>
+                        <video id="player" playsinline controls data-poster="assets/img/bg/video_bg.webp">
+                            <source src="assets/video/video.mp4" type="video/mp4" />
+                            <source src="/path/to/video.webm" type="video/webm" />
+                        </video>
                         <div class="lesson__next-prev-button">
                             <button class="prev-button" title="Create a Simple React App"><i
                                     class="flaticon-arrow-right"></i></button>
@@ -79,46 +80,6 @@
         </div>
     </section>
     <!-- lesson-area-end -->
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Script JavaScript Anda
-            const courseLinks = document.querySelectorAll('.course-item-link');
-            const contentTitle = document.getElementById('section-title');
-            const contentIframe = document.getElementById('content-iframe');
-
-            courseLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-
-                    const title = this.getAttribute('data-title');
-                    const linkUrl = this.getAttribute('data-link');
-                    const type = this.getAttribute('data-type');
-
-                    contentTitle.textContent = title;
-
-                    if (type === 'youtube') {
-                        contentIframe.src =
-                            `https://www.youtube.com/embed/${extractYouTubeID(linkUrl)}`;
-                    } else if (type === 'pdf') {
-                        contentIframe.src = linkUrl;
-                    } else {
-                        contentIframe.src = '';
-                    }
-
-                    // Remove active class from all links and add to the clicked one
-                    courseLinks.forEach(link => link.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
-
-            function extractYouTubeID(url) {
-                const regExp = /^.*(?:youtu.be\/|v\/|embed\/|watch\?v=|&v=)([^#\&\?]*).*/;
-                const match = url.match(regExp);
-                return (match && match[1].length === 11) ? match[1] : null;
-            }
-        });
-    </script>
 
 
 @endsection
