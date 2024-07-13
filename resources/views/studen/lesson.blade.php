@@ -33,7 +33,10 @@
                                                 @foreach ($item->sections as $section)
                                                     <li class="course-item {{ $loop->first ? 'open-item' : '' }}">
                                                         <a href="#"
-                                                            class="course-item-link {{ $loop->first ? 'active' : '' }}">
+                                                            class="course-item-link {{ $loop->first ? 'active' : '' }}"
+                                                            data-title="{{ $section->title }}"
+                                                            data-link="{{ $section->link }}"
+                                                            data-type="{{ $section->type }}">
                                                             <span class="item-name">{{ $section->title }}</span>
                                                             <div class="course-item-meta">
                                                                 <span
@@ -55,16 +58,18 @@
                         <div class="lesson__video-wrap-top d-flex justify-content-between align-items-center">
                             <div class="lesson__video-wrap-top-left d-flex align-items-center">
                                 <a href="#"><i class="flaticon-arrow-right"></i></a>
-                                <span>The Complete Design Course: From Zero to Expert!</span>
+                                <span id="section-title">The Complete Design Course: From Zero to Expert!</span>
                             </div>
                             <div class="lesson__video-wrap-top-right">
                                 <a href="{{ route('akses_pembelian') }}"><i class="fas fa-times"></i></a>
                             </div>
                         </div>
-                        <video id="player" playsinline controls data-poster="assets/img/bg/video_bg.webp">
-                            <source src="assets/video/video.mp4" type="video/mp4" />
-                            <source src="/path/to/video.webm" type="video/webm" />
-                        </video>
+                        <div id="content-display">
+                            <video id="player" playsinline controls data-poster="assets/img/bg/video_bg.webp">
+                                <source src="assets/video/video.mp4" type="video/mp4" />
+                                <source src="/path/to/video.webm" type="video/webm" />
+                            </video>
+                        </div>
                         <div class="lesson__next-prev-button">
                             <button class="prev-button" title="Create a Simple React App"><i
                                     class="flaticon-arrow-right"></i></button>
@@ -77,4 +82,54 @@
         </div>
     </section>
     <!-- lesson-area-end -->
+
+    <script>
+        document.querySelectorAll('.course-item-link').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                let title = this.getAttribute('data-title');
+                let link = this.getAttribute('data-link');
+                let type = this.getAttribute('data-type');
+
+                document.getElementById('section-title').textContent = title;
+
+                let contentDisplay = document.getElementById('content-display');
+                contentDisplay.innerHTML = ''; // Clear previous content
+
+                if (type === 'video') {
+                    let video = document.createElement('video');
+                    video.setAttribute('id', 'player');
+                    video.setAttribute('playsinline', '');
+                    video.setAttribute('controls', '');
+                    video.setAttribute('data-poster', 'assets/img/bg/video_bg.webp');
+
+                    let sourceMP4 = document.createElement('source');
+                    sourceMP4.setAttribute('src', link);
+                    sourceMP4.setAttribute('type', 'video/mp4');
+
+                    video.appendChild(sourceMP4);
+                    contentDisplay.appendChild(video);
+                } else if (type === 'pdf') {
+                    let iframe = document.createElement('iframe');
+                    iframe.setAttribute('src', link);
+                    iframe.setAttribute('width', '100%');
+                    iframe.setAttribute('height', '500px');
+
+                    contentDisplay.appendChild(iframe);
+                } else if (type === 'youtube') {
+                    let iframe = document.createElement('iframe');
+                    iframe.setAttribute('width', '100%');
+                    iframe.setAttribute('height', '500px');
+                    iframe.setAttribute('src', `https://www.youtube.com/embed/${link.split('v=')[1]}`);
+                    iframe.setAttribute('frameborder', '0');
+                    iframe.setAttribute('allow',
+                        'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                        );
+                    iframe.setAttribute('allowfullscreen', '');
+
+                    contentDisplay.appendChild(iframe);
+                }
+            });
+        });
+    </script>
 @endsection
