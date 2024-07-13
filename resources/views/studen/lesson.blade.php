@@ -122,10 +122,15 @@
 
                     contentDisplay.appendChild(iframe);
                 } else if (type === 'youtube') {
+                    let videoId = link.split('v=')[1];
+                    let ampersandPosition = videoId.indexOf('&');
+                    if (ampersandPosition !== -1) {
+                        videoId = videoId.substring(0, ampersandPosition);
+                    }
                     let iframe = document.createElement('iframe');
                     iframe.setAttribute('width', '100%');
                     iframe.setAttribute('height', '500px');
-                    iframe.setAttribute('src', `https://www.youtube.com/embed/${link.split('v=')[1]}`);
+                    iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}`);
                     iframe.setAttribute('frameborder', '0');
                     iframe.setAttribute('allow',
                         'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
