@@ -61,8 +61,16 @@
                             </div>
                         </div>
                         <div class="lesson__video-embed">
-                            <iframe width="100%" height="500"
-                                src="https://www.youtube.com/embed/{{ getYoutubeId($kurikulum[0]->sections->first()->link) }}"
+                            @php
+                                $youtubeUrl = $kurikulum[0]->sections->first()->link;
+                                preg_match(
+                                    '/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/',
+                                    $youtubeUrl,
+                                    $match,
+                                );
+                                $youtubeId = $match[1];
+                            @endphp
+                            <iframe width="100%" height="500" src="https://www.youtube.com/embed/{{ $youtubeId }}"
                                 frameborder="0" allowfullscreen></iframe>
                         </div>
                         <div class="lesson__next-prev-button">
@@ -73,7 +81,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
