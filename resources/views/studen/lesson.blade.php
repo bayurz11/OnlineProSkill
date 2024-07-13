@@ -12,17 +12,21 @@
                 <div class="col-xl-3 col-lg-4">
                     <div class="lesson__content">
                         <h2 class="title">Konten Kursus</h2>
-                        @foreach ($kurikulum as $item)
-                            <div class="accordion" id="accordionExample">
+                        <div class="accordion" id="accordionExample">
+                            @foreach ($kurikulum as $index => $item)
                                 <div class="accordion-item">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <h2 class="accordion-header" id="heading{{ $index }}">
+                                        <button class="accordion-button {{ $index !== 0 ? 'collapsed' : '' }}"
+                                            type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapse{{ $index }}"
+                                            aria-expanded="{{ $index === 0 ? 'true' : 'false' }}"
+                                            aria-controls="collapse{{ $index }}">
                                             {{ $item->title }}
                                             <span>1/3</span>
                                         </button>
                                     </h2>
-                                    <div id="collapseOne" class="accordion-collapse collapse show"
+                                    <div id="collapse{{ $index }}"
+                                        class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}"
                                         data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
                                             <ul class="list-wrap">
@@ -34,49 +38,19 @@
                                                         </div>
                                                     </a>
                                                 </li>
-
+                                                <!-- Tambahkan item lain di sini sesuai kebutuhan -->
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            Capacitance and Inductance
-                                            <span>1/5</span>
-                                        </button>
-                                    </h2>
-                                    <div id="collapseTwo" class="accordion-collapse collapse"
-                                        data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <ul class="list-wrap">
-                                                <li class="course-item">
-                                                    <a href="#" class="course-item-link">
-                                                        <span class="item-name">Course Installation</span>
-                                                        <div class="course-item-meta">
-                                                            <span class="item-meta duration">03:03</span>
-                                                            <span class="item-meta course-item-status">
-                                                                <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
-                                                                    alt="icon">
-                                                            </span>
-                                                        </div>
-                                                    </a>
-                                                </li>
-
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        </div>
                     </div>
                 </div>
                 <div class="col-xl-9 col-lg-8">
                     <div class="lesson__video-wrap">
-                        <div class="lesson__video-wrap-top">
-                            <div class="lesson__video-wrap-top-left">
+                        <div class="lesson__video-wrap-top d-flex justify-content-between align-items-center">
+                            <div class="lesson__video-wrap-top-left d-flex align-items-center">
                                 <a href="#"><i class="flaticon-arrow-right"></i></a>
                                 <span>The Complete Design Course: From Zero to Expert!</span>
                             </div>
@@ -95,7 +69,6 @@
                                     class="flaticon-arrow-right"></i></button>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
