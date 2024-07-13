@@ -32,7 +32,7 @@
                                                             class="course-item-link {{ $loop->first ? 'active' : '' }}"
                                                             data-title="{{ $section->title }}"
                                                             data-link="{{ $section->link }}"
-                                                            data-type="{{ $section->type }}">
+                                                            data-type="{{ $section->type }}" onclick="changeVideo(this)">
                                                             <span class="item-name">{{ $section->title }}</span>
                                                             <div class="course-item-meta">
                                                                 <span
@@ -54,37 +54,53 @@
                         <div class="lesson__video-wrap-top">
                             <div class="lesson__video-wrap-top-left">
                                 <a href="#"><i class="flaticon-arrow-right"></i></a>
-                                <span>{{ $kurikulum[0]->sections->first()->title }}</span>
+                                <span id="currentVideoTitle">{{ $kurikulum[0]->sections->first()->title }}</span>
                             </div>
                             <div class="lesson__video-wrap-top-right">
                                 <a href="#"><i class="fas fa-times"></i></a>
                             </div>
                         </div>
                         <div class="lesson__video-embed">
-                            @php
-                                $youtubeUrl = $kurikulum[0]->sections->first()->link;
-                                preg_match(
-                                    '/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/',
-                                    $youtubeUrl,
-                                    $match,
-                                );
-                                $youtubeId = $match[1];
-                            @endphp
-                            <iframe width="100%" height="500" src="https://www.youtube.com/embed/{{ $youtubeId }}"
-                                frameborder="0" allowfullscreen></iframe>
+                            <iframe id="lessonVideo" width="100%" height="500" src="" frameborder="0"
+                                allowfullscreen></iframe>
                         </div>
                         <div class="lesson__next-prev-button">
-                            <button class="prev-button" title="Create a Simple React App"><i
-                                    class="flaticon-arrow-right"></i></button>
-                            <button class="next-button" title="React for the Rest of us"><i
-                                    class="flaticon-arrow-right"></i></button>
+                            <button class="prev-button" title="Previous Video"><i class="flaticon-arrow-right"></i></button>
+                            <button class="next-button" title="Next Video"><i class="flaticon-arrow-right"></i></button>
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </section>
     <!-- lesson-area-end -->
+
+    <script>
+        // Function to change the video iframe source
+        function changeVideo(element) {
+            var youtubeUrl = element.getAttribute('data-link');
+            var regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+            var match = youtubeUrl.match(regex);
+            var youtubeId = match[1];
+            document.getElementById('lessonVideo').src = 'https://www.youtube.com/embed/' + youtubeId;
+            document.getElementById('currentVideoTitle').innerText = element.getAttribute('data-title');
+
+            // Remove active class from previously active links
+            var activeLinks = document.querySelectorAll('.course-item-link.active');
+            activeLinks.forEach(function(link) {
+                link.classList.remove('active');
+            });
+
+            // Add active class to the clicked link
+            element.classList.add('active');
+        }
+
+        // Initialize the first video on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            var firstVideoLink = document.querySelector('.course-item-link.active');
+            if (firstVideoLink) {
+                changeVideo(firstVideoLink);
+            }
+        });
+    </script>
 @endsection
