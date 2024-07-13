@@ -77,7 +77,27 @@
     </section>
     <!-- lesson-area-end -->
 
+    <script src="https://www.youtube.com/iframe_api"></script>
     <script>
+        var player;
+        var videoFinished = false;
+
+        // YouTube API ready
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('lessonVideo', {
+                events: {
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        // Function to handle video state change
+        function onPlayerStateChange(event) {
+            if (event.data === YT.PlayerState.ENDED) {
+                videoFinished = true;
+            }
+        }
+
         // Function to change the video iframe source
         function changeVideo(element) {
             var youtubeUrl = element.getAttribute('data-link');
@@ -95,6 +115,9 @@
 
             // Add active class to the clicked link
             element.classList.add('active');
+
+            // Reset video finished flag
+            videoFinished = false;
         }
 
         // Initialize the first video on page load
@@ -107,6 +130,11 @@
 
         // Function to get the next video
         function nextVideo() {
+            if (!videoFinished) {
+                alert("Selesaikan video saat ini sebelum melanjutkan ke video berikutnya.");
+                return;
+            }
+
             var activeLink = document.querySelector('.course-item-link.active');
             var nextLink = activeLink.parentElement.nextElementSibling?.querySelector('.course-item-link');
             if (nextLink) {
