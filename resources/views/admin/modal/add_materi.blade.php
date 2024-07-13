@@ -21,6 +21,11 @@
                         <input type="text" class="form-control" id="link" name="link"
                             placeholder="Masukkan link materi Anda">
                     </div>
+                    <div class="mb-3">
+                        <label for="link" class="form-label">Upload Materi<span class="text-danger">*</span></label>
+                        <input type="file" class="form-control" id="link" name="link"
+                            placeholder="Masukkan link materi Anda">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
