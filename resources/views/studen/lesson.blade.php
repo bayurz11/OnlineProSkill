@@ -124,9 +124,13 @@
                     return;
                 }
             } else if (fileType === 'pdf') {
-                fileSrc = fileUrl;
-            } else if (fileUrl.includes('public/uploads/') || fileUrl.includes('uploads/')) {
-                fileSrc = fileUrl;
+                if (fileUrl.includes('public/uploads/')) {
+                    fileSrc = '{{ asset('public/uploads/') }}' + fileUrl.split('public/uploads/')[1];
+                } else if (fileUrl.includes('uploads/')) {
+                    fileSrc = '{{ asset('uploads/') }}' + fileUrl.split('uploads/')[1];
+                } else {
+                    fileSrc = fileUrl;
+                }
             } else {
                 alert('Link file tidak valid: ' + fileUrl);
                 return;
