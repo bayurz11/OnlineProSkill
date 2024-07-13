@@ -96,6 +96,10 @@
                 let link = this.getAttribute('data-link');
                 let type = this.getAttribute('data-type');
 
+                console.log('Title:', title);
+                console.log('Link:', link);
+                console.log('Type:', type);
+
                 document.getElementById('section-title').textContent = title;
 
                 let contentDisplay = document.getElementById('content-display');
@@ -114,6 +118,7 @@
 
                     video.appendChild(sourceMP4);
                     contentDisplay.appendChild(video);
+                    console.log('Video element added:', video);
                 } else if (type === 'pdf') {
                     let iframe = document.createElement('iframe');
                     iframe.setAttribute('src', link);
@@ -142,5 +147,4 @@
             });
         });
     </script>
-
 @endsection
