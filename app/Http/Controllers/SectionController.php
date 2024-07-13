@@ -2,20 +2,46 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kurikulum;
 use App\Models\Section;
+use App\Models\Kurikulum;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SectionController extends Controller
 {
+    // public function store(Request $request)
+    // {
+    //     // Validasi data
+    //     $validatedData = $request->validate([
+    //         'kurikulum_id' => 'required|integer',
+    //         'title' => 'required|string|max:255',
+    //         'link' => 'string|max:255',
+    //         'materi' => 'string|max:255',
+    //     ]);
+
+    //     // Hitung jumlah entri yang ada untuk mendapatkan no_urut baru
+    //     $noUrut = Section::where('kurikulum_id', $validatedData['kurikulum_id'])->count() + 1;
+
+    //     // Buat entitas Section baru
+    //     $section = new Section;
+    //     $section->kurikulum_id = $validatedData['kurikulum_id'];
+    //     $section->title = $validatedData['title'];
+    //     $section->link = $validatedData['link'];
+    //     $section->materi = $validatedData['materi'];
+    //     $section->no_urut = $noUrut;
+    //     $section->save();
+
+    //     // Redirect ke halaman sebelumnya dengan pesan sukses
+    //     return redirect()->back()->with('success', 'Section berhasil ditambahkan.');
+    // }
     public function store(Request $request)
     {
         // Validasi data
         $validatedData = $request->validate([
             'kurikulum_id' => 'required|integer',
             'title' => 'required|string|max:255',
-            'link' => 'string|max:255',
-            'materi' => 'string|max:255',
+            'link' => 'nullable|string|max:255',
+            'file' => 'nullable|file|mimes:pdf,doc,docx,txt|max:2048', // Validasi file upload
         ]);
 
         // Hitung jumlah entri yang ada untuk mendapatkan no_urut baru
@@ -26,8 +52,13 @@ class SectionController extends Controller
         $section->kurikulum_id = $validatedData['kurikulum_id'];
         $section->title = $validatedData['title'];
         $section->link = $validatedData['link'];
-        $section->materi = $validatedData['materi'];
         $section->no_urut = $noUrut;
+
+        if ($request->hasFile('file')) {
+            $path = $request->file('file')->store('public/files');
+            $section->file_path = $path;
+        }
+
         $section->save();
 
         // Redirect ke halaman sebelumnya dengan pesan sukses
@@ -45,6 +76,34 @@ class SectionController extends Controller
         return response()->json($section);
     }
 
+    // public function update(Request $request, $id)
+    // {
+    //     $section = Section::find($id);
+
+    //     if (!$section) {
+    //         return redirect()->back()->with('error', 'Section tidak ditemukan');
+    //     }
+
+    //     // Validasi data yang diterima
+    //     $validatedData = $request->validate([
+    //         // 'kurikulum_id' => 'required|integer',
+    //         'title' => 'required|string|max:255',
+    //         'link' => 'string|max:255',
+    //         'materi' => 'string|max:255',
+    //         // Tambahkan validasi lainnya sesuai kebutuhan
+    //     ]);
+
+    //     // Update data kursus
+    //     // $section->kurikulum_id = $validatedData['kurikulum_id'];
+    //     $section->title = $validatedData['title'];
+    //     $section->link = $validatedData['link'];
+    //     $section->materi = $validatedData['materi'];
+    //     // Tambahkan update field lainnya sesuai kebutuhan
+
+    //     $section->save();
+
+    //     return redirect()->back()->with('success', 'Section berhasil diperbarui');
+    // }
     public function update(Request $request, $id)
     {
         $section = Section::find($id);
@@ -55,19 +114,24 @@ class SectionController extends Controller
 
         // Validasi data yang diterima
         $validatedData = $request->validate([
-            // 'kurikulum_id' => 'required|integer',
             'title' => 'required|string|max:255',
-            'link' => 'string|max:255',
-            'materi' => 'string|max:255',
-            // Tambahkan validasi lainnya sesuai kebutuhan
+            'link' => 'nullable|string|max:255',
+            'file' => 'nullable|file|mimes:pdf,doc,docx,txt|max:2048', // Validasi file upload
         ]);
 
-        // Update data kursus
-        // $section->kurikulum_id = $validatedData['kurikulum_id'];
+        // Update data section
         $section->title = $validatedData['title'];
         $section->link = $validatedData['link'];
-        $section->materi = $validatedData['materi'];
-        // Tambahkan update field lainnya sesuai kebutuhan
+
+        if ($request->hasFile('file')) {
+            // Hapus file lama jika ada
+            if ($section->file_path) {
+                Storage::delete($section->file_path);
+            }
+            // Upload file baru
+            $path = $request->file('file')->store('public/files');
+            $section->file_path = $path;
+        }
 
         $section->save();
 
@@ -76,17 +140,21 @@ class SectionController extends Controller
 
     public function destroy($id)
     {
-
         $section = Section::find($id);
 
         if (!$section) {
-            return redirect()->back()->with('error', 'Kategori tidak ditemukan');
+            return redirect()->back()->with('error', 'Section tidak ditemukan');
+        }
+
+        if ($section->file_path) {
+            Storage::delete($section->file_path);
         }
 
         $section->delete();
 
-        return redirect()->back()->with('success', 'Kategori berhasil dihapus');
+        return redirect()->back()->with('success', 'Section berhasil dihapus');
     }
+
 
     public function getContent($id)
     {
