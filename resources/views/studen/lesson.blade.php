@@ -5,6 +5,29 @@
     <section class="lesson__area section-pb-120">
         <div class="container-fluid p-0">
             <div class="row gx-0">
+                <div class="col-xl-9 col-lg-8">
+                    <div class="lesson__video-wrap">
+                        <div class="lesson__video-wrap-top">
+                            <div class="lesson__video-wrap-top-left">
+                                <a href="{{ route('akses_pembelian') }}"><i class="flaticon-arrow-right"></i></a>
+                                <span id="currentContentTitle">{{ $kurikulum[0]->sections->first()->title }}</span>
+                            </div>
+                            <div class="lesson__video-wrap-top-right">
+                                <a href="{{ route('/') }}"><i class="fas fa-times"></i></a>
+                            </div>
+                        </div>
+                        <div class="lesson__video-embed">
+                            <iframe id="lessonContent" width="100%" height="500" src="" frameborder="0"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="lesson__next-prev-button">
+                            <button class="prev-button" title="Previous Content" onclick="prevContent()"><i
+                                    class="flaticon-arrow-right"></i></button>
+                            <button class="next-button" title="Next Content" onclick="nextContent()"><i
+                                    class="flaticon-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-xl-3 col-lg-4">
                     <div class="lesson__content">
                         <h2 class="title">Konten Kursus</h2>
@@ -57,29 +80,6 @@
                                     </div>
                                 </div>
                             @endforeach
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-9 col-lg-8">
-                    <div class="lesson__video-wrap">
-                        <div class="lesson__video-wrap-top">
-                            <div class="lesson__video-wrap-top-left">
-                                <a href="{{ route('akses_pembelian') }}"><i class="flaticon-arrow-right"></i></a>
-                                <span id="currentContentTitle">{{ $kurikulum[0]->sections->first()->title }}</span>
-                            </div>
-                            <div class="lesson__video-wrap-top-right">
-                                <a href="{{ route('/') }}"><i class="fas fa-times"></i></a>
-                            </div>
-                        </div>
-                        <div class="lesson__video-embed">
-                            <iframe id="lessonContent" width="100%" height="500" src="" frameborder="0"
-                                allowfullscreen></iframe>
-                        </div>
-                        <div class="lesson__next-prev-button">
-                            <button class="prev-button" title="Previous Content" onclick="prevContent()"><i
-                                    class="flaticon-arrow-right"></i></button>
-                            <button class="next-button" title="Next Content" onclick="nextContent()"><i
-                                    class="flaticon-arrow-right"></i></button>
                         </div>
                     </div>
                 </div>
