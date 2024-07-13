@@ -78,13 +78,40 @@
     <!-- lesson-area-end -->
 
     <script>
-        // Function to change the video iframe source
+        // Function to change the iframe source
         function changeVideo(element) {
-            var youtubeUrl = element.getAttribute('data-link');
-            var regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
-            var match = youtubeUrl.match(regex);
-            var youtubeId = match[1];
-            document.getElementById('lessonVideo').src = 'https://www.youtube.com/embed/' + youtubeId;
+            var fileUrl = element.getAttribute('data-link');
+            var youtubeRegex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+            var driveRegex = /(?:drive\.google\.com\/file\/d\/|drive\.google\.com\/open\?id=)([^"&?\/\s]+)/;
+            var youtubeMatch = fileUrl.match(youtubeRegex);
+            var driveMatch = fileUrl.match(driveRegex);
+            var fileSrc = '';
+
+            if (youtubeMatch) {
+                var youtubeId = youtubeMatch[1];
+                fileSrc = 'https://www.youtube.com/embed/' + youtubeId;
+            } else if (driveMatch) {
+                var driveId = driveMatch[1];
+                var fileType = element.getAttribute('data-type');
+
+                if (fileType === 'video') {
+                    fileSrc = 'https://drive.google.com/file/d/' + driveId + '/preview';
+                } else if (fileType === 'presentation') {
+                    fileSrc = 'https://docs.google.com/presentation/d/' + driveId + '/preview';
+                } else if (fileType === 'document') {
+                    fileSrc = 'https://docs.google.com/document/d/' + driveId + '/preview';
+                } else if (fileType === 'spreadsheet') {
+                    fileSrc = 'https://docs.google.com/spreadsheets/d/' + driveId + '/preview';
+                } else {
+                    alert('Jenis file tidak didukung.');
+                    return;
+                }
+            } else {
+                alert('Link file tidak valid.');
+                return;
+            }
+
+            document.getElementById('lessonVideo').src = fileSrc;
             document.getElementById('currentVideoTitle').innerText = element.getAttribute('data-title');
 
             // Remove active class from previously active links
@@ -97,15 +124,15 @@
             element.classList.add('active');
         }
 
-        // Initialize the first video on page load
+        // Initialize the first file on page load
         document.addEventListener('DOMContentLoaded', function() {
-            var firstVideoLink = document.querySelector('.course-item-link.active');
-            if (firstVideoLink) {
-                changeVideo(firstVideoLink);
+            var firstFileLink = document.querySelector('.course-item-link.active');
+            if (firstFileLink) {
+                changeVideo(firstFileLink);
             }
         });
 
-        // Function to get the next video
+        // Function to get the next file
         function nextVideo() {
             var activeLink = document.querySelector('.course-item-link.active');
             var nextLink = activeLink.parentElement.nextElementSibling?.querySelector('.course-item-link');
@@ -114,7 +141,7 @@
             }
         }
 
-        // Function to get the previous video
+        // Function to get the previous file
         function prevVideo() {
             var activeLink = document.querySelector('.course-item-link.active');
             var prevLink = activeLink.parentElement.previousElementSibling?.querySelector('.course-item-link');
