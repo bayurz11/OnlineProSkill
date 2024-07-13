@@ -123,6 +123,8 @@
                     alert('Jenis file tidak didukung: ' + fileType);
                     return;
                 }
+            } else if (fileType === 'pdf') {
+                fileSrc = fileUrl;
             } else {
                 alert('Link file tidak valid: ' + fileUrl);
                 return;
