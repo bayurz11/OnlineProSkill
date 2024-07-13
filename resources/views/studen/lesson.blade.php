@@ -58,17 +58,16 @@
                         <div class="lesson__video-wrap-top d-flex justify-content-between align-items-center">
                             <div class="lesson__video-wrap-top-left d-flex align-items-center">
                                 <a href="#"><i class="flaticon-arrow-right"></i></a>
-                                <span id="section-title"></span>
+                                <span id="section-title">The Complete Design Course: From Zero to Expert!</span>
                             </div>
                             <div class="lesson__video-wrap-top-right">
                                 <a href="{{ route('akses_pembelian') }}"><i class="fas fa-times"></i></a>
                             </div>
                         </div>
                         <div id="content-display">
-                            <video id="player" playsinline controls
-                                data-poster="{{ asset('public/assets/img/bg/video_bg.webp') }}">
-                                <source src="{{ asset('public/assets/video/video.mp4') }}" type="video/mp4" />
-                                <source src="{{ asset('/path/to/video.webm') }}" type="video/webm" />
+                            <video id="player" playsinline controls data-poster="assets/img/bg/video_bg.webp">
+                                <source src="assets/video/video.mp4" type="video/mp4" />
+                                <source src="/path/to/video.webm" type="video/webm" />
                             </video>
                         </div>
                         <div class="lesson__next-prev-button">
@@ -85,66 +84,52 @@
     <!-- lesson-area-end -->
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            let firstSectionLink = document.querySelector('.course-item-link');
-            if (firstSectionLink) {
-                loadContent(firstSectionLink);
-            }
+        document.querySelectorAll('.course-item-link').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                let title = this.getAttribute('data-title');
+                let link = this.getAttribute('data-link');
+                let type = this.getAttribute('data-type');
 
-            document.querySelectorAll('.course-item-link').forEach(item => {
-                item.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    loadContent(this);
-                });
+                document.getElementById('section-title').textContent = title;
+
+                let contentDisplay = document.getElementById('content-display');
+                contentDisplay.innerHTML = ''; // Clear previous content
+
+                if (type === 'video') {
+                    let video = document.createElement('video');
+                    video.setAttribute('id', 'player');
+                    video.setAttribute('playsinline', '');
+                    video.setAttribute('controls', '');
+                    video.setAttribute('data-poster', 'assets/img/bg/video_bg.webp');
+
+                    let sourceMP4 = document.createElement('source');
+                    sourceMP4.setAttribute('src', link);
+                    sourceMP4.setAttribute('type', 'video/mp4');
+
+                    video.appendChild(sourceMP4);
+                    contentDisplay.appendChild(video);
+                } else if (type === 'pdf') {
+                    let iframe = document.createElement('iframe');
+                    iframe.setAttribute('src', link);
+                    iframe.setAttribute('width', '100%');
+                    iframe.setAttribute('height', '500px');
+
+                    contentDisplay.appendChild(iframe);
+                } else if (type === 'youtube') {
+                    let iframe = document.createElement('iframe');
+                    iframe.setAttribute('width', '100%');
+                    iframe.setAttribute('height', '500px');
+                    iframe.setAttribute('src', `https://www.youtube.com/embed/${link.split('v=')[1]}`);
+                    iframe.setAttribute('frameborder', '0');
+                    iframe.setAttribute('allow',
+                        'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                        );
+                    iframe.setAttribute('allowfullscreen', '');
+
+                    contentDisplay.appendChild(iframe);
+                }
             });
         });
-
-        function loadContent(element) {
-            let title = element.getAttribute('data-title');
-            let link = element.getAttribute('data-link');
-            let type = element.getAttribute('data-type');
-
-            document.getElementById('section-title').textContent = title;
-
-            let contentDisplay = document.getElementById('content-display');
-            contentDisplay.innerHTML = ''; // Clear previous content
-
-            if (type === 'video') {
-                let video = document.createElement('video');
-                video.setAttribute('id', 'player');
-                video.setAttribute('playsinline', '');
-                video.setAttribute('controls', '');
-                video.setAttribute('data-poster', 'assets/img/bg/video_bg.webp');
-
-                let sourceMP4 = document.createElement('source');
-                sourceMP4.setAttribute('src', link);
-                sourceMP4.setAttribute('type', 'video/mp4');
-
-                video.appendChild(sourceMP4);
-                contentDisplay.appendChild(video);
-            } else if (type === 'pdf') {
-                let iframe = document.createElement('iframe');
-                iframe.setAttribute('src', link);
-                iframe.setAttribute('width', '100%');
-                iframe.setAttribute('height', '500px');
-
-                contentDisplay.appendChild(iframe);
-            } else if (type === 'youtube') {
-                let videoId = link.split('v=')[1];
-                if (videoId.includes('&')) {
-                    videoId = videoId.split('&')[0];
-                }
-                let iframe = document.createElement('iframe');
-                iframe.setAttribute('width', '100%');
-                iframe.setAttribute('height', '500px');
-                iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}`);
-                iframe.setAttribute('frameborder', '0');
-                iframe.setAttribute('allow',
-                    'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
-                iframe.setAttribute('allowfullscreen', '');
-
-                contentDisplay.appendChild(iframe);
-            }
-        }
     </script>
 @endsection
