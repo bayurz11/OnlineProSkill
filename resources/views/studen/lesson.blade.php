@@ -64,11 +64,11 @@
                     <div class="lesson__video-wrap">
                         <div class="lesson__video-wrap-top">
                             <div class="lesson__video-wrap-top-left">
-                                <a href="#"><i class="flaticon-arrow-right"></i></a>
+                                <a href="{{ route('akses_pembelian') }}"><i class="flaticon-arrow-right"></i></a>
                                 <span id="currentContentTitle">{{ $kurikulum[0]->sections->first()->title }}</span>
                             </div>
                             <div class="lesson__video-wrap-top-right">
-                                <a href="#"><i class="fas fa-times"></i></a>
+                                <a href="{{ route('/') }}"><i class="fas fa-times"></i></a>
                             </div>
                         </div>
                         <div class="lesson__video-embed">
