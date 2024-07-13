@@ -72,11 +72,11 @@
                     } else {
                         $('#fileDisplay').html(
                             '<p>No file uploaded.</p>'
-                            ); // Kasus di mana tidak ada file yang diunggah
+                        ); // Kasus di mana tidak ada file yang diunggah
                     }
 
                     // Set action form dengan id yang benar
-                    $('#editSectionForm').attr('action', '/section.update/' + sectionId);
+                    $('#editSectionForm').attr('action', '/sectionupdate/' + sectionId);
                 },
                 error: function(xhr) {
                     console.log('Error:', xhr);
