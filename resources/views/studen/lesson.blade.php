@@ -82,6 +82,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Script JavaScript Anda
             const courseLinks = document.querySelectorAll('.course-item-link');
             const contentTitle = document.getElementById('section-title');
             const contentIframe = document.getElementById('content-iframe');
@@ -118,5 +119,6 @@
             }
         });
     </script>
+
 
 @endsection
