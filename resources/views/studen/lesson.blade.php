@@ -65,7 +65,7 @@
                             </div>
                         </div>
                         <div id="content-display">
-                            <iframe></iframe>
+                            <iframe id="content-iframe"></iframe>
                         </div>
                         <div class="lesson__next-prev-button">
                             <button class="prev-button" title="Create a Simple React App"><i
@@ -80,5 +80,28 @@
     </section>
     <!-- lesson-area-end -->
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const courseLinks = document.querySelectorAll('.course-item-link');
+            const contentTitle = document.getElementById('section-title');
+            const contentIframe = document.getElementById('content-iframe');
+
+            courseLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    const title = this.getAttribute('data-title');
+                    const link = this.getAttribute('data-link');
+
+                    contentTitle.textContent = title;
+                    contentIframe.src = link;
+
+                    // Remove active class from all links and add to the clicked one
+                    courseLinks.forEach(link => link.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
 
 @endsection
