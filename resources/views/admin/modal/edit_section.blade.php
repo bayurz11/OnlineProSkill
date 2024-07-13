@@ -1,3 +1,4 @@
+<!-- Modal untuk Edit Kurikulum -->
 <div class="modal fade" id="sectionModalEdit" tabindex="-1" aria-labelledby="sectionModalEditLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -12,15 +13,16 @@
                             placeholder="Masukkan judul Kurikulum Anda">
                     </div>
                     <div class="mb-3">
-                        <label for="linkedit" class="form-label">Link Materi<span class="text-danger">*</span></label>
+                        <label for="linkedit" class="form-label">Link Materi</label>
                         <input type="text" class="form-control" id="linkedit" name="link"
                             placeholder="Masukkan link materi Anda">
                     </div>
                     <div class="mb-3">
-                        <label for="fileedit" class="form-label">Upload Materi<span class="text-danger">*</span></label>
+                        <label for="fileedit" class="form-label">Upload Materi</label>
                         <input type="file" class="form-control" id="fileedit" name="file">
-                        <small id="fileHelp" class="form-text text-muted">Upload hanya jika ingin mengganti
-                            file.</small>
+                    </div>
+                    <div class="mb-3" id="fileDisplay">
+                        <!-- Informasi file akan ditampilkan di sini -->
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -31,7 +33,6 @@
         </div>
     </div>
 </div>
-
 <script>
     $(document).ready(function() {
         $('#sectionModalEdit').on('show.bs.modal', function(event) {
@@ -56,12 +57,20 @@
                     $('#linkedit').val(response
                     .link); // Set nilai link section di dalam modal
 
-                    // Menetapkan pratinjau file jika ada
-                    if (response.file) {
-                        $('#fileHelp').html('File saat ini: <a href="' + response.file +
-                            '">Download</a>');
+                    // Handle file display or download link
+                    if (response.file_path) {
+                        var fileName = response.file_name; // Nama file jika tersedia
+                        var fileDownloadUrl = '/download/' + response
+                        .file_path; // URL untuk mengunduh file
+
+                        // Tampilkan informasi file atau buat tautan unduh
+                        var fileDisplayHtml = '<p>File: <a href="' + fileDownloadUrl +
+                            '" target="_blank">' + fileName + '</a></p>';
+                        $('#fileDisplay').html(
+                        fileDisplayHtml); // Ganti #fileDisplay dengan ID elemen Anda
                     } else {
-                        $('#fileHelp').html('Tidak ada file yang diunggah.');
+                        $('#fileDisplay').html(
+                        '<p>No file uploaded.</p>'); // Kasus di mana tidak ada file yang diunggah
                     }
 
                     // Set action form dengan id yang benar
