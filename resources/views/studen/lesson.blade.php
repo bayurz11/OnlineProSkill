@@ -65,10 +65,7 @@
                             </div>
                         </div>
                         <div id="content-display">
-                            <video id="player" playsinline controls data-poster="assets/img/bg/video_bg.webp">
-                                <source src="assets/video/video.mp4" type="video/mp4" />
-                                <source src="/path/to/video.webm" type="video/webm" />
-                            </video>
+                            <!-- Konten pelajaran pertama akan diinisialisasi di sini menggunakan JavaScript -->
                         </div>
                         <div class="lesson__next-prev-button">
                             <button class="prev-button" title="Create a Simple React App"><i
@@ -84,6 +81,14 @@
     <!-- lesson-area-end -->
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mengambil pelajaran pertama
+            let firstCourseItem = document.querySelector('.course-item-link');
+            if (firstCourseItem) {
+                firstCourseItem.click();
+            }
+        });
+
         document.querySelectorAll('.course-item-link').forEach(item => {
             item.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -124,7 +129,7 @@
                     iframe.setAttribute('frameborder', '0');
                     iframe.setAttribute('allow',
                         'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-                    );
+                        );
                     iframe.setAttribute('allowfullscreen', '');
 
                     contentDisplay.appendChild(iframe);
