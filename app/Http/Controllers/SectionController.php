@@ -127,13 +127,10 @@ class SectionController extends Controller
         $section->link = $validatedData['link'];
 
         if ($request->hasFile('file')) {
-            // Hapus file lama jika ada
-            if ($section->file_path) {
-                Storage::delete($section->file_path);
-            }
-            // Upload file baru
-            $path = $request->file('file')->store('public/files');
-            $section->file_path = $path;
+            $file = $request->file('file');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads'), $fileName);
+            $section->file_path = 'uploads/' . $fileName;
         }
 
         $section->save();
