@@ -6,7 +6,7 @@
         <div class="container-fluid p-0">
             <div class="row gx-0">
                 <div class="col-xl-9 col-lg-8">
-                    <div class="lesson__video-wrap">
+                    <div class="lesson__video-wrap" style="padding: 20px">
                         <div class="lesson__video-wrap-top">
                             <div class="lesson__video-wrap-top-left">
                                 <a href="{{ route('akses_pembelian') }}"><i class="flaticon-arrow-right"></i></a>
