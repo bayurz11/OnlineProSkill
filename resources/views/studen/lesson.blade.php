@@ -77,7 +77,7 @@
                         </div>
                         <div class="lesson__next-prev-button">
                             <button class="prev-button" title="Previous Content" onclick="prevContent()"><i
-                                    class="flaticon-arrow-left"></i></button>
+                                    class="flaticon-arrow-right"></i></button>
                             <button class="next-button" title="Next Content" onclick="nextContent()"><i
                                     class="flaticon-arrow-right"></i></button>
                         </div>
