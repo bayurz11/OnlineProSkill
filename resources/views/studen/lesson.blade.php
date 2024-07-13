@@ -69,6 +69,8 @@
                                     class="flaticon-arrow-left"></i></button>
                             <button class="next-button" title="Next Video" onclick="nextVideo()"><i
                                     class="flaticon-arrow-right"></i></button>
+
+
                         </div>
                     </div>
                 </div>
