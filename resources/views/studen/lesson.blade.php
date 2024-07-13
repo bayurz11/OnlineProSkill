@@ -54,84 +54,37 @@
                         <div class="lesson__video-wrap-top">
                             <div class="lesson__video-wrap-top-left">
                                 <a href="#"><i class="flaticon-arrow-right"></i></a>
-                                <span id="currentVideoTitle">{{ $kurikulum[0]->sections->first()->title }}</span>
+                                <span>{{ $kurikulum[0]->sections->first()->title }}</span>
                             </div>
                             <div class="lesson__video-wrap-top-right">
                                 <a href="#"><i class="fas fa-times"></i></a>
                             </div>
                         </div>
                         <div class="lesson__video-embed">
-                            <iframe id="lessonVideo" width="100%" height="500" frameborder="0" allowfullscreen></iframe>
+                            @php
+                                $youtubeUrl = $kurikulum[0]->sections->first()->link;
+                                preg_match(
+                                    '/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/',
+                                    $youtubeUrl,
+                                    $match,
+                                );
+                                $youtubeId = $match[1];
+                            @endphp
+                            <iframe width="100%" height="500" src="https://www.youtube.com/embed/{{ $youtubeId }}"
+                                frameborder="0" allowfullscreen></iframe>
                         </div>
                         <div class="lesson__next-prev-button">
-                            <button id="prevButton" class="prev-button" title="Video Sebelumnya"><i
-                                    class="flaticon-arrow-left"></i></button>
-                            <button id="nextButton" class="next-button" title="Video Berikutnya"><i
+                            <button class="prev-button" title="Create a Simple React App"><i
+                                    class="flaticon-arrow-right"></i></button>
+                            <button class="next-button" title="React for the Rest of us"><i
                                     class="flaticon-arrow-right"></i></button>
                         </div>
                     </div>
                 </div>
+
+
             </div>
         </div>
     </section>
     <!-- lesson-area-end -->
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var currentVideoIndex = 0;
-            var videos = @json($kurikulum); // Ambil data dari Blade template Laravel
-
-            var iframe = document.getElementById('lessonVideo');
-            var currentVideoTitle = document.getElementById('currentVideoTitle');
-
-            // Fungsi untuk memutar video berdasarkan indeks
-            function playVideo(index) {
-                var youtubeUrl = videos[index].sections[0].link;
-                var youtubeId = getYoutubeId(youtubeUrl);
-                iframe.src = 'https://www.youtube.com/embed/' + youtubeId;
-                currentVideoTitle.textContent = videos[index].sections[0].title;
-            }
-
-            // Fungsi untuk mendapatkan ID video YouTube dari URL
-            function getYoutubeId(url) {
-                var match = url.match(
-                    /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/
-                );
-                return match[1];
-            }
-
-            // Event listener untuk tombol video berikutnya
-            document.getElementById('nextButton').addEventListener('click', function() {
-                currentVideoIndex++;
-                if (currentVideoIndex >= videos.length) {
-                    currentVideoIndex = 0;
-                }
-                playVideo(currentVideoIndex);
-            });
-
-            // Event listener untuk tombol video sebelumnya
-            document.getElementById('prevButton').addEventListener('click', function() {
-                currentVideoIndex--;
-                if (currentVideoIndex < 0) {
-                    currentVideoIndex = videos.length - 1;
-                }
-                playVideo(currentVideoIndex);
-            });
-
-            // Event listener untuk mendeteksi akhir dari video
-            iframe.addEventListener('load', function() {
-                var player = new YT.Player(iframe);
-
-                player.addEventListener('onStateChange', function(event) {
-                    if (event.data === YT.PlayerState.ENDED) {
-                        currentVideoIndex++;
-                        if (currentVideoIndex >= videos.length) {
-                            currentVideoIndex = 0;
-                        }
-                        playVideo(currentVideoIndex);
-                    }
-                });
-            });
-        });
-    </script>
 @endsection
