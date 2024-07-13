@@ -125,7 +125,7 @@
                 }
             } else if (fileType === 'pdf') {
                 fileSrc = fileUrl;
-            } else if (fileUrl.includes('public/files/') || fileUrl.includes('uploads/')) {
+            } else if (fileUrl.includes('public/uploads/') || fileUrl.includes('uploads/')) {
                 fileSrc = fileUrl;
             } else {
                 alert('Link file tidak valid: ' + fileUrl);
