@@ -139,10 +139,11 @@
                     iframe.setAttribute('frameborder', '0');
                     iframe.setAttribute('allow',
                         'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-                    );
+                        );
                     iframe.setAttribute('allowfullscreen', '');
 
                     contentDisplay.appendChild(iframe);
+                    console.log('YouTube iframe added:', iframe);
                 }
             });
         });
