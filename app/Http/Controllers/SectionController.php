@@ -55,8 +55,10 @@ class SectionController extends Controller
         $section->no_urut = $noUrut;
 
         if ($request->hasFile('file')) {
-            $path = $request->file('file')->store('public/files');
-            $section->file_path = $path;
+            $file = $request->file('file');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads'), $fileName);
+            $section->file_path = 'uploads/' . $fileName;
         }
 
         $section->save();
@@ -64,6 +66,7 @@ class SectionController extends Controller
         // Redirect ke halaman sebelumnya dengan pesan sukses
         return redirect()->back()->with('success', 'Section berhasil ditambahkan.');
     }
+
 
     public function edit($id)
     {
