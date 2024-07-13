@@ -6,7 +6,7 @@
 @section('content')
 
     <!-- breadcrumb-area -->
-    <div class="breadcrumb__area breadcrumb__bg breadcrumb__bg-three"
+    {{-- <div class="breadcrumb__area breadcrumb__bg breadcrumb__bg-three"
         data-background="public/assets/img/bg/breadcrumb_bg.jpg">
         <div class="breadcrumb__shape-wrap">
             <img src="public/assets/img/others/breadcrumb_shape01.svg" alt="img" class="alltuchtopdown">
@@ -19,7 +19,7 @@
             <img src="public/assets/img/others/breadcrumb_shape05.svg" alt="img" data-aos="fade-left"
                 data-aos-delay="400">
         </div>
-    </div>
+    </div> --}}
     <!-- breadcrumb-area-end -->
 
     <!-- dashboard-area -->
