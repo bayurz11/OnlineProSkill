@@ -83,4 +83,14 @@ class SectionController extends Controller
 
         return redirect()->back()->with('success', 'Kategori berhasil dihapus');
     }
+
+    public function getContent($id)
+    {
+        $section = Section::findOrFail($id);
+        return response()->json([
+            'title' => $section->title,
+            'file_type' => $section->file_type,
+            'file_path' => asset($section->file_path),
+        ]);
+    }
 }

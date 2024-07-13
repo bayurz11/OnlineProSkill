@@ -33,7 +33,8 @@
                                                 @foreach ($item->sections as $section)
                                                     <li class="course-item {{ $loop->first ? 'open-item' : '' }}">
                                                         <a href="#"
-                                                            class="course-item-link {{ $loop->first ? 'active' : '' }}">
+                                                            class="course-item-link {{ $loop->first ? 'active' : '' }}"
+                                                            data-section="{{ $section->id }}">
                                                             <span class="item-name">{{ $section->title }}</span>
                                                             <div class="course-item-meta">
                                                                 <span
@@ -51,20 +52,19 @@
                     </div>
                 </div>
                 <div class="col-xl-9 col-lg-8">
-                    <div class="lesson__video-wrap">
+                    <div id="section-content" class="lesson__video-wrap">
                         <div class="lesson__video-wrap-top d-flex justify-content-between align-items-center">
                             <div class="lesson__video-wrap-top-left d-flex align-items-center">
                                 <a href="#"><i class="flaticon-arrow-right"></i></a>
-                                <span>The Complete Design Course: From Zero to Expert!</span>
+                                <span id="section-title">The Complete Design Course: From Zero to Expert!</span>
                             </div>
                             <div class="lesson__video-wrap-top-right">
                                 <a href="{{ route('akses_pembelian') }}"><i class="fas fa-times"></i></a>
                             </div>
                         </div>
-                        <video id="player" playsinline controls data-poster="assets/img/bg/video_bg.webp">
-                            <source src="assets/video/video.mp4" type="video/mp4" />
-                            <source src="/path/to/video.webm" type="video/webm" />
-                        </video>
+                        <div id="section-file">
+                            <!-- Konten file akan ditampilkan di sini -->
+                        </div>
                         <div class="lesson__next-prev-button">
                             <button class="prev-button" title="Create a Simple React App"><i
                                     class="flaticon-arrow-right"></i></button>
@@ -77,4 +77,42 @@
         </div>
     </section>
     <!-- lesson-area-end -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('.course-item-link');
+            links.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const sectionId = this.getAttribute('data-section');
+                    fetchSectionContent(sectionId);
+                });
+            });
+
+            function fetchSectionContent(sectionId) {
+                fetch(`/section-content/${sectionId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        const sectionTitle = document.getElementById('section-title');
+                        const sectionFile = document.getElementById('section-file');
+
+                        sectionTitle.textContent = data.title;
+
+                        if (data.file_type === 'video') {
+                            sectionFile.innerHTML = `<video id="player" playsinline controls data-poster="assets/img/bg/video_bg.webp">
+                            <source src="${data.file_path}" type="video/mp4" />
+                        </video>`;
+                        } else if (data.file_type === 'pdf') {
+                            sectionFile.innerHTML =
+                                `<iframe src="${data.file_path}" width="100%" height="600px"></iframe>`;
+                        } else if (data.file_type === 'link') {
+                            sectionFile.innerHTML =
+                                `<a href="${data.file_path}" target="_blank">${data.file_path}</a>`;
+                        }
+                    })
+                    .catch(error => console.error('Error fetching section content:', error));
+            }
+        });
+    </script>
+
 @endsection

@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Section;
+use App\Models\Kurikulum;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use App\Models\NotifikasiUser;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
-use App\Models\Kurikulum;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -70,5 +71,15 @@ class AksesPembelianController extends Controller
 
 
         return view('studen.lesson', compact('user', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum'));
+    }
+
+    public function getContent($id)
+    {
+        $section = Section::findOrFail($id);
+        return response()->json([
+            'title' => $section->title,
+            'file_type' => $section->file_type,
+            'file_path' => asset($section->file_path),
+        ]);
     }
 }
