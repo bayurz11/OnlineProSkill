@@ -126,6 +126,7 @@
                     iframe.setAttribute('height', '500px');
 
                     contentDisplay.appendChild(iframe);
+                    console.log('PDF iframe added:', iframe);
                 } else if (type === 'youtube') {
                     let videoId = link.split('v=')[1];
                     let ampersandPosition = videoId.indexOf('&');
