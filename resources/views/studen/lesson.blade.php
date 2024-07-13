@@ -65,9 +65,10 @@
                             </div>
                         </div>
                         <div id="content-display">
-                            <video id="player" playsinline controls data-poster="assets/img/bg/video_bg.webp">
-                                <source src="assets/video/video.mp4" type="video/mp4" />
-                                <source src="/path/to/video.webm" type="video/webm" />
+                            <video id="player" playsinline controls
+                                data-poster="{{ asset('public/assets/img/bg/video_bg.webp') }}">
+                                <source src="{{ asset('public/assets/video/video.mp4') }}" type="video/mp4" />
+                                <source src="{{ asset('/path/to/video.webm') }}" type="video/webm" />
                             </video>
                         </div>
                         <div class="lesson__next-prev-button">
