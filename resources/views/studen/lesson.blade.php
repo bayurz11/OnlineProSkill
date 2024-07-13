@@ -123,12 +123,10 @@
                     alert('Jenis file tidak didukung: ' + fileType);
                     return;
                 }
-            } else if (fileType === 'pdf') {
-                fileSrc = fileUrl;
-            } else if (fileUrl.includes('uploads/')) {
-                // Check if the fileUrl doesn't start with 'public' and add it
-                if (!fileUrl.startsWith('public/')) {
-                    fileSrc = 'public/' + fileUrl;
+            } else if (fileType === 'pdf' || fileUrl.includes('uploads/')) {
+                // Check if the fileUrl doesn't start with 'public/uploads/' and add it
+                if (!fileUrl.startsWith('public/uploads/')) {
+                    fileSrc = '/public/' + fileUrl;
                 } else {
                     fileSrc = fileUrl;
                 }
