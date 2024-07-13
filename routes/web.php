@@ -87,6 +87,7 @@ Route::middleware('isAdmin')->group(function () {
     Route::delete('/kurikulum_destroy/{id}', [KurikulumController::class, 'destroy'])->name('class.destroy');
 
     //Section Kurikulum
+    Route::get('/section-content/{id}', [SectionController::class, 'getContent']);
     Route::post('/section/store', [SectionController::class, 'store'])->name('section.store');
     Route::get('/section/{id}/edit', [SectionController::class, 'edit'])->name('section.edit');
     Route::put('/sectionupdate/{id}', [SectionController::class, 'update'])->name('section.update');
