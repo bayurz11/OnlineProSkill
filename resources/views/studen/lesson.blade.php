@@ -32,7 +32,7 @@
                                                             <a href="#"
                                                                 class="course-item-link {{ $loop->first ? 'active' : '' }}"
                                                                 data-title="{{ $section->title }}"
-                                                                data-link="{{ $section->link ?? $section->file_path }}"
+                                                                data-link="{{ $section->link ? asset($section->link) : asset($section->file_path) }}"
                                                                 data-type="{{ $section->type }}"
                                                                 onclick="changeContent(this)">
                                                                 <span class="item-name">{{ $section->title }}</span>
