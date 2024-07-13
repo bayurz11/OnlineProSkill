@@ -82,24 +82,8 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Mengambil pelajaran pertama
-            let firstCourseItem = document.querySelector('.course-item-link');
-            if (firstCourseItem) {
-                firstCourseItem.click();
-            }
-        });
-
-        document.querySelectorAll('.course-item-link').forEach(item => {
-            item.addEventListener('click', function(e) {
-                e.preventDefault();
-                let title = this.getAttribute('data-title');
-                let link = this.getAttribute('data-link');
-                let type = this.getAttribute('data-type');
-
-                console.log('Title:', title);
-                console.log('Link:', link);
-                console.log('Type:', type);
-
+            // Fungsi untuk memuat konten pelajaran berdasarkan tipe
+            function loadContent(title, link, type) {
                 document.getElementById('section-title').textContent = title;
 
                 let contentDisplay = document.getElementById('content-display');
@@ -140,12 +124,37 @@
                     iframe.setAttribute('frameborder', '0');
                     iframe.setAttribute('allow',
                         'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-                        );
+                    );
                     iframe.setAttribute('allowfullscreen', '');
 
                     contentDisplay.appendChild(iframe);
                     console.log('YouTube iframe added:', iframe);
                 }
+            }
+
+            // Mengambil pelajaran pertama
+            let firstCourseItem = document.querySelector('.course-item-link');
+            if (firstCourseItem) {
+                let title = firstCourseItem.getAttribute('data-title');
+                let link = firstCourseItem.getAttribute('data-link');
+                let type = firstCourseItem.getAttribute('data-type');
+
+                loadContent(title, link, type);
+            }
+
+            document.querySelectorAll('.course-item-link').forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    let title = this.getAttribute('data-title');
+                    let link = this.getAttribute('data-link');
+                    let type = this.getAttribute('data-type');
+
+                    console.log('Title:', title);
+                    console.log('Link:', link);
+                    console.log('Type:', type);
+
+                    loadContent(title, link, type);
+                });
             });
         });
     </script>
