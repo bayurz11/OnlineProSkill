@@ -12,12 +12,12 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" name="course_type" id="online"
+                            <input type="radio" class="form-check-input" name="course_type" id="edit_online"
                                 value="online">
                             <label class="form-check-label" for="online">Online Course</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" name="course_type" id="offline"
+                            <input type="radio" class="form-check-input" name="course_type" id="edit_offline"
                                 value="offline">
                             <label class="form-check-label" for="offline">Offline Class</label>
                         </div>
@@ -148,9 +148,9 @@
 
                     // Set course type (online/offline)
                     if (data.course_type === 'online') {
-                        $('#online').prop('checked', true);
+                        $('#edit_online').prop('checked', true);
                     } else if (data.course_type === 'offline') {
-                        $('#offline').prop('checked', true);
+                        $('#edit_offline').prop('checked', true);
                     }
 
                     const categoryId = data.kategori_id;
