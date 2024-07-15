@@ -9,16 +9,16 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <div class="form-check form-check-inline">
+                        {{-- <div class="form-check form-check-inline">
                             <input type="radio" class="form-check-input" name="course_type" id="online"
                                 value="online">
                             <label class="form-check-label" for="online">
                                 Online Course
                             </label>
-                        </div>
+                        </div> --}}
                         <div class="form-check form-check-inline">
                             <input type="radio" class="form-check-input" name="course_type" id="offline"
-                                value="offline">
+                                value="offline" checked>
                             <label class="form-check-label" for="offline">
                                 Offline Class
                             </label>
