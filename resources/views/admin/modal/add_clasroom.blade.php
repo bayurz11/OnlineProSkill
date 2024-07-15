@@ -9,15 +9,15 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-4">
-                        <div class="form-check mb-2">
-                            <input type="radio" class="form-check-input" name="radioDefault" id="radioDefault">
-                            <label class="form-check-label" for="radioDefault">
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" name="radioInline" id="radioInline">
+                            <label class="form-check-label" for="radioInline">
                                 Default
                             </label>
                         </div>
-                        <div class="form-check mb-2">
-                            <input type="radio" class="form-check-input" name="radioDefault" id="radioDefault1">
-                            <label class="form-check-label" for="radioDefault1">
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" name="radioInline" id="radioInline1">
+                            <label class="form-check-label" for="radioInline1">
                                 Default
                             </label>
                         </div>
