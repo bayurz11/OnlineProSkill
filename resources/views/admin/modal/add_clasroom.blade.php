@@ -9,6 +9,20 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
+                        <div class="form-check mb-2">
+                            <input type="radio" class="form-check-input" name="radioDefault" id="radioDefault">
+                            <label class="form-check-label" for="radioDefault">
+                                Default
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input type="radio" class="form-check-input" name="radioDefault" id="radioDefault1">
+                            <label class="form-check-label" for="radioDefault1">
+                                Default
+                            </label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
                         <label for="nama_kursus" class="form-label">Nama Kursus<span
                                 class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="nama_kursus" name="nama_kursus"
