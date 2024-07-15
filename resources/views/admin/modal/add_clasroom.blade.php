@@ -8,7 +8,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="mb-3">
+                    <div class="mb-4">
                         <div class="form-check mb-2">
                             <input type="radio" class="form-check-input" name="radioDefault" id="radioDefault">
                             <label class="form-check-label" for="radioDefault">
