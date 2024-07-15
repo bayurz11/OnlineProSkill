@@ -10,18 +10,21 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" name="online" id="online">
+                            <input type="radio" class="form-check-input" name="course_type" id="online"
+                                value="online">
                             <label class="form-check-label" for="online">
                                 Online Course
                             </label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" name="offline" id="offline">
+                            <input type="radio" class="form-check-input" name="course_type" id="offline"
+                                value="offline">
                             <label class="form-check-label" for="offline">
                                 Offline Class
                             </label>
                         </div>
                     </div>
+
                     <div class="mb-3">
                         <label for="nama_kursus" class="form-label">Nama Kursus<span
                                 class="text-danger">*</span></label>

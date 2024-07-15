@@ -58,6 +58,7 @@ class KelasTatapMukaController extends Controller
         $course->sertifikat = $request->sertifikat;
         $course->kuota = $request->kuota;
         $course->user_id = $userId;
+        $course->course_type = $request->course_type;
         $course->save();
 
         return redirect()->route('classroomsetting')->with('success', 'Kursus berhasil disimpan.');

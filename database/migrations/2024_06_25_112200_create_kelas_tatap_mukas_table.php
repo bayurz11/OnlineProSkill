@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('kuota');
             $table->string('durasi');
             $table->string('user_id')->nullable();
+            $table->string('course_type')->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();
 
