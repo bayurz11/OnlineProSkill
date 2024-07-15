@@ -76,42 +76,41 @@ class CourseMasterController extends Controller
     //     return response()->json($course);
     // }
 
-    // public function update(Request $request, $id)
-    // {
-    //     $userId = Auth::id();
-    //     $course = CourseMaster::findOrFail($id);
+    public function update(Request $request, $id)
+    {
+        $userId = Auth::id();
+        $course = KelasTatapMuka::findOrFail($id);
 
-    //     // Handle image upload
-    //     if ($request->hasFile('gambar')) {
-    //         $gambarName = time() . '.' . $request->gambar->extension();
-    //         $request->gambar->move(public_path('uploads'), $gambarName);
-    //         $course->gambar = $gambarName;
-    //     }
+        // Handle image upload
+        if ($request->hasFile('gambar')) {
+            $gambarName = time() . '.' . $request->gambar->extension();
+            $request->gambar->move(public_path('uploads'), $gambarName);
+            $course->gambar = $gambarName;
+        }
 
-    //     // Calculate discounted price if applicable
-    //     $hargaSetelahDiskon = null;
-    //     if ($request->filled('price') && $request->filled('diskon')) {
-    //         $hargaSetelahDiskon = $request->price - ($request->price * ($request->diskon / 100));
-    //     }
+        // Calculate discounted price if applicable
+        $hargaSetelahDiskon = null;
+        if ($request->filled('price') && $request->filled('diskon')) {
+            $hargaSetelahDiskon = $request->price - ($request->price * ($request->diskon / 100));
+        }
 
-    //     // Update course fields
-    //     $course->nama_kursus = $request->nama_kursus;
-    //     $course->kategori_id = $request->kategori_id;
-    //     $course->subkategori_id = $request->subkategori_id;
-    //     $course->content = $request->content;
-    //     $course->tingkat = $request->tingkat;
-    //     $course->include = json_encode($request->include);
-    //     $course->price = $request->free ? null : $request->price;
-    //     $course->discount = $request->discount;
-    //     $course->discountedPrice = $hargaSetelahDiskon;
-    //     $course->free = $request->free ? 1 : 0;
-    //     $course->tag = $request->tag;
-    //     $course->user_id = $userId;
+        // Update course fields
+        $course->nama_kursus = $request->nama_kursus;
+        $course->kategori_id = $request->kategori_id;
+        $course->subkategori_id = $request->subkategori_id;
+        $course->content = $request->content;
+        $course->tingkat = $request->tingkat;
+        $course->include = json_encode($request->include);
+        $course->price = $request->free ? null : $request->price;
+        $course->discount = $request->discount;
+        $course->discountedPrice = $hargaSetelahDiskon;
+        $course->tag = $request->tag;
+        $course->user_id = $userId;
+        $course->save();
 
-    //     $course->save();
+        return redirect()->route('CourseMaster')->with('success', 'Kursus berhasil diperbarui.');
+    }
 
-    //     return redirect()->route('CourseMaster')->with('success', 'Kursus berhasil diperbarui.');
-    // }
 
 
     // public function updateCoursestatus($id, Request $request)

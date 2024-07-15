@@ -63,7 +63,7 @@ Route::middleware('isAdmin')->group(function () {
     Route::post('/storeCourse', [CourseMasterController::class, 'store'])->name('storeCourse');
     // Route::post('/update-Course-status/{id}', [CourseMasterController::class, 'updateCoursestatus']);
     // Route::get('/Course/{id}/edit', [CourseMasterController::class, 'edit'])->name('Course.edit');
-    // Route::put('/Course/{id}', [CourseMasterController::class, 'update'])->name('Course.update');
+    Route::put('/Course/{id}', [CourseMasterController::class, 'update'])->name('Course.update');
     // Route::delete('/Course_destroy/{id}', [CourseMasterController::class, 'destroy'])->name('Course.destroy');
 
     //Riwayat Pembelian Kursus

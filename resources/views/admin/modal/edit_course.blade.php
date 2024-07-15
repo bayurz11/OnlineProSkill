@@ -122,12 +122,12 @@
 
         $('.edit-button').on('click', function() {
             const id = $(this).data('id');
-            fetch(`/class/${id}/edit`)
+            fetch(`/Course/${id}/edit`)
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);
 
-                    $('#editCourseForm').attr('action', `/class/${id}`);
+                    $('#editCourseForm').attr('action', `/Course/${id}`);
                     $('#edit_nama_kursus').val(data.nama_kursus);
                     $('#edit_durasi').val(data.durasi);
                     $('#edit_sertifikat').val(data.sertifikat);
