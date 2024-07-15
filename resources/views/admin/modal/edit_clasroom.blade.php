@@ -145,11 +145,11 @@
                     $('#edit_kuota').val(data.kuota);
                     $('#edit_category').val(data.kategori_id);
 
-                    // if (data.course_type === 'online') {
-                    //     $('#edit_online').prop('checked', true);
-                    // } else if (data.course_type === 'offline') {
-                    //     $('#edit_offline').prop('checked', true);
-                    // }
+                    if (data.course_type === 'online') {
+                        $('#edit_online').prop('checked', true);
+                    } else if (data.course_type === 'offline') {
+                        $('#edit_offline').prop('checked', true);
+                    }
 
                     const categoryId = data.kategori_id;
                     const subcategorySelect = $('#edit_subcategory');
