@@ -10,18 +10,18 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
                 </div>
                 <div class="modal-body">
-                    {{-- <div class="mb-3">
-                        <div class="form-check form-check-inline">
+                    <div class="mb-3" hidden>
+                        {{-- <div class="form-check form-check-inline">
                             <input type="radio" class="form-check-input" name="course_type" id="edit_online"
                                 value="online">
                             <label class="form-check-label" for="edit_online">Online Course</label>
-                        </div>
+                        </div> --}}
                         <div class="form-check form-check-inline">
                             <input type="radio" class="form-check-input" name="course_type" id="edit_offline"
                                 value="offline">
                             <label class="form-check-label" for="edit_offline">Offline Class</label>
                         </div>
-                    </div> --}}
+                    </div>
                     <div class="mb-3">
                         <label for="nama_kursus" class="form-label">Nama Kursus<span
                                 class="text-danger">*</span></label>
