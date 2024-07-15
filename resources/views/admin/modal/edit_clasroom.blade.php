@@ -10,7 +10,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                         <div class="form-check form-check-inline">
                             <input type="radio" class="form-check-input" name="course_type" id="edit_online"
                                 value="online">
@@ -21,7 +21,7 @@
                                 value="offline">
                             <label class="form-check-label" for="edit_offline">Offline Class</label>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="mb-3">
                         <label for="nama_kursus" class="form-label">Nama Kursus<span
                                 class="text-danger">*</span></label>
@@ -73,8 +73,7 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="edit_content" class="form-label">Deskripsi<span
-                                class="text-danger">*</span></label>
+                        <label for="edit_content" class="form-label">Deskripsi<span class="text-danger">*</span></label>
                         <textarea id="edit_content" name="content" style="height: 400px; width: 100%; font-size: 18px;"></textarea>
                         <input type="hidden" id="edit_content_input" name="content">
                     </div>
@@ -146,11 +145,11 @@
                     $('#edit_kuota').val(data.kuota);
                     $('#edit_category').val(data.kategori_id);
 
-                    if (data.course_type === 'online') {
-                        $('#edit_online').prop('checked', true);
-                    } else if (data.course_type === 'offline') {
-                        $('#edit_offline').prop('checked', true);
-                    }
+                    // if (data.course_type === 'online') {
+                    //     $('#edit_online').prop('checked', true);
+                    // } else if (data.course_type === 'offline') {
+                    //     $('#edit_offline').prop('checked', true);
+                    // }
 
                     const categoryId = data.kategori_id;
                     const subcategorySelect = $('#edit_subcategory');
