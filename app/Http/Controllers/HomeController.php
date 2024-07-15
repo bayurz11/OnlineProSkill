@@ -49,7 +49,11 @@ class HomeController extends Controller
             $profile = UserProfile::where('user_id', $user->id)->first();
         }
 
-        $course = KelasTatapMuka::with('user')->where('status', 1)->get();
+        // Tambahkan kondisi untuk filter course_type = offline
+        $course = KelasTatapMuka::with('user')
+            ->where('status', 1)
+            ->where('course_type', 'offline')
+            ->get();
         $count = $course->count();
 
         // Ambil notifikasi untuk pengguna yang sedang login
