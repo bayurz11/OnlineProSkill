@@ -134,7 +134,7 @@ Route::get('/classroomdetail/{id}', [HomeController::class, 'classroomdetail'])-
 // Route::get('classroomdetail/{id}/{slug}', [HomeController::class, 'classroomdetail'])->name('classroomdetail');
 
 //online Course
-Route::get('/course', [HomeController::class, 'classroom'])->name('course');
+Route::get('/course', [HomeController::class, 'course'])->name('course');
 Route::get('/classroomdetail/{id}', [HomeController::class, 'classroomdetail'])->name('classroomdetail');
 
 

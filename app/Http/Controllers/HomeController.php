@@ -69,6 +69,36 @@ class HomeController extends Controller
             ->pluck('total', 'product_id');
         return view('home.classroom', compact('user', 'count', 'course', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'jumlahPendaftaran'));
     }
+    public function course()
+    {
+        $user = Auth::user();
+        $profile = null;
+        $cart = Session::get('cart', []);
+
+        if ($user) {
+            $profile = UserProfile::where('user_id', $user->id)->first();
+        }
+
+        // Tambahkan kondisi untuk filter course_type = offline
+        $course = KelasTatapMuka::with('user')
+            ->where('status', 1)
+            ->where('course_type', 'offline')
+            ->get();
+        $count = $course->count();
+
+        // Ambil notifikasi untuk pengguna yang sedang login
+        $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
+            ->orderBy('created_at', 'desc')
+            ->get()
+            : collect(); // Menggunakan collect() untuk membuat koleksi kosong jika pengguna belum login
+
+        // Hitung jumlah notifikasi dengan status = 1
+        $notifikasiCount = $notifikasi->where('status', 1)->count();
+        $jumlahPendaftaran = Order::select('product_id', DB::raw('count(*) as total'))
+            ->groupBy('product_id')
+            ->pluck('total', 'product_id');
+        return view('home.course', compact('user', 'count', 'course', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'jumlahPendaftaran'));
+    }
 
     public function classroomdetail($id)
     {
