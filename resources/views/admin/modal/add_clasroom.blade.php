@@ -8,16 +8,16 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="mb-4">
+                    <div class="mb-3">
                         <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" name="radioInline" id="radioInline">
-                            <label class="form-check-label" for="radioInline">
+                            <input type="radio" class="form-check-input" name="online" id="online">
+                            <label class="form-check-label" for="online">
                                 Online Course
                             </label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" name="radioInline" id="radioInline1">
-                            <label class="form-check-label" for="radioInline1">
+                            <input type="radio" class="form-check-input" name="offline" id="offline">
+                            <label class="form-check-label" for="offline">
                                 Offline Class
                             </label>
                         </div>
