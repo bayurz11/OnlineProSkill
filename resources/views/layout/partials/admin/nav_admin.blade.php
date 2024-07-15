@@ -18,7 +18,6 @@
                     <span class="link-title">Dashboard</span>
                 </a>
             </li>
-            <li class="nav-item nav-category">Online Course Setting</li>
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#kategori" role="button" aria-expanded="false"
                     aria-controls="kategori">
@@ -39,6 +38,7 @@
                     </ul>
                 </div>
             </li>
+            <li class="nav-item nav-category">Online Course Setting</li>
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#advancedUI" role="button" aria-expanded="false"
                     aria-controls="advancedUI">
