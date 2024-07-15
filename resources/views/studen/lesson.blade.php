@@ -16,7 +16,7 @@
                                 <a href="{{ route('/') }}"><i class="fas fa-times"></i></a>
                             </div>
                         </div>
-                        <div class="lesson__video-embed" style="padding: 20px">
+                        <div class="lesson__video-embed">
                             <iframe id="lessonContent" width="100%" height="500" src="" frameborder="0"
                                 allowfullscreen></iframe>
                         </div>
