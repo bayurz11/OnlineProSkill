@@ -146,7 +146,6 @@
                     $('#edit_kuota').val(data.kuota);
                     $('#edit_category').val(data.kategori_id);
 
-                    // Set course type (online/offline)
                     if (data.course_type === 'online') {
                         $('#edit_online').prop('checked', true);
                     } else if (data.course_type === 'offline') {
