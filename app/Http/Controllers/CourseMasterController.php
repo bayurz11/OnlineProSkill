@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Categories;
 use App\Models\CourseMaster;
+use Illuminate\Http\Request;
+use App\Models\KelasTatapMuka;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
 use App\Http\Requests\StoreCourseMasterRequest;
 use App\Http\Requests\UpdateCourseMasterRequest;
 
@@ -16,11 +17,12 @@ class CourseMasterController extends Controller
     {
         $user = Auth::user();
         $categori = Categories::all();
-        $course = CourseMaster::with('user')->get();
+        $course = KelasTatapMuka::with('user')->where('course_type', 'offline')->get();
         $count = $course->count();
         if (!$user) {
             return redirect()->route('login_admin');
         }
+
         return view('admin.CourseMaster.course', compact('user', 'categori', 'count', 'course'));
     }
     public function store(Request $request)
