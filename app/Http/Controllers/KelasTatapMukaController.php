@@ -17,7 +17,7 @@ class KelasTatapMukaController extends Controller
     {
         $user = Auth::user();
         $categori = Categories::all();
-        $course = KelasTatapMuka::with('user')->get();
+        $course = KelasTatapMuka::with('user')->where('course_type', 'offline')->get();
         $count = $course->count();
         if (!$user) {
             return redirect()->route('login_admin');
