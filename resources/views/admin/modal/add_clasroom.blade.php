@@ -31,24 +31,24 @@
                     <div class="mb-3">
                         <label for="durasi" class="form-label">Durasi Kursus<span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="durasi" name="durasi"
-                            placeholder="durasi kursus">
+                            placeholder="durasi kursus" required>
                     </div>
                     <div class="mb-3">
                         <label for="sertifikat" class="form-label">Sertifikat<span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="sertifikat" name="sertifikat"
-                            placeholder="apakah mendapatkan sertifikat">
+                            placeholder="apakah mendapatkan sertifikat" required>
                     </div>
                     <div class="mb-3">
                         <label for="kuota" class="form-label">Kuota Perkelas<span
                                 class="text-danger">*</span></label>
                         <input type="number" class="form-control" id="kuota" name="kuota"
-                            placeholder="Masukkan Jumlah Kuota yang Disediakan">
+                            placeholder="Masukkan Jumlah Kuota yang Disediakan" required>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Kategori<span class="text-danger">*</span></label>
                         <select id="category" class="js-example-basic-single form-select" name="kategori_id"
-                            data-width="100%">
+                            data-width="100%" required>
                             <option value="">Pilih Kategori</option>
                             @foreach ($categori as $category)
                                 @if ($category->status == 1)
@@ -79,7 +79,7 @@
                     <div class="mb-3">
                         <label for="content" class="form-label">Deskripsi<span class="text-danger">*</span></label>
                         <textarea id="content" name="content" style="height: 400px; width: 100%; font-size: 18px;"></textarea>
-                        <input type="hidden" id="content_input" name="content">
+                        <input type="hidden" id="content_input" name="content" required>
                         <script>
                             ClassicEditor
                                 .create(document.querySelector('#content'))
@@ -108,7 +108,7 @@
 
                     <div class="mb-3">
                         <label for="price" class="form-label">Harga (Rp)<span class="text-danger">*</span></label>
-                        <input type="number" class="form-control" id="price" name="price">
+                        <input type="number" class="form-control" id="price" name="price" required>
                     </div>
 
                     <div class="mb-3">
@@ -125,7 +125,8 @@
                     <div class="mb-3">
                         <label class="form-label" for="gambar">Gambar Kursus<span
                                 class="text-danger">*</span></label>
-                        <input type="file" accept="image/*" class="form-control" id="gambar" name="gambar">
+                        <input type="file" accept="image/*" class="form-control" id="gambar" name="gambar"
+                            required>
                     </div>
                     <img id="preview" src="#" alt="Preview banner"
                         style="max-width: 100%; max-height: 200px; display: none;">
