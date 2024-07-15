@@ -107,7 +107,6 @@ class KelasTatapMukaController extends Controller
         $course->discountedPrice = $hargaSetelahDiskon;
         $course->tag = $request->tag;
         $course->user_id = $userId;
-        $course->course_type = $request->course_type;
         $course->save();
 
         return redirect()->route('classroomsetting')->with('success', 'Kursus berhasil diperbarui.');
