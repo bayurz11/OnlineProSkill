@@ -14,12 +14,12 @@
                         <div class="form-check form-check-inline">
                             <input type="radio" class="form-check-input" name="course_type" id="edit_online"
                                 value="online">
-                            <label class="form-check-label" for="online">Online Course</label>
+                            <label class="form-check-label" for="edit_online">Online Course</label>
                         </div>
                         <div class="form-check form-check-inline">
                             <input type="radio" class="form-check-input" name="course_type" id="edit_offline"
                                 value="offline">
-                            <label class="form-check-label" for="offline">Offline Class</label>
+                            <label class="form-check-label" for="edit_offline">Offline Class</label>
                         </div>
                     </div>
                     <div class="mb-3">
@@ -147,9 +147,9 @@
                     $('#edit_category').val(data.kategori_id);
 
                     // Set course type (online/offline)
-                    if (data.course_type === 'online') {
+                    if (data.course_type === 'edit_online') {
                         $('#edit_online').prop('checked', true);
-                    } else if (data.course_type === 'offline') {
+                    } else if (data.course_type === 'edit_offline') {
                         $('#edit_offline').prop('checked', true);
                     }
 
