@@ -12,14 +12,14 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" name="course_type" id="edit_online"
+                            <input type="radio" class="form-check-input" name="course_type" id="online"
                                 value="online">
-                            <label class="form-check-label" for="edit_online">Online Course</label>
+                            <label class="form-check-label" for="online">Online Course</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" name="course_type" id="edit_offline"
+                            <input type="radio" class="form-check-input" name="course_type" id="offline"
                                 value="offline">
-                            <label class="form-check-label" for="edit_offline">Offline Class</label>
+                            <label class="form-check-label" for="offline">Offline Class</label>
                         </div>
                     </div>
                     <div class="mb-3">
@@ -147,10 +147,10 @@
                     $('#edit_category').val(data.kategori_id);
 
                     // Set course type (online/offline)
-                    if (data.course_type === 'edit_online') {
-                        $('#edit_online').prop('checked', true);
-                    } else if (data.course_type === 'edit_offline') {
-                        $('#edit_offline').prop('checked', true);
+                    if (data.course_type === 'online') {
+                        $('#online').prop('checked', true);
+                    } else if (data.course_type === 'offline') {
+                        $('#offline').prop('checked', true);
                     }
 
                     const categoryId = data.kategori_id;
@@ -228,11 +228,11 @@
                         if (Array.isArray(includes)) {
                             includes.forEach(item => {
                                 const inputGroup = $(`
-                                    <div class="input-group mb-2">
-                                        <input type="text" class="form-control" name="include[]" value="${item}">
-                                        <button class="btn btn-danger remove-edit-include" type="button">-</button>
-                                    </div>
-                                `);
+                                <div class="input-group mb-2">
+                                    <input type="text" class="form-control" name="include[]" value="${item}">
+                                    <button class="btn btn-danger remove-edit-include" type="button">-</button>
+                                </div>
+                            `);
                                 includeContainer.append(inputGroup);
                             });
                         } else {
@@ -276,11 +276,11 @@
 
         $('#add-edit-include').on('click', function() {
             const inputGroup = $(`
-                <div class="input-group mb-2">
-                    <input type="text" class="form-control" name="include[]">
-                    <button class="btn btn-danger remove-edit-include" type="button">-</button>
-                </div>
-            `);
+            <div class="input-group mb-2">
+                <input type="text" class="form-control" name="include[]">
+                <button class="btn btn-danger remove-edit-include" type="button">-</button>
+            </div>
+        `);
             $('#edit-include-container').append(inputGroup);
         });
 
