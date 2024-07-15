@@ -133,6 +133,10 @@ Route::get('/classroom', [HomeController::class, 'classroom'])->name('classroom'
 Route::get('/classroomdetail/{id}', [HomeController::class, 'classroomdetail'])->name('classroomdetail');
 // Route::get('classroomdetail/{id}/{slug}', [HomeController::class, 'classroomdetail'])->name('classroomdetail');
 
+//online Course
+Route::get('/course', [HomeController::class, 'classroom'])->name('course');
+Route::get('/classroomdetail/{id}', [HomeController::class, 'classroomdetail'])->name('classroomdetail');
+
 
 
 //checkout

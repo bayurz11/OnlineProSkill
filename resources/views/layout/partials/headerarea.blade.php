@@ -24,7 +24,7 @@
                                                 <a href="{{ route('classroom') }}">Kelas Tatap Muka</a>
                                             </li>
                                             <li class="{{ Request::is('course') ? 'active' : '' }}">
-                                                <a href="#">Kelas Online</a>
+                                                <a href="{{ route('course') }}">Kelas Online</a>
                                             </li>
                                         </ul>
                                     </li>
