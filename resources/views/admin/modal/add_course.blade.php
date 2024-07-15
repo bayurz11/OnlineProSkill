@@ -1,24 +1,57 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form action="{{ route('storeCourse') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('storeclas') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Tambah Kursus</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
                 </div>
                 <div class="modal-body">
+                    <div class="mb-3" hidden>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" name="course_type" id="online"
+                                value="online" checked>
+                            <label class="form-check-label" for="online">
+                                Online Course
+                            </label>
+                        </div>
+                        {{-- <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" name="course_type" id="offline"
+                                value="offline" checked>
+                            <label class="form-check-label" for="offline">
+                                Offline Class
+                            </label>
+                        </div> --}}
+                    </div>
+
                     <div class="mb-3">
                         <label for="nama_kursus" class="form-label">Nama Kursus<span
                                 class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="nama_kursus" name="nama_kursus"
-                            placeholder="Masukkan Nama Kursus Anda">
+                            placeholder="Masukkan Nama Kursus Anda" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="durasi" class="form-label">Durasi Kursus<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="durasi" name="durasi"
+                            placeholder="durasi kursus" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="sertifikat" class="form-label">Sertifikat<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="sertifikat" name="sertifikat"
+                            placeholder="apakah mendapatkan sertifikat" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="kuota" class="form-label">Kuota Perkelas<span
+                                class="text-danger">*</span></label>
+                        <input type="number" class="form-control" id="kuota" name="kuota"
+                            placeholder="Masukkan Jumlah Kuota yang Disediakan" required>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Kategori<span class="text-danger">*</span></label>
                         <select id="category" class="js-example-basic-single form-select" name="kategori_id"
-                            data-width="100%">
+                            data-width="100%" required>
                             <option value="">Pilih Kategori</option>
                             @foreach ($categori as $category)
                                 @if ($category->status == 1)
@@ -49,7 +82,7 @@
                     <div class="mb-3">
                         <label for="content" class="form-label">Deskripsi<span class="text-danger">*</span></label>
                         <textarea id="content" name="content" style="height: 400px; width: 100%; font-size: 18px;"></textarea>
-                        <input type="hidden" id="content_input" name="content">
+                        <input type="hidden" id="content_input" name="content" required>
                         <script>
                             ClassicEditor
                                 .create(document.querySelector('#content'))
@@ -78,7 +111,7 @@
 
                     <div class="mb-3">
                         <label for="price" class="form-label">Harga (Rp)<span class="text-danger">*</span></label>
-                        <input type="number" class="form-control" id="price" name="price">
+                        <input type="number" class="form-control" id="price" name="price" required>
                     </div>
 
                     <div class="mb-3">
@@ -92,19 +125,11 @@
                         <input type="text" class="form-control" id="discountedPrice" name="discountedPrice"
                             readonly>
                     </div>
-
-                    <div class="mb-3">
-                        <div>
-                            <input type="checkbox" id="free" name="free" value="1"
-                                onchange="togglePriceAndDiscount()">
-                            <label for="free">Free</label>
-                        </div>
-                    </div>
-
                     <div class="mb-3">
                         <label class="form-label" for="gambar">Gambar Kursus<span
                                 class="text-danger">*</span></label>
-                        <input type="file" accept="image/*" class="form-control" id="gambar" name="gambar">
+                        <input type="file" accept="image/*" class="form-control" id="gambar" name="gambar"
+                            required>
                     </div>
                     <img id="preview" src="#" alt="Preview banner"
                         style="max-width: 100%; max-height: 200px; display: none;">
