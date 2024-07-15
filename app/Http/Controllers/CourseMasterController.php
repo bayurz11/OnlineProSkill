@@ -65,16 +65,18 @@ class CourseMasterController extends Controller
         return redirect()->route('CourseMaster')->with('success', 'Kursus berhasil disimpan.');
     }
 
-    // public function edit($id)
-    // {
-    //     $course = CourseMaster::find($id);
+    public function edit($id)
+    {
+        $course = KelasTatapMuka::find($id);
 
-    //     if (!$course) {
-    //         return response()->json(['message' => 'course not found'], 404);
-    //     }
+        if (!$course) {
+            // Jika kursus tidak ditemukan, kembalikan respons dengan kode status 404
+            return response()->json(['message' => 'Kursus tidak ditemukan'], 404);
+        }
 
-    //     return response()->json($course);
-    // }
+        // Kembalikan respons dengan data kursus dalam format JSON
+        return response()->json($course);
+    }
 
     public function update(Request $request, $id)
     {
