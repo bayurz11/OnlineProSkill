@@ -25,117 +25,117 @@ class CourseMasterController extends Controller
 
         return view('admin.CourseMaster.course', compact('user', 'categori', 'count', 'course'));
     }
-    public function store(Request $request)
-    {
-        $userId = Auth::id();
-        // Proses unggahan gambar
-        if ($request->hasFile('gambar')) {
-            $gambarName = time() . '.' . $request->gambar->extension();
-            $request->gambar->move(public_path('uploads'), $gambarName);
-        } else {
-            $gambarName = null;
-        }
+    // public function store(Request $request)
+    // {
+    //     $userId = Auth::id();
+    //     // Proses unggahan gambar
+    //     if ($request->hasFile('gambar')) {
+    //         $gambarName = time() . '.' . $request->gambar->extension();
+    //         $request->gambar->move(public_path('uploads'), $gambarName);
+    //     } else {
+    //         $gambarName = null;
+    //     }
 
-        // Hitung harga setelah diskon jika ada
-        $hargaSetelahDiskon = null;
-        if ($request->filled('price') && $request->filled('diskon')) {
-            $hargaSetelahDiskon = $request->price - ($request->price * ($request->diskon / 100));
-        }
+    //     // Hitung harga setelah diskon jika ada
+    //     $hargaSetelahDiskon = null;
+    //     if ($request->filled('price') && $request->filled('diskon')) {
+    //         $hargaSetelahDiskon = $request->price - ($request->price * ($request->diskon / 100));
+    //     }
 
-        // Buat entitas kursus baru
-        $course = new CourseMaster();
-        $course->nama_kursus = $request->nama_kursus;
-        $course->kategori_id = $request->kategori_id;
-        $course->subkategori_id = $request->subkategori_id;
-        $course->content = $request->content;
-        $course->tingkat = $request->tingkat;
-        $course->include = json_encode($request->include);
-        $course->price = $request->gratis ? null : $request->price;
-        $course->discount = $request->discount;
-        $course->discountedPrice = $request->discountedPrice;
-        $course->free = $request->free;
-        $course->gambar = $gambarName;
-        $course->tag = $request->tag;
-        $course->user_id = $userId;
-        $course->save();
+    //     // Buat entitas kursus baru
+    //     $course = new CourseMaster();
+    //     $course->nama_kursus = $request->nama_kursus;
+    //     $course->kategori_id = $request->kategori_id;
+    //     $course->subkategori_id = $request->subkategori_id;
+    //     $course->content = $request->content;
+    //     $course->tingkat = $request->tingkat;
+    //     $course->include = json_encode($request->include);
+    //     $course->price = $request->gratis ? null : $request->price;
+    //     $course->discount = $request->discount;
+    //     $course->discountedPrice = $request->discountedPrice;
+    //     $course->free = $request->free;
+    //     $course->gambar = $gambarName;
+    //     $course->tag = $request->tag;
+    //     $course->user_id = $userId;
+    //     $course->save();
 
-        return redirect()->route('CourseMaster')->with('success', 'Kursus berhasil disimpan.');
-    }
+    //     return redirect()->route('CourseMaster')->with('success', 'Kursus berhasil disimpan.');
+    // }
 
-    public function edit($id)
-    {
-        $course = CourseMaster::find($id);
+    // public function edit($id)
+    // {
+    //     $course = CourseMaster::find($id);
 
-        if (!$course) {
-            return response()->json(['message' => 'course not found'], 404);
-        }
+    //     if (!$course) {
+    //         return response()->json(['message' => 'course not found'], 404);
+    //     }
 
-        return response()->json($course);
-    }
+    //     return response()->json($course);
+    // }
 
-    public function update(Request $request, $id)
-    {
-        $userId = Auth::id();
-        $course = CourseMaster::findOrFail($id);
+    // public function update(Request $request, $id)
+    // {
+    //     $userId = Auth::id();
+    //     $course = CourseMaster::findOrFail($id);
 
-        // Handle image upload
-        if ($request->hasFile('gambar')) {
-            $gambarName = time() . '.' . $request->gambar->extension();
-            $request->gambar->move(public_path('uploads'), $gambarName);
-            $course->gambar = $gambarName;
-        }
+    //     // Handle image upload
+    //     if ($request->hasFile('gambar')) {
+    //         $gambarName = time() . '.' . $request->gambar->extension();
+    //         $request->gambar->move(public_path('uploads'), $gambarName);
+    //         $course->gambar = $gambarName;
+    //     }
 
-        // Calculate discounted price if applicable
-        $hargaSetelahDiskon = null;
-        if ($request->filled('price') && $request->filled('diskon')) {
-            $hargaSetelahDiskon = $request->price - ($request->price * ($request->diskon / 100));
-        }
+    //     // Calculate discounted price if applicable
+    //     $hargaSetelahDiskon = null;
+    //     if ($request->filled('price') && $request->filled('diskon')) {
+    //         $hargaSetelahDiskon = $request->price - ($request->price * ($request->diskon / 100));
+    //     }
 
-        // Update course fields
-        $course->nama_kursus = $request->nama_kursus;
-        $course->kategori_id = $request->kategori_id;
-        $course->subkategori_id = $request->subkategori_id;
-        $course->content = $request->content;
-        $course->tingkat = $request->tingkat;
-        $course->include = json_encode($request->include);
-        $course->price = $request->free ? null : $request->price;
-        $course->discount = $request->discount;
-        $course->discountedPrice = $hargaSetelahDiskon;
-        $course->free = $request->free ? 1 : 0;
-        $course->tag = $request->tag;
-        $course->user_id = $userId;
+    //     // Update course fields
+    //     $course->nama_kursus = $request->nama_kursus;
+    //     $course->kategori_id = $request->kategori_id;
+    //     $course->subkategori_id = $request->subkategori_id;
+    //     $course->content = $request->content;
+    //     $course->tingkat = $request->tingkat;
+    //     $course->include = json_encode($request->include);
+    //     $course->price = $request->free ? null : $request->price;
+    //     $course->discount = $request->discount;
+    //     $course->discountedPrice = $hargaSetelahDiskon;
+    //     $course->free = $request->free ? 1 : 0;
+    //     $course->tag = $request->tag;
+    //     $course->user_id = $userId;
 
-        $course->save();
+    //     $course->save();
 
-        return redirect()->route('CourseMaster')->with('success', 'Kursus berhasil diperbarui.');
-    }
+    //     return redirect()->route('CourseMaster')->with('success', 'Kursus berhasil diperbarui.');
+    // }
 
 
-    public function updateCoursestatus($id, Request $request)
-    {
-        $course = CourseMaster::find($id);
+    // public function updateCoursestatus($id, Request $request)
+    // {
+    //     $course = CourseMaster::find($id);
 
-        if ($course) {
-            $course->status = $request->input('status');
-            $course->save();
+    //     if ($course) {
+    //         $course->status = $request->input('status');
+    //         $course->save();
 
-            return response()->json(['success' => true]);
-        }
+    //         return response()->json(['success' => true]);
+    //     }
 
-        return response()->json(['success' => false]);
-    }
+    //     return response()->json(['success' => false]);
+    // }
 
-    public function destroy($id)
-    {
+    // public function destroy($id)
+    // {
 
-        $course = CourseMaster::find($id);
+    //     $course = CourseMaster::find($id);
 
-        if (!$course) {
-            return redirect()->route('subcategories')->with('error', 'Kategori tidak ditemukan');
-        }
+    //     if (!$course) {
+    //         return redirect()->route('subcategories')->with('error', 'Kategori tidak ditemukan');
+    //     }
 
-        $course->delete();
+    //     $course->delete();
 
-        return redirect()->route('subcategories')->with('success', 'Kategori berhasil dihapus');
-    }
+    //     return redirect()->route('subcategories')->with('success', 'Kategori berhasil dihapus');
+    // }
 }

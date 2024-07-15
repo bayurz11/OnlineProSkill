@@ -62,14 +62,19 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <button class="btn btn-success btn-icon" title="Kurikulum">
+                                                <a href="{{ route('kurikulum', ['id' => $courses->id]) }}"
+                                                    class="btn btn-success btn-icon kurikulum-btn"
+                                                    data-id="{{ $courses->id }}" title="Kurikulum">
                                                     <i data-feather="settings"></i>
-                                                </button>
+                                                </a>
+
+
                                                 <button type="button" class="btn btn-primary btn-icon edit-button"
                                                     title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
                                                     data-id="{{ $courses->id }}">
                                                     <i data-feather="edit"></i>
                                                 </button>
+
                                                 <button onclick="hapus('{{ $courses->id }}')"
                                                     class="btn btn-danger btn-icon" title="Hapus">
                                                     <i data-feather="trash-2"></i>
@@ -94,16 +99,13 @@
             const formSwitches = document.querySelectorAll('.formSwitch');
 
             formSwitches.forEach(function(formSwitch) {
-
-
-                // Set initial state of the switch based on the status
                 formSwitch.checked = formSwitch.dataset.status == 1;
 
                 formSwitch.addEventListener('change', function() {
                     const categoryId = formSwitch.dataset.id;
                     const newStatus = formSwitch.checked ? 1 : 0;
 
-                    fetch('/update-Course-status/' + categoryId, {
+                    fetch('/update-class-status/' + categoryId, {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
@@ -144,7 +146,7 @@
             document.body.insertAdjacentHTML('beforeend', confirmationBox);
 
             document.getElementById('confirmDelete').onclick = function() {
-                fetch(`/Course_destroy/${id}`, {
+                fetch(`/class_destroy/${id}`, {
                     method: 'POST', // Menggunakan POST bukan DELETE
                     headers: {
                         'X-CSRF-TOKEN': '{{ csrf_token() }}',
@@ -152,7 +154,7 @@
                     },
                     body: JSON.stringify({
                         _method: 'DELETE'
-                    }) // Menambahkan _method override
+                    })
                 }).then(response => {
                     document.getElementById('confirmationModal').remove();
                     if (response.ok) {
@@ -174,6 +176,21 @@
                 document.getElementById('confirmationModal').remove();
             };
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            feather.replace();
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const kurikulumButtons = document.querySelectorAll('.kurikulum-btn');
+
+            kurikulumButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    const courseId = button.getAttribute('data-id');
+                    localStorage.setItem('selectedCourseId', courseId);
+                });
+            });
+        });
     </script>
 
 
