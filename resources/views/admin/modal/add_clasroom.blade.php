@@ -12,13 +12,13 @@
                         <div class="form-check form-check-inline">
                             <input type="radio" class="form-check-input" name="radioInline" id="radioInline">
                             <label class="form-check-label" for="radioInline">
-                                Default
+                                Online Course
                             </label>
                         </div>
                         <div class="form-check form-check-inline">
                             <input type="radio" class="form-check-input" name="radioInline" id="radioInline1">
                             <label class="form-check-label" for="radioInline1">
-                                Default
+                                Offline Class
                             </label>
                         </div>
                     </div>
