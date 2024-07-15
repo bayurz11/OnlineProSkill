@@ -60,7 +60,7 @@ Route::middleware('isAdmin')->group(function () {
 
     //kelola Kursus
     Route::get('/CourseMaster', [CourseMasterController::class, 'index'])->name('CourseMaster');
-    // Route::post('/storeCourse', [CourseMasterController::class, 'store'])->name('storeCourse');
+    Route::post('/storeCourse', [CourseMasterController::class, 'store'])->name('storeCourse');
     // Route::post('/update-Course-status/{id}', [CourseMasterController::class, 'updateCoursestatus']);
     // Route::get('/Course/{id}/edit', [CourseMasterController::class, 'edit'])->name('Course.edit');
     // Route::put('/Course/{id}', [CourseMasterController::class, 'update'])->name('Course.update');
