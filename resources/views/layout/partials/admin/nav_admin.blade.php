@@ -18,21 +18,22 @@
                     <span class="link-title">Dashboard</span>
                 </a>
             </li>
+
+            <li class="nav-item nav-category">Kelas Tatap Muka SETTING</li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#kategori" role="button" aria-expanded="false"
-                    aria-controls="kategori">
-                    <i class="link-icon" data-feather="folder"></i>
-                    <span class="link-title">Kategori</span>
+                <a class="nav-link" data-bs-toggle="collapse" href="#uiComponents" role="button" aria-expanded="false"
+                    aria-controls="uiComponents">
+                    <i class="link-icon" data-feather="feather"></i>
+                    <span class="link-title">Kelola Kursus</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
-                <div class="collapse" id="kategori">
+                <div class="collapse" id="uiComponents">
                     <ul class="nav sub-menu">
-
                         <li class="nav-item">
-                            <a href="{{ route('categories') }}" class="nav-link">Categories</a>
+                            <a href="{{ route('classroomsetting') }}" class="nav-link">Daftar Kelas</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('subcategories') }}" class="nav-link">Subcategories</a>
+                            <a href="pages/ui-components/alerts.html" class="nav-link">Riwayat Pembelian</a>
                         </li>
 
                     </ul>
@@ -58,27 +59,27 @@
                     </ul>
                 </div>
             </li>
-
-            <li class="nav-item nav-category">Kelas Tatap Muka SETTING</li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#uiComponents" role="button" aria-expanded="false"
-                    aria-controls="uiComponents">
-                    <i class="link-icon" data-feather="feather"></i>
-                    <span class="link-title">Kelola Kursus</span>
+                <a class="nav-link" data-bs-toggle="collapse" href="#kategori" role="button" aria-expanded="false"
+                    aria-controls="kategori">
+                    <i class="link-icon" data-feather="folder"></i>
+                    <span class="link-title">Kategori</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
-                <div class="collapse" id="uiComponents">
+                <div class="collapse" id="kategori">
                     <ul class="nav sub-menu">
+
                         <li class="nav-item">
-                            <a href="{{ route('classroomsetting') }}" class="nav-link">Daftar Kelas</a>
+                            <a href="{{ route('categories') }}" class="nav-link">Categories</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/ui-components/alerts.html" class="nav-link">Riwayat Pembelian</a>
+                            <a href="{{ route('subcategories') }}" class="nav-link">Subcategories</a>
                         </li>
 
                     </ul>
                 </div>
             </li>
+
 
             <li class="nav-item nav-category">Pages</li>
             <li class="nav-item">
