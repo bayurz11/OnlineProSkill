@@ -24,13 +24,20 @@
                         Riwayat Transaksi
                     </a>
                 </li>
-                <li class="{{ Request::is('sertifikat.cetak') ? 'active' : '' }}">
-                    <a href="{{ route('sertifikat.cetak') }}">
+                <li class="{{ Request::is('sertifikat/cetak') ? 'active' : '' }}">
+                    <a href="#"
+                        onclick="event.preventDefault(); document.getElementById('sertifikat-cetak-form').submit();">
                         <img src="{{ asset('public/assets/img/icons/course_icon05.svg') }}" alt="img"
                             class="injectable">
                         Sertifikat
                     </a>
+
+                    <form id="sertifikat-cetak-form" action="{{ route('sertifikat.cetak') }}" method="POST"
+                        style="display: none;">
+                        @csrf
+                    </form>
                 </li>
+
             </ul>
         </nav>
 
