@@ -39,26 +39,7 @@
                     </ul>
                 </div>
             </li>
-            <li class="nav-item nav-category">Online Kelas Setting</li>
-            <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#advancedUI" role="button" aria-expanded="false"
-                    aria-controls="advancedUI">
-                    <i class="link-icon" data-feather="book-open"></i>
-                    <span class="link-title">Kelola Kursus</span>
-                    <i class="link-arrow" data-feather="chevron-down"></i>
-                </a>
-                <div class="collapse" id="advancedUI">
-                    <ul class="nav sub-menu">
-                        <li class="nav-item">
-                            <a href="{{ route('CourseMaster') }}" class="nav-link">Daftar Kursus</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('OrderHistoryManager') }}" class="nav-link">Riwayat Pembelian</a>
-                        </li>
-
-                    </ul>
-                </div>
-            </li>
+            <li class="nav-item nav-category">Kelas Online Setting</li>
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#kategori" role="button" aria-expanded="false"
                     aria-controls="kategori">
@@ -79,22 +60,40 @@
                     </ul>
                 </div>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#advancedUI" role="button" aria-expanded="false"
+                    aria-controls="advancedUI">
+                    <i class="link-icon" data-feather="book-open"></i>
+                    <span class="link-title">Kelola Kursus</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="advancedUI">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="{{ route('CourseMaster') }}" class="nav-link">Daftar Kursus</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('OrderHistoryManager') }}" class="nav-link">Riwayat Pembelian</a>
+                        </li>
 
+                    </ul>
+                </div>
+            </li>
 
-            <li class="nav-item nav-category">Pages</li>
+            <li class="nav-item nav-category">Kesiswaan</li>
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" role="button" aria-expanded="false"
                     aria-controls="general-pages">
                     <i class="link-icon" data-feather="book"></i>
-                    <span class="link-title">Special pages</span>
+                    <span class="link-title">Kelola Siswa</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 <div class="collapse" id="general-pages">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="pages/general/blank-page.html" class="nav-link">Blank page</a>
+                            <a href="pages/general/blank-page.html" class="nav-link">Daftar Siswa</a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="pages/general/faq.html" class="nav-link">Faq</a>
                         </li>
                         <li class="nav-item">
@@ -108,7 +107,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="pages/general/timeline.html" class="nav-link">Timeline</a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
             </li>
@@ -116,21 +115,21 @@
                 <a class="nav-link" data-bs-toggle="collapse" href="#authPages" role="button"
                     aria-expanded="false" aria-controls="authPages">
                     <i class="link-icon" data-feather="unlock"></i>
-                    <span class="link-title">Authentication</span>
+                    <span class="link-title">Pembayaran</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 <div class="collapse" id="authPages">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="pages/auth/login.html" class="nav-link">Login</a>
+                            <a href="pages/auth/login.html" class="nav-link">Riwayat Pembelian Kelas</a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="pages/auth/register.html" class="nav-link">Register</a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#errorPages" role="button"
                     aria-expanded="false" aria-controls="errorPages">
                     <i class="link-icon" data-feather="cloud-off"></i>
@@ -244,7 +243,7 @@
                     <i class="link-icon" data-feather="hash"></i>
                     <span class="link-title">Documentation</span>
                 </a>
-            </li>
+            </li> --}}
         </ul>
     </div>
 </nav>
