@@ -33,16 +33,16 @@ class SertifikatController extends Controller
     {
         $pdf = new Fpdi();
 
-        $pdf->AddPage();
+        $pdf->AddPage('L', [2000, 1414]);
         $pdf->setSourceFile($file);
         $tplId = $pdf->importPage(1);
-        $pdf->useTemplate($tplId);
+        $pdf->useTemplate($tplId, 0, 0, 2000, 1414);
 
-        $pdf->SetFont('Helvetica');
+        $pdf->SetFont('Helvetica', '', 48);
         $pdf->SetTextColor(0, 0, 0);
-        $pdf->SetXY(50, 50); // Sesuaikan posisi nama sesuai dengan template
-        $pdf->Write(0, $name);
+        $pdf->SetXY(1000, 707); // Sesuaikan posisi nama sesuai dengan template
+        $pdf->Cell(0, 0, $name, 0, 1, 'C');
 
-        $pdf->Output($outputfile, 'F');
+        $pdf->Output('F', $outputfile);
     }
 }
