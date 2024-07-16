@@ -21,6 +21,7 @@ use App\Http\Controllers\RiwayatTransaksiController;
 use App\Http\Controllers\DashboardInstrukturController;
 use App\Http\Controllers\OrderHistoryManagerController;
 use App\Http\Controllers\SectionController;
+use App\Http\Controllers\SertifikatController;
 
 //Authentikasi
 Route::post('/login', [AuthController::class, 'login'])->name('login');
@@ -115,6 +116,9 @@ Route::middleware('isStuden')->group(function () {
 
     //lesson
     Route::get('/lesson/{id}', [AksesPembelianController::class, 'lesson'])->name('lesson');
+
+    //sertifikat
+    Route::get('/cetak_sertifikat', [SertifikatController::class, 'cetak'])->name('cetak_sertifikat');
 });
 
 
