@@ -23,7 +23,7 @@
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#uiComponents" role="button" aria-expanded="false"
                     aria-controls="uiComponents">
-                    <i class="link-icon" data-feather="feather"></i>
+                    <i class="link-icon" data-feather="book-open"></i>
                     <span class="link-title">Kelola Kursus</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
