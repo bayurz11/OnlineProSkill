@@ -118,7 +118,7 @@ Route::middleware('isStuden')->group(function () {
     Route::get('/lesson/{id}', [AksesPembelianController::class, 'lesson'])->name('lesson');
 
     //sertifikat
-    Route::get('/cetak_sertifikat', [SertifikatController::class, 'cetak'])->name('cetak_sertifikat');
+    Route::post('/sertifikat/cetak', [SertifikatController::class, 'cetak'])->name('sertifikat.cetak');
 });
 
 

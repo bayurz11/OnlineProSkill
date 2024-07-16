@@ -24,8 +24,8 @@
                         Riwayat Transaksi
                     </a>
                 </li>
-                <li class="{{ Request::is('cetak_sertifikat') ? 'active' : '' }}">
-                    <a href="{{ route('cetak_sertifikat') }}">
+                <li class="{{ Request::is('sertifikat.cetak') ? 'active' : '' }}">
+                    <a href="{{ route('sertifikat.cetak') }}">
                         <img src="{{ asset('public/assets/img/icons/course_icon05.svg') }}" alt="img"
                             class="injectable">
                         Sertifikat
