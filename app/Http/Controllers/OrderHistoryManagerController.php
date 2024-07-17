@@ -43,6 +43,6 @@ class OrderHistoryManagerController extends Controller
     {
         $user = Auth::user();
         $order = Order::findOrFail($id);
-        return view('studen.cetak', compact('order', 'user'));
+        return view('admin.cetak', compact('order', 'user'));
     }
 }
