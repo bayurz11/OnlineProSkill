@@ -18,22 +18,25 @@ class OrderHistoryManagerController extends Controller
         $user = Auth::user();
         $categori = Categories::all();
         $count = $categori->count();
+
         if (!$user) {
             return redirect()->route('login_admin');
         }
-        // Fetching orders related to the user
-        $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
+
+        // Mengambil semua orders tanpa memfilter berdasarkan user_id
+        $orders = Order::with('KelasTatapMuka')->get();
 
         // Debugging data
         foreach ($orders as $order) {
             Log::info('Order ID: ' . $order->id);
             if ($order->KelasTatapMuka) {
                 Log::info('Kelas Tatap Muka ID: ' . $order->KelasTatapMuka->id);
-                Log::info('Kelas Tatap Muka Name: ' . $order->KelasTatapMuka->nama_kelas);
+                Log::info('Nama Kelas: ' . $order->KelasTatapMuka->nama_kelas);
             } else {
                 Log::info('Kelas Tatap Muka: Not Found');
             }
         }
+
         return view('admin.CourseMaster.orderhistory', compact('user', 'categori', 'count', 'orders'));
     }
 }
