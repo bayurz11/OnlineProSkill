@@ -62,9 +62,8 @@
                                             </td>
                                             <td>
 
-                                                <button onclick="hapus('{{ $order->id }}')"
-                                                    class="btn btn-danger btn-icon" title="Hapus">
-                                                    <i data-feather="trash-2"></i>
+                                                <button class="btn btn-success btn-icon" title="Cetak">
+                                                    <i data-feather="printer"></i>
                                                 </button>
                                             </td>
                                         </tr>
