@@ -32,10 +32,6 @@
                         <li class="nav-item">
                             <a href="{{ route('classroomsetting') }}" class="nav-link">Daftar Kelas</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="pages/ui-components/alerts.html" class="nav-link">Riwayat Pembelian</a>
-                        </li>
-
                     </ul>
                 </div>
             </li>
@@ -72,10 +68,6 @@
                         <li class="nav-item">
                             <a href="{{ route('CourseMaster') }}" class="nav-link">Daftar Kursus</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{ route('OrderHistoryManager') }}" class="nav-link">Riwayat Pembelian</a>
-                        </li>
-
                     </ul>
                 </div>
             </li>
@@ -111,17 +103,18 @@
                     </ul>
                 </div>
             </li>
+            <li class="nav-item nav-category">Pembayaran</li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#authPages" role="button"
-                    aria-expanded="false" aria-controls="authPages">
+                <a class="nav-link" data-bs-toggle="collapse" href="#authPages" role="button" aria-expanded="false"
+                    aria-controls="authPages">
                     <i class="link-icon" data-feather="unlock"></i>
-                    <span class="link-title">Pembayaran</span>
+                    <span class="link-title">Transaksi</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 <div class="collapse" id="authPages">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="pages/auth/login.html" class="nav-link">Riwayat Pembelian Kelas</a>
+                            <a href="{{ route('OrderHistoryManager') }}" class="nav-link">Riwayat Pembelian Kelas</a>
                         </li>
                         {{-- <li class="nav-item">
                             <a href="pages/auth/register.html" class="nav-link">Register</a>
