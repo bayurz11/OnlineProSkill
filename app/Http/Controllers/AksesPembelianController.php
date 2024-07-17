@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Session;
 
 class AksesPembelianController extends Controller
 {
-    public function index($id)
+    public function index()
     {
         $cart = Session::get('cart', []);
         $user = Auth::user();
@@ -34,7 +34,7 @@ class AksesPembelianController extends Controller
 
         // Fetching orders related to the user
         $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
-        $kurikulum = Kurikulum::with('user')->where('course_id', $id)->get();
+
         // Debugging data
         foreach ($orders as $order) {
             Log::info('Order ID: ' . $order->id);
@@ -46,7 +46,7 @@ class AksesPembelianController extends Controller
             }
         }
 
-        return view('studen.aksespembelian', compact('user', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum'));
+        return view('studen.aksespembelian', compact('user', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders'));
     }
     public function lesson($id)
     {
