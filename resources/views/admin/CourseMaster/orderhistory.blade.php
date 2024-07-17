@@ -62,7 +62,7 @@
                                             </td>
                                             <td>
 
-                                                <a href="{{ route('prin', ['id' => $order->id]) }}"
+                                                <a href="{{ route('prin', ['id' => $order->id]) }}" _blank
                                                     class="btn btn-success btn-icon" title="Cetak">
                                                     <i data-feather="printer"></i>
                                                 </a>
