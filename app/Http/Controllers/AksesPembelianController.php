@@ -34,7 +34,7 @@ class AksesPembelianController extends Controller
 
         // Fetching orders related to the user
         $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
-        $kurikulum = Kurikulum::with('course_id')->get();
+        $kurikulum = Kurikulum::with('course')->get();
         // Debugging data
         foreach ($orders as $order) {
             Log::info('Order ID: ' . $order->id);
