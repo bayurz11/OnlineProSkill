@@ -15,6 +15,39 @@ use Illuminate\Support\Facades\Session;
 
 class AksesPembelianController extends Controller
 {
+    // public function index()
+    // {
+    //     $cart = Session::get('cart', []);
+    //     $user = Auth::user();
+    //     if (!$user) {
+    //         return redirect()->route('home');
+    //     }
+
+    //     $profile = UserProfile::where('user_id', $user->id)->first();
+
+    //     $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
+    //         ->orderBy('created_at', 'desc')
+    //         ->get()
+    //         : collect();
+
+    //     $notifikasiCount = $notifikasi->where('status', 1)->count();
+
+    //     // Fetching orders related to the user
+    //     $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
+    //     $kurikulum = Kurikulum::all();
+    //     // Debugging data
+    //     foreach ($orders as $order) {
+    //         Log::info('Order ID: ' . $order->id);
+    //         if ($order->KelasTatapMuka) {
+    //             Log::info('Kelas Tatap Muka ID: ' . $order->KelasTatapMuka->id);
+    //             Log::info('Kelas Tatap Muka Name: ' . $order->KelasTatapMuka->nama_kelas);
+    //         } else {
+    //             Log::info('Kelas Tatap Muka: Not Found');
+    //         }
+    //     }
+
+    //     return view('studen.aksespembelian', compact('user', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum'));
+    // }
     public function index()
     {
         $cart = Session::get('cart', []);
@@ -34,20 +67,33 @@ class AksesPembelianController extends Controller
 
         // Fetching orders related to the user
         $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
-        $kurikulum = Kurikulum::with('KelasTatapMuka')->get();
+
+        // Get all Kurikulum
+        $kurikulum = Kurikulum::all();
+
+        // Group Kurikulum by course_id
+        $kurikulumByCourseId = $kurikulum->groupBy('course_id');
+
+        // Count the number of Kurikulum for each course_id
+        $kurikulumCountByCourseId = $kurikulumByCourseId->map(function ($item, $key) {
+            return $item->count();
+        });
+
         // Debugging data
         foreach ($orders as $order) {
             Log::info('Order ID: ' . $order->id);
             if ($order->KelasTatapMuka) {
                 Log::info('Kelas Tatap Muka ID: ' . $order->KelasTatapMuka->id);
                 Log::info('Kelas Tatap Muka Name: ' . $order->KelasTatapMuka->nama_kelas);
+                Log::info('Kurikulum Count for course_id ' . $order->KelasTatapMuka->course_id . ': ' . $kurikulumCountByCourseId->get($order->KelasTatapMuka->course_id, 0));
             } else {
                 Log::info('Kelas Tatap Muka: Not Found');
             }
         }
 
-        return view('studen.aksespembelian', compact('user', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum'));
+        return view('studen.aksespembelian', compact('user', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum', 'kurikulumCountByCourseId'));
     }
+
     public function lesson($id)
     {
         $cart = Session::get('cart', []);
