@@ -73,7 +73,7 @@ class HomeController extends Controller
         // Ambil ID kursus yang telah diikuti oleh user
         $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
 
-        return view('home.classroom', compact('user', 'count', 'course', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'jumlahPendaftaran'));
+        return view('home.classroom', compact('user', 'count', 'course', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'jumlahPendaftaran', 'joinedCourses'));
     }
     // public function course()
     // {
