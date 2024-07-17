@@ -37,12 +37,7 @@
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
                                             <td>{{ $order->nomor_invoice }}</td>
-                                            <td>
-                                                @if ($order->KelasTatapMuka)
-                                                    {{ $order->KelasTatapMuka->nama_kelas }}
-                                                @else
-                                                    Kelas Tatap Muka: Not Found
-                                                @endif
+                                            <td>{{ $order->KelasTatapMuka->nama_kursus ?? 'Nama kelas tidak tersedia' }}
                                             </td>
                                             <td>
                                                 <a href="#"
