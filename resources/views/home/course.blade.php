@@ -112,6 +112,12 @@
                                                         <img src="{{ asset('public/uploads/' . $cours->gambar) }}"
                                                             alt="Banner" class="wd-100 wd-sm-150 me-3">
                                                     </a>
+                                                    @if (in_array($cours->id, $joinedCourses))
+                                                        <div class="joined-icon">
+                                                            <img src="{{ asset('public/assets/img/icons/joined.svg') }}"
+                                                                alt="Joined">
+                                                        </div>
+                                                    @endif
                                                 </div>
                                                 <div class="courses__item-content">
                                                     <h5 class="title">
@@ -133,14 +139,6 @@
                                                                 <i class="flaticon-arrow-right"></i>
                                                             </a>
                                                         </div>
-                                                        {{-- <div class="button">
-                                                            <a href="{{ route('cart.add', ['id' => $cours->id]) }}"
-                                                                class="cart-count"
-                                                                style="color: #ffffff; background-color: #007F73;">Keranjang
-                                                                <img src="{{ asset('public/assets/img/icons/cart.svg') }}"
-                                                                    class="injectable" alt="img">
-                                                            </a>
-                                                        </div> --}}
                                                         <h5 class="price">Rp
                                                             {{ number_format($cours->price, 0, ',', ',') }}</h5>
                                                     </div>
