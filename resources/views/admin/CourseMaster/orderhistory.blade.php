@@ -37,8 +37,7 @@
                                     @foreach ($orders as $key => $order)
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
-                                            <td><img src="{{ asset('public/uploads/' . $order->gambar) }}" alt="Banner"
-                                                    class="wd-100 wd-sm-150 me-3"></td>
+                                            <td>{{ $order->nomor_invoice }}</td>
                                             <td>{{ $order->name_category }}</td>
                                             <td>
                                                 <a href="#"
