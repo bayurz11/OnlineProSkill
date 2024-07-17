@@ -179,7 +179,9 @@ class HomeController extends Controller
         // Ambil section yang relevan dengan kurikulum
         $section = Section::whereIn('kurikulum_id', $kurikulum->pluck('id'))->get()->groupBy('kurikulum_id');
 
-        return view('home.classroomdetail', compact('user', 'jumlahPendaftaran', 'courses', 'kurikulum', 'courseList', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'section'));
+        $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
+
+        return view('home.classroomdetail', compact('user', 'jumlahPendaftaran', 'courses', 'kurikulum', 'courseList', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'section', 'joinedCourses'));
     }
     public function coursedetail($id)
     {
