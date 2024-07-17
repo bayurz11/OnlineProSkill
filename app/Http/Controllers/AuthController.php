@@ -439,11 +439,11 @@ class AuthController extends Controller
 
     public function guestregister(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:3|confirmed',
-            'phone_number' => 'string|max:12',
+            'phone_number' => 'string|max:12|unique:user_profile,phone_number',
             'g-recaptcha-response' => ['required', function (string $attribute, mixed $value, Closure $fail) {
                 $g_response = Http::asForm()->post("https://www.google.com/recaptcha/api/siteverify", [
                     'secret' => config('services.recaptcha_v3.secret'),
@@ -457,6 +457,13 @@ class AuthController extends Controller
                 }
             },]
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput()
+                ->with('error', 'Registrasi gagal! Email atau nomor telepon telah digunakan.');
+        }
 
         $user = User::create([
             'name' => $request->name,
