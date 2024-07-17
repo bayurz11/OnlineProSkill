@@ -187,7 +187,7 @@
                     <table>
                         <tr>
                             <td>
-                                Nama : {{ $user->name }}<br>
+                                Nama : {{ $order->user_id }}<br>
                                 Email : {{ $user->email }}
                             </td>
                         </tr>
