@@ -103,45 +103,42 @@
                             <div
                                 class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
                                 @foreach ($course as $cours)
-                                    @if ($cours->status == 1 && $jumlahPendaftaran->get($cours->id, 0) < 8)
+                                    @if ($cours->status == 1)
                                         <div class="col">
                                             <div class="courses__item shine__animate-item">
                                                 <div class="courses__item-thumb">
-                                                    <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}"
+                                                    <a href="{{ route('coursedetail', ['id' => $cours->id]) }}"
                                                         class="shine__animate-link">
                                                         <img src="{{ asset('public/uploads/' . $cours->gambar) }}"
                                                             alt="Banner" class="wd-100 wd-sm-150 me-3">
                                                     </a>
+                                                    @if (in_array($cours->id, $joinedCourses))
+                                                        <div class="joined-icon">
+                                                            <img src="{{ asset('public/assets/img/icons/joined.svg') }}"
+                                                                alt="Joined">
+                                                        </div>
+                                                    @endif
                                                 </div>
                                                 <div class="courses__item-content">
                                                     <h5 class="title">
                                                         <a
-                                                            href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
+                                                            href="{{ route('coursedetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
                                                     </h5>
                                                     <p class="author">By <a
                                                             href="#">{{ $cours->user->name }}</a>&nbsp;&nbsp; <img
                                                             src="{{ asset('public/assets/img/icons/course_icon06.svg') }}"
                                                             alt="img" class="injectable">
-                                                        Kuota Kelas
-                                                        <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}/{{ $cours->kuota }}</span>
+                                                        Jumlah Pendaftar
+                                                        <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}</span>
                                                     </p>
 
                                                     <div class="courses__item-bottom">
                                                         <div class="button">
-                                                            <a
-                                                                href="{{ route('classroomdetail', ['id' => $cours->id]) }}">
+                                                            <a href="{{ route('coursedetail', ['id' => $cours->id]) }}">
                                                                 <span class="text">Detail</span>
                                                                 <i class="flaticon-arrow-right"></i>
                                                             </a>
                                                         </div>
-                                                        {{-- <div class="button">
-                                                            <a href="{{ route('cart.add', ['id' => $cours->id]) }}"
-                                                                class="cart-count"
-                                                                style="color: #ffffff; background-color: #007F73;">Keranjang
-                                                                <img src="{{ asset('public/assets/img/icons/cart.svg') }}"
-                                                                    class="injectable" alt="img">
-                                                            </a>
-                                                        </div> --}}
                                                         <h5 class="price">Rp
                                                             {{ number_format($cours->price, 0, ',', ',') }}</h5>
                                                     </div>
