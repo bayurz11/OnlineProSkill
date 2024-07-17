@@ -120,13 +120,13 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="courses__item-bottom-two">
+                                                        {{-- <div class="courses__item-bottom-two">
                                                             <ul class="list-wrap">
                                                                 <li><i class="flaticon-book"></i>15</li>
                                                                 <li><i class="flaticon-clock"></i>8</li>
                                                                 <li><i class="flaticon-mortarboard"></i>22</li>
                                                             </ul>
-                                                        </div>
+                                                        </div> --}}
                                                     </div>
                                                 </div>
                                             @endforeach
