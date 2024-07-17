@@ -5,17 +5,16 @@
         </div>
         <nav class="dashboard__sidebar-menu">
             <ul class="list-wrap">
-
-                <li class="{{ Request::is('profil') ? 'active' : '' }}">
-                    <a href="{{ route('profil') }}">
-                        <i class="skillgro-avatar"></i>
-                        Profil Saya
-                    </a>
-                </li>
                 <li class="{{ Request::is('akses_pembelian') ? 'active' : '' }}">
                     <a href="{{ route('akses_pembelian') }}">
                         <i class="skillgro-book"></i>
                         Akses Pembelian
+                    </a>
+                </li>
+                <li class="{{ Request::is('profil') ? 'active' : '' }}">
+                    <a href="{{ route('profil') }}">
+                        <i class="skillgro-avatar"></i>
+                        Profil Saya
                     </a>
                 </li>
                 <li class="{{ Request::is('history') ? 'active' : '' }}">
