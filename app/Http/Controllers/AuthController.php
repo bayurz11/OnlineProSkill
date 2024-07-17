@@ -13,6 +13,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
@@ -336,13 +338,27 @@ class AuthController extends Controller
         return redirect()->route($redirectRoute)->with('success', "Terimakasih, $userName! Anda Berhasil keluar.");
     }
 
+
     // public function register(Request $request)
     // {
+
     //     $request->validate([
     //         'name' => 'required|string|max:255',
     //         'email' => 'required|string|email|max:255|unique:users',
     //         'password' => 'required|string|min:3|confirmed',
-    //         'phone_number' => 'string|max:12',
+    //         'phone_number' => 'string|max:12|unique:user_profiles,phone_number',
+    //         'g-recaptcha-response' => ['required', function (string $attribute, mixed $value, Closure $fail) {
+    //             $g_response = Http::asForm()->post("https://www.google.com/recaptcha/api/siteverify", [
+    //                 'secret' => config('services.recaptcha_v3.secret'),
+    //                 'response' => $value,
+    //                 'remoteip' => \request()->ip()
+    //             ]);
+
+    //             $g_response = $g_response->json();
+    //             if (!$g_response['success']) {
+    //                 $fail("The {$attribute} is invalid: " . implode(', ', $g_response['error-codes']));
+    //             }
+    //         },]
     //     ]);
 
     //     $user = User::create([
@@ -364,19 +380,18 @@ class AuthController extends Controller
     //     $userProfile->phone_number = $request->phone_number;
     //     $userProfile->save();
 
-
     //     Auth::login($user);
 
     //     return redirect()->route('profil')->with('info', 'Pendaftaran berhasil! Harap lengkapi profil Anda');
-    // }
+    // } 170724
+
     public function register(Request $request)
     {
-
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:3|confirmed',
-            'phone_number' => 'string|max:12',
+            'phone_number' => 'string|max:12|unique:user_profiles,phone_number',
             'g-recaptcha-response' => ['required', function (string $attribute, mixed $value, Closure $fail) {
                 $g_response = Http::asForm()->post("https://www.google.com/recaptcha/api/siteverify", [
                     'secret' => config('services.recaptcha_v3.secret'),
@@ -390,6 +405,13 @@ class AuthController extends Controller
                 }
             },]
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput()
+                ->with('error', 'Registrasi gagal! Email atau nomor telepon telah digunakan.');
+        }
 
         $user = User::create([
             'name' => $request->name,
@@ -414,8 +436,6 @@ class AuthController extends Controller
 
         return redirect()->route('profil')->with('info', 'Pendaftaran berhasil! Harap lengkapi profil Anda');
     }
-
-
 
     public function guestregister(Request $request)
     {
