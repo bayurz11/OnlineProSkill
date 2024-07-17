@@ -87,6 +87,14 @@
                                         <div
                                             class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
                                             @foreach ($orders as $order)
+                                                @php
+                                                    // Menghitung jumlah kurikulum yang sesuai dengan course_id dari KelasTatapMuka
+                                                    $courseId = $order->KelasTatapMuka->course_id;
+                                                    $kurikulumCount = \App\Models\Kurikulum::where(
+                                                        'course_id',
+                                                        $courseId,
+                                                    )->count();
+                                                @endphp
                                                 <div class="col">
                                                     <div class="courses__item courses__item-two shine__animate-item">
                                                         <div class="courses__item-thumb courses__item-thumb-two">
@@ -115,14 +123,13 @@
                                                                 <div class="progress" role="progressbar"
                                                                     aria-label="Example with label" aria-valuenow="25"
                                                                     aria-valuemin="0" aria-valuemax="100">
-                                                                    <div class="progress-bar" style="width: 12%">
-                                                                    </div>
+                                                                    <div class="progress-bar" style="width: 12%"></div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="courses__item-bottom-two">
                                                             <ul class="list-wrap">
-                                                                <li><i class="flaticon-book"></i>{{ $kurikulum->count() }}
+                                                                <li><i class="flaticon-book"></i>{{ $kurikulumCount }}
                                                                 </li>
                                                                 <li><i class="flaticon-clock"></i>8</li>
                                                                 <li><i class="flaticon-mortarboard"></i>22</li>
@@ -131,6 +138,7 @@
                                                     </div>
                                                 </div>
                                             @endforeach
+
                                         </div>
                                     </div>
 
