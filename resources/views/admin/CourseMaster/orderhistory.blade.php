@@ -27,7 +27,7 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Gambar Icon</th>
+                                        <th>No Invoice</th>
                                         <th>Nama Kategori</th>
                                         <th>Status</th>
                                         <th>Action</th>
