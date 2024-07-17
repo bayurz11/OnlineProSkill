@@ -46,7 +46,7 @@ class AksesPembelianController extends Controller
             }
         }
 
-        return view('studen.aksespembelian', compact('user', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders'));
+        return view('studen.aksespembelian', compact('user', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum'));
     }
     public function lesson($id)
     {
