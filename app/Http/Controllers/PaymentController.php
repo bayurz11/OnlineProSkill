@@ -271,7 +271,7 @@ class PaymentController extends Controller
             $result = $apiInstance->createInvoice($createInvoiceRequest);
 
             // Generate nomor invoice unik
-            $invoiceNumber = 'PSA-' . Carbon::now('Asia/Jakarta')->timestamp . '-' . $userId;
+            $invoiceNumber = 'PSA-' . Carbon::now('Asia/Jakarta')->format('mdHi') . '-' . $userId;
 
             // Masukkan ke tabel orders
             foreach ($items as $kelas) {
