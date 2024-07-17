@@ -41,8 +41,7 @@ class OrderHistoryManagerController extends Controller
     }
     public function cetak($id)
     {
-        $user = Auth::user();
-        $order = Order::findOrFail($id);
+        $order = Order::with('user')->findOrFail($id);
         return view('admin.cetak', compact('order', 'user'));
     }
 }

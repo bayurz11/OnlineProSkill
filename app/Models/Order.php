@@ -16,6 +16,10 @@ class Order extends Model
     {
         return $this->belongsTo(KelasTatapMuka::class, 'product_id');
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
     // public function KelasTatapMuka()
     // {
     //     return $this->belongsTo(KelasTatapMuka::class);
