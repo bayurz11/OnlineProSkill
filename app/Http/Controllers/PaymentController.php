@@ -362,7 +362,7 @@ class PaymentController extends Controller
                     'message' => 'Pembayaran berhasil di proses'
                 ]);
 
-                return redirect()->route('classroom')->with('success', 'Pembayaran berhasil di proses');
+                return redirect()->route('akses_pembelian')->with('success', 'Pembayaran berhasil di proses');
             }
         }
 
@@ -374,6 +374,6 @@ class PaymentController extends Controller
             'message' => 'Pembayaran Berhasil'
         ]);
 
-        return redirect()->route('classroom')->with('success', 'Pembayaran Berhasil');
+        return redirect()->route('akses_pembelian')->with('success', 'Pembayaran Berhasil');
     }
 }
