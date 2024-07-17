@@ -391,7 +391,7 @@ class AuthController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:3|confirmed',
-            'phone_number' => 'string|max:12|unique:user_profiles,phone_number',
+            'phone_number' => 'string|max:12|unique:user_profile,phone_number',
             'g-recaptcha-response' => ['required', function (string $attribute, mixed $value, Closure $fail) {
                 $g_response = Http::asForm()->post("https://www.google.com/recaptcha/api/siteverify", [
                     'secret' => config('services.recaptcha_v3.secret'),
