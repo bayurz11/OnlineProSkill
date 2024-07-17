@@ -27,7 +27,9 @@
                                     <tr>
                                         <th>No</th>
                                         <th>No Invoice</th>
-                                        <th>Nama Kategori</th>
+                                        <th>Nama Kelas</th>
+                                        <th>Tanggal</th>
+                                        <th>Harga</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -40,18 +42,26 @@
                                             <td>{{ $order->KelasTatapMuka->nama_kursus ?? 'Nama kelas tidak tersedia' }}
                                             </td>
                                             <td>
-                                                <a href="#"
-                                                    class="badge badgeLink {{ $order->status ? 'bg-success' : 'bg-danger' }}"
-                                                    data-id="{{ $order->id }}" data-status="{{ $order->status }}">
-                                                    {{ $order->status ? 'Active' : 'Inactive' }}
-                                                </a>
+                                                {{ $order->created_at->format('d M Y') }}
                                             </td>
                                             <td>
-                                                <button type="button" class="btn btn-primary btn-icon edit-button"
-                                                    title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
-                                                    data-id="{{ $order->id }}">
-                                                    <i data-feather="edit"></i>
-                                                </button>
+                                                {{ number_format($order->price, 0) }}
+                                            </td>
+                                            <td>
+                                                <span class="dashboard__quiz-result">
+                                                    @if ($order->status == 'PAID')
+                                                        Sukses
+                                                    @elseif ($order->status == 'SETTLED')
+                                                        Sukses
+                                                    @else
+                                                        <span class="dashboard__quiz-result processing">
+                                                            Belum Dibayar
+                                                        </span>
+                                                    @endif
+                                                </span>
+                                            </td>
+                                            <td>
+
                                                 <button onclick="hapus('{{ $order->id }}')"
                                                     class="btn btn-danger btn-icon" title="Hapus">
                                                     <i data-feather="trash-2"></i>
