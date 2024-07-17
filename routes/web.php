@@ -140,7 +140,7 @@ Route::get('/classroomdetail/{id}', [HomeController::class, 'classroomdetail'])-
 
 //online Course
 Route::get('/course', [HomeController::class, 'course'])->name('course');
-Route::get('/classroomdetail/{id}', [HomeController::class, 'classroomdetail'])->name('classroomdetail');
+Route::get('/coursedetail/{id}', [HomeController::class, 'coursedetail'])->name('coursedetail');
 
 
 
