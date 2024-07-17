@@ -15,7 +15,7 @@
         @include('admin.modal.add_categories')
         @include('admin.modal.edit_categories')
 
-        {{-- <div class="row">
+        <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
@@ -38,26 +38,26 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($categori as $key => $kategori)
+                                    @foreach ($orders as $key => $order)
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
-                                            <td><img src="{{ asset('public/uploads/' . $kategori->gambar) }}" alt="Banner"
+                                            <td><img src="{{ asset('public/uploads/' . $order->gambar) }}" alt="Banner"
                                                     class="wd-100 wd-sm-150 me-3"></td>
-                                            <td>{{ $kategori->name_category }}</td>
+                                            <td>{{ $order->name_category }}</td>
                                             <td>
                                                 <a href="#"
-                                                    class="badge badgeLink {{ $kategori->status ? 'bg-success' : 'bg-danger' }}"
-                                                    data-id="{{ $kategori->id }}" data-status="{{ $kategori->status }}">
-                                                    {{ $kategori->status ? 'Active' : 'Inactive' }}
+                                                    class="badge badgeLink {{ $order->status ? 'bg-success' : 'bg-danger' }}"
+                                                    data-id="{{ $order->id }}" data-status="{{ $order->status }}">
+                                                    {{ $order->status ? 'Active' : 'Inactive' }}
                                                 </a>
                                             </td>
                                             <td>
                                                 <button type="button" class="btn btn-primary btn-icon edit-button"
                                                     title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
-                                                    data-id="{{ $kategori->id }}">
+                                                    data-id="{{ $order->id }}">
                                                     <i data-feather="edit"></i>
                                                 </button>
-                                                <button onclick="hapus('{{ $kategori->id }}')"
+                                                <button onclick="hapus('{{ $order->id }}')"
                                                     class="btn btn-danger btn-icon" title="Hapus">
                                                     <i data-feather="trash-2"></i>
                                                 </button>
@@ -71,7 +71,7 @@
                     </div>
                 </div>
             </div>
-        </div> --}}
+        </div>
 
     </div>
 
@@ -141,11 +141,11 @@
                 }).then(response => {
                     document.getElementById('confirmationModal').remove();
                     if (response.ok) {
-                        console.log('Kategori berhasil dihapus. Mengalihkan ke halaman pengaturan Kategori.');
+                        console.log('order berhasil dihapus. Mengalihkan ke halaman pengaturan order.');
                         window.location.href = '{{ route('categories') }}';
                     } else {
                         response.text().then(text => {
-                            console.error('Gagal menghapus Kategori:', text);
+                            console.error('Gagal menghapus order:', text);
                         });
                     }
                 }).catch(error => {
