@@ -39,4 +39,10 @@ class OrderHistoryManagerController extends Controller
 
         return view('admin.CourseMaster.orderhistory', compact('user', 'categori', 'count', 'orders'));
     }
+    public function cetak($id)
+    {
+        $user = Auth::user();
+        $order = Order::findOrFail($id);
+        return view('studen.cetak', compact('order', 'user'));
+    }
 }

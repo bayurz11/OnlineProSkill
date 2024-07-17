@@ -62,9 +62,10 @@
                                             </td>
                                             <td>
 
-                                                <button class="btn btn-success btn-icon" title="Cetak">
+                                                <a href="{{ route('prin', ['id' => $order->id]) }}"
+                                                    class="btn btn-success btn-icon" title="Cetak">
                                                     <i data-feather="printer"></i>
-                                                </button>
+                                                </a>
                                             </td>
                                         </tr>
                                     @endforeach
