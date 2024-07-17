@@ -4,7 +4,6 @@
 @extends('layout.mainlayout_admin')
 @section('content')
     <div class="page-content">
-
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
@@ -38,7 +37,13 @@
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
                                             <td>{{ $order->nomor_invoice }}</td>
-                                            <td>{{ $order->name_category }}</td>
+                                            <td>
+                                                @if ($order->KelasTatapMuka)
+                                                    {{ $order->KelasTatapMuka->nama_kelas }}
+                                                @else
+                                                    Kelas Tatap Muka: Not Found
+                                                @endif
+                                            </td>
                                             <td>
                                                 <a href="#"
                                                     class="badge badgeLink {{ $order->status ? 'bg-success' : 'bg-danger' }}"
