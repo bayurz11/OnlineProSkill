@@ -49,10 +49,10 @@ class HomeController extends Controller
             $profile = UserProfile::where('user_id', $user->id)->first();
         }
 
-        // Tambahkan kondisi untuk filter course_type = online
+        // Tambahkan kondisi untuk filter course_type = offline
         $course = KelasTatapMuka::with('user')
             ->where('status', 1)
-            ->where('course_type', 'online')
+            ->where('course_type', 'offline')
             ->get();
         $count = $course->count();
 
@@ -73,7 +73,7 @@ class HomeController extends Controller
         // Ambil ID kursus yang telah diikuti oleh user
         $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
 
-        return view('home.classroom', compact('user', 'count', 'course', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'jumlahPendaftaran', 'joinedCourses'));
+        return view('home.classroom', compact('user', 'count', 'course', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'jumlahPendaftaran'));
     }
     // public function course()
     // {
