@@ -115,13 +115,7 @@
 
                                                 </div>
                                                 <div class="courses__item-content">
-                                                    @if (in_array($cours->id, $joinedCourses))
-                                                        <ul class="courses__item-meta list-wrap">
-                                                            <li class="courses__item-tag">
-                                                                <a href="">Bergabung</a>
-                                                            </li>
-                                                        </ul>
-                                                    @endif
+
                                                     <h5 class="title">
                                                         <a
                                                             href="{{ route('coursedetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
@@ -141,6 +135,13 @@
                                                                 <i class="flaticon-arrow-right"></i>
                                                             </a>
                                                         </div>
+                                                        @if (in_array($cours->id, $joinedCourses))
+                                                            <ul class="courses__item-meta list-wrap">
+                                                                <li class="courses__item-tag">
+                                                                    <a href="">Bergabung</a>
+                                                                </li>
+                                                            </ul>
+                                                        @endif
                                                         <h5 class="price">Rp
                                                             {{ number_format($cours->price, 0, ',', ',') }}</h5>
                                                     </div>
