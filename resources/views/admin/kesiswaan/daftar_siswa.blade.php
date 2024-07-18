@@ -33,9 +33,10 @@
                                 <tbody>
                                     @foreach ($daftar_siswa as $daftar)
                                         <tr>
-                                            <td>{{ $daftar->user_id }}</td>
-                                            <td>{{ $daftar->nama_kursus }}</td>
+                                            <td>{{ $daftar->gambar }}</td>
                                             <td>{{ $daftar->user->name }}</td>
+                                            <td>{{ $daftar->user->email }}</td>
+                                            <td>{{ $daftar->user->status }}</td>
                                             <td>
                                                 <div class="form-check form-switch mb-2">
                                                     <input type="checkbox" class="form-check-input formSwitch"
