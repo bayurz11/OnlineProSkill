@@ -27,7 +27,7 @@
                     <a href="{{ route('history') }}">
                         <img src="{{ asset('public/assets/img/icons/course_icon05.svg') }}" alt="img"
                             class="injectable">
-                        Riwayat Transaksi
+                        Sertifikat
                     </a>
                     </form>
                 </li>
