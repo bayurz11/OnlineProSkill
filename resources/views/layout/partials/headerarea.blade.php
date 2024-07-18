@@ -149,13 +149,16 @@
 
                                                     </a>
                                                     <ul class="sub-menu" style="left: 5; right: 10;">
-                                                        <li>
+                                                        {{-- <li>
                                                             <a class="dropdown-item">
                                                                 <b>{{ Str::limit($user->name, 10) }}</b>
                                                                 <br>
                                                                 <span
                                                                     style="font-size: 14px; color: #b2b2b2;">{{ Str::limit($user->email, 10) }}</span>
                                                             </a>
+                                                        </li> --}}
+                                                        <li class="{{ Request::is('akses_pembelian') ? 'active' : '' }}">
+                                                            <a href="{{ route('akses_pembelian') }}">Akses Pembelian</a>
                                                         </li>
                                                         <li class="{{ Request::is('profil') ? 'active' : '' }}">
                                                             <a href="{{ route('profil') }}">Profil</a>
