@@ -127,14 +127,11 @@
                                                             alt="img" class="injectable">
                                                         Kuota Kelas
                                                         <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}/{{ $cours->kuota }}</span>
+                                                        @if (in_array($cours->id, $joinedCourses))
+                                                            <Span>Joined</Span>
+                                                        @endif
                                                     </p>
-                                                    @if (in_array($cours->id, $joinedCourses))
-                                                        <ul class="courses__item-meta list-wrap">
-                                                            <li class="courses__item-tag">
-                                                                <a href="">Bergabung</a>
-                                                            </li>
-                                                        </ul>
-                                                    @endif
+
                                                     <div class="courses__item-bottom">
                                                         <div class="button">
                                                             <a href="{{ route('coursedetail', ['id' => $cours->id]) }}">
