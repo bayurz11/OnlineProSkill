@@ -23,10 +23,9 @@
                             <table id="dataTableExample" class="table">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
-                                        <th>Nama Kursus</th>
-                                        <th>Kursus Owner</th>
-                                        <th>Harga</th>
+                                        <th>Photo</th>
+                                        <th>Nama</th>
+                                        <th>Email</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
