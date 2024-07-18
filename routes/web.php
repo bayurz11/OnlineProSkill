@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\AksesPembelianController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
@@ -8,20 +7,22 @@ use App\Http\Controllers\HomeController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\OauthController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\SectionController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KurikulumController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\SertifikatController;
+use App\Http\Controllers\DaftarSiswaController;
 use App\Http\Controllers\CourseMasterController;
 use App\Http\Controllers\SubcategoriesController;
+use App\Http\Controllers\AksesPembelianController;
 use App\Http\Controllers\KelasTatapMukaController;
 use App\Http\Controllers\NotifikasiUserController;
 use App\Http\Controllers\DashboardStudenController;
 use App\Http\Controllers\RiwayatTransaksiController;
 use App\Http\Controllers\DashboardInstrukturController;
 use App\Http\Controllers\OrderHistoryManagerController;
-use App\Http\Controllers\SectionController;
-use App\Http\Controllers\SertifikatController;
 
 //Authentikasi
 Route::post('/login', [AuthController::class, 'login'])->name('login');
@@ -67,10 +68,6 @@ Route::middleware('isAdmin')->group(function () {
     Route::put('/Course/{id}', [CourseMasterController::class, 'update'])->name('Course.update');
     // Route::delete('/Course_destroy/{id}', [CourseMasterController::class, 'destroy'])->name('Course.destroy');
 
-    //Riwayat Pembelian Kursus
-    Route::get('/OrderHistoryManager', [OrderHistoryManagerController::class, 'index'])->name('OrderHistoryManager');
-    Route::get('/prin/{id}', [OrderHistoryManagerController::class, 'cetak'])->name('prin');
-
     //*******ADMIN OFFLINE COURSE SETTING*******//
 
     //Kursus Tatap Muka
@@ -94,6 +91,15 @@ Route::middleware('isAdmin')->group(function () {
     Route::get('/section/{id}/edit', [SectionController::class, 'edit'])->name('section.edit');
     Route::put('/sectionupdate/{id}', [SectionController::class, 'update'])->name('section.update');
     Route::delete('/section_destroy/{id}', [SectionController::class, 'destroy'])->name('class.destroy');
+
+
+    //*******PEMBAYARAN DAN TRANSAKSI*******//
+    //Riwayat Pembelian Kursus
+    Route::get('/OrderHistoryManager', [OrderHistoryManagerController::class, 'index'])->name('OrderHistoryManager');
+    Route::get('/prin/{id}', [OrderHistoryManagerController::class, 'cetak'])->name('prin');
+
+    //*******KESISWAAN*******//
+    Route::get('/daftar_siswa', [DaftarSiswaController::class, 'index'])->name('daftar_siswa');
 });
 
 //*********STUDEN*********//

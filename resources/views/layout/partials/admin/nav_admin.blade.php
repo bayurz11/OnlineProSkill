@@ -83,7 +83,7 @@
                 <div class="collapse" id="general-pages">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="pages/general/blank-page.html" class="nav-link">Daftar Siswa</a>
+                            <a href="{{ route('daftar_siswa') }}" class="nav-link">Daftar Siswa</a>
                         </li>
                         {{-- <li class="nav-item">
                             <a href="pages/general/faq.html" class="nav-link">Faq</a>
