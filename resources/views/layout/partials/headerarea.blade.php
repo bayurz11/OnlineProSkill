@@ -148,7 +148,7 @@
                                                             style="border-radius: 50%;">
 
                                                     </a>
-                                                    <ul class="sub-menu" style="left: 5; right: 10;">
+                                                    <ul class="sub-menu" style="left: 15; right: 20;">
                                                         {{-- <li>
                                                             <a class="dropdown-item">
                                                                 <b>{{ Str::limit($user->name, 10) }}</b>
