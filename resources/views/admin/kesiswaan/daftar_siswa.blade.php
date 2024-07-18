@@ -44,6 +44,7 @@
                                                         id="formSwitch{{ $daftar->id }}" data-id="{{ $daftar->id }}"
                                                         data-status="{{ $daftar->user->status }}">
                                                 </div>
+
                                             </td>
                                             <td>
                                                 <a href="{{ route('kurikulum', ['id' => $daftar->id]) }}"
@@ -82,8 +83,6 @@
             const formSwitches = document.querySelectorAll('.formSwitch');
 
             formSwitches.forEach(function(formSwitch) {
-
-
                 // Set initial state of the switch based on the status
                 formSwitch.checked = formSwitch.dataset.status == 1;
 
@@ -105,7 +104,6 @@
                         .then(data => {
                             if (data.success) {
                                 formSwitch.dataset.status = newStatus;
-
                             } else {
                                 alert('Gagal mengupdate status');
                             }
