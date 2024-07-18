@@ -23,7 +23,7 @@ class SertifikatController extends Controller
         $profile = UserProfile::where('user_id', $user->id)->first();
         $name = $profile ? $profile->name : $user->name;
 
-        $outputfile = public_path() . 'sertifikat.pdf';
+        $outputfile = public_path() . '/sertifikat.pdf';
         $this->fillPDF(public_path() . '/master/sertifikat.pdf', $outputfile, $name);
 
         return response()->download($outputfile);
@@ -31,18 +31,20 @@ class SertifikatController extends Controller
 
     public function fillPDF($file, $outputfile, $name)
     {
-        $pdf = new Fpdi();
+        $fpdi = new FPDI;
+        $fpdi->setSourceFile($file);
+        $template = $fpdi->importPage(1);
+        $size = $fpdi->getTemplateSize($template);
+        $fpdi->AddPage($size['orientation'], array($size['width'], $size['height']));
+        $fpdi->useTemplate($template);
 
-        $pdf->AddPage('L', [2000, 1414]);
-        $pdf->setSourceFile($file);
-        $tplId = $pdf->importPage(1);
-        $pdf->useTemplate($tplId, 0, 0, 2000, 1414);
+        // Posisi dan pengaturan teks
+        $top = 105;
+        $right = 135;
+        $fpdi->SetFont("helvetica", "", 17);
+        $fpdi->SetTextColor(25, 26, 25);
+        $fpdi->Text($right, $top, $name);
 
-        $pdf->SetFont('Helvetica', '', 48);
-        $pdf->SetTextColor(0, 0, 0);
-        $pdf->SetXY(1000, 707);
-        $pdf->Cell(0, 0, $name, 0, 1, 'C');
-
-        $pdf->Output('F', $outputfile);
+        $fpdi->Output($outputfile, 'F');
     }
 }
