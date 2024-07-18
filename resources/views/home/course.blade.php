@@ -112,12 +112,6 @@
                                                         <img src="{{ asset('public/uploads/' . $cours->gambar) }}"
                                                             alt="Banner" class="wd-100 wd-sm-150 me-3">
                                                     </a>
-                                                    @if (in_array($cours->id, $joinedCourses))
-                                                        <div class="joined-icon">
-                                                            <img src="{{ asset('public/assets/img/icons/joined.svg') }}"
-                                                                alt="Joined">
-                                                        </div>
-                                                    @endif
                                                 </div>
                                                 <div class="courses__item-content">
                                                     <h5 class="title">
@@ -130,6 +124,12 @@
                                                             alt="img" class="injectable">
                                                         Jumlah Pendaftar
                                                         <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}</span>
+                                                        @if (in_array($cours->id, $joinedCourses))
+                                                            <span
+                                                                style="color: green; font-weight: bold; padding: 2px 6px; border: 1px solid green; border-radius: 4px; background-color: #e0f7e9;">
+                                                                Joined
+                                                            </span>
+                                                        @endif
                                                     </p>
 
                                                     <div class="courses__item-bottom">
@@ -181,6 +181,12 @@
                                                             alt="img" class="injectable">
                                                         Jumlah Pendaftar
                                                         <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}</span>
+                                                        @if (in_array($cours->id, $joinedCourses))
+                                                            <span
+                                                                style="color: green; font-weight: bold; padding: 2px 6px; border: 1px solid green; border-radius: 4px; background-color: #e0f7e9;">
+                                                                Joined
+                                                            </span>
+                                                        @endif
                                                     </p>
                                                     <p class="info">{!! $cours->content !!}</p>
                                                     <div class="courses__item-bottom">
