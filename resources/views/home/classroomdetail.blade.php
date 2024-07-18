@@ -1,4 +1,4 @@
-@section('title', 'ProSkill Akademia | DetailKelas Tatap Muka')
+@section('title', 'ProSkill Akademia | Detail Kelas Tatap Muka')
 <?php $page = 'classroom'; ?>
 
 @extends('layout.mainlayout')
@@ -50,7 +50,6 @@
                         <img src="{{ asset('public/uploads/' . $courses->gambar) }}" alt="img">
                     </div>
                     <div class="courses__details-content">
-
                         <h2 class="title">{{ $courses->nama_kursus }}</h2>
                         <div class="courses__details-meta">
                             <ul class="list-wrap">
@@ -59,7 +58,6 @@
                                         alt="img">
                                     <a href="#">{{ $courses->user->name }}</a>
                                 </li>
-
                                 <li><i class="flaticon-mortarboard"></i>2,250 Lulusan</li>
                             </ul>
                         </div>
@@ -82,7 +80,6 @@
                                     <h3 class="title">Deskripsi Kelas</h3>
                                     <p> {!! $courses->content !!}</p>
                                     <h3 class="title">Pelajaran yang Didapat</h3>
-
                                     <ul class="about__info-list list-wrap">
                                         @foreach ($courseList as $course)
                                             <li class="about__info-list-item">
@@ -91,7 +88,6 @@
                                             </li>
                                         @endforeach
                                     </ul>
-
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="curriculum-tab-pane" role="tabpanel"
@@ -137,9 +133,7 @@
                                                 </div>
                                             </div>
                                         @endforeach
-
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -147,7 +141,6 @@
                 </div>
                 <div class="col-xl-3 col-lg-4">
                     <div class="courses__details-sidebar">
-
                         <div class="courses__cost-wrap">
                             <span>Kursus Fee:</span>
                             <h2 class="title">Rp. {{ number_format($courses->price, 0, ',', '.') }}</h2>
@@ -181,28 +174,43 @@
                                 </li>
                             </ul>
                         </div>
-                        @if ($jumlahPendaftaran < 8)
+                        @if (in_array($courses->id, $joinedCourses))
                             <div class="courses__details-enroll">
                                 <div class="tg-button-wrap">
-                                    <a href="{{ route('cart.checkout', ['id' => $courses->id]) }}"
+                                    <a href="{{ route('user.course.continue', ['id' => $courses->id]) }}"
                                         class="btn btn-two arrow-btn">
-                                        Checkout
+                                        Lanjutkan Belajar
                                         <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                             class="injectable">
                                     </a>
                                 </div>
-                                <br>
+                            </div>
+                        @elseif ($jumlahPendaftaran < $courses->kuota)
+                            <div class="courses__details-enroll">
                                 <div class="tg-button-wrap">
-                                    <a href="{{ route('cart.adddetail', ['id' => $courses->id]) }}" class="btn">
-                                        Masukkan keranjang
-                                        <img src="{{ asset('public/assets/img/icons/cart.svg') }}" class="injectable"
-                                            alt="img">
+                                    <a href="{{ route('cart.checkout', ['id' => $courses->id]) }}"
+                                        class="btn btn-two arrow-btn">
+                                        Gabung Kelas
+                                        <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
+                                            class="injectable">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="courses__details-enroll">
+                                <div class="tg-button-wrap">
+                                    <a href="{{ route('cart.add', ['id' => $courses->id]) }}"
+                                        class="btn btn-two arrow-btn">
+                                        Tambah ke Keranjang
+                                        <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
+                                            class="injectable">
                                     </a>
                                 </div>
                             </div>
                         @else
                             <div class="courses__details-enroll">
-                                <p>Kuota kelas telah terpenuhi. Tunggu batch berikutnya untuk mendaftar.</p>
+                                <div class="alert alert-danger">
+                                    Kuota kelas penuh. Tidak bisa mendaftar.
+                                </div>
                             </div>
                         @endif
                     </div>
@@ -211,16 +219,4 @@
         </div>
     </section>
     <!-- courses-details-area-end -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var paragraphs = document.querySelectorAll('.content p');
-            paragraphs.forEach(function(p) {
-                var parent = p.parentNode;
-                while (p.firstChild) {
-                    parent.insertBefore(p.firstChild, p);
-                }
-                parent.removeChild(p);
-            });
-        });
-    </script>
 @endsection
