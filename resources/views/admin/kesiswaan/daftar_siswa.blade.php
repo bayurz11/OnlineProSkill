@@ -36,12 +36,11 @@
                                             <td>{{ $daftar->gambar }}</td>
                                             <td>{{ $daftar->user->name }}</td>
                                             <td>{{ $daftar->user->email }}</td>
-                                            <td>{{ $daftar->user->status }}</td>
                                             <td>
                                                 <div class="form-check form-switch mb-2">
                                                     <input type="checkbox" class="form-check-input formSwitch"
                                                         id="formSwitch{{ $daftar->id }}" data-id="{{ $daftar->id }}"
-                                                        data-status="{{ $daftar->status }}">
+                                                        data-status="{{ $daftar->user->status }}">
                                                 </div>
                                             </td>
                                             <td>
