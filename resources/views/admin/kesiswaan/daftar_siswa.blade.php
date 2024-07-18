@@ -45,6 +45,7 @@
                                                         data-status="{{ $daftar->user->status }}">
                                                 </div>
 
+
                                             </td>
                                             <td>
                                                 <a href="{{ route('kurikulum', ['id' => $daftar->id]) }}"
