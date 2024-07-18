@@ -77,6 +77,45 @@
 
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const formSwitches = document.querySelectorAll('.formSwitch');
 
+            formSwitches.forEach(function(formSwitch) {
+
+
+                // Set initial state of the switch based on the status
+                formSwitch.checked = formSwitch.dataset.status == 1;
+
+                formSwitch.addEventListener('change', function() {
+                    const categoryId = formSwitch.dataset.id;
+                    const newStatus = formSwitch.checked ? 1 : 0;
+
+                    fetch('/update-category-status/' + categoryId, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                            },
+                            body: JSON.stringify({
+                                status: newStatus
+                            })
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                formSwitch.dataset.status = newStatus;
+
+                            } else {
+                                alert('Gagal mengupdate status');
+                            }
+                        })
+                        .catch(() => {
+                            alert('Terjadi kesalahan');
+                        });
+                });
+            });
+        });
+    </script>
 
 @endsection
