@@ -131,7 +131,7 @@
                                                         @if (in_array($cours->id, $joinedCourses))
                                                             <span
                                                                 style="color: green; font-weight: bold; padding: 2px 6px; border: 1px solid green; border-radius: 4px; background-color: #e0f7e9;">
-                                                                Telah Bergabung
+                                                                Joined
                                                             </span>
                                                         @endif
                                                     </p>
