@@ -15,6 +15,7 @@ class SertifikatController extends Controller
 {
     public function cetak(Request $request)
     {
+        Log::info('Method cetak dipanggil');
         $user = Auth::user();
         if (!$user) {
             return redirect()->route('home');
@@ -28,6 +29,7 @@ class SertifikatController extends Controller
 
         return response()->download($outputfile);
     }
+
 
     public function fillPDF($file, $outputfile, $name)
     {
