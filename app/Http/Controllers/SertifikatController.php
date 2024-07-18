@@ -30,27 +30,21 @@ class SertifikatController extends Controller
         return response()->download($outputfile);
     }
 
-    public function fillPDF($sourcefile, $outputfile, $name)
+    protected function fillPDF($file, $outputfile, $name)
     {
-        // Inisialisasi FPDI
         $pdf = new FPDI();
 
-        // Tambahkan halaman dari PDF master
-        $pdf->AddPage();
-        $pdf->setSourceFile($sourcefile);
-        $tplIdx = $pdf->importPage(1);
-        $pdf->useTemplate($tplIdx, 0, 0, 210);
+        $pageCount = $pdf->setSourceFile($file);
+        for ($pageNo = 1; $pageNo <= $pageCount; $pageNo++) {
+            $templateId = $pdf->importPage($pageNo);
+            $pdf->AddPage();
+            $pdf->useTemplate($templateId, 10, 10, 200);
 
-        // Set font dan ukuran font
-        $pdf->SetFont('Helvetica', '', 24);
+            $pdf->SetFont('Helvetica');
+            $pdf->SetXY(50, 100); // Sesuaikan posisi nama di sertifikat
+            $pdf->Write(0, $name);
+        }
 
-        // Tentukan posisi untuk menulis nama pada sertifikat
-        $pdf->SetXY(50, 100); // Ubah posisi sesuai dengan kebutuhan Anda
-
-        // Tulis nama ke PDF
-        $pdf->Cell(0, 10, $name, 0, 1, 'C');
-
-        // Simpan output file
         $pdf->Output($outputfile, 'F');
     }
 }
