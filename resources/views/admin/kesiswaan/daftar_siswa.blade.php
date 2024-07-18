@@ -33,8 +33,8 @@
                                 <tbody>
                                     @foreach ($daftar_siswa as $daftar)
                                         <tr>
-                                            <td><img src="{{ asset('public/uploads/' . $daftar->gambar) }}" alt="Banner"
-                                                    class="wd-100 wd-sm-150 me-3"></td>
+                                            <td><img src="{{ $daftar && $daftar->gambar ? (strpos($daftar->gambar, 'googleusercontent') !== false ? $daftar->gambar : asset('public/uploads/' . $daftar->gambar)) : asset('public/assets/img/default_image.jpg') }}"
+                                                    alt="Banner" class="wd-100 wd-sm-150 me-3"></td>
                                             </td>
                                             <td>{{ $daftar->user->name }}</td>
                                             <td>{{ $daftar->user->email }}</td>
