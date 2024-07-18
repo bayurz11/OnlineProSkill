@@ -122,7 +122,7 @@
                                                             href="#">{{ $cours->user->name }}</a>&nbsp;&nbsp; <img
                                                             src="{{ asset('public/assets/img/icons/course_icon06.svg') }}"
                                                             alt="img" class="injectable">
-                                                        Jumlah Pendaftar
+                                                        Siswa
                                                         <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}</span>
                                                         @if (in_array($cours->id, $joinedCourses))
                                                             <span
@@ -179,7 +179,7 @@
                                                             href="#">{{ $cours->user->name }}</a>&nbsp;&nbsp; <img
                                                             src="{{ asset('public/assets/img/icons/course_icon06.svg') }}"
                                                             alt="img" class="injectable">
-                                                        Jumlah Pendaftar
+                                                        Siswa
                                                         <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}</span>
                                                         @if (in_array($cours->id, $joinedCourses))
                                                             <span
