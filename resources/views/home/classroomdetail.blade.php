@@ -1,4 +1,4 @@
-@section('title', 'ProSkill Akademia | DetailKelas Tatap Muka')
+@section('title', 'ProSkill Akademia | Detail Kelas Tatap Muka')
 <?php $page = 'classroom'; ?>
 
 @extends('layout.mainlayout')
