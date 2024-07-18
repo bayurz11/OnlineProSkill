@@ -31,49 +31,39 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {{-- @foreach ($course as $key => $courses)
+                                    @foreach ($daftar_siswa as $daftar)
                                         <tr>
-                                            <td>{{ $key + 1 }}</td>
-                                            <td>{{ $courses->nama_kursus }}</td>
-                                            <td>{{ $courses->user->name }}</td>
-                                            <td>
-                                                @if ($courses->free)
-                                                    Free
-                                                @elseif(!empty($courses->discount) && !empty($courses->discountedPrice))
-                                                    Rp. {{ number_format($courses->discountedPrice, 0, ',', '.') }}
-                                                @else
-                                                    Rp. {{ number_format($courses->price, 0, ',', '.') }}
-                                                @endif
-                                            </td>
-
+                                            <td>{{ $daftar->user_id }}</td>
+                                            <td>{{ $daftar->nama_kursus }}</td>
+                                            <td>{{ $daftar->user->name }}</td>
                                             <td>
                                                 <div class="form-check form-switch mb-2">
                                                     <input type="checkbox" class="form-check-input formSwitch"
-                                                        id="formSwitch{{ $courses->id }}" data-id="{{ $courses->id }}"
-                                                        data-status="{{ $courses->status }}">
+                                                        id="formSwitch{{ $daftar->id }}" data-id="{{ $daftar->id }}"
+                                                        data-status="{{ $daftar->status }}">
                                                 </div>
                                             </td>
                                             <td>
-                                                <a href="{{ route('kurikulum', ['id' => $courses->id]) }}"
+                                                <a href="{{ route('kurikulum', ['id' => $daftar->id]) }}"
                                                     class="btn btn-success btn-icon kurikulum-btn"
-                                                    data-id="{{ $courses->id }}" title="Kurikulum">
+                                                    data-id="{{ $daftar->id }}" title="Kurikulum">
                                                     <i data-feather="settings"></i>
                                                 </a>
 
 
                                                 <button type="button" class="btn btn-primary btn-icon edit-button"
                                                     title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
-                                                    data-id="{{ $courses->id }}">
+                                                    data-id="{{ $daftar->id }}">
                                                     <i data-feather="edit"></i>
                                                 </button>
 
-                                                <button onclick="hapus('{{ $courses->id }}')"
+                                                <button onclick="hapus('{{ $daftar->id }}')"
                                                     class="btn btn-danger btn-icon" title="Hapus">
                                                     <i data-feather="trash-2"></i>
                                                 </button>
                                             </td>
                                         </tr>
-                                    @endforeach --}}
+                                    @endforeach
                                 </tbody>
                             </table>
 
