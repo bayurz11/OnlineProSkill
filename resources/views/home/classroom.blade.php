@@ -107,11 +107,6 @@
                                         <div class="col">
                                             <div class="courses__item shine__animate-item">
                                                 <div class="courses__item-thumb">
-                                                    <a href="{{ route('coursedetail', ['id' => $cours->id]) }}"
-                                                        class="shine__animate-link">
-                                                        <img src="{{ asset('public/uploads/' . $cours->gambar) }}"
-                                                            alt="Banner" class="wd-100 wd-sm-150 me-3">
-                                                    </a>
                                                     @if (in_array($cours->id, $joinedCourses))
                                                         <ul class="courses__item-meta list-wrap">
                                                             <li class="courses__item-tag">
@@ -119,6 +114,12 @@
                                                             </li>
                                                         </ul>
                                                     @endif
+                                                    <a href="{{ route('coursedetail', ['id' => $cours->id]) }}"
+                                                        class="shine__animate-link">
+                                                        <img src="{{ asset('public/uploads/' . $cours->gambar) }}"
+                                                            alt="Banner" class="wd-100 wd-sm-150 me-3">
+                                                    </a>
+
                                                 </div>
                                                 <div class="courses__item-content">
 
