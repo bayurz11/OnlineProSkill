@@ -1,7 +1,8 @@
-@section('title', 'ProSkill Akademia | DetailKelas Tatap Muka')
-<?php $page = 'classroom'; ?>
-
 @extends('layout.mainlayout')
+
+@section('title', 'ProSkill Akademia | DetailKelas Tatap Muka')
+
+<?php $page = 'classroom'; ?>
 
 @section('content')
 
@@ -181,29 +182,42 @@
                                 </li>
                             </ul>
                         </div>
-                        @if ($jumlahPendaftaran < 8)
+                        @if (in_array($courses->id, $joinedCourses))
                             <div class="courses__details-enroll">
                                 <div class="tg-button-wrap">
-                                    <a href="{{ route('cart.checkout', ['id' => $courses->id]) }}"
+                                    <a href="{{ route('classroom.learn', ['id' => $courses->id]) }}"
                                         class="btn btn-two arrow-btn">
-                                        Checkout
+                                        Lanjut Belajar
                                         <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                             class="injectable">
                                     </a>
                                 </div>
-                                <br>
-                                <div class="tg-button-wrap">
-                                    <a href="{{ route('cart.adddetail', ['id' => $courses->id]) }}" class="btn">
-                                        Masukkan keranjang
-                                        <img src="{{ asset('public/assets/img/icons/cart.svg') }}" class="injectable"
-                                            alt="img">
-                                    </a>
-                                </div>
                             </div>
                         @else
-                            <div class="courses__details-enroll">
-                                <p>Kuota kelas telah terpenuhi. Tunggu batch berikutnya untuk mendaftar.</p>
-                            </div>
+                            @if ($jumlahPendaftaran < 8)
+                                <div class="courses__details-enroll">
+                                    <div class="tg-button-wrap">
+                                        <a href="{{ route('cart.checkout', ['id' => $courses->id]) }}"
+                                            class="btn btn-two arrow-btn">
+                                            Checkout
+                                            <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}"
+                                                alt="img" class="injectable">
+                                        </a>
+                                    </div>
+                                    <br>
+                                    <div class="tg-button-wrap">
+                                        <a href="{{ route('cart.adddetail', ['id' => $courses->id]) }}" class="btn">
+                                            Masukkan keranjang
+                                            <img src="{{ asset('public/assets/img/icons/cart.svg') }}" class="injectable"
+                                                alt="img">
+                                        </a>
+                                    </div>
+                                </div>
+                            @else
+                                <div class="courses__details-enroll">
+                                    <p>Kuota kelas telah terpenuhi. Tunggu batch berikutnya untuk mendaftar.</p>
+                                </div>
+                            @endif
                         @endif
                     </div>
                 </div>
