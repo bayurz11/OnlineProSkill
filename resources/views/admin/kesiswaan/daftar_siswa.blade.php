@@ -87,10 +87,10 @@
                 formSwitch.checked = formSwitch.dataset.status == 1;
 
                 formSwitch.addEventListener('change', function() {
-                    const categoryId = formSwitch.dataset.id;
+                    const UserId = formSwitch.dataset.id;
                     const newStatus = formSwitch.checked ? 1 : 0;
 
-                    fetch('/update-daftar_siswa/' + categoryId, {
+                    fetch('/update-daftar_siswa/' + UserId, {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
