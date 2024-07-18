@@ -187,6 +187,12 @@
                                                             alt="img" class="injectable">
                                                         Kuota Kelas
                                                         <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}/{{ $cours->kuota }}</span>
+                                                        @if (in_array($cours->id, $joinedCourses))
+                                                            <span
+                                                                style="color: green; font-weight: bold; padding: 2px 6px; border: 1px solid green; border-radius: 4px; background-color: #e0f7e9;">
+                                                                Joined
+                                                            </span>
+                                                        @endif
                                                     </p>
                                                     <p class="info">{!! $cours->content !!}</p>
                                                     <div class="courses__item-bottom">
