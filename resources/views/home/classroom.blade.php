@@ -108,11 +108,7 @@
                                             <div class="courses__item shine__animate-item">
                                                 <div class="courses__item-thumb">
                                                     @if (in_array($cours->id, $joinedCourses))
-                                                        <ul class="courses__item-meta list-wrap">
-                                                            <li class="courses__item-tag">
-                                                                <a href="">Bergabung</a>
-                                                            </li>
-                                                        </ul>
+                                                        <span class="flash-sale">Sale</span>
                                                     @endif
                                                     <a href="{{ route('coursedetail', ['id' => $cours->id]) }}"
                                                         class="shine__animate-link">
