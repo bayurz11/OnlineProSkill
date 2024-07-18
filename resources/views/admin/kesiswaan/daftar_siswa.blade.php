@@ -41,7 +41,8 @@
                                             <td>
                                                 <div class="form-check form-switch mb-2">
                                                     <input type="checkbox" class="form-check-input formSwitch"
-                                                        id="formSwitch{{ $daftar->id }}" data-id="{{ $daftar->id }}"
+                                                        id="formSwitch{{ $daftar->user_id }}"
+                                                        data-id="{{ $daftar->user_id }}"
                                                         data-status="{{ $daftar->user->status }}">
                                                 </div>
 
