@@ -127,6 +127,7 @@
                                                             alt="img" class="injectable">
                                                         Kuota Kelas
                                                         <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}/{{ $cours->kuota }}</span>
+
                                                         @if (in_array($cours->id, $joinedCourses))
                                                             <Span>Joined</Span>
                                                         @endif
