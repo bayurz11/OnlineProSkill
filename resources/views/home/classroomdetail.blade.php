@@ -196,6 +196,7 @@
                                     </a>
                                 </div>
                             </div>
+                            <br>
                             <div class="courses__details-enroll">
                                 <div class="tg-button-wrap">
                                     <a href="{{ route('cart.add', ['id' => $courses->id]) }}"
