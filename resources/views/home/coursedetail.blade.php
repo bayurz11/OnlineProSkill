@@ -181,7 +181,16 @@
                                 </li>
                             </ul>
                         </div>
-                        @if ($jumlahPendaftaran < 8)
+
+                        @if (in_array($courses->id, $joinedCourses))
+                            <div class="courses__details-enroll">
+                                <div class="tg-button-wrap">
+                                    <a href="{{ route('lesson', ['id' => $courses->id]) }}" class="btn btn-primary">
+                                        Lanjut Belajar
+                                    </a>
+                                </div>
+                            </div>
+                        @elseif ($jumlahPendaftaran < $courses->kuota)
                             <div class="courses__details-enroll">
                                 <div class="tg-button-wrap">
                                     <a href="{{ route('cart.checkout', ['id' => $courses->id]) }}"
@@ -195,32 +204,25 @@
                                 <div class="tg-button-wrap">
                                     <a href="{{ route('cart.adddetail', ['id' => $courses->id]) }}" class="btn">
                                         Masukkan keranjang
-                                        <img src="{{ asset('public/assets/img/icons/cart.svg') }}" class="injectable"
-                                            alt="img">
+                                        <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
+                                            class="injectable">
                                     </a>
                                 </div>
                             </div>
                         @else
                             <div class="courses__details-enroll">
-                                <p>Kuota kelas telah terpenuhi. Tunggu batch berikutnya untuk mendaftar.</p>
+                                <div class="tg-button-wrap">
+                                    <a href="#" class="btn btn-secondary disabled">
+                                        Pendaftaran Penuh
+                                    </a>
+                                </div>
                             </div>
                         @endif
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- courses-details-area-end -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var paragraphs = document.querySelectorAll('.content p');
-            paragraphs.forEach(function(p) {
-                var parent = p.parentNode;
-                while (p.firstChild) {
-                    parent.insertBefore(p.firstChild, p);
-                }
-                parent.removeChild(p);
-            });
-        });
-    </script>
 @endsection
