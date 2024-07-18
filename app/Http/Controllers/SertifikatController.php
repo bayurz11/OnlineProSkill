@@ -21,7 +21,7 @@ class SertifikatController extends Controller
         }
 
         $profile = UserProfile::where('user_id', $user->id)->first();
-        $name = $profile ? $profile->name : $user->name; // Ambil nama dari profile atau user
+        $name = $profile ? $profile->name : $user->name;
 
         $outputfile = public_path() . 'sertifikat.pdf';
         $this->fillPDF(public_path() . '/master/sertifikat.pdf', $outputfile, $name);
@@ -40,7 +40,7 @@ class SertifikatController extends Controller
 
         $pdf->SetFont('Helvetica', '', 48);
         $pdf->SetTextColor(0, 0, 0);
-        $pdf->SetXY(1000, 707); // Sesuaikan posisi nama sesuai dengan template
+        $pdf->SetXY(1000, 707);
         $pdf->Cell(0, 0, $name, 0, 1, 'C');
 
         $pdf->Output('F', $outputfile);
