@@ -128,7 +128,13 @@
                                                         Kuota Kelas
                                                         <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}/{{ $cours->kuota }}</span>
                                                     </p>
-
+                                                    @if (in_array($cours->id, $joinedCourses))
+                                                        <ul class="courses__item-meta list-wrap">
+                                                            <li class="courses__item-tag">
+                                                                <a href="">Bergabung</a>
+                                                            </li>
+                                                        </ul>
+                                                    @endif
                                                     <div class="courses__item-bottom">
                                                         <div class="button">
                                                             <a href="{{ route('coursedetail', ['id' => $cours->id]) }}">
@@ -136,13 +142,7 @@
                                                                 <i class="flaticon-arrow-right"></i>
                                                             </a>
                                                         </div>
-                                                        @if (in_array($cours->id, $joinedCourses))
-                                                            <ul class="courses__item-meta list-wrap">
-                                                                <li class="courses__item-tag">
-                                                                    <a href="">Bergabung</a>
-                                                                </li>
-                                                            </ul>
-                                                        @endif
+
                                                         <h5 class="price">Rp
                                                             {{ number_format($cours->price, 0, ',', ',') }}</h5>
                                                     </div>
