@@ -118,7 +118,7 @@
                                                     @if (in_array($cours->id, $joinedCourses))
                                                         <ul class="courses__item-meta list-wrap">
                                                             <li class="courses__item-tag">
-                                                                <p>Bergabung</p>
+                                                                <a href="">Bergabung</a>
                                                             </li>
                                                         </ul>
                                                     @endif
