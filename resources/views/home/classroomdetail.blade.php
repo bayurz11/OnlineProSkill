@@ -1,4 +1,4 @@
-@section('title', 'ProSkill Akademia | DetailKelas Tatap Muka')
+@section('title', 'ProSkill Akademia | Detail Kelas Tatap Muka')
 <?php $page = 'classroom'; ?>
 
 @extends('layout.mainlayout')
@@ -181,10 +181,18 @@
                                 </li>
                             </ul>
                         </div>
+                        @php
+                            $user = auth()->user();
+                            $joinedCourses = $user
+                                ? Order::where('user_id', $user->id)
+                                    ->pluck('product_id')
+                                    ->toArray()
+                                : [];
+                        @endphp
                         @if (in_array($courses->id, $joinedCourses))
                             <div class="courses__details-enroll">
                                 <div class="tg-button-wrap">
-                                    <a href="{{ route('classroomdetail', ['id' => $courses->id]) }}"
+                                    <a href="{{ route('course.continue', ['id' => $courses->id]) }}"
                                         class="btn btn-two arrow-btn">
                                         Lanjutkan Belajar
                                         <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
@@ -193,7 +201,7 @@
                                 </div>
                             </div>
                         @else
-                            @if ($jumlahPendaftaran < 8)
+                            @if ($jumlahPendaftaran < $courses->kuota)
                                 <div class="courses__details-enroll">
                                     <div class="tg-button-wrap">
                                         <a href="{{ route('cart.checkout', ['id' => $courses->id]) }}"
@@ -218,7 +226,6 @@
                                 </div>
                             @endif
                         @endif
-
                     </div>
                 </div>
             </div>
