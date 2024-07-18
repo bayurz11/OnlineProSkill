@@ -212,13 +212,15 @@
                                     </a>
 
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <li>
+                                        {{-- <li>
                                             <a class="dropdown-item">
                                                 <b>{{ $user->name }}</b>
                                                 <br>
                                                 <span style="font-size: 14px; color: #b2b2b2;">{{ $user->email }}</span>
                                             </a>
-                                        </li>
+                                        </li> --}}
+                                        <li><a class="dropdown-item" href="{{ route('akses_pembelian') }}">Akses
+                                                Pembelian</a></li>
                                         <li><a class="dropdown-item" href="{{ route('profil') }}">Profil</a></li>
                                         <li><a class="dropdown-item"
                                                 href="{{ route('logout') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
