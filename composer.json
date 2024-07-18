@@ -14,6 +14,7 @@
         "mckenziearts/laravel-notify": "^2.5",
         "setasign/fpdf": "^1.8",
         "setasign/fpdi": "^2.6",
+        "setasign/fpdi-fpdf": "^2.3",
         "tinymce/tinymce": "^7.2",
         "xendit/xendit-php": "^5.0"
     },
