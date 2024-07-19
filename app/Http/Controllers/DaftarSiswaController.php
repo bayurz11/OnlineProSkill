@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\UserProfile;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class DaftarSiswaController extends Controller
 {
@@ -53,10 +54,7 @@ class DaftarSiswaController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
-            'date_of_birth' => 'required|date',
-            'gender' => 'required|string|max:255',
-            'phone_number' => 'required|string|max:12',
-            'address' => 'required|string|max:255',
+            'password' => 'required|string|min:8|confirmed',
         ]);
 
         // Cari user berdasarkan ID
@@ -69,15 +67,8 @@ class DaftarSiswaController extends Controller
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
+            'password' => Hash::make($request->password),
         ]);
-
-        $user->userProfile()->update([
-            'date_of_birth' => $request->date_of_birth,
-            'gender' => $request->gender,
-            'phone_number' => $request->phone_number,
-            'address' => $request->address,
-        ]);
-
         return response()->json(['message' => 'User berhasil diupdate'], 200);
     }
 }
