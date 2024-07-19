@@ -65,12 +65,12 @@
                                         </svg>
                                         <select class="form-select" id="course-cat" aria-label="Default select example"
                                             style="width: 150px">
-                                            <option selected disabled>Categories</option>
-                                            <option value="1">Business</option>
-                                            <option value="2">Data Science</option>
-                                            <option value="3">Art & Design</option>
-                                            <option value="4">Marketing</option>
-                                            <option value="5">Finance</option>
+                                            @foreach ($categori as $category)
+                                                @if ($category->status == 1)
+                                                    <option value="{{ $category->id }}">{{ $category->name_category }}
+                                                    </option>
+                                                @endif
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="input-grp">

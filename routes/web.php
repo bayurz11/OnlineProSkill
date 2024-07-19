@@ -6,6 +6,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\OauthController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\SettingController;
@@ -168,3 +169,5 @@ Route::post('cart/update/{id}', [CartController::class, 'updateQuantity'])->name
 //notifikasi
 Route::get('/notifikasi', [NotifikasiUserController::class, 'index'])->name('notifikasi.index');
 Route::post('/notifikasi/baca-semua', [NotifikasiUserController::class, 'bacaSemua'])->name('notifikasi.bacaSemua');
+//search
+Route::get('/search', [SearchController::class, 'index'])->name('search.index');
