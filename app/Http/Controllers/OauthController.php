@@ -90,23 +90,102 @@ class OauthController extends Controller
     //         return redirect()->route('login')->with('error', 'Terjadi kesalahan saat login menggunakan Google.');
     //     }
     // }
+    // public function handleProviderCallback(Request $request)
+    // {
+    //     try {
+    //         $userSocial = Socialite::driver('google')->user();
+    //         $findUser = User::where('email', $userSocial->getEmail())->first();
+
+    //         if ($findUser) {
+    //             Auth::login($findUser);
+    //             $findUser->last_login = now()->setTimezone('Asia/Jakarta')->toDateTimeString();
+    //             $findUser->save();
+    //         } else {
+    //             $newUser = User::create([
+    //                 'name' => $userSocial->getName(),
+    //                 'email' => $userSocial->getEmail(),
+    //                 'google_id' => $userSocial->getId(),
+    //                 'password' => bcrypt('123456dummy'), // Atau buatlah password secara acak
+    //                 'status' => 1 // Menambahkan status pengguna baru
+    //             ]);
+
+    //             // Menyimpan last_login pengguna baru
+    //             $newUser->last_login = now()->setTimezone('Asia/Jakarta')->toDateTimeString();
+    //             $newUser->save();
+
+    //             // Menyimpan role pengguna baru
+    //             $userRole = new UserRoles();
+    //             $userRole->user_id = $newUser->id;
+    //             $userRole->role_id = 3; // Sesuaikan role_id sesuai kebutuhan
+    //             $userRole->save();
+
+    //             // Menyimpan profil pengguna baru
+    //             $userProfile = new UserProfile();
+    //             $userProfile->user_id = $newUser->id;
+    //             $userProfile->role_id = 3; // Sesuaikan role_id sesuai kebutuhan
+    //             $userProfile->gambar = $userSocial->getAvatar(); // Menyimpan URL gambar langsung dari Google
+    //             \Log::info('Avatar URL: ' . $userSocial->getAvatar()); // Debug URL Avatar
+    //             $userProfile->save();
+
+    //             Auth::login($newUser);
+    //         }
+
+    //         $user = Auth::user();
+    //         $userRole = $user->userRole;
+
+    //         if (!$userRole) {
+    //             return redirect()->back()->with('error', 'Pengguna tidak memiliki peran yang ditetapkan!');
+    //         }
+
+    //         $roleName = $userRole->role->role_name;
+    //         $userName = $user->name;
+    //         switch ($roleName) {
+    //             case 'Administrator':
+    //                 return redirect()->route('dashboard')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+    //             case 'Instruktur':
+    //                 return redirect()->route('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+    //             case 'Studen':
+    //                 $profile = $user->userProfile;
+    //                 if (!$profile || !$profile->gambar || !$profile->date_of_birth || !$profile->phone_number) {
+    //                     return redirect()->route('profil')->with('info', 'Harap lengkapi profil Anda untuk melanjutkan.');
+    //                 } else {
+    //                     return redirect()->route('akses_pembelian')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+    //                 }
+    //             default:
+    //                 return redirect()->route('/')->with('error', 'Peran pengguna tidak dikenali.');
+    //         }
+    //     } catch (Exception $e) {
+    //         \Log::error('Google login error: ' . $e->getMessage()); // Debug error
+    //         return redirect()->route('login')->with('error', 'Terjadi kesalahan saat login menggunakan Google.');
+    //     }
+    // }190724
     public function handleProviderCallback(Request $request)
     {
         try {
+            // Mendapatkan data pengguna dari Google
             $userSocial = Socialite::driver('google')->user();
+            // Mencari pengguna berdasarkan email
             $findUser = User::where('email', $userSocial->getEmail())->first();
 
             if ($findUser) {
+                // Jika pengguna ditemukan, login dan update last_login
                 Auth::login($findUser);
+
+                // Memeriksa status pengguna
+                if ($findUser->status != 1) {
+                    return redirect()->back()->with('error', 'Akun Anda belum diaktifkan. Silakan hubungi admin.');
+                }
+
                 $findUser->last_login = now()->setTimezone('Asia/Jakarta')->toDateTimeString();
                 $findUser->save();
             } else {
+                // Jika pengguna tidak ditemukan, buat pengguna baru
                 $newUser = User::create([
                     'name' => $userSocial->getName(),
                     'email' => $userSocial->getEmail(),
                     'google_id' => $userSocial->getId(),
-                    'password' => bcrypt('123456dummy'), // Atau buatlah password secara acak
-                    'status' => 1 // Menambahkan status pengguna baru
+                    'password' => bcrypt('123456dummy'), // Password dummy untuk pengguna baru
+                    'status' => 1 // Status aktif untuk pengguna baru
                 ]);
 
                 // Menyimpan last_login pengguna baru
@@ -114,19 +193,19 @@ class OauthController extends Controller
                 $newUser->save();
 
                 // Menyimpan role pengguna baru
-                $userRole = new UserRoles();
-                $userRole->user_id = $newUser->id;
-                $userRole->role_id = 3; // Sesuaikan role_id sesuai kebutuhan
-                $userRole->save();
+                UserRoles::create([
+                    'user_id' => $newUser->id,
+                    'role_id' => 3 // Sesuaikan role_id sesuai kebutuhan
+                ]);
 
                 // Menyimpan profil pengguna baru
-                $userProfile = new UserProfile();
-                $userProfile->user_id = $newUser->id;
-                $userProfile->role_id = 3; // Sesuaikan role_id sesuai kebutuhan
-                $userProfile->gambar = $userSocial->getAvatar(); // Menyimpan URL gambar langsung dari Google
-                \Log::info('Avatar URL: ' . $userSocial->getAvatar()); // Debug URL Avatar
-                $userProfile->save();
+                UserProfile::create([
+                    'user_id' => $newUser->id,
+                    'role_id' => 3, // Sesuaikan role_id sesuai kebutuhan
+                    'gambar' => $userSocial->getAvatar() // Menyimpan URL gambar dari Google
+                ]);
 
+                // Login pengguna baru
                 Auth::login($newUser);
             }
 
@@ -139,6 +218,7 @@ class OauthController extends Controller
 
             $roleName = $userRole->role->role_name;
             $userName = $user->name;
+
             switch ($roleName) {
                 case 'Administrator':
                     return redirect()->route('dashboard')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
@@ -159,73 +239,74 @@ class OauthController extends Controller
             return redirect()->route('login')->with('error', 'Terjadi kesalahan saat login menggunakan Google.');
         }
     }
-    public function handleProviderCallbackcart(Request $request)
-    {
-        try {
-            $userSocial = Socialite::driver('google')->user();
-            $findUser = User::where('email', $userSocial->getEmail())->first();
 
-            if ($findUser) {
-                Auth::login($findUser);
-                $findUser->last_login = now()->setTimezone('Asia/Jakarta')->toDateTimeString();
-                $findUser->save();
-            } else {
-                $newUser = User::create([
-                    'name' => $userSocial->getName(),
-                    'email' => $userSocial->getEmail(),
-                    'google_id' => $userSocial->getId(),
-                    'password' => bcrypt('123456'), // Atau buatlah password secara acak
-                    'status' => 1 // Menambahkan status pengguna baru
-                ]);
+    // public function handleProviderCallbackcart(Request $request)
+    // {
+    //     try {
+    //         $userSocial = Socialite::driver('google')->user();
+    //         $findUser = User::where('email', $userSocial->getEmail())->first();
 
-                // Menyimpan last_login pengguna baru
-                $newUser->last_login = now()->setTimezone('Asia/Jakarta')->toDateTimeString();
-                $newUser->save();
+    //         if ($findUser) {
+    //             Auth::login($findUser);
+    //             $findUser->last_login = now()->setTimezone('Asia/Jakarta')->toDateTimeString();
+    //             $findUser->save();
+    //         } else {
+    //             $newUser = User::create([
+    //                 'name' => $userSocial->getName(),
+    //                 'email' => $userSocial->getEmail(),
+    //                 'google_id' => $userSocial->getId(),
+    //                 'password' => bcrypt('123456'), // Atau buatlah password secara acak
+    //                 'status' => 1 // Menambahkan status pengguna baru
+    //             ]);
 
-                // Menyimpan role pengguna baru
-                $userRole = new UserRoles();
-                $userRole->user_id = $newUser->id;
-                $userRole->role_id = 3; // Sesuaikan role_id sesuai kebutuhan
-                $userRole->save();
+    //             // Menyimpan last_login pengguna baru
+    //             $newUser->last_login = now()->setTimezone('Asia/Jakarta')->toDateTimeString();
+    //             $newUser->save();
 
-                // Menyimpan profil pengguna baru
-                $userProfile = new UserProfile();
-                $userProfile->user_id = $newUser->id;
-                $userProfile->role_id = 3; // Sesuaikan role_id sesuai kebutuhan
-                $userProfile->gambar = $userSocial->getAvatar(); // Menyimpan URL gambar langsung dari Google
-                \Log::info('Avatar URL: ' . $userSocial->getAvatar()); // Debug URL Avatar
-                $userProfile->save();
+    //             // Menyimpan role pengguna baru
+    //             $userRole = new UserRoles();
+    //             $userRole->user_id = $newUser->id;
+    //             $userRole->role_id = 3; // Sesuaikan role_id sesuai kebutuhan
+    //             $userRole->save();
 
-                Auth::login($newUser);
-            }
+    //             // Menyimpan profil pengguna baru
+    //             $userProfile = new UserProfile();
+    //             $userProfile->user_id = $newUser->id;
+    //             $userProfile->role_id = 3; // Sesuaikan role_id sesuai kebutuhan
+    //             $userProfile->gambar = $userSocial->getAvatar(); // Menyimpan URL gambar langsung dari Google
+    //             \Log::info('Avatar URL: ' . $userSocial->getAvatar()); // Debug URL Avatar
+    //             $userProfile->save();
 
-            $user = Auth::user();
-            $userRole = $user->userRole;
+    //             Auth::login($newUser);
+    //         }
 
-            if (!$userRole) {
-                return redirect()->back()->with('error', 'Pengguna tidak memiliki peran yang ditetapkan!');
-            }
+    //         $user = Auth::user();
+    //         $userRole = $user->userRole;
 
-            $roleName = $userRole->role->role_name;
-            $userName = $user->name;
-            switch ($roleName) {
-                case 'Administrator':
-                    return redirect()->route('dashboard')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
-                case 'Instruktur':
-                    return redirect()->route('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
-                case 'Studen':
-                    $profile = $user->userProfile;
-                    if (!$profile || !$profile->gambar || !$profile->date_of_birth || !$profile->phone_number) {
-                        return redirect()->route('profil')->with('info', 'Harap lengkapi profil Anda untuk melanjutkan.');
-                    } else {
-                        return redirect()->route('cart.view')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
-                    }
-                default:
-                    return redirect()->route('/')->with('error', 'Peran pengguna tidak dikenali.');
-            }
-        } catch (Exception $e) {
-            \Log::error('Google login error: ' . $e->getMessage()); // Debug error
-            return redirect()->route('login')->with('error', 'Terjadi kesalahan saat login menggunakan Google.');
-        }
-    }
+    //         if (!$userRole) {
+    //             return redirect()->back()->with('error', 'Pengguna tidak memiliki peran yang ditetapkan!');
+    //         }
+
+    //         $roleName = $userRole->role->role_name;
+    //         $userName = $user->name;
+    //         switch ($roleName) {
+    //             case 'Administrator':
+    //                 return redirect()->route('dashboard')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+    //             case 'Instruktur':
+    //                 return redirect()->route('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+    //             case 'Studen':
+    //                 $profile = $user->userProfile;
+    //                 if (!$profile || !$profile->gambar || !$profile->date_of_birth || !$profile->phone_number) {
+    //                     return redirect()->route('profil')->with('info', 'Harap lengkapi profil Anda untuk melanjutkan.');
+    //                 } else {
+    //                     return redirect()->route('cart.view')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+    //                 }
+    //             default:
+    //                 return redirect()->route('/')->with('error', 'Peran pengguna tidak dikenali.');
+    //         }
+    //     } catch (Exception $e) {
+    //         \Log::error('Google login error: ' . $e->getMessage()); // Debug error
+    //         return redirect()->route('login')->with('error', 'Terjadi kesalahan saat login menggunakan Google.');
+    //     }
+    // }
 }
