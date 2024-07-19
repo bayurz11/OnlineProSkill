@@ -1,23 +1,22 @@
+@section('title', 'ProSkill Akademia | Kelas Tatap Muka')
+<?php $page = 'classroom'; ?>
+
 @extends('layout.mainlayout')
 
-@section('title', 'ProSkill Akademia | Hasil Pencarian')
-<?php $page = 'search_results'; ?>
-
 @section('content')
-
     <!-- breadcrumb-area -->
     <section class="breadcrumb__area breadcrumb__bg" data-background="{{ asset('public/assets/img/bg/breadcrumb_bg.jpg') }}">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb__content">
-                        <h3 class="title">Hasil Pencarian</h3>
+                        <h3 class="title">Kelas Tatap Muka</h3>
                         <nav class="breadcrumb">
                             <span property="itemListElement" typeof="ListItem">
                                 <a href="{{ route('/') }}">Beranda</a>
                             </span>
                             <span class="breadcrumb-separator"><i class="fas fa-angle-right"></i></span>
-                            <span property="itemListElement" typeof="ListItem">Hasil Pencarian</span>
+                            <span property="itemListElement" typeof="ListItem">Kelas Tatap Muka</span>
                         </nav>
                     </div>
                 </div>
@@ -46,7 +45,7 @@
                         <div class="row align-items-center">
                             <div class="col-md-5">
                                 <div class="courses-top-left">
-                                    <p>Menampilkan {{ $results->count() }} Hasil Total</p>
+                                    <p>Menampilkan {{ $course->count() }} Hasil Total</p>
                                 </div>
                             </div>
                             <div class="col-md-7">
@@ -96,130 +95,101 @@
                         </div>
                     </div>
                     <div class="tab-content" id="myTabContent">
-
                         <div class="tab-pane fade show active" id="grid" role="tabpanel" aria-labelledby="grid-tab">
                             <div
                                 class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
-                                @foreach ($results as $cours)
-                                    <div class="col">
-                                        <div class="courses__item shine__animate-item">
-                                            <div class="courses__item-thumb">
-                                                <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}"
-                                                    class="shine__animate-link">
-                                                    <img src="{{ asset('public/assets/img/courses/cours_img02.jpg') }}"
-                                                        alt="img">
-                                                </a>
-                                            </div>
-                                            <div class="courses__item-content">
-                                                <div class="courses__top">
-                                                    <span class="courses__cat">
-                                                        <a href="#">{{ $cours->category }}</a>
-                                                    </span>
-                                                    <div class="courses__rating">
-                                                        <div class="courses__rating-inner">
-                                                            <ul>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                                <li><i class="fa fa-star"></i></li>
-                                                            </ul>
-                                                        </div>
-                                                        <p>(5)</p>
-                                                    </div>
-                                                </div>
-                                                <h3 class="courses__title">
-                                                    <a
-                                                        href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->name }}</a>
-                                                </h3>
-                                                <div class="courses__bottom">
-                                                    <ul class="courses__action">
-                                                        <li>
-                                                            <div class="courses__action-item">
-                                                                <i class="far fa-book-alt"></i>
-                                                                <span>{{ $cours->lessons_count }} Pelajaran</span>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="courses__action-item">
-                                                                <i class="far fa-users"></i>
-                                                                <span>{{ $cours->students_count }} Siswa</span>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="courses__btn">
+                                @foreach ($course as $cours)
+                                    @if ($cours->status == 1 && $jumlahPendaftaran->get($cours->id, 0) < 8)
+                                        <div class="col">
+                                            <div class="courses__item shine__animate-item">
+                                                <div class="courses__item-thumb">
                                                     <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}"
-                                                        class="btn">Selengkapnya</a>
+                                                        class="shine__animate-link">
+                                                        <img src="{{ asset('public/uploads/' . $cours->foto) }}"
+                                                            alt="img">
+                                                    </a>
+                                                </div>
+                                                <div class="courses__item-content">
+                                                    <h3 class="courses__item-title">
+                                                        <a
+                                                            href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->nama_kelas }}</a>
+                                                    </h3>
+                                                    <div class="courses__item-instructor">
+                                                        <span class="instructor__name">Oleh: {{ $cours->pengajar }}</span>
+                                                    </div>
+                                                    <div class="courses__item-meta">
+                                                        <span class="courses__item-student"><i
+                                                                class="far fa-user-alt"></i>{{ $jumlahPendaftaran->get($cours->id, 0) }}
+                                                            Siswa</span>
+                                                        <span class="courses__item-rating">
+                                                            <i class="fas fa-star"></i>
+                                                            <strong>{{ number_format($cours->rating, 1) }}</strong>
+                                                            ({{ $cours->jml_review }} Ulasan)
+                                                        </span>
+                                                    </div>
+                                                    <div class="courses__item-action">
+                                                        <a href="{{ route('addtocart', ['id' => $cours->id]) }}"
+                                                            class="btn">Tambah ke Keranjang</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    @endif
                                 @endforeach
                             </div>
                         </div>
-
                         <div class="tab-pane fade" id="list" role="tabpanel" aria-labelledby="list-tab">
-                            <div class="courses__list-wrap">
-                                @foreach ($results as $cours)
-                                    <div class="courses__item courses__item-list shine__animate-item">
-                                        <div class="courses__item-thumb">
-                                            <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}"
-                                                class="shine__animate-link">
-                                                <img src="{{ asset('public/assets/img/courses/cours_img01.jpg') }}"
-                                                    alt="img">
-                                            </a>
-                                        </div>
-                                        <div class="courses__item-content">
-                                            <div class="courses__top">
-                                                <span class="courses__cat">
-                                                    <a href="#">{{ $cours->category }}</a>
-                                                </span>
-                                                <div class="courses__rating">
-                                                    <div class="courses__rating-inner">
-                                                        <ul>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                            <li><i class="fa fa-star"></i></li>
-                                                        </ul>
+                            <div class="row courses__list-wrap row-cols-1">
+                                @foreach ($course as $cours)
+                                    @if ($cours->status == 1 && $jumlahPendaftaran->get($cours->id, 0) < 8)
+                                        <div class="col">
+                                            <div class="courses__item courses__item--list shine__animate-item">
+                                                <div class="row gx-0 align-items-center">
+                                                    <div class="col-xl-3">
+                                                        <div class="courses__item-thumb">
+                                                            <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}"
+                                                                class="shine__animate-link">
+                                                                <img src="{{ asset('public/uploads/' . $cours->foto) }}"
+                                                                    alt="img">
+                                                            </a>
+                                                        </div>
                                                     </div>
-                                                    <p>(5)</p>
+                                                    <div class="col-xl-9">
+                                                        <div class="courses__item-content">
+                                                            <h3 class="courses__item-title">
+                                                                <a
+                                                                    href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->nama_kelas }}</a>
+                                                            </h3>
+                                                            <div class="courses__item-instructor">
+                                                                <span class="instructor__name">Oleh:
+                                                                    {{ $cours->pengajar }}</span>
+                                                            </div>
+                                                            <div class="courses__item-meta">
+                                                                <span class="courses__item-student"><i
+                                                                        class="far fa-user-alt"></i>{{ $jumlahPendaftaran->get($cours->id, 0) }}
+                                                                    Siswa</span>
+                                                                <span class="courses__item-rating">
+                                                                    <i class="fas fa-star"></i>
+                                                                    <strong>{{ number_format($cours->rating, 1) }}</strong>
+                                                                    ({{ $cours->jml_review }} Ulasan)
+                                                                </span>
+                                                            </div>
+                                                            <div class="courses__item-action">
+                                                                <a href="{{ route('addtocart', ['id' => $cours->id]) }}"
+                                                                    class="btn">Tambah ke Keranjang</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <h3 class="courses__title">
-                                                <a
-                                                    href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->name }}</a>
-                                            </h3>
-                                            <div class="courses__bottom">
-                                                <ul class="courses__action">
-                                                    <li>
-                                                        <div class="courses__action-item">
-                                                            <i class="far fa-book-alt"></i>
-                                                            <span>{{ $cours->lessons_count }} Pelajaran</span>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="courses__action-item">
-                                                            <i class="far fa-users"></i>
-                                                            <span>{{ $cours->students_count }} Siswa</span>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="courses__btn">
-                                                <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}"
-                                                    class="btn">Selengkapnya</a>
-                                            </div>
                                         </div>
-                                    </div>
+                                    @endif
                                 @endforeach
                             </div>
                         </div>
                     </div>
-                    {{-- {{ $results->links('pagination::bootstrap-4') }} --}}
                 </div>
+                @include('partials.categories-sidebar')
             </div>
         </div>
     </section>
