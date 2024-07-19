@@ -133,6 +133,11 @@ class AuthController extends Controller
 
         // Memeriksa apakah user ditemukan dan password cocok
         if ($user && Hash::check($request->input('password'), $user->password)) {
+            // Memeriksa status pengguna
+            if ($user->status != 1) {
+                return redirect()->back()->with('error', 'Akun Anda belum diaktifkan. Silakan hubungi admin.');
+            }
+
             Auth::login($user);
             $user->last_login = now()->setTimezone('Asia/Jakarta')->toDateTimeString();
             $user->save();
@@ -141,7 +146,6 @@ class AuthController extends Controller
             if (!$userRole) {
                 return redirect()->back()->with('error', 'Pengguna tidak memiliki peran yang ditetapkan!');
             }
-
             $roleName = $userRole->role->role_name;
             $userName = $user->name;
             switch ($roleName) {
