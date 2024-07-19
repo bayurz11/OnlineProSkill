@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Categories;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use App\Models\KelasTatapMuka;
 use App\Models\NotifikasiUser;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -34,6 +36,14 @@ class SearchController extends Controller
 
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
-        return view('search_results', compact('results', 'categori', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile'));
+
+        // Ambil jumlah pendaftaran untuk setiap kursus
+        $jumlahPendaftaran = Order::select('product_id', DB::raw('count(*) as total'))
+            ->groupBy('product_id')
+            ->pluck('total', 'product_id');
+
+        // Ambil ID kursus yang telah diikuti oleh user
+        $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
+        return view('search_results', compact('results', 'categori', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses'));
     }
 }
