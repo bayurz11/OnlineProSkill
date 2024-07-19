@@ -181,9 +181,8 @@
                                         <div class="instructor__profile-form-wrap">
                                             <form action="#" class="instructor__profile-form">
                                                 <div class="form-grp">
-                                                    <label for="currentpassword">Current Password</label>
-                                                    <input id="currentpassword" type="password"
-                                                        placeholder="Current Password">
+                                                    <label for="email">Email</label>
+                                                    <input id="email" type="email" value="{{ $user->email }}">
                                                 </div>
                                                 <div class="form-grp">
                                                     <label for="newpassword">New Password</label>
