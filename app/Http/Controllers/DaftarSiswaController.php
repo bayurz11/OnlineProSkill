@@ -38,14 +38,15 @@ class DaftarSiswaController extends Controller
 
     public function edit($id)
     {
-        $section = UserProfile::find($id);
+        $user = User::with('userProfile')->find($id);
 
-        if (!$section) {
-            return response()->json(['message' => 'Kurikulum tidak ditemukan'], 404);
+        if (!$user) {
+            return response()->json(['message' => 'User tidak ditemukan'], 404);
         }
 
-        return response()->json($section);
+        return response()->json($user);
     }
+
     public function update(Request $request, $id)
     {
         // Validasi input
