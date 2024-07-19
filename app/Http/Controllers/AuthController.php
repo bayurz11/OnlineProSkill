@@ -163,6 +163,73 @@ class AuthController extends Controller
             return redirect()->back()->with('error', 'Email, nomor telepon, atau password salah.');
         }
     }
+    public function loginstuden(Request $request)
+    {
+        $request->validate([
+            'email_or_phone' => 'required|string',
+            'password' => 'required|string',
+            'g-recaptcha-response' => ['required', function (string $attribute, mixed $value, Closure $fail) {
+                $g_response = Http::asForm()->post("https://www.google.com/recaptcha/api/siteverify", [
+                    'secret' => config('services.recaptcha_v3.secret'),
+                    'response' => $value,
+                    'remoteip' => \request()->ip()
+                ]);
+
+                $g_response = $g_response->json();
+                if (!$g_response['success']) {
+                    $fail("The {$attribute} is invalid: " . implode(', ', $g_response['error-codes']));
+                }
+            },]
+        ]);
+
+        $credentials = $request->only('password');
+        $emailOrPhone = $request->input('email_or_phone');
+
+        // Mencari user berdasarkan email atau nomor telepon
+        $user = User::where('email', $emailOrPhone)
+            ->orWhereHas('userProfile', function ($query) use ($emailOrPhone) {
+                $query->where('phone_number', $emailOrPhone);
+            })
+            ->first();
+
+        // Memeriksa apakah user ditemukan dan password cocok
+        if ($user && Hash::check($request->input('password'), $user->password)) {
+            // Memeriksa status pengguna
+            if ($user->status != 1) {
+                return redirect()->back()->with('error', 'Akun Anda belum diaktifkan. Silakan hubungi admin.');
+            }
+
+            Auth::login($user);
+            $user->last_login = now()->setTimezone('Asia/Jakarta')->toDateTimeString();
+            $user->save();
+
+            $userRole = $user->userRole;
+            if (!$userRole) {
+                return redirect()->back()->with('error', 'Pengguna tidak memiliki peran yang ditetapkan!');
+            }
+
+            $roleName = $userRole->role->role_name;
+            $userName = $user->name;
+            switch ($roleName) {
+                case 'Administrator':
+                    return redirect()->route('dashboard')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+                case 'Instruktur':
+                    return redirect()->route('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+                case 'Studen':
+                    $profile = $user->userProfile;
+                    if (!$profile || !$profile->gambar || !$profile->date_of_birth || !$profile->phone_number) {
+                        return redirect()->route('profil')->with('info', 'Harap lengkapi profil Anda untuk melanjutkan.');
+                    } else {
+                        return redirect()->route('cart.view')->with('success', "Selamat datang, $userName! Silahkan Gabung Kelas Kami.");
+                    }
+                default:
+                    return redirect()->route('/')->with('error', 'Peran pengguna tidak dikenali.');
+            }
+        } else {
+            return redirect()->back()->with('error', 'Email, nomor telepon, atau password salah.');
+        }
+    }
+
 
     // public function loginstuden(Request $request)
     // {
