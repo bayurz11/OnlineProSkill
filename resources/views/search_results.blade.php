@@ -183,7 +183,7 @@
                         </div>
                     </div>
                 </div>
-                @include('partials.categories-sidebar')
+                {{-- @include('partials.categories-sidebar') --}}
             </div>
         </div>
     </section>
