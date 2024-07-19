@@ -180,8 +180,9 @@
                                         aria-labelledby="itemTwo-tab" tabindex="0">
                                         <div class="instructor__profile-form-wrap">
                                             <form action="{{ route('updatePassword', ['id' => $user->id]) }}"
-                                                method="POST" enctype="multipart/form-data">
-                                                @csrf class="instructor__profile-form">
+                                                method="POST" enctype="multipart/form-data"
+                                                class="instructor__profile-form">
+                                                @csrf
                                                 <div class="form-grp">
                                                     <label for="email">Email</label>
                                                     <input id="email" type="email" value="{{ $user->email }}">
