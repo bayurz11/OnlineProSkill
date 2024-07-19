@@ -88,6 +88,6 @@ class SettingController extends Controller
             'password' => $request->password ? Hash::make($request->password) : $user->password,
         ]);
 
-        return redirect()->route('daftar_siswa')->with('success', 'Siswa berhasil diupdate');
+        return redirect()->route('profil')->with('success', 'Siswa berhasil diupdate');
     }
 }
