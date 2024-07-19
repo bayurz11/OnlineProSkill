@@ -24,6 +24,6 @@ class SearchController extends Controller
             ->where('nama_kursus', 'like', '%' . $search_term . '%')
             ->get();
 
-        return view('search_results', compact('results', ' categori'));
+        return view('search_results', compact('results', 'categori'));
     }
 }
