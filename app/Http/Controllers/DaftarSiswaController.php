@@ -35,4 +35,15 @@ class DaftarSiswaController extends Controller
 
         return response()->json(['success' => false]);
     }
+
+    public function edit($id)
+    {
+        $section = UserProfile::find($id);
+
+        if (!$section) {
+            return response()->json(['message' => 'Kurikulum tidak ditemukan'], 404);
+        }
+
+        return response()->json($section);
+    }
 }
