@@ -43,6 +43,7 @@ class SettingController extends Controller
 
         // Validasi data permintaan
         $request->validate([
+            'name' => 'required|string|max:255',
             'dateofBirth' => 'required|date',
             'gender' => 'required|string',
             'phonenumber' => 'required|string|max:15',
@@ -59,6 +60,7 @@ class SettingController extends Controller
         }
 
         // Perbarui data profil
+        $profile->name = $request->input('name');
         $profile->date_of_birth = $request->input('dateofBirth');
         $profile->gender = $request->input('gender');
         $profile->phone_number = $request->input('phonenumber');
