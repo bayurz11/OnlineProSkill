@@ -11,7 +11,7 @@
                 <li class="breadcrumb-item active" aria-current="page">Daftar Siswa</li>
             </ol>
         </nav>
-
+        @include('admin.modal.edit_siswa')
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
@@ -51,7 +51,7 @@
                                             <td>
 
                                                 <button type="button" class="btn btn-primary btn-icon edit-button"
-                                                    title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
+                                                    title="Edit" data-bs-toggle="modal" data-bs-target="#editModalsiswa"
                                                     data-id="{{ $daftar->user_id }}">
                                                     <i data-feather="edit"></i>
                                                 </button>
