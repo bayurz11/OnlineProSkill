@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Categories;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use App\Models\KelasTatapMuka;
@@ -53,6 +54,7 @@ class CartController extends Controller
     // }
     public function show()
     {
+        $categori = Categories::all();
         $user = Auth::user();
         $cart = Session::get('cart', []);
         $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
@@ -71,7 +73,7 @@ class CartController extends Controller
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
-        return view('home.cart2', compact('user', 'cart', 'profile', 'courses', 'notifikasiCount', 'notifikasi'));
+        return view('home.cart2', compact('user', 'categori', 'cart', 'profile', 'courses', 'notifikasiCount', 'notifikasi'));
     }
 
 
