@@ -75,7 +75,7 @@
                                         </select>
                                     </div>
                                     <div class="input-grp">
-                                        <input type="text" name="search_term" placeholder="Search For Course . . .">
+                                        <input type="text" name="search_term" placeholder="Pencarian Kursus . . .">
                                         <button type="submit"><i class="flaticon-search"></i></button>
                                     </div>
                                 </form>
