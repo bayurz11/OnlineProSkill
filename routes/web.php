@@ -102,6 +102,7 @@ Route::middleware('isAdmin')->group(function () {
     Route::get('/daftar_siswa', [DaftarSiswaController::class, 'index'])->name('daftar_siswa');
     Route::post('/update-daftar_siswa/{id}', [DaftarSiswaController::class, 'updateStatus']);
     Route::get('/siswa/{id}/edit', [DaftarSiswaController::class, 'edit'])->name('siswa.edit');
+    Route::put('/siswa/{id}', [DaftarSiswaController::class, 'update'])->name('siswa.update');
 });
 
 //*********STUDEN*********//
