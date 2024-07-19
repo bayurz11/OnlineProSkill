@@ -15,6 +15,7 @@ class SearchController extends Controller
 {
     public function search(Request $request)
     {
+        $user = Auth::user();
         $cart = Session::get('cart', []);
         $categori = Categories::all();
         $category_id = $request->input('category_id');
@@ -24,7 +25,14 @@ class SearchController extends Controller
         $results = KelasTatapMuka::where('kategori_id', $category_id)
             ->where('nama_kursus', 'like', '%' . $search_term . '%')
             ->get();
+        // Ambil notifikasi untuk pengguna yang sedang login
+        $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
+            ->orderBy('created_at', 'desc')
+            ->get()
+            : collect();
 
-        return view('search_results', compact('results', 'categori', 'cart'));
+        // Hitung jumlah notifikasi dengan status = 1
+        $notifikasiCount = $notifikasi->where('status', 1)->count();
+        return view('search_results', compact('results', 'categori', 'cart', 'notifikasi', 'notifikasiCount', 'user'));
     }
 }
