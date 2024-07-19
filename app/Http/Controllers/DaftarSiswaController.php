@@ -54,7 +54,7 @@ class DaftarSiswaController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
-            'password' => 'required|string|min:8|confirmed',
+            'password' => 'nullable|string|min:8|confirmed',
         ]);
 
         // Cari user berdasarkan ID
@@ -67,8 +67,9 @@ class DaftarSiswaController extends Controller
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'password' => $request->password ? Hash::make($request->password) : $user->password,
         ]);
+
         return response()->json(['message' => 'User berhasil diupdate'], 200);
     }
 }

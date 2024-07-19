@@ -21,10 +21,15 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="password" class="form-label">Pasword <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="editpassword" name="password">
+                        <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+                        <input type="password" class="form-control" id="editpassword" name="password">
                     </div>
-
+                    <div class="mb-3">
+                        <label for="password_confirmation" class="form-label">Konfirmasi Password <span
+                                class="text-danger">*</span></label>
+                        <input type="password" class="form-control" id="editpassword_confirmation"
+                            name="password_confirmation">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
@@ -34,6 +39,7 @@
         </div>
     </div>
 </div>
+
 <script>
     $(document).ready(function() {
         $('#editModalsiswa').on('show.bs.modal', function(event) {
@@ -46,10 +52,12 @@
                 success: function(data) {
                     $('#editname').val(data.name);
                     $('#editemail').val(data.email);
-                    $('#editpassword').val(data.password);
+                    $('#editpassword').val(''); // Kosongkan field password
+                    $('#editpassword_confirmation').val(
+                    ''); // Kosongkan field konfirmasi password
 
                     $('#editModalsiswaForm').attr('action', '/siswa/' +
-                        userId); // Set action URL untuk form
+                    userId); // Set action URL untuk form
                 },
                 error: function(xhr) {
                     alert(xhr.responseJSON.message);
