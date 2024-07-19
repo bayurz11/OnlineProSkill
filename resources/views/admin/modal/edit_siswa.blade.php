@@ -21,12 +21,11 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+                        <label for="password" class="form-label">Password </label>
                         <input type="password" class="form-control" id="editpassword" name="password">
                     </div>
                     <div class="mb-3">
-                        <label for="password_confirmation" class="form-label">Konfirmasi Password <span
-                                class="text-danger">*</span></label>
+                        <label for="password_confirmation" class="form-label">Konfirmasi Password </label>
                         <input type="password" class="form-control" id="editpassword_confirmation"
                             name="password_confirmation">
                     </div>
@@ -54,10 +53,10 @@
                     $('#editemail').val(data.email);
                     $('#editpassword').val(''); // Kosongkan field password
                     $('#editpassword_confirmation').val(
-                    ''); // Kosongkan field konfirmasi password
+                        ''); // Kosongkan field konfirmasi password
 
                     $('#editModalsiswaForm').attr('action', '/siswa/' +
-                    userId); // Set action URL untuk form
+                        userId); // Set action URL untuk form
                 },
                 error: function(xhr) {
                     alert(xhr.responseJSON.message);
