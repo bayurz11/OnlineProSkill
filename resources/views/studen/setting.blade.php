@@ -114,7 +114,8 @@
                                                         <div class="form-grp">
                                                             <label for="name">Nama Lengkap</label>
                                                             <input id="name" name="name" type="text"
-                                                                value="{{ $user->name }}">
+                                                                value="{{ $user->name }}" readonly
+                                                                style="background-color: #dadada;">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
