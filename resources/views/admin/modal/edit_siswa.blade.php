@@ -16,6 +16,38 @@
                         <input type="text" class="form-control" id="editname" name="name">
                     </div>
                 </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="editemail" name="email">
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="date_of_birth" class="form-label">Tangal Lahir <span
+                                class="text-danger">*</span></label>
+                        <input type="date" class="form-control" id="editdate_of_birth" name="date_of_birth">
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="gender" class="form-label">gender <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="editgender" name="gender">
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="phone_number" class="form-label">No.HP <span class="text-danger">*</span></label>
+                        <input type="tel" maxlength="12" class="form-control" id="editphone_number"
+                            name="phone_number">
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Alamat<span class="text-danger">*</span></label>
+                        <input type="text" maxlength="12" class="form-control" id="editaddress" name="address">
+                    </div>
+                </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
                     <button type="submit" class="btn btn-primary">Simpan</button>
@@ -25,50 +57,28 @@
     </div>
 </div>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const editButtons = document.querySelectorAll('.edit-button');
+    $(document).ready(function() {
+        $('#editModalsiswa').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget); // Button yang memicu modal
+            var userId = button.data('userid'); // Ambil data dari atribut data-userid
 
-        editButtons.forEach(function(button) {
-            button.addEventListener('click', function() {
-                const userId = this.dataset.id;
+            $.ajax({
+                url: '/siswa/' + userId + '/edit',
+                method: 'GET',
+                success: function(data) {
+                    $('#editname').val(data.name);
+                    $('#editemail').val(data.email);
+                    $('#editdate_of_birth').val(data.userProfile.date_of_birth);
+                    $('#editgender').val(data.userProfile.gender);
+                    $('#editphone_number').val(data.userProfile.phone_number);
+                    $('#editaddress').val(data.userProfile.address);
 
-                // Ambil data siswa dari server menggunakan AJAX
-                fetch(`/siswa/${userId}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            // Isi data ke dalam form modal
-                            document.getElementById('name').value = data.siswa.name;
-                            document.getElementById('edit_durasi').value = data.siswa
-                                .durasi;
-                            document.getElementById('edit_sertifikat').value = data.siswa
-                                .sertifikat;
-                            document.getElementById('edit_kuota').value = data.siswa.kuota;
-                            document.getElementById('edit_subcategory').value = data.siswa
-                                .subkategori_id;
-                            document.getElementById('edit_tingkat').value = data.siswa
-                                .tingkat;
-                            document.getElementById('edit_content').value = data.siswa
-                                .content;
-                            document.getElementById('edit_price').value = data.siswa.price;
-
-                            // Set image preview
-                            const preview = document.getElementById('edit_preview');
-                            preview.src = data.siswa.gambar ? asset('public/uploads/' + data
-                                .siswa.gambar) : '#';
-                            preview.style.display = 'block';
-
-                            // Tampilkan modal
-                            var myModal = new bootstrap.Modal(document.getElementById(
-                                'editModalsiswa'));
-                            myModal.show();
-                        } else {
-                            alert('Gagal mengambil data siswa');
-                        }
-                    })
-                    .catch(() => {
-                        alert('Terjadi kesalahan');
-                    });
+                    $('#editModalsiswaForm').attr('action', '/siswa/' +
+                    userId); // Set action URL untuk form
+                },
+                error: function(xhr) {
+                    alert(xhr.responseJSON.message);
+                }
             });
         });
     });
