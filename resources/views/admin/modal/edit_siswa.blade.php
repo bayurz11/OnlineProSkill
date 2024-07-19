@@ -17,26 +17,14 @@
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="editemail" name="email">
+                        <input type="email" class="form-control" id="editemail" name="email">
                     </div>
+
                     <div class="mb-3">
-                        <label for="date_of_birth" class="form-label">Tanggal Lahir <span
-                                class="text-danger">*</span></label>
-                        <input type="date" class="form-control" id="editdate_of_birth" name="date_of_birth">
+                        <label for="password" class="form-label">Pasword <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="editpassword" name="password">
                     </div>
-                    <div class="mb-3">
-                        <label for="gender" class="form-label">Gender <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="editgender" name="gender">
-                    </div>
-                    <div class="mb-3">
-                        <label for="phone_number" class="form-label">No. HP <span class="text-danger">*</span></label>
-                        <input type="tel" maxlength="12" class="form-control" id="editphone_number"
-                            name="phone_number">
-                    </div>
-                    <div class="mb-3">
-                        <label for="address" class="form-label">Alamat <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="editaddress" name="address">
-                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
@@ -58,10 +46,7 @@
                 success: function(data) {
                     $('#editname').val(data.name);
                     $('#editemail').val(data.email);
-                    $('#editdate_of_birth').val(data.userProfile.date_of_birth);
-                    $('#editgender').val(data.userProfile.gender);
-                    $('#editphone_number').val(data.userProfile.phone_number);
-                    $('#editaddress').val(data.userProfile.address);
+                    $('#editpassword').val(data.password);
 
                     $('#editModalsiswaForm').attr('action', '/siswa/' +
                         userId); // Set action URL untuk form
