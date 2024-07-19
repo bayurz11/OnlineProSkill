@@ -162,20 +162,21 @@ class OauthController extends Controller
     public function handleProviderCallback(Request $request)
     {
         try {
-            // Mendapatkan data pengguna dari Google
             $userSocial = Socialite::driver('google')->user();
-            // Mencari pengguna berdasarkan email
             $findUser = User::where('email', $userSocial->getEmail())->first();
 
             if ($findUser) {
-                // Jika pengguna ditemukan, login dan update last_login
+                // Jika pengguna ditemukan, login
                 Auth::login($findUser);
 
                 // Memeriksa status pengguna
                 if ($findUser->status != 1) {
-                    return redirect()->back()->with('error', 'Akun Anda belum diaktifkan. Silakan hubungi admin.');
+                    // Logout dan redirect ke halaman login dengan pesan error
+                    Auth::logout();
+                    return redirect()->route('login')->with('error', 'Akun Anda belum diaktifkan. Silakan hubungi admin.');
                 }
 
+                // Update last_login jika status aktif
                 $findUser->last_login = now()->setTimezone('Asia/Jakarta')->toDateTimeString();
                 $findUser->save();
             } else {
@@ -188,24 +189,20 @@ class OauthController extends Controller
                     'status' => 1 // Status aktif untuk pengguna baru
                 ]);
 
-                // Menyimpan last_login pengguna baru
                 $newUser->last_login = now()->setTimezone('Asia/Jakarta')->toDateTimeString();
                 $newUser->save();
 
-                // Menyimpan role pengguna baru
                 UserRoles::create([
                     'user_id' => $newUser->id,
                     'role_id' => 3 // Sesuaikan role_id sesuai kebutuhan
                 ]);
 
-                // Menyimpan profil pengguna baru
                 UserProfile::create([
                     'user_id' => $newUser->id,
-                    'role_id' => 3, // Sesuaikan role_id sesuai kebutuhan
-                    'gambar' => $userSocial->getAvatar() // Menyimpan URL gambar dari Google
+                    'role_id' => 3,
+                    'gambar' => $userSocial->getAvatar()
                 ]);
 
-                // Login pengguna baru
                 Auth::login($newUser);
             }
 
@@ -213,6 +210,7 @@ class OauthController extends Controller
             $userRole = $user->userRole;
 
             if (!$userRole) {
+                Auth::logout();
                 return redirect()->back()->with('error', 'Pengguna tidak memiliki peran yang ditetapkan!');
             }
 
@@ -232,13 +230,15 @@ class OauthController extends Controller
                         return redirect()->route('akses_pembelian')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                     }
                 default:
+                    Auth::logout();
                     return redirect()->route('/')->with('error', 'Peran pengguna tidak dikenali.');
             }
         } catch (Exception $e) {
-            \Log::error('Google login error: ' . $e->getMessage()); // Debug error
+            \Log::error('Google login error: ' . $e->getMessage());
             return redirect()->route('login')->with('error', 'Terjadi kesalahan saat login menggunakan Google.');
         }
     }
+
 
     // public function handleProviderCallbackcart(Request $request)
     // {
