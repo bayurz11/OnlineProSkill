@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\Section;
 use App\Models\Kurikulum;
+use App\Models\Categories;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use App\Models\NotifikasiUser;
@@ -17,6 +18,7 @@ class AksesPembelianController extends Controller
 {
     public function index()
     {
+        $categori = Categories::all();
         $cart = Session::get('cart', []);
         $user = Auth::user();
         if (!$user) {
@@ -46,10 +48,11 @@ class AksesPembelianController extends Controller
             }
         }
 
-        return view('studen.aksespembelian', compact('user', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum'));
+        return view('studen.aksespembelian', compact('user', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum'));
     }
     public function lesson($id)
     {
+        $categori = Categories::all();
         $cart = Session::get('cart', []);
         $user = Auth::user();
         if (!$user) {
@@ -70,7 +73,7 @@ class AksesPembelianController extends Controller
         $kurikulum = Kurikulum::with('user')->where('course_id', $id)->get();
 
 
-        return view('studen.lesson', compact('user', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum'));
+        return view('studen.lesson', compact('user', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum'));
     }
 
     public function getContent($id)
