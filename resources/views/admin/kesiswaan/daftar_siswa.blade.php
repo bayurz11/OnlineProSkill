@@ -49,22 +49,15 @@
 
                                             </td>
                                             <td>
-                                                <a href="{{ route('kurikulum', ['id' => $daftar->id]) }}"
+                                                <a href="{{ route('kurikulum', ['id' => $daftar->user_id]) }}"
                                                     class="btn btn-success btn-icon kurikulum-btn"
-                                                    data-id="{{ $daftar->id }}" title="Kurikulum">
-                                                    <i data-feather="settings"></i>
+                                                    data-id="{{ $daftar->user_id }}" title="Kurikulum">
+                                                    <i data-feather="list"></i>
                                                 </a>
-
-
                                                 <button type="button" class="btn btn-primary btn-icon edit-button"
                                                     title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
                                                     data-id="{{ $daftar->id }}">
                                                     <i data-feather="edit"></i>
-                                                </button>
-
-                                                <button onclick="hapus('{{ $daftar->id }}')"
-                                                    class="btn btn-danger btn-icon" title="Hapus">
-                                                    <i data-feather="trash-2"></i>
                                                 </button>
                                             </td>
                                         </tr>
