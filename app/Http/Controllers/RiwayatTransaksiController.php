@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Categories;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use App\Models\NotifikasiUser;
@@ -57,6 +58,7 @@ class RiwayatTransaksiController extends Controller
 
     public function index()
     {
+        $categori = Categories::all();
         $cart = Session::get('cart', []);
         $user = Auth::user();
         if (!$user) {
@@ -86,7 +88,7 @@ class RiwayatTransaksiController extends Controller
             }
         }
 
-        return view('studen.history', compact('user', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders'));
+        return view('studen.history', compact('user', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders'));
     }
 
     public function cetak($id)
