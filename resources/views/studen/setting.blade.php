@@ -199,7 +199,7 @@
                                                         type="password" placeholder="Ketik Ulang Kata Sandi Baru">
                                                 </div>
                                                 <div class="submit-btn mt-25">
-                                                    <button type="submit" class="btn">Update Password</button>
+                                                    <button type="submit" class="btn">Perbahrui Kata Sandi</button>
                                                 </div>
                                             </form>
                                         </div>
