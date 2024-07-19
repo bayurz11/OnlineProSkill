@@ -234,7 +234,7 @@ class OauthController extends Controller
                     return redirect()->route('/')->with('error', 'Peran pengguna tidak dikenali.');
             }
         } catch (Exception $e) {
-            \Log::error('Google login error: ' . $e->getMessage());
+
             return redirect()->route('login')->with('error', 'Terjadi kesalahan saat login menggunakan Google.');
         }
     }
