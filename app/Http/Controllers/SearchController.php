@@ -15,6 +15,7 @@ class SearchController extends Controller
 {
     public function search(Request $request)
     {
+        $cart = Session::get('cart', []);
         $categori = Categories::all();
         $category_id = $request->input('category_id');
         $search_term = $request->input('search_term');
@@ -24,6 +25,6 @@ class SearchController extends Controller
             ->where('nama_kursus', 'like', '%' . $search_term . '%')
             ->get();
 
-        return view('search_results', compact('results', 'categori'));
+        return view('search_results', compact('results', 'categori', ' cart'));
     }
 }
