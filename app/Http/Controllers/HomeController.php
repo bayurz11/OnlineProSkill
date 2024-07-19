@@ -19,7 +19,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $categories = Categories::all();
+        $categori = Categories::all();
         $user = Auth::user();
         $profile = null;
         $cart = Session::get('cart', []);
@@ -37,7 +37,7 @@ class HomeController extends Controller
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
-        return view('home.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'categories'));
+        return view('home.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'categori'));
     }
 
     public function classroom()
