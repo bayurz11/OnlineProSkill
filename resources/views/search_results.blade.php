@@ -218,7 +218,7 @@
                             </div>
                         </div>
                     </div>
-                    {{ $results->links('pagination::bootstrap-4') }}
+                    {{-- {{ $results->links('pagination::bootstrap-4') }} --}}
                 </div>
             </div>
         </div>
