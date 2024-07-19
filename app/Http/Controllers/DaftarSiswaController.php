@@ -54,7 +54,7 @@ class DaftarSiswaController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
-            'password' => 'nullable|string|min:8|confirmed',
+            'password' => 'nullable|string|min:3|confirmed',
         ]);
 
         // Cari user berdasarkan ID
