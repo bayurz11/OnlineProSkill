@@ -79,11 +79,11 @@
                                     </ul>
                                 </div>
                                 <div class="tab-content" id="myTabContent">
-                                    <form action="{{ route('updateProfile', ['id' => $profile->id]) }}"
-                                        class="instructor__profile-form" method="POST" enctype="multipart/form-data">
-                                        @csrf
-                                        <div class="tab-pane fade show active" id="itemOne-tab-pane" role="tabpanel"
-                                            aria-labelledby="itemOne-tab" tabindex="0">
+                                    <div class="tab-pane fade show active" id="itemOne-tab-pane" role="tabpanel"
+                                        aria-labelledby="itemOne-tab" tabindex="0">
+                                        <form action="{{ route('updateProfile', ['id' => $profile->id]) }}"
+                                            class="instructor__profile-form" method="POST" enctype="multipart/form-data">
+                                            @csrf
 
                                             <div class="instructor__cover-bg">
                                                 <div class="instructor__cover-info">
@@ -173,8 +173,8 @@
                                                 </div>
 
                                             </div>
-                                        </div>
-                                    </form>
+                                        </form>
+                                    </div>
 
                                     <div class="tab-pane fade" id="itemTwo-tab-pane" role="tabpanel"
                                         aria-labelledby="itemTwo-tab" tabindex="0">
