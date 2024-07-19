@@ -8,7 +8,7 @@
     @else
         <ul>
             @foreach ($results as $result)
-                <li>{{ $result->nama_kelas }}</li>
+                <li>{{ $result->nama_kursus }}</li>
             @endforeach
         </ul>
     @endif
