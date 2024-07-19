@@ -185,13 +185,14 @@
                                                     <input id="email" type="email" value="{{ $user->email }}">
                                                 </div>
                                                 <div class="form-grp">
-                                                    <label for="newpassword">New Password</label>
-                                                    <input id="newpassword" type="password" placeholder="New Password">
+                                                    <label for="password">Kata Sandi Baru</label>
+                                                    <input id="password" type="password" name="password"
+                                                        placeholder="kata sandi baru">
                                                 </div>
                                                 <div class="form-grp">
-                                                    <label for="repassword">Re-Type New Password</label>
-                                                    <input id="repassword" type="password"
-                                                        placeholder="Re-Type New Password">
+                                                    <label for="password_confirmation">Ketik Ulang Kata Sandi Baru</label>
+                                                    <input id="password_confirmation" name="password_confirmation"
+                                                        type="password" placeholder="Ketik Ulang Kata Sandi Baru">
                                                 </div>
                                                 <div class="submit-btn mt-25">
                                                     <button type="submit" class="btn">Update Password</button>
