@@ -185,7 +185,8 @@
                                                 @csrf
                                                 <div class="form-grp">
                                                     <label for="email">Email</label>
-                                                    <input id="email" type="email" value="{{ $user->email }}">
+                                                    <input id="email" type="email" name="email"
+                                                        value="{{ $user->email }}">
                                                 </div>
                                                 <div class="form-grp">
                                                     <label for="password">Kata Sandi Baru</label>
@@ -203,6 +204,7 @@
                                             </form>
                                         </div>
                                     </div>
+
                                 </div>
 
                             </div>
