@@ -24,8 +24,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="name" class="form-label">Nama Lengkap<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="name" name="name"
-                            value="{{ $daftar->user->name }}">
+                        <input type="text" class="form-control" id="name" name="name" value="">
                     </div>
                     <div class="mb-3">
                         <label for="durasi" class="form-label">Durasi Kursus<span class="text-danger">*</span></label>
