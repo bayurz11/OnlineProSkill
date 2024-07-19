@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Categories;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use App\Models\NotifikasiUser;
@@ -15,7 +16,7 @@ class SettingController extends Controller
 {
     public function index()
     {
-
+        $categori = Categories::all();
         $cart = Session::get('cart', []);
         $user = Auth::user();
         if (!$user) {
@@ -31,7 +32,7 @@ class SettingController extends Controller
 
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
-        return view('studen.setting', compact('user', 'profile', 'cart', 'notifikasi', 'notifikasiCount'));
+        return view('studen.setting', compact('user', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount'));
     }
 
     // public function updateprofil(Request $request, $id)
