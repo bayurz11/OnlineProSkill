@@ -34,6 +34,11 @@ class SearchController extends Controller
             ->get()
             : collect();
 
+        $course = KelasTatapMuka::with('user')
+            ->where('status', 1)
+            ->where('course_type', 'offline')
+            ->get();
+        $count = $course->count();
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
@@ -44,6 +49,6 @@ class SearchController extends Controller
 
         // Ambil ID kursus yang telah diikuti oleh user
         $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
-        return view('search_results', compact('results', 'categori', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses'));
+        return view('search_results', compact('results', 'categori', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'course'));
     }
 }
