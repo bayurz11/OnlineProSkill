@@ -74,7 +74,7 @@
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link" id="itemTwo-tab" data-bs-toggle="tab"
                                                 data-bs-target="#itemTwo-tab-pane" type="button" role="tab"
-                                                aria-controls="itemTwo-tab-pane" aria-selected="false">Password</button>
+                                                aria-controls="itemTwo-tab-pane" aria-selected="false">Kata Sandi</button>
                                         </li>
                                     </ul>
                                 </div>
