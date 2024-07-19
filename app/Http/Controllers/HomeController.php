@@ -42,6 +42,7 @@ class HomeController extends Controller
 
     public function classroom()
     {
+        $categori = Categories::all();
         $user = Auth::user();
         $profile = null;
         $cart = Session::get('cart', []);
@@ -74,7 +75,7 @@ class HomeController extends Controller
         // Ambil ID kursus yang telah diikuti oleh user
         $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
 
-        return view('home.classroom', compact('user', 'count', 'course', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'jumlahPendaftaran', 'joinedCourses'));
+        return view('home.classroom', compact('user', 'categori', 'count', 'course', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'jumlahPendaftaran', 'joinedCourses'));
     }
     // public function classroomdetail($id)
     // {
@@ -119,6 +120,7 @@ class HomeController extends Controller
     // }181724
     public function classroomdetail($id)
     {
+        $categori = Categories::all();
         $user = Auth::user();
         $profile = null;
         $cart = Session::get('cart', []);
@@ -156,7 +158,7 @@ class HomeController extends Controller
 
         $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
 
-        return view('home.classroomdetail', compact('user', 'jumlahPendaftaran', 'courses', 'kurikulum', 'courseList', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'section', 'joinedCourses'));
+        return view('home.classroomdetail', compact('user', 'categori', 'jumlahPendaftaran', 'courses', 'kurikulum', 'courseList', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'section', 'joinedCourses'));
     }
     // public function course()
     // {
@@ -190,6 +192,7 @@ class HomeController extends Controller
     // }
     public function course()
     {
+        $categori = Categories::all();
         $user = Auth::user();
         $profile = null;
         $cart = Session::get('cart', []);
@@ -222,13 +225,14 @@ class HomeController extends Controller
         // Ambil ID kursus yang telah diikuti oleh user
         $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
 
-        return view('home.course', compact('user', 'count', 'course', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'jumlahPendaftaran', 'joinedCourses'));
+        return view('home.course', compact('user', 'count', 'course', 'categori', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'jumlahPendaftaran', 'joinedCourses'));
     }
 
 
 
     public function coursedetail($id)
     {
+        $categori = Categories::all();
         $user = Auth::user();
         $profile = null;
         $cart = Session::get('cart', []);
@@ -266,7 +270,7 @@ class HomeController extends Controller
 
         $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
 
-        return view('home.coursedetail', compact('user', 'jumlahPendaftaran', 'courses', 'kurikulum', 'courseList', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'section', 'joinedCourses'));
+        return view('home.coursedetail', compact('user', 'categori', 'jumlahPendaftaran', 'courses', 'kurikulum', 'courseList', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'section', 'joinedCourses'));
     }
     // public function classroomdetail($id, $slug)
     // {
@@ -314,6 +318,7 @@ class HomeController extends Controller
 
     public function checkout(Request $request, $id)
     {
+        $categori = Categories::all();
         $user = Auth::user();
         $profile = null;
 
@@ -344,7 +349,7 @@ class HomeController extends Controller
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
-        return view('home.checkout', compact('user', 'profile', 'courses', 'cart', 'notifikasiCount', 'notifikasi'));
+        return view('home.checkout', compact('user', 'categori', 'profile', 'courses', 'cart', 'notifikasiCount', 'notifikasi'));
     }
 
     // public function checkout($id)
