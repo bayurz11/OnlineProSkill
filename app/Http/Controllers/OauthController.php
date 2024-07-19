@@ -185,8 +185,8 @@ class OauthController extends Controller
                     'name' => $userSocial->getName(),
                     'email' => $userSocial->getEmail(),
                     'google_id' => $userSocial->getId(),
-                    'password' => bcrypt('123456dummy'), // Password dummy untuk pengguna baru
-                    'status' => 1 // Status aktif untuk pengguna baru
+                    'password' => bcrypt('123456'),
+                    'status' => 1
                 ]);
 
                 $newUser->last_login = now()->setTimezone('Asia/Jakarta')->toDateTimeString();
@@ -194,7 +194,7 @@ class OauthController extends Controller
 
                 UserRoles::create([
                     'user_id' => $newUser->id,
-                    'role_id' => 3 // Sesuaikan role_id sesuai kebutuhan
+                    'role_id' => 3
                 ]);
 
                 UserProfile::create([
@@ -235,7 +235,7 @@ class OauthController extends Controller
             }
         } catch (Exception $e) {
 
-            return redirect()->route('login')->with('error', 'Terjadi kesalahan saat login menggunakan Google.');
+            return redirect()->route('/')->with('error', 'Terjadi kesalahan saat login menggunakan Google.');
         }
     }
 
