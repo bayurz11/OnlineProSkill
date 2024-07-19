@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use App\Models\NotifikasiUser;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class SettingController extends Controller
@@ -65,5 +67,27 @@ class SettingController extends Controller
         $profile->save();
 
         return redirect()->route('profil')->with('success', 'Profil berhasil diperbarui.');
+    }
+    public function updatePassword(Request $request, $id)
+    {
+        // Validasi input
+        $request->validate([
+            'email' => 'required|email|max:255',
+            'password' => 'nullable|string|min:3|confirmed',
+        ]);
+
+        // Cari user berdasarkan ID
+        $user = User::find($id);
+        if (!$user) {
+            return response()->json(['message' => 'User tidak ditemukan'], 404);
+        }
+
+        // Update user dan user profile
+        $user->update([
+            'email' => $request->email,
+            'password' => $request->password ? Hash::make($request->password) : $user->password,
+        ]);
+
+        return redirect()->route('daftar_siswa')->with('success', 'Siswa berhasil diupdate');
     }
 }

@@ -179,7 +179,9 @@
                                     <div class="tab-pane fade" id="itemTwo-tab-pane" role="tabpanel"
                                         aria-labelledby="itemTwo-tab" tabindex="0">
                                         <div class="instructor__profile-form-wrap">
-                                            <form action="#" class="instructor__profile-form">
+                                            <form action="{{ route('updatePassword', ['id' => $user->id]) }}"
+                                                method="POST" enctype="multipart/form-data">
+                                                @csrf class="instructor__profile-form">
                                                 <div class="form-grp">
                                                     <label for="email">Email</label>
                                                     <input id="email" type="email" value="{{ $user->email }}">

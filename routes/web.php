@@ -111,6 +111,7 @@ Route::middleware('isStuden')->group(function () {
     //Profile Studen
     Route::get('/profil', [SettingController::class, 'index'])->name('profil');
     Route::post('/updateProfile/{id}', [SettingController::class, 'updateprofil'])->name('updateProfile');
+    Route::post('/updatePassword/{id}', [SettingController::class, 'updatePassword'])->name('updatePassword');
 
     //Riwayat Transaksi
     Route::get('/history', [RiwayatTransaksiController::class, 'index'])->name('history');
