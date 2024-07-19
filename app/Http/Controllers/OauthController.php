@@ -173,7 +173,7 @@ class OauthController extends Controller
                 if ($findUser->status != 1) {
                     // Logout dan redirect ke halaman login dengan pesan error
                     Auth::logout();
-                    return redirect()->route('login')->with('error', 'Akun Anda belum diaktifkan. Silakan hubungi admin.');
+                    return redirect()->route('/')->with('error', 'Akun Anda belum diaktifkan. Silakan hubungi admin.');
                 }
 
                 // Update last_login jika status aktif
