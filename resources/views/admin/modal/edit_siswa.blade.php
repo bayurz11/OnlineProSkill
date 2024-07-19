@@ -23,10 +23,9 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="nama_kursus" class="form-label">Nama Kursus<span
-                                class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="edit_nama_kursus" name="nama_kursus"
-                            placeholder="Masukkan Nama Kursus Anda">
+                        <label for="name" class="form-label">Nama Lengkap<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="name" name="name"
+                            value="{{ $user->name }}">
                     </div>
                     <div class="mb-3">
                         <label for="durasi" class="form-label">Durasi Kursus<span class="text-danger">*</span></label>
