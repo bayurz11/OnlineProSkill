@@ -34,6 +34,40 @@ class SettingController extends Controller
         return view('studen.setting', compact('user', 'profile', 'cart', 'notifikasi', 'notifikasiCount'));
     }
 
+    // public function updateprofil(Request $request, $id)
+    // {
+    //     $user = Auth::user();
+
+    //     // Pastikan pengguna yang terautentikasi hanya dapat memperbarui profil mereka sendiri
+    //     $profile = UserProfile::where('user_id', $user->id)->firstOrFail();
+
+    //     // Validasi data permintaan
+    //     $request->validate([
+    //         'dateofBirth' => 'required|date',
+    //         'gender' => 'required|string',
+    //         'phonenumber' => 'required|string|max:15',
+    //         'alamat' => 'required|string|max:255',
+    //         'bio' => 'nullable|string',
+    //         'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5000'
+    //     ]);
+
+    //     // Menangani upload gambar
+    //     if ($request->hasFile('foto')) {
+    //         $fotoName = time() . '.' . $request->foto->extension();
+    //         $request->foto->move(public_path('uploads'), $fotoName);
+    //         $profile->gambar = $fotoName;
+    //     }
+
+    //     // Perbarui data profil
+    //     $profile->date_of_birth = $request->input('dateofBirth');
+    //     $profile->gender = $request->input('gender');
+    //     $profile->phone_number = $request->input('phonenumber');
+    //     $profile->address = $request->input('alamat');
+    //     $profile->bio = $request->input('bio');
+    //     $profile->save();
+
+    //     return redirect()->route('profil')->with('success', 'Profil berhasil diperbarui.');
+    // }190724
     public function updateprofil(Request $request, $id)
     {
         $user = Auth::user();
@@ -43,6 +77,7 @@ class SettingController extends Controller
 
         // Validasi data permintaan
         $request->validate([
+            'name' => 'required|string|max:255',
             'dateofBirth' => 'required|date',
             'gender' => 'required|string',
             'phonenumber' => 'required|string|max:15',
@@ -66,8 +101,14 @@ class SettingController extends Controller
         $profile->bio = $request->input('bio');
         $profile->save();
 
+        // Perbarui data pengguna
+        $user->update([
+            'name' => $request->name,
+        ]);
+
         return redirect()->route('profil')->with('success', 'Profil berhasil diperbarui.');
     }
+
     public function updatePassword(Request $request, $id)
     {
         // Validasi input
@@ -83,6 +124,7 @@ class SettingController extends Controller
         }
 
         // Update user dan user profile
+
         $user->update([
             'email' => $request->email,
             'password' => $request->password ? Hash::make($request->password) : $user->password,
