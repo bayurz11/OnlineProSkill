@@ -49,11 +49,7 @@
 
                                             </td>
                                             <td>
-                                                <a href="{{ route('kurikulum', ['id' => $daftar->user_id]) }}"
-                                                    class="btn btn-success btn-icon kurikulum-btn"
-                                                    data-id="{{ $daftar->user_id }}" title="Kurikulum">
-                                                    <i data-feather="list"></i>
-                                                </a>
+
                                                 <button type="button" class="btn btn-primary btn-icon edit-button"
                                                     title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
                                                     data-id="{{ $daftar->id }}">
