@@ -43,7 +43,6 @@
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
             </form>
-
         </div>
     </div>
 </div>
@@ -65,7 +64,7 @@
                     $('#editaddress').val(data.userProfile.address);
 
                     $('#editModalsiswaForm').attr('action', '/siswa/' +
-                    userId); // Set action URL untuk form
+                        userId); // Set action URL untuk form
                 },
                 error: function(xhr) {
                     alert(xhr.responseJSON.message);
