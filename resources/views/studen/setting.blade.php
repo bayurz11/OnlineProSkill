@@ -115,6 +115,7 @@
                                                             <label for="name">Nama Lengkap</label>
                                                             <input id="name" name="name" type="text"
                                                                 value="{{ $user->name }}">
+
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
