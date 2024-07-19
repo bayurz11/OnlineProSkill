@@ -127,10 +127,7 @@
                                                             ({{ $cours->jml_review }} Ulasan)
                                                         </span>
                                                     </div>
-                                                    <div class="courses__item-action">
-                                                        <a href="{{ route('addtocart', ['id' => $cours->id]) }}"
-                                                            class="btn">Tambah ke Keranjang</a>
-                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>
