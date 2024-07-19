@@ -71,7 +71,11 @@
                                                 data-bs-target="#itemOne-tab-pane" type="button" role="tab"
                                                 aria-controls="itemOne-tab-pane" aria-selected="true">Profil</button>
                                         </li>
-
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="itemTwo-tab" data-bs-toggle="tab"
+                                                data-bs-target="#itemTwo-tab-pane" type="button" role="tab"
+                                                aria-controls="itemTwo-tab-pane" aria-selected="false">Password</button>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="tab-content" id="myTabContent">
@@ -173,6 +177,30 @@
                                     </form>
 
 
+                                </div>
+                                <div class="tab-pane fade" id="itemTwo-tab-pane" role="tabpanel"
+                                    aria-labelledby="itemTwo-tab" tabindex="0">
+                                    <div class="instructor__profile-form-wrap">
+                                        <form action="#" class="instructor__profile-form">
+                                            <div class="form-grp">
+                                                <label for="currentpassword">Current Password</label>
+                                                <input id="currentpassword" type="password"
+                                                    placeholder="Current Password">
+                                            </div>
+                                            <div class="form-grp">
+                                                <label for="newpassword">New Password</label>
+                                                <input id="newpassword" type="password" placeholder="New Password">
+                                            </div>
+                                            <div class="form-grp">
+                                                <label for="repassword">Re-Type New Password</label>
+                                                <input id="repassword" type="password"
+                                                    placeholder="Re-Type New Password">
+                                            </div>
+                                            <div class="submit-btn mt-25">
+                                                <button type="submit" class="btn">Update Password</button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
