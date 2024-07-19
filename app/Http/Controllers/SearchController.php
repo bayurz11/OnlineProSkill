@@ -18,6 +18,7 @@ class SearchController extends Controller
         $user = Auth::user();
         $cart = Session::get('cart', []);
         $categori = Categories::all();
+        $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
         $category_id = $request->input('category_id');
         $search_term = $request->input('search_term');
 
@@ -33,6 +34,6 @@ class SearchController extends Controller
 
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
-        return view('search_results', compact('results', 'categori', 'cart', 'notifikasi', 'notifikasiCount', 'user'));
+        return view('search_results', compact('results', 'categori', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile'));
     }
 }
