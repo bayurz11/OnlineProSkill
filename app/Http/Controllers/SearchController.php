@@ -20,7 +20,7 @@ class SearchController extends Controller
 
         // Mencari berdasarkan kategori dan term pencarian
         $results = KelasTatapMuka::where('kategori_id', $category_id)
-            ->where('nama_kelas', 'like', '%' . $search_term . '%')
+            ->where('nama_kursus', 'like', '%' . $search_term . '%')
             ->get();
 
         return view('search_results', compact('results'));
