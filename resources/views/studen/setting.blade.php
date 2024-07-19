@@ -176,32 +176,32 @@
                                         </div>
                                     </form>
 
-
-                                </div>
-                                <div class="tab-pane fade" id="itemTwo-tab-pane" role="tabpanel"
-                                    aria-labelledby="itemTwo-tab" tabindex="0">
-                                    <div class="instructor__profile-form-wrap">
-                                        <form action="#" class="instructor__profile-form">
-                                            <div class="form-grp">
-                                                <label for="currentpassword">Current Password</label>
-                                                <input id="currentpassword" type="password"
-                                                    placeholder="Current Password">
-                                            </div>
-                                            <div class="form-grp">
-                                                <label for="newpassword">New Password</label>
-                                                <input id="newpassword" type="password" placeholder="New Password">
-                                            </div>
-                                            <div class="form-grp">
-                                                <label for="repassword">Re-Type New Password</label>
-                                                <input id="repassword" type="password"
-                                                    placeholder="Re-Type New Password">
-                                            </div>
-                                            <div class="submit-btn mt-25">
-                                                <button type="submit" class="btn">Update Password</button>
-                                            </div>
-                                        </form>
+                                    <div class="tab-pane fade" id="itemTwo-tab-pane" role="tabpanel"
+                                        aria-labelledby="itemTwo-tab" tabindex="0">
+                                        <div class="instructor__profile-form-wrap">
+                                            <form action="#" class="instructor__profile-form">
+                                                <div class="form-grp">
+                                                    <label for="currentpassword">Current Password</label>
+                                                    <input id="currentpassword" type="password"
+                                                        placeholder="Current Password">
+                                                </div>
+                                                <div class="form-grp">
+                                                    <label for="newpassword">New Password</label>
+                                                    <input id="newpassword" type="password" placeholder="New Password">
+                                                </div>
+                                                <div class="form-grp">
+                                                    <label for="repassword">Re-Type New Password</label>
+                                                    <input id="repassword" type="password"
+                                                        placeholder="Re-Type New Password">
+                                                </div>
+                                                <div class="submit-btn mt-25">
+                                                    <button type="submit" class="btn">Update Password</button>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
