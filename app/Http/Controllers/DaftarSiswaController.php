@@ -70,6 +70,6 @@ class DaftarSiswaController extends Controller
             'password' => $request->password ? Hash::make($request->password) : $user->password,
         ]);
 
-        return response()->json(['message' => 'User berhasil diupdate'], 200);
+        return redirect()->route('daftar_siswa')->with('success', 'Siswa berhasil diupdate');
     }
 }

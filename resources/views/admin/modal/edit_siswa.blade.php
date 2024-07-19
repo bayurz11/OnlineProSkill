@@ -65,24 +65,7 @@
         });
 
         $('#editModalsiswaForm').on('submit', function(event) {
-            event.preventDefault();
-
-            var form = $(this);
-            var actionUrl = form.attr('action');
-
-            $.ajax({
-                url: actionUrl,
-                method: 'POST',
-                data: form.serialize(),
-                success: function(response) {
-                    alert(response.message);
-                    window.location.href =
-                        '{{ route('daftar_siswa') }}?message=Siswa Berhasil di Update';
-                },
-                error: function(xhr) {
-                    alert(xhr.responseJSON.message);
-                }
-            });
+            // Form submit akan ditangani oleh Laravel
         });
     });
 </script>
