@@ -49,13 +49,13 @@
 
                                             </td>
                                             <td>
-
                                                 <button type="button" class="btn btn-primary btn-icon edit-button"
                                                     title="Edit" data-bs-toggle="modal" data-bs-target="#editModalsiswa"
                                                     data-id="{{ $daftar->user_id }}">
                                                     <i data-feather="edit"></i>
                                                 </button>
                                             </td>
+
                                         </tr>
                                     @endforeach
                                 </tbody>

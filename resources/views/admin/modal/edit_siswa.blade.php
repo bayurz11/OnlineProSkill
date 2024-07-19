@@ -60,7 +60,7 @@
     $(document).ready(function() {
         $('#editModalsiswa').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget); // Button yang memicu modal
-            var userId = button.data('userid'); // Ambil data dari atribut data-userid
+            var userId = button.data('id'); // Ambil data dari atribut data-id
 
             $.ajax({
                 url: '/siswa/' + userId + '/edit',
