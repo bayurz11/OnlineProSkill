@@ -1,5 +1,5 @@
 @section('title', 'ProSkill Akademia | Hasil Pencarian')
-<?php $page = 'classroom'; ?>
+<?php $page = 'Search'; ?>
 
 @extends('layout.mainlayout')
 
