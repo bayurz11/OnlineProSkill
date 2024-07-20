@@ -178,7 +178,7 @@
                                                     <input class="form-check-input skill-checkbox" type="checkbox"
                                                         value="{{ $level->id }}" id="difficulty_{{ $level->id }}">
                                                     <label class="form-check-label" for="difficulty_{{ $level->id }}">
-                                                        {{ $level->name }} ({{ $tingkatCounts[$level->id] ?? 0 }})
+                                                        {{ $level->tingkat }} ({{ $tingkatCounts[$level->id] ?? 0 }})
                                                     </label>
                                                 </div>
                                             </li>
