@@ -83,37 +83,43 @@
                                                 const checkboxes = document.querySelectorAll('.category-checkbox');
                                                 const allCategoriesCheckbox = document.getElementById('all_categories');
 
-                                                function updateUrl() {
-                                                    const selectedCategories = Array.from(checkboxes)
-                                                        .filter(checkbox => checkbox.checked)
-                                                        .map(checkbox => checkbox.value);
-
+                                                function updateUrl(selectedCategories) {
                                                     const url = new URL(window.location.href);
                                                     url.searchParams.set('categories', selectedCategories.join(','));
                                                     window.location.href = url.toString();
                                                 }
 
+                                                function toggleAllCategories(source) {
+                                                    if (source.checked) {
+                                                        checkboxes.forEach(checkbox => {
+                                                            checkbox.checked = false;
+                                                        });
+                                                        updateUrl([]);
+                                                    }
+                                                }
+
                                                 checkboxes.forEach(checkbox => {
                                                     checkbox.addEventListener('change', function() {
-                                                        if (!this.checked) {
+                                                        if (this.checked) {
                                                             allCategoriesCheckbox.checked = false;
-                                                        } else {
-                                                            const allChecked = Array.from(checkboxes).every(cb => cb.checked);
-                                                            allCategoriesCheckbox.checked = allChecked;
                                                         }
-                                                        updateUrl();
+                                                        const selectedCategories = Array.from(checkboxes)
+                                                            .filter(checkbox => checkbox.checked)
+                                                            .map(checkbox => checkbox.value);
+                                                        updateUrl(selectedCategories);
                                                     });
                                                 });
 
                                                 allCategoriesCheckbox.addEventListener('change', function() {
-                                                    checkboxes.forEach(checkbox => {
-                                                        checkbox.checked = this.checked;
-                                                    });
-                                                    updateUrl();
+                                                    if (this.checked) {
+                                                        checkboxes.forEach(checkbox => {
+                                                            checkbox.checked = false;
+                                                        });
+                                                        updateUrl([]);
+                                                    }
                                                 });
                                             });
                                         </script>
-
 
                                         <div class="show-more">
                                             <a href="#">Show More +</a>
