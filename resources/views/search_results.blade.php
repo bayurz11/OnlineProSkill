@@ -297,10 +297,10 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Pagination -->
+                        {{-- <!-- Pagination -->
                         <div class="courses__pagination mt-30">
                             {{ $results->links() }}
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             @endif
