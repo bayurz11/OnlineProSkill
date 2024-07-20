@@ -27,26 +27,28 @@ class SearchController extends Controller
         // Mencari berdasarkan kategori dan term pencarian
         $results = KelasTatapMuka::where('kategori_id', $category_id)
             ->where('nama_kursus', 'like', '%' . $search_term . '%')
-            ->with('user')
             ->get();
-
         // Ambil notifikasi untuk pengguna yang sedang login
         $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
             ->orderBy('created_at', 'desc')
             ->get()
-            : collect(); // Menggunakan collect() untuk membuat koleksi kosong jika pengguna belum login
+            : collect();
 
+        $course = KelasTatapMuka::with('user')
+            ->where('status', 1)
+            ->where('course_type', 'offline')
+            ->get();
+        $count = $course->count();
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
-        // Hitung jumlah pendaftaran untuk setiap kursus
+        // Ambil jumlah pendaftaran untuk setiap kursus
         $jumlahPendaftaran = Order::select('product_id', DB::raw('count(*) as total'))
             ->groupBy('product_id')
             ->pluck('total', 'product_id');
 
         // Ambil ID kursus yang telah diikuti oleh user
         $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
-
-        return view('search_results', compact('results', 'categori', 'cart', 'notifikasi', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'notifikasiCount'));
+        return view('search_results', compact('results', 'categori', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'course'));
     }
 }
