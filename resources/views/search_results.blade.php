@@ -50,56 +50,74 @@
                                 <h4 class="widget-title">Categories</h4>
                                 <div class="courses-cat-list">
                                     <ul class="list-wrap">
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="all_categories" onclick="toggleAllCategories(this)">
-                                                <label class="form-check-label" for="all_categories">Semua Kategori</label>
-                                            </div>
-                                        </li>
-                                        @foreach ($categori as $category)
-                                            @if ($category->status == 1)
-                                                <li>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input category-checkbox" type="checkbox"
-                                                            value="{{ $category->id }}"
-                                                            data-category-id="{{ $category->id }}"
-                                                            id="cat_{{ $category->id }}"
-                                                            {{ in_array($category->id, $category_ids) ? 'checked' : '' }}>
-                                                        <label class="form-check-label" for="cat_{{ $category->id }}">
-                                                            {{ $category->name_category }}
-                                                            ({{ $categoryCounts[$category->id] ?? 0 }})
-                                                        </label>
-                                                    </div>
-                                                </li>
-                                            @endif
-                                        @endforeach
-                                    </ul>
+                                        <ul class="list-wrap">
+                                            <li>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                        id="all_categories" onclick="toggleAllCategories(this)">
+                                                    <label class="form-check-label" for="all_categories">Semua
+                                                        Kategori</label>
+                                                </div>
+                                            </li>
+                                            @foreach ($categori as $category)
+                                                @if ($category->status == 1)
+                                                    <li>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input category-checkbox"
+                                                                type="checkbox" value="{{ $category->id }}"
+                                                                data-category-id="{{ $category->id }}"
+                                                                id="cat_{{ $category->id }}"
+                                                                {{ in_array($category->id, $category_ids) ? 'checked' : '' }}>
+                                                            <label class="form-check-label" for="cat_{{ $category->id }}">
+                                                                {{ $category->name_category }}
+                                                                ({{ $categoryCounts[$category->id] ?? 0 }})
+                                                            </label>
+                                                        </div>
+                                                    </li>
+                                                @endif
+                                            @endforeach
+                                        </ul>
 
-                                    <script>
-                                        function toggleAllCategories(source) {
-                                            const checkboxes = document.querySelectorAll('.category-checkbox');
-                                            for (const checkbox of checkboxes) {
-                                                checkbox.checked = source.checked;
-                                            }
-                                        }
+                                        <script>
+                                            document.addEventListener('DOMContentLoaded', function() {
+                                                const checkboxes = document.querySelectorAll('.category-checkbox');
+                                                const allCategoriesCheckbox = document.getElementById('all_categories');
 
-                                        document.querySelectorAll('.category-checkbox').forEach(function(checkbox) {
-                                            checkbox.addEventListener('change', function() {
-                                                if (!this.checked) {
-                                                    document.getElementById('all_categories').checked = false;
-                                                } else {
-                                                    const allChecked = Array.from(document.querySelectorAll('.category-checkbox')).every(
-                                                        cb => cb.checked);
-                                                    document.getElementById('all_categories').checked = allChecked;
+                                                function updateUrl() {
+                                                    const selectedCategories = Array.from(checkboxes)
+                                                        .filter(checkbox => checkbox.checked)
+                                                        .map(checkbox => checkbox.value);
+
+                                                    const url = new URL(window.location.href);
+                                                    url.searchParams.set('categories', selectedCategories.join(','));
+                                                    window.location.href = url.toString();
                                                 }
-                                            });
-                                        });
-                                    </script>
 
-                                    <div class="show-more">
-                                        <a href="#">Show More +</a>
-                                    </div>
+                                                checkboxes.forEach(checkbox => {
+                                                    checkbox.addEventListener('change', function() {
+                                                        if (!this.checked) {
+                                                            allCategoriesCheckbox.checked = false;
+                                                        } else {
+                                                            const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+                                                            allCategoriesCheckbox.checked = allChecked;
+                                                        }
+                                                        updateUrl();
+                                                    });
+                                                });
+
+                                                allCategoriesCheckbox.addEventListener('change', function() {
+                                                    checkboxes.forEach(checkbox => {
+                                                        checkbox.checked = this.checked;
+                                                    });
+                                                    updateUrl();
+                                                });
+                                            });
+                                        </script>
+
+
+                                        <div class="show-more">
+                                            <a href="#">Show More +</a>
+                                        </div>
                                 </div>
                             </div>
                             <div class="courses-widget">
@@ -281,7 +299,7 @@
     <!-- all-courses-end -->
     @endif
 
-    <script>
+    {{-- <script>
         document.addEventListener('DOMContentLoaded', function() {
             const checkboxes = document.querySelectorAll('.category-checkbox');
 
@@ -298,6 +316,6 @@
                 });
             });
         });
-    </script>
+    </script> --}}
 
 @endsection
