@@ -171,10 +171,10 @@
                                         </div>
                                         <div class="courses__item-content">
                                             <ul class="courses__item-meta list-wrap">
-                                                <li class="courses__item-tag">
+                                                <h5 class="title">
                                                     <a
-                                                        href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->kategori }}</a>
-                                                </li>
+                                                        href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
+                                                </h5>
                                                 <li class="avg-rating"><i class="fas fa-star"></i> (4.8 Reviews)</li>
                                             </ul>
                                             <h5 class="title"><a
