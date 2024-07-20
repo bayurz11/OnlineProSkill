@@ -44,7 +44,6 @@
         <section class="all-courses-area section-py-120">
             <div class="container">
                 <div class="row">
-                    <!-- Sidebar -->
                     <div class="col-xl-3 col-lg-4 order-2 order-lg-0">
                         <aside class="courses__sidebar">
                             <div class="courses-widget">
@@ -58,11 +57,90 @@
                                                 <label class="form-check-label" for="cat_1">Art & Design (8)</label>
                                             </div>
                                         </li>
-                                        <!-- Add more categories as needed -->
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="cat_2">
+                                                <label class="form-check-label" for="cat_2">Business (12)</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="cat_3">
+                                                <label class="form-check-label" for="cat_3">Data Science (7)</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="cat_4">
+                                                <label class="form-check-label" for="cat_4">Development (10)</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="cat_5">
+                                                <label class="form-check-label" for="cat_5">Finance (8)</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="cat_6">
+                                                <label class="form-check-label" for="cat_6">Health & Fitness (8)</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="cat_7">
+                                                <label class="form-check-label" for="cat_7">Lifestyle (9)</label>
+                                            </div>
+                                        </li>
                                     </ul>
                                     <div class="show-more">
                                         <a href="#">Show More +</a>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="courses-widget">
+                                <h4 class="widget-title">Language</h4>
+                                <div class="courses-cat-list">
+                                    <ul class="list-wrap">
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="lang_1">
+                                                <label class="form-check-label" for="lang_1">All Language</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="lang_2">
+                                                <label class="form-check-label" for="lang_2">Arabic (11)</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="lang_3">
+                                                <label class="form-check-label" for="lang_3">English (53)</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="lang_4">
+                                                <label class="form-check-label" for="lang_4">Spanish (22)</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="show-more">
+                                    <a href="#">Show More +</a>
                                 </div>
                             </div>
                             <div class="courses-widget">
@@ -124,6 +202,126 @@
                                                 <input class="form-check-input" type="checkbox" value=""
                                                     id="difficulty_4">
                                                 <label class="form-check-label" for="difficulty_4">High (42)</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="courses-widget">
+                                <h4 class="widget-title">Instructors</h4>
+                                <div class="courses-cat-list">
+                                    <ul class="list-wrap">
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="ins_1">
+                                                <label class="form-check-label" for="ins_1">David Millar (10)</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="ins_2">
+                                                <label class="form-check-label" for="ins_2">Wade Warren (13)</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="ins_3">
+                                                <label class="form-check-label" for="ins_3">Jenny Wilson (22)</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value=""
+                                                    id="ins_4">
+                                                <label class="form-check-label" for="ins_4">Jacob Jones (42)</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="show-more">
+                                    <a href="#">Show More +</a>
+                                </div>
+                            </div>
+                            <div class="courses-widget">
+                                <h4 class="widget-title">Ratings</h4>
+                                <div class="courses-rating-list">
+                                    <ul class="list-wrap">
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="">
+                                                <div class="rating">
+                                                    <ul class="list-wrap">
+                                                        <li><i class="fas fa-star"></i></li>
+                                                        <li><i class="fas fa-star"></i></li>
+                                                        <li><i class="fas fa-star"></i></li>
+                                                        <li><i class="fas fa-star"></i></li>
+                                                        <li><i class="fas fa-star"></i></li>
+                                                    </ul>
+                                                    <span>(42)</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="">
+                                                <div class="rating">
+                                                    <ul class="list-wrap">
+                                                        <li><i class="fas fa-star"></i></li>
+                                                        <li><i class="fas fa-star"></i></li>
+                                                        <li><i class="fas fa-star"></i></li>
+                                                        <li><i class="fas fa-star"></i></li>
+                                                        <li class="delete"><i class="fas fa-star"></i></li>
+                                                    </ul>
+                                                    <span>(23)</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="">
+                                                <div class="rating">
+                                                    <ul class="list-wrap">
+                                                        <li><i class="fas fa-star"></i></li>
+                                                        <li><i class="fas fa-star"></i></li>
+                                                        <li><i class="fas fa-star"></i></li>
+                                                        <li class="delete"><i class="fas fa-star"></i></li>
+                                                        <li class="delete"><i class="fas fa-star"></i></li>
+                                                    </ul>
+                                                    <span>(11)</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="">
+                                                <div class="rating">
+                                                    <ul class="list-wrap">
+                                                        <li><i class="fas fa-star"></i></li>
+                                                        <li><i class="fas fa-star"></i></li>
+                                                        <li class="delete"><i class="fas fa-star"></i></li>
+                                                        <li class="delete"><i class="fas fa-star"></i></li>
+                                                        <li class="delete"><i class="fas fa-star"></i></li>
+                                                    </ul>
+                                                    <span>(7)</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="">
+                                                <div class="rating">
+                                                    <ul class="list-wrap">
+                                                        <li><i class="fas fa-star"></i></li>
+                                                        <li class="delete"><i class="fas fa-star"></i></li>
+                                                        <li class="delete"><i class="fas fa-star"></i></li>
+                                                        <li class="delete"><i class="fas fa-star"></i></li>
+                                                        <li class="delete"><i class="fas fa-star"></i></li>
+                                                    </ul>
+                                                    <span>(3)</span>
+                                                </div>
                                             </div>
                                         </li>
                                     </ul>
