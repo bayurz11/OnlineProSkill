@@ -1,4 +1,3 @@
-<!-- search_results.blade.php -->
 @extends('layout.mainlayout')
 
 @section('content')
@@ -40,6 +39,11 @@
                                     </a>
                                 </div>
                                 <h5 class="price">Rp {{ number_format($cours->price, 0, ',', ',') }}</h5>
+                                @if ($cours->course_type == 'online')
+                                    <span class="badge bg-primary">Online</span>
+                                @else
+                                    <span class="badge bg-secondary">Offline</span>
+                                @endif
                             </div>
                         </div>
                     </div>
