@@ -117,14 +117,10 @@
                                                 </li>
                                                 <li>
                                                     <div class="form-check">
-                                                        <input class="form-check-input category-checkbox" type="checkbox"
-                                                            value="{{ $category->id }}"
-                                                            data-category-id="{{ $category->id }}"
-                                                            id="cat_{{ $category->id }}"
-                                                            {{ in_array($category->id, $category_ids) ? 'checked' : '' }}>
-                                                        <label class="form-check-label" for="cat_{{ $category->id }}">
-                                                            {{ $category->tingkat }}
-                                                            ({{ $categoryCounts[$category->id] ?? 0 }})
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                            id="difficulty_2">
+                                                        <label class="form-check-label" for="difficulty_2">Beginner
+                                                            (55)
                                                         </label>
                                                     </div>
                                                 </li>
