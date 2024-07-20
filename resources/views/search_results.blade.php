@@ -37,12 +37,12 @@
     </section>
     <!-- breadcrumb-area-end -->
 
-    <!-- all-courses -->
-    <section class="all-courses-area section-py-120">
-        <div class="container">
-            @if ($results->isEmpty())
-                <p>Tidak ada hasil yang ditemukan.</p>
-            @else
+    @if ($results->isEmpty())
+        <p>Tidak ada hasil yang ditemukan.</p>
+    @else
+        <!-- all-courses -->
+        <section class="all-courses-area section-py-120">
+            <div class="container">
                 <div class="row">
                     <div class="col-xl-3 col-lg-4 order-2 order-lg-0">
                         <aside class="courses__sidebar">
@@ -329,9 +329,9 @@
 
                     </div>
                 </div>
-        </div>
-    </section>
-    <!-- all-courses-end -->
+            </div>
+        </section>
+        <!-- all-courses-end -->
     @endif
 
     <script>
