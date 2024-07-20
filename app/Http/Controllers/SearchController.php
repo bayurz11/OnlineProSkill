@@ -25,9 +25,15 @@ class SearchController extends Controller
         $search_term = $request->input('search_term');
 
         // Mencari berdasarkan kategori dan term pencarian
-        $results = KelasTatapMuka::where('kategori_id', $category_id)
-            ->where('nama_kursus', 'like', '%' . $search_term . '%')
+        $results = KelasTatapMuka::query()
+            ->when($category_id, function ($query, $category_id) {
+                return $query->where('kategori_id', $category_id);
+            })
+            ->when($search_term, function ($query, $search_term) {
+                return $query->where('nama_kursus', 'like', '%' . $search_term . '%');
+            })
             ->get();
+
         // Ambil notifikasi untuk pengguna yang sedang login
         $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
             ->orderBy('created_at', 'desc')
@@ -49,6 +55,7 @@ class SearchController extends Controller
 
         // Ambil ID kursus yang telah diikuti oleh user
         $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
+
         return view('search_results', compact('results', 'categori', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'course'));
     }
 }

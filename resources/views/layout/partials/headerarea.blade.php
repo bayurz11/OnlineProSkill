@@ -65,7 +65,7 @@
                                         </svg>
                                         <select class="form-select" name="category_id" id="course-cat"
                                             aria-label="Default select example" style="width: 150px">
-                                            <option selected disabled>Kategori</option>
+                                            <option value="">Kategori</option>
                                             @foreach ($categori as $category)
                                                 @if ($category->status == 1)
                                                     <option value="{{ $category->id }}">{{ $category->name_category }}
