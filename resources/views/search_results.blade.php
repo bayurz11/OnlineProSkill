@@ -200,11 +200,7 @@
                                 </div>
                             @endforeach
                         </div>
-                        <nav class="pagination__wrap mt-30">
-                            <ul class="list-wrap">
-                                {{ $results->links() }}
-                            </ul>
-                        </nav>
+
                     </div>
                 </div>
             </div>
