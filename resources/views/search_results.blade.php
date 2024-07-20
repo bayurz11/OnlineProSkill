@@ -50,61 +50,26 @@
                                 <h4 class="widget-title">Categories</h4>
                                 <div class="courses-cat-list">
                                     <ul class="list-wrap">
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="cat_1">
-                                                <label class="form-check-label" for="cat_1">Art & Design (8)</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="cat_2">
-                                                <label class="form-check-label" for="cat_2">Business (12)</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="cat_3">
-                                                <label class="form-check-label" for="cat_3">Data Science (7)</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="cat_4">
-                                                <label class="form-check-label" for="cat_4">Development (10)</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="cat_5">
-                                                <label class="form-check-label" for="cat_5">Finance (8)</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="cat_6">
-                                                <label class="form-check-label" for="cat_6">Health & Fitness (8)</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="cat_7">
-                                                <label class="form-check-label" for="cat_7">Lifestyle (9)</label>
-                                            </div>
-                                        </li>
+                                        @foreach ($categori as $category)
+                                            @if ($category->status == 1)
+                                                <li>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox"
+                                                            value="{{ $category->id }}" id="cat_{{ $category->id }}">
+                                                        <label class="form-check-label" for="cat_{{ $category->id }}">
+                                                            {{ $category->name_category }} ({{ $category->course_count }})
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                            @endif
+                                        @endforeach
                                     </ul>
                                     <div class="show-more">
                                         <a href="#">Show More +</a>
                                     </div>
                                 </div>
                             </div>
+
 
                             <div class="courses-widget">
                                 <h4 class="widget-title">Price</h4>
@@ -330,7 +295,8 @@
                                         <div class="courses__item-thumb">
                                             <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}"
                                                 class="shine__animate-link">
-                                                <img src="{{ asset('public/uploads/' . $cours->gambar) }}" alt="Banner">
+                                                <img src="{{ asset('public/uploads/' . $cours->gambar) }}"
+                                                    alt="Banner">
                                             </a>
                                         </div>
                                         <div class="courses__item-content">
