@@ -54,6 +54,14 @@
                                             @if ($category->status == 1)
                                                 <li>
                                                     <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                            id="price_3">
+                                                        <label class="form-check-label" for="price_3">Semua
+                                                            Kategori</label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="form-check">
                                                         <input class="form-check-input category-checkbox" type="checkbox"
                                                             value="{{ $category->id }}"
                                                             data-category-id="{{ $category->id }}"
