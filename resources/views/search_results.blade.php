@@ -48,7 +48,7 @@
                         <div class="sidebar-filter">
                             <h5>Kategori</h5>
                             <ul>
-                                @foreach ($categories as $category)
+                                @foreach ($categori as $category)
                                     <li>
                                         <a
                                             href="{{ route('classroom.index', ['category' => $category->id]) }}">{{ $category->name }}</a>
