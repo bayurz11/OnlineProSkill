@@ -48,27 +48,30 @@
                         <aside class="courses__sidebar">
                             <div class="courses-widget">
                                 <h4 class="widget-title">Categories</h4>
-                                <div class="courses-cat-list">
-                                    <ul class="list-wrap">
-                                        @foreach ($categori as $category)
-                                            @if ($category->status == 1)
-                                                <li>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input category-checkbox" type="checkbox"
-                                                            value="{{ $category->id }}"
-                                                            data-category-id="{{ $category->id }}"
-                                                            id="cat_{{ $category->id }}">
-                                                        <label class="form-check-label" for="cat_{{ $category->id }}">
-                                                            {{ $category->name_category }}
-                                                            ({{ $categoryCounts[$category->id] ?? 0 }})
-                                                        </label>
-                                                    </div>
-                                                </li>
-                                            @endif
-                                        @endforeach
-                                    </ul>
-                                    <div class="show-more">
-                                        <a href="#">Show More +</a>
+                                <div class="courses-widget">
+                                    <h4 class="widget-title">Categories</h4>
+                                    <div class="courses-cat-list">
+                                        <ul class="list-wrap">
+                                            @foreach ($categori as $category)
+                                                @if ($category->status == 1)
+                                                    <li>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input category-checkbox"
+                                                                type="checkbox" value="{{ $category->id }}"
+                                                                data-category-id="{{ $category->id }}"
+                                                                id="cat_{{ $category->id }}">
+                                                            <label class="form-check-label" for="cat_{{ $category->id }}">
+                                                                {{ $category->name_category }}
+                                                                ({{ $categoryCounts[$category->id] ?? 0 }})
+                                                            </label>
+                                                        </div>
+                                                    </li>
+                                                @endif
+                                            @endforeach
+                                        </ul>
+                                        <div class="show-more">
+                                            <a href="#">Show More +</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
