@@ -47,7 +47,7 @@
                     <div class="col-xl-3 col-lg-4 order-2 order-lg-0">
                         <aside class="courses__sidebar">
                             <div class="courses-widget">
-                                <h4 class="widget-title">Categories</h4>
+                                <h4 class="widget-title">Kategori</h4>
                                 <div class="courses-cat-list">
                                     <ul class="list-wrap">
                                         <li>
@@ -162,41 +162,82 @@
                                 </div>
                             </div>
                             <div class="courses-widget">
-                                <h4 class="widget-title">Skill level</h4>
+                                <h4 class="widget-title">Level</h4>
                                 <div class="courses-cat-list">
                                     <ul class="list-wrap">
                                         <li>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
-                                                    id="difficulty_1">
-                                                <label class="form-check-label" for="difficulty_1">All Skills</label>
+                                                    id="difficulty_all" onclick="toggleAllSkills(this)">
+                                                <label class="form-check-label" for="difficulty_all">All Skills</label>
                                             </div>
                                         </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="difficulty_2">
-                                                <label class="form-check-label" for="difficulty_2">Beginner (55)</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="difficulty_3">
-                                                <label class="form-check-label" for="difficulty_3">Intermediate
-                                                    (22)</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="difficulty_4">
-                                                <label class="form-check-label" for="difficulty_4">High (42)</label>
-                                            </div>
-                                        </li>
+                                        @foreach ($tingkat as $level)
+                                            <li>
+                                                <div class="form-check">
+                                                    <input class="form-check-input skill-checkbox" type="checkbox"
+                                                        value="{{ $level->id }}" id="difficulty_{{ $level->id }}">
+                                                    <label class="form-check-label" for="difficulty_{{ $level->id }}">
+                                                        {{ $level->name }} ({{ $tingkatCounts[$level->id] ?? 0 }})
+                                                    </label>
+                                                </div>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
+
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function() {
+                                    const checkboxes = document.querySelectorAll('.skill-checkbox');
+                                    const allSkillsCheckbox = document.getElementById('difficulty_all');
+
+                                    function updateUrl(selectedSkills) {
+                                        const url = new URL(window.location.href);
+                                        url.searchParams.set('skills', selectedSkills.join(','));
+                                        window.location.href = url.toString();
+                                    }
+
+                                    function toggleAllSkills(source) {
+                                        if (source.checked) {
+                                            // Uncheck all skill checkboxes
+                                            checkboxes.forEach(checkbox => {
+                                                checkbox.checked = false;
+                                            });
+                                            // Update URL to show all data
+                                            updateUrl([]);
+                                        }
+                                    }
+
+                                    checkboxes.forEach(checkbox => {
+                                        checkbox.addEventListener('change', function() {
+                                            if (this.checked) {
+                                                allSkillsCheckbox.checked = false;
+                                            }
+
+                                            // Get selected skills
+                                            const selectedSkills = Array.from(checkboxes)
+                                                .filter(checkbox => checkbox.checked)
+                                                .map(checkbox => checkbox.value);
+
+                                            // Update URL with selected skills
+                                            updateUrl(selectedSkills);
+                                        });
+                                    });
+
+                                    allSkillsCheckbox.addEventListener('change', function() {
+                                        if (this.checked) {
+                                            // Uncheck all skill checkboxes
+                                            checkboxes.forEach(checkbox => {
+                                                checkbox.checked = false;
+                                            });
+                                            // Update URL to show all data
+                                            updateUrl([]);
+                                        }
+                                    });
+                                });
+                            </script>
+
 
                         </aside>
                     </div>

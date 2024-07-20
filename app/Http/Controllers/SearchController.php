@@ -67,7 +67,10 @@ class SearchController extends Controller
         $categoryCounts = KelasTatapMuka::select('kategori_id', DB::raw('count(*) as total'))
             ->groupBy('kategori_id')
             ->pluck('total', 'kategori_id');
+        $tingkatCounts  = KelasTatapMuka::select('kategori_id', DB::raw('count(*) as total'))
+            ->groupBy('tingkat')
+            ->pluck('total', 'kategori_id');
 
-        return view('search_results', compact('results', 'categori', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'course', 'categoryCounts', 'category_ids'));
+        return view('search_results', compact('results', 'categori', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'course', 'categoryCounts', 'category_ids', 'tingkatCounts'));
     }
 }
