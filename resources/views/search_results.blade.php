@@ -233,7 +233,7 @@
                                                         </div>
                                                     </div>
                                                     <h3 class="course__title">
-                                                        <a href="{{ route('kelas.tatap-muka', $result->id) }}">
+                                                        <a href="{{ route('classroomdetail', $result->id) }}">
                                                             {{ $result->nama }}
                                                         </a>
                                                     </h3>
