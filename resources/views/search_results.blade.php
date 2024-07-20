@@ -53,7 +53,8 @@
                                         <li>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
-                                                    id="all_categories" onclick="toggleAllCategories(this)">
+                                                    id="all_categories" onclick="toggleAllCategories(this)"
+                                                    {{ empty($category_ids) ? 'checked' : '' }}>
                                                 <label class="form-check-label" for="all_categories">Semua Kategori</label>
                                             </div>
                                         </li>
