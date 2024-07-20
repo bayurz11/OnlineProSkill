@@ -60,7 +60,7 @@
                                                             id="cat_{{ $category->id }}">
                                                         <label class="form-check-label" for="cat_{{ $category->id }}">
                                                             {{ $category->name_category }}
-                                                            ({{ $category->kelas_tatap_muka_count }})
+                                                            ({{ $categoryCounts[$category->id] ?? 0 }})
                                                         </label>
                                                     </div>
                                                 </li>

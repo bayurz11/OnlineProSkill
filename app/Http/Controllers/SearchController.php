@@ -56,6 +56,11 @@ class SearchController extends Controller
         // Ambil ID kursus yang telah diikuti oleh user
         $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
 
-        return view('search_results', compact('results', 'categori', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'course'));
+        // Hitung jumlah kursus per kategori
+        $categoryCounts = KelasTatapMuka::select('kategori_id', DB::raw('count(*) as total'))
+            ->groupBy('kategori_id')
+            ->pluck('total', 'kategori_id');
+
+        return view('search_results', compact('results', 'categori', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'course', 'categoryCounts'));
     }
 }
