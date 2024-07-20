@@ -48,14 +48,15 @@
                             <h4 class="widget-title">Categories</h4>
                             <div class="courses-cat-list">
                                 <ul class="list-wrap">
-                                    @foreach ($categories as $category)
+                                    @foreach ($categori as $category)
                                         <li>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value="{{ $category->id }}"
                                                     id="cat_{{ $category->id }}">
                                                 <label class="form-check-label"
                                                     for="cat_{{ $category->id }}">{{ $category->name }}
-                                                    ({{ $category->course_count }})</label>
+                                                    ({{ $category->course_count }})
+                                                </label>
                                             </div>
                                         </li>
                                     @endforeach
