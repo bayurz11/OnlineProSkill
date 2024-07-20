@@ -136,7 +136,7 @@
                         <div class="row align-items-center">
                             <div class="col-md-5">
                                 <div class="courses-top-left">
-                                    <p>Showing {{ $results->total() }} total results</p>
+                                    {{-- <p>Showing {{ $results->total() }} total results</p> --}}
                                 </div>
                             </div>
                             <div class="col-md-7">
