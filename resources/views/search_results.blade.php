@@ -105,44 +105,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="courses-widget">
-                                <h4 class="widget-title">Language</h4>
-                                <div class="courses-cat-list">
-                                    <ul class="list-wrap">
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="lang_1">
-                                                <label class="form-check-label" for="lang_1">All Language</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="lang_2">
-                                                <label class="form-check-label" for="lang_2">Arabic (11)</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="lang_3">
-                                                <label class="form-check-label" for="lang_3">English (53)</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="lang_4">
-                                                <label class="form-check-label" for="lang_4">Spanish (22)</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="show-more">
-                                    <a href="#">Show More +</a>
-                                </div>
-                            </div>
+
                             <div class="courses-widget">
                                 <h4 class="widget-title">Price</h4>
                                 <div class="courses-cat-list">
@@ -207,45 +170,8 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="courses-widget">
-                                <h4 class="widget-title">Instructors</h4>
-                                <div class="courses-cat-list">
-                                    <ul class="list-wrap">
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="ins_1">
-                                                <label class="form-check-label" for="ins_1">David Millar (10)</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="ins_2">
-                                                <label class="form-check-label" for="ins_2">Wade Warren (13)</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="ins_3">
-                                                <label class="form-check-label" for="ins_3">Jenny Wilson (22)</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="ins_4">
-                                                <label class="form-check-label" for="ins_4">Jacob Jones (42)</label>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="show-more">
-                                    <a href="#">Show More +</a>
-                                </div>
-                            </div>
-                            <div class="courses-widget">
+
+                            {{-- <div class="courses-widget">
                                 <h4 class="widget-title">Ratings</h4>
                                 <div class="courses-rating-list">
                                     <ul class="list-wrap">
@@ -326,7 +252,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </div>
+                            </div> --}}
                         </aside>
                     </div>
                     <!-- Courses Grid -->
