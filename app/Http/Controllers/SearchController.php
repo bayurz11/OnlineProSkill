@@ -47,6 +47,6 @@ class SearchController extends Controller
         // Ambil ID kursus yang telah diikuti oleh user
         $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
 
-        return view('search_results', compact('results', 'categori', 'cart', 'notifikasi', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses'));
+        return view('search_results', compact('results', 'categori', 'cart', 'notifikasi', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'notifikasiCount'));
     }
 }
