@@ -68,7 +68,7 @@
                                                             id="cat_{{ $category->id }}"
                                                             {{ in_array($category->id, $category_ids) ? 'checked' : '' }}>
                                                         <label class="form-check-label" for="cat_{{ $category->id }}">
-                                                            {{ $category->name_category }}
+                                                            {{ $category->tingkat }}
                                                             ({{ $categoryCounts[$category->id] ?? 0 }})
                                                         </label>
                                                     </div>
