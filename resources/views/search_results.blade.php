@@ -59,7 +59,8 @@
                                                             data-category-id="{{ $category->id }}"
                                                             id="cat_{{ $category->id }}">
                                                         <label class="form-check-label" for="cat_{{ $category->id }}">
-                                                            {{-- {{ $category->name_category }} ({{ $category->course_count }}) --}}
+                                                            {{ $category->name_category }}
+                                                            ({{ $category->kelas_tatap_muka_count }})
                                                         </label>
                                                     </div>
                                                 </li>
