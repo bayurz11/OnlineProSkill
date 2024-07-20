@@ -68,7 +68,7 @@
                                                             id="cat_{{ $category->id }}"
                                                             {{ in_array($category->id, $category_ids) ? 'checked' : '' }}>
                                                         <label class="form-check-label" for="cat_{{ $category->id }}">
-                                                            {{ $category->tingkat }}
+                                                            {{ $category->name_category }}
                                                             ({{ $categoryCounts[$category->id] ?? 0 }})
                                                         </label>
                                                     </div>
@@ -77,56 +77,6 @@
                                         @endforeach
                                     </ul>
 
-                                    <script>
-                                        document.addEventListener('DOMContentLoaded', function() {
-                                            const checkboxes = document.querySelectorAll('.category-checkbox');
-                                            const allCategoriesCheckbox = document.getElementById('all_categories');
-
-                                            function updateUrl(selectedCategories) {
-                                                const url = new URL(window.location.href);
-                                                url.searchParams.set('categories', selectedCategories.join(','));
-                                                window.location.href = url.toString();
-                                            }
-
-                                            function toggleAllCategories(source) {
-                                                if (source.checked) {
-                                                    // Uncheck all category checkboxes
-                                                    checkboxes.forEach(checkbox => {
-                                                        checkbox.checked = false;
-                                                    });
-                                                    // Update URL to show all data
-                                                    updateUrl([]);
-                                                }
-                                            }
-
-                                            checkboxes.forEach(checkbox => {
-                                                checkbox.addEventListener('change', function() {
-                                                    if (this.checked) {
-                                                        allCategoriesCheckbox.checked = false;
-                                                    }
-
-                                                    // Get selected categories
-                                                    const selectedCategories = Array.from(checkboxes)
-                                                        .filter(checkbox => checkbox.checked)
-                                                        .map(checkbox => checkbox.value);
-
-                                                    // Update URL with selected categories
-                                                    updateUrl(selectedCategories);
-                                                });
-                                            });
-
-                                            allCategoriesCheckbox.addEventListener('change', function() {
-                                                if (this.checked) {
-                                                    // Uncheck all category checkboxes
-                                                    checkboxes.forEach(checkbox => {
-                                                        checkbox.checked = false;
-                                                    });
-                                                    // Update URL to show all data
-                                                    updateUrl([]);
-                                                }
-                                            });
-                                        });
-                                    </script>
 
                                     <div class="show-more">
                                         <a href="#">Show More +</a>
@@ -312,7 +262,8 @@
     <!-- all-courses-end -->
     @endif
 
-    {{-- <script>
+
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
             const checkboxes = document.querySelectorAll('.category-checkbox');
             const allCategoriesCheckbox = document.getElementById('all_categories');
@@ -325,9 +276,11 @@
 
             function toggleAllCategories(source) {
                 if (source.checked) {
+                    // Uncheck all category checkboxes
                     checkboxes.forEach(checkbox => {
                         checkbox.checked = false;
                     });
+                    // Update URL to show all data
                     updateUrl([]);
                 }
             }
@@ -337,22 +290,28 @@
                     if (this.checked) {
                         allCategoriesCheckbox.checked = false;
                     }
+
+                    // Get selected categories
                     const selectedCategories = Array.from(checkboxes)
                         .filter(checkbox => checkbox.checked)
                         .map(checkbox => checkbox.value);
+
+                    // Update URL with selected categories
                     updateUrl(selectedCategories);
                 });
             });
 
             allCategoriesCheckbox.addEventListener('change', function() {
                 if (this.checked) {
+                    // Uncheck all category checkboxes
                     checkboxes.forEach(checkbox => {
                         checkbox.checked = false;
                     });
+                    // Update URL to show all data
                     updateUrl([]);
                 }
             });
         });
-    </script> --}}
+    </script>
 
 @endsection
