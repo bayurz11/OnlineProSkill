@@ -33,7 +33,11 @@ class SearchController extends Controller
         // Ambil notifikasi untuk pengguna yang sedang login
         $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
             ->orderBy('created_at', 'desc')
-            ->get() : collect();
+            ->get()
+            : collect(); // Menggunakan collect() untuk membuat koleksi kosong jika pengguna belum login
+
+        // Hitung jumlah notifikasi dengan status = 1
+        $notifikasiCount = $notifikasi->where('status', 1)->count();
 
         // Hitung jumlah pendaftaran untuk setiap kursus
         $jumlahPendaftaran = Order::select('product_id', DB::raw('count(*) as total'))
