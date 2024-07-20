@@ -59,8 +59,9 @@
                                                             data-category-id="{{ $category->id }}"
                                                             id="cat_{{ $category->id }}"
                                                             {{ in_array($category->id, $category_ids) ? 'checked' : '' }}>
-                                                        <label class="form-check-label"> Semua Kategori</label>
-                                                        <label class="form-check-label" for="cat_{{ $category->id }}">
+
+                                                        <label class="form-check-label" for="cat_{{ $category->id }}">Semua
+                                                            Kategori
                                                             {{ $category->name_category }}
                                                             ({{ $categoryCounts[$category->id] ?? 0 }})
                                                         </label>
