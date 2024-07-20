@@ -21,7 +21,14 @@ class SearchController extends Controller
         $cart = Session::get('cart', []);
         $categori = Categories::all();
         $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
-        $category_ids = $request->input('categories', []); // Ambil parameter categories dari request, default ke array kosong
+        $category_ids = $request->input('categories', []);
+
+        // Pastikan category_ids adalah array
+        if (!is_array($category_ids)) {
+            $category_ids = explode(',', $category_ids);
+        }
+        $category_ids = array_filter($category_ids); // Hapus elemen kosong
+
         $search_term = $request->input('search_term');
 
         // Mencari berdasarkan kategori dan term pencarian
