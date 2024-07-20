@@ -104,46 +104,25 @@
                             <div class="courses-widget">
                                 <h4 class="widget-title">Skill level</h4>
                                 <div class="courses-cat-list">
-                                    @foreach ($categori as $category)
-                                        @if ($category->status == 1)
-                                            <ul class="list-wrap">
+                                    <ul class="list-wrap">
+                                        @foreach ($categori as $category)
+                                            @if ($category->status == 1)
                                                 <li>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value=""
-                                                            id="difficulty_1">
-                                                        <label class="form-check-label" for="difficulty_1">All
-                                                            Skills</label>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value=""
-                                                            id="difficulty_2">
-                                                        <label class="form-check-label" for="difficulty_2">Beginner
-                                                            (55)
+                                                        <input class="form-check-input category-checkbox" type="checkbox"
+                                                            value="{{ $category->id }}"
+                                                            data-category-id="{{ $category->id }}"
+                                                            id="cat_{{ $category->id }}"
+                                                            {{ in_array($category->id, $category_ids) ? 'checked' : '' }}>
+                                                        <label class="form-check-label" for="cat_{{ $category->id }}">
+                                                            {{ $category->tingkat }}
+                                                            ({{ $categoryCounts[$category->id] ?? 0 }})
                                                         </label>
                                                     </div>
                                                 </li>
-                                                <li>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value=""
-                                                            id="difficulty_3">
-                                                        <label class="form-check-label" for="difficulty_3">Intermediate
-                                                            (22)
-                                                        </label>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value=""
-                                                            id="difficulty_4">
-                                                        <label class="form-check-label" for="difficulty_4">High
-                                                            (42)</label>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        @endif
-                                    @endforeach
+                                            @endif
+                                        @endforeach
+                                    </ul>
                                 </div>
                             </div>
 
