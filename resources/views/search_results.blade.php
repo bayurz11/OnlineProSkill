@@ -54,7 +54,7 @@
                                             @if ($category->status == 1)
                                                 <li>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox"
+                                                        <input class="form-check-input category-checkbox" type="checkbox"
                                                             value="{{ $category->id }}"
                                                             data-category-id="{{ $category->id }}"
                                                             id="cat_{{ $category->id }}">
@@ -335,29 +335,18 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const checkboxes = document.querySelectorAll('.form-check-input');
+            const checkboxes = document.querySelectorAll('.category-checkbox');
 
             checkboxes.forEach(checkbox => {
                 checkbox.addEventListener('change', function() {
                     const selectedCategories = Array.from(checkboxes)
-                        .filter(cb => cb.checked)
-                        .map(cb => cb.dataset.categoryId);
+                        .filter(checkbox => checkbox.checked)
+                        .map(checkbox => checkbox.value);
 
-                    // Kirim permintaan ke route Laravel
-                    fetch('{{ route('search') }}?categories=' + selectedCategories.join(','), {
-                            method: 'GET',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            }
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            // Tangani data hasil pencarian di sini
-                            console.log(data);
-                        })
-                        .catch(error => {
-                            console.error('Error:', error);
-                        });
+                    const url = new URL(window.location.href);
+                    url.searchParams.set('categories', selectedCategories.join(','));
+
+                    window.location.href = url.toString();
                 });
             });
         });
