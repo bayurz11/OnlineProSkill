@@ -19,9 +19,9 @@ class SearchController extends Controller
     {
         $user = Auth::user();
         $cart = Session::get('cart', []);
-        $categori = KelasTatapMuka::withCount('kategori_id')->get();
+        $categori = Categories::all();
         $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
-        $category_ids = $request->input('categories', []);
+        $category_ids = $request->input('categories', []); // Ambil parameter categories dari request, default ke array kosong
         $search_term = $request->input('search_term');
 
         // Mencari berdasarkan kategori dan term pencarian
