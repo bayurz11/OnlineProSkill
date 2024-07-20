@@ -21,13 +21,13 @@ class SearchController extends Controller
         $cart = Session::get('cart', []);
         $categori = Categories::all();
         $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
-        $category_id = $request->input('category_id');
+        $category_ids = $request->input('categories', []); // Ambil parameter categories dari request, default ke array kosong
         $search_term = $request->input('search_term');
 
         // Mencari berdasarkan kategori dan term pencarian
         $results = KelasTatapMuka::query()
-            ->when($category_id, function ($query, $category_id) {
-                return $query->where('kategori_id', $category_id);
+            ->when(!empty($category_ids), function ($query) use ($category_ids) {
+                return $query->whereIn('kategori_id', $category_ids);
             })
             ->when($search_term, function ($query, $search_term) {
                 return $query->where('nama_kursus', 'like', '%' . $search_term . '%');

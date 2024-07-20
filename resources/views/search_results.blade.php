@@ -55,7 +55,9 @@
                                                 <li>
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="checkbox"
-                                                            value="{{ $category->id }}" id="cat_{{ $category->id }}">
+                                                            value="{{ $category->id }}"
+                                                            data-category-id="{{ $category->id }}"
+                                                            id="cat_{{ $category->id }}">
                                                         <label class="form-check-label" for="cat_{{ $category->id }}">
                                                             {{ $category->name_category }} ({{ $category->course_count }})
                                                         </label>
@@ -69,8 +71,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
                             <div class="courses-widget">
                                 <h4 class="widget-title">Price</h4>
                                 <div class="courses-cat-list">
@@ -331,4 +331,35 @@
         </section>
         <!-- all-courses-end -->
     @endif
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.form-check-input');
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const selectedCategories = Array.from(checkboxes)
+                        .filter(cb => cb.checked)
+                        .map(cb => cb.dataset.categoryId);
+
+                    // Kirim permintaan ke route Laravel
+                    fetch('{{ route('search') }}?categories=' + selectedCategories.join(','), {
+                            method: 'GET',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            }
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            // Tangani data hasil pencarian di sini
+                            console.log(data);
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
+                });
+            });
+        });
+    </script>
+
 @endsection
