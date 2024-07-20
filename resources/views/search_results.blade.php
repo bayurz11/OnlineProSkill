@@ -281,7 +281,7 @@
     <!-- all-courses-end -->
     @endif
 
-    {{-- <script>
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
             const checkboxes = document.querySelectorAll('.category-checkbox');
 
@@ -298,6 +298,6 @@
                 });
             });
         });
-    </script> --}}
+    </script>
 
 @endsection
