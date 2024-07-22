@@ -118,15 +118,15 @@
                                     <ul class="list-wrap">
                                         <li>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="difficulty_1">
+                                                <input class="form-check-input tingkat-checkbox" type="checkbox"
+                                                    value="" id="difficulty_1">
                                                 <label class="form-check-label" for="difficulty_1">All Skills</label>
                                             </div>
                                         </li>
                                         @foreach ($tingkatLevels as $tingkat)
                                             <li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox"
+                                                    <input class="form-check-input tingkat-checkbox" type="checkbox"
                                                         value="{{ $tingkat }}"
                                                         data-category-id="{{ $tingkat }}"
                                                         id="level_{{ $loop->index }}">
@@ -136,11 +136,9 @@
                                                 </div>
                                             </li>
                                         @endforeach
-
                                     </ul>
                                 </div>
                             </div>
-
 
                         </aside>
                     </div>
@@ -317,22 +315,72 @@
         //         }
         //     });
         // });
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     const checkboxes = document.querySelectorAll('.category-checkbox');
+        //     const allCategoriesCheckbox = document.getElementById('all_categories');
+        //     const sortBySelect = document.querySelector('select[name="orderby"]');
+
+        //     function updateUrl(selectedCategories, orderby) {
+        //         const url = new URL(window.location.href);
+        //         url.searchParams.set('categories', selectedCategories.join(','));
+        //         url.searchParams.set('orderby', orderby);
+        //         window.location.href = url.toString();
+        //     }
+
+        //     function toggleAllCategories(source) {
+        //         if (source.checked) {
+        //             checkboxes.forEach(checkbox => checkbox.checked = false);
+        //             updateUrl([], sortBySelect.value);
+        //         }
+        //     }
+
+        //     checkboxes.forEach(checkbox => {
+        //         checkbox.addEventListener('change', function() {
+        //             if (this.checked) {
+        //                 allCategoriesCheckbox.checked = false;
+        //             }
+
+        //             const selectedCategories = Array.from(checkboxes)
+        //                 .filter(checkbox => checkbox.checked)
+        //                 .map(checkbox => checkbox.value);
+
+        //             updateUrl(selectedCategories, sortBySelect.value);
+        //         });
+        //     });
+
+        //     allCategoriesCheckbox.addEventListener('change', function() {
+        //         if (this.checked) {
+        //             checkboxes.forEach(checkbox => checkbox.checked = false);
+        //             updateUrl([], sortBySelect.value);
+        //         }
+        //     });
+
+        //     sortBySelect.addEventListener('change', function() {
+        //         const selectedCategories = Array.from(checkboxes)
+        //             .filter(checkbox => checkbox.checked)
+        //             .map(checkbox => checkbox.value);
+        //         updateUrl(selectedCategories, this.value);
+        //     });
+        // });
         document.addEventListener('DOMContentLoaded', function() {
             const checkboxes = document.querySelectorAll('.category-checkbox');
             const allCategoriesCheckbox = document.getElementById('all_categories');
             const sortBySelect = document.querySelector('select[name="orderby"]');
+            const tingkatCheckboxes = document.querySelectorAll('.tingkat-checkbox');
 
-            function updateUrl(selectedCategories, orderby) {
+            function updateUrl(selectedCategories, orderby, selectedTingkat) {
                 const url = new URL(window.location.href);
                 url.searchParams.set('categories', selectedCategories.join(','));
                 url.searchParams.set('orderby', orderby);
+                url.searchParams.set('tingkat', selectedTingkat.join(','));
                 window.location.href = url.toString();
             }
 
             function toggleAllCategories(source) {
                 if (source.checked) {
                     checkboxes.forEach(checkbox => checkbox.checked = false);
-                    updateUrl([], sortBySelect.value);
+                    updateUrl([], sortBySelect.value, Array.from(tingkatCheckboxes).filter(checkbox => checkbox
+                        .checked).map(checkbox => checkbox.value));
                 }
             }
 
@@ -346,14 +394,16 @@
                         .filter(checkbox => checkbox.checked)
                         .map(checkbox => checkbox.value);
 
-                    updateUrl(selectedCategories, sortBySelect.value);
+                    updateUrl(selectedCategories, sortBySelect.value, Array.from(tingkatCheckboxes)
+                        .filter(checkbox => checkbox.checked).map(checkbox => checkbox.value));
                 });
             });
 
             allCategoriesCheckbox.addEventListener('change', function() {
                 if (this.checked) {
                     checkboxes.forEach(checkbox => checkbox.checked = false);
-                    updateUrl([], sortBySelect.value);
+                    updateUrl([], sortBySelect.value, Array.from(tingkatCheckboxes).filter(checkbox =>
+                        checkbox.checked).map(checkbox => checkbox.value));
                 }
             });
 
@@ -361,7 +411,19 @@
                 const selectedCategories = Array.from(checkboxes)
                     .filter(checkbox => checkbox.checked)
                     .map(checkbox => checkbox.value);
-                updateUrl(selectedCategories, this.value);
+                updateUrl(selectedCategories, this.value, Array.from(tingkatCheckboxes).filter(checkbox =>
+                    checkbox.checked).map(checkbox => checkbox.value));
+            });
+
+            tingkatCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const selectedTingkat = Array.from(tingkatCheckboxes)
+                        .filter(checkbox => checkbox.checked)
+                        .map(checkbox => checkbox.value);
+
+                    updateUrl(Array.from(checkboxes).filter(checkbox => checkbox.checked).map(
+                        checkbox => checkbox.value), sortBySelect.value, selectedTingkat);
+                });
             });
         });
     </script>
