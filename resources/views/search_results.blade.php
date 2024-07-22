@@ -55,9 +55,9 @@
                                             <label class="form-check-label" for="all_categories">Semua Kategori</label>
                                         </div>
                                     </li>
-                                    @foreach ($categori as $category)
+                                    @foreach ($categori as $index => $category)
                                         @if ($category->status == 1)
-                                            <li>
+                                            <li class="category-item {{ $index >= 4 ? 'd-none' : '' }}">
                                                 <div class="form-check">
                                                     <input class="form-check-input category-checkbox" type="checkbox"
                                                         value="{{ $category->id }}" data-category-id="{{ $category->id }}"
@@ -74,10 +74,11 @@
                                 </ul>
 
                                 <div class="show-more">
-                                    <a href="#">Show More +</a>
+                                    <a href="#" onclick="showMoreCategories(event)">Show More +</a>
                                 </div>
                             </div>
                         </div>
+
                         <div class="courses-widget">
                             <h4 class="widget-title">Harga</h4>
                             <div class="courses-cat-list">
@@ -431,6 +432,13 @@
                         checkbox.value), sortBySelect.value, []);
                 }
             });
+
+            function showMoreCategories(event) {
+                event.preventDefault();
+                const hiddenCategories = document.querySelectorAll('.category-item.d-none');
+                hiddenCategories.forEach(category => category.classList.remove('d-none'));
+                event.target.style.display = 'none'; // Hide the "Show More" link after clicking
+            }
         });
     </script>
 
