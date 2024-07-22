@@ -48,17 +48,15 @@
                                                 {{ number_format($order->price, 0) }}
                                             </td>
                                             <td>
-                                                <span class="badge bg-success">
-                                                    @if ($order->status == 'PAID')
+                                                @if ($order->status == 'PAID' || $order->status == 'SETTLED')
+                                                    <span class="badge bg-success">
                                                         Sukses
-                                                    @elseif ($order->status == 'SETTLED')
-                                                        Sukses
-                                                    @else
-                                                        <span class="badge bg-info">
-                                                            Belum Dibayar
-                                                        </span>
-                                                    @endif
-                                                </span>
+                                                    </span>
+                                                @else
+                                                    <span class="badge bg-info">
+                                                        Belum Dibayar
+                                                    </span>
+                                                @endif
                                             </td>
                                             <td>
 
