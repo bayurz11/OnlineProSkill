@@ -204,42 +204,20 @@
             <div class="col-lg-7 col-xl-12 stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-baseline mb-2">
-                            <h6 class="card-title mb-0">Status Transaksi</h6>
-                            <div class="dropdown mb-2">
-                                <a type="button" id="dropdownMenuButton7" data-bs-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                    <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton7">
-                                    <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                            data-feather="eye" class="icon-sm me-2"></i> <span
-                                            class="">View</span></a>
-                                    <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                            data-feather="edit-2" class="icon-sm me-2"></i> <span
-                                            class="">Edit</span></a>
-                                    <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                            data-feather="trash" class="icon-sm me-2"></i> <span
-                                            class="">Delete</span></a>
-                                    <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                            data-feather="printer" class="icon-sm me-2"></i> <span
-                                            class="">Print</span></a>
-                                    <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                            data-feather="download" class="icon-sm me-2"></i> <span
-                                            class="">Download</span></a>
-                                </div>
-                            </div>
-                        </div>
+                        <h6 class="card-title">Order</h6>
+
+                        <p class="text-muted mb-3">Jumlah Kategori : {{ $categori->count() }}</p>
                         <div class="table-responsive">
-                            <table class="table table-hover mb-0">
+                            <table id="dataTableExample" class="table">
                                 <thead>
                                     <tr>
-                                        <th class="pt-0">No</th>
-                                        <th class="pt-0">No Invoice</th>
-                                        <th class="pt-0">Nama Kelas</th>
-                                        <th class="pt-0">Tanggal </th>
-                                        <th class="pt-0">Status</th>
-                                        <th class="pt-0">Harga</th>
+                                        <th>No</th>
+                                        <th>No Invoice</th>
+                                        <th>Nama Kelas</th>
+                                        <th>Tanggal</th>
+                                        <th>Harga</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -251,6 +229,9 @@
                                             </td>
                                             <td>
                                                 {{ $order->created_at->format('d M Y') }}
+                                            </td>
+                                            <td>
+                                                {{ number_format($order->price, 0) }}
                                             </td>
                                             <td>
                                                 <span class="badge bg-success">
@@ -266,20 +247,17 @@
                                                 </span>
                                             </td>
                                             <td>
-                                                {{ number_format($order->price, 0) }}
-                                            </td>
-
-                                            {{-- <td>
 
                                                 <a href="{{ route('prin', ['id' => $order->id]) }}" target="_blank"
                                                     class="btn btn-success btn-icon" title="Cetak">
                                                     <i data-feather="printer"></i>
                                                 </a>
-                                            </td> --}}
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
+
                         </div>
                     </div>
                 </div>
