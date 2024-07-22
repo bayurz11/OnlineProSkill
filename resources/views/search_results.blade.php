@@ -163,14 +163,14 @@
                                         <div class="courses-top-right m-0 ms-md-auto">
                                             <span class="sort-by">Sort By:</span>
                                             <div class="courses-top-right-select">
-                                                <form method="GET" action="{{ route('search') }}">
-                                                    <select name="orderby" class="orderby" onchange="this.form.submit()">
+                                                <form id="sortForm" method="GET" action="{{ route('search') }}">
+                                                    <select name="orderby" class="orderby">
                                                         <option value="latest"
-                                                            {{ request('orderby') == 'latest' ? 'selected' : '' }}>
-                                                            terbaru</option>
+                                                            {{ request('orderby') == 'latest' ? 'selected' : '' }}>terbaru
+                                                        </option>
                                                         <option value="oldest"
-                                                            {{ request('orderby') == 'oldest' ? 'selected' : '' }}>
-                                                            terlama</option>
+                                                            {{ request('orderby') == 'oldest' ? 'selected' : '' }}>terlama
+                                                        </option>
                                                         <option value="highest_price"
                                                             {{ request('orderby') == 'highest_price' ? 'selected' : '' }}>
                                                             harga tertinggi</option>
@@ -180,6 +180,7 @@
                                                     </select>
                                                 </form>
                                             </div>
+
                                         </div>
 
                                         <ul class="nav nav-tabs courses__nav-tabs" id="myTab" role="tablist">
@@ -272,24 +273,70 @@
 
 
     <script>
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     const checkboxes = document.querySelectorAll('.category-checkbox');
+        //     const allCategoriesCheckbox = document.getElementById('all_categories');
+
+        //     function updateUrl(selectedCategories) {
+        //         const url = new URL(window.location.href);
+        //         url.searchParams.set('categories', selectedCategories.join(','));
+        //         window.location.href = url.toString();
+        //     }
+
+        //     function toggleAllCategories(source) {
+        //         if (source.checked) {
+        //             // Uncheck all category checkboxes
+        //             checkboxes.forEach(checkbox => {
+        //                 checkbox.checked = false;
+        //             });
+        //             // Update URL to show all data
+        //             updateUrl([]);
+        //         }
+        //     }
+
+        //     checkboxes.forEach(checkbox => {
+        //         checkbox.addEventListener('change', function() {
+        //             if (this.checked) {
+        //                 allCategoriesCheckbox.checked = false;
+        //             }
+
+        //             // Get selected categories
+        //             const selectedCategories = Array.from(checkboxes)
+        //                 .filter(checkbox => checkbox.checked)
+        //                 .map(checkbox => checkbox.value);
+
+        //             // Update URL with selected categories
+        //             updateUrl(selectedCategories);
+        //         });
+        //     });
+
+        //     allCategoriesCheckbox.addEventListener('change', function() {
+        //         if (this.checked) {
+        //             // Uncheck all category checkboxes
+        //             checkboxes.forEach(checkbox => {
+        //                 checkbox.checked = false;
+        //             });
+        //             // Update URL to show all data
+        //             updateUrl([]);
+        //         }
+        //     });
+        // });
         document.addEventListener('DOMContentLoaded', function() {
             const checkboxes = document.querySelectorAll('.category-checkbox');
             const allCategoriesCheckbox = document.getElementById('all_categories');
+            const sortBySelect = document.querySelector('select[name="orderby"]');
 
-            function updateUrl(selectedCategories) {
+            function updateUrl(selectedCategories, orderby) {
                 const url = new URL(window.location.href);
                 url.searchParams.set('categories', selectedCategories.join(','));
+                url.searchParams.set('orderby', orderby);
                 window.location.href = url.toString();
             }
 
             function toggleAllCategories(source) {
                 if (source.checked) {
-                    // Uncheck all category checkboxes
-                    checkboxes.forEach(checkbox => {
-                        checkbox.checked = false;
-                    });
-                    // Update URL to show all data
-                    updateUrl([]);
+                    checkboxes.forEach(checkbox => checkbox.checked = false);
+                    updateUrl([], sortBySelect.value);
                 }
             }
 
@@ -299,25 +346,26 @@
                         allCategoriesCheckbox.checked = false;
                     }
 
-                    // Get selected categories
                     const selectedCategories = Array.from(checkboxes)
                         .filter(checkbox => checkbox.checked)
                         .map(checkbox => checkbox.value);
 
-                    // Update URL with selected categories
-                    updateUrl(selectedCategories);
+                    updateUrl(selectedCategories, sortBySelect.value);
                 });
             });
 
             allCategoriesCheckbox.addEventListener('change', function() {
                 if (this.checked) {
-                    // Uncheck all category checkboxes
-                    checkboxes.forEach(checkbox => {
-                        checkbox.checked = false;
-                    });
-                    // Update URL to show all data
-                    updateUrl([]);
+                    checkboxes.forEach(checkbox => checkbox.checked = false);
+                    updateUrl([], sortBySelect.value);
                 }
+            });
+
+            sortBySelect.addEventListener('change', function() {
+                const selectedCategories = Array.from(checkboxes)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value);
+                updateUrl(selectedCategories, this.value);
             });
         });
     </script>
