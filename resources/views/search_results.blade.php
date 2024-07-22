@@ -55,9 +55,9 @@
                                             <label class="form-check-label" for="all_categories">Semua Kategori</label>
                                         </div>
                                     </li>
-                                    @foreach ($categori as $category)
+                                    @foreach ($categori as $index => $category)
                                         @if ($category->status == 1)
-                                            <li>
+                                            <li class="{{ $index >= 4 ? 'hidden' : '' }}">
                                                 <div class="form-check">
                                                     <input class="form-check-input category-checkbox" type="checkbox"
                                                         value="{{ $category->id }}" data-category-id="{{ $category->id }}"
@@ -72,12 +72,12 @@
                                         @endif
                                     @endforeach
                                 </ul>
-
                                 <div class="show-more">
-                                    <a href="#">Show More +</a>
+                                    <a href="#" onclick="showMoreCategories(event)">Show More +</a>
                                 </div>
                             </div>
                         </div>
+
                         <div class="courses-widget">
                             <h4 class="widget-title">Harga</h4>
                             <div class="courses-cat-list">
@@ -431,6 +431,22 @@
                         checkbox.value), sortBySelect.value, []);
                 }
             });
+            document.addEventListener('DOMContentLoaded', function() {
+                var categoryItems = document.querySelectorAll('.list-wrap li');
+                for (var i = 4; i < categoryItems.length; i++) {
+                    categoryItems[i].style.display = 'none';
+                }
+            });
+
+            function showMoreCategories(event) {
+                event.preventDefault();
+                var categoryItems = document.querySelectorAll('.list-wrap li');
+                for (var i = 4; i < categoryItems.length; i++) {
+                    categoryItems[i].style.display = 'block';
+                }
+                event.target.style.display = 'none';
+            }
+
         });
     </script>
 
