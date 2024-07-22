@@ -39,111 +39,111 @@
     <!-- all-courses -->
     <section class="all-courses-area section-py-120">
         <div class="container">
-            @if ($results->isEmpty())
-                <p style="text-align: center;">Tidak ada hasil yang ditemukan.</p>
-            @else
-                <div class="row">
-                    <div class="col-xl-3 col-lg-4 order-2 order-lg-0">
-                        <aside class="courses__sidebar">
-                            <div class="courses-widget">
-                                <h4 class="widget-title">Kategori</h4>
-                                <div class="courses-cat-list">
-                                    <ul class="list-wrap">
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="all_categories" onclick="toggleAllCategories(this)"
-                                                    {{ empty($category_ids) ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="all_categories">Semua Kategori</label>
-                                            </div>
-                                        </li>
-                                        @foreach ($categori as $category)
-                                            @if ($category->status == 1)
-                                                <li>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input category-checkbox" type="checkbox"
-                                                            value="{{ $category->id }}"
-                                                            data-category-id="{{ $category->id }}"
-                                                            id="cat_{{ $category->id }}"
-                                                            {{ in_array($category->id, $category_ids) ? 'checked' : '' }}>
-                                                        <label class="form-check-label" for="cat_{{ $category->id }}">
-                                                            {{ $category->name_category }}
-                                                            ({{ $categoryCounts[$category->id] ?? 0 }})
-                                                        </label>
-                                                    </div>
-                                                </li>
-                                            @endif
-                                        @endforeach
-                                    </ul>
 
-                                    <div class="show-more">
-                                        <a href="#">Show More +</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="courses-widget">
-                                <h4 class="widget-title">Harga</h4>
-                                <div class="courses-cat-list">
-                                    <ul class="list-wrap">
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="price_filter[]"
-                                                    value="all" id="price_1">
-                                                <label class="form-check-label" for="price_1">All Price</label>
-                                            </div>
-                                        </li>
-
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="price_filter[]"
-                                                    value="free" id="price_2">
-                                                <label class="form-check-label" for="price_2">Free</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="price_filter[]"
-                                                    value="paid" id="price_3">
-                                                <label class="form-check-label" for="price_3">Paid</label>
-                                            </div>
-                                        </li>
-
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="courses-widget">
-                                <h4 class="widget-title">Level</h4>
-                                <div class="courses-cat-list">
-                                    <ul class="list-wrap">
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input tingkat-checkbox" type="checkbox"
-                                                    value="" id="difficulty_all" onclick="resetAllLevels(this)">
-                                                <label class="form-check-label" for="difficulty_all">All Levels</label>
-                                            </div>
-                                        </li>
-                                        @foreach ($tingkatLevels as $tingkat)
+            <div class="row">
+                <div class="col-xl-3 col-lg-4 order-2 order-lg-0">
+                    <aside class="courses__sidebar">
+                        <div class="courses-widget">
+                            <h4 class="widget-title">Kategori</h4>
+                            <div class="courses-cat-list">
+                                <ul class="list-wrap">
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="all_categories" onclick="toggleAllCategories(this)"
+                                                {{ empty($category_ids) ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="all_categories">Semua Kategori</label>
+                                        </div>
+                                    </li>
+                                    @foreach ($categori as $category)
+                                        @if ($category->status == 1)
                                             <li>
                                                 <div class="form-check">
-                                                    <input class="form-check-input tingkat-checkbox" type="checkbox"
-                                                        value="{{ $tingkat }}" id="level_{{ $loop->index }}"
-                                                        {{ in_array($tingkat, (array) request()->input('tingkat', [])) ? 'checked' : '' }}>
-                                                    <label class="form-check-label" for="level_{{ $loop->index }}">
-                                                        {{ $tingkat }} ({{ $tingkatCounts[$tingkat] ?? 0 }})
+                                                    <input class="form-check-input category-checkbox" type="checkbox"
+                                                        value="{{ $category->id }}" data-category-id="{{ $category->id }}"
+                                                        id="cat_{{ $category->id }}"
+                                                        {{ in_array($category->id, $category_ids) ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="cat_{{ $category->id }}">
+                                                        {{ $category->name_category }}
+                                                        ({{ $categoryCounts[$category->id] ?? 0 }})
                                                     </label>
                                                 </div>
                                             </li>
-                                        @endforeach
-                                    </ul>
+                                        @endif
+                                    @endforeach
+                                </ul>
+
+                                <div class="show-more">
+                                    <a href="#">Show More +</a>
                                 </div>
                             </div>
+                        </div>
+                        <div class="courses-widget">
+                            <h4 class="widget-title">Harga</h4>
+                            <div class="courses-cat-list">
+                                <ul class="list-wrap">
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="price_filter[]"
+                                                value="all" id="price_1">
+                                            <label class="form-check-label" for="price_1">All Price</label>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="price_filter[]"
+                                                value="free" id="price_2">
+                                            <label class="form-check-label" for="price_2">Free</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="price_filter[]"
+                                                value="paid" id="price_3">
+                                            <label class="form-check-label" for="price_3">Paid</label>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="courses-widget">
+                            <h4 class="widget-title">Level</h4>
+                            <div class="courses-cat-list">
+                                <ul class="list-wrap">
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input tingkat-checkbox" type="checkbox" value=""
+                                                id="difficulty_all" onclick="resetAllLevels(this)">
+                                            <label class="form-check-label" for="difficulty_all">All Levels</label>
+                                        </div>
+                                    </li>
+                                    @foreach ($tingkatLevels as $tingkat)
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input tingkat-checkbox" type="checkbox"
+                                                    value="{{ $tingkat }}" id="level_{{ $loop->index }}"
+                                                    {{ in_array($tingkat, (array) request()->input('tingkat', [])) ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="level_{{ $loop->index }}">
+                                                    {{ $tingkat }} ({{ $tingkatCounts[$tingkat] ?? 0 }})
+                                                </label>
+                                            </div>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
 
 
-                        </aside>
-                    </div>
-                    <!-- Courses Grid -->
-                    <div class="col-xl-9 col-lg-8">
+                    </aside>
+                </div>
+                <!-- Courses Grid -->
+                <div class="col-xl-9 col-lg-8">
+                    @if ($results->isEmpty())
+                        <p style="text-align: center;">Tidak ada hasil yang ditemukan.</p>
+                    @else
                         <div class="courses-top-wrap">
                             <div class="row align-items-center">
                                 <div class="col-md-5">
@@ -258,8 +258,8 @@
                             @endforeach
                         </div>
 
-                    </div>
                 </div>
+            </div>
         </div>
     </section>
     <!-- all-courses-end -->
