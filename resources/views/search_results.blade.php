@@ -271,7 +271,7 @@
     @endif
 
 
-    <script>
+    {{-- <script>
         document.addEventListener('DOMContentLoaded', function() {
             const checkboxes = document.querySelectorAll('.category-checkbox');
             const allCategoriesCheckbox = document.getElementById('all_categories');
@@ -320,6 +320,48 @@
                 }
             });
         });
+    </script> --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fungsi untuk mengupdate URL dengan parameter query
+            function updateURLParameter(param, paramValue) {
+                var url = new URL(window.location.href);
+                url.searchParams.set(param, paramValue);
+                window.history.pushState({}, '', url);
+            }
+
+            // Tambahkan event listener untuk checkbox
+            document.querySelectorAll('.category-checkbox').forEach(function(checkbox) {
+                checkbox.addEventListener('change', function() {
+                    var selectedCategories = [];
+                    document.querySelectorAll('.category-checkbox:checked').forEach(function(
+                        checkedBox) {
+                        selectedCategories.push(checkedBox.getAttribute(
+                        'data-category-id'));
+                    });
+                    updateURLParameter('categories', selectedCategories.join(','));
+                });
+            });
+
+            // Mengatur checkbox sesuai dengan parameter query saat halaman dimuat
+            function setCheckboxesFromQuery() {
+                var urlParams = new URLSearchParams(window.location.search);
+                var categories = urlParams.get('categories');
+                if (categories) {
+                    var categoryArray = categories.split(',');
+                    categoryArray.forEach(function(id) {
+                        var checkbox = document.querySelector(
+                            `.category-checkbox[data-category-id="${id}"]`);
+                        if (checkbox) {
+                            checkbox.checked = true;
+                        }
+                    });
+                }
+            }
+
+            setCheckboxesFromQuery();
+        });
     </script>
+
 
 @endsection
