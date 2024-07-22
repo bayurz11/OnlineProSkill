@@ -100,6 +100,10 @@ class SearchController extends Controller
                     return $query->orderBy('created_at', 'desc');
                 } elseif ($orderby == 'oldest') {
                     return $query->orderBy('created_at', 'asc');
+                } elseif ($orderby == 'highest_price') {
+                    return $query->orderBy('price', 'desc');
+                } elseif ($orderby == 'lowest_price') {
+                    return $query->orderBy('price', 'asc');
                 }
             })
             ->get();
