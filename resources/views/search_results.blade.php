@@ -433,12 +433,6 @@
                 }
             });
 
-            function showMoreCategories(event) {
-                event.preventDefault();
-                const hiddenCategories = document.querySelectorAll('.category-item.d-none');
-                hiddenCategories.forEach(category => category.classList.remove('d-none'));
-                event.target.style.display = 'none'; // Hide the "Show More" link after clicking
-            }
         });
     </script>
 
