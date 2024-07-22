@@ -123,40 +123,24 @@
                                                 <label class="form-check-label" for="difficulty_1">All Skills</label>
                                             </div>
                                         </li>
-                                        @foreach ($categori as $category)
-                                            @if ($category->status == 1)
-                                                <li>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            value="{{ $category->id }}"data-category-id="{{ $category->id }}"
-                                                            id="cat_{{ $category->id }}">
-                                                        <label class="form-check-label" for="cat_{{ $category->id }}">
-                                                            {{ $category->tingkat }}
-                                                        </label>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value=""
-                                                            id="difficulty_3">
-                                                        <label class="form-check-label" for="difficulty_3">Intermediate
-                                                            (22)
-                                                        </label>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value=""
-                                                            id="difficulty_4">
-                                                        <label class="form-check-label" for="difficulty_4">High
-                                                            (42)</label>
-                                                    </div>
-                                                </li>
-                                            @endif
+                                        @foreach ($tingkatLevels as $tingkat)
+                                            <li>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox"
+                                                        value="{{ $tingkat }}"
+                                                        data-category-id="{{ $tingkat }}"
+                                                        id="level_{{ $loop->index }}">
+                                                    <label class="form-check-label" for="level_{{ $loop->index }}">
+                                                        {{ $tingkat }}
+                                                    </label>
+                                                </div>
+                                            </li>
                                         @endforeach
+
                                     </ul>
                                 </div>
                             </div>
+
 
                         </aside>
                     </div>

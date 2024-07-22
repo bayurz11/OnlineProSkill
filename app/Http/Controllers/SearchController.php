@@ -75,9 +75,9 @@ class SearchController extends Controller
     {
         $user = Auth::user();
         $cart = Session::get('cart', []);
-        $categori = Categories::all();
         $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
         $category_ids = $request->input('categories', []);
+        $tingkatLevels = KelasTatapMuka::distinct()->pluck('tingkat');
 
         // Pastikan category_ids adalah array
         if (!is_array($category_ids)) {
@@ -136,6 +136,6 @@ class SearchController extends Controller
             ->groupBy('kategori_id')
             ->pluck('total', 'kategori_id');
 
-        return view('search_results', compact('results', 'categori', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'course', 'categoryCounts', 'category_ids'));
+        return view('search_results', compact('results', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'course', 'categoryCounts', 'category_ids', 'tingkatLevels'));
     }
 }
