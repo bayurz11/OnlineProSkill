@@ -131,7 +131,8 @@
                                                         data-category-id="{{ $tingkat }}"
                                                         id="level_{{ $loop->index }}">
                                                     <label class="form-check-label" for="level_{{ $loop->index }}">
-                                                        {{ $tingkat }}({{ $tingkatLevels ?? 0 }})
+                                                        {{ $tingkat }} ({{ $tingkatCounts[$tingkat] ?? 0 }})
+
                                                     </label>
                                                 </div>
                                             </li>
