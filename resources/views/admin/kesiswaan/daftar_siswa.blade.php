@@ -18,7 +18,7 @@
                     <div class="card-body">
                         <h6 class="card-title">Daftar Siswa</h6>
 
-                        <p class="text-muted mb-3"> Jumlah Siswa : </p>
+                        <p class="text-muted mb-3"> Jumlah Siswa : {{ $daftar_siswa->count() }}</p>
                         <div class="table-responsive">
                             <table id="dataTableExample" class="table">
                                 <thead>
