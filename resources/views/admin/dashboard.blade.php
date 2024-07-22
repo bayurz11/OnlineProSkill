@@ -245,12 +245,36 @@
                                 <tbody>
                                     @foreach ($orders as $key => $order)
                                         <tr>
-                                            <td>1</td>
-                                            <td>NobleUI jQuery</td>
-                                            <td>01/01/2022</td>
-                                            <td>26/04/2022</td>
-                                            <td><span class="badge bg-danger">Released</span></td>
-                                            <td>Leonardo Payne</td>
+                                            <td>{{ $key + 1 }}</td>
+                                            <td>{{ $order->nomor_invoice }}</td>
+                                            <td>{{ $order->KelasTatapMuka->nama_kursus ?? 'Nama kelas tidak tersedia' }}
+                                            </td>
+                                            <td>
+                                                {{ $order->created_at->format('d M Y') }}
+                                            </td>
+                                            <td>
+                                                {{ number_format($order->price, 0) }}
+                                            </td>
+                                            <td>
+                                                <span class="badge bg-success">
+                                                    @if ($order->status == 'PAID')
+                                                        Sukses
+                                                    @elseif ($order->status == 'SETTLED')
+                                                        Sukses
+                                                    @else
+                                                        <span class="badge bg-info">
+                                                            Belum Dibayar
+                                                        </span>
+                                                    @endif
+                                                </span>
+                                            </td>
+                                            <td>
+
+                                                <a href="{{ route('prin', ['id' => $order->id]) }}" target="_blank"
+                                                    class="btn btn-success btn-icon" title="Cetak">
+                                                    <i data-feather="printer"></i>
+                                                </a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
