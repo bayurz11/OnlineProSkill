@@ -92,24 +92,22 @@
                                                 <label class="form-check-label" for="price_1">All Price</label>
                                             </div>
                                         </li>
-                                        @foreach ($categori as $category)
-                                            @if ($category->status == 1)
-                                                <li>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="price_filter[]" value="free" id="price_2">
-                                                        <label class="form-check-label" for="price_2">Free</label>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            name="price_filter[]" value="paid" id="price_3">
-                                                        <label class="form-check-label" for="price_3">Paid</label>
-                                                    </div>
-                                                </li>
-                                            @endif
-                                        @endforeach
+
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="price_filter[]"
+                                                    value="free" id="price_2">
+                                                <label class="form-check-label" for="price_2">Free</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="price_filter[]"
+                                                    value="paid" id="price_3">
+                                                <label class="form-check-label" for="price_3">Paid</label>
+                                            </div>
+                                        </li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -125,28 +123,35 @@
                                                 <label class="form-check-label" for="difficulty_1">All Skills</label>
                                             </div>
                                         </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="difficulty_2">
-                                                <label class="form-check-label" for="difficulty_2">Beginner (55)</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="difficulty_3">
-                                                <label class="form-check-label" for="difficulty_3">Intermediate
-                                                    (22)</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="difficulty_4">
-                                                <label class="form-check-label" for="difficulty_4">High (42)</label>
-                                            </div>
-                                        </li>
+                                        @foreach ($categori as $category)
+                                            @if ($category->status == 1)
+                                                <li>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                            id="difficulty_2">
+                                                        <label class="form-check-label" for="difficulty_2">Beginner
+                                                            (55)</label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                            id="difficulty_3">
+                                                        <label class="form-check-label" for="difficulty_3">Intermediate
+                                                            (22)
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                            id="difficulty_4">
+                                                        <label class="form-check-label" for="difficulty_4">High
+                                                            (42)</label>
+                                                    </div>
+                                                </li>
+                                            @endif
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
