@@ -365,16 +365,22 @@
             function toggleAllCategories(source) {
                 if (source.checked) {
                     checkboxes.forEach(checkbox => checkbox.checked = false);
-                    updateUrl([], sortBySelect.value, Array.from(tingkatCheckboxes).filter(checkbox => checkbox
-                        .checked).map(checkbox => checkbox.value));
+                    updateUrl([], sortBySelect.value, Array.from(tingkatCheckboxes)
+                        .filter(checkbox => checkbox.checked)
+                        .map(checkbox => checkbox.value)
+                    );
                 }
             }
 
             function toggleAllLevels(source) {
                 if (source.checked) {
                     tingkatCheckboxes.forEach(checkbox => checkbox.checked = false);
-                    updateUrl(Array.from(checkboxes).filter(checkbox => checkbox.checked).map(checkbox => checkbox
-                        .value), sortBySelect.value, []);
+                    updateUrl(Array.from(checkboxes)
+                        .filter(checkbox => checkbox.checked)
+                        .map(checkbox => checkbox.value),
+                        sortBySelect.value,
+                        []
+                    );
                 }
             }
 
@@ -389,15 +395,19 @@
                         .map(checkbox => checkbox.value);
 
                     updateUrl(selectedCategories, sortBySelect.value, Array.from(tingkatCheckboxes)
-                        .filter(checkbox => checkbox.checked).map(checkbox => checkbox.value));
+                        .filter(checkbox => checkbox.checked)
+                        .map(checkbox => checkbox.value)
+                    );
                 });
             });
 
             allCategoriesCheckbox.addEventListener('change', function() {
                 if (this.checked) {
                     checkboxes.forEach(checkbox => checkbox.checked = false);
-                    updateUrl([], sortBySelect.value, Array.from(tingkatCheckboxes).filter(checkbox =>
-                        checkbox.checked).map(checkbox => checkbox.value));
+                    updateUrl([], sortBySelect.value, Array.from(tingkatCheckboxes)
+                        .filter(checkbox => checkbox.checked)
+                        .map(checkbox => checkbox.value)
+                    );
                 }
             });
 
@@ -405,8 +415,10 @@
                 const selectedCategories = Array.from(checkboxes)
                     .filter(checkbox => checkbox.checked)
                     .map(checkbox => checkbox.value);
-                updateUrl(selectedCategories, this.value, Array.from(tingkatCheckboxes).filter(checkbox =>
-                    checkbox.checked).map(checkbox => checkbox.value));
+                updateUrl(selectedCategories, this.value, Array.from(tingkatCheckboxes)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value)
+                );
             });
 
             tingkatCheckboxes.forEach(checkbox => {
@@ -419,26 +431,35 @@
                         .filter(checkbox => checkbox.checked)
                         .map(checkbox => checkbox.value);
 
-                    updateUrl(Array.from(checkboxes).filter(checkbox => checkbox.checked).map(
-                        checkbox => checkbox.value), sortBySelect.value, selectedTingkat);
+                    updateUrl(Array.from(checkboxes)
+                        .filter(checkbox => checkbox.checked)
+                        .map(checkbox => checkbox.value),
+                        sortBySelect.value,
+                        selectedTingkat
+                    );
                 });
             });
 
             difficultyAllCheckbox.addEventListener('change', function() {
                 if (this.checked) {
                     tingkatCheckboxes.forEach(checkbox => checkbox.checked = false);
-                    updateUrl(Array.from(checkboxes).filter(checkbox => checkbox.checked).map(checkbox =>
-                        checkbox.value), sortBySelect.value, []);
-                }
-            });
-            document.addEventListener('DOMContentLoaded', function() {
-                var categoryItems = document.querySelectorAll('.list-wrap li');
-                for (var i = 4; i < categoryItems.length; i++) {
-                    categoryItems[i].style.display = 'none';
+                    updateUrl(Array.from(checkboxes)
+                        .filter(checkbox => checkbox.checked)
+                        .map(checkbox => checkbox.value),
+                        sortBySelect.value,
+                        []
+                    );
                 }
             });
 
-            function showMoreCategories(event) {
+            // Initial display of categories
+            var categoryItems = document.querySelectorAll('.list-wrap li');
+            for (var i = 4; i < categoryItems.length; i++) {
+                categoryItems[i].style.display = 'none';
+            }
+
+            // Show more categories function
+            window.showMoreCategories = function(event) {
                 event.preventDefault();
                 var categoryItems = document.querySelectorAll('.list-wrap li');
                 for (var i = 4; i < categoryItems.length; i++) {
@@ -446,9 +467,9 @@
                 }
                 event.target.style.display = 'none';
             }
-
         });
     </script>
+
 
 
 @endsection
