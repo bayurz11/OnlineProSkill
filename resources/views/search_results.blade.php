@@ -235,7 +235,7 @@
                                 </div>
                             @endforeach
                         </div>
-                        {{ $results->appends(request()->except('page'))->links('pagination::bootstrap-4') }}
+                        {{-- {{ $results->appends(request()->except('page'))->links('pagination::bootstrap-4') }} --}}
                     </div>
                 </div>
             @endif
