@@ -224,7 +224,7 @@
                         <div
                             class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
                             @foreach ($results as $cours)
-                                <div class="col">
+                                <div class="col mb-4">
                                     <div class="courses__item shine__animate-item"
                                         style="display: flex; flex-direction: column; height: 100%;">
                                         <div class="courses__item-thumb">
