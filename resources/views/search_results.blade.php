@@ -132,7 +132,6 @@
                                                         id="level_{{ $loop->index }}">
                                                     <label class="form-check-label" for="level_{{ $loop->index }}">
                                                         {{ $tingkat }} ({{ $tingkatCounts[$tingkat] ?? 0 }})
-
                                                     </label>
                                                 </div>
                                             </li>
