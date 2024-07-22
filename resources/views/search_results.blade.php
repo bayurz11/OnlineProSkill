@@ -119,17 +119,15 @@
                                         <li>
                                             <div class="form-check">
                                                 <input class="form-check-input tingkat-checkbox" type="checkbox"
-                                                    value="" id="difficulty_1">
-                                                <label class="form-check-label" for="difficulty_1">All Skills</label>
+                                                    value="" id="difficulty_all">
+                                                <label class="form-check-label" for="difficulty_all">All Levels</label>
                                             </div>
                                         </li>
                                         @foreach ($tingkatLevels as $tingkat)
                                             <li>
                                                 <div class="form-check">
                                                     <input class="form-check-input tingkat-checkbox" type="checkbox"
-                                                        value="{{ $tingkat }}"
-                                                        data-category-id="{{ $tingkat }}"
-                                                        id="level_{{ $loop->index }}">
+                                                        value="{{ $tingkat }}" id="level_{{ $loop->index }}">
                                                     <label class="form-check-label" for="level_{{ $loop->index }}">
                                                         {{ $tingkat }} ({{ $tingkatCounts[$tingkat] ?? 0 }})
                                                     </label>
@@ -139,6 +137,7 @@
                                     </ul>
                                 </div>
                             </div>
+
 
                         </aside>
                     </div>
