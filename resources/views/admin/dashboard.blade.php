@@ -63,7 +63,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-6 col-md-12 col-xl-5">
-                                        <h3 class="mb-2">{{ $daftar_siswa->count() }}</h3>
+                                        <h3 class="mb-2">{{ $daftar_siswa->count() }} Siswa</h3>
 
                                     </div>
 
@@ -141,7 +141,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-6 col-md-12 col-xl-5">
-                                        <h3 class="mb-2">{{ $onlinecourse->count() }}</h3>
+                                        <h3 class="mb-2">{{ $onlinecourse->count() }} Kelas</h3>
 
                                     </div>
 
