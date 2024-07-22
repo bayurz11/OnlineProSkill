@@ -55,9 +55,9 @@
                                             <label class="form-check-label" for="all_categories">Semua Kategori</label>
                                         </div>
                                     </li>
-                                    @foreach ($categori as $index => $category)
+                                    @foreach ($categori as $category)
                                         @if ($category->status == 1)
-                                            <li class="category-item {{ $index >= 4 ? 'd-none' : '' }}">
+                                            <li>
                                                 <div class="form-check">
                                                     <input class="form-check-input category-checkbox" type="checkbox"
                                                         value="{{ $category->id }}" data-category-id="{{ $category->id }}"
@@ -74,11 +74,10 @@
                                 </ul>
 
                                 <div class="show-more">
-                                    <a href="#" onclick="showMoreCategories(event)">Show More +</a>
+                                    <a href="#">Show More +</a>
                                 </div>
                             </div>
                         </div>
-
                         <div class="courses-widget">
                             <h4 class="widget-title">Harga</h4>
                             <div class="courses-cat-list">
@@ -432,7 +431,6 @@
                         checkbox.value), sortBySelect.value, []);
                 }
             });
-
         });
     </script>
 
