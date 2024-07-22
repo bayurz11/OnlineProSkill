@@ -172,6 +172,10 @@ class SearchController extends Controller
             })
             ->when($price_filter, function ($query) use ($price_filter) {
                 return $query->where(function ($query) use ($price_filter) {
+                    // Tambahkan kondisi filter harga
+                    if (in_array('all', $price_filter)) {
+                        return; // Tidak menambahkan kondisi jika "All Price" dipilih
+                    }
                     foreach ($price_filter as $filter) {
                         if ($filter == 'free') {
                             $query->orWhere('price', 0);

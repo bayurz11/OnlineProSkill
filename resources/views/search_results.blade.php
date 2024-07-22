@@ -87,23 +87,23 @@
                                     <ul class="list-wrap">
                                         <li>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="all"
-                                                    id="price_all" {{ in_array('all', $price_filter) ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="price_all">All Price</label>
+                                                <input class="form-check-input" type="checkbox" name="price_filter[]"
+                                                    value="all" id="price_1">
+                                                <label class="form-check-label" for="price_1">All Price</label>
                                             </div>
                                         </li>
                                         <li>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="free"
-                                                    id="price_free" {{ in_array('free', $price_filter) ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="price_free">Free</label>
+                                                <input class="form-check-input" type="checkbox" name="price_filter[]"
+                                                    value="free" id="price_2">
+                                                <label class="form-check-label" for="price_2">Free</label>
                                             </div>
                                         </li>
                                         <li>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="paid"
-                                                    id="price_paid" {{ in_array('paid', $price_filter) ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="price_paid">Paid</label>
+                                                <input class="form-check-input" type="checkbox" name="price_filter[]"
+                                                    value="paid" id="price_3">
+                                                <label class="form-check-label" for="price_3">Paid</label>
                                             </div>
                                         </li>
                                     </ul>
