@@ -119,51 +119,44 @@
                                         <li>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
-                                                    id="difficulty_all" onclick="toggleAllLevels(this)"
-                                                    {{ empty($difficulty_levels) ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="difficulty_all">All Skills</label>
+                                                    id="difficulty_1">
+                                                <label class="form-check-label" for="difficulty_1">All Skills</label>
                                             </div>
                                         </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input level-checkbox" type="checkbox"
-                                                    value="Pemula" id="difficulty_beginner"
-                                                    {{ in_array('Pemula', $difficulty_levels) ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="difficulty_beginner">Beginner
-                                                    (55)</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input level-checkbox" type="checkbox"
-                                                    value="Menengah" id="difficulty_intermediate"
-                                                    {{ in_array('Menengah', $difficulty_levels) ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="difficulty_intermediate">Intermediate
-                                                    (22)</label>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input level-checkbox" type="checkbox"
-                                                    value="Lanjutan" id="difficulty_advanced"
-                                                    {{ in_array('Lanjutan', $difficulty_levels) ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="difficulty_advanced">High
-                                                    (42)</label>
-                                            </div>
-                                        </li>
+                                        @foreach ($categori as $category)
+                                            @if ($category->status == 1)
+                                                <li>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox"
+                                                            value="{{ $category->id }}"data-category-id="{{ $category->id }}"
+                                                            id="cat_{{ $category->id }}">
+                                                        <label class="form-check-label" for="cat_{{ $category->id }}">
+                                                            {{ $category->tingkat }}
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                            id="difficulty_3">
+                                                        <label class="form-check-label" for="difficulty_3">Intermediate
+                                                            (22)
+                                                        </label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                            id="difficulty_4">
+                                                        <label class="form-check-label" for="difficulty_4">High
+                                                            (42)</label>
+                                                    </div>
+                                                </li>
+                                            @endif
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
-
-                            <script>
-                                function toggleAllLevels(checkbox) {
-                                    var checkboxes = document.querySelectorAll('.level-checkbox');
-                                    checkboxes.forEach(function(cb) {
-                                        cb.checked = !checkbox.checked;
-                                    });
-                                }
-                            </script>
-
 
                         </aside>
                     </div>
