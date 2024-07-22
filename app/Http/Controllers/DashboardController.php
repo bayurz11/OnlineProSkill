@@ -13,11 +13,12 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
         $course = KelasTatapMuka::with('user')->where('course_type', 'offline')->get();
+        $onlinecourse = KelasTatapMuka::with('user')->where('course_type', 'online')->get();
         $daftar_siswa = UserProfile::where('role_id', 3)->get();
         $count = $course->count();
         if (!$user) {
             return redirect()->route('login_admin');
         }
-        return view('admin.dashboard', compact('user', 'course', 'count', 'daftar_siswa'));
+        return view('admin.dashboard', compact('user', 'course', 'count', 'daftar_siswa', 'onlinecourse'));
     }
 }

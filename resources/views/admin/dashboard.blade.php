@@ -141,7 +141,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-6 col-md-12 col-xl-5">
-                                        <h3 class="mb-2">35,084</h3>
+                                        <h3 class="mb-2">{{ $onlinecourse->count() }}</h3>
 
                                     </div>
 
