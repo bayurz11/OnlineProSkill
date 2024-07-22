@@ -57,7 +57,7 @@
                                     </li>
                                     @foreach ($categori as $index => $category)
                                         @if ($category->status == 1)
-                                            <li class="{{ $index >= 4 ? 'hidden' : '' }}">
+                                            <li class="category-item {{ $index >= 4 ? 'hidden' : '' }}">
                                                 <div class="form-check">
                                                     <input class="form-check-input category-checkbox" type="checkbox"
                                                         value="{{ $category->id }}" data-category-id="{{ $category->id }}"
@@ -77,6 +77,7 @@
                                 </div>
                             </div>
                         </div>
+
 
                         <div class="courses-widget">
                             <h4 class="widget-title">Harga</h4>
@@ -367,8 +368,7 @@
                     checkboxes.forEach(checkbox => checkbox.checked = false);
                     updateUrl([], sortBySelect.value, Array.from(tingkatCheckboxes)
                         .filter(checkbox => checkbox.checked)
-                        .map(checkbox => checkbox.value)
-                    );
+                        .map(checkbox => checkbox.value));
                 }
             }
 
@@ -379,8 +379,7 @@
                         .filter(checkbox => checkbox.checked)
                         .map(checkbox => checkbox.value),
                         sortBySelect.value,
-                        []
-                    );
+                        []);
                 }
             }
 
@@ -396,8 +395,7 @@
 
                     updateUrl(selectedCategories, sortBySelect.value, Array.from(tingkatCheckboxes)
                         .filter(checkbox => checkbox.checked)
-                        .map(checkbox => checkbox.value)
-                    );
+                        .map(checkbox => checkbox.value));
                 });
             });
 
@@ -406,8 +404,7 @@
                     checkboxes.forEach(checkbox => checkbox.checked = false);
                     updateUrl([], sortBySelect.value, Array.from(tingkatCheckboxes)
                         .filter(checkbox => checkbox.checked)
-                        .map(checkbox => checkbox.value)
-                    );
+                        .map(checkbox => checkbox.value));
                 }
             });
 
@@ -417,8 +414,7 @@
                     .map(checkbox => checkbox.value);
                 updateUrl(selectedCategories, this.value, Array.from(tingkatCheckboxes)
                     .filter(checkbox => checkbox.checked)
-                    .map(checkbox => checkbox.value)
-                );
+                    .map(checkbox => checkbox.value));
             });
 
             tingkatCheckboxes.forEach(checkbox => {
@@ -435,8 +431,7 @@
                         .filter(checkbox => checkbox.checked)
                         .map(checkbox => checkbox.value),
                         sortBySelect.value,
-                        selectedTingkat
-                    );
+                        selectedTingkat);
                 });
             });
 
@@ -447,13 +442,12 @@
                         .filter(checkbox => checkbox.checked)
                         .map(checkbox => checkbox.value),
                         sortBySelect.value,
-                        []
-                    );
+                        []);
                 }
             });
 
             // Initial display of categories
-            var categoryItems = document.querySelectorAll('.list-wrap li');
+            var categoryItems = document.querySelectorAll('.list-wrap .category-item');
             for (var i = 4; i < categoryItems.length; i++) {
                 categoryItems[i].style.display = 'none';
             }
@@ -461,7 +455,7 @@
             // Show more categories function
             window.showMoreCategories = function(event) {
                 event.preventDefault();
-                var categoryItems = document.querySelectorAll('.list-wrap li');
+                var categoryItems = document.querySelectorAll('.list-wrap .category-item');
                 for (var i = 4; i < categoryItems.length; i++) {
                     categoryItems[i].style.display = 'block';
                 }
