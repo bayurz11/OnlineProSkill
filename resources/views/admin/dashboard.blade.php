@@ -234,26 +234,25 @@
                                                 {{ number_format($order->price, 0) }}
                                             </td>
                                             <td>
-                                                <span class="badge bg-success">
-                                                    @if ($order->status == 'PAID')
+                                                @if ($order->status == 'PAID' || $order->status == 'SETTLED')
+                                                    <span class="badge bg-success">
                                                         Sukses
-                                                    @elseif ($order->status == 'SETTLED')
-                                                        Sukses
-                                                </span>
-                                            @else
-                                                <span class="badge bg-info">
-                                                    Belum Dibayar
-                                                </span>
-                                    @endif
-                                    </td>
-                                    <td>
+                                                    </span>
+                                                @else
+                                                    <span class="badge bg-info">
+                                                        Belum Dibayar
+                                                    </span>
+                                                @endif
+                                            </td>
 
-                                        <a href="{{ route('prin', ['id' => $order->id]) }}" target="_blank"
-                                            class="btn btn-success btn-icon" title="Cetak">
-                                            <i data-feather="printer"></i>
-                                        </a>
-                                    </td>
-                                    </tr>
+                                            <td>
+
+                                                <a href="{{ route('prin', ['id' => $order->id]) }}" target="_blank"
+                                                    class="btn btn-success btn-icon" title="Cetak">
+                                                    <i data-feather="printer"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>
