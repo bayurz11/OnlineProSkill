@@ -86,47 +86,11 @@
                                         aria-labelledby="all-tab" tabindex="0">
                                         <div
                                             class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
-                                            {{-- @foreach ($orders as $order)
-                                                <div class="col">
-                                                    <div class="courses__item courses__item-two shine__animate-item">
-                                                        <div class="courses__item-thumb courses__item-thumb-two">
-                                                            <a href="{{ route('lesson', ['id' => $order->product_id]) }}"
-                                                                class="shine__animate-link">
-                                                                <img src="{{ $order->KelasTatapMuka->gambar ? asset('public/uploads/' . $order->KelasTatapMuka->gambar) : asset('public/assets/img/courses/course_thumb01.jpg') }}"
-                                                                    alt="img" class="wd-100 wd-sm-150">
-                                                            </a>
-                                                        </div>
-                                                        <div class="courses__item-content courses__item-content-two">
-                                                            <h5 class="title">
-                                                                <a
-                                                                    href="{{ route('lesson', ['id' => $order->product_id]) }}">{{ $order->KelasTatapMuka->nama_kursus ?? 'Nama kelas tidak tersedia' }}</a>
-                                                            </h5>
-                                                            <div class="courses__item-content-bottom">
-                                                                <div class="author-two">
-                                                                    <a href="instructor-details.html">
-                                                                        <img src="{{ asset('public/assets/img/courses/course_author001.png') }}"
-                                                                            alt="img">
-                                                                        {{ $order->KelasTatapMuka->user->name }}
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="progress-item progress-item-two">
-                                                                <h6 class="title">Selesai <span>12%</span></h6>
-                                                                <div class="progress" role="progressbar"
-                                                                    aria-label="Example with label" aria-valuenow="25"
-                                                                    aria-valuemin="0" aria-valuemax="100">
-                                                                    <div class="progress-bar" style="width: 12%">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        
-                                                    </div>
-                                                </div>
-                                            @endforeach --}}
                                             @foreach ($orders as $order)
-                                                <div class="col">
-                                                    <div class="courses__item courses__item-two shine__animate-item">
+                                                <div class="col mb-4">
+                                                    <!-- Menggunakan kelas Bootstrap mb-4 untuk margin bawah -->
+                                                    <div class="courses__item courses__item-two shine__animate-item"
+                                                        style="display: flex; flex-direction: column; height: 100%;">
                                                         <div class="courses__item-thumb courses__item-thumb-two">
                                                             <a href="{{ route('lesson', ['id' => $order->product_id]) }}"
                                                                 class="shine__animate-link">
@@ -134,7 +98,8 @@
                                                                     alt="img" class="wd-100 wd-sm-150">
                                                             </a>
                                                         </div>
-                                                        <div class="courses__item-content courses__item-content-two">
+                                                        <div class="courses__item-content courses__item-content-two"
+                                                            style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
                                                             <h5 class="title">
                                                                 <a
                                                                     href="{{ route('lesson', ['id' => $order->product_id]) }}">{{ $order->KelasTatapMuka->nama_kursus ?? 'Nama kelas tidak tersedia' }}</a>
@@ -160,8 +125,8 @@
                                                     </div>
                                                 </div>
                                             @endforeach
-
                                         </div>
+
                                     </div>
 
                                     <div class="tab-pane fade" id="business-tab-pane" role="tabpanel"
