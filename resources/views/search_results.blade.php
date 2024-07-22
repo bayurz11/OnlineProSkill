@@ -73,7 +73,7 @@
                                     @endforeach
                                 </ul>
                                 <div class="show-more">
-                                    <a href="#" onclick="showMoreCategories(event)">Show More +</a>
+                                    <a href="#" onclick="showMoreCategories(event)">Tampilkan Lebih Banyak +</a>
                                 </div>
                             </div>
                         </div>
