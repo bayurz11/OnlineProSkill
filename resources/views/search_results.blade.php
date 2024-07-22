@@ -36,7 +36,6 @@
         </div>
     </section>
     <!-- breadcrumb-area-end -->
-
     <!-- all-courses -->
     <section class="all-courses-area section-py-120">
         <div class="container">
@@ -76,7 +75,6 @@
                                             @endif
                                         @endforeach
                                     </ul>
-
 
                                     <div class="show-more">
                                         <a href="#">Show More +</a>
