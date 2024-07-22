@@ -65,26 +65,19 @@
     </style>
 
     <script>
-        // Fungsi untuk menampilkan notifikasi
         function showNotification(element) {
             if (element) {
                 element.classList.add('show');
-                // Tunggu 3 detik kemudian hilangkan pesan
+
                 setTimeout(function() {
                     element.classList.remove('show');
                 }, 3000);
             }
         }
 
-        // Ambil elemen pesan keberhasilan
         var successMessage = document.getElementById('success-message');
-        // Ambil elemen pesan kesalahan
         var errorMessage = document.getElementById('error-message');
-
-        // Tampilkan pesan keberhasilan
         showNotification(successMessage);
-
-        // Tampilkan pesan kesalahan
         showNotification(errorMessage);
     </script>
 

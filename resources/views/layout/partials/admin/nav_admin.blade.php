@@ -237,6 +237,7 @@
                     <span class="link-title">Documentation</span>
                 </a>
             </li> --}}
+            <li class="nav-item nav-category">Pengaturan Umum</li>
         </ul>
     </div>
 </nav>
