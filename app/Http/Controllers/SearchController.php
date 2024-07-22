@@ -78,6 +78,7 @@ class SearchController extends Controller
         $categori = Categories::all();
         $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
         $category_ids = $request->input('categories', []);
+        $difficulty_levels = $request->input('difficulty_levels', []);
 
         // Pastikan category_ids adalah array
         if (!is_array($category_ids)) {
@@ -85,13 +86,22 @@ class SearchController extends Controller
         }
         $category_ids = array_filter($category_ids); // Hapus elemen kosong
 
+        // Pastikan difficulty_levels adalah array
+        if (!is_array($difficulty_levels)) {
+            $difficulty_levels = explode(',', $difficulty_levels);
+        }
+        $difficulty_levels = array_filter($difficulty_levels); // Hapus elemen kosong
+
         $search_term = $request->input('search_term');
         $orderby = $request->input('orderby', 'latest'); // Default ke 'latest' jika tidak ada input
 
-        // Mencari berdasarkan kategori dan term pencarian
+        // Mencari berdasarkan kategori, tingkat kesulitan, dan term pencarian
         $results = KelasTatapMuka::query()
             ->when(!empty($category_ids), function ($query) use ($category_ids) {
                 return $query->whereIn('kategori_id', $category_ids);
+            })
+            ->when(!empty($difficulty_levels), function ($query) use ($difficulty_levels) {
+                return $query->whereIn('tingkat', $difficulty_levels);
             })
             ->when($search_term, function ($query, $search_term) {
                 return $query->where('nama_kursus', 'like', '%' . $search_term . '%');
@@ -136,6 +146,6 @@ class SearchController extends Controller
             ->groupBy('kategori_id')
             ->pluck('total', 'kategori_id');
 
-        return view('search_results', compact('results', 'categori', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'course', 'categoryCounts', 'category_ids'));
+        return view('search_results', compact('results', 'categori', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'course', 'categoryCounts', 'category_ids', 'difficulty_levels'));
     }
 }
