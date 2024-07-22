@@ -119,7 +119,7 @@
                                         <li>
                                             <div class="form-check">
                                                 <input class="form-check-input tingkat-checkbox" type="checkbox"
-                                                    value="all" id="difficulty_all" onclick="resetAllLevels(this)">
+                                                    value="" id="difficulty_all" onclick="resetAllLevels(this)">
                                                 <label class="form-check-label" for="difficulty_all">All Levels</label>
                                             </div>
                                         </li>
