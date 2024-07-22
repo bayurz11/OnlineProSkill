@@ -267,84 +267,139 @@
 
 
     <script>
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     const checkboxes = document.querySelectorAll('.category-checkbox');
+        //     const allCategoriesCheckbox = document.getElementById('all_categories');
+        //     const sortBySelect = document.querySelector('select[name="orderby"]');
+        //     const tingkatCheckboxes = document.querySelectorAll('.tingkat-checkbox');
+
+        //     function updateUrl(selectedCategories, orderby, selectedTingkat) {
+        //         const url = new URL(window.location.href);
+        //         url.searchParams.set('categories', selectedCategories.join(','));
+        //         url.searchParams.set('orderby', orderby);
+        //         url.searchParams.set('tingkat', selectedTingkat.join(','));
+        //         window.location.href = url.toString();
+        //     }
+
+        //     function toggleAllCategories(source) {
+        //         if (source.checked) {
+        //             checkboxes.forEach(checkbox => checkbox.checked = false);
+        //             updateUrl([], sortBySelect.value, Array.from(tingkatCheckboxes).filter(checkbox => checkbox
+        //                 .checked).map(checkbox => checkbox.value));
+        //         }
+        //     }
+
+        //     checkboxes.forEach(checkbox => {
+        //         checkbox.addEventListener('change', function() {
+        //             if (this.checked) {
+        //                 allCategoriesCheckbox.checked = false;
+        //             }
+
+        //             const selectedCategories = Array.from(checkboxes)
+        //                 .filter(checkbox => checkbox.checked)
+        //                 .map(checkbox => checkbox.value);
+
+        //             updateUrl(selectedCategories, sortBySelect.value, Array.from(tingkatCheckboxes)
+        //                 .filter(checkbox => checkbox.checked).map(checkbox => checkbox.value));
+        //         });
+        //     });
+
+        //     allCategoriesCheckbox.addEventListener('change', function() {
+        //         if (this.checked) {
+        //             checkboxes.forEach(checkbox => checkbox.checked = false);
+        //             updateUrl([], sortBySelect.value, Array.from(tingkatCheckboxes).filter(checkbox =>
+        //                 checkbox.checked).map(checkbox => checkbox.value));
+        //         }
+        //     });
+
+        //     sortBySelect.addEventListener('change', function() {
+        //         const selectedCategories = Array.from(checkboxes)
+        //             .filter(checkbox => checkbox.checked)
+        //             .map(checkbox => checkbox.value);
+        //         updateUrl(selectedCategories, this.value, Array.from(tingkatCheckboxes).filter(checkbox =>
+        //             checkbox.checked).map(checkbox => checkbox.value));
+        //     });
+
+        //     tingkatCheckboxes.forEach(checkbox => {
+        //         checkbox.addEventListener('change', function() {
+        //             const selectedTingkat = Array.from(tingkatCheckboxes)
+        //                 .filter(checkbox => checkbox.checked)
+        //                 .map(checkbox => checkbox.value);
+
+        //             updateUrl(Array.from(checkboxes).filter(checkbox => checkbox.checked).map(
+        //                 checkbox => checkbox.value), sortBySelect.value, selectedTingkat);
+        //         });
+        //     });
+
+        //     function resetAllLevels(checkbox) {
+        //         if (checkbox.checked) {
+        //             document.querySelectorAll('.form-check-input.tingkat-checkbox').forEach(function(el) {
+        //                 if (el !== checkbox) {
+        //                     el.checked = false;
+        //                 }
+        //             });
+        //         }
+        //     }
+
+        //     function uncheckAllLevels() {
+        //         document.getElementById('difficulty_all').checked = false;
+        //     }
+        // });
         document.addEventListener('DOMContentLoaded', function() {
-            const checkboxes = document.querySelectorAll('.category-checkbox');
-            const allCategoriesCheckbox = document.getElementById('all_categories');
-            const sortBySelect = document.querySelector('select[name="orderby"]');
+            const categoryCheckboxes = document.querySelectorAll('.category-checkbox');
             const tingkatCheckboxes = document.querySelectorAll('.tingkat-checkbox');
 
-            function updateUrl(selectedCategories, orderby, selectedTingkat) {
-                const url = new URL(window.location.href);
-                url.searchParams.set('categories', selectedCategories.join(','));
-                url.searchParams.set('orderby', orderby);
-                url.searchParams.set('tingkat', selectedTingkat.join(','));
-                window.location.href = url.toString();
-            }
-
-            function toggleAllCategories(source) {
-                if (source.checked) {
-                    checkboxes.forEach(checkbox => checkbox.checked = false);
-                    updateUrl([], sortBySelect.value, Array.from(tingkatCheckboxes).filter(checkbox => checkbox
-                        .checked).map(checkbox => checkbox.value));
-                }
-            }
-
-            checkboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', function() {
-                    if (this.checked) {
-                        allCategoriesCheckbox.checked = false;
-                    }
-
-                    const selectedCategories = Array.from(checkboxes)
-                        .filter(checkbox => checkbox.checked)
-                        .map(checkbox => checkbox.value);
-
-                    updateUrl(selectedCategories, sortBySelect.value, Array.from(tingkatCheckboxes)
-                        .filter(checkbox => checkbox.checked).map(checkbox => checkbox.value));
+            categoryCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', () => {
+                    updateSearchResults();
                 });
-            });
-
-            allCategoriesCheckbox.addEventListener('change', function() {
-                if (this.checked) {
-                    checkboxes.forEach(checkbox => checkbox.checked = false);
-                    updateUrl([], sortBySelect.value, Array.from(tingkatCheckboxes).filter(checkbox =>
-                        checkbox.checked).map(checkbox => checkbox.value));
-                }
-            });
-
-            sortBySelect.addEventListener('change', function() {
-                const selectedCategories = Array.from(checkboxes)
-                    .filter(checkbox => checkbox.checked)
-                    .map(checkbox => checkbox.value);
-                updateUrl(selectedCategories, this.value, Array.from(tingkatCheckboxes).filter(checkbox =>
-                    checkbox.checked).map(checkbox => checkbox.value));
             });
 
             tingkatCheckboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', function() {
-                    const selectedTingkat = Array.from(tingkatCheckboxes)
-                        .filter(checkbox => checkbox.checked)
-                        .map(checkbox => checkbox.value);
-
-                    updateUrl(Array.from(checkboxes).filter(checkbox => checkbox.checked).map(
-                        checkbox => checkbox.value), sortBySelect.value, selectedTingkat);
+                checkbox.addEventListener('change', () => {
+                    updateSearchResults();
                 });
             });
-
-            function resetAllLevels(checkbox) {
-                if (checkbox.checked) {
-                    document.querySelectorAll('.form-check-input.tingkat-checkbox').forEach(function(el) {
-                        if (el !== checkbox) {
-                            el.checked = false;
-                        }
-                    });
-                }
-            }
-
-            function uncheckAllLevels() {
-                document.getElementById('difficulty_all').checked = false;
-            }
         });
+
+        function toggleAllCategories(allCategoriesCheckbox) {
+            const categoryCheckboxes = document.querySelectorAll('.category-checkbox');
+            categoryCheckboxes.forEach(checkbox => {
+                checkbox.checked = allCategoriesCheckbox.checked;
+            });
+            updateSearchResults();
+        }
+
+        function resetAllLevels(difficultyAllCheckbox) {
+            const tingkatCheckboxes = document.querySelectorAll('.tingkat-checkbox');
+            tingkatCheckboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            difficultyAllCheckbox.checked = true;
+            updateSearchResults();
+        }
+
+        function updateSearchResults() {
+            const selectedCategories = Array.from(document.querySelectorAll('.category-checkbox:checked')).map(cb => cb
+                .value);
+            const selectedLevels = Array.from(document.querySelectorAll('.tingkat-checkbox:checked')).map(cb => cb.value);
+
+            const searchParams = new URLSearchParams(window.location.search);
+
+            if (selectedCategories.length > 0) {
+                searchParams.set('category_ids', selectedCategories.join(','));
+            } else {
+                searchParams.delete('category_ids');
+            }
+
+            if (selectedLevels.length > 0) {
+                searchParams.set('tingkat', selectedLevels.join(','));
+            } else {
+                searchParams.delete('tingkat');
+            }
+
+            window.location.search = searchParams.toString();
+        }
     </script>
 
 @endsection
