@@ -76,7 +76,7 @@
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" role="button" aria-expanded="false"
                     aria-controls="general-pages">
-                    <i class="link-icon" data-feather="book"></i>
+                    <i class="link-icon" data-feather="users"></i>
                     <span class="link-title">Kelola Siswa</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
@@ -93,7 +93,7 @@
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#authPages" role="button" aria-expanded="false"
                     aria-controls="authPages">
-                    <i class="link-icon" data-feather="unlock"></i>
+                    <i class="link-icon" data-feather="dollar-sign"></i>
                     <span class="link-title">Transaksi</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
