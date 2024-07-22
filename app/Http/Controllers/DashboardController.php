@@ -16,7 +16,7 @@ class DashboardController extends Controller
         $course = KelasTatapMuka::with('user')->where('course_type', 'offline')->get();
         $onlinecourse = KelasTatapMuka::with('user')->where('course_type', 'online')->get();
         $daftar_siswa = UserProfile::where('role_id', 3)->get();
-        $orders = Order::with('KelasTatapMuka')->get();
+        $orders = Order::with('KelasTatapMuka')->orderBy('created_at', 'desc')->get();
         $count = $course->count();
         if (!$user) {
             return redirect()->route('login_admin');
