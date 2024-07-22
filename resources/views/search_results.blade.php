@@ -57,7 +57,7 @@
                                     </li>
                                     @foreach ($categori as $index => $category)
                                         @if ($category->status == 1)
-                                            <li class="category-item">
+                                            <li class="category-item {{ $index >= 4 ? 'hidden' : '' }}">
                                                 <div class="form-check">
                                                     <input class="form-check-input category-checkbox" type="checkbox"
                                                         value="{{ $category->id }}" data-category-id="{{ $category->id }}"
@@ -77,6 +77,7 @@
                                 </div>
                             </div>
                         </div>
+
 
                         <div class="courses-widget">
                             <h4 class="widget-title">Harga</h4>
@@ -353,14 +354,13 @@
             const sortBySelect = document.querySelector('select[name="orderby"]');
             const tingkatCheckboxes = document.querySelectorAll('.tingkat-checkbox');
             const difficultyAllCheckbox = document.getElementById('difficulty_all');
-            const showMoreLink = document.querySelector('.show-more a');
 
             function updateUrl(selectedCategories, orderby, selectedTingkat) {
                 const url = new URL(window.location.href);
                 url.searchParams.set('categories', selectedCategories.join(','));
                 url.searchParams.set('orderby', orderby);
                 url.searchParams.set('tingkat', selectedTingkat.join(','));
-                window.history.replaceState(null, '', url.toString());
+                window.location.href = url.toString();
             }
 
             function toggleAllCategories(source) {
@@ -368,7 +368,8 @@
                     checkboxes.forEach(checkbox => checkbox.checked = false);
                     updateUrl([], sortBySelect.value, Array.from(tingkatCheckboxes)
                         .filter(checkbox => checkbox.checked)
-                        .map(checkbox => checkbox.value));
+                        .map(checkbox => checkbox.value)
+                    );
                 }
             }
 
@@ -379,7 +380,8 @@
                         .filter(checkbox => checkbox.checked)
                         .map(checkbox => checkbox.value),
                         sortBySelect.value,
-                        []);
+                        []
+                    );
                 }
             }
 
@@ -395,7 +397,8 @@
 
                     updateUrl(selectedCategories, sortBySelect.value, Array.from(tingkatCheckboxes)
                         .filter(checkbox => checkbox.checked)
-                        .map(checkbox => checkbox.value));
+                        .map(checkbox => checkbox.value)
+                    );
                 });
             });
 
@@ -404,7 +407,8 @@
                     checkboxes.forEach(checkbox => checkbox.checked = false);
                     updateUrl([], sortBySelect.value, Array.from(tingkatCheckboxes)
                         .filter(checkbox => checkbox.checked)
-                        .map(checkbox => checkbox.value));
+                        .map(checkbox => checkbox.value)
+                    );
                 }
             });
 
@@ -414,7 +418,8 @@
                     .map(checkbox => checkbox.value);
                 updateUrl(selectedCategories, this.value, Array.from(tingkatCheckboxes)
                     .filter(checkbox => checkbox.checked)
-                    .map(checkbox => checkbox.value));
+                    .map(checkbox => checkbox.value)
+                );
             });
 
             tingkatCheckboxes.forEach(checkbox => {
@@ -431,7 +436,8 @@
                         .filter(checkbox => checkbox.checked)
                         .map(checkbox => checkbox.value),
                         sortBySelect.value,
-                        selectedTingkat);
+                        selectedTingkat
+                    );
                 });
             });
 
@@ -442,28 +448,25 @@
                         .filter(checkbox => checkbox.checked)
                         .map(checkbox => checkbox.value),
                         sortBySelect.value,
-                        []);
+                        []
+                    );
                 }
             });
 
             // Initial display of categories
-            var categoryItems = document.querySelectorAll('.list-wrap .category-item');
-            if (localStorage.getItem('show_more_categories') === 'true') {
-                categoryItems.forEach(item => item.style.display = 'block');
-                showMoreLink.style.display = 'none';
-            } else {
-                for (var i = 4; i < categoryItems.length; i++) {
-                    categoryItems[i].style.display = 'none';
-                }
+            var categoryItems = document.querySelectorAll('.list-wrap li');
+            for (var i = 4; i < categoryItems.length; i++) {
+                categoryItems[i].style.display = 'none';
             }
 
             // Show more categories function
             window.showMoreCategories = function(event) {
                 event.preventDefault();
-                var categoryItems = document.querySelectorAll('.list-wrap .category-item');
-                categoryItems.forEach(item => item.style.display = 'block');
-                localStorage.setItem('show_more_categories', 'true');
-                showMoreLink.style.display = 'none';
+                var categoryItems = document.querySelectorAll('.list-wrap li');
+                for (var i = 4; i < categoryItems.length; i++) {
+                    categoryItems[i].style.display = 'block';
+                }
+                event.target.style.display = 'none';
             }
         });
     </script>
