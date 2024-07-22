@@ -266,7 +266,7 @@
     @endif
 
 
-    <script>
+    {{-- <script>
         document.addEventListener('DOMContentLoaded', function() {
             const checkboxes = document.querySelectorAll('.category-checkbox');
             const allCategoriesCheckbox = document.getElementById('all_categories');
@@ -345,6 +345,94 @@
                 document.getElementById('difficulty_all').checked = false;
             }
         });
+    </script> --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.category-checkbox');
+            const allCategoriesCheckbox = document.getElementById('all_categories');
+            const sortBySelect = document.querySelector('select[name="orderby"]');
+            const tingkatCheckboxes = document.querySelectorAll('.tingkat-checkbox');
+            const difficultyAllCheckbox = document.getElementById('difficulty_all');
+
+            function updateUrl(selectedCategories, orderby, selectedTingkat) {
+                const url = new URL(window.location.href);
+                url.searchParams.set('categories', selectedCategories.join(','));
+                url.searchParams.set('orderby', orderby);
+                url.searchParams.set('tingkat', selectedTingkat.join(','));
+                window.location.href = url.toString();
+            }
+
+            function toggleAllCategories(source) {
+                if (source.checked) {
+                    checkboxes.forEach(checkbox => checkbox.checked = false);
+                    updateUrl([], sortBySelect.value, Array.from(tingkatCheckboxes).filter(checkbox => checkbox
+                        .checked).map(checkbox => checkbox.value));
+                }
+            }
+
+            function toggleAllLevels(source) {
+                if (source.checked) {
+                    tingkatCheckboxes.forEach(checkbox => checkbox.checked = false);
+                    updateUrl(Array.from(checkboxes).filter(checkbox => checkbox.checked).map(checkbox => checkbox
+                        .value), sortBySelect.value, []);
+                }
+            }
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        allCategoriesCheckbox.checked = false;
+                    }
+
+                    const selectedCategories = Array.from(checkboxes)
+                        .filter(checkbox => checkbox.checked)
+                        .map(checkbox => checkbox.value);
+
+                    updateUrl(selectedCategories, sortBySelect.value, Array.from(tingkatCheckboxes)
+                        .filter(checkbox => checkbox.checked).map(checkbox => checkbox.value));
+                });
+            });
+
+            allCategoriesCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    checkboxes.forEach(checkbox => checkbox.checked = false);
+                    updateUrl([], sortBySelect.value, Array.from(tingkatCheckboxes).filter(checkbox =>
+                        checkbox.checked).map(checkbox => checkbox.value));
+                }
+            });
+
+            sortBySelect.addEventListener('change', function() {
+                const selectedCategories = Array.from(checkboxes)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value);
+                updateUrl(selectedCategories, this.value, Array.from(tingkatCheckboxes).filter(checkbox =>
+                    checkbox.checked).map(checkbox => checkbox.value));
+            });
+
+            tingkatCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        difficultyAllCheckbox.checked = false;
+                    }
+
+                    const selectedTingkat = Array.from(tingkatCheckboxes)
+                        .filter(checkbox => checkbox.checked)
+                        .map(checkbox => checkbox.value);
+
+                    updateUrl(Array.from(checkboxes).filter(checkbox => checkbox.checked).map(
+                        checkbox => checkbox.value), sortBySelect.value, selectedTingkat);
+                });
+            });
+
+            difficultyAllCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    tingkatCheckboxes.forEach(checkbox => checkbox.checked = false);
+                    updateUrl(Array.from(checkboxes).filter(checkbox => checkbox.checked).map(checkbox =>
+                        checkbox.value), sortBySelect.value, []);
+                }
+            });
+        });
     </script>
+
 
 @endsection
