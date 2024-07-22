@@ -204,7 +204,7 @@
             <div class="col-lg-7 col-xl-12 stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h6 class="card-title">Order</h6>
+                        <h6 class="card-title">Status Transaksi</h6>
 
                         <p class="text-muted mb-3">Jumlah Kategori : {{ $orders->count() }}</p>
                         <div class="table-responsive">
