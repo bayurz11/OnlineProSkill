@@ -240,8 +240,12 @@
                                                 <a
                                                     href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
                                             </h5>
-                                            <p class="author">By <a href="#">{{ $cours->user->name }}</a> <span
-                                                    class="badge bg-success">Online</span></p>
+                                            <p class="author">By <a href="#">{{ $cours->user->name }}</a>
+                                                @if ($joinedCourses)
+                                                    <span class="badge bg-success">Online</span>
+                                                @else
+                                                @endif
+                                            </p>
                                             <div class="courses__item-bottom">
                                                 <div class="button">
                                                     <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}">
