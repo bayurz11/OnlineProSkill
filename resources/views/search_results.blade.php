@@ -119,7 +119,7 @@
                                         <li>
                                             <div class="form-check">
                                                 <input class="form-check-input tingkat-checkbox" type="checkbox"
-                                                    value="" id="difficulty_all">
+                                                    value="all" id="difficulty_all" onclick="resetAllLevels(this)">
                                                 <label class="form-check-label" for="difficulty_all">All Levels</label>
                                             </div>
                                         </li>
@@ -425,6 +425,20 @@
                         checkbox => checkbox.value), sortBySelect.value, selectedTingkat);
                 });
             });
+
+            function resetAllLevels(checkbox) {
+                if (checkbox.checked) {
+                    document.querySelectorAll('.form-check-input.tingkat-checkbox').forEach(function(el) {
+                        if (el !== checkbox) {
+                            el.checked = false;
+                        }
+                    });
+                }
+            }
+
+            function uncheckAllLevels() {
+                document.getElementById('difficulty_all').checked = false;
+            }
         });
     </script>
 
