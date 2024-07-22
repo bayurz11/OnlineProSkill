@@ -239,21 +239,21 @@
                                                         Sukses
                                                     @elseif ($order->status == 'SETTLED')
                                                         Sukses
-                                                    @else
-                                                        <span class="badge bg-info">
-                                                            Belum Dibayar
-                                                        </span>
-                                                    @endif
                                                 </span>
-                                            </td>
-                                            <td>
+                                            @else
+                                                <span class="badge bg-info">
+                                                    Belum Dibayar
+                                                </span>
+                                    @endif
+                                    </td>
+                                    <td>
 
-                                                <a href="{{ route('prin', ['id' => $order->id]) }}" target="_blank"
-                                                    class="btn btn-success btn-icon" title="Cetak">
-                                                    <i data-feather="printer"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
+                                        <a href="{{ route('prin', ['id' => $order->id]) }}" target="_blank"
+                                            class="btn btn-success btn-icon" title="Cetak">
+                                            <i data-feather="printer"></i>
+                                        </a>
+                                    </td>
+                                    </tr>
                                     @endforeach
                                 </tbody>
                             </table>
