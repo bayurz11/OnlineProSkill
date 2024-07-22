@@ -253,9 +253,6 @@
                                                 {{ $order->created_at->format('d M Y') }}
                                             </td>
                                             <td>
-                                                {{ number_format($order->price, 0) }}
-                                            </td>
-                                            <td>
                                                 <span class="badge bg-success">
                                                     @if ($order->status == 'PAID')
                                                         Sukses
@@ -268,6 +265,10 @@
                                                     @endif
                                                 </span>
                                             </td>
+                                            <td>
+                                                {{ number_format($order->price, 0) }}
+                                            </td>
+
                                             {{-- <td>
 
                                                 <a href="{{ route('prin', ['id' => $order->id]) }}" target="_blank"
