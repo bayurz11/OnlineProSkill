@@ -85,21 +85,7 @@
                         <li class="nav-item">
                             <a href="{{ route('daftar_siswa') }}" class="nav-link">Daftar Siswa</a>
                         </li>
-                        {{-- <li class="nav-item">
-                            <a href="pages/general/faq.html" class="nav-link">Faq</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/general/invoice.html" class="nav-link">Invoice</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/general/profile.html" class="nav-link">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/general/pricing.html" class="nav-link">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/general/timeline.html" class="nav-link">Timeline</a>
-                        </li> --}}
+
                     </ul>
                 </div>
             </li>
@@ -238,6 +224,33 @@
                 </a>
             </li> --}}
             <li class="nav-item nav-category">Pengaturan Umum</li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#charts" role="button" aria-expanded="false"
+                    aria-controls="charts">
+                    <i class="link-icon" data-feather="pie-chart"></i>
+                    <span class="link-title">Charts</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="charts">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="pages/charts/apex.html" class="nav-link">Apex</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/charts/chartjs.html" class="nav-link">ChartJs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/charts/flot.html" class="nav-link">Flot</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/charts/peity.html" class="nav-link">Peity</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/charts/sparkline.html" class="nav-link">Sparkline</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
         </ul>
     </div>
 </nav>
