@@ -12,7 +12,7 @@ class DashboardController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $course = KelasTatapMuka::with('user')->get();
+        $course = KelasTatapMuka::with('user')->where('course_type', 'offline')->get();
         $daftar_siswa = UserProfile::where('role_id', 3)->get();
         $count = $course->count();
         if (!$user) {
