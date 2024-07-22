@@ -213,7 +213,7 @@
                                                     <li><span> <i class="fas fa-file"></i>
                                                             {{ $cours->Kategori->name_category }}</span></li>
                                                     <li><span> <i class="fas fa-tv"></i>
-                                                            {{ $cours->Tipe->nama_tipe }}</span></li>
+                                                            {{-- {{ $cours->Tipe->nama_tipe }}</span></li> --}}
                                                 </ul>
                                             </div>
                                             <div class="courses__item-bottom">
