@@ -75,10 +75,14 @@ class SearchController extends Controller
     {
         $user = Auth::user();
         $cart = Session::get('cart', []);
-        $categori = Categories::all();
         $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
         $category_ids = $request->input('categories', []);
         $tingkatLevels = KelasTatapMuka::distinct()->pluck('tingkat');
+
+        // Menghitung jumlah kursus per tingkat
+        $tingkatCounts = KelasTatapMuka::select('tingkat', DB::raw('count(*) as total'))
+            ->groupBy('tingkat')
+            ->pluck('total', 'tingkat');
 
         // Pastikan category_ids adalah array
         if (!is_array($category_ids)) {
@@ -136,10 +140,7 @@ class SearchController extends Controller
         $categoryCounts = KelasTatapMuka::select('kategori_id', DB::raw('count(*) as total'))
             ->groupBy('kategori_id')
             ->pluck('total', 'kategori_id');
-        $tingkatCounts = KelasTatapMuka::select('tingkat', DB::raw('count(*) as total'))
-            ->groupBy('tingkat')
-            ->pluck('total', 'tingkat');
 
-        return view('search_results', compact('results', 'categori', 'tingkatCounts', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'course', 'categoryCounts', 'category_ids', 'tingkatLevels'));
+        return view('search_results', compact('results', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'course', 'categoryCounts', 'category_ids', 'tingkatLevels', 'tingkatCounts'));
     }
 }
