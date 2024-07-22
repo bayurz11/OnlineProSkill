@@ -241,7 +241,7 @@
                                                     href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
                                             </h5>
                                             <p class="author">By <a href="#">{{ $cours->user->name }}</a> <span
-                                                    class="badge bg-primary">Online</span></p>
+                                                    class="badge bg-success">Online</span></p>
                                             <div class="courses__item-bottom">
                                                 <div class="button">
                                                     <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}">
