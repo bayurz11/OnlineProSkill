@@ -127,13 +127,15 @@
                                             <li>
                                                 <div class="form-check">
                                                     <input class="form-check-input tingkat-checkbox" type="checkbox"
-                                                        value="{{ $tingkat }}" id="level_{{ $loop->index }}">
+                                                        value="{{ $tingkat }}" id="level_{{ $loop->index }}"
+                                                        {{ in_array($tingkat, request()->input('tingkat', [])) ? 'checked' : '' }}>
                                                     <label class="form-check-label" for="level_{{ $loop->index }}">
                                                         {{ $tingkat }} ({{ $tingkatCounts[$tingkat] ?? 0 }})
                                                     </label>
                                                 </div>
                                             </li>
                                         @endforeach
+
                                     </ul>
                                 </div>
                             </div>
