@@ -488,10 +488,8 @@
 
             // Initial display of categories
             var categoryItems = document.querySelectorAll('.list-wrap .category-item');
-            const showMoreCategoriesStatus = localStorage.getItem('showMoreCategories') === 'true';
-
             for (var i = 4; i < categoryItems.length; i++) {
-                categoryItems[i].style.display = showMoreCategoriesStatus ? 'block' : 'none';
+                categoryItems[i].style.display = 'none';
             }
 
             // Show more categories function
@@ -502,7 +500,6 @@
                     categoryItems[i].style.display = 'block';
                 }
                 event.target.style.display = 'none';
-                localStorage.setItem('showMoreCategories', 'true');
             }
         });
     </script>
