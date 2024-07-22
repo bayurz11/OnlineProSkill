@@ -163,14 +163,16 @@
                                         <div class="courses-top-right m-0 ms-md-auto">
                                             <span class="sort-by">Sort By:</span>
                                             <div class="courses-top-right-select">
-                                                <form method="GET" action="{{ route('search') }}">
-                                                    <select name="orderby" class="orderby" onchange="this.form.submit()">
+                                                <form id="orderby-form" method="GET" action="{{ route('search') }}">
+                                                    <input type="hidden" name="categories" id="categories-input"
+                                                        value="{{ request('categories') }}">
+                                                    <select name="orderby" class="orderby" onchange="updateOrderby()">
                                                         <option value="latest"
-                                                            {{ request('orderby') == 'latest' ? 'selected' : '' }}>
-                                                            terbaru</option>
+                                                            {{ request('orderby') == 'latest' ? 'selected' : '' }}>terbaru
+                                                        </option>
                                                         <option value="oldest"
-                                                            {{ request('orderby') == 'oldest' ? 'selected' : '' }}>
-                                                            terlama</option>
+                                                            {{ request('orderby') == 'oldest' ? 'selected' : '' }}>terlama
+                                                        </option>
                                                         <option value="highest_price"
                                                             {{ request('orderby') == 'highest_price' ? 'selected' : '' }}>
                                                             harga tertinggi</option>
@@ -180,6 +182,7 @@
                                                     </select>
                                                 </form>
                                             </div>
+
                                         </div>
 
                                         <ul class="nav nav-tabs courses__nav-tabs" id="myTab" role="tablist">
@@ -272,23 +275,71 @@
 
 
     <script>
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     const checkboxes = document.querySelectorAll('.category-checkbox');
+        //     const allCategoriesCheckbox = document.getElementById('all_categories');
+
+        //     function updateUrl(selectedCategories) {
+        //         const url = new URL(window.location.href);
+        //         url.searchParams.set('categories', selectedCategories.join(','));
+        //         window.location.href = url.toString();
+        //     }
+
+        //     function toggleAllCategories(source) {
+        //         if (source.checked) {
+        //             // Uncheck all category checkboxes
+        //             checkboxes.forEach(checkbox => {
+        //                 checkbox.checked = false;
+        //             });
+        //             // Update URL to show all data
+        //             updateUrl([]);
+        //         }
+        //     }
+
+        //     checkboxes.forEach(checkbox => {
+        //         checkbox.addEventListener('change', function() {
+        //             if (this.checked) {
+        //                 allCategoriesCheckbox.checked = false;
+        //             }
+
+        //             // Get selected categories
+        //             const selectedCategories = Array.from(checkboxes)
+        //                 .filter(checkbox => checkbox.checked)
+        //                 .map(checkbox => checkbox.value);
+
+        //             // Update URL with selected categories
+        //             updateUrl(selectedCategories);
+        //         });
+        //     });
+
+        //     allCategoriesCheckbox.addEventListener('change', function() {
+        //         if (this.checked) {
+        //             // Uncheck all category checkboxes
+        //             checkboxes.forEach(checkbox => {
+        //                 checkbox.checked = false;
+        //             });
+        //             // Update URL to show all data
+        //             updateUrl([]);
+        //         }
+        //     });
+        // });
         document.addEventListener('DOMContentLoaded', function() {
             const checkboxes = document.querySelectorAll('.category-checkbox');
             const allCategoriesCheckbox = document.getElementById('all_categories');
+            const categoriesInput = document.getElementById('categories-input');
 
             function updateUrl(selectedCategories) {
                 const url = new URL(window.location.href);
                 url.searchParams.set('categories', selectedCategories.join(','));
-                window.location.href = url.toString();
+                categoriesInput.value = selectedCategories.join(',');
+                return url.toString();
             }
 
             function toggleAllCategories(source) {
                 if (source.checked) {
-                    // Uncheck all category checkboxes
                     checkboxes.forEach(checkbox => {
                         checkbox.checked = false;
                     });
-                    // Update URL to show all data
                     updateUrl([]);
                 }
             }
@@ -299,23 +350,20 @@
                         allCategoriesCheckbox.checked = false;
                     }
 
-                    // Get selected categories
                     const selectedCategories = Array.from(checkboxes)
                         .filter(checkbox => checkbox.checked)
                         .map(checkbox => checkbox.value);
 
-                    // Update URL with selected categories
-                    updateUrl(selectedCategories);
+                    const newUrl = updateUrl(selectedCategories);
+                    window.history.replaceState({}, '', newUrl);
                 });
             });
 
             allCategoriesCheckbox.addEventListener('change', function() {
                 if (this.checked) {
-                    // Uncheck all category checkboxes
                     checkboxes.forEach(checkbox => {
                         checkbox.checked = false;
                     });
-                    // Update URL to show all data
                     updateUrl([]);
                 }
             });
