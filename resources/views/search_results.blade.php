@@ -163,16 +163,14 @@
                                         <div class="courses-top-right m-0 ms-md-auto">
                                             <span class="sort-by">Sort By:</span>
                                             <div class="courses-top-right-select">
-                                                <form id="orderby-form" method="GET" action="{{ route('search') }}">
-                                                    <input type="hidden" name="categories" id="categories-input"
-                                                        value="{{ request('categories') }}">
-                                                    <select name="orderby" class="orderby" onchange="updateOrderby()">
+                                                <form method="GET" action="{{ route('search') }}">
+                                                    <select name="orderby" class="orderby" onchange="this.form.submit()">
                                                         <option value="latest"
-                                                            {{ request('orderby') == 'latest' ? 'selected' : '' }}>terbaru
-                                                        </option>
+                                                            {{ request('orderby') == 'latest' ? 'selected' : '' }}>
+                                                            terbaru</option>
                                                         <option value="oldest"
-                                                            {{ request('orderby') == 'oldest' ? 'selected' : '' }}>terlama
-                                                        </option>
+                                                            {{ request('orderby') == 'oldest' ? 'selected' : '' }}>
+                                                            terlama</option>
                                                         <option value="highest_price"
                                                             {{ request('orderby') == 'highest_price' ? 'selected' : '' }}>
                                                             harga tertinggi</option>
@@ -182,7 +180,6 @@
                                                     </select>
                                                 </form>
                                             </div>
-
                                         </div>
 
                                         <ul class="nav nav-tabs courses__nav-tabs" id="myTab" role="tablist">
