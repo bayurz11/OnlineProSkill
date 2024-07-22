@@ -82,7 +82,7 @@
                                 </div>
                             </div>
                             <div class="courses-widget">
-                                <h4 class="widget-title">Price</h4>
+                                <h4 class="widget-title">Harga</h4>
                                 <div class="courses-cat-list">
                                     <ul class="list-wrap">
                                         <li>
