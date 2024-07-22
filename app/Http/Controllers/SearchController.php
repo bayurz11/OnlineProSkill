@@ -71,73 +71,6 @@ class SearchController extends Controller
     //     return view('search_results', compact('results', 'categori', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'course', 'categoryCounts', 'category_ids'));
     // }220724
 
-    // public function search(Request $request)
-    // {
-    //     $user = Auth::user();
-    //     $cart = Session::get('cart', []);
-    //     $categori = Categories::all();
-    //     $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
-    //     $category_ids = $request->input('categories', []);
-
-    //     // Pastikan category_ids adalah array
-    //     if (!is_array($category_ids)) {
-    //         $category_ids = explode(',', $category_ids);
-    //     }
-    //     $category_ids = array_filter($category_ids); // Hapus elemen kosong
-
-    //     $search_term = $request->input('search_term');
-    //     $orderby = $request->input('orderby', 'latest'); // Default ke 'latest' jika tidak ada input
-
-    //     // Mencari berdasarkan kategori dan term pencarian
-    //     $results = KelasTatapMuka::query()
-    //         ->when(!empty($category_ids), function ($query) use ($category_ids) {
-    //             return $query->whereIn('kategori_id', $category_ids);
-    //         })
-    //         ->when($search_term, function ($query, $search_term) {
-    //             return $query->where('nama_kursus', 'like', '%' . $search_term . '%');
-    //         })
-    //         ->when($orderby, function ($query, $orderby) {
-    //             if ($orderby == 'latest') {
-    //                 return $query->orderBy('created_at', 'desc');
-    //             } elseif ($orderby == 'oldest') {
-    //                 return $query->orderBy('created_at', 'asc');
-    //             } elseif ($orderby == 'highest_price') {
-    //                 return $query->orderBy('price', 'desc');
-    //             } elseif ($orderby == 'lowest_price') {
-    //                 return $query->orderBy('price', 'asc');
-    //             }
-    //         })
-    //         ->get();
-
-    //     // Ambil notifikasi untuk pengguna yang sedang login
-    //     $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
-    //         ->orderBy('created_at', 'desc')
-    //         ->get()
-    //         : collect();
-
-    //     $course = KelasTatapMuka::with('user')
-    //         ->where('status', 1)
-    //         ->where('course_type', 'offline')
-    //         ->get();
-    //     $count = $course->count();
-    //     // Hitung jumlah notifikasi dengan status = 1
-    //     $notifikasiCount = $notifikasi->where('status', 1)->count();
-
-    //     // Ambil jumlah pendaftaran untuk setiap kursus
-    //     $jumlahPendaftaran = Order::select('product_id', DB::raw('count(*) as total'))
-    //         ->groupBy('product_id')
-    //         ->pluck('total', 'product_id');
-
-    //     // Ambil ID kursus yang telah diikuti oleh user
-    //     $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
-
-    //     // Hitung jumlah kursus per kategori
-    //     $categoryCounts = KelasTatapMuka::select('kategori_id', DB::raw('count(*) as total'))
-    //         ->groupBy('kategori_id')
-    //         ->pluck('total', 'kategori_id');
-
-    //     return view('search_results', compact('results', 'categori', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'course', 'categoryCounts', 'category_ids'));
-    // }
     public function search(Request $request)
     {
         $user = Auth::user();
@@ -145,7 +78,6 @@ class SearchController extends Controller
         $categori = Categories::all();
         $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
         $category_ids = $request->input('categories', []);
-        $price_filter = $request->input('price_filter', []); // Ambil filter harga
 
         // Pastikan category_ids adalah array
         if (!is_array($category_ids)) {
@@ -153,37 +85,16 @@ class SearchController extends Controller
         }
         $category_ids = array_filter($category_ids); // Hapus elemen kosong
 
-        // Pastikan price_filter adalah array
-        if (!is_array($price_filter)) {
-            $price_filter = explode(',', $price_filter);
-        }
-        $price_filter = array_filter($price_filter); // Hapus elemen kosong
-
         $search_term = $request->input('search_term');
         $orderby = $request->input('orderby', 'latest'); // Default ke 'latest' jika tidak ada input
 
-        // Mencari berdasarkan kategori, term pencarian, dan filter harga
+        // Mencari berdasarkan kategori dan term pencarian
         $results = KelasTatapMuka::query()
             ->when(!empty($category_ids), function ($query) use ($category_ids) {
                 return $query->whereIn('kategori_id', $category_ids);
             })
             ->when($search_term, function ($query, $search_term) {
                 return $query->where('nama_kursus', 'like', '%' . $search_term . '%');
-            })
-            ->when($price_filter, function ($query) use ($price_filter) {
-                return $query->where(function ($query) use ($price_filter) {
-                    // Tambahkan kondisi filter harga
-                    if (in_array('all', $price_filter)) {
-                        return; // Tidak menambahkan kondisi jika "All Price" dipilih
-                    }
-                    foreach ($price_filter as $filter) {
-                        if ($filter == 'free') {
-                            $query->orWhere('price', 0);
-                        } elseif ($filter == 'paid') {
-                            $query->orWhere('price', '>', 0);
-                        }
-                    }
-                });
             })
             ->when($orderby, function ($query, $orderby) {
                 if ($orderby == 'latest') {
@@ -225,6 +136,6 @@ class SearchController extends Controller
             ->groupBy('kategori_id')
             ->pluck('total', 'kategori_id');
 
-        return view('search_results', compact('results', 'categori', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'course', 'categoryCounts', 'category_ids', 'price_filter'));
+        return view('search_results', compact('results', 'categori', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'course', 'categoryCounts', 'category_ids'));
     }
 }
