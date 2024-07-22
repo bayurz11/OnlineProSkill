@@ -165,15 +165,19 @@
                                         <div class="courses-top-right m-0 ms-md-auto">
                                             <span class="sort-by">Sort By:</span>
                                             <div class="courses-top-right-select">
-                                                <select name="orderby" class="orderby">
-                                                    <option value="Most Popular">Most Popular</option>
-                                                    <option value="popularity">popularity</option>
-                                                    <option value="average rating">average rating</option>
-                                                    <option value="latest">latest</option>
-                                                    <option value="latest">latest</option>
-                                                </select>
+                                                <form method="GET" action="{{ route('search') }}">
+                                                    <select name="orderby" class="orderby" onchange="this.form.submit()">
+                                                        <option value="latest"
+                                                            {{ request('orderby') == 'latest' ? 'selected' : '' }}>terbaru
+                                                        </option>
+                                                        <option value="oldest"
+                                                            {{ request('orderby') == 'oldest' ? 'selected' : '' }}>terlama
+                                                        </option>
+                                                    </select>
+                                                </form>
                                             </div>
                                         </div>
+
                                         <ul class="nav nav-tabs courses__nav-tabs" id="myTab" role="tablist">
                                             <li class="nav-item" role="presentation">
                                                 <button class="nav-link active" id="grid-tab" data-bs-toggle="tab"
