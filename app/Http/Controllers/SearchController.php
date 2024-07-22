@@ -93,14 +93,24 @@ class SearchController extends Controller
 
         $search_term = $request->input('search_term');
         $orderby = $request->input('orderby', 'latest'); // Default ke 'latest' jika tidak ada input
+        $selectedTingkat = $request->input('tingkat', []);
 
-        // Mencari berdasarkan kategori dan term pencarian
+        // Pastikan selectedTingkat adalah array
+        if (!is_array($selectedTingkat)) {
+            $selectedTingkat = explode(',', $selectedTingkat);
+        }
+        $selectedTingkat = array_filter($selectedTingkat); // Hapus elemen kosong
+
+        // Mencari berdasarkan kategori, tingkat, dan term pencarian
         $results = KelasTatapMuka::query()
             ->when(!empty($category_ids), function ($query) use ($category_ids) {
                 return $query->whereIn('kategori_id', $category_ids);
             })
             ->when($search_term, function ($query, $search_term) {
                 return $query->where('nama_kursus', 'like', '%' . $search_term . '%');
+            })
+            ->when(!empty($selectedTingkat), function ($query) use ($selectedTingkat) {
+                return $query->whereIn('tingkat', $selectedTingkat);
             })
             ->when($orderby, function ($query, $orderby) {
                 if ($orderby == 'latest') {
