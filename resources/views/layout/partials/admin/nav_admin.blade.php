@@ -234,7 +234,7 @@
                 <div class="collapse" id="charts">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="pages/charts/apex.html" class="nav-link">Hero Section</a>
+                            <a href="{{ route('herosection') }}" class="nav-link">Hero Section</a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/charts/chartjs.html" class="nav-link">Hubungi Kami</a>

@@ -23,6 +23,7 @@ use App\Http\Controllers\NotifikasiUserController;
 use App\Http\Controllers\DashboardStudenController;
 use App\Http\Controllers\RiwayatTransaksiController;
 use App\Http\Controllers\DashboardInstrukturController;
+use App\Http\Controllers\HeroSectionController;
 use App\Http\Controllers\OrderHistoryManagerController;
 
 //Authentikasi
@@ -105,6 +106,9 @@ Route::middleware('isAdmin')->group(function () {
     Route::post('/update-daftar_siswa/{id}', [DaftarSiswaController::class, 'updateStatus']);
     Route::get('/siswa/{id}/edit', [DaftarSiswaController::class, 'edit'])->name('siswa.edit');
     Route::put('/siswa/{id}', [DaftarSiswaController::class, 'update'])->name('siswa.update');
+
+    //*******PENGATURAN UMUM*******//
+    Route::get('/herosection', [HeroSectionController::class, 'index'])->name('herosection');
 });
 
 //*********STUDEN*********//
