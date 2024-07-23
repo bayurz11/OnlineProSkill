@@ -169,5 +169,6 @@ Route::post('cart/update/{id}', [CartController::class, 'updateQuantity'])->name
 //notifikasi
 Route::get('/notifikasi', [NotifikasiUserController::class, 'index'])->name('notifikasi.index');
 Route::post('/notifikasi/baca-semua', [NotifikasiUserController::class, 'bacaSemua'])->name('notifikasi.bacaSemua');
+
 //search
 Route::get('/search', [SearchController::class, 'search'])->name('search');
