@@ -124,12 +124,6 @@
                                                             alt="img" class="injectable">
                                                         Siswa
                                                         <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}</span>
-                                                        @if (in_array($cours->id, $joinedCourses))
-                                                            <span
-                                                                style="color: green; font-weight: bold; padding: 2px 6px; border: 1px solid green; border-radius: 10rem; background-color: #e0f7e9;">
-                                                                Joined
-                                                            </span>
-                                                        @endif
                                                     </p>
 
                                                     <div class="courses__item-bottom">
@@ -139,6 +133,9 @@
                                                                 <i class="flaticon-arrow-right"></i>
                                                             </a>
                                                         </div>
+                                                        @if (in_array($cours->id, $joinedCourses))
+                                                            <span class="badge bg-success">Joined</span>
+                                                        @endif
                                                         <h5 class="price">Rp
                                                             {{ number_format($cours->price, 0, ',', ',') }}</h5>
                                                     </div>
