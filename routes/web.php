@@ -95,6 +95,7 @@ Route::middleware('isAdmin')->group(function () {
 
 
     //*******PEMBAYARAN DAN TRANSAKSI*******//
+
     //Riwayat Pembelian Kursus
     Route::get('/OrderHistoryManager', [OrderHistoryManagerController::class, 'index'])->name('OrderHistoryManager');
     Route::get('/prin/{id}', [OrderHistoryManagerController::class, 'cetak'])->name('prin');
