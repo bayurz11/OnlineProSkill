@@ -140,12 +140,11 @@
                                                                 <i class="flaticon-arrow-right"></i>
                                                             </a>
                                                         </div>
-                                                        <h5 class="price">Rp
-                                                            {{ number_format($cours->price, 0, ',', ',') }}</h5>
                                                         @if (in_array($cours->id, $joinedCourses))
                                                             <span class="badge bg-success">Joined</span>
                                                         @endif
-
+                                                        <h5 class="price">Rp
+                                                            {{ number_format($cours->price, 0, ',', ',') }}</h5>
                                                     </div>
                                                 </div>
                                             </div>
