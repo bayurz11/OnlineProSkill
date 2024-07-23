@@ -128,9 +128,7 @@
                                                         Kuota Kelas
                                                         <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}/{{ $cours->kuota }}</span>
 
-                                                        @if (in_array($cours->id, $joinedCourses))
-                                                            <span class="badge bg-success">Joined</span>
-                                                        @endif
+
                                                     </p>
 
 
@@ -142,7 +140,9 @@
                                                                 <i class="flaticon-arrow-right"></i>
                                                             </a>
                                                         </div>
-
+                                                        @if (in_array($cours->id, $joinedCourses))
+                                                            <span class="badge bg-success">Joined</span>
+                                                        @endif
                                                         <h5 class="price">Rp
                                                             {{ number_format($cours->price, 0, ',', ',') }}</h5>
                                                     </div>
