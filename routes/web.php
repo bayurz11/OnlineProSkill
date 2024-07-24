@@ -140,6 +140,9 @@ Route::middleware('isStuden')->group(function () {
 
 
 
+
+
+
 //*********INSTRUKTUR*********//
 // Auth Instruktur
 Route::get('/dashboard_instruktur', [DashboardInstrukturController::class, 'index'])->name('dashboard_instruktur');
