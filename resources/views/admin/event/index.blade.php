@@ -53,24 +53,20 @@
                                                 </div>
 
 
-                                                {{-- <a href="#"
-                                                    class="badge badgeLink {{ $kategori->status ? 'bg-success' : 'bg-danger' }}"
-                                                    data-id="{{ $kategori->id }}" data-status="{{ $kategori->status }}">
-                                                    {{ $kategori->status ? 'Active' : 'Inactive' }}
-                                                </a> --}}
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn btn-primary btn-icon edit-button" title="Edit"
-                                            data-bs-toggle="modal" data-bs-target="#editModal"
-                                            data-id="{{ $kategori->id }}">
-                                            <i data-feather="edit"></i>
-                                        </button>
-                                        <button onclick="hapus('{{ $kategori->id }}')" class="btn btn-danger btn-icon"
-                                            title="Hapus">
-                                            <i data-feather="trash-2"></i>
-                                        </button>
-                                    </td>
-                                    </tr>
+
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary btn-icon edit-button"
+                                                    title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
+                                                    data-id="{{ $kategori->id }}">
+                                                    <i data-feather="edit"></i>
+                                                </button>
+                                                <button onclick="hapus('{{ $kategori->id }}')"
+                                                    class="btn btn-danger btn-icon" title="Hapus">
+                                                    <i data-feather="trash-2"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
                                     @endforeach --}}
                                 </tbody>
                             </table>
