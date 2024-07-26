@@ -103,66 +103,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="event__item shine__animate-item">
-                            <div class="event__item-thumb">
-                                <a href="events-details.html" class="shine__animate-link"><img
-                                        src="assets/img/events/event_thumb05.jpg" alt="img"></a>
-                            </div>
-                            <div class="event__item-content">
-                                <span class="date">25 June, 2024</span>
-                                <h2 class="title"><a href="events-details.html">Make Your Magnificent May 2023
-                                        Edition</a></h2>
-                                <a href="https://maps.google.com/maps" class="location" target="_blank"><i
-                                        class="flaticon-map"></i>Alaska</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="event__item shine__animate-item">
-                            <div class="event__item-thumb">
-                                <a href="events-details.html" class="shine__animate-link"><img
-                                        src="assets/img/events/event_thumb06.jpg" alt="img"></a>
-                            </div>
-                            <div class="event__item-content">
-                                <span class="date">25 June, 2024</span>
-                                <h2 class="title"><a href="events-details.html">Accessible Target Sizes Cheatsheet</a>
-                                </h2>
-                                <a href="https://maps.google.com/maps" class="location" target="_blank"><i
-                                        class="flaticon-map"></i>Estes Park</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="event__item shine__animate-item">
-                            <div class="event__item-thumb">
-                                <a href="events-details.html" class="shine__animate-link"><img
-                                        src="assets/img/events/event_thumb07.jpg" alt="img"></a>
-                            </div>
-                            <div class="event__item-content">
-                                <span class="date">25 June, 2024</span>
-                                <h2 class="title"><a href="events-details.html">Color mechanics that he came up with
-                                        during</a></h2>
-                                <a href="https://maps.google.com/maps" class="location" target="_blank"><i
-                                        class="flaticon-map"></i>Walsenburg</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6">
-                        <div class="event__item shine__animate-item">
-                            <div class="event__item-thumb">
-                                <a href="events-details.html" class="shine__animate-link"><img
-                                        src="assets/img/events/event_thumb08.jpg" alt="img"></a>
-                            </div>
-                            <div class="event__item-content">
-                                <span class="date">25 June, 2024</span>
-                                <h2 class="title"><a href="events-details.html">How To Design Effective User
-                                        Onboarding</a></h2>
-                                <a href="https://maps.google.com/maps" class="location" target="_blank"><i
-                                        class="flaticon-map"></i>New Work</a>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
                 <nav class="pagination__wrap mt-30">
                     <ul class="list-wrap">
