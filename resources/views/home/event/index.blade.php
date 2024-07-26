@@ -47,7 +47,7 @@
                         <div class="event__item shine__animate-item">
                             <div class="event__item-thumb">
                                 <a href="events-details.html" class="shine__animate-link"><img
-                                        src="assets/img/events/event_thumb01.jpg" alt="img"></a>
+                                        src="public/assets/img/events/event_thumb01.jpg" alt="img"></a>
                             </div>
                             <div class="event__item-content">
                                 <span class="date">25 June, 2024</span>
@@ -62,7 +62,7 @@
                         <div class="event__item shine__animate-item">
                             <div class="event__item-thumb">
                                 <a href="events-details.html" class="shine__animate-link"><img
-                                        src="assets/img/events/event_thumb02.jpg" alt="img"></a>
+                                        src="public/assets/img/events/event_thumb02.jpg" alt="img"></a>
                             </div>
                             <div class="event__item-content">
                                 <span class="date">25 June, 2024</span>
@@ -77,7 +77,7 @@
                         <div class="event__item shine__animate-item">
                             <div class="event__item-thumb">
                                 <a href="events-details.html" class="shine__animate-link"><img
-                                        src="assets/img/events/event_thumb03.jpg" alt="img"></a>
+                                        src="public/assets/img/events/event_thumb03.jpg" alt="img"></a>
                             </div>
                             <div class="event__item-content">
                                 <span class="date">25 June, 2024</span>
@@ -92,7 +92,7 @@
                         <div class="event__item shine__animate-item">
                             <div class="event__item-thumb">
                                 <a href="events-details.html" class="shine__animate-link"><img
-                                        src="assets/img/events/event_thumb04.jpg" alt="img"></a>
+                                        src="public/assets/img/events/event_thumb04.jpg" alt="img"></a>
                             </div>
                             <div class="event__item-content">
                                 <span class="date">25 June, 2024</span>
