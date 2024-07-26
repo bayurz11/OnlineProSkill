@@ -18,7 +18,7 @@ class AdminEventController extends Controller
         if (!$user) {
             return redirect()->route('login_admin');
         }
-        return view('admin.categories.categories', compact('user'));
+        return view('admin.event.index', compact('user'));
     }
 
     /**
