@@ -161,8 +161,6 @@ Route::get('/classroomdetail/{id}', [HomeController::class, 'classroomdetail'])-
 Route::get('/course', [HomeController::class, 'course'])->name('course');
 Route::get('/coursedetail/{id}', [HomeController::class, 'coursedetail'])->name('coursedetail');
 
-
-
 //checkout
 Route::get('/checkout/{id}', [HomeController::class, 'checkout'])->name('checkout');
 

@@ -206,7 +206,7 @@
                     <div class="card-body">
                         <h6 class="card-title">Status Transaksi</h6>
 
-                        <p class="text-muted mb-3">Jumlah Kategori : {{ $orders->count() }}</p>
+                        <p class="text-muted mb-3">Jumlah Transaksi : {{ $orders->count() }}</p>
                         <div class="table-responsive">
                             <table id="dataTableExample" class="table">
                                 <thead>
