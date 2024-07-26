@@ -23,6 +23,7 @@ use App\Http\Controllers\NotifikasiUserController;
 use App\Http\Controllers\DashboardStudenController;
 use App\Http\Controllers\RiwayatTransaksiController;
 use App\Http\Controllers\DashboardInstrukturController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\HeroSectionController;
 use App\Http\Controllers\OrderHistoryManagerController;
 
@@ -178,3 +179,6 @@ Route::post('/notifikasi/baca-semua', [NotifikasiUserController::class, 'bacaSem
 
 //search
 Route::get('/search', [SearchController::class, 'search'])->name('search');
+
+//Event 
+Route::get('/event', [EventController::class, 'index'])->name('event');

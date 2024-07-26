@@ -29,7 +29,7 @@
                                         </ul>
                                     </li>
                                     <li class="{{ Request::is('event') ? 'active' : '' }}">
-                                        <a href="">Event</a>
+                                        <a href="{{ route('event') }}">Event</a>
                                     </li>
                                     <li class="{{ Request::is('artikel') ? 'active' : '' }}">
                                         <a href="">Artikel</a>
