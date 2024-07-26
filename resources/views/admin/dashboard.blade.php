@@ -211,7 +211,7 @@
                             <table id="dataTableExample" class="table">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
+                                        {{-- <th>No</th> --}}
                                         <th>No Invoice</th>
                                         <th>Nama Kelas</th>
                                         <th>Tanggal</th>
@@ -221,9 +221,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($orders as $key => $order)
+                                    @foreach ($orders as $order)
                                         <tr>
-                                            <td>{{ $key + 1 }}</td>
+                                            {{-- <td>{{ $key + 1 }}</td> --}}
                                             <td>{{ $order->nomor_invoice }}</td>
                                             <td>{{ $order->KelasTatapMuka->nama_kursus ?? 'Nama kelas tidak tersedia' }}
                                             </td>
