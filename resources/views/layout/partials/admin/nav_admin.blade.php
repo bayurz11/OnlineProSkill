@@ -245,9 +245,9 @@
                         <li class="nav-item">
                             <a href="pages/charts/peity.html" class="nav-link">Faq</a>
                         </li>
-                        {{-- <li class="nav-item">
-                            <a href="pages/charts/sparkline.html" class="nav-link">Sparkline</a>
-                        </li> --}}
+                        <li class="nav-item">
+                            <a href="{{ route('kelola_event') }}" class="nav-link">Event</a>
+                        </li>
                     </ul>
                 </div>
             </li>

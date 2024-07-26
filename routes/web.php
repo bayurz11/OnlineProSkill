@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminEventController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
@@ -70,6 +71,9 @@ Route::middleware('isAdmin')->group(function () {
     Route::get('/Course/{id}/edit', [CourseMasterController::class, 'edit'])->name('Course.edit');
     Route::put('/Course/{id}', [CourseMasterController::class, 'update'])->name('Course.update');
     // Route::delete('/Course_destroy/{id}', [CourseMasterController::class, 'destroy'])->name('Course.destroy');
+
+    //Kelola Event
+    Route::get('/kelola_event', [AdminEventController::class, 'index'])->name('kelola_event');
 
     //*******ADMIN OFFLINE COURSE SETTING*******//
 
