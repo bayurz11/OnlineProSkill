@@ -108,7 +108,24 @@
                     </ul>
                 </div>
             </li>
-            {{-- 
+            {{-- <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#errorPages" role="button"
+                    aria-expanded="false" aria-controls="errorPages">
+                    <i class="link-icon" data-feather="cloud-off"></i>
+                    <span class="link-title">Error</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="errorPages">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="pages/error/404.html" class="nav-link">404</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/error/500.html" class="nav-link">500</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#forms" role="button" aria-expanded="false"
                     aria-controls="forms">
@@ -200,12 +217,7 @@
                 </div>
             </li>
             <li class="nav-item nav-category">Docs</li>
-            <li class="nav-item">
-                <a href="https://www.nobleui.com/html/documentation/docs.html" target="_blank" class="nav-link">
-                    <i class="link-icon" data-feather="hash"></i>
-                    <span class="link-title">Documentation</span>
-                </a>
-            </li> --}}
+             --}}
             <li class="nav-item nav-category">Pengaturan Umum</li>
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#charts" role="button" aria-expanded="false"
@@ -228,29 +240,15 @@
                         <li class="nav-item">
                             <a href="pages/charts/peity.html" class="nav-link">Faq</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{ route('kelola_event') }}" class="nav-link">Event</a>
-                        </li>
+
                     </ul>
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#errorPages" role="button"
-                    aria-expanded="false" aria-controls="errorPages">
-                    <i class="link-icon" data-feather="cloud-off"></i>
-                    <span class="link-title">Error</span>
-                    <i class="link-arrow" data-feather="chevron-down"></i>
+                <a href="{{ route('kelola_event') }}" class="nav-link">
+                    <i class="link-icon" data-feather="hash"></i>
+                    <span class="link-title">Event</span>
                 </a>
-                <div class="collapse" id="errorPages">
-                    <ul class="nav sub-menu">
-                        <li class="nav-item">
-                            <a href="pages/error/404.html" class="nav-link">404</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/error/500.html" class="nav-link">500</a>
-                        </li>
-                    </ul>
-                </div>
             </li>
         </ul>
     </div>
