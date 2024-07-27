@@ -225,7 +225,7 @@ class OauthController extends Controller
                 case 'Studen':
                     $profile = $user->userProfile;
                     if (!$profile || !$profile->gambar || !$profile->date_of_birth || !$profile->phone_number) {
-                        return redirect()->route('profil')->with('info', 'Harap lengkapi profil Anda untuk melanjutkan.');
+                        return redirect()->route('profil')->with('info', 'Harap lengkapi profil Anda untuk melanjutkan pembelian kelas.');
                     } else {
                         return redirect()->route('akses_pembelian')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                     }
