@@ -225,25 +225,10 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#icons" role="button" aria-expanded="false"
-                    aria-controls="icons">
-                    <i class="link-icon" data-feather="smile"></i>
+                <a href="https://www.nobleui.com/html/documentation/docs.html" class="nav-link">
+                    <i class="link-icon" data-feather="hash"></i>
                     <span class="link-title">Sertifikat</span>
-                    <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
-                <div class="collapse" id="icons">
-                    <ul class="nav sub-menu">
-                        <li class="nav-item">
-                            <a href="pages/icons/feather-icons.html" class="nav-link">Feather Icons</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/icons/flag-icons.html" class="nav-link">Flag Icons</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/icons/mdi-icons.html" class="nav-link">Mdi Icons</a>
-                        </li>
-                    </ul>
-                </div>
             </li>
         </ul>
     </div>
