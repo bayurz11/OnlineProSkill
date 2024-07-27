@@ -49,19 +49,20 @@
                              <p>Terhubung dengan <br> Sosial Media Kami</p>
                              <ul class="list-wrap footer__social">
                                  <li>
-                                     <a href="https://www.facebook.com/" target="_blank">
+                                     <a href="https://wa.me/6281266187125?text=Halo," target="_blank">
                                          <img src="{{ asset('public/assets/img/icons/whatsapp.svg') }}" alt="img"
                                              class="injectable">
                                      </a>
                                  </li>
                                  <li>
-                                     <a href="https://www.facebook.com/" target="_blank">
+                                     <a href="https://www.instagram.com/proskillakademia?igsh=MTJzdjNteGNrMGVpOA== "
+                                         target="_blank">
                                          <img src="{{ asset('public/assets/img/icons/instagram.svg') }}" alt="img"
                                              class="injectable">
                                      </a>
                                  </li>
                                  <li>
-                                     <a href="https://www.facebook.com/" target="_blank">
+                                     <a href="https://www.youtube.com/channel/UCNw50VFi4Rdmv1WpKlWGHUQ" target="_blank">
                                          <img src="{{ asset('public/assets/img/icons/youtube.svg') }}" alt="img"
                                              class="injectable">
                                      </a>
