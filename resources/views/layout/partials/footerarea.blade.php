@@ -36,8 +36,8 @@
                          <h4 class="footer__widget-title">PRODUK</h4>
                          <div class="footer__link">
                              <ul class="list-wrap">
-                                 <li><a href="contact.html">Kelas Tatap Muka</a></li>
-                                 <li><a href="instructor-details.html">kelas Online</a></li>
+                                 <li><a href="{{ route('classroom') }}">Kelas Tatap Muka</a></li>
+                                 <li><a href="{{ route('course') }}">kelas Online</a></li>
                              </ul>
                          </div>
                      </div>
