@@ -228,7 +228,7 @@
                 <a class="nav-link" data-bs-toggle="collapse" href="#charts" role="button" aria-expanded="false"
                     aria-controls="charts">
                     <i class="link-icon" data-feather="settings"></i>
-                    <span class="link-title">Pengaturan</span>
+                    <span class="link-title">Pengaturan Halaman Utama</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 <div class="collapse" id="charts">
