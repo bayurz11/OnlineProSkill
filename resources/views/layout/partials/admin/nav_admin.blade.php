@@ -225,7 +225,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a href="https://www.nobleui.com/html/documentation/docs.html" class="nav-link">
+                <a href="" class="nav-link">
                     <i class="link-icon" data-feather="hash"></i>
                     <span class="link-title">Sertifikat</span>
                 </a>
