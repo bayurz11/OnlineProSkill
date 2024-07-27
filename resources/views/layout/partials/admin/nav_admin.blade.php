@@ -108,24 +108,7 @@
                     </ul>
                 </div>
             </li>
-            {{-- <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#errorPages" role="button"
-                    aria-expanded="false" aria-controls="errorPages">
-                    <i class="link-icon" data-feather="cloud-off"></i>
-                    <span class="link-title">Error</span>
-                    <i class="link-arrow" data-feather="chevron-down"></i>
-                </a>
-                <div class="collapse" id="errorPages">
-                    <ul class="nav sub-menu">
-                        <li class="nav-item">
-                            <a href="pages/error/404.html" class="nav-link">404</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/error/500.html" class="nav-link">500</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
+            {{-- 
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#forms" role="button" aria-expanded="false"
                     aria-controls="forms">
@@ -228,7 +211,7 @@
                 <a class="nav-link" data-bs-toggle="collapse" href="#charts" role="button" aria-expanded="false"
                     aria-controls="charts">
                     <i class="link-icon" data-feather="settings"></i>
-                    <span class="link-title">Pengaturan Beranda</span>
+                    <span class="link-title">Pengaturan</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 <div class="collapse" id="charts">
@@ -247,6 +230,24 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('kelola_event') }}" class="nav-link">Event</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#errorPages" role="button"
+                    aria-expanded="false" aria-controls="errorPages">
+                    <i class="link-icon" data-feather="cloud-off"></i>
+                    <span class="link-title">Error</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="errorPages">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="pages/error/404.html" class="nav-link">404</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/error/500.html" class="nav-link">500</a>
                         </li>
                     </ul>
                 </div>
