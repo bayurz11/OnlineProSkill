@@ -114,6 +114,9 @@ Route::middleware('isAdmin')->group(function () {
 
     //*******PENGATURAN UMUM*******//
     Route::get('/herosection', [HeroSectionController::class, 'index'])->name('herosection');
+
+    //sertifikat
+    Route::get('/sertifikat', [SertifikatController::class, 'index'])->name('sertifikat');
 });
 
 //*********STUDEN*********//

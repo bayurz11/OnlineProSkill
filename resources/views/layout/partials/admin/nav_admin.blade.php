@@ -225,7 +225,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="{{ route('sertifikat') }}" class="nav-link">
                     <i class="link-icon" data-feather="file-text"></i>
                     <span class="link-title">Sertifikat</span>
                 </a>
