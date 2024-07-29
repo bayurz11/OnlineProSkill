@@ -118,6 +118,8 @@ Route::middleware('isAdmin')->group(function () {
     //sertifikat
     Route::get('/sertifikat', [SertifikatController::class, 'index'])->name('sertifikat');
     Route::post('/sertifikat/store', [SertifikatController::class, 'store'])->name('sertifikat.store');
+    Route::get('/sertifikat/{id}/edit', [SertifikatController::class, 'edit'])->name('sertifikat.edit');
+    Route::put('/sertifikat/{id}/update', [SertifikatController::class, 'update'])->name('sertifikat.update');
 });
 
 //*********STUDEN*********//
