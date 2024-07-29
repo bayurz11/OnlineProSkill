@@ -96,4 +96,18 @@ class SertifikatController extends Controller
         // Redirect dengan pesan sukses
         return redirect()->route('sertifikat')->with('success', 'Data sertifikat berhasil diperbarui.');
     }
+
+    public function destroy($id)
+    {
+
+        $sertifikat = Sertifikat::find($id);
+
+        if (!$sertifikat) {
+            return redirect()->route('sertifikat')->with('error', 'sertifikat tidak ditemukan');
+        }
+
+        $sertifikat->delete();
+
+        return redirect()->route('sertifikat')->with('success', 'sertifikat berhasil dihapus');
+    }
 }
