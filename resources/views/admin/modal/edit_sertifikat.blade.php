@@ -46,48 +46,44 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function() {
-        $("#edit_gambar").change(function() {
-            readURLEdit(this);
+        // Fetch data when the edit button is clicked
+        $('.edit-button').on('click', function() {
+            const id = $(this).data('id');
+            fetch(`/sertifikat/${id}/edit`)
+                .then(response => response.json())
+                .then(data => {
+                    $('#edit_name').val(data.name);
+                    $('#edit_sertifikat_id').val(data.sertifikat_id);
+                    $('#edit_keterangan').val(data.keterangan);
+
+                    // Update image preview
+                    if (data.gambar) {
+                        $('#edit_preview').attr('src', `/uploads/${data.gambar}`).show();
+                    } else {
+                        $('#edit_preview').hide();
+                    }
+
+                    // Set the form action to the update route
+                    $('#editSertifikatForm').attr('action', `/sertifikat/${data.id}/update`);
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
         });
-    });
 
-    function readURLEdit(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
+        // Display the uploaded image preview
+        $('#edit_gambar').change(function() {
+            readURL(this);
+        });
 
-            reader.onload = function(e) {
-                $('#edit_preview').attr('src', e.target.result).show();
-            };
-
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-
-    function editSertifikat(id) {
-        console.log('Fetching data for sertifikat ID:', id); // Debug log
-
-        $.ajax({
-            url: `/sertifikat/${id}/edit`,
-            type: 'GET',
-            success: function(data) {
-                console.log('Data received:', data); // Debug log
-                $('#edit_name').val(data.name);
-                $('#edit_sertifikat_id').val(data.sertifikat_id);
-                $('#edit_keterangan').val(data.keterangan);
-
-                if (data.gambar) {
-                    $('#edit_preview').attr('src', '/uploads/' + data.gambar).show();
-                } else {
-                    $('#edit_preview').hide();
-                }
-
-                $('#editSertifikatForm').attr('action', `/sertifikat/${id}/update`);
-                $('#editSertifikatModal').modal('show');
-            },
-            error: function(xhr) {
-                console.log('Error fetching data:', xhr); // Debug log
-                alert('Gagal mengambil data sertifikat');
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#edit_preview').attr('src', e.target.result).show();
+                };
+                reader.readAsDataURL(input.files[0]);
             }
-        });
-    }
+        }
+    });
 </script>
