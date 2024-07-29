@@ -59,9 +59,9 @@
 
                     // Update image preview
                     if (data.gambar) {
-                        $('#edit_preview').attr('src', `/uploads/${data.gambar}`).show();
+                        $('#preview_edit').attr('src', `/uploads/${data.gambar}`).show();
                     } else {
-                        $('#edit_preview').hide();
+                        $('#preview_edit').hide();
                     }
 
                     // Set the form action to the update route
@@ -81,7 +81,7 @@
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
                 reader.onload = function(e) {
-                    $('#edit_preview').attr('src', e.target.result).show();
+                    $('#preview_edit').attr('src', e.target.result).show();
                 };
                 reader.readAsDataURL(input.files[0]);
             }
