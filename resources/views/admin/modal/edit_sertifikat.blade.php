@@ -2,7 +2,8 @@
     aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form id="editSertifikatForm" action="" method="POST" enctype="multipart/form-data">
+            <form id="editSertifikatForm" action="{{ route('sertifikat.update', ['id' => 0]) }}" method="POST"
+                enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="modal-header">
@@ -21,7 +22,6 @@
                         <input type="text" class="form-control" id="edit_sertifikat_id" name="sertifikat_id"
                             placeholder="Masukkan ID Sertifikat">
                     </div>
-
                     <div class="mb-3">
                         <label class="form-label" for="edit_gambar">Sertifikat<span class="text-danger">*</span></label>
                         <input type="file" accept="image/*" class="form-control" id="edit_gambar" name="gambar">
@@ -44,42 +44,36 @@
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    $(document).ready(function() {
-        $("#edit_gambar").change(function() {
-            readURLEdit(this);
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('edit_gambar').addEventListener('change', function() {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('edit_preview').setAttribute('src', e.target.result);
+                    document.getElementById('edit_preview').style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
         });
     });
 
-    function readURLEdit(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
+    function openEditModal(sertifikat) {
+        document.getElementById('edit_name').value = sertifikat.name;
+        document.getElementById('edit_sertifikat_id').value = sertifikat.sertifikat_id;
+        document.getElementById('edit_keterangan').value = sertifikat.keterangan;
 
-            reader.onload = function(e) {
-                $('#edit_preview').attr('src', e.target.result).show();
-            };
-
-            reader.readAsDataURL(input.files[0]);
+        if (sertifikat.gambar) {
+            document.getElementById('edit_preview').setAttribute('src', '/uploads/' + sertifikat.gambar);
+            document.getElementById('edit_preview').style.display = 'block';
+        } else {
+            document.getElementById('edit_preview').style.display = 'none';
         }
-    }
 
-    function editSertifikat(id) {
-        $.ajax({
-            url: '/sertifikat/' + id + '/edit',
-            type: 'GET',
-            success: function(data) {
-                $('#edit_name').val(data.name);
-                $('#edit_sertifikat_id').val(data.sertifikat_id);
-                $('#edit_keterangan').val(data.keterangan);
-                $('#edit_preview').attr('src', '/uploads/' + data.gambar).show();
-                $('#editSertifikatForm').attr('action', '/sertifikat/' + id + '/update');
-                $('#editSertifikatModal').modal('show');
-            },
-            error: function(error) {
-                console.log(error);
-                alert('Gagal mengambil data sertifikat');
-            }
-        });
+        const form = document.getElementById('editSertifikatForm');
+        form.action = `/sertifikat/${sertifikat.id}/update`;
+
+        new bootstrap.Modal(document.getElementById('editSertifikatModal')).show();
     }
 </script>
