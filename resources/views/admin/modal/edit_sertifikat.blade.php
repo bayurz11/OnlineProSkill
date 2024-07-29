@@ -25,8 +25,9 @@
                         <label class="form-label" for="edit_gambar">Sertifikat<span class="text-danger">*</span></label>
                         <input type="file" accept="image/*" class="form-control" id="edit_gambar" name="gambar">
                     </div>
-                    <img id="edit_preview" src="#" alt="Preview Sertifikat"
+                    <img id="preview_edit" src="#" alt="Preview banner"
                         style="max-width: 100%; max-height: 200px; display: none;">
+
                     <div class="mb-3">
                         <label for="edit_keterangan" class="form-label">Keterangan<span
                                 class="text-danger">*</span></label>
