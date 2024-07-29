@@ -34,6 +34,7 @@
                                         <th>ID Sertifikat</th>
                                         <th>Nama</th>
                                         <th>Keterangan</th>
+                                        <th>Gambar</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -41,10 +42,11 @@
                                     @foreach ($sertifikat as $key => $sertifikat)
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
+                                            <td>{{ $sertifikat->sertifikat_id }}</td>
+                                            <td>{{ $sertifikat->name }}</td>
+                                            <td>{{ $sertifikat->keterangan }}</td>
                                             <td><img src="{{ asset('public/uploads/' . $sertifikat->gambar) }}"
                                                     alt="Banner" class="wd-100 wd-sm-150 me-3"></td>
-                                            <td>{{ $sertifikat->name_category }}</td>
-                                            <td>{{ $sertifikat->name }}</td>
                                             <td>
                                                 <button type="button" class="btn btn-primary btn-icon edit-button"
                                                     title="Edit" data-bs-toggle="modal"
