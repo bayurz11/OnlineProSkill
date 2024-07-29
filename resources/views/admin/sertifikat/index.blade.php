@@ -31,9 +31,9 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Gambar Icon</th>
-                                        <th>Nama Kategori</th>
-                                        <th>Status</th>
+                                        <th>ID Sertifikat</th>
+                                        <th>Nama</th>
+                                        <th>Keterangan</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
