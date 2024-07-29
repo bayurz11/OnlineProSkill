@@ -69,6 +69,7 @@
                 })
                 .catch(error => {
                     console.error('Error fetching data:', error);
+                    alert('Gagal mengambil data sertifikat');
                 });
         });
 
@@ -84,6 +85,8 @@
                     $('#preview_edit').attr('src', e.target.result).show();
                 };
                 reader.readAsDataURL(input.files[0]);
+            } else {
+                $('#preview_edit').hide();
             }
         }
     });
