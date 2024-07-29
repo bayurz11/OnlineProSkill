@@ -47,8 +47,9 @@
     <div class="container">
 
         <img src="{{ asset('public/uploads/' . $sertifikat->gambar) }}" alt="Gambar Sertifikat">
-        <p>{{ $sertifikat->sertifikat_name }}</p>
-        <a href="{{ asset('public/uploads/' . $sertifikat->img) }}" class="btn" download="sertifikat.jpg">Download</a>
+        <p>{{ $sertifikat->name }}</p>
+        <a href="{{ asset('public/uploads/' . $sertifikat->gambar) }}" class="btn"
+            download="sertifikat.jpg">Download</a>
 
     </div>
 </body>
