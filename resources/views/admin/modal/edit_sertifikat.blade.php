@@ -21,7 +21,6 @@
                         <input type="text" class="form-control" id="edit_sertifikat_id" name="sertifikat_id"
                             placeholder="Masukkan ID Sertifikat">
                     </div>
-
                     <div class="mb-3">
                         <label class="form-label" for="edit_gambar">Sertifikat<span class="text-danger">*</span></label>
                         <input type="file" accept="image/*" class="form-control" id="edit_gambar" name="gambar">
@@ -65,19 +64,28 @@
     }
 
     function editSertifikat(id) {
+        console.log('Fetching data for sertifikat ID:', id); // Debug log
+
         $.ajax({
-            url: '/sertifikat/' + id + '/edit',
+            url: `/sertifikat/${id}/edit`,
             type: 'GET',
             success: function(data) {
+                console.log('Data received:', data); // Debug log
                 $('#edit_name').val(data.name);
                 $('#edit_sertifikat_id').val(data.sertifikat_id);
                 $('#edit_keterangan').val(data.keterangan);
-                $('#edit_preview').attr('src', '/uploads/' + data.gambar).show();
-                $('#editSertifikatForm').attr('action', '/sertifikat/' + id + '/update');
+
+                if (data.gambar) {
+                    $('#edit_preview').attr('src', '/uploads/' + data.gambar).show();
+                } else {
+                    $('#edit_preview').hide();
+                }
+
+                $('#editSertifikatForm').attr('action', `/sertifikat/${id}/update`);
                 $('#editSertifikatModal').modal('show');
             },
-            error: function(error) {
-                console.log(error);
+            error: function(xhr) {
+                console.log('Error fetching data:', xhr); // Debug log
                 alert('Gagal mengambil data sertifikat');
             }
         });

@@ -50,7 +50,8 @@
                                             <td>
                                                 <button type="button" class="btn btn-primary btn-icon edit-button"
                                                     title="Edit" data-bs-toggle="modal"
-                                                    data-bs-target="#editSertifikatModal" data-id="{{ $sertifikat->id }}">
+                                                    data-bs-target="#editSertifikatModal" data-id="{{ $sertifikat->id }}"
+                                                    onclick="editSertifikat({{ $sertifikat->id }})">
                                                     <i data-feather="edit"></i>
                                                 </button>
                                                 <button onclick="hapus('{{ $sertifikat->id }}')"
