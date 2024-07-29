@@ -44,14 +44,7 @@
                                             <td><img src="{{ asset('public/uploads/' . $sertifikat->gambar) }}"
                                                     alt="Banner" class="wd-100 wd-sm-150 me-3"></td>
                                             <td>{{ $sertifikat->name_category }}</td>
-                                            <td>
-
-                                                <div class="form-check form-switch mb-2">
-                                                    <input type="checkbox" class="form-check-input formSwitch"
-                                                        id="formSwitch{{ $sertifikat->id }}" data-id="{{ $sertifikat->id }}"
-                                                        data-status="{{ $sertifikat->status }}">
-                                                </div>
-                                            </td>
+                                            <td>{{ $sertifikat->name }}</td>
                                             <td>
                                                 <button type="button" class="btn btn-primary btn-icon edit-button"
                                                     title="Edit" data-bs-toggle="modal"
