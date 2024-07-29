@@ -110,4 +110,13 @@ class SertifikatController extends Controller
 
         return redirect()->route('sertifikat')->with('success', 'sertifikat berhasil dihapus');
     }
+
+    public function cetakSertifikat($id)
+    {
+        // Temukan sertifikat berdasarkan ID
+        $sertifikat = Sertifikat::findOrFail($id);
+
+        // Setelah menemukan sertifikat, arahkan pengguna ke view sertifikat
+        return view('admin.sertifikat.sertifikat_view', compact('sertifikate'));
+    }
 }
