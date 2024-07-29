@@ -117,6 +117,6 @@ class SertifikatController extends Controller
         $sertifikat = Sertifikat::findOrFail($id);
 
         // Setelah menemukan sertifikat, arahkan pengguna ke view sertifikat
-        return view('admin.sertifikat.sertifikat_view', compact('sertifikate'));
+        return view('admin.sertifikat.sertifikat_view', compact('sertifikat'));
     }
 }
