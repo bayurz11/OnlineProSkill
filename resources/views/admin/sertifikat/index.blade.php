@@ -38,33 +38,33 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {{-- @foreach ($categori as $key => $kategori)
+                                    @foreach ($sertifikat as $key => $sertifikat)
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
-                                            <td><img src="{{ asset('public/uploads/' . $kategori->gambar) }}" alt="Banner"
-                                                    class="wd-100 wd-sm-150 me-3"></td>
-                                            <td>{{ $kategori->name_category }}</td>
+                                            <td><img src="{{ asset('public/uploads/' . $sertifikat->gambar) }}"
+                                                    alt="Banner" class="wd-100 wd-sm-150 me-3"></td>
+                                            <td>{{ $sertifikat->name_category }}</td>
                                             <td>
 
                                                 <div class="form-check form-switch mb-2">
                                                     <input type="checkbox" class="form-check-input formSwitch"
-                                                        id="formSwitch{{ $kategori->id }}" data-id="{{ $kategori->id }}"
-                                                        data-status="{{ $kategori->status }}">
+                                                        id="formSwitch{{ $sertifikat->id }}" data-id="{{ $sertifikat->id }}"
+                                                        data-status="{{ $sertifikat->status }}">
                                                 </div>
                                             </td>
                                             <td>
                                                 <button type="button" class="btn btn-primary btn-icon edit-button"
-                                                    title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
-                                                    data-id="{{ $kategori->id }}">
+                                                    title="Edit" data-bs-toggle="modal"
+                                                    data-bs-target="#editSertifikatModal" data-id="{{ $sertifikat->id }}">
                                                     <i data-feather="edit"></i>
                                                 </button>
-                                                <button onclick="hapus('{{ $kategori->id }}')"
+                                                <button onclick="hapus('{{ $sertifikat->id }}')"
                                                     class="btn btn-danger btn-icon" title="Hapus">
                                                     <i data-feather="trash-2"></i>
                                                 </button>
                                             </td>
                                         </tr>
-                                    @endforeach --}}
+                                    @endforeach
                                 </tbody>
                             </table>
 
