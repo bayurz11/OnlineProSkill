@@ -200,10 +200,12 @@
                                                 @php
                                                     // Mengambil link_maps dari $event dan memprosesnya menjadi embed URL
                                                     $map_url = $event->link_maps;
+                                                    // Ekstrak latitude dan longitude dari URL
                                                     preg_match('/@(-?\d+\.\d+),(-?\d+\.\d+)/', $map_url, $matches);
                                                     $latitude = $matches[1];
                                                     $longitude = $matches[2];
-                                                    $embed_url = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48409.69813174607!2d$longitude!3d$latitude!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d9729a2556642d:0xaa63e717cb0e87b9!5e0!3m2!1sen!2sbd!4v1684309529719!5m2!1sen!2sbd";
+                                                    // Format URL embed Google Maps
+                                                    $embed_url = "https://www.google.com/maps/embed/v1/view?key=YOUR_API_KEY&center=$latitude,$longitude&zoom=18&maptype=roadmap";
                                                 @endphp
 
                                                 <iframe src="{{ $embed_url }}" style="border:0;" allowfullscreen=""
