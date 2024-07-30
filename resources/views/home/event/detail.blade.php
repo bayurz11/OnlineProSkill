@@ -43,7 +43,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="event__details-thumb">
-                        <img src="{{ asset('public/uploads/events/' . $event->gambar) }}" alt="img">
+                        <img src="{{ asset('public/assets/img/events/event_details_img.jpg') }}" alt="img">
                     </div>
                     <div class="event__details-content-wrap">
                         <div class="row">
@@ -53,7 +53,7 @@
                                         <a href="courses.html" class="tag">Development</a>
                                         <span class="avg-rating"><i class="fas fa-star"></i>(4.8 Reviews)</span>
                                     </div>
-                                    <h2 class="title">How To Become idiculously Self-Aware In 20 Minutes</h2>
+                                    <h2 class="title">{{ $event->name }}</h2>
                                     <div class="event__meta">
                                         <ul class="list-wrap">
                                             <li class="author">
