@@ -34,8 +34,30 @@ class AdminEventController extends Controller
      */
     public function store(StoreAdminEventRequest $request)
     {
-        //
+        // Validasi data yang dikirimkan
+        $validatedData = $request->validated();
+
+        // Upload gambar
+        if ($request->hasFile('gambar')) {
+            $file = $request->file('gambar');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads/events'), $filename);
+            $validatedData['gambar'] = 'uploads/events/' . $filename;
+        }
+
+        // Simpan data event ke database
+        AdminEvent::create([
+            'name' => $validatedData['name'],
+            'gambar' => $validatedData['gambar'] ?? null,
+            'tgl' => $validatedData['tgl'],
+            'lokasi' => $validatedData['lokasi'],
+            'link_maps' => $validatedData['link_maps'],
+        ]);
+
+        // Redirect atau response sukses
+        return redirect()->route('kelola_event')->with('success', 'Event berhasil ditambahkan.');
     }
+
 
     /**
      * Display the specified resource.

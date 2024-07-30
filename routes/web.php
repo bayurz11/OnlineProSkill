@@ -74,6 +74,7 @@ Route::middleware('isAdmin')->group(function () {
 
     //Kelola Event
     Route::get('/kelola_event', [AdminEventController::class, 'index'])->name('kelola_event');
+    Route::post('/events', [AdminEventController::class, 'store'])->name('events.store');
 
     //*******ADMIN OFFLINE COURSE SETTING*******//
 
