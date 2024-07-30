@@ -26,6 +26,8 @@
                              <ul class="list-wrap">
                                  <li><a href="events-details.html">Tentang Kami</a></li>
                                  <li><a href="events-details.html">Hubungi Kami</a></li>
+                                 <li><a href="events-details.html">Brosur</a></li>
+                                 <li><a href="events-details.html">Contoh Sertifikat</a></li>
                                  <li><a href="events-details.html">Blog</a></li>
                              </ul>
                          </div>
