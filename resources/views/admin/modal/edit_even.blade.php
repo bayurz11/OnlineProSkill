@@ -21,6 +21,7 @@
                     </div>
                     <img id="preview_edit" src="#" alt="Preview banner"
                         style="max-width: 100%; max-height: 200px; display: none;">
+
                     <div class="mb-3">
                         <label for="edit_tgl" class="form-label">Tanggal Dilaksanakan<span
                                 class="text-danger">*</span></label>
