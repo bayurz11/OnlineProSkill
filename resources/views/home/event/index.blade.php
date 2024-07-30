@@ -49,12 +49,14 @@
                         <div class="col-xl-3 col-lg-4 col-md-6">
                             <div class="event__item shine__animate-item">
                                 <div class="event__item-thumb">
-                                    <a href="{{ $event->id }}" class="shine__animate-link"><img
+                                    <a href="{{ route('event_detail', ['id' => $event->id]) }}"
+                                        class="shine__animate-link"><img
                                             src="{{ asset('public/uploads/events/' . $event->gambar) }}" alt="img"></a>
                                 </div>
                                 <div class="event__item-content">
                                     <span class="date">{{ Carbon::parse($event->tgl)->format('d - F - Y') }}</span>
-                                    <h2 class="title"><a href="{{ $event->id }}">{{ $event->name }}</a>
+                                    <h2 class="title"><a
+                                            href="{{ route('event_detail', ['id' => $event->id]) }}">{{ $event->name }}</a>
                                     </h2>
                                     <a href="{{ $event->link_maps }}" class="location" target="_blank"><i
                                             class="flaticon-map"></i>{{ $event->lokasi }}</a>

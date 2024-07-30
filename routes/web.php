@@ -197,3 +197,4 @@ Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 //Event 
 Route::get('/event', [EventController::class, 'index'])->name('event');
+Route::get('/event_detail/{id}', [EventController::class, 'detailEvent'])->name('event_detail');
