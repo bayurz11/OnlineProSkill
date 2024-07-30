@@ -21,7 +21,13 @@
                     <img id="preview" src="#" alt="Preview banner"
                         style="max-width: 100%; max-height: 200px; display: none;">
 
+                    <div class="mb-3">
+                        <label for="tgl" class="form-label">Tanggal Dilaksanakan<span
+                                class="text-danger">*</span></label>
+                        <input type="date" class="form-control" id="tgl" name="tgl">
+                    </div>
                 </div>
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
                     <button type="submit" class="btn btn-primary">Simpan</button>
