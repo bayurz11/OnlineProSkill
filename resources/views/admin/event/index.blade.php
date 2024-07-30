@@ -30,44 +30,31 @@
                             <table id="dataTableExample" class="table">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
-                                        <th>Gambar Icon</th>
-                                        <th>Nama Kategori</th>
-                                        <th>Status</th>
+                                        <th>Nama </th>
+                                        <th>Tanggal Event</th>
+                                        <th>Lokasi</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {{-- @foreach ($categori as $key => $kategori)
+                                    @foreach ($event as $event)
                                         <tr>
-                                            <td>{{ $key + 1 }}</td>
-                                            <td><img src="{{ asset('public/uploads/' . $kategori->gambar) }}" alt="Banner"
-                                                    class="wd-100 wd-sm-150 me-3"></td>
-                                            <td>{{ $kategori->name_category }}</td>
-                                            <td>
-
-                                                <div class="form-check form-switch mb-2">
-                                                    <input type="checkbox" class="form-check-input formSwitch"
-                                                        id="formSwitch{{ $kategori->id }}" data-id="{{ $kategori->id }}"
-                                                        data-status="{{ $kategori->status }}">
-                                                </div>
-
-
-
-                                            </td>
+                                            <td>{{ $event->name }}</td>
+                                            <td>{{ $event->tgl }}</td>
+                                            <td>{{ $event->lokasi }}</td>
                                             <td>
                                                 <button type="button" class="btn btn-primary btn-icon edit-button"
                                                     title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
-                                                    data-id="{{ $kategori->id }}">
+                                                    data-id="{{ $event->id }}">
                                                     <i data-feather="edit"></i>
                                                 </button>
-                                                <button onclick="hapus('{{ $kategori->id }}')"
+                                                <button onclick="hapus('{{ $event->id }}')"
                                                     class="btn btn-danger btn-icon" title="Hapus">
                                                     <i data-feather="trash-2"></i>
                                                 </button>
                                             </td>
                                         </tr>
-                                    @endforeach --}}
+                                    @endforeach
                                 </tbody>
                             </table>
 
@@ -146,11 +133,11 @@
                 }).then(response => {
                     document.getElementById('confirmationModal').remove();
                     if (response.ok) {
-                        console.log('Kategori berhasil dihapus. Mengalihkan ke halaman pengaturan Kategori.');
+                        console.log('event berhasil dihapus. Mengalihkan ke halaman pengaturan event.');
                         window.location.href = '{{ route('categories') }}';
                     } else {
                         response.text().then(text => {
-                            console.error('Gagal menghapus Kategori:', text);
+                            console.error('Gagal menghapus event:', text);
                         });
                     }
                 }).catch(error => {
