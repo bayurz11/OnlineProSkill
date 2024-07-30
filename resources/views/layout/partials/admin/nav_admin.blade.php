@@ -89,10 +89,16 @@
                     </ul>
                 </div>
             </li>
+            <li class="nav-item">
+                <a href="{{ route('sertifikat') }}" class="nav-link">
+                    <i class="link-icon" data-feather="file-text"></i>
+                    <span class="link-title">Sertifikat</span>
+                </a>
+            </li>
             <li class="nav-item nav-category">Pembayaran</li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#authPages" role="button" aria-expanded="false"
-                    aria-controls="authPages">
+                <a class="nav-link" data-bs-toggle="collapse" href="#authPages" role="button"
+                    aria-expanded="false" aria-controls="authPages">
                     <i class="link-icon" data-feather="dollar-sign"></i>
                     <span class="link-title">Transaksi</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
@@ -224,12 +230,7 @@
                     </ul>
                 </div>
             </li>
-            <li class="nav-item">
-                <a href="{{ route('sertifikat') }}" class="nav-link">
-                    <i class="link-icon" data-feather="file-text"></i>
-                    <span class="link-title">Sertifikat</span>
-                </a>
-            </li>
+
         </ul>
     </div>
 </nav>
