@@ -59,6 +59,7 @@
                     $('#edit_lokasi').val(data.lokasi);
                     $('#edit_link_maps').val(data.link_maps);
 
+
                     // Update image preview
                     if (data.gambar) {
                         $('#preview_edit').attr('src', `/uploads/events/${data.gambar}`).show();
