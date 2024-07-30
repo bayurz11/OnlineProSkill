@@ -61,9 +61,9 @@
                                     <div class="event__meta">
                                         <ul class="list-wrap">
                                             <li class="author">
-                                                <img src="assets/img/courses/course_author001.png" alt="img">
+                                                {{-- <img src="assets/img/courses/course_author001.png" alt="img"> --}}
                                                 By
-                                                <a href="instructor-details.html">David Millar</a>
+                                                <a href="instructor-details.html">{{ $event->user->name }}</a>
                                             </li>
                                             <li class="location"><i class="flaticon-placeholder"></i>LocationWashington DC,
                                                 MI 2726</li>
