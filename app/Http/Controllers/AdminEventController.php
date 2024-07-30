@@ -82,13 +82,13 @@ class AdminEventController extends Controller
         // Cek apakah ada file gambar yang diunggah
         if ($request->hasFile('gambar')) {
             // Hapus gambar lama jika ada
-            if ($event->gambar && file_exists(public_path('uploads/' . $event->gambar))) {
-                unlink(public_path('uploads/' . $event->gambar));
+            if ($event->gambar && file_exists(public_path('uploads/events/' . $event->gambar))) {
+                unlink(public_path('uploads/events/' . $event->gambar));
             }
 
             $file = $request->file('gambar');
             $filename = time() . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('uploads'), $filename);
+            $file->move(public_path('uploads/events'), $filename);
             $event->gambar = $filename;
         }
 
