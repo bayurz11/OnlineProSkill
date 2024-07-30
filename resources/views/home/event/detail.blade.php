@@ -126,46 +126,46 @@
                                 <aside class="event__sidebar">
                                     <div class="event__widget">
                                         <div class="courses__details-sidebar">
-                                            <div class="courses__cost-wrap">
+                                            {{-- <div class="courses__cost-wrap">
                                                 <span>Event Fee</span>
                                                 <h2 class="title">$19.00</h2>
-                                            </div>
+                                            </div> --}}
                                             <div class="courses__information-wrap">
                                                 <h5 class="title">Event Information:</h5>
                                                 <ul class="list-wrap">
                                                     <li>
-                                                        <img src="assets/img/icons/calendar.svg" alt="img"
+                                                        <img src="public/assets/img/icons/calendar.svg" alt="img"
                                                             class="injectable">
                                                         Date
                                                         <span>26/08/2024</span>
                                                     </li>
                                                     <li>
-                                                        <img src="assets/img/icons/course_icon02.svg" alt="img"
+                                                        <img src="public/assets/img/icons/course_icon02.svg" alt="img"
                                                             class="injectable">
                                                         Start Time
                                                         <span>10.00am</span>
                                                     </li>
                                                     <li>
-                                                        <img src="assets/img/icons/course_icon03.svg" alt="img"
+                                                        <img src="public/assets/img/icons/course_icon03.svg" alt="img"
                                                             class="injectable">
                                                         Topics
                                                         <span>12</span>
                                                     </li>
                                                     <li>
-                                                        <img src="assets/img/icons/course_icon04.svg" alt="img"
-                                                            class="injectable">
+                                                        <img src="public/assets/img/icons/course_icon04.svg"
+                                                            alt="img" class="injectable">
                                                         Quizzes
                                                         <span>145</span>
                                                     </li>
                                                     <li>
-                                                        <img src="assets/img/icons/course_icon05.svg" alt="img"
-                                                            class="injectable">
+                                                        <img src="public/assets/img/icons/course_icon05.svg"
+                                                            alt="img" class="injectable">
                                                         Certifications
                                                         <span>Yes</span>
                                                     </li>
                                                     <li>
-                                                        <img src="assets/img/icons/course_icon06.svg" alt="img"
-                                                            class="injectable">
+                                                        <img src="public/assets/img/icons/course_icon06.svg"
+                                                            alt="img" class="injectable">
                                                         Total Seat
                                                         <span>300</span>
                                                     </li>
