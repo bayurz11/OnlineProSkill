@@ -51,7 +51,7 @@
                                             src="public/assets/img/events/event_thumb01.jpg" alt="img"></a>
                                 </div>
                                 <div class="event__item-content">
-                                    <span class="date">{{ $event->tgl }}</span>
+                                    <span class="date">{{ Carbon::parse($event->tgl)->format('d - F - Y') }}</span>
                                     <h2 class="title"><a href="events-details.html">The Accessible Target Sizes
                                             Cheatsheet</a>
                                     </h2>
