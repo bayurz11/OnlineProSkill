@@ -50,7 +50,7 @@
                             <div class="event__item shine__animate-item">
                                 <div class="event__item-thumb">
                                     <a href="{{ $event->id }}" class="shine__animate-link"><img
-                                            src="public/assets/img/events/event_thumb01.jpg" alt="img"></a>
+                                            src="{{ asset('public/uploads/events' . $event->gambar) }}" alt="img"></a>
                                 </div>
                                 <div class="event__item-content">
                                     <span class="date">{{ Carbon::parse($event->tgl)->format('d - F - Y') }}</span>
