@@ -41,7 +41,7 @@ class EventController extends Controller
         $user = Auth::user();
         $profile = null;
         $cart = Session::get('cart', []);
-        $event = AdminEvent::all();
+        $event = AdminEvent::find($id);
         if ($user) {
             $profile = UserProfile::where('user_id', $user->id)->first();
         }
