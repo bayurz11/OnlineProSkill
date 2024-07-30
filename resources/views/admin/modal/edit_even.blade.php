@@ -19,7 +19,7 @@
                                 class="text-danger">*</span></label>
                         <input type="file" accept="image/*" class="form-control" id="edit_gambar" name="gambar">
                     </div>
-                    <img id="preview" src="#" alt="Preview banner"
+                    <img id="preview_edit" src="#" alt="Preview banner"
                         style="max-width: 100%; max-height: 200px; display: none;">
                     <div class="mb-3">
                         <label for="edit_tgl" class="form-label">Tanggal Dilaksanakan<span
@@ -61,9 +61,9 @@
 
                     // Update image preview
                     if (data.gambar) {
-                        $('#preview').attr('src', `/uploads/${data.gambar}`).show();
+                        $('#preview_edit').attr('src', `/uploads/${data.gambar}`).show();
                     } else {
-                        $('#preview').hide();
+                        $('#preview_edit').hide();
                     }
 
                     // Set the form action to the update route
@@ -75,7 +75,7 @@
                 });
         });
 
-        // Display the uploaded image preview
+        // Display the uploaded image preview_edit
         $('#edit_gambar').change(function() {
             readURL(this);
         });
@@ -84,11 +84,11 @@
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
                 reader.onload = function(e) {
-                    $('#preview').attr('src', e.target.result).show();
+                    $('#preview_edit').attr('src', e.target.result).show();
                 };
                 reader.readAsDataURL(input.files[0]);
             } else {
-                $('#preview').hide();
+                $('#preview_edit').hide();
             }
         }
     });
