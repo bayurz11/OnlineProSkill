@@ -63,7 +63,8 @@
 
                     // Update image preview
                     if (data.gambar) {
-                        $('#preview_edit').attr('src', `/uploads/events/${data.gambar}`).show();
+                        $('#preview_edit').attr('src', `/public/uploads/events/${data.gambar}`)
+                            .show();
                     } else {
                         $('#preview_edit').hide();
                     }
