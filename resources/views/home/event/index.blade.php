@@ -51,7 +51,7 @@
                                             src="public/assets/img/events/event_thumb01.jpg" alt="img"></a>
                                 </div>
                                 <div class="event__item-content">
-                                    <span class="date">25 June, 2024</span>
+                                    <span class="date">{{ $event->tgl }}</span>
                                     <h2 class="title"><a href="events-details.html">The Accessible Target Sizes
                                             Cheatsheet</a>
                                     </h2>
