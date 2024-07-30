@@ -27,7 +27,7 @@
                         </h3>
                         <div class="banner__btn-two" data-aos="fade-right" data-aos-delay="600">
                             <a href="contact.html" class="btn arrow-btn">Start Free Trial <img
-                                    src="{{ asset('assets/img/icons/right_arrow.svg') }}" alt="img"
+                                    src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                     class="injectable"></a>
                             <a href="https://www.youtube.com/watch?v=b2Az7_lLh3g" class="play-btn popup-video"><i
                                     class="fas fa-play"></i> Watch Our <br> Class Demo</a>
