@@ -61,13 +61,14 @@
                                     <div class="event__meta">
                                         <ul class="list-wrap">
                                             <li class="author">
-                                                {{-- <img src="assets/img/courses/course_author001.png" alt="img"> --}}
+                                                <img src="{{ asset('public/assets/img/courses/course_author001.png') }}"
+                                                    alt="img">
                                                 By
                                                 <a href="instructor-details.html">{{ $event->user->name }}</a>
                                             </li>
                                             <li class="location"><i class="flaticon-placeholder"></i>{{ $event->lokasi }}
                                             </li>
-                                            <li><i class="flaticon-mortarboard"></i>2,250 Students</li>
+
                                         </ul>
                                     </div>
                                     <div class="event__details-overview">
