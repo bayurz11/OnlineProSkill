@@ -18,6 +18,7 @@ return new class extends Migration
             $table->date('tgl');
             $table->string('lokasi');
             $table->string('link_maps');
+            $table->string('user_id');
             $table->timestamps();
         });
     }

@@ -35,29 +35,29 @@ class AdminEventController extends Controller
      */
     public function store(Request $request)
     {
-        // Validasi data yang dikirimkan
-        $validatedData = $request->validated();
+        $userId = Auth::id();
 
-        // Upload gambar
+        // Proses unggahan gambar
         if ($request->hasFile('gambar')) {
-            $file = $request->file('gambar');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $file->move(public_path('uploads/events'), $filename);
-            $validatedData['gambar'] = 'uploads/events/' . $filename;
+            $gambarName = time() . '.' . $request->gambar->extension();
+            $request->gambar->move(public_path('uploads/events'), $gambarName);
+        } else {
+            $gambarName = null;
         }
 
-        // Simpan data event ke database
-        AdminEvent::create([
-            'name' => $validatedData['name'],
-            'gambar' => $validatedData['gambar'] ?? null,
-            'tgl' => $validatedData['tgl'],
-            'lokasi' => $validatedData['lokasi'],
-            'link_maps' => $validatedData['link_maps'],
-        ]);
+        // Buat entitas event baru
+        $event = new AdminEvent();
+        $event->name = $request->name;
+        $event->gambar = $gambarName;
+        $event->tgl = $request->tgl;
+        $event->lokasi = $request->lokasi;
+        $event->link_maps = $request->link_maps;
+        $event->user_id = $userId; // Menambahkan user_id jika diperlukan
+        $event->save();
 
-        // Redirect atau response sukses
         return redirect()->route('kelola_event')->with('success', 'Event berhasil ditambahkan.');
     }
+
 
 
     /**
