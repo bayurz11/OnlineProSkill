@@ -173,10 +173,7 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                            <div class="courses__payment">
-                                                <h5 class="title">Secure Payment:</h5>
-                                                <img src="assets/img/others/payment.png" alt="img">
-                                            </div>
+
                                             <div class="courses__details-social">
                                                 <h5 class="title">Share this course:</h5>
                                                 <ul class="list-wrap">
@@ -190,8 +187,8 @@
                                             <div class="courses__details-enroll">
                                                 <div class="tg-button-wrap">
                                                     <a href="contact.html" class="btn arrow-btn">Join This Event <img
-                                                            src="assets/img/icons/right_arrow.svg" alt="img"
-                                                            class="injectable"></a>
+                                                            src="{{ asset('public/assets/img/icons/right_arrow.svg') }}"
+                                                            alt="img" class="injectable"></a>
                                                 </div>
                                             </div>
                                         </div>
