@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AdminEvent;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreAdminEventRequest;
 use App\Http\Requests\UpdateAdminEventRequest;
@@ -32,7 +33,7 @@ class AdminEventController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreAdminEventRequest $request)
+    public function store(Request $request)
     {
         // Validasi data yang dikirimkan
         $validatedData = $request->validated();
