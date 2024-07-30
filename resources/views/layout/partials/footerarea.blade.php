@@ -33,7 +33,7 @@
                  </div>
                  <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
                      <div class="footer__widget">
-                         <h4 class="footer__widget-title">PRODUK</h4>
+                         <h4 class="footer__widget-title">PROGRAM</h4>
                          <div class="footer__link">
                              <ul class="list-wrap">
                                  <li><a href="{{ route('classroom') }}">Kelas Tatap Muka</a></li>
