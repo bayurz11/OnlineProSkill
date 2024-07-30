@@ -17,6 +17,7 @@
                             <span property="itemListElement" typeof="ListItem">
                                 <a href="{{ route('/') }}">Beranda</a>
                             </span>
+                            <span class="breadcrumb-separator"><i class="fas fa-angle-right"></i></span>
                             <span property="itemListElement" typeof="ListItem">
                                 <a href="{{ route('event') }}">Event</a>
                             </span>
