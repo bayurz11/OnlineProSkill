@@ -5,7 +5,9 @@
 
 @section('content')
 
-
+    @php
+        use Carbon\Carbon;
+    @endphp
     <!-- breadcrumb-area -->
     <section class="breadcrumb__area breadcrumb__bg" data-background="public/assets/img/bg/breadcrumb_bg.jpg">
         <div class="container">
