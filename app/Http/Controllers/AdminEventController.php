@@ -52,7 +52,7 @@ class AdminEventController extends Controller
         $event->tgl = $request->tgl;
         $event->lokasi = $request->lokasi;
         $event->link_maps = $request->link_maps;
-        $event->user_id = $userId; // Menambahkan user_id jika diperlukan
+        $event->user_id = $userId;
         $event->save();
 
         return redirect()->route('kelola_event')->with('success', 'Event berhasil ditambahkan.');
