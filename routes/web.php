@@ -75,7 +75,9 @@ Route::middleware('isAdmin')->group(function () {
     //Kelola Event
     Route::get('/kelola_event', [AdminEventController::class, 'index'])->name('kelola_event');
     Route::post('/events', [AdminEventController::class, 'store'])->name('events.store');
-
+    Route::get('/event/{id}/edit', [AdminEventController::class, 'edit'])->name('event.edit');
+    Route::put('/event/{id}/update', [AdminEventController::class, 'update'])->name('event.update');
+    Route::delete('/event/{id}/destroy', [AdminEventController::class, 'destroy'])->name('event.destroy');
     //*******ADMIN OFFLINE COURSE SETTING*******//
 
     //Kursus Tatap Muka

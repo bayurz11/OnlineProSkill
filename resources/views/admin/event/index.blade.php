@@ -66,46 +66,7 @@
 
     </div>
 
-    {{-- <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const formSwitches = document.querySelectorAll('.formSwitch');
-
-            formSwitches.forEach(function(formSwitch) {
-
-
-                // Set initial state of the switch based on the status
-                formSwitch.checked = formSwitch.dataset.status == 1;
-
-                formSwitch.addEventListener('change', function() {
-                    const categoryId = formSwitch.dataset.id;
-                    const newStatus = formSwitch.checked ? 1 : 0;
-
-                    fetch('/update-category-status/' + categoryId, {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                            },
-                            body: JSON.stringify({
-                                status: newStatus
-                            })
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data.success) {
-                                formSwitch.dataset.status = newStatus;
-
-                            } else {
-                                alert('Gagal mengupdate status');
-                            }
-                        })
-                        .catch(() => {
-                            alert('Terjadi kesalahan');
-                        });
-                });
-            });
-        });
-
+    <script>
         function hapus(id) {
             const confirmationBox = `
             <div id="confirmationModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">
@@ -121,7 +82,7 @@
             document.body.insertAdjacentHTML('beforeend', confirmationBox);
 
             document.getElementById('confirmDelete').onclick = function() {
-                fetch(`/categories_destroy/${id}`, {
+                fetch(`/event/${id}/destroy`, {
                     method: 'POST',
                     headers: {
                         'X-CSRF-TOKEN': '{{ csrf_token() }}',
@@ -134,7 +95,7 @@
                     document.getElementById('confirmationModal').remove();
                     if (response.ok) {
                         console.log('event berhasil dihapus. Mengalihkan ke halaman pengaturan event.');
-                        window.location.href = '{{ route('categories') }}';
+                        window.location.href = '{{ route('kelola_event') }}';
                     } else {
                         response.text().then(text => {
                             console.error('Gagal menghapus event:', text);
@@ -151,6 +112,6 @@
             };
         }
     </script>
- --}}
+
 
 @endsection
