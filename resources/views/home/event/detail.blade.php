@@ -53,7 +53,7 @@
                                         <a href="courses.html" class="tag">Development</a>
                                         <span class="avg-rating"><i class="fas fa-star"></i>(4.8 Reviews)</span>
                                     </div>
-                                    <h2 class="title">{{ $event->name }}</h2>
+                                    <h2 class="title">How To Become idiculously Self-Aware In 20 Minutes</h2>
                                     <div class="event__meta">
                                         <ul class="list-wrap">
                                             <li class="author">
