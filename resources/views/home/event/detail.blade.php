@@ -43,7 +43,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="event__details-thumb">
-                        <img src="{{ asset('public/assets/img/events/event_details_img.jpg') }}" alt="img">
+                        <img src="{{ asset('public/uploads/events/' . $event->gambar) }}" alt="img">
                     </div>
                     <div class="event__details-content-wrap">
                         <div class="row">
