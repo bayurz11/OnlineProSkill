@@ -197,10 +197,9 @@
                                         <div class="event__map">
                                             <h4 class="title">Map</h4>
                                             <div class="map">
-                                                <iframe
-                                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48409.69813174607!2d-74.05163325136718!3d40.68264649999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25bae694479a3%3A0xb9949385da52e69e!2sBarclays%20Center!5e0!3m2!1sen!2sbd!4v1684309529719!5m2!1sen!2sbd"
-                                                    style="border:0;" allowfullscreen="" loading="lazy"
-                                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                                <iframe id="map-frame" style="border:0;" allowfullscreen=""
+                                                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                                                    width="600" height="450"></iframe>
                                             </div>
                                         </div>
                                     </div>
@@ -212,5 +211,25 @@
             </div>
         </div>
     </section>
+    <script>
+        // Link Google Maps yang diambil dari database
+        const googleMapsLink = "{{ $event->link_maps }}";
+
+        // Ekstraksi koordinat dari link
+        const match = googleMapsLink.match(/@([0-9.]+),([0-9.]+),/);
+        if (match) {
+            const lat = match[1];
+            const lng = match[2];
+
+            // Membuat URL embed
+            const embedUrl =
+                `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48409.69813174607!2d${lng - 0.1}!3d${lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d9729a2556642d:0xaa63e717cb0e87b9!2sProSkill%20Akademia!5e0!3m2!1sid!2sid!4v1234567890123!5m2!1sid!2sid`;
+
+            // Menyisipkan URL embed ke dalam iframe
+            document.getElementById('map-frame').src = embedUrl;
+        } else {
+            console.error("Invalid Google Maps URL format");
+        }
+    </script>
     <!-- event-details-area-end -->
 @endsection
