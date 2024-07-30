@@ -65,8 +65,8 @@
                                                 By
                                                 <a href="instructor-details.html">{{ $event->user->name }}</a>
                                             </li>
-                                            <li class="location"><i class="flaticon-placeholder"></i>LocationWashington DC,
-                                                MI 2726</li>
+                                            <li class="location"><i class="flaticon-placeholder"></i>{{ $event->lokasi }}
+                                            </li>
                                             <li><i class="flaticon-mortarboard"></i>2,250 Students</li>
                                         </ul>
                                     </div>
