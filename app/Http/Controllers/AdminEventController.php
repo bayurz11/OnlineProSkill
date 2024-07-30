@@ -58,38 +58,47 @@ class AdminEventController extends Controller
 
         return response()->json($event);
     }
-    // public function update(Request $request, $id)
-    // {
-    //     // Validasi input
-    //     $request->validate([
-    //         'name' => 'required|string|max:255',
-    //         'sertifikat_id' => 'required|string|max:255',
-    //         'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-    //         'keterangan' => 'required|string|max:255',
-    //     ]);
 
-    //     // Temukan sertifikat berdasarkan ID
-    //     $sertifikat = AdminEvent::findOrFail($id);
+    public function update(Request $request, $id)
+    {
+        // Validasi input
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'tgl' => 'required|date',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'lokasi' => 'required|string|max:255',
+            'link_maps' => 'required|string|max:255',
+        ]);
 
-    //     // Update field yang dapat diubah
-    //     $sertifikat->name = $request->name;
-    //     $sertifikat->sertifikat_id = $request->sertifikat_id;
-    //     $sertifikat->keterangan = $request->keterangan;
+        // Temukan event berdasarkan ID
+        $event = AdminEvent::findOrFail($id);
 
-    //     // Cek apakah ada file gambar yang diunggah
-    //     if ($request->hasFile('gambar')) {
-    //         $file = $request->file('gambar');
-    //         $filename = time() . '.' . $file->getClientOriginalExtension();
-    //         $file->move(public_path('uploads'), $filename);
-    //         $sertifikat->gambar = $filename;
-    //     }
+        // Update field yang dapat diubah
+        $event->name = $request->name;
+        $event->tgl = $request->tgl;
+        $event->lokasi = $request->lokasi;
+        $event->link_maps = $request->link_maps;
 
-    //     // Simpan perubahan ke database
-    //     $sertifikat->save();
+        // Cek apakah ada file gambar yang diunggah
+        if ($request->hasFile('gambar')) {
+            // Hapus gambar lama jika ada
+            if ($event->gambar && file_exists(public_path('uploads/' . $event->gambar))) {
+                unlink(public_path('uploads/' . $event->gambar));
+            }
 
-    //     // Redirect dengan pesan sukses
-    //     return redirect()->route('sertifikat')->with('success', 'Data sertifikat berhasil diperbarui.');
-    // }
+            $file = $request->file('gambar');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads'), $filename);
+            $event->gambar = $filename;
+        }
+
+        // Simpan perubahan ke database
+        $event->save();
+
+        // Redirect dengan pesan sukses
+        return redirect()->route('kelola_event')->with('success', 'Data event berhasil diperbarui.');
+    }
+
 
     public function destroy($id)
     {
