@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AdminEvent;
 use App\Models\Categories;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
@@ -18,7 +19,7 @@ class EventController extends Controller
         $user = Auth::user();
         $profile = null;
         $cart = Session::get('cart', []);
-
+        $event = AdminEvent::all();
         if ($user) {
             $profile = UserProfile::where('user_id', $user->id)->first();
         }
@@ -32,6 +33,6 @@ class EventController extends Controller
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
-        return view('home.event.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'categori'));
+        return view('home.event.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'categori', 'event'));
     }
 }
