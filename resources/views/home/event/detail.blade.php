@@ -53,10 +53,10 @@
                         <div class="row">
                             <div class="col-70">
                                 <div class="event__details-content">
-                                    <div class="event__details-content-top">
+                                    {{-- <div class="event__details-content-top">
                                         <a href="courses.html" class="tag">Development</a>
                                         <span class="avg-rating"><i class="fas fa-star"></i>(4.8 Reviews)</span>
-                                    </div>
+                                    </div> --}}
                                     <h2 class="title">{{ $event->name }}</h2>
                                     <div class="event__meta">
                                         <ul class="list-wrap">
@@ -86,7 +86,8 @@
                                     <div class="event__details-inner">
                                         <div class="row">
                                             <div class="col-39">
-                                                <img src="assets/img/events/event_details_img02.jpg" alt="img">
+                                                <img src="{{ asset('public/assets/img/events/event_details_img02.jpg') }}"
+                                                    alt="img">
                                             </div>
                                             <div class="col-61">
                                                 <div class="event__details-inner-content">
