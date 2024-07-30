@@ -4,7 +4,9 @@
 @extends('layout.mainlayout')
 
 @section('content')
-
+    @php
+        use Carbon\Carbon;
+    @endphp
 
     <!-- breadcrumb-area -->
     <section class="breadcrumb__area breadcrumb__bg" data-background="{{ asset('public/assets/img/bg/breadcrumb_bg.jpg') }}">
@@ -134,37 +136,37 @@
                                                 <h5 class="title">Event Information:</h5>
                                                 <ul class="list-wrap">
                                                     <li>
-                                                        <img src="public/assets/img/icons/calendar.svg" alt="img"
-                                                            class="injectable">
-                                                        Date
-                                                        <span>26/08/2024</span>
+                                                        <img src="{{ asset('public/assets/img/icons/calendar.svg') }}"
+                                                            alt="img" class="injectable">
+                                                        Tanggal
+                                                        <span>{{ Carbon::parse($event->tgl)->format('d - F - Y') }}</span>
                                                     </li>
                                                     <li>
-                                                        <img src="public/assets/img/icons/course_icon02.svg" alt="img"
-                                                            class="injectable">
+                                                        <img src="{{ asset('public/assets/img/icons/course_icon02.svg') }}"
+                                                            alt="img" class="injectable">
                                                         Start Time
                                                         <span>10.00am</span>
                                                     </li>
                                                     <li>
-                                                        <img src="public/assets/img/icons/course_icon03.svg" alt="img"
-                                                            class="injectable">
+                                                        <img src="{{ asset('public/assets/img/icons/course_icon03.svg') }}"
+                                                            alt="img" class="injectable">
                                                         Topics
                                                         <span>12</span>
                                                     </li>
                                                     <li>
-                                                        <img src="public/assets/img/icons/course_icon04.svg"
+                                                        <img src="{{ asset('public/assets/img/icons/course_icon04.svg') }}"
                                                             alt="img" class="injectable">
                                                         Quizzes
                                                         <span>145</span>
                                                     </li>
                                                     <li>
-                                                        <img src="public/assets/img/icons/course_icon05.svg"
+                                                        <img src="{{ asset('public/assets/img/icons/course_icon05.svg') }}"
                                                             alt="img" class="injectable">
                                                         Certifications
                                                         <span>Yes</span>
                                                     </li>
                                                     <li>
-                                                        <img src="public/assets/img/icons/course_icon06.svg"
+                                                        <img src="{{ asset('public/assets/img/icons/course_icon06.svg') }}"
                                                             alt="img" class="injectable">
                                                         Total Seat
                                                         <span>300</span>
