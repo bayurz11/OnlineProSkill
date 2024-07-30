@@ -26,6 +26,16 @@
                                 class="text-danger">*</span></label>
                         <input type="date" class="form-control" id="tgl" name="tgl">
                     </div>
+
+                    <div class="mb-3">
+                        <label for="lokasi" class="form-label">Lokasi<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="lokasi" name="lokasi">
+                    </div>
+                    <div class="mb-3">
+                        <label for="link_maps" class="form-label">link Lokasi<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="link_maps" name="link_maps">
+                    </div>
+
                 </div>
 
                 <div class="modal-footer">
