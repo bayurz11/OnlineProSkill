@@ -6,7 +6,8 @@
 @section('content')
 
     <!-- banner-area -->
-    <section class="banner-area-two banner-bg-two tg-motion-effects" data-background="assets/img/banner/banner_bg02.png">
+    <section class="banner-area-two banner-bg-two tg-motion-effects"
+        data-background="{{ asset('public/assets/img/banner/banner_bg02.png') }}">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-5 col-lg-6">
@@ -26,7 +27,8 @@
                         </h3>
                         <div class="banner__btn-two" data-aos="fade-right" data-aos-delay="600">
                             <a href="contact.html" class="btn arrow-btn">Start Free Trial <img
-                                    src="assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
+                                    src="{{ asset('assets/img/icons/right_arrow.svg') }}" alt="img"
+                                    class="injectable"></a>
                             <a href="https://www.youtube.com/watch?v=b2Az7_lLh3g" class="play-btn popup-video"><i
                                     class="fas fa-play"></i> Watch Our <br> Class Demo</a>
                         </div>
@@ -34,20 +36,22 @@
                 </div>
                 <div class="col-xl-7 col-lg-6 col-md-8">
                     <div class="banner__images-two tg-svg">
-                        <img src="assets/img/banner/h2_banner_img.png" alt="img" class="main-img">
+                        <img src="{{ asset('public/assets/img/banner/h2_banner_img.png') }}" alt="img"
+                            class="main-img">
                         <div class="shape big-shape" data-aos="fade-up" data-aos-delay="600">
-                            <img src="assets/img/banner/h2_banner_shape01.svg" alt="shape"
+                            <img src="{{ asset('public/assets/img/banner/h2_banner_shape01.svg') }}" alt="shape"
                                 class="injectable tg-motion-effects1">
                         </div>
                         <span class="svg-icon" id="banner-svg"
-                            data-svg-icon="assets/img/banner/h2_banner_shape02.svg"></span>
+                            data-svg-icon="{{ asset('public/assets/img/banner/h2_banner_shape02.svg') }}"></span>
                         <div class="about__enrolled" data-aos="fade-right" data-aos-delay="200">
                             <p class="title"><span>36K+</span> Enrolled Students</p>
-                            <img src="assets/img/others/student_grp.png" alt="img">
+                            <img src="{{ asset('public/assets/img/others/student_grp.png') }}" alt="img">
                         </div>
                         <div class="banner__student" data-aos="fade-left" data-aos-delay="200">
                             <div class="icon">
-                                <img src="assets/img/banner/h2_banner_icon.svg" alt="img" class="injectable">
+                                <img src="{{ asset('public/assets/img/banner/h2_banner_icon.svg') }}" alt="img"
+                                    class="injectable">
                             </div>
                             <div class="content">
                                 <span>Total Students</span>
@@ -58,8 +62,8 @@
                 </div>
             </div>
         </div>
-        <img src="assets/img/banner/h2_banner_shape03.svg" alt="shape" class="line-shape-two" data-aos="fade-right"
-            data-aos-delay="1600">
+        <img src="{{ asset('public/assets/img/banner/h2_banner_shape03.svg') }}" alt="shape" class="line-shape-two"
+            data-aos="fade-right" data-aos-delay="1600">
     </section>
     <!-- banner-area-end -->
 
