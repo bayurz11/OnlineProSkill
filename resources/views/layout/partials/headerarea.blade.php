@@ -34,7 +34,7 @@
                                     <li class="{{ Request::is('artikel') ? 'active' : '' }}">
                                         <a href="">Artikel</a>
                                     </li>
-                                    <li class="menu-item-has-children {{ Request::is('#') ? 'active' : '' }}">
+                                    {{-- <li class="menu-item-has-children {{ Request::is('#') ? 'active' : '' }}">
                                         <a href="#">Profil</a>
                                         <ul class="sub-menu">
                                             <li class="{{ Request::is('about-us') ? 'active' : '' }}">
@@ -50,7 +50,7 @@
                                                 <a href="404.html">Hubungi kami</a>
                                             </li>
                                         </ul>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </div>
 
