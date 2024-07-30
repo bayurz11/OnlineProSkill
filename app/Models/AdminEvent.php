@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class AdminEvent extends Model
 {
     use HasFactory;
+    protected $table = 'event';
+
+    protected $guarded = [];
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
