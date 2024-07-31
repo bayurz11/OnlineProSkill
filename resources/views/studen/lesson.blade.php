@@ -75,16 +75,17 @@
                             <iframe id="lessonContent" width="100%" height="500" src="" frameborder="0"
                                 allowfullscreen></iframe>
                         </div>
-                        <div class="lesson__next-prev-button">
+                        <div class="lesson__next-prev-button d-flex justify-content-between">
                             <button class="prev-button" title="Previous Content" onclick="prevContent()"><i
-                                    class="flaticon-arrow-right"></i></button>
+                                    class="flaticon-arrow-left"></i></button>
                             <button class="next-button" title="Next Content" onclick="nextContent()"><i
                                     class="flaticon-arrow-right"></i></button>
                         </div>
+                        <div class="d-flex justify-content-end mt-3">
+                            <button class="btn btn-primary">Selesai</button>
+                        </div>
                     </div>
-                    <div><button>selesai</button></div>
                 </div>
-
             </div>
         </div>
     </section>
