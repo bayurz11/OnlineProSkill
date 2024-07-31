@@ -52,6 +52,7 @@ class SectionController extends Controller
         $section->kurikulum_id = $validatedData['kurikulum_id'];
         $section->title = $validatedData['title'];
         $section->link = $validatedData['link'];
+        $section->status = 0;
         $section->no_urut = $noUrut;
 
         if ($request->hasFile('file')) {
@@ -147,7 +148,7 @@ class SectionController extends Controller
         }
 
         // Update status section
-        $section->status = 'selesai'; // Atau status yang sesuai dengan kebutuhan Anda
+        $section->status = '1'; // Atau status yang sesuai dengan kebutuhan Anda
         $section->save();
 
         return redirect()->back()->with('success', 'Status section berhasil diperbarui');
