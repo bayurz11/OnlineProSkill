@@ -83,7 +83,14 @@
                                     class="flaticon-arrow-right"></i></button>
                         </div>
                         <div class="d-flex justify-content-end mt-3">
-                            <button id="completeButton" class="btn btn-primary">menyelesaikan</button>
+                            <form id="statusForm"
+                                action="{{ route('sectionstatus', $kurikulum[0]->sections->first()->id) }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <input type="hidden" id="sectionId" name="sectionId"
+                                    value="{{ $kurikulum[0]->sections->first()->id }}">
+                                <button type="submit" class="btn btn-primary">menyelesaikan</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -132,6 +139,7 @@
                     return;
                 }
             } else if (fileType === 'pdf' || fileUrl.includes('uploads/')) {
+                // Check if the fileUrl doesn't start with 'public/uploads/' and add it
                 if (fileUrl.startsWith('https://')) {
                     fileSrc = '/public/' + fileUrl.split('/').slice(3).join('/');
                 } else if (!fileUrl.startsWith('/public/uploads/')) {
@@ -182,22 +190,5 @@
                 changeContent(prevLink);
             }
         }
-
-        // Handle complete button click
-        document.getElementById('completeButton').addEventListener('click', function() {
-            var currentActiveLink = document.querySelector('.course-item-link.active');
-            if (currentActiveLink) {
-                var sectionId = currentActiveLink.getAttribute('data-id');
-                var form = document.createElement('form');
-                form.method = 'POST';
-                form.action = '{{ route('sectionstatus', ['sectionId' => '']) }}' + sectionId;
-                form.innerHTML = '@csrf @method('PUT')';
-                document.body.appendChild(form);
-                form.submit();
-
-                // Move to the next content after form submission
-                setTimeout(nextContent, 500); // Delay to ensure form is submitted
-            }
-        });
     </script>
 @endsection
