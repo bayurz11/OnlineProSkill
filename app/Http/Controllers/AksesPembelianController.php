@@ -125,4 +125,37 @@ class AksesPembelianController extends Controller
             'file_path' => asset($section->file_path),
         ]);
     }
+
+    public function updatestatus(Request $request, $id)
+    {
+        $categori = Categories::all();
+        $cart = Session::get('cart', []);
+        $user = Auth::user();
+        if (!$user) {
+            return redirect()->route('home');
+        }
+
+        $profile = UserProfile::where('user_id', $user->id)->first();
+
+        $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
+            ->orderBy('created_at', 'desc')
+            ->get()
+            : collect();
+
+        $notifikasiCount = $notifikasi->where('status', 1)->count();
+
+        // Fetching orders related to the user
+        $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
+
+        $section = Section::find($id);
+        if (!$section) {
+            return redirect()->back()->with('error', 'Section tidak ditemukan');
+        }
+
+        // Update status section
+        $section->status = '1'; // Atau status yang sesuai dengan kebutuhan Anda
+        $section->save();
+
+        return redirect()->back()->with('success', 'Status section berhasil diperbarui');
+    }
 }

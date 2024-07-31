@@ -100,7 +100,6 @@ Route::middleware('isAdmin')->group(function () {
     Route::post('/section/store', [SectionController::class, 'store'])->name('section.store');
     Route::get('/section/{id}/edit', [SectionController::class, 'edit'])->name('section.edit');
     Route::put('/sectionupdate/{id}', [SectionController::class, 'update'])->name('section.update');
-    Route::put('/sectionupdatestatus/{id}', [SectionController::class, 'updatestatus'])->name('sectionstatus');
     Route::delete('/section_destroy/{id}', [SectionController::class, 'destroy'])->name('class.destroy');
 
 
@@ -150,6 +149,7 @@ Route::middleware('isStuden')->group(function () {
 
     //lesson
     Route::get('/lesson/{id}', [AksesPembelianController::class, 'lesson'])->name('lesson');
+    Route::put('/sectionupdatestatus/{id}', [AksesPembelianController::class, 'updatestatus'])->name('sectionstatus');
 
     //sertifikat
 
