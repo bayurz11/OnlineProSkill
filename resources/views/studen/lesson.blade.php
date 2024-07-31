@@ -6,7 +6,7 @@
         <div class="container-fluid p-0">
             <div class="row gx-0">
                 <div class="col-xl-8 col-lg-8">
-                    <div class="lesson__video-wrap" style="padding: 20px; position: relative;">
+                    <div class="lesson__video-wrap" style="padding: 20px">
                         <div class="lesson__video-wrap-top">
                             <div class="lesson__video-wrap-top-left">
                                 <a href="{{ route('akses_pembelian') }}"><i class="flaticon-arrow-right"></i></a>
@@ -26,10 +26,8 @@
                             <button class="next-button" title="Next Content" onclick="nextContent()"><i
                                     class="flaticon-arrow-right"></i></button>
                         </div>
-                        <div class="lesson__complete-button">
-                            <button>selesai</button>
-                        </div>
                     </div>
+                    <div><button>selesai</button></div>
                 </div>
                 <div class="col-xl-4 col-lg-4">
                     <div class="lesson__content" style="padding: 20px">
@@ -180,24 +178,3 @@
         }
     </script>
 @endsection
-
-<style>
-    .lesson__complete-button {
-        position: absolute;
-        bottom: 20px;
-        right: 20px;
-    }
-
-    .lesson__complete-button button {
-        background-color: #28a745;
-        color: #fff;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    .lesson__complete-button button:hover {
-        background-color: #218838;
-    }
-</style>
