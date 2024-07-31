@@ -28,23 +28,34 @@
                                             <ul class="list-wrap">
                                                 @foreach ($item->sections as $section)
                                                     <li class="course-item {{ $loop->first ? 'open-item' : '' }}">
-                                                        @if ($section->link || $section->file_path)
-                                                            <a href="#"
-                                                                class="course-item-link {{ $loop->first ? 'active' : '' }}"
-                                                                data-title="{{ $section->title }}"
-                                                                data-link="{{ $section->link ? asset($section->link) : asset($section->file_path) }}"
-                                                                data-type="{{ $section->type }}"
-                                                                data-id="{{ $section->id }}"
-                                                                onclick="changeContent(this)">
-                                                                <span class="item-name">{{ $section->title }}</span>
-                                                                <div class="course-item-meta">
-                                                                    <span
-                                                                        class="item-meta duration">{{ $section->duration }}</span>
-                                                                </div>
-                                                            </a>
+                                                        @if ($section->status == 1)
+                                                            @if ($section->link || $section->file_path)
+                                                                <a href="#"
+                                                                    class="course-item-link {{ $loop->first ? 'active' : '' }}"
+                                                                    data-title="{{ $section->title }}"
+                                                                    data-link="{{ $section->link ? asset($section->link) : asset($section->file_path) }}"
+                                                                    data-type="{{ $section->type }}"
+                                                                    data-id="{{ $section->id }}"
+                                                                    onclick="changeContent(this)">
+                                                                    <span class="item-name">{{ $section->title }}</span>
+                                                                    <div class="course-item-meta">
+                                                                        <span
+                                                                            class="item-meta duration">{{ $section->duration }}</span>
+                                                                    </div>
+                                                                </a>
+                                                            @else
+                                                                <span class="course-item-link inactive">
+                                                                    <span class="item-name">{{ $section->title }}</span>
+                                                                    <div class="course-item-meta">
+                                                                        <span
+                                                                            class="item-meta duration">{{ $section->duration }}</span>
+                                                                    </div>
+                                                                </span>
+                                                            @endif
                                                         @else
-                                                            <span class="course-item-link inactive">
-                                                                <span class="item-name">{{ $section->title }}</span>
+                                                            <span class="course-item-link locked">
+                                                                <span class="item-name">{{ $section->title }} <i
+                                                                        class="fas fa-lock"></i></span>
                                                                 <div class="course-item-meta">
                                                                     <span
                                                                         class="item-meta duration">{{ $section->duration }}</span>
@@ -177,7 +188,11 @@
         function nextContent() {
             var activeLink = document.querySelector('.course-item-link.active');
             var nextLink = activeLink.parentElement.nextElementSibling?.querySelector('.course-item-link');
-            if (nextLink) {
+
+            // If nextLink is locked, show an alert and do not change content
+            if (nextLink && nextLink.classList.contains('locked')) {
+                alert('Bagian selanjutnya belum tersedia.');
+            } else if (nextLink) {
                 changeContent(nextLink);
             }
         }
@@ -186,7 +201,11 @@
         function prevContent() {
             var activeLink = document.querySelector('.course-item-link.active');
             var prevLink = activeLink.parentElement.previousElementSibling?.querySelector('.course-item-link');
-            if (prevLink) {
+
+            // If prevLink is locked, show an alert and do not change content
+            if (prevLink && prevLink.classList.contains('locked')) {
+                alert('Bagian sebelumnya belum tersedia.');
+            } else if (prevLink) {
                 changeContent(prevLink);
             }
         }
