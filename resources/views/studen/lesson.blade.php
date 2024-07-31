@@ -34,6 +34,7 @@
                                                                 data-title="{{ $section->title }}"
                                                                 data-link="{{ $section->link ? asset($section->link) : asset($section->file_path) }}"
                                                                 data-type="{{ $section->type }}"
+                                                                data-id="{{ $section->id }}"
                                                                 onclick="changeContent(this)">
                                                                 <span class="item-name">{{ $section->title }}</span>
                                                                 <div class="course-item-meta">
@@ -83,9 +84,11 @@
                         </div>
                         <div class="d-flex justify-content-end mt-3">
                             <form action="{{ route('sectionstatus', $kurikulum[0]->sections->first()->id) }}"
-                                method="POST">
+                                method="POST" id="statusForm">
                                 @csrf
                                 @method('PUT')
+                                <input type="hidden" name="section_id" id="section_id"
+                                    value="{{ $kurikulum[0]->sections->first()->id }}">
                                 <button type="submit" class="btn btn-primary">menyelesaikan</button>
                             </form>
                         </div>
