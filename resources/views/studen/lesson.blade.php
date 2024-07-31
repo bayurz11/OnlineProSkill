@@ -100,7 +100,7 @@
                                 @method('PUT')
                                 <input type="hidden" id="sectionId" name="sectionId"
                                     value="{{ $kurikulum[0]->sections->first()->id }}">
-                                <button type="submit" class="btn btn-primary">menyelesaikan</button>
+                                <button type="submit" class="btn btn-primary">Selesaikan</button>
                             </form>
                         </div>
                     </div>
@@ -150,11 +150,9 @@
                     return;
                 }
             } else if (fileType === 'pdf' || fileUrl.includes('uploads/')) {
-                // Check if the fileUrl doesn't start with 'public/uploads/' and add it
-                if (fileUrl.startsWith('https://')) {
-                    fileSrc = '/public/' + fileUrl.split('/').slice(3).join('/');
-                } else if (!fileUrl.startsWith('/public/uploads/')) {
-                    fileSrc = '/public/' + fileUrl;
+                // Check if the fileUrl doesn't start with '/public/uploads/' and add it
+                if (!fileUrl.startsWith('/public/uploads/')) {
+                    fileSrc = '/public/uploads/' + fileUrl;
                 } else {
                     fileSrc = fileUrl;
                 }
