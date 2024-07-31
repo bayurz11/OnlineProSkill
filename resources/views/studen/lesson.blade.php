@@ -82,7 +82,7 @@
                                     class="flaticon-arrow-right"></i></button>
                         </div>
                         <div class="d-flex justify-content-end mt-3">
-                            <form action="{{ route('sectionstatus', $kurikulum[0]->sections->first()->title) }}"
+                            <form action="{{ route('sectionstatus', $kurikulum[0]->sections->first()->id) }}"
                                 method="POST">
                                 @csrf
                                 @method('PUT')
