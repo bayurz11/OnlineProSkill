@@ -27,23 +27,42 @@
                                         <div class="accordion-body">
                                             <ul class="list-wrap">
                                                 @foreach ($item->sections as $section)
-                                                    <li class="course-item {{ $loop->first ? 'open-item' : '' }}">
-                                                        @if ($section->link || $section->file_path)
-                                                            <a href="#"
-                                                                class="course-item-link {{ $loop->first ? 'active' : '' }}"
-                                                                data-title="{{ $section->title }}"
-                                                                data-link="{{ $section->link ? asset($section->link) : asset($section->file_path) }}"
-                                                                data-type="{{ $section->type }}"
-                                                                data-id="{{ $section->id }}"
-                                                                onclick="changeContent(this)">
-                                                                <span class="item-name">{{ $section->title }}</span>
-                                                                <div class="course-item-meta">
-                                                                    <span
-                                                                        class="item-meta duration">{{ $section->duration }}</span>
-                                                                </div>
-                                                            </a>
+                                                    @php
+                                                        $isLocked = $section->status === 0;
+                                                        $isFirst = $loop->first;
+                                                        $prevSection =
+                                                            $loop->parent->iteration > 1
+                                                                ? $item->sections[$loop->index - 1]
+                                                                : null;
+                                                        $canUnlock = !$prevSection || $prevSection->status === 1;
+                                                    @endphp
+                                                    <li class="course-item {{ $isFirst ? 'open-item' : '' }}">
+                                                        @if (!$isLocked || ($isFirst || $canUnlock))
+                                                            @if ($section->link || $section->file_path)
+                                                                <a href="#"
+                                                                    class="course-item-link {{ $loop->first ? 'active' : '' }}"
+                                                                    data-title="{{ $section->title }}"
+                                                                    data-link="{{ $section->link ? asset($section->link) : asset($section->file_path) }}"
+                                                                    data-type="{{ $section->type }}"
+                                                                    data-id="{{ $section->id }}"
+                                                                    onclick="changeContent(this)">
+                                                                    <span class="item-name">{{ $section->title }}</span>
+                                                                    <div class="course-item-meta">
+                                                                        <span
+                                                                            class="item-meta duration">{{ $section->duration }}</span>
+                                                                    </div>
+                                                                </a>
+                                                            @else
+                                                                <span class="course-item-link inactive">
+                                                                    <span class="item-name">{{ $section->title }}</span>
+                                                                    <div class="course-item-meta">
+                                                                        <span
+                                                                            class="item-meta duration">{{ $section->duration }}</span>
+                                                                    </div>
+                                                                </span>
+                                                            @endif
                                                         @else
-                                                            <span class="course-item-link inactive">
+                                                            <span class="course-item-link locked">
                                                                 <span class="item-name">{{ $section->title }}</span>
                                                                 <div class="course-item-meta">
                                                                     <span
@@ -113,7 +132,7 @@
 
             var youtubeRegex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
             var driveRegex =
-                /(?:drive\.google\.com\/file\/d\/|drive\.google\.com\/open\?id=|docs.google\.com\/(?:presentation|document|spreadsheets)\/d\/)([^"&?\/\s]+)/;
+                /(?:drive\.google\.com\/file\/d\/|drive\.google\.com\/open\?id=|docs\.google\.com\/(?:presentation|document|spreadsheets)\/d\/)([^"&?\/\s]+)/;
             var youtubeMatch = fileUrl.match(youtubeRegex);
             var driveMatch = fileUrl.match(driveRegex);
             var fileSrc = '';
