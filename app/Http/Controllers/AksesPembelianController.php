@@ -128,25 +128,33 @@ class AksesPembelianController extends Controller
 
     public function updatestatus(Request $request, $id)
     {
+        // Dapatkan semua kategori (jika diperlukan)
         $categori = Categories::all();
+
+        // Dapatkan data cart dari session
         $cart = Session::get('cart', []);
+
+        // Dapatkan pengguna yang sedang login
         $user = Auth::user();
         if (!$user) {
             return redirect()->route('home');
         }
 
+        // Dapatkan profil pengguna
         $profile = UserProfile::where('user_id', $user->id)->first();
 
-        $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
+        // Dapatkan notifikasi pengguna yang sedang login
+        $notifikasi = NotifikasiUser::where('user_id', $user->id)
             ->orderBy('created_at', 'desc')
-            ->get()
-            : collect();
+            ->get();
 
+        // Hitung notifikasi yang belum dibaca
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
-        // Fetching orders related to the user
+        // Dapatkan pesanan yang terkait dengan pengguna
         $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
 
+        // Temukan section berdasarkan ID
         $section = Section::find($id);
         if (!$section) {
             return redirect()->back()->with('error', 'Section tidak ditemukan');
