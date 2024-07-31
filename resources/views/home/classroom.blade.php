@@ -42,7 +42,105 @@
     <section class="all-courses-area section-py-120">
         <div class="container">
             <div class="row">
+                <div class="col-xl-3 col-lg-4 order-2 order-lg-0">
+                    <aside class="courses__sidebar">
+                        <div class="courses-widget">
+                            <h4 class="widget-title">Kategori</h4>
+                            <div class="courses-cat-list">
+                                <ul class="list-wrap">
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="all_categories" onclick="toggleAllCategories(this)"
+                                                {{ empty($category_ids) ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="all_categories">Semua Kategori</label>
+                                        </div>
+                                    </li>
+                                    @foreach ($categori as $index => $category)
+                                        @if ($category->status == 1)
+                                            <li class="category-item {{ $index >= 4 ? 'hidden' : '' }}">
+                                                <div class="form-check">
+                                                    <input class="form-check-input category-checkbox" type="checkbox"
+                                                        value="{{ $category->id }}" data-category-id="{{ $category->id }}"
+                                                        id="cat_{{ $category->id }}"
+                                                        {{ in_array($category->id, $category_ids) ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="cat_{{ $category->id }}">
+                                                        {{ $category->name_category }}
+                                                        ({{ $categoryCounts[$category->id] ?? 0 }})
+                                                    </label>
+                                                </div>
+                                            </li>
+                                        @endif
+                                    @endforeach
+                                </ul>
+                                <div class="show-more">
+                                    <a href="#" onclick="showMoreCategories(event)">Tampilkan Lebih Banyak +</a>
+                                </div>
+                            </div>
+                        </div>
 
+
+                        <div class="courses-widget">
+                            <h4 class="widget-title">Harga</h4>
+                            <div class="courses-cat-list">
+                                <ul class="list-wrap">
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="price_filter[]"
+                                                value="all" id="price_1">
+                                            <label class="form-check-label" for="price_1">All Price</label>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="price_filter[]"
+                                                value="free" id="price_2">
+                                            <label class="form-check-label" for="price_2">Free</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="price_filter[]"
+                                                value="paid" id="price_3">
+                                            <label class="form-check-label" for="price_3">Paid</label>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="courses-widget">
+                            <h4 class="widget-title">Level</h4>
+                            <div class="courses-cat-list">
+                                <ul class="list-wrap">
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input tingkat-checkbox" type="checkbox" value=""
+                                                id="difficulty_all" onclick="resetAllLevels(this)">
+                                            <label class="form-check-label" for="difficulty_all">All Levels</label>
+                                        </div>
+                                    </li>
+                                    @foreach ($tingkatLevels as $tingkat)
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input tingkat-checkbox" type="checkbox"
+                                                    value="{{ $tingkat }}" id="level_{{ $loop->index }}"
+                                                    {{ in_array($tingkat, (array) request()->input('tingkat', [])) ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="level_{{ $loop->index }}">
+                                                    {{ $tingkat }} ({{ $tingkatCounts[$tingkat] ?? 0 }})
+                                                </label>
+                                            </div>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+
+
+                    </aside>
+                </div>
                 <div class="col-xl-12 col-lg-8">
                     <div class="courses-top-wrap courses-top-wrap">
                         <div class="row align-items-center">
@@ -57,8 +155,8 @@
                                     <ul class="nav nav-tabs courses__nav-tabs" id="myTab" role="tablist">
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link active" id="grid-tab" data-bs-toggle="tab"
-                                                data-bs-target="#grid" type="button" role="tab" aria-controls="grid"
-                                                aria-selected="true">
+                                                data-bs-target="#grid" type="button" role="tab"
+                                                aria-controls="grid" aria-selected="true">
                                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path
@@ -82,8 +180,8 @@
                                         </li>
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link" id="list-tab" data-bs-toggle="tab"
-                                                data-bs-target="#list" type="button" role="tab" aria-controls="list"
-                                                aria-selected="false">
+                                                data-bs-target="#list" type="button" role="tab"
+                                                aria-controls="list" aria-selected="false">
                                                 <svg width="19" height="15" viewBox="0 0 19 15" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path
@@ -100,7 +198,8 @@
                     <div class="tab-content" id="myTabContent">
 
 
-                        <div class="tab-pane fade show active" id="grid" role="tabpanel" aria-labelledby="grid-tab">
+                        <div class="tab-pane fade show active" id="grid" role="tabpanel"
+                            aria-labelledby="grid-tab">
                             <div
                                 class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
                                 @foreach ($course as $cours)
@@ -234,6 +333,126 @@
                 }
                 parent.removeChild(p);
             });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.category-checkbox');
+            const allCategoriesCheckbox = document.getElementById('all_categories');
+            const sortBySelect = document.querySelector('select[name="orderby"]');
+            const tingkatCheckboxes = document.querySelectorAll('.tingkat-checkbox');
+            const difficultyAllCheckbox = document.getElementById('difficulty_all');
+
+            function updateUrl(selectedCategories, orderby, selectedTingkat) {
+                const url = new URL(window.location.href);
+                url.searchParams.set('categories', selectedCategories.join(','));
+                url.searchParams.set('orderby', orderby);
+                url.searchParams.set('tingkat', selectedTingkat.join(','));
+                window.location.href = url.toString();
+            }
+
+            function toggleAllCategories(source) {
+                if (source.checked) {
+                    checkboxes.forEach(checkbox => checkbox.checked = false);
+                    updateUrl([], sortBySelect.value, Array.from(tingkatCheckboxes)
+                        .filter(checkbox => checkbox.checked)
+                        .map(checkbox => checkbox.value));
+                }
+            }
+
+            function toggleAllLevels(source) {
+                if (source.checked) {
+                    tingkatCheckboxes.forEach(checkbox => checkbox.checked = false);
+                    updateUrl(Array.from(checkboxes)
+                        .filter(checkbox => checkbox.checked)
+                        .map(checkbox => checkbox.value),
+                        sortBySelect.value,
+                        []);
+                }
+            }
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        allCategoriesCheckbox.checked = false;
+                    }
+
+                    const selectedCategories = Array.from(checkboxes)
+                        .filter(checkbox => checkbox.checked)
+                        .map(checkbox => checkbox.value);
+
+                    updateUrl(selectedCategories, sortBySelect.value, Array.from(tingkatCheckboxes)
+                        .filter(checkbox => checkbox.checked)
+                        .map(checkbox => checkbox.value));
+                });
+            });
+
+            allCategoriesCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    checkboxes.forEach(checkbox => checkbox.checked = false);
+                    updateUrl([], sortBySelect.value, Array.from(tingkatCheckboxes)
+                        .filter(checkbox => checkbox.checked)
+                        .map(checkbox => checkbox.value));
+                }
+            });
+
+            sortBySelect.addEventListener('change', function() {
+                const selectedCategories = Array.from(checkboxes)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value);
+                updateUrl(selectedCategories, this.value, Array.from(tingkatCheckboxes)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value));
+            });
+
+            tingkatCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        difficultyAllCheckbox.checked = false;
+                    }
+
+                    const selectedTingkat = Array.from(tingkatCheckboxes)
+                        .filter(checkbox => checkbox.checked)
+                        .map(checkbox => checkbox.value);
+
+                    updateUrl(Array.from(checkboxes)
+                        .filter(checkbox => checkbox.checked)
+                        .map(checkbox => checkbox.value),
+                        sortBySelect.value,
+                        selectedTingkat);
+                });
+            });
+
+            difficultyAllCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    tingkatCheckboxes.forEach(checkbox => checkbox.checked = false);
+                    updateUrl(Array.from(checkboxes)
+                        .filter(checkbox => checkbox.checked)
+                        .map(checkbox => checkbox.value),
+                        sortBySelect.value,
+                        []);
+                }
+            });
+
+            // Initial display of categories
+            var categoryItems = document.querySelectorAll('.list-wrap .category-item');
+            const showMoreCategoriesStatus = localStorage.getItem('showMoreCategories') === 'true';
+
+            for (var i = 4; i < categoryItems.length; i++) {
+                categoryItems[i].style.display = showMoreCategoriesStatus ? 'block' : 'none';
+            }
+
+            // Show more categories function
+            window.showMoreCategories = function(event) {
+                event.preventDefault();
+                var categoryItems = document.querySelectorAll('.list-wrap .category-item');
+                for (var i = 4; i < categoryItems.length; i++) {
+                    categoryItems[i].style.display = 'block';
+                }
+                event.target.style.display = 'none';
+                localStorage.setItem('showMoreCategories', 'true');
+            }
         });
     </script>
 @endsection
