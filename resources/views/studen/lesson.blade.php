@@ -28,34 +28,23 @@
                                             <ul class="list-wrap">
                                                 @foreach ($item->sections as $section)
                                                     <li class="course-item {{ $loop->first ? 'open-item' : '' }}">
-                                                        @if ($section->status == 1)
-                                                            @if ($section->link || $section->file_path)
-                                                                <a href="#"
-                                                                    class="course-item-link {{ $loop->first ? 'active' : '' }}"
-                                                                    data-title="{{ $section->title }}"
-                                                                    data-link="{{ $section->link ? asset($section->link) : asset($section->file_path) }}"
-                                                                    data-type="{{ $section->type }}"
-                                                                    data-id="{{ $section->id }}"
-                                                                    onclick="changeContent(this)">
-                                                                    <span class="item-name">{{ $section->title }}</span>
-                                                                    <div class="course-item-meta">
-                                                                        <span
-                                                                            class="item-meta duration">{{ $section->duration }}</span>
-                                                                    </div>
-                                                                </a>
-                                                            @else
-                                                                <span class="course-item-link inactive">
-                                                                    <span class="item-name">{{ $section->title }}</span>
-                                                                    <div class="course-item-meta">
-                                                                        <span
-                                                                            class="item-meta duration">{{ $section->duration }}</span>
-                                                                    </div>
-                                                                </span>
-                                                            @endif
+                                                        @if ($section->link || $section->file_path)
+                                                            <a href="#"
+                                                                class="course-item-link {{ $loop->first ? 'active' : '' }}"
+                                                                data-title="{{ $section->title }}"
+                                                                data-link="{{ $section->link ? asset($section->link) : asset($section->file_path) }}"
+                                                                data-type="{{ $section->type }}"
+                                                                data-id="{{ $section->id }}"
+                                                                onclick="changeContent(this)">
+                                                                <span class="item-name">{{ $section->title }}</span>
+                                                                <div class="course-item-meta">
+                                                                    <span
+                                                                        class="item-meta duration">{{ $section->duration }}</span>
+                                                                </div>
+                                                            </a>
                                                         @else
-                                                            <span class="course-item-link locked">
-                                                                <span class="item-name">{{ $section->title }} <i
-                                                                        class="fas fa-lock"></i></span>
+                                                            <span class="course-item-link inactive">
+                                                                <span class="item-name">{{ $section->title }}</span>
                                                                 <div class="course-item-meta">
                                                                     <span
                                                                         class="item-meta duration">{{ $section->duration }}</span>
@@ -100,7 +89,7 @@
                                 @method('PUT')
                                 <input type="hidden" id="sectionId" name="sectionId"
                                     value="{{ $kurikulum[0]->sections->first()->id }}">
-                                <button type="submit" class="btn btn-primary">Selesaikan</button>
+                                <button type="submit" class="btn btn-primary">menyelesaikan</button>
                             </form>
                         </div>
                     </div>
@@ -150,9 +139,11 @@
                     return;
                 }
             } else if (fileType === 'pdf' || fileUrl.includes('uploads/')) {
-                // Check if the fileUrl doesn't start with '/public/uploads/' and add it
-                if (!fileUrl.startsWith('/public/uploads/')) {
-                    fileSrc = '/public/uploads/' + fileUrl;
+                // Check if the fileUrl doesn't start with 'public/uploads/' and add it
+                if (fileUrl.startsWith('https://')) {
+                    fileSrc = '/public/' + fileUrl.split('/').slice(3).join('/');
+                } else if (!fileUrl.startsWith('/public/uploads/')) {
+                    fileSrc = '/public/' + fileUrl;
                 } else {
                     fileSrc = fileUrl;
                 }
@@ -186,11 +177,7 @@
         function nextContent() {
             var activeLink = document.querySelector('.course-item-link.active');
             var nextLink = activeLink.parentElement.nextElementSibling?.querySelector('.course-item-link');
-
-            // If nextLink is locked, show an alert and do not change content
-            if (nextLink && nextLink.classList.contains('locked')) {
-                alert('Bagian selanjutnya belum tersedia.');
-            } else if (nextLink) {
+            if (nextLink) {
                 changeContent(nextLink);
             }
         }
@@ -199,11 +186,7 @@
         function prevContent() {
             var activeLink = document.querySelector('.course-item-link.active');
             var prevLink = activeLink.parentElement.previousElementSibling?.querySelector('.course-item-link');
-
-            // If prevLink is locked, show an alert and do not change content
-            if (prevLink && prevLink.classList.contains('locked')) {
-                alert('Bagian sebelumnya belum tersedia.');
-            } else if (prevLink) {
+            if (prevLink) {
                 changeContent(prevLink);
             }
         }
