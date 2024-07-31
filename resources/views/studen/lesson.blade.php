@@ -36,7 +36,12 @@
                                                                 data-type="{{ $section->type }}"
                                                                 data-id="{{ $section->id }}"
                                                                 onclick="changeContent(this, event)">
-                                                                <span class="item-name">{{ $section->title }}</span>
+                                                                <span class="item-name">
+                                                                    {{ $section->title }}
+                                                                    @if ($section->status === 1)
+                                                                        <span class="badge badge-success">Selesai</span>
+                                                                    @endif
+                                                                </span>
                                                                 <div class="course-item-meta">
                                                                     <span
                                                                         class="item-meta duration">{{ $section->duration }}</span>
@@ -44,7 +49,12 @@
                                                             </a>
                                                         @else
                                                             <span class="course-item-link inactive">
-                                                                <span class="item-name">{{ $section->title }}</span>
+                                                                <span class="item-name">
+                                                                    {{ $section->title }}
+                                                                    @if ($section->status === 1)
+                                                                        <span class="badge badge-success">Selesai</span>
+                                                                    @endif
+                                                                </span>
                                                                 <div class="course-item-meta">
                                                                     <span
                                                                         class="item-meta duration">{{ $section->duration }}</span>
@@ -53,6 +63,7 @@
                                                         @endif
                                                     </li>
                                                 @endforeach
+
                                             </ul>
                                         </div>
                                     </div>
