@@ -6,7 +6,7 @@
         <div class="container-fluid p-0">
             <div class="row gx-0">
                 <div class="col-xl-4 col-lg-4">
-                    <div class="lesson__content" style="padding: 20px">
+                    <div class="lesson__content">
                         <h2 class="title">Konten Kursus</h2>
                         <div class="accordion" id="accordionExample">
                             @foreach ($kurikulum as $index => $item)
@@ -37,9 +37,7 @@
                                                                 data-id="{{ $section->id }}"
                                                                 onclick="changeContent(this, event)">
                                                                 <span class="item-name">{{ $section->title }}</span>
-                                                                @if ($section->status === 1)
-                                                                    selesai
-                                                                @endif
+                                                                selesai
                                                                 <div class="course-item-meta">
                                                                     <span
                                                                         class="item-meta duration">{{ $section->duration }}</span>
@@ -56,7 +54,6 @@
                                                         @endif
                                                     </li>
                                                 @endforeach
-
                                             </ul>
                                         </div>
                                     </div>
@@ -66,7 +63,7 @@
                     </div>
                 </div>
                 <div class="col-xl-8 col-lg-8">
-                    <div class="lesson__video-wrap" style="padding: 20px">
+                    <div class="lesson__video-wrap">
                         <div class="lesson__video-wrap-top">
                             <div class="lesson__video-wrap-top-left">
                                 <a href="{{ route('akses_pembelian') }}"><i class="flaticon-arrow-right"></i></a>
