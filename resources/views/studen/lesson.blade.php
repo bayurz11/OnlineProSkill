@@ -83,11 +83,11 @@
                                     class="flaticon-arrow-right"></i></button>
                         </div>
                         <div class="d-flex justify-content-end mt-3">
-                            <form action="{{ route('sectionstatus', $kurikulum[0]->sections->first()->id) }}"
-                                method="POST" id="statusForm">
+                            <form id="statusForm"
+                                action="{{ route('sectionstatus', $kurikulum[0]->sections->first()->id) }}" method="POST">
                                 @csrf
                                 @method('PUT')
-                                <input type="hidden" name="section_id" id="section_id"
+                                <input type="hidden" id="sectionId" name="sectionId"
                                     value="{{ $kurikulum[0]->sections->first()->id }}">
                                 <button type="submit" class="btn btn-primary">menyelesaikan</button>
                             </form>
@@ -104,8 +104,12 @@
         function changeContent(element) {
             var fileUrl = element.getAttribute('data-link');
             var fileType = element.getAttribute('data-type');
+            var sectionId = element.getAttribute('data-id');
             console.log('fileUrl:', fileUrl);
             console.log('fileType:', fileType);
+            console.log('sectionId:', sectionId);
+
+            document.getElementById('sectionId').value = sectionId; // Update the hidden input with the clicked section ID
 
             var youtubeRegex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
             var driveRegex =
