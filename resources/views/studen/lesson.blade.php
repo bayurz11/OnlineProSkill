@@ -86,7 +86,7 @@
                                 method="POST">
                                 @csrf
                                 @method('PUT')
-                                <button type="submit" class="btn btn-primary">Update Status</button>
+                                <button type="submit" class="btn btn-primary">menyelesaikan</button>
                             </form>
                         </div>
                     </div>
