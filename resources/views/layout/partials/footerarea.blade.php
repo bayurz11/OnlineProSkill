@@ -28,7 +28,7 @@
                                  <li><a href="events-details.html">Hubungi Kami</a></li>
                                  <li><a href="events-details.html">Brosur</a></li>
                                  <li><a href="events-details.html">Contoh Sertifikat</a></li>
-                                 <li><a href="events-details.html">Blog</a></li>
+                                 <li><a href="events-details.html">Artikel</a></li>
                              </ul>
                          </div>
                      </div>
