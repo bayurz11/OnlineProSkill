@@ -30,12 +30,12 @@
                                                     <li class="course-item {{ $loop->first ? 'open-item' : '' }}">
                                                         @if ($section->link || $section->file_path)
                                                             <a href="#"
-                                                                class="course-item-link {{ $loop->first ? 'active' : '' }}"
+                                                                class="course-item-link {{ $loop->first ? 'active' : '' }} {{ $section->status === 0 && $loop->first ? 'unlocked' : ($section->status === 0 ? 'locked' : '') }}"
                                                                 data-title="{{ $section->title }}"
                                                                 data-link="{{ $section->link ? asset($section->link) : asset($section->file_path) }}"
                                                                 data-type="{{ $section->type }}"
                                                                 data-id="{{ $section->id }}"
-                                                                onclick="changeContent(this)">
+                                                                onclick="changeContent(this, event)">
                                                                 <span class="item-name">{{ $section->title }}</span>
                                                                 <div class="course-item-meta">
                                                                     <span
@@ -100,8 +100,13 @@
     <!-- lesson-area-end -->
 
     <script>
-        // Function to change the iframe source
-        function changeContent(element) {
+        function changeContent(element, event) {
+            if (element.classList.contains('disabled')) {
+                event.preventDefault();
+                alert('Bagian ini terkunci, selesaikan bagian sebelumnya untuk membuka bagian ini.');
+                return;
+            }
+
             var fileUrl = element.getAttribute('data-link');
             var fileType = element.getAttribute('data-type');
             var sectionId = element.getAttribute('data-id');
@@ -109,7 +114,8 @@
             console.log('fileType:', fileType);
             console.log('sectionId:', sectionId);
 
-            document.getElementById('sectionId').value = sectionId; // Update the hidden input with the clicked section ID
+            // Update the hidden input with the clicked section ID
+            document.getElementById('sectionId').value = sectionId;
 
             var youtubeRegex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
             var driveRegex =
@@ -139,7 +145,6 @@
                     return;
                 }
             } else if (fileType === 'pdf' || fileUrl.includes('uploads/')) {
-                // Check if the fileUrl doesn't start with 'public/uploads/' and add it
                 if (fileUrl.startsWith('https://')) {
                     fileSrc = '/public/' + fileUrl.split('/').slice(3).join('/');
                 } else if (!fileUrl.startsWith('/public/uploads/')) {
@@ -165,29 +170,26 @@
             element.classList.add('active');
         }
 
-        // Initialize the first file on page load
         document.addEventListener('DOMContentLoaded', function() {
             var firstFileLink = document.querySelector('.course-item-link.active');
             if (firstFileLink) {
-                changeContent(firstFileLink);
+                changeContent(firstFileLink, new Event('click'));
             }
         });
 
-        // Function to get the next file
         function nextContent() {
             var activeLink = document.querySelector('.course-item-link.active');
             var nextLink = activeLink.parentElement.nextElementSibling?.querySelector('.course-item-link');
             if (nextLink) {
-                changeContent(nextLink);
+                changeContent(nextLink, new Event('click'));
             }
         }
 
-        // Function to get the previous file
         function prevContent() {
             var activeLink = document.querySelector('.course-item-link.active');
             var prevLink = activeLink.parentElement.previousElementSibling?.querySelector('.course-item-link');
             if (prevLink) {
-                changeContent(prevLink);
+                changeContent(prevLink, new Event('click'));
             }
         }
     </script>
