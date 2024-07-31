@@ -58,6 +58,7 @@ class HomeController extends Controller
             ->get();
         $count = $course->count();
 
+
         // Ambil notifikasi untuk pengguna yang sedang login
         $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
             ->orderBy('created_at', 'desc')
