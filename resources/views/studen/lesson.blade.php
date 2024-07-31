@@ -28,6 +28,7 @@
                         </div>
                     </div>
                 </div>
+                <div><button>selesai</button></div>
                 <div class="col-xl-4 col-lg-4">
                     <div class="lesson__content" style="padding: 20px">
                         <h2 class="title">Konten Kursus</h2>
