@@ -138,6 +138,20 @@ class SectionController extends Controller
         return redirect()->back()->with('success', 'Section berhasil diperbarui');
     }
 
+    public function updatestatus(Request $request, $id)
+    {
+        $section = Section::find($id);
+
+        if (!$section) {
+            return redirect()->back()->with('error', 'Section tidak ditemukan');
+        }
+
+        // Update status section
+        $section->status = 'selesai'; // Atau status yang sesuai dengan kebutuhan Anda
+        $section->save();
+
+        return redirect()->back()->with('success', 'Status section berhasil diperbarui');
+    }
     public function destroy($id)
     {
         $section = Section::find($id);

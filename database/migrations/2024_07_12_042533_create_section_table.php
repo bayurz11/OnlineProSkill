@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('title');
             $table->string('no_urut');
             $table->string('link');
+            $table->string('file_path');
+            $table->string('status');
             $table->foreign('kurikulum_id')->references('id')->on('kurikulum')->onDelete('cascade');
             $table->timestamps();
         });

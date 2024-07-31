@@ -82,7 +82,12 @@
                                     class="flaticon-arrow-right"></i></button>
                         </div>
                         <div class="d-flex justify-content-end mt-3">
-                            <button class="btn btn-primary">Selesai</button>
+                            <form action="{{ route('sectionstatus.update', $kurikulum[0]->sections->first()->id) }}"
+                                method="POST">
+                                @csrf
+                                @method('PUT')
+                                <button type="submit" class="btn btn-primary">Update Status</button>
+                            </form>
                         </div>
                     </div>
                 </div>
