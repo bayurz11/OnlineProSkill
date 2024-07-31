@@ -126,7 +126,7 @@ class AksesPembelianController extends Controller
         ]);
     }
 
-    public function updatestatus(Request $request, $id)
+    public function updatestatus(Request $request)
     {
         // Dapatkan semua kategori (jika diperlukan)
         $categori = Categories::all();
@@ -154,8 +154,11 @@ class AksesPembelianController extends Controller
         // Dapatkan pesanan yang terkait dengan pengguna
         $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
 
-        // Temukan section berdasarkan ID
-        $section = Section::find($id);
+        // Dapatkan sectionId dari request
+        $sectionId = $request->input('sectionId');
+
+        // Temukan section berdasarkan sectionId
+        $section = Section::find($sectionId);
         if (!$section) {
             return redirect()->back()->with('error', 'Section tidak ditemukan');
         }
