@@ -42,6 +42,105 @@
     <section class="all-courses-area section-py-120">
         <div class="container">
             <div class="row">
+                <div class="col-xl-3 col-lg-4 order-2 order-lg-0">
+                    <aside class="courses__sidebar">
+                        <div class="courses-widget">
+                            <h4 class="widget-title">Kategori</h4>
+                            <div class="courses-cat-list">
+                                <ul class="list-wrap">
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="all_categories" onclick="toggleAllCategories(this)"
+                                                {{ empty($category_ids) ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="all_categories">Semua Kategori</label>
+                                        </div>
+                                    </li>
+                                    @foreach ($categori as $index => $category)
+                                        @if ($category->status == 1)
+                                            <li class="category-item {{ $index >= 4 ? 'hidden' : '' }}">
+                                                <div class="form-check">
+                                                    <input class="form-check-input category-checkbox" type="checkbox"
+                                                        value="{{ $category->id }}" data-category-id="{{ $category->id }}"
+                                                        id="cat_{{ $category->id }}"
+                                                        {{ in_array($category->id, $category_ids) ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="cat_{{ $category->id }}">
+                                                        {{ $category->name_category }}
+                                                        ({{ $categoryCounts[$category->id] ?? 0 }})
+                                                    </label>
+                                                </div>
+                                            </li>
+                                        @endif
+                                    @endforeach
+                                </ul>
+                                <div class="show-more">
+                                    <a href="#" onclick="showMoreCategories(event)">Tampilkan Lebih Banyak +</a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="courses-widget">
+                            <h4 class="widget-title">Harga</h4>
+                            <div class="courses-cat-list">
+                                <ul class="list-wrap">
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="price_filter[]"
+                                                value="all" id="price_1">
+                                            <label class="form-check-label" for="price_1">All Price</label>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="price_filter[]"
+                                                value="free" id="price_2">
+                                            <label class="form-check-label" for="price_2">Free</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="price_filter[]"
+                                                value="paid" id="price_3">
+                                            <label class="form-check-label" for="price_3">Paid</label>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="courses-widget">
+                            <h4 class="widget-title">Level</h4>
+                            <div class="courses-cat-list">
+                                <ul class="list-wrap">
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input tingkat-checkbox" type="checkbox" value=""
+                                                id="difficulty_all" onclick="resetAllLevels(this)">
+                                            <label class="form-check-label" for="difficulty_all">All Levels</label>
+                                        </div>
+                                    </li>
+                                    @foreach ($tingkatLevels as $tingkat)
+                                        <li>
+                                            <div class="form-check">
+                                                <input class="form-check-input tingkat-checkbox" type="checkbox"
+                                                    value="{{ $tingkat }}" id="level_{{ $loop->index }}"
+                                                    {{ in_array($tingkat, (array) request()->input('tingkat', [])) ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="level_{{ $loop->index }}">
+                                                    {{ $tingkat }} ({{ $tingkatCounts[$tingkat] ?? 0 }})
+                                                </label>
+                                            </div>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+
+
+                    </aside>
+                </div>
                 <div class="col-xl-12 col-lg-8">
                     <div class="courses-top-wrap courses-top-wrap">
                         <div class="row align-items-center">
@@ -56,8 +155,8 @@
                                     <ul class="nav nav-tabs courses__nav-tabs" id="myTab" role="tablist">
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link active" id="grid-tab" data-bs-toggle="tab"
-                                                data-bs-target="#grid" type="button" role="tab" aria-controls="grid"
-                                                aria-selected="true">
+                                                data-bs-target="#grid" type="button" role="tab"
+                                                aria-controls="grid" aria-selected="true">
                                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path
@@ -81,8 +180,8 @@
                                         </li>
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link" id="list-tab" data-bs-toggle="tab"
-                                                data-bs-target="#list" type="button" role="tab" aria-controls="list"
-                                                aria-selected="false">
+                                                data-bs-target="#list" type="button" role="tab"
+                                                aria-controls="list" aria-selected="false">
                                                 <svg width="19" height="15" viewBox="0 0 19 15" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
                                                     <path
@@ -99,7 +198,8 @@
                     <div class="tab-content" id="myTabContent">
 
 
-                        <div class="tab-pane fade show active" id="grid" role="tabpanel" aria-labelledby="grid-tab">
+                        <div class="tab-pane fade show active" id="grid" role="tabpanel"
+                            aria-labelledby="grid-tab">
                             <div
                                 class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
                                 @foreach ($course as $cours)
