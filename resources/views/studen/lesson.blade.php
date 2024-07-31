@@ -12,48 +12,36 @@
                             @foreach ($kurikulum as $index => $item)
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="heading{{ $index }}">
-                                        <button
-                                            class="accordion-button {{ $index !== 0 && $kurikulum[$index - 1]->status == 0 ? 'collapsed' : '' }}"
+                                        <button class="accordion-button {{ $index !== 0 ? 'collapsed' : '' }}"
                                             type="button" data-bs-toggle="collapse"
                                             data-bs-target="#collapse{{ $index }}"
-                                            aria-expanded="{{ $index === 0 || ($kurikulum[$index - 1]->status == 1 && $index > 0) ? 'true' : 'false' }}"
+                                            aria-expanded="{{ $index === 0 ? 'true' : 'false' }}"
                                             aria-controls="collapse{{ $index }}">
                                             {{ $item->title }}
                                             <span>{{ $item->sections->count() }}/{{ $item->sections->count() }}</span>
                                         </button>
                                     </h2>
                                     <div id="collapse{{ $index }}"
-                                        class="accordion-collapse collapse {{ $index === 0 || ($kurikulum[$index - 1]->status == 1 && $index > 0) ? 'show' : '' }}"
+                                        class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}"
                                         data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
                                             <ul class="list-wrap">
                                                 @foreach ($item->sections as $section)
                                                     <li class="course-item {{ $loop->first ? 'open-item' : '' }}">
-                                                        @if ($section->status == 1)
-                                                            <!-- Pengecekan status -->
-                                                            @if ($section->link || $section->file_path)
-                                                                <a href="#"
-                                                                    class="course-item-link {{ $loop->first ? 'active' : '' }}"
-                                                                    data-title="{{ $section->title }}"
-                                                                    data-link="{{ $section->link ? asset($section->link) : asset($section->file_path) }}"
-                                                                    data-type="{{ $section->type }}"
-                                                                    data-id="{{ $section->id }}"
-                                                                    onclick="changeContent(this)">
-                                                                    <span class="item-name">{{ $section->title }}</span>
-                                                                    <div class="course-item-meta">
-                                                                        <span
-                                                                            class="item-meta duration">{{ $section->duration }}</span>
-                                                                    </div>
-                                                                </a>
-                                                            @else
-                                                                <span class="course-item-link inactive">
-                                                                    <span class="item-name">{{ $section->title }}</span>
-                                                                    <div class="course-item-meta">
-                                                                        <span
-                                                                            class="item-meta duration">{{ $section->duration }}</span>
-                                                                    </div>
-                                                                </span>
-                                                            @endif
+                                                        @if ($section->link || $section->file_path)
+                                                            <a href="#"
+                                                                class="course-item-link {{ $loop->first ? 'active' : '' }}"
+                                                                data-title="{{ $section->title }}"
+                                                                data-link="{{ $section->link ? asset($section->link) : asset($section->file_path) }}"
+                                                                data-type="{{ $section->type }}"
+                                                                data-id="{{ $section->id }}"
+                                                                onclick="changeContent(this)">
+                                                                <span class="item-name">{{ $section->title }}</span>
+                                                                <div class="course-item-meta">
+                                                                    <span
+                                                                        class="item-meta duration">{{ $section->duration }}</span>
+                                                                </div>
+                                                            </a>
                                                         @else
                                                             <span class="course-item-link inactive">
                                                                 <span class="item-name">{{ $section->title }}</span>
@@ -189,7 +177,7 @@
         function nextContent() {
             var activeLink = document.querySelector('.course-item-link.active');
             var nextLink = activeLink.parentElement.nextElementSibling?.querySelector('.course-item-link');
-            if (nextLink && !nextLink.classList.contains('inactive')) {
+            if (nextLink) {
                 changeContent(nextLink);
             }
         }
@@ -198,7 +186,7 @@
         function prevContent() {
             var activeLink = document.querySelector('.course-item-link.active');
             var prevLink = activeLink.parentElement.previousElementSibling?.querySelector('.course-item-link');
-            if (prevLink && !prevLink.classList.contains('inactive')) {
+            if (prevLink) {
                 changeContent(prevLink);
             }
         }
