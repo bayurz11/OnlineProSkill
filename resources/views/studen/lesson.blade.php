@@ -28,7 +28,7 @@
                                             <ul class="list-wrap">
                                                 @foreach ($item->sections as $section)
                                                     <li class="course-item {{ $loop->first ? 'open-item' : '' }}">
-                                                        @if ($section->status == 0)
+                                                        @if ($section->status == 1)
                                                             @if ($section->link || $section->file_path)
                                                                 <a href="#"
                                                                     class="course-item-link {{ $loop->first ? 'active' : '' }}"
