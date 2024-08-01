@@ -258,19 +258,11 @@ class AksesPembelianController extends Controller
             return redirect()->route('home')->with('error', 'Anda harus login untuk mencetak sertifikat.');
         }
 
-        // Fetching orders related to the user
-        $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
-
-        // Assuming $id is passed in the request or determined in some way
-        $courseId = $request->get('course_id');
-        $kurikulum = Kurikulum::with('sections')->where('course_id', $courseId)->get();
-
         // Gunakan instance dari $this->pdf untuk memanggil loadView
         $pdf = $this->pdf->loadView('home.sertifikat.index', [
             'user' => $user,
             'date' => now()->format('d F Y'),
-            'orders' => $orders,
-            'kurikulum' => $kurikulum,
+            // Tambahkan data lain yang diperlukan
         ])->setPaper('a4', 'landscape');
 
         // Mengirim PDF untuk diunduh
@@ -286,19 +278,11 @@ class AksesPembelianController extends Controller
             return redirect()->route('home')->with('error', 'Anda harus login untuk melihat pratinjau sertifikat.');
         }
 
-        // Fetching orders related to the user
-        $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
-
-        // Assuming $id is passed in the request or determined in some way
-        $courseId = $request->get('course_id');
-        $kurikulum = Kurikulum::with('sections')->where('course_id', $courseId)->get();
-
         // Gunakan instance dari $this->pdf untuk memanggil loadView
         $pdf = $this->pdf->loadView('home.sertifikat.index', [
             'user' => $user,
             'date' => now()->format('d F Y'),
-            'orders' => $orders,
-            'kurikulum' => $kurikulum,
+            // Tambahkan data lain yang diperlukan
         ])->setPaper('a4', 'landscape');
 
         // Mengirim PDF untuk ditampilkan sebagai pratinjau
