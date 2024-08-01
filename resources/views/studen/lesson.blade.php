@@ -91,15 +91,28 @@
                             <button class="next-button" title="Next Content" onclick="nextContent()"><i
                                     class="flaticon-arrow-right"></i></button>
                         </div>
-                        <div class="d-flex justify-content-end mt-3" id="statusButtonContainer">
+                        <div class="d-flex justify-content-end mt-3">
                             <form id="statusForm"
                                 action="{{ route('sectionstatus', $kurikulum[0]->sections->first()->id) }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <input type="hidden" id="sectionId" name="sectionId"
                                     value="{{ $kurikulum[0]->sections->first()->id }}">
-                                <button type="submit" class="btn btn-primary" id="statusButton">menyelesaikan</button>
+                                <button type="submit" class="btn btn-primary">menyelesaikan</button>
                             </form>
+                            @php
+                                $allSectionsCompleted = $kurikulum->every(function ($item) {
+                                    return $item->sections->every(function ($section) {
+                                        return $section->status === 1;
+                                    });
+                                });
+                            @endphp
+                            @if ($allSectionsCompleted)
+                                <form id="printForm" action="{{ route('print_certificate') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-secondary ms-3">Cetak</button>
+                                </form>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -184,8 +197,6 @@
             if (firstFileLink) {
                 changeContent(firstFileLink, new Event('click'));
             }
-
-            checkAllSectionsCompleted();
         });
 
         function nextContent() {
@@ -201,25 +212,6 @@
             var prevLink = activeLink.parentElement.previousElementSibling?.querySelector('.course-item-link');
             if (prevLink) {
                 changeContent(prevLink, new Event('click'));
-            }
-        }
-
-        function checkAllSectionsCompleted() {
-            var allCompleted = true;
-            document.querySelectorAll('.course-item-link').forEach(function(link) {
-                var status = parseInt(link.getAttribute('data-status'));
-                if (status !== 1) {
-                    allCompleted = false;
-                }
-            });
-
-            var statusButtonContainer = document.getElementById('statusButtonContainer');
-            var statusButton = document.getElementById('statusButton');
-
-            if (allCompleted) {
-                statusButtonContainer.innerHTML = `
-                    <a href="" class="btn btn-success">Cetak Sertifikat</a>
-                `;
             }
         }
     </script>
