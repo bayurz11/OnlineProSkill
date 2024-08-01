@@ -114,7 +114,7 @@
             <h1>SERTIFIKAT</h1>
             <div class="underline"></div>
             <p>ID : 006 / PSA / FCS / 08.2024</p>
-            <img class="photo" src="2.jpg" alt="Foto Peserta">
+            <img class="photo" src="{{ asset('public/1.png') }}" alt="Foto Peserta">
             <img class="qr" src="3.jpg" alt="QR Code">
             <h2>Nama Penerima</h2>
             <p>Atas Kelulusannya Pada Kelas</p>
