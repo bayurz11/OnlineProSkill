@@ -38,7 +38,13 @@
                                                                 onclick="changeContent(this, event)">
                                                                 <span class="item-name">{{ $section->title }}</span>
                                                                 @if ($section->status === 1)
-                                                                    <span>Selesai</span>
+                                                                    <div
+                                                                        class="d-flex align-items-center justify-content-center">
+                                                                        <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center"
+                                                                            style="width: 24px; height: 24px;">
+                                                                            <i class="fas fa-check"></i>
+                                                                        </div>
+                                                                    </div>
                                                                 @endif
                                                                 <div class="course-item-meta">
                                                                     <span
