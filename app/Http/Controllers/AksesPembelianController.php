@@ -251,7 +251,7 @@ class AksesPembelianController extends Controller
 
         // Ambil data yang diperlukan untuk sertifikat
         // Misalnya, Anda bisa membuat PDF sertifikat menggunakan Laravel PDF
-        $pdf = PDF::loadView('certificates.completion', [
+        $pdf = PDF::loadView('home.sertifikat.index', [
             'user' => $user,
             'date' => now()->format('d F Y'),
             // Tambahkan data lain yang diperlukan
