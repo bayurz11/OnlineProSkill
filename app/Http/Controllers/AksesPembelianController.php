@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Section;
+use Barryvdh\DomPDF\PDF;
 use App\Models\Kurikulum;
 use App\Models\Categories;
 use App\Models\UserProfile;
@@ -237,5 +238,26 @@ class AksesPembelianController extends Controller
         // $section->save();
 
         return redirect()->back()->with('success', 'Status bagian berhasil diperbarui');
+    }
+
+    public function printCertificate(Request $request)
+    {
+        $user = Auth::user();
+
+        // Cek jika pengguna login
+        if (!$user) {
+            return redirect()->route('home')->with('error', 'Anda harus login untuk mencetak sertifikat.');
+        }
+
+        // Ambil data yang diperlukan untuk sertifikat
+        // Misalnya, Anda bisa membuat PDF sertifikat menggunakan Laravel PDF
+        $pdf = PDF::loadView('certificates.completion', [
+            'user' => $user,
+            'date' => now()->format('d F Y'),
+            // Tambahkan data lain yang diperlukan
+        ]);
+
+        // Mengirim PDF untuk diunduh
+        return $pdf->download('sertifikat_penyelesaian.pdf');
     }
 }
