@@ -261,14 +261,16 @@ class AksesPembelianController extends Controller
         $profile = UserProfile::where('user_id', $user->id)->first();
         $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
 
-        $completedCourses = $orders->filter(function ($order) {
+        $completedCourses = $orders->filter(function ($order) use ($user) {
             $kurikulum = Kurikulum::with('sections')->where('course_id', $order->KelasTatapMuka->id)->get();
-            $userSectionStatuses = []; // Fetch user section statuses from your database or session
 
-            return $kurikulum->every(function ($kurikulumItem) use ($userSectionStatuses) {
-                return $kurikulumItem->sections->every(function ($section) use ($userSectionStatuses) {
-                    // Anda perlu memastikan bahwa userSectionStatuses diambil dari database dan memiliki nilai status yang benar
-                    return isset($userSectionStatuses[$section->id]) && $userSectionStatuses[$section->id] === 1;
+            return $kurikulum->every(function ($kurikulumItem) use ($user) {
+                return $kurikulumItem->sections->every(function ($section) use ($user) {
+                    $userSectionStatus = UserSectionStatus::where('user_id', $user->id)
+                        ->where('section_id', $section->id)
+                        ->first();
+
+                    return $userSectionStatus && $userSectionStatus->status === 1;
                 });
             });
         });
@@ -294,13 +296,16 @@ class AksesPembelianController extends Controller
         $profile = UserProfile::where('user_id', $user->id)->first();
         $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
 
-        $completedCourses = $orders->filter(function ($order) {
+        $completedCourses = $orders->filter(function ($order) use ($user) {
             $kurikulum = Kurikulum::with('sections')->where('course_id', $order->KelasTatapMuka->id)->get();
-            $userSectionStatuses = []; // Fetch user section statuses from your database or session
 
-            return $kurikulum->every(function ($kurikulumItem) use ($userSectionStatuses) {
-                return $kurikulumItem->sections->every(function ($section) use ($userSectionStatuses) {
-                    return isset($userSectionStatuses[$section->id]) && $userSectionStatuses[$section->id] === 1;
+            return $kurikulum->every(function ($kurikulumItem) use ($user) {
+                return $kurikulumItem->sections->every(function ($section) use ($user) {
+                    $userSectionStatus = UserSectionStatus::where('user_id', $user->id)
+                        ->where('section_id', $section->id)
+                        ->first();
+
+                    return $userSectionStatus && $userSectionStatus->status === 1;
                 });
             });
         });
