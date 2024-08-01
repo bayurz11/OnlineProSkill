@@ -101,7 +101,7 @@
                                 <button type="submit" class="btn btn-primary">menyelesaikan</button>
                             </form>
                             @if ($allSectionsCompleted)
-                                <form id="printForm" action="{{ route('print_certificate') }}" method="POST">
+                                <form id="printForm" action="" method="POST">
                                     @csrf
                                     <button type="submit" class="btn btn-secondary ms-3">Cetak</button>
                                 </form>
