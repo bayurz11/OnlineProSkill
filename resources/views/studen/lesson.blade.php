@@ -101,7 +101,7 @@
                             <div class="d-flex align-items-center">
                                 <form id="statusForm"
                                     action="{{ route('sectionstatus', $kurikulum[0]->sections->first()->id) }}"
-                                    method="POST" style="display: none;">
+                                    method="POST">
                                     @csrf
                                     @method('PUT')
                                     <input type="hidden" id="sectionId" name="sectionId"
@@ -110,11 +110,13 @@
                                     <button type="submit" class="btn btn-primary">Menyelesaikan</button>
                                 </form>
 
-                                <form id="printForm" action="{{ route('print_certificate') }}" method="POST"
-                                    class="ms-3" style="display: none;">
-                                    @csrf
-                                    <button type="submit" class="btn btn-secondary">Sertifikat Penyelesaian</button>
-                                </form>
+                                @if ($allSectionsCompleted)
+                                    <form id="printForm" action="{{ route('print_certificate') }}" method="POST"
+                                        class="ms-3">
+                                        @csrf
+                                        <button type="submit" class="btn btn-secondary">Sertifikat Penyelesaian</button>
+                                    </form>
+                                @endif
                             </div>
                         </div>
 
@@ -197,14 +199,26 @@
         }
 
         document.addEventListener('DOMContentLoaded', function() {
-            const allSectionsCompleted = @json($allSectionsCompleted);
-            if (allSectionsCompleted) {
-                document.getElementById('statusForm').style.display = 'none';
-                document.getElementById('printForm').style.display = 'block';
-            } else {
-                document.getElementById('statusForm').style.display = 'block';
-                document.getElementById('printForm').style.display = 'none';
+            var firstFileLink = document.querySelector('.course-item-link.active');
+            if (firstFileLink) {
+                changeContent(firstFileLink, new Event('click'));
             }
         });
+
+        function nextContent() {
+            var activeLink = document.querySelector('.course-item-link.active');
+            var nextLink = activeLink.parentElement.nextElementSibling?.querySelector('.course-item-link');
+            if (nextLink) {
+                changeContent(nextLink, new Event('click'));
+            }
+        }
+
+        function prevContent() {
+            var activeLink = document.querySelector('.course-item-link.active');
+            var prevLink = activeLink.parentElement.previousElementSibling?.querySelector('.course-item-link');
+            if (prevLink) {
+                changeContent(prevLink, new Event('click'));
+            }
+        }
     </script>
 @endsection
