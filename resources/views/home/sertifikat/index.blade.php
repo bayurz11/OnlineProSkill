@@ -86,7 +86,7 @@
             position: absolute;
             /* bottom: -194px; */
             left: 30px;
-            width: 150px;
+            width: 154px;
             height: 150px;
             object-fit: cover;
             border: 5px solid #fffefd;
