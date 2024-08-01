@@ -139,15 +139,21 @@ class AksesPembelianController extends Controller
         $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
         $kurikulum = Kurikulum::with('sections')->where('course_id', $id)->get();
 
-        // Check if all sections are completed
-        $allSectionsCompleted = $kurikulum->every(function ($kurikulumItem) {
-            return $kurikulumItem->sections->every(function ($section) {
-                return $section->status === 1;
+        // Fetch user section statuses
+        $userSectionStatuses = UserSectionStatus::where('user_id', $user->id)
+            ->pluck('section_id', 'status')
+            ->toArray();
+
+        // Check if all sections are completed by user
+        $allSectionsCompleted = $kurikulum->every(function ($kurikulumItem) use ($userSectionStatuses) {
+            return $kurikulumItem->sections->every(function ($section) use ($userSectionStatuses) {
+                return isset($userSectionStatuses[$section->id]) && $userSectionStatuses[$section->id] === 1;
             });
         });
 
         return view('studen.lesson', compact('user', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum', 'allSectionsCompleted'));
     }
+
 
 
     public function getContent($id)
