@@ -88,7 +88,7 @@
             top: 400px;
             left: 34px;
             width: 158px;
-            height: 150px;
+            height: 158px;
             object-fit: cover;
             border: 5px solid #fffefd;
         }
