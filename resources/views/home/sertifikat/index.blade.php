@@ -76,7 +76,7 @@
             top: 100px;
             right: -25px;
             width: 190px;
-            height: 235px;
+            height: 200px;
             object-fit: cover;
             border-radius: 10%;
             border: 5px solid #fdffff;
