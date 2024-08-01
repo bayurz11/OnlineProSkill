@@ -259,11 +259,13 @@ class AksesPembelianController extends Controller
         }
 
         $profile = UserProfile::where('user_id', $user->id)->first();
+        $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
 
         // Gunakan instance dari $this->pdf untuk memanggil loadView
         $pdf = $this->pdf->loadView('home.sertifikat.index', [
             'user' => $user,
             'profile' => $profile,
+            'orders' => $orders,
             'date' => now()->format('d F Y'),
             // Tambahkan data lain yang diperlukan
         ])->setPaper('a4', 'landscape');
@@ -282,11 +284,13 @@ class AksesPembelianController extends Controller
         }
 
         $profile = UserProfile::where('user_id', $user->id)->first();
+        $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
 
         // Gunakan instance dari $this->pdf untuk memanggil loadView
         $pdf = $this->pdf->loadView('home.sertifikat.index', [
             'user' => $user,
             'profile' => $profile,
+            'orders' => $orders,
             'date' => now()->format('d F Y'),
             // Tambahkan data lain yang diperlukan
         ])->setPaper('a4', 'landscape');

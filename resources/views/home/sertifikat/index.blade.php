@@ -125,7 +125,11 @@
             <img class="qr" src="{{ asset('public/3.jpg') }}" alt="QR Code">
             <h2>{{ $user->name }}</h2>
             <p>Atas Kelulusannya Pada Kelas</p>
-            <h3>Nama Kelas Yang Diambil</h3>
+            <h3>
+                @foreach ($orders as $order)
+                    {{ $order->KelasTatapMuka->nama_kelas }}<br>
+                @endforeach
+            </h3>
         </div>
     </div>
 </body>
