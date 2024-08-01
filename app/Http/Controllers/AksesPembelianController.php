@@ -268,4 +268,24 @@ class AksesPembelianController extends Controller
         // Mengirim PDF untuk diunduh
         return $pdf->download('sertifikat_penyelesaian.pdf');
     }
+
+    public function previewCertificate(Request $request)
+    {
+        $user = Auth::user();
+
+        // Cek jika pengguna login
+        if (!$user) {
+            return redirect()->route('home')->with('error', 'Anda harus login untuk melihat pratinjau sertifikat.');
+        }
+
+        // Gunakan instance dari $this->pdf untuk memanggil loadView
+        $pdf = $this->pdf->loadView('home.sertifikat.index', [
+            'user' => $user,
+            'date' => now()->format('d F Y'),
+            // Tambahkan data lain yang diperlukan
+        ])->setPaper('a4', 'landscape');
+
+        // Mengirim PDF untuk ditampilkan sebagai pratinjau
+        return $pdf->stream('sertifikat_penyelesaian.pdf');
+    }
 }
