@@ -92,22 +92,23 @@
                                     class="flaticon-arrow-right"></i></button>
                         </div>
                         <div class="d-flex justify-content-end mt-3">
-                            <form id="statusForm"
-                                action="{{ route('sectionstatus', $kurikulum[0]->sections->first()->id) }}" method="POST">
-                                @csrf
-                                @method('PUT')
-                                <input type="hidden" id="sectionId" name="sectionId"
-                                    value="{{ $kurikulum[0]->sections->first()->id }}">
-                                <button type="submit" class="btn btn-primary">Menyelesaikan</button>
-                            </form>
-                        </div>
-                        <div class="d-flex justify-content-end mt-3">
-                            @if ($allSectionsCompleted)
-                                <form id="printForm" action="" method="POST">
+                            <div class="d-flex align-items-center">
+                                <form id="statusForm"
+                                    action="{{ route('sectionstatus', $kurikulum[0]->sections->first()->id) }}"
+                                    method="POST">
                                     @csrf
-                                    <button type="submit" class="btn btn-secondary ms-3">Cetak</button>
+                                    @method('PUT')
+                                    <input type="hidden" id="sectionId" name="sectionId"
+                                        value="{{ $kurikulum[0]->sections->first()->id }}">
+                                    <button type="submit" class="btn btn-primary">Menyelesaikan</button>
                                 </form>
-                            @endif
+                                @if ($allSectionsCompleted)
+                                    <form id="printForm" action="" method="POST" class="ms-3">
+                                        @csrf
+                                        <button type="submit" class="btn btn-secondary">Cetak</button>
+                                    </form>
+                                @endif
+                            </div>
                         </div>
 
                     </div>
