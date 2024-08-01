@@ -91,14 +91,14 @@
                             <button class="next-button" title="Next Content" onclick="nextContent()"><i
                                     class="flaticon-arrow-right"></i></button>
                         </div>
-                        <div class="d-flex justify-content-end mt-3">
+                        <div class="d-flex justify-content-end mt-3" id="statusButtonContainer">
                             <form id="statusForm"
                                 action="{{ route('sectionstatus', $kurikulum[0]->sections->first()->id) }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <input type="hidden" id="sectionId" name="sectionId"
                                     value="{{ $kurikulum[0]->sections->first()->id }}">
-                                <button type="submit" class="btn btn-primary">menyelesaikan</button>
+                                <button type="submit" class="btn btn-primary" id="statusButton">menyelesaikan</button>
                             </form>
                         </div>
                     </div>
@@ -184,6 +184,8 @@
             if (firstFileLink) {
                 changeContent(firstFileLink, new Event('click'));
             }
+
+            checkAllSectionsCompleted();
         });
 
         function nextContent() {
@@ -199,6 +201,25 @@
             var prevLink = activeLink.parentElement.previousElementSibling?.querySelector('.course-item-link');
             if (prevLink) {
                 changeContent(prevLink, new Event('click'));
+            }
+        }
+
+        function checkAllSectionsCompleted() {
+            var allCompleted = true;
+            document.querySelectorAll('.course-item-link').forEach(function(link) {
+                var status = parseInt(link.getAttribute('data-status'));
+                if (status !== 1) {
+                    allCompleted = false;
+                }
+            });
+
+            var statusButtonContainer = document.getElementById('statusButtonContainer');
+            var statusButton = document.getElementById('statusButton');
+
+            if (allCompleted) {
+                statusButtonContainer.innerHTML = `
+                    <a href="{{ route('print_certificate') }}" class="btn btn-success">Cetak Sertifikat</a>
+                `;
             }
         }
     </script>
