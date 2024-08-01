@@ -83,13 +83,13 @@
         }
 
         .content img.qr {
-            position: absolute;
+            /* position: absolute;
             bottom: -194px;
             left: 22px;
             width: 150px;
             height: 150px;
-            object-fit: cover;
-            border: 5px solid #fdffff;
+            object-fit: cover; */
+            border: 5px solid #e6a31e;
         }
 
         .signature {
