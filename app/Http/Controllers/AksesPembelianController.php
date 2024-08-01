@@ -261,28 +261,25 @@ class AksesPembelianController extends Controller
         $profile = UserProfile::where('user_id', $user->id)->first();
         $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
 
-        // Filter orders to only include those where all sections are completed
         $completedCourses = $orders->filter(function ($order) {
             $kurikulum = Kurikulum::with('sections')->where('course_id', $order->KelasTatapMuka->id)->get();
             $userSectionStatuses = []; // Fetch user section statuses from your database or session
 
             return $kurikulum->every(function ($kurikulumItem) use ($userSectionStatuses) {
                 return $kurikulumItem->sections->every(function ($section) use ($userSectionStatuses) {
+                    // Anda perlu memastikan bahwa userSectionStatuses diambil dari database dan memiliki nilai status yang benar
                     return isset($userSectionStatuses[$section->id]) && $userSectionStatuses[$section->id] === 1;
                 });
             });
         });
 
-        // Gunakan instance dari $this->pdf untuk memanggil loadView
         $pdf = $this->pdf->loadView('home.sertifikat.index', [
             'user' => $user,
             'profile' => $profile,
             'orders' => $completedCourses,
             'date' => now()->format('d F Y'),
-            // Tambahkan data lain yang diperlukan
         ])->setPaper('a4', 'landscape');
 
-        // Mengirim PDF untuk diunduh
         return $pdf->download('sertifikat_penyelesaian.pdf');
     }
 
@@ -290,7 +287,6 @@ class AksesPembelianController extends Controller
     {
         $user = Auth::user();
 
-        // Cek jika pengguna login
         if (!$user) {
             return redirect()->route('home')->with('error', 'Anda harus login untuk melihat pratinjau sertifikat.');
         }
@@ -298,7 +294,6 @@ class AksesPembelianController extends Controller
         $profile = UserProfile::where('user_id', $user->id)->first();
         $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
 
-        // Filter orders to only include those where all sections are completed
         $completedCourses = $orders->filter(function ($order) {
             $kurikulum = Kurikulum::with('sections')->where('course_id', $order->KelasTatapMuka->id)->get();
             $userSectionStatuses = []; // Fetch user section statuses from your database or session
@@ -310,16 +305,13 @@ class AksesPembelianController extends Controller
             });
         });
 
-        // Gunakan instance dari $this->pdf untuk memanggil loadView
         $pdf = $this->pdf->loadView('home.sertifikat.index', [
             'user' => $user,
             'profile' => $profile,
             'orders' => $completedCourses,
             'date' => now()->format('d F Y'),
-            // Tambahkan data lain yang diperlukan
         ])->setPaper('a4', 'landscape');
 
-        // Mengirim PDF untuk ditampilkan sebagai pratinjau
         return $pdf->stream('sertifikat_penyelesaian.pdf');
     }
 }
