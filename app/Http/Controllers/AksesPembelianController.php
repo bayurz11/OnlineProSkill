@@ -261,11 +261,23 @@ class AksesPembelianController extends Controller
         $profile = UserProfile::where('user_id', $user->id)->first();
         $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
 
+        // Filter orders to only include those where all sections are completed
+        $completedCourses = $orders->filter(function ($order) {
+            $kurikulum = Kurikulum::with('sections')->where('course_id', $order->KelasTatapMuka->id)->get();
+            $userSectionStatuses = []; // Fetch user section statuses from your database or session
+
+            return $kurikulum->every(function ($kurikulumItem) use ($userSectionStatuses) {
+                return $kurikulumItem->sections->every(function ($section) use ($userSectionStatuses) {
+                    return isset($userSectionStatuses[$section->id]) && $userSectionStatuses[$section->id] === 1;
+                });
+            });
+        });
+
         // Gunakan instance dari $this->pdf untuk memanggil loadView
         $pdf = $this->pdf->loadView('home.sertifikat.index', [
             'user' => $user,
             'profile' => $profile,
-            'orders' => $orders,
+            'orders' => $completedCourses,
             'date' => now()->format('d F Y'),
             // Tambahkan data lain yang diperlukan
         ])->setPaper('a4', 'landscape');
@@ -286,11 +298,23 @@ class AksesPembelianController extends Controller
         $profile = UserProfile::where('user_id', $user->id)->first();
         $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
 
+        // Filter orders to only include those where all sections are completed
+        $completedCourses = $orders->filter(function ($order) {
+            $kurikulum = Kurikulum::with('sections')->where('course_id', $order->KelasTatapMuka->id)->get();
+            $userSectionStatuses = []; // Fetch user section statuses from your database or session
+
+            return $kurikulum->every(function ($kurikulumItem) use ($userSectionStatuses) {
+                return $kurikulumItem->sections->every(function ($section) use ($userSectionStatuses) {
+                    return isset($userSectionStatuses[$section->id]) && $userSectionStatuses[$section->id] === 1;
+                });
+            });
+        });
+
         // Gunakan instance dari $this->pdf untuk memanggil loadView
         $pdf = $this->pdf->loadView('home.sertifikat.index', [
             'user' => $user,
             'profile' => $profile,
-            'orders' => $orders,
+            'orders' => $completedCourses,
             'date' => now()->format('d F Y'),
             // Tambahkan data lain yang diperlukan
         ])->setPaper('a4', 'landscape');
