@@ -119,7 +119,7 @@
                 @if (strpos($profile->gambar, 'googleusercontent') !== false)
                     <img class="photo" src="{{ $profile->gambar }}" alt="Foto Peserta">
                 @else
-                    <img class="photo" src="{{ asset('uploads/' . $profile->gambar) }}" alt="Foto Peserta">
+                    <img class="photo" src="{{ asset('public/uploads/' . $profile->gambar) }}" alt="Foto Peserta">
                 @endif
             @endif
             <img class="qr" src="{{ asset('public/3.jpg') }}" alt="QR Code">
