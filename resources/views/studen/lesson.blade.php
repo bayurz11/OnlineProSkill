@@ -101,12 +101,14 @@
                                 <button type="submit" class="btn btn-primary">menyelesaikan</button>
                             </form>
                         </div>
-                        @if ($allSectionsCompleted)
-                            <form id="printForm" action="" method="POST">
-                                @csrf
-                                <button type="submit" class="btn btn-secondary ms-3">Cetak</button>
-                            </form>
-                        @endif
+                        <div class="d-flex justify-content-end mt-3">
+                            @if ($allSectionsCompleted)
+                                <form id="printForm" action="" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-secondary ms-3">Cetak</button>
+                                </form>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
