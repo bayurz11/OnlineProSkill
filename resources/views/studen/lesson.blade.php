@@ -99,18 +99,16 @@
                         </div>
                         <div class="d-flex justify-content-end mt-3">
                             <div class="d-flex align-items-center">
-                                @if (!$allSectionsCompleted)
-                                    <form id="statusForm"
-                                        action="{{ route('sectionstatus', $kurikulum[0]->sections->first()->id) }}"
-                                        method="POST">
-                                        @csrf
-                                        @method('PUT')
-                                        <input type="hidden" id="sectionId" name="sectionId"
-                                            value="{{ $kurikulum[0]->sections->first()->id }}">
-                                        <input type="hidden" name="status" value="true">
-                                        <button type="submit" class="btn btn-primary">Menyelesaikan</button>
-                                    </form>
-                                @endif
+                                <form id="statusForm"
+                                    action="{{ route('sectionstatus', $kurikulum[0]->sections->first()->id) }}"
+                                    method="POST">
+                                    @csrf
+                                    @method('PUT')
+                                    <input type="hidden" id="sectionId" name="sectionId"
+                                        value="{{ $kurikulum[0]->sections->first()->id }}">
+                                    <input type="hidden" name="status" value="true">
+                                    <button type="submit" class="btn btn-primary">Menyelesaikan</button>
+                                </form>
 
                                 @if ($allSectionsCompleted)
                                     <form id="printForm" action="{{ route('print_certificate') }}" method="POST"
