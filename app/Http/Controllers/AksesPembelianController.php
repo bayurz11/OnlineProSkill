@@ -90,6 +90,32 @@ class AksesPembelianController extends Controller
         return view('studen.aksespembelian', compact('user', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum'));
     }
 
+    // public function lesson($id)
+    // {
+    //     $categori = Categories::all();
+    //     $cart = Session::get('cart', []);
+    //     $user = Auth::user();
+    //     if (!$user) {
+    //         return redirect()->route('home');
+    //     }
+
+    //     $profile = UserProfile::where('user_id', $user->id)->first();
+
+    //     $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
+    //         ->orderBy('created_at', 'desc')
+    //         ->get()
+    //         : collect();
+
+    //     $notifikasiCount = $notifikasi->where('status', 1)->count();
+
+    //     // Fetching orders related to the user
+    //     $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
+    //     $kurikulum = Kurikulum::with('user')->where('course_id', $id)->get();
+
+
+    //     return view('studen.lesson', compact('user', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum'));
+    // }010824
+
     public function lesson($id)
     {
         $categori = Categories::all();
@@ -110,11 +136,18 @@ class AksesPembelianController extends Controller
 
         // Fetching orders related to the user
         $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
-        $kurikulum = Kurikulum::with('user')->where('course_id', $id)->get();
+        $kurikulum = Kurikulum::with('sections')->where('course_id', $id)->get();
 
+        // Check if all sections are completed
+        $allSectionsCompleted = $kurikulum->every(function ($kurikulumItem) {
+            return $kurikulumItem->sections->every(function ($section) {
+                return $section->status === 1;
+            });
+        });
 
-        return view('studen.lesson', compact('user', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum'));
+        return view('studen.lesson', compact('user', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum', 'allSectionsCompleted'));
     }
+
 
     public function getContent($id)
     {
