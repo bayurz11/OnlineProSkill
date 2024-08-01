@@ -84,7 +84,6 @@
 
         .content img.qr {
             position: absolute;
-            /* bottom: -194px; */
             top: 398px;
             left: 34px;
             width: 180px;
@@ -127,7 +126,23 @@
             <p>Atas Kelulusannya Pada Kelas</p>
             <h3>
                 @foreach ($orders as $order)
-                    {{ $order->KelasTatapMuka->nama_kursus }}<br>
+                    @php
+                        $kurikulum = \App\Models\Kurikulum::with('sections')
+                            ->where('course_id', $order->KelasTatapMuka->id)
+                            ->get();
+                        $allSectionsCompleted = $kurikulum->every(function ($kurikulumItem) use ($user) {
+                            return $kurikulumItem->sections->every(function ($section) use ($user) {
+                                $userSectionStatus = \App\Models\UserSectionStatus::where('user_id', $user->id)
+                                    ->where('section_id', $section->id)
+                                    ->first();
+                                return $userSectionStatus && $userSectionStatus->status === 1;
+                            });
+                        });
+                    @endphp
+
+                    @if ($allSectionsCompleted)
+                        {{ $order->KelasTatapMuka->nama_kursus }}<br>
+                    @endif
                 @endforeach
             </h3>
         </div>
