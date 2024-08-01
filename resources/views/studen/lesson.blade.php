@@ -37,7 +37,9 @@
                                                                 data-id="{{ $section->id }}"
                                                                 onclick="changeContent(this, event)">
                                                                 <span class="item-name">{{ $section->title }}</span>
-                                                                selesai
+                                                                @if ($section->status === 1)
+                                                                    selesai
+                                                                @endif
                                                                 <div class="course-item-meta">
                                                                     <span
                                                                         class="item-meta duration">{{ $section->duration }}</span>
@@ -102,7 +104,7 @@
 
     <script>
         function changeContent(element, event) {
-            if (element.classList.contains('disabled')) {
+            if (element.classList.contains('locked')) {
                 event.preventDefault();
                 alert('Bagian ini terkunci, selesaikan bagian sebelumnya untuk membuka bagian ini.');
                 return;
