@@ -111,7 +111,8 @@
                                 </form>
 
                                 @if ($allSectionsCompleted)
-                                    <form id="printForm" action="" method="POST" class="ms-3">
+                                    <form id="printForm" action="{{ route('print_certificate') }}" method="POST"
+                                        class="ms-3">
                                         @csrf
                                         <button type="submit" class="btn btn-secondary">Cetak</button>
                                     </form>
