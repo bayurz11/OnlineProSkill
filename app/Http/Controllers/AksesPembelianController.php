@@ -258,9 +258,12 @@ class AksesPembelianController extends Controller
             return redirect()->route('home')->with('error', 'Anda harus login untuk mencetak sertifikat.');
         }
 
+        $profile = UserProfile::where('user_id', $user->id)->first();
+
         // Gunakan instance dari $this->pdf untuk memanggil loadView
         $pdf = $this->pdf->loadView('home.sertifikat.index', [
             'user' => $user,
+            'profile' => $profile,
             'date' => now()->format('d F Y'),
             // Tambahkan data lain yang diperlukan
         ])->setPaper('a4', 'landscape');
@@ -278,9 +281,12 @@ class AksesPembelianController extends Controller
             return redirect()->route('home')->with('error', 'Anda harus login untuk melihat pratinjau sertifikat.');
         }
 
+        $profile = UserProfile::where('user_id', $user->id)->first();
+
         // Gunakan instance dari $this->pdf untuk memanggil loadView
         $pdf = $this->pdf->loadView('home.sertifikat.index', [
             'user' => $user,
+            'profile' => $profile,
             'date' => now()->format('d F Y'),
             // Tambahkan data lain yang diperlukan
         ])->setPaper('a4', 'landscape');

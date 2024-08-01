@@ -115,7 +115,13 @@
             <h1>SERTIFIKAT</h1>
             <div class="underline"></div>
             <p>ID : 006 / PSA / FCS / 08.2024</p>
-            <img class="photo" src="{{ asset('public/1.png') }}" alt="Foto Peserta">
+            @if ($profile && $profile->gambar)
+                @if (strpos($profile->gambar, 'googleusercontent') !== false)
+                    <img class="photo" src="{{ $profile->gambar }}" alt="Foto Peserta">
+                @else
+                    <img class="photo" src="{{ asset('uploads/' . $profile->gambar) }}" alt="Foto Peserta">
+                @endif
+            @endif
             <img class="qr" src="{{ asset('public/3.jpg') }}" alt="QR Code">
             <h2>{{ $user->name }}</h2>
             <p>Atas Kelulusannya Pada Kelas</p>
