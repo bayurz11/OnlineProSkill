@@ -117,7 +117,7 @@
             <p>ID : 006 / PSA / FCS / 08.2024</p>
             <img class="photo" src="{{ asset('public/1.png') }}" alt="Foto Peserta">
             <img class="qr" src="{{ asset('public/3.jpg') }}" alt="QR Code">
-            <h2>Nama Penerima</h2>
+            <h2>{{ $user->name }}</h2>
             <p>Atas Kelulusannya Pada Kelas</p>
             <h3>Nama Kelas Yang Diambil</h3>
         </div>
