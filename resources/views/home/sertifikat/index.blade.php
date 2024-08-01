@@ -19,7 +19,7 @@
         }
 
         .certificate {
-            background: url('1.png') no-repeat center center;
+            background: url('public/1.png') no-repeat center center;
             background-size: cover;
             width: 1000px;
             height: 707px;
