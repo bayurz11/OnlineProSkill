@@ -100,13 +100,13 @@
                                     value="{{ $kurikulum[0]->sections->first()->id }}">
                                 <button type="submit" class="btn btn-primary">menyelesaikan</button>
                             </form>
-                            @if ($allSectionsCompleted)
-                                <form id="printForm" action="" method="POST">
-                                    @csrf
-                                    <button type="submit" class="btn btn-secondary ms-3">Cetak</button>
-                                </form>
-                            @endif
                         </div>
+                        @if ($allSectionsCompleted)
+                            <form id="printForm" action="" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-secondary ms-3">Cetak</button>
+                            </form>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -147,15 +147,65 @@
 
                 if (fileType === 'video') {
                     fileSrc = 'https://drive.google.com/file/d/' + driveId + '/preview';
-                } else if (fileType === 'presentation' || fileType === 'document') {
-                    fileSrc = 'https://drive.google.com/viewer?url=' + fileUrl;
+                } else if (fileType === 'presentation' || fileType === 'pptx') {
+                    fileSrc = 'https://docs.google.com/presentation/d/' + driveId + '/embed';
+                } else if (fileType === 'document' || fileType === 'docx') {
+                    fileSrc = 'https://docs.google.com/document/d/' + driveId + '/embed';
+                } else if (fileType === 'spreadsheet' || fileType === 'xlsx') {
+                    fileSrc = 'https://docs.google.com/spreadsheets/d/' + driveId + '/embed';
+                } else if (fileType === 'pdf') {
+                    fileSrc = 'https://drive.google.com/file/d/' + driveId + '/preview';
+                } else {
+                    alert('Jenis file tidak didukung: ' + fileType);
+                    return;
+                }
+            } else if (fileType === 'pdf' || fileUrl.includes('uploads/')) {
+                if (fileUrl.startsWith('https://')) {
+                    fileSrc = '/public/' + fileUrl.split('/').slice(3).join('/');
+                } else if (!fileUrl.startsWith('/public/uploads/')) {
+                    fileSrc = '/public/' + fileUrl;
+                } else {
+                    fileSrc = fileUrl;
                 }
             } else {
-                fileSrc = fileUrl;
+                alert('Link file tidak valid: ' + fileUrl);
+                return;
             }
 
             document.getElementById('lessonContent').src = fileSrc;
             document.getElementById('currentContentTitle').innerText = element.getAttribute('data-title');
+
+            // Remove active class from previously active links
+            var activeLinks = document.querySelectorAll('.course-item-link.active');
+            activeLinks.forEach(function(link) {
+                link.classList.remove('active');
+            });
+
+            // Add active class to the clicked link
+            element.classList.add('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var firstFileLink = document.querySelector('.course-item-link.active');
+            if (firstFileLink) {
+                changeContent(firstFileLink, new Event('click'));
+            }
+        });
+
+        function nextContent() {
+            var activeLink = document.querySelector('.course-item-link.active');
+            var nextLink = activeLink.parentElement.nextElementSibling?.querySelector('.course-item-link');
+            if (nextLink) {
+                changeContent(nextLink, new Event('click'));
+            }
+        }
+
+        function prevContent() {
+            var activeLink = document.querySelector('.course-item-link.active');
+            var prevLink = activeLink.parentElement.previousElementSibling?.querySelector('.course-item-link');
+            if (prevLink) {
+                changeContent(prevLink, new Event('click'));
+            }
         }
     </script>
 @endsection
