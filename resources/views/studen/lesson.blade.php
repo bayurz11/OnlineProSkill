@@ -218,7 +218,7 @@
 
             if (allCompleted) {
                 statusButtonContainer.innerHTML = `
-                    <a href="{{ route('print_certificate') }}" class="btn btn-success">Cetak Sertifikat</a>
+                    <a href="" class="btn btn-success">Cetak Sertifikat</a>
                 `;
             }
         }
