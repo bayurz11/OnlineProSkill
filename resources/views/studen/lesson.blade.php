@@ -114,7 +114,7 @@
                                     <form id="printForm" action="{{ route('print_certificate') }}" method="POST"
                                         class="ms-3">
                                         @csrf
-                                        <button type="submit" class="btn btn-secondary">Cetak</button>
+                                        <button type="submit" class="btn btn-secondary">Sertifikat Penyelesaian</button>
                                     </form>
                                 @endif
                             </div>
