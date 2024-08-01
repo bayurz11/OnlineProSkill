@@ -85,8 +85,8 @@
         .content img.qr {
             position: absolute;
             /* bottom: -194px; */
-            top: 420px;
-            left: 30px;
+            top: 400px;
+            left: 34px;
             width: 158px;
             height: 150px;
             object-fit: cover;
