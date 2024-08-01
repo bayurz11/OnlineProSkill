@@ -151,6 +151,7 @@ Route::middleware('isStuden')->group(function () {
     Route::get('/lesson/{id}', [AksesPembelianController::class, 'lesson'])->name('lesson');
     Route::put('/sectionupdatestatus/{id}', [AksesPembelianController::class, 'updatestatus'])->name('sectionstatus');
     Route::post('/print-certificate', [AksesPembelianController::class, 'printCertificate'])->name('print_certificate');
+    Route::get('/certificate/preview', [AksesPembelianController::class, 'previewCertificate'])->name('certificate.preview');
 
 
     //sertifikat
