@@ -37,7 +37,7 @@
                                                                 data-id="{{ $section->id }}"
                                                                 onclick="changeContent(this, event)">
                                                                 <span class="item-name">{{ $section->title }}</span>
-                                                                {{ $section->status }}
+                                                                {{ $section->status === 1 ? 'Selesai' : '' }}
                                                                 <div class="course-item-meta">
                                                                     <span
                                                                         class="item-meta duration">{{ $section->duration }}</span>
