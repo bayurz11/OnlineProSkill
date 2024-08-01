@@ -141,7 +141,7 @@ class AksesPembelianController extends Controller
 
         // Fetch user section statuses
         $userSectionStatuses = UserSectionStatus::where('user_id', $user->id)
-            ->pluck('section_id', 'status')
+            ->pluck('status', 'section_id')
             ->toArray();
 
         // Check if all sections are completed by user
