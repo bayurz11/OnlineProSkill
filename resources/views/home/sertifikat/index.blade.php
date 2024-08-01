@@ -90,7 +90,7 @@
             width: 180px;
             height: 180px;
             object-fit: cover;
-            border: 5px solid #c97c2e;
+            border: 5px solid #fdffff;
         }
 
         .signature {
