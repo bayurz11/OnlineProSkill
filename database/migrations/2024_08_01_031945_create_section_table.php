@@ -22,14 +22,6 @@ return new class extends Migration
             $table->foreign('kurikulum_id')->references('id')->on('kurikulum')->onDelete('cascade');
             $table->timestamps();
         });
-
-        Schema::create('user_section_status', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('section_id')->constrained()->onDelete('cascade');
-            $table->boolean('status')->default(false);
-            $table->timestamps();
-        });
     }
 
     /**
