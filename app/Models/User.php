@@ -3,9 +3,10 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\UserSectionStatus;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -59,5 +60,16 @@ class User extends Authenticatable
     public function userProfile()
     {
         return $this->hasOne(UserProfile::class);
+    }
+
+    public function sectionStatuses()
+    {
+        return $this->hasMany(UserSectionStatus::class);
+    }
+
+    // Mengecek apakah pengguna telah menyelesaikan bagian tertentu
+    public function hasCompletedSection($sectionId)
+    {
+        return $this->sectionStatuses()->where('section_id', $sectionId)->where('status', true)->exists();
     }
 }

@@ -28,16 +28,21 @@
                                             <ul class="list-wrap">
                                                 @foreach ($item->sections as $section)
                                                     <li class="course-item {{ $loop->first ? 'open-item' : '' }}">
+                                                        @php
+                                                            $completed = Auth::user()->hasCompletedSection(
+                                                                $section->id,
+                                                            );
+                                                        @endphp
                                                         @if ($section->link || $section->file_path)
                                                             <a href="#"
-                                                                class="course-item-link {{ $loop->first ? 'active' : '' }} {{ $section->status === 0 && $loop->first ? 'unlocked' : ($section->status === 0 ? 'locked' : '') }}"
+                                                                class="course-item-link {{ $loop->first ? 'active' : '' }} {{ !$completed && $loop->first ? 'unlocked' : (!$completed ? 'locked' : '') }}"
                                                                 data-title="{{ $section->title }}"
                                                                 data-link="{{ $section->link ? asset($section->link) : asset($section->file_path) }}"
                                                                 data-type="{{ $section->type }}"
                                                                 data-id="{{ $section->id }}"
                                                                 onclick="changeContent(this, event)">
                                                                 <span class="item-name">{{ $section->title }}</span>
-                                                                @if ($section->status === 1)
+                                                                @if ($completed)
                                                                     <div
                                                                         class="d-flex align-items-center justify-content-center">
                                                                         <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center"
@@ -62,6 +67,7 @@
                                                         @endif
                                                     </li>
                                                 @endforeach
+
                                             </ul>
                                         </div>
                                     </div>
@@ -100,8 +106,10 @@
                                     @method('PUT')
                                     <input type="hidden" id="sectionId" name="sectionId"
                                         value="{{ $kurikulum[0]->sections->first()->id }}">
+                                    <input type="hidden" name="status" value="true">
                                     <button type="submit" class="btn btn-primary">Menyelesaikan</button>
                                 </form>
+
                                 @if ($allSectionsCompleted)
                                     <form id="printForm" action="" method="POST" class="ms-3">
                                         @csrf

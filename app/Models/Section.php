@@ -18,4 +18,10 @@ class Section extends Model
     {
         return $this->belongsTo(Kurikulum::class);
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'user_section_status')
+            ->withPivot('status');
+    }
 }
