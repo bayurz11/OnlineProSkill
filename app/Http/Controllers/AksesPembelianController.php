@@ -263,7 +263,7 @@ class AksesPembelianController extends Controller
             'user' => $user,
             'date' => now()->format('d F Y'),
             // Tambahkan data lain yang diperlukan
-        ]);
+        ])->setPaper('a4', 'landscape');
 
         // Mengirim PDF untuk diunduh
         return $pdf->download('sertifikat_penyelesaian.pdf');
