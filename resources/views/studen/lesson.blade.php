@@ -98,7 +98,7 @@
                                 @method('PUT')
                                 <input type="hidden" id="sectionId" name="sectionId"
                                     value="{{ $kurikulum[0]->sections->first()->id }}">
-                                <button type="submit" class="btn btn-primary">menyelesaikan</button>
+                                <button type="submit" class="btn btn-primary">Menyelesaikan</button>
                             </form>
                         </div>
                         <div class="d-flex justify-content-end mt-3">
@@ -109,6 +109,7 @@
                                 </form>
                             @endif
                         </div>
+
                     </div>
                 </div>
             </div>
