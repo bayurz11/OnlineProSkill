@@ -73,7 +73,7 @@
 
         .content img.photo {
             position: absolute;
-            top: 20px;
+            top: 22px;
             right: -25px;
             width: 190px;
             height: 235px;
