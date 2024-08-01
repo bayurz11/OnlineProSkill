@@ -240,6 +240,15 @@ class AksesPembelianController extends Controller
         return redirect()->back()->with('success', 'Status bagian berhasil diperbarui');
     }
 
+
+    protected $pdf;
+
+    // Tambahkan konstruktor untuk dependency injection
+    public function __construct(PDF $pdf)
+    {
+        $this->pdf = $pdf;
+    }
+
     public function printCertificate(Request $request)
     {
         $user = Auth::user();
@@ -249,9 +258,8 @@ class AksesPembelianController extends Controller
             return redirect()->route('home')->with('error', 'Anda harus login untuk mencetak sertifikat.');
         }
 
-        // Ambil data yang diperlukan untuk sertifikat
-        // Misalnya, Anda bisa membuat PDF sertifikat menggunakan Laravel PDF
-        $pdf = PDF::loadView('home.sertifikat.index', [
+        // Gunakan instance dari $this->pdf untuk memanggil loadView
+        $pdf = $this->pdf->loadView('home.sertifikat.index', [
             'user' => $user,
             'date' => now()->format('d F Y'),
             // Tambahkan data lain yang diperlukan
