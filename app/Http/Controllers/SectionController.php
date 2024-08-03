@@ -41,6 +41,7 @@ class SectionController extends Controller
             'kurikulum_id' => 'required|integer',
             'title' => 'required|string|max:255',
             'link' => 'nullable|string|max:255',
+            'duration' => 'nullable|string|max:255',
             'file' => 'nullable|file|mimes:pdf,doc,docx,txt,xlsx|max:10048', // Validasi file upload
         ]);
 
@@ -52,6 +53,7 @@ class SectionController extends Controller
         $section->kurikulum_id = $validatedData['kurikulum_id'];
         $section->title = $validatedData['title'];
         $section->link = $validatedData['link'];
+        $section->duration = $validatedData['duration'];
         $section->status = 0;
         $section->no_urut = $noUrut;
 

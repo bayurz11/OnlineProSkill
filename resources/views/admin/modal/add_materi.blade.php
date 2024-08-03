@@ -22,6 +22,11 @@
                             placeholder="Masukkan link materi Anda">
                     </div>
                     <div class="mb-3">
+                        <label for="duration" class="form-label">Durasi</label>
+                        <input type="text" class="form-control" id="duration" name="duration"
+                            placeholder="Masukkan duration materi Anda">
+                    </div>
+                    <div class="mb-3">
                         <label for="file" class="form-label">Upload Materi</label>
                         <input type="file" class="form-control" id="file" name="file"
                             placeholder="Masukkan link materi Anda">
