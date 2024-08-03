@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sertifikat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Kode+Mono&display=swap"
+        rel="stylesheet">
     <style>
         body,
         html {
@@ -16,6 +18,7 @@
             justify-content: center;
             align-items: center;
             background-color: #f4f4f4;
+            font-family: 'Roboto', sans-serif;
         }
 
         .certificate {
@@ -43,6 +46,7 @@
             font-size: 80px;
             color: #007F73;
             margin-top: 90px;
+            font-family: 'Kode Mono', monospace;
         }
 
         .content h2 {
@@ -50,6 +54,7 @@
             font-size: 60px;
             color: #007F73;
             margin-top: 20px;
+            font-family: 'Kode Mono', monospace;
         }
 
         .content h3 {
@@ -84,7 +89,6 @@
 
         .content img.qr {
             position: absolute;
-            /* bottom: -194px; */
             top: 398px;
             left: 34px;
             width: 180px;
