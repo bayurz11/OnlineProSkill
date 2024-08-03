@@ -273,7 +273,7 @@ class AksesPembelianController extends Controller
                     return $userSectionStatus && $userSectionStatus->status === 1;
                 });
             });
-        });
+        })->values(); // Tambahkan values() untuk mereset kunci array
 
         $pdf = $this->pdf->loadView('home.sertifikat.index', [
             'user' => $user,
@@ -308,7 +308,7 @@ class AksesPembelianController extends Controller
                     return $userSectionStatus && $userSectionStatus->status === 1;
                 });
             });
-        });
+        })->values(); // Tambahkan values() untuk mereset kunci array
 
         $pdf = $this->pdf->loadView('home.sertifikat.index', [
             'user' => $user,
