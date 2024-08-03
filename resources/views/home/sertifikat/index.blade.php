@@ -126,7 +126,7 @@
             <h2>{{ $user->name }}</h2>
             <p>Atas Kelulusannya Pada Kelas</p>
             <h3>
-                {{ $completedCoursesNames }}
+                {{ $coursename }}
             </h3>
         </div>
     </div>

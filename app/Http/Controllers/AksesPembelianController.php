@@ -275,17 +275,16 @@ class AksesPembelianController extends Controller
             });
         })->values(); // Tambahkan values() untuk mereset kunci array
 
-        // Gabungkan nama-nama kelas menjadi string
-        $completedCoursesNames = $completedCourses->pluck('KelasTatapMuka.nama_kursus')->implode(', ');
-
         $certificateId = sprintf("%03d", Order::where('user_id', $user->id)->count()) . " / PSA / " . strtoupper($completedCourses->first()->KelasTatapMuka->nama_kursus) . " / " . now()->format('m.Y');
+        $coursename = strtoupper($completedCourses->first()->KelasTatapMuka->nama_kursus);
 
         $pdf = $this->pdf->loadView('home.sertifikat.index', [
             'user' => $user,
             'profile' => $profile,
-            'completedCoursesNames' => $completedCoursesNames, // Kirim string gabungan ke view
+            'completedCourses' => $completedCourses,
             'date' => now()->format('d F Y'),
             'certificateId' => $certificateId,
+            'coursename' => $coursename,
         ])->setPaper('a4', 'landscape');
 
         return $pdf->download('sertifikat_penyelesaian.pdf');
@@ -316,17 +315,12 @@ class AksesPembelianController extends Controller
             });
         })->values(); // Tambahkan values() untuk mereset kunci array
 
-        // Gabungkan nama-nama kelas menjadi string
-        $completedCoursesNames = $completedCourses->isNotEmpty()
-            ? $completedCourses->pluck('KelasTatapMuka.nama_kursus')->implode(', ')
-            : 'Belum ada kursus yang diselesaikan';
-
-        $certificateId = sprintf("%03d", Order::where('user_id', $user->id)->count()) . " / PSA / " . strtoupper($completedCourses->isNotEmpty() ? $completedCourses->first()->KelasTatapMuka->nama_kursus : '') . " / " . now()->format('m.Y');
+        $certificateId = sprintf("%03d", Order::where('user_id', $user->id)->count()) . " / PSA / " . strtoupper($completedCourses->first()->KelasTatapMuka->nama_kursus) . " / " . now()->format('m.Y');
 
         $pdf = $this->pdf->loadView('home.sertifikat.index', [
             'user' => $user,
             'profile' => $profile,
-            'completedCoursesNames' => $completedCoursesNames, // Kirim string gabungan ke view
+            'completedCourses' => $completedCourses,
             'date' => now()->format('d F Y'),
             'certificateId' => $certificateId,
         ])->setPaper('a4', 'landscape');
