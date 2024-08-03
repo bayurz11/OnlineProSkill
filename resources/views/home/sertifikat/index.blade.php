@@ -127,7 +127,7 @@
             <p>Atas Kelulusannya Pada Kelas</p>
             <h3>
                 @foreach ($completedCourses as $order)
-                    {{ $order->KelasTatapMuka->nama_kursus }}<br>
+                    <p>{{ $order->KelasTatapMuka->nama_kursus }}</p>
                 @endforeach
             </h3>
         </div>
