@@ -25,7 +25,7 @@
                     <div class="mb-3">
                         <label for="duration" class="form-label">Durasi</label>
                         <input type="text" class="form-control" id="duration" name="duration"
-                            placeholder="Masukkan durasi materi Anda (hh:mm:ss)">
+                            placeholder="00:00:00">
                     </div>
 
                     <div class="mb-3">
@@ -54,15 +54,22 @@
         });
     });
     document.getElementById('duration').addEventListener('input', function(e) {
-        const value = e.target.value;
+        let value = e.target.value.replace(/[^0-9:]/g, ''); // Hanya izinkan angka dan tanda titik dua
+        let parts = value.split(':').map(Number); // Pisahkan berdasarkan tanda titik dua dan ubah menjadi angka
 
-        // Regex untuk memvalidasi format hh:mm:ss
-        const regex = /^(\d{1,2}):([0-5]?\d):([0-5]?\d)$/;
-
-        if (!regex.test(value)) {
-            e.target.setCustomValidity('Format harus hh:mm:ss');
-        } else {
-            e.target.setCustomValidity('');
+        // Menangani format jam:menit:detik
+        if (parts.length === 1 && parts[0] > 59) {
+            parts[1] = parts[0] % 60;
+            parts[0] = Math.floor(parts[0] / 60);
+        } else if (parts.length === 2 && parts[1] > 59) {
+            parts[2] = parts[1] % 60;
+            parts[1] = Math.floor(parts[1] / 60);
         }
+
+        // Format kembali menjadi string dengan leading zero jika perlu
+        value = parts.map(part => part.toString().padStart(2, '0')).join(':');
+
+        // Set kembali nilai input field
+        e.target.value = value;
     });
 </script>
