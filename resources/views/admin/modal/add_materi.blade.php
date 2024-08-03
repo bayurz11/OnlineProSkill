@@ -24,9 +24,10 @@
 
                     <div class="mb-3">
                         <label for="duration" class="form-label">Durasi</label>
-                        <input type="time" class="form-control" id="duration" name="duration"
-                            placeholder="Masukkan duration materi Anda">
+                        <input type="text" class="form-control" id="duration" name="duration"
+                            placeholder="Masukkan durasi materi Anda (hh:mm:ss)">
                     </div>
+
                     <div class="mb-3">
                         <label for="file" class="form-label">Upload Materi</label>
                         <input type="file" class="form-control" id="file" name="file"
@@ -51,5 +52,17 @@
             var modal = $(this);
             modal.find('.modal-body #kurikulum_id').val(kurikulumId);
         });
+    });
+    document.getElementById('duration').addEventListener('input', function(e) {
+        const value = e.target.value;
+
+        // Regex untuk memvalidasi format hh:mm:ss
+        const regex = /^(\d{1,2}):([0-5]?\d):([0-5]?\d)$/;
+
+        if (!regex.test(value)) {
+            e.target.setCustomValidity('Format harus hh:mm:ss');
+        } else {
+            e.target.setCustomValidity('');
+        }
     });
 </script>
