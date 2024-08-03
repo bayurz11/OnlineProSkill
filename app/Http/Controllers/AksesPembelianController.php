@@ -280,7 +280,7 @@ class AksesPembelianController extends Controller
         $pdf = $this->pdf->loadView('home.sertifikat.index', [
             'user' => $user,
             'profile' => $profile,
-            'orders' => $completedCourses,
+            'completedCourses' => $completedCourses,
             'date' => now()->format('d F Y'),
             'certificateId' => $certificateId,
         ])->setPaper('a4', 'landscape');
@@ -318,7 +318,7 @@ class AksesPembelianController extends Controller
         $pdf = $this->pdf->loadView('home.sertifikat.index', [
             'user' => $user,
             'profile' => $profile,
-            'orders' => $completedCourses,
+            'completedCourses' => $completedCourses,
             'date' => now()->format('d F Y'),
             'certificateId' => $certificateId,
         ])->setPaper('a4', 'landscape');
