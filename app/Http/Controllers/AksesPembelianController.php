@@ -280,8 +280,9 @@ class AksesPembelianController extends Controller
         }
 
         $firstCourse = $completedCourses->first();
-        $certificateId = sprintf("%03d", Order::where('user_id', $user->id)->count()) . " / PSA / " . strtoupper($firstCourse->KelasTatapMuka->nama_kursus) . " / " . now()->format('m.Y');
-        $coursename = strtoupper($firstCourse->KelasTatapMuka->nama_kursus);
+        $product = $firstCourse->KelasTatapMuka; // Ambil data KelasTatapMuka
+        $certificateId = sprintf("%03d", Order::where('user_id', $user->id)->count()) . " / PSA / " . strtoupper($product->nama_kursus) . " / " . now()->format('m.Y');
+        $coursename = strtoupper($product->nama_kursus);
 
         $pdf = $this->pdf->loadView('home.sertifikat.index', [
             'user' => $user,
@@ -325,8 +326,9 @@ class AksesPembelianController extends Controller
         }
 
         $firstCourse = $completedCourses->first();
-        $certificateId = sprintf("%03d", Order::where('user_id', $user->id)->count()) . " / PSA / " . strtoupper($firstCourse->KelasTatapMuka->nama_kursus) . " / " . now()->format('m.Y');
-        $coursename = strtoupper($firstCourse->KelasTatapMuka->nama_kursus);
+        $product = $firstCourse->KelasTatapMuka; // Ambil data KelasTatapMuka
+        $certificateId = sprintf("%03d", Order::where('user_id', $user->id)->count()) . " / PSA / " . strtoupper($product->nama_kursus) . " / " . now()->format('m.Y');
+        $coursename = strtoupper($product->nama_kursus);
 
         $pdf = $this->pdf->loadView('home.sertifikat.index', [
             'user' => $user,
