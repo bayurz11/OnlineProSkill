@@ -275,8 +275,12 @@ class AksesPembelianController extends Controller
             });
         })->values(); // Tambahkan values() untuk mereset kunci array
 
-        $certificateId = sprintf("%03d", Order::where('user_id', $user->id)->count()) . " / PSA / " . strtoupper($completedCourses->first()->KelasTatapMuka->nama_kursus) . " / " . now()->format('m.Y');
-        $coursename = strtoupper($completedCourses->first()->KelasTatapMuka->nama_kursus);
+        // Ambil product_id dari order yang sudah selesai
+        $firstOrder = $completedCourses->first();
+        $productId = $firstOrder ? $firstOrder->KelasTatapMuka->product_id : 'UNKNOWN';
+
+        $certificateId = sprintf("%03d", Order::where('user_id', $user->id)->count()) . " / PSA / " . strtoupper($productId) . " / " . now()->format('m.Y');
+        $coursename = strtoupper($productId);
 
         $pdf = $this->pdf->loadView('home.sertifikat.index', [
             'user' => $user,
@@ -315,8 +319,13 @@ class AksesPembelianController extends Controller
             });
         })->values(); // Tambahkan values() untuk mereset kunci array
 
-        $certificateId = sprintf("%03d", Order::where('user_id', $user->id)->count()) . " / PSA / " . strtoupper($completedCourses->first()->KelasTatapMuka->nama_kursus) . " / " . now()->format('m.Y');
-        $coursename = strtoupper($completedCourses->first()->KelasTatapMuka->nama_kursus);
+        // Ambil product_id dari order yang sudah selesai
+        $firstOrder = $completedCourses->first();
+        $productId = $firstOrder ? $firstOrder->KelasTatapMuka->product_id : 'UNKNOWN';
+
+        $certificateId = sprintf("%03d", Order::where('user_id', $user->id)->count()) . " / PSA / " . strtoupper($productId) . " / " . now()->format('m.Y');
+        $coursename = strtoupper($productId);
+
         $pdf = $this->pdf->loadView('home.sertifikat.index', [
             'user' => $user,
             'profile' => $profile,
