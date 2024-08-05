@@ -60,7 +60,7 @@
                                     <a href="#">{{ $courses->user->name }}</a>
                                 </li>
 
-                                <li><i class="flaticon-mortarboard"></i>{{ $sertifikat->kategori }}</li>
+                                <li><i class="flaticon-mortarboard"></i>{{ $jumlahSertifikatFCS }}</li>
                             </ul>
                         </div>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">

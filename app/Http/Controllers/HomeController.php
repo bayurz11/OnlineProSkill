@@ -166,8 +166,9 @@ class HomeController extends Controller
 
         // Ambil sertifikat dan field kategori terkait
         $sertifikat = Sertifikat::all(['kategori']); // Hanya ambil field yang diperlukan
-
-        return view('home.classroomdetail', compact('user', 'categori', 'jumlahPendaftaran', 'courses', 'kurikulum', 'courseList', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'section', 'joinedCourses', 'sertifikat'));
+        // Hitung jumlah sertifikat dengan kategori 'FCS'
+        $jumlahSertifikatFCS = $sertifikat->where('kategori', 'FCS')->count();
+        return view('home.classroomdetail', compact('user', 'jumlahSertifikatFCS', 'categori', 'jumlahPendaftaran', 'courses', 'kurikulum', 'courseList', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'section', 'joinedCourses', 'sertifikat'));
     }
 
 
