@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categories;
+use App\Models\Sertifikat;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Sertifikat;
 use Illuminate\Support\Facades\Auth;
 
 class SertifikatController extends Controller
@@ -14,11 +15,12 @@ class SertifikatController extends Controller
     {
         $user = Auth::user();
         $sertifikat = Sertifikat::all();
+        $categori = Categories::all();
         if (!$user) {
             return redirect()->route('/');
         }
 
-        return view('admin.sertifikat.index', compact('user', 'sertifikat'));
+        return view('admin.sertifikat.index', compact('user', 'sertifikat', 'categori'));
     }
 
     public function store(Request $request)

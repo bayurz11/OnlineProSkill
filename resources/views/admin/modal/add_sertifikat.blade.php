@@ -33,12 +33,23 @@
                             placeholder="Masukkan Keterangan">
                     </div>
                     <div class="mb-3">
-                        <label for="kategori" class="form-label">Kategori<span class="text-danger">*</span></label>
-                        <select class="form-control" id="kategori" name="kategori">
+                        <label class="form-label">Kategori<span class="text-danger">*</span></label>
+                        <select id="category" class="js-example-basic-single form-select" name="kategori_id"
+                            data-width="100%" required>
                             <option value="">Pilih Kategori</option>
-                            <option value="FCS">Fundamental Computer Skill</option>
-                            <option value="MOA">Mahir Aplikasi Office Tingkat Advance</option>
-                            <option value="DGCF">Design Menggunakan Canva Dan Figma</option>
+                            @foreach ($categori as $category)
+                                @if ($category->status == 1)
+                                    <option value="{{ $category->id }}">{{ $category->name_category }}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="subcategory" class="form-label">Subkategori<span
+                                class="text-danger">*</span></label>
+                        <select id="subcategory" class="form-control" name="subkategori_id" disabled>
+                            <option value="">Pilih Subkategori</option>
                         </select>
                     </div>
 
