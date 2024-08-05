@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('sertifikat_id');
             $table->string('gambar');
             $table->text('keterangan');
+            $table->string('kategori');
             $table->timestamps();
         });
     }
