@@ -327,6 +327,11 @@
                                                         </a>
                                                     </div> --}}
                                                     </div>
+                                                    @if ($cours->course_type == 'online')
+                                                        <span class="badge bg-primary">Online</span>
+                                                    @else
+                                                        <span class="badge bg-secondary">Offline</span>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
