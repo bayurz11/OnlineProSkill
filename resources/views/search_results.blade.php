@@ -292,6 +292,11 @@
                                                         <li class="price">
                                                             Rp. {{ number_format($cours->price, 0, ',', '.') }}
                                                         </li>
+                                                        @if ($cours->course_type == 'online')
+                                                            <span class="badge bg-primary">Online</span>
+                                                        @else
+                                                            <span class="badge bg-secondary">Offline</span>
+                                                        @endif
                                                     </ul>
                                                     <h5 class="title"><a
                                                             href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
@@ -326,11 +331,7 @@
                                                                 class="injectable" alt="img">
                                                         </a>
                                                     </div> --}}
-                                                        @if ($cours->course_type == 'online')
-                                                            <span class="badge bg-primary">Online</span>
-                                                        @else
-                                                            <span class="badge bg-secondary">Offline</span>
-                                                        @endif
+
                                                     </div>
                                                 </div>
                                             </div>
