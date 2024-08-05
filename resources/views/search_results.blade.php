@@ -246,19 +246,9 @@
                                                         <a
                                                             href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
                                                     </h5>
-                                                    <p class="author">By <a
-                                                            href="#">{{ $cours->user->name }}</a>&nbsp;&nbsp; <img
-                                                            src="{{ asset('public/assets/img/icons/course_icon06.svg') }}"
-                                                            alt="img" class="injectable">
-                                                        Kuota Kelas
-                                                        @if ($cours->course_type == 'offline')
-                                                            <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}/{{ $cours->kuota }}</span>
-                                                            @if (in_array($cours->id, $joinedCourses))
-                                                                <span
-                                                                    style="color: green; font-weight: bold; padding: 2px 6px; border: 1px solid green; border-radius: 10rem; background-color: #e0f7e9;">
-                                                                    Joined
-                                                                </span>
-                                                            @endif
+                                                    <p class="author">By <a href="#">{{ $cours->user->name }}</a>
+                                                        @if (in_array($cours->id, $joinedCourses))
+                                                            <span class="badge bg-success">Joined</span>
                                                         @endif
                                                     </p>
                                                     <div class="courses__item-bottom">
