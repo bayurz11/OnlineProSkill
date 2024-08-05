@@ -301,13 +301,13 @@
                                                         <a
                                                             href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
                                                     </h5>
+
                                                     <p class="author">By <a
-                                                            href="#">{{ $cours->user->name }}</a>&nbsp;&nbsp;
-                                                        <img src="{{ asset('public/assets/img/icons/course_icon06.svg') }}"
+                                                            href="#">{{ $cours->user->name }}</a>&nbsp;&nbsp; <img
+                                                            src="{{ asset('public/assets/img/icons/course_icon06.svg') }}"
                                                             alt="img" class="injectable">
-                                                    </p>
-                                                    @if ($cours->course_type == 'offline')
-                                                        <p class="kuota">Kuota Kelas
+                                                        Kuota Kelas
+                                                        @if ($cours->course_type == 'offline')
                                                             <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}/{{ $cours->kuota }}</span>
                                                             @if (in_array($cours->id, $joinedCourses))
                                                                 <span
@@ -315,8 +315,10 @@
                                                                     Joined
                                                                 </span>
                                                             @endif
-                                                        </p>
-                                                    @endif
+                                                        @endif
+                                                    </p>
+
+
                                                     <p class="info">{!! $cours->content !!}</p>
                                                     <div class="courses__item-bottom">
                                                         <div class="button">
