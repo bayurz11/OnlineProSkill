@@ -288,7 +288,6 @@
                                                 </div>
                                                 <div class="courses__item-content">
                                                     <ul class="courses__item-meta list-wrap">
-
                                                         <li class="price">
                                                             Rp. {{ number_format($cours->price, 0, ',', '.') }}
                                                         </li>
@@ -298,22 +297,26 @@
                                                             <span class="badge bg-secondary">Offline</span>
                                                         @endif
                                                     </ul>
-                                                    <h5 class="title"><a
+                                                    <h5 class="title">
+                                                        <a
                                                             href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
                                                     </h5>
                                                     <p class="author">By <a
                                                             href="#">{{ $cours->user->name }}</a>&nbsp;&nbsp;
                                                         <img src="{{ asset('public/assets/img/icons/course_icon06.svg') }}"
                                                             alt="img" class="injectable">
-                                                        Kuota Kelas
-                                                        <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}/{{ $cours->kuota }}</span>
-                                                        @if (in_array($cours->id, $joinedCourses))
-                                                            <span
-                                                                style="color: green; font-weight: bold; padding: 2px 6px; border: 1px solid green; border-radius: 10rem; background-color: #e0f7e9;">
-                                                                Joined
-                                                            </span>
-                                                        @endif
                                                     </p>
+                                                    @if ($cours->course_type == 'offline')
+                                                        <p class="kuota">Kuota Kelas
+                                                            <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}/{{ $cours->kuota }}</span>
+                                                            @if (in_array($cours->id, $joinedCourses))
+                                                                <span
+                                                                    style="color: green; font-weight: bold; padding: 2px 6px; border: 1px solid green; border-radius: 10rem; background-color: #e0f7e9;">
+                                                                    Joined
+                                                                </span>
+                                                            @endif
+                                                        </p>
+                                                    @endif
                                                     <p class="info">{!! $cours->content !!}</p>
                                                     <div class="courses__item-bottom">
                                                         <div class="button">
@@ -331,7 +334,6 @@
                                                                 class="injectable" alt="img">
                                                         </a>
                                                     </div> --}}
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -339,6 +341,7 @@
                                     @endforeach
                                 </div>
                             </div>
+
                         </div>
                 </div>
     </section>
