@@ -31,7 +31,8 @@ class SertifikatController extends Controller
             'sertifikat_id' => 'required|string|max:255',
             'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'keterangan' => 'required|string|max:255',
-            'kategori' => 'required|string|max:255',
+            'kategori_id' => 'required|exists:kategoris,id',
+            'subkategori_id' => 'required|exists:subkategoris,id',
         ]);
 
         // Cek apakah file gambar ada
@@ -51,12 +52,13 @@ class SertifikatController extends Controller
             $sertifikat->save();
 
             // Redirect dengan pesan sukses
-            return redirect()->route('sertifikat')->with('success', 'Sertifikat berhasil disimpan.');
+            return redirect()->route('sertifikat.index')->with('success', 'Sertifikat berhasil disimpan.');
         } else {
             // Redirect dengan pesan error
-            return redirect()->route('sertifikat')->with('error', 'Pilih gambar terlebih dahulu.');
+            return redirect()->route('sertifikat.create')->with('error', 'Pilih gambar terlebih dahulu.');
         }
     }
+
 
     public function edit($id)
     {
