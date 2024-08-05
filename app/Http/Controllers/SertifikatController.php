@@ -46,7 +46,8 @@ class SertifikatController extends Controller
             $sertifikat->sertifikat_id = $request->sertifikat_id;
             $sertifikat->gambar = $gambarName;
             $sertifikat->keterangan = $request->keterangan;
-            $sertifikat->kategori = $request->kategori;
+            $sertifikat->kategori_id = $request->kategori_id;
+            $sertifikat->subkategori_id = $request->subkategori_id;
             $sertifikat->save();
 
             // Redirect dengan pesan sukses
