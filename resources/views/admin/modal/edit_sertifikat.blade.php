@@ -36,12 +36,21 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="edit_kategori" class="form-label">Kategori<span class="text-danger">*</span></label>
-                        <select class="form-control" id="edit_kategori" name="kategori">
+                        <label class="form-label">Kategori<span class="text-danger">*</span></label>
+                        <select id="edit_category" class="form-select" name="kategori_id">
                             <option value="">Pilih Kategori</option>
-                            <option value="FCS">Fundamental Computer Skill</option>
-                            <option value="MOA">Mahir Aplikasi Office Tingkat Advance</option>
-                            <option value="DGCF">Design Menggunakan Canva Dan Figma</option>
+                            @foreach ($categori as $category)
+                                @if ($category->status == 1)
+                                    <option value="{{ $category->id }}">{{ $category->name_category }}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="edit_subcategory" class="form-label">Subkategori<span
+                                class="text-danger">*</span></label>
+                        <select id="edit_subcategory" class="form-select" name="subkategori_id" disabled>
+                            <option value="">Pilih Subkategori</option>
                         </select>
                     </div>
                 </div>
@@ -66,8 +75,33 @@
                     $('#edit_name').val(data.name);
                     $('#edit_sertifikat_id').val(data.sertifikat_id);
                     $('#edit_keterangan').val(data.keterangan);
-                    $('#edit_kategori').val(data.kategori);
+                    $('#edit_category').val(data.kategori_id);
 
+                    const categoryId = data.kategori_id;
+                    const subcategorySelect = $('#edit_subcategory');
+                    subcategorySelect.prop('disabled', !categoryId);
+                    if (categoryId) {
+                        fetch(`/get-subcategories/${categoryId}`)
+                            .then(response => response.json())
+                            .then(subcategories => {
+                                subcategorySelect.html(
+                                    '<option value="">Pilih Subkategori</option>');
+                                subcategories.forEach(subcategory => {
+                                    if (subcategory.status == 1) {
+                                        const option = $('<option></option>')
+                                            .attr('value', subcategory.id)
+                                            .text(subcategory.name);
+                                        if (subcategory.id == data.subkategori_id) {
+                                            option.prop('selected', true);
+                                        }
+                                        subcategorySelect.append(option);
+                                    }
+                                });
+                            })
+                            .catch(error => console.error('Error fetching subcategories:', error));
+                    } else {
+                        subcategorySelect.html('<option value="">Pilih Subkategori</option>');
+                    }
                     // Update image preview
                     if (data.gambar) {
                         $('#preview_edit').attr('src', `/public/uploads/${data.gambar}`).show();
