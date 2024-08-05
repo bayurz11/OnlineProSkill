@@ -246,7 +246,8 @@
                                                         <a
                                                             href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
                                                     </h5>
-                                                    <p class="author">By <a href="#">{{ $cours->user->name }}</a>
+                                                    <p class="author">By <a
+                                                            href="#">{{ $cours->user->name }}</a>&nbsp;&nbsp;
                                                         @if (in_array($cours->id, $joinedCourses))
                                                             <span class="badge bg-success">Joined</span>
                                                         @endif
@@ -302,7 +303,8 @@
                                                             href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
                                                     </h5>
 
-                                                    <p class="author">By <a href="#">{{ $cours->user->name }}</a>
+                                                    <p class="author">By <a
+                                                            href="#">{{ $cours->user->name }}</a>&nbsp;&nbsp;
                                                         @if (in_array($cours->id, $joinedCourses))
                                                             <span class="badge bg-success">Joined</span>
                                                         @endif
