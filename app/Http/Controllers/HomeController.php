@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\Section;
 use App\Models\Kurikulum;
 use App\Models\Categories;
+use App\Models\Sertifikat;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use App\Models\KelasTatapMuka;
@@ -79,6 +80,49 @@ class HomeController extends Controller
         return view('home.classroom', compact('user', 'categori', 'count', 'course', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'jumlahPendaftaran', 'joinedCourses'));
     }
 
+    // public function classroomdetail($id)
+    // {
+    //     $categori = Categories::all();
+    //     $sertifikat = Sertifikat::all();
+    //     $user = Auth::user();
+    //     $profile = null;
+    //     $cart = Session::get('cart', []);
+    //     $kurikulum = Kurikulum::with('user')->where('course_id', $id)->get();
+    //     if ($user) {
+    //         $profile = UserProfile::where('user_id', $user->id)->first();
+    //     }
+
+    //     $courses = KelasTatapMuka::find($id);
+
+    //     if (!$courses) {
+    //         abort(404, 'Kelas tatap muka tidak ditemukan.');
+    //     }
+
+    //     $courseList = json_decode($courses->include, true);
+
+    //     if (!is_array($courseList)) {
+    //         $courseList = [];
+    //     }
+
+    //     $fasilitas = json_decode($courses->fasilitas, true);
+
+    //     // Ambil notifikasi untuk pengguna yang sedang login
+    //     $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
+    //         ->orderBy('created_at', 'desc')
+    //         ->get()
+    //         : collect(); // Menggunakan collect() untuk membuat koleksi kosong jika pengguna belum login
+
+    //     // Hitung jumlah notifikasi dengan status = 1
+    //     $notifikasiCount = $notifikasi->where('status', 1)->count();
+    //     $jumlahPendaftaran = Order::where('product_id', $id)->count();
+
+    //     // Ambil section yang relevan dengan kurikulum
+    //     $section = Section::whereIn('kurikulum_id', $kurikulum->pluck('id'))->get()->groupBy('kurikulum_id');
+
+    //     $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
+
+    //     return view('home.classroomdetail', compact('user', 'categori', 'jumlahPendaftaran', 'courses', 'kurikulum', 'courseList', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'section', 'joinedCourses'));
+    // }050824
     public function classroomdetail($id)
     {
         $categori = Categories::all();
@@ -86,6 +130,7 @@ class HomeController extends Controller
         $profile = null;
         $cart = Session::get('cart', []);
         $kurikulum = Kurikulum::with('user')->where('course_id', $id)->get();
+
         if ($user) {
             $profile = UserProfile::where('user_id', $user->id)->first();
         }
@@ -119,8 +164,12 @@ class HomeController extends Controller
 
         $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
 
-        return view('home.classroomdetail', compact('user', 'categori', 'jumlahPendaftaran', 'courses', 'kurikulum', 'courseList', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'section', 'joinedCourses'));
+        // Ambil sertifikat dan field kategori terkait
+        $sertifikat = Sertifikat::all(['kategori']); // Hanya ambil field yang diperlukan
+
+        return view('home.classroomdetail', compact('user', 'categori', 'jumlahPendaftaran', 'courses', 'kurikulum', 'courseList', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'section', 'joinedCourses', 'sertifikat'));
     }
+
 
     public function course()
     {
