@@ -52,10 +52,10 @@ class SertifikatController extends Controller
             $sertifikat->save();
 
             // Redirect dengan pesan sukses
-            return redirect()->route('sertifikat.index')->with('success', 'Sertifikat berhasil disimpan.');
+            return redirect()->route('sertifikat')->with('success', 'Sertifikat berhasil disimpan.');
         } else {
             // Redirect dengan pesan error
-            return redirect()->route('sertifikat.create')->with('error', 'Pilih gambar terlebih dahulu.');
+            return redirect()->route('sertifikat')->with('error', 'Pilih gambar terlebih dahulu.');
         }
     }
 
