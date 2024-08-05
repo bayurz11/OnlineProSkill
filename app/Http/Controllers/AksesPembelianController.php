@@ -52,6 +52,45 @@ class AksesPembelianController extends Controller
 
     //     return view('studen.aksespembelian', compact('user', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum'));
     // }220724
+    // public function index()
+    // {
+    //     $categori = Categories::all();
+    //     $cart = Session::get('cart', []);
+    //     $user = Auth::user();
+    //     if (!$user) {
+    //         return redirect()->route('home');
+    //     }
+
+    //     $profile = UserProfile::where('user_id', $user->id)->first();
+
+    //     $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
+    //         ->orderBy('created_at', 'desc')
+    //         ->get()
+    //         : collect();
+
+    //     $notifikasiCount = $notifikasi->where('status', 1)->count();
+
+    //     // Fetching orders related to the user with status PAID and SETTLED
+    //     $orders = Order::where('user_id', $user->id)
+    //         ->whereIn('status', ['PAID', 'SETTLED'])
+    //         ->with('KelasTatapMuka')
+    //         ->get();
+
+    //     $kurikulum = Kurikulum::all();
+
+    //     // Debugging data
+    //     foreach ($orders as $order) {
+    //         Log::info('Order ID: ' . $order->id);
+    //         if ($order->KelasTatapMuka) {
+    //             Log::info('Kelas Tatap Muka ID: ' . $order->KelasTatapMuka->id);
+    //             Log::info('Kelas Tatap Muka Name: ' . $order->KelasTatapMuka->nama_kelas);
+    //         } else {
+    //             Log::info('Kelas Tatap Muka: Not Found');
+    //         }
+    //     }
+
+    //     return view('studen.aksespembelian', compact('user', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum'));
+    // }050824
     public function index()
     {
         $categori = Categories::all();
@@ -78,6 +117,9 @@ class AksesPembelianController extends Controller
 
         $kurikulum = Kurikulum::all();
 
+        // Ambil ID kursus yang telah diikuti oleh user
+        $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
+
         // Debugging data
         foreach ($orders as $order) {
             Log::info('Order ID: ' . $order->id);
@@ -89,8 +131,9 @@ class AksesPembelianController extends Controller
             }
         }
 
-        return view('studen.aksespembelian', compact('user', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum'));
+        return view('studen.aksespembelian', compact('user', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum', 'joinedCourses'));
     }
+
 
     // public function lesson($id)
     // {

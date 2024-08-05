@@ -88,7 +88,6 @@
                                             class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
                                             @foreach ($orders as $order)
                                                 <div class="col mb-4">
-                                                    <!-- Menggunakan kelas Bootstrap mb-4 untuk margin bawah -->
                                                     <div class="courses__item courses__item-two shine__animate-item"
                                                         style="display: flex; flex-direction: column; height: 100%;">
                                                         <div class="courses__item-thumb courses__item-thumb-two">
@@ -110,7 +109,7 @@
                                                                         <img src="{{ asset('public/assets/img/courses/course_author001.png') }}"
                                                                             alt="img">
                                                                         {{ $order->KelasTatapMuka->user->name }}
-                                                                        @if (in_array($order->id, $joinedCourses))
+                                                                        @if (in_array($order->product_id, $joinedCourses))
                                                                             <span class="badge bg-success">Joined</span>
                                                                         @endif
                                                                     </a>
@@ -128,6 +127,7 @@
                                                     </div>
                                                 </div>
                                             @endforeach
+
                                         </div>
 
                                     </div>
