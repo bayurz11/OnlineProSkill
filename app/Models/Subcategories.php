@@ -22,4 +22,8 @@ class Subcategories extends Model
     {
         return $this->hasMany(CourseMaster::class);
     }
+    public function sertifikat()
+    {
+        return $this->hasMany(Sertifikat::class);
+    }
 }

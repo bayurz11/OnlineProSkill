@@ -19,4 +19,8 @@ class Categories extends Model
     {
         return $this->hasMany(Subcategories::class);
     }
+    public function sertifikat()
+    {
+        return $this->hasMany(Sertifikat::class);
+    }
 }
