@@ -29,6 +29,7 @@ class SertifikatController extends Controller
             'sertifikat_id' => 'required|string|max:255',
             'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'keterangan' => 'required|string|max:255',
+            'kategori' => 'required|string|max:255',
         ]);
 
         // Cek apakah file gambar ada
@@ -43,6 +44,7 @@ class SertifikatController extends Controller
             $sertifikat->sertifikat_id = $request->sertifikat_id;
             $sertifikat->gambar = $gambarName;
             $sertifikat->keterangan = $request->keterangan;
+            $sertifikat->kategori = $request->kategori;
             $sertifikat->save();
 
             // Redirect dengan pesan sukses
@@ -72,6 +74,7 @@ class SertifikatController extends Controller
             'sertifikat_id' => 'required|string|max:255',
             'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'keterangan' => 'required|string|max:255',
+            'kategori' => 'required|string|max:255',
         ]);
 
         // Temukan sertifikat berdasarkan ID
@@ -81,6 +84,7 @@ class SertifikatController extends Controller
         $sertifikat->name = $request->name;
         $sertifikat->sertifikat_id = $request->sertifikat_id;
         $sertifikat->keterangan = $request->keterangan;
+        $sertifikat->kategori = $request->kategori;
 
         // Cek apakah ada file gambar yang diunggah
         if ($request->hasFile('gambar')) {
