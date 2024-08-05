@@ -185,7 +185,8 @@
                         @if (in_array($courses->id, $joinedCourses))
                             <div class="courses__details-enroll">
                                 <div class="tg-button-wrap">
-                                    <a href="{{ route('lesson', ['id' => $courses->id]) }}" class="btn btn-primary">
+                                    <a href="{{ route('lesson', ['id' => $courses->id]) }}"
+                                        class="btn btn-two arrow-btn">
                                         Lanjut Belajar
                                     </a>
                                 </div>
