@@ -110,6 +110,11 @@
                                                                         <img src="{{ asset('public/assets/img/courses/course_author001.png') }}"
                                                                             alt="img">
                                                                         {{ $order->KelasTatapMuka->user->name }}
+                                                                        @if ($order->KelasTatapMuka->course_type == 'online')
+                                                                            <span class="badge bg-primary">Online</span>
+                                                                        @else
+                                                                            <span class="badge bg-secondary">Offline</span>
+                                                                        @endif
                                                                     </a>
                                                                 </div>
                                                             </div>
@@ -125,6 +130,7 @@
                                                     </div>
                                                 </div>
                                             @endforeach
+
                                         </div>
 
                                     </div>
