@@ -27,10 +27,15 @@
                     <img id="preview" src="#" alt="Preview banner"
                         style="max-width: 100%; max-height: 200px; display: none;">
                     <div class="mb-3">
-                        <label for="keterangan" class="form-label">Keterangan<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="keterangan" name="keterangan"
-                            placeholder="Masukkan Keterangan">
+                        <label for="kategori" class="form-label">Kategori<span class="text-danger">*</span></label>
+                        <select class="form-control" id="kategori" name="kategori">
+                            <option value="">Pilih Kategori</option>
+                            <option value="FCS">Fundamental Computer Skill</option>
+                            <option value="MOA">Mahir Aplikasi Office Tingkat Advance</option>
+                            <option value="DGCF">Design Menggunakan Canva Dan Figma</option>
+                        </select>
                     </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
