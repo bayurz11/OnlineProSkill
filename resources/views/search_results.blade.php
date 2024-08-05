@@ -222,110 +222,119 @@
                                 </div>
                             </div>
                         </div>
-                        <div
-                            class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
-                            @foreach ($results as $cours)
-                                <div class="col mb-4">
-                                    <div class="courses__item shine__animate-item"
-                                        style="display: flex; flex-direction: column; height: 100%;">
-                                        <div class="courses__item-thumb">
-                                            <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}"
-                                                class="shine__animate-link">
-                                                <img src="{{ asset('public/uploads/' . $cours->gambar) }}" alt="Banner"
-                                                    style="width: 100%; height: auto;">
-                                            </a>
-                                        </div>
-                                        <div class="courses__item-content"
-                                            style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
-                                            <h5 class="title">
-                                                <a
-                                                    href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
-                                            </h5>
-                                            <p class="author">By <a href="#">{{ $cours->user->name }}</a>
-                                                @if (in_array($cours->id, $joinedCourses))
-                                                    <span class="badge bg-success">Joined</span>
-                                                @endif
-                                            </p>
-                                            <div class="courses__item-bottom">
-                                                <div class="button">
-                                                    <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}">
-                                                        <span class="text">Detail</span>
-                                                        <i class="flaticon-arrow-right"></i>
+                        <div class="tab-content" id="myTabContent">
+
+
+                            <div class="tab-pane fade show active" id="grid" role="tabpanel"
+                                aria-labelledby="grid-tab">
+                                <div
+                                    class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
+                                    @foreach ($results as $cours)
+                                        <div class="col mb-4">
+                                            <div class="courses__item shine__animate-item"
+                                                style="display: flex; flex-direction: column; height: 100%;">
+                                                <div class="courses__item-thumb">
+                                                    <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}"
+                                                        class="shine__animate-link">
+                                                        <img src="{{ asset('public/uploads/' . $cours->gambar) }}"
+                                                            alt="Banner" style="width: 100%; height: auto;">
                                                     </a>
                                                 </div>
-                                                <h5 class="price">Rp {{ number_format($cours->price, 0, ',', ',') }}</h5>
-                                                @if ($cours->course_type == 'online')
-                                                    <span class="badge bg-primary">Online</span>
-                                                @else
-                                                    <span class="badge bg-secondary">Offline</span>
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                        <div class="tab-pane fade" id="list" role="tabpanel" aria-labelledby="list-tab">
-                            <div class="row courses__list-wrap row-cols-1">
-                                @foreach ($results as $cours)
-                                    <div class="col">
-                                        <div class="courses__item courses__item-three shine__animate-item">
-                                            <div class="courses__item-thumb">
-                                                <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}"
-                                                    class="shine__animate-link">
-                                                    <img src="{{ asset('public/uploads/' . $cours->gambar) }}"
-                                                        alt="Banner" class="wd-100 wd-sm-150 me-3">
-                                                </a>
-                                            </div>
-                                            <div class="courses__item-content">
-                                                <ul class="courses__item-meta list-wrap">
-
-                                                    <li class="price">
-                                                        Rp. {{ number_format($cours->price, 0, ',', '.') }}
-                                                    </li>
-                                                </ul>
-                                                <h5 class="title"><a
-                                                        href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
-                                                </h5>
-                                                <p class="author">By <a
-                                                        href="#">{{ $cours->user->name }}</a>&nbsp;&nbsp; <img
-                                                        src="{{ asset('public/assets/img/icons/course_icon06.svg') }}"
-                                                        alt="img" class="injectable">
-                                                    Kuota Kelas
-                                                    <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}/{{ $cours->kuota }}</span>
-                                                    @if (in_array($cours->id, $joinedCourses))
-                                                        <span
-                                                            style="color: green; font-weight: bold; padding: 2px 6px; border: 1px solid green; border-radius: 10rem; background-color: #e0f7e9;">
-                                                            Joined
-                                                        </span>
-                                                    @endif
-                                                </p>
-                                                <p class="info">{!! $cours->content !!}</p>
-                                                <div class="courses__item-bottom">
-                                                    <div class="button">
-                                                        <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}">
-                                                            <span class="text">Detail</span>
-                                                            <i class="flaticon-arrow-right"></i>
-                                                        </a>
-                                                    </div>
-                                                    {{-- <div class="button">
-                                                            <a href="{{ route('cart.add', ['id' => $cours->id]) }}"
-                                                                class="cart-count"
-                                                                style="color: #ffffff; background-color: #007F73;">Keranjang
-                                                                <img src="{{ asset('public/assets/img/icons/cart.svg') }}"
-                                                                    class="injectable" alt="img">
+                                                <div class="courses__item-content"
+                                                    style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                                                    <h5 class="title">
+                                                        <a
+                                                            href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
+                                                    </h5>
+                                                    <p class="author">By <a href="#">{{ $cours->user->name }}</a>
+                                                        @if (in_array($cours->id, $joinedCourses))
+                                                            <span class="badge bg-success">Joined</span>
+                                                        @endif
+                                                    </p>
+                                                    <div class="courses__item-bottom">
+                                                        <div class="button">
+                                                            <a
+                                                                href="{{ route('classroomdetail', ['id' => $cours->id]) }}">
+                                                                <span class="text">Detail</span>
+                                                                <i class="flaticon-arrow-right"></i>
                                                             </a>
-                                                        </div> --}}
+                                                        </div>
+                                                        <h5 class="price">Rp
+                                                            {{ number_format($cours->price, 0, ',', ',') }}</h5>
+                                                        @if ($cours->course_type == 'online')
+                                                            <span class="badge bg-primary">Online</span>
+                                                        @else
+                                                            <span class="badge bg-secondary">Offline</span>
+                                                        @endif
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                @endforeach
+                                    @endforeach
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="list" role="tabpanel" aria-labelledby="list-tab">
+                                <div class="row courses__list-wrap row-cols-1">
+                                    @foreach ($results as $cours)
+                                        <div class="col">
+                                            <div class="courses__item courses__item-three shine__animate-item">
+                                                <div class="courses__item-thumb">
+                                                    <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}"
+                                                        class="shine__animate-link">
+                                                        <img src="{{ asset('public/uploads/' . $cours->gambar) }}"
+                                                            alt="Banner" class="wd-100 wd-sm-150 me-3">
+                                                    </a>
+                                                </div>
+                                                <div class="courses__item-content">
+                                                    <ul class="courses__item-meta list-wrap">
+
+                                                        <li class="price">
+                                                            Rp. {{ number_format($cours->price, 0, ',', '.') }}
+                                                        </li>
+                                                    </ul>
+                                                    <h5 class="title"><a
+                                                            href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
+                                                    </h5>
+                                                    <p class="author">By <a
+                                                            href="#">{{ $cours->user->name }}</a>&nbsp;&nbsp;
+                                                        <img src="{{ asset('public/assets/img/icons/course_icon06.svg') }}"
+                                                            alt="img" class="injectable">
+                                                        Kuota Kelas
+                                                        <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}/{{ $cours->kuota }}</span>
+                                                        @if (in_array($cours->id, $joinedCourses))
+                                                            <span
+                                                                style="color: green; font-weight: bold; padding: 2px 6px; border: 1px solid green; border-radius: 10rem; background-color: #e0f7e9;">
+                                                                Joined
+                                                            </span>
+                                                        @endif
+                                                    </p>
+                                                    <p class="info">{!! $cours->content !!}</p>
+                                                    <div class="courses__item-bottom">
+                                                        <div class="button">
+                                                            <a
+                                                                href="{{ route('classroomdetail', ['id' => $cours->id]) }}">
+                                                                <span class="text">Detail</span>
+                                                                <i class="flaticon-arrow-right"></i>
+                                                            </a>
+                                                        </div>
+                                                        {{-- <div class="button">
+                                                        <a href="{{ route('cart.add', ['id' => $cours->id]) }}"
+                                                            class="cart-count"
+                                                            style="color: #ffffff; background-color: #007F73;">Keranjang
+                                                            <img src="{{ asset('public/assets/img/icons/cart.svg') }}"
+                                                                class="injectable" alt="img">
+                                                        </a>
+                                                    </div> --}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
                 </div>
-            </div>
-        </div>
     </section>
     <!-- all-courses-end -->
     @endif
