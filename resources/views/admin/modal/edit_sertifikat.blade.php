@@ -34,6 +34,16 @@
                         <input type="text" class="form-control" id="edit_keterangan" name="keterangan"
                             placeholder="Masukkan Keterangan">
                     </div>
+
+                    <div class="mb-3">
+                        <label for="edit_kategori" class="form-label">Kategori<span class="text-danger">*</span></label>
+                        <select class="form-control" id="edit_kategori" name="kategori">
+                            <option value="">Pilih Kategori</option>
+                            <option value="FCS">Fundamental Computer Skill</option>
+                            <option value="MOA">Mahir Aplikasi Office Tingkat Advance</option>
+                            <option value="DGCF">Design Menggunakan Canva Dan Figma</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
@@ -56,6 +66,7 @@
                     $('#edit_name').val(data.name);
                     $('#edit_sertifikat_id').val(data.sertifikat_id);
                     $('#edit_keterangan').val(data.keterangan);
+                    $('#edit_kategori').val(data.kategori);
 
                     // Update image preview
                     if (data.gambar) {
