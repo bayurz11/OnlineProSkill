@@ -246,7 +246,10 @@
                                                         <a
                                                             href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
                                                     </h5>
-                                                    <p class="author">By <a href="#">{{ $cours->user->name }}</a>
+                                                    <p class="author">By <a
+                                                            href="#">{{ $cours->user->name }}</a><img
+                                                            src="{{ asset('public/assets/img/icons/course_icon06.svg') }}"
+                                                            alt="img" class="injectable">
                                                         @if (in_array($cours->id, $joinedCourses))
                                                             <span class="badge bg-success">Joined</span>
                                                         @endif
