@@ -61,14 +61,11 @@
                                 </li>
 
                                 @if ($courses->nama_kursus == 'Fundamental Computer Skill')
-                                    <li><i class="flaticon-mortarboard"></i>{{ $jumlahSertifikatFCS }} Sertifikat dengan
-                                        kategori FCS</li>
+                                    <li><i class="flaticon-mortarboard"></i>{{ $jumlahSertifikatFCS }} Siswa</li>
                                 @elseif ($courses->nama_kursus == 'Mahir Aplikasi Office Tingkat Advance')
-                                    <li><i class="flaticon-mortarboard"></i>{{ $jumlahSertifikatMOA }} Sertifikat dengan
-                                        kategori MOA</li>
+                                    <li><i class="flaticon-mortarboard"></i>{{ $jumlahSertifikatMOA }} Siswa</li>
                                 @elseif ($courses->nama_kursus == 'Design Menggunakan Canva Dan Figma')
-                                    <li><i class="flaticon-mortarboard"></i>{{ $jumlahSertifikatDGCF }} Sertifikat dengan
-                                        kategori DGCF</li>
+                                    <li><i class="flaticon-mortarboard"></i>{{ $jumlahSertifikatDGCF }} Siswa</li>
                                 @endif
                             </ul>
                         </div>
