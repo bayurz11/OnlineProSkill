@@ -31,8 +31,6 @@ class SertifikatController extends Controller
             'sertifikat_id' => 'required|string|max:255',
             'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'keterangan' => 'required|string|max:255',
-            'kategori_id' => 'required|exists:kategoris,id',
-            'subkategori_id' => 'required|exists:subkategoris,id',
         ]);
 
         // Cek apakah file gambar ada
