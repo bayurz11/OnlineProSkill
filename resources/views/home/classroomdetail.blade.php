@@ -61,7 +61,7 @@
                                 </li>
 
 
-                                <li><i class="flaticon-mortarboard"></i>{{ $sertifikatCount }}</li>
+                                <li><i class="flaticon-mortarboard"></i>{{ $sertifikatCount }} Lulusan</li>
 
                             </ul>
                         </div>
