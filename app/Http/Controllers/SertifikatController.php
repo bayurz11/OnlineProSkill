@@ -17,7 +17,7 @@ class SertifikatController extends Controller
         $user = Auth::user();
         $sertifikat = Sertifikat::all();
         $categori = Categories::all();
-        $subcategori = Subcategories::with('category')->get();
+        $subcategori = Subcategories::all();
         if (!$user) {
             return redirect()->route('/');
         }
