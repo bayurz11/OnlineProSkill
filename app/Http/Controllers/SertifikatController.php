@@ -77,9 +77,8 @@ class SertifikatController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'sertifikat_id' => 'required|string|max:255',
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:20048',
             'keterangan' => 'required|string|max:255',
-            'kategori' => 'required|string|max:255',
         ]);
 
         // Temukan sertifikat berdasarkan ID
@@ -89,7 +88,8 @@ class SertifikatController extends Controller
         $sertifikat->name = $request->name;
         $sertifikat->sertifikat_id = $request->sertifikat_id;
         $sertifikat->keterangan = $request->keterangan;
-        $sertifikat->kategori = $request->kategori;
+        $sertifikat->kategori_id = $request->kategori_id;
+        $sertifikat->subkategori_id = $request->subkategori_id;
 
         // Cek apakah ada file gambar yang diunggah
         if ($request->hasFile('gambar')) {
