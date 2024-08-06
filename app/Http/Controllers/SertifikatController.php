@@ -29,7 +29,7 @@ class SertifikatController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'sertifikat_id' => 'required|string|max:255',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:20048',
             'keterangan' => 'required|string|max:255',
         ]);
 
