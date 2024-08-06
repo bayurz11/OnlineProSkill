@@ -127,6 +127,7 @@
             <p>Atas Kelulusannya Pada Kelas</p>
             <h3>
                 {{ $coursename }}
+
             </h3>
         </div>
     </div>

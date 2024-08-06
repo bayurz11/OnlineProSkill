@@ -280,9 +280,9 @@ class AksesPembelianController extends Controller
         }
 
         $firstCourse = $completedCourses->first();
-        $product = $firstCourse->KelasTatapMuka; // Ambil data KelasTatapMuka
-        $certificateId = sprintf("%03d", Order::where('user_id', $user->id)->count()) . " / PSA / " . strtoupper($product->nama_kursus) . " / " . now()->format('m.Y');
-        $coursename = strtoupper($product->nama_kursus);
+        $product = Kurikulum::where('course_id', $firstCourse->KelasTatapMuka->id)->first(); // Ambil data Kurikulum berdasarkan course_id
+        $certificateId = sprintf("%03d", Order::where('user_id', $user->id)->count()) . " / PSA / " . strtoupper($product->course_name) . " / " . now()->format('m.Y');
+        $coursename = strtoupper($product->course_name);
 
         $pdf = $this->pdf->loadView('home.sertifikat.index', [
             'user' => $user,
@@ -296,12 +296,14 @@ class AksesPembelianController extends Controller
         return $pdf->download('sertifikat_penyelesaian.pdf');
     }
 
+
     public function previewCertificate(Request $request)
     {
         $user = Auth::user();
 
+        // Cek jika pengguna login
         if (!$user) {
-            return redirect()->route('home')->with('error', 'Anda harus login untuk melihat pratinjau sertifikat.');
+            return redirect()->route('home')->with('error', 'Anda harus login untuk mencetak sertifikat.');
         }
 
         $profile = UserProfile::where('user_id', $user->id)->first();
@@ -326,9 +328,9 @@ class AksesPembelianController extends Controller
         }
 
         $firstCourse = $completedCourses->first();
-        $product = $firstCourse->KelasTatapMuka; // Ambil data KelasTatapMuka
-        $certificateId = sprintf("%03d", Order::where('user_id', $user->id)->count()) . " / PSA / " . strtoupper($product->nama_kursus) . " / " . now()->format('m.Y');
-        $coursename = strtoupper($product->nama_kursus);
+        $product = Kurikulum::where('course_id', $firstCourse->KelasTatapMuka->id)->first(); // Ambil data Kurikulum berdasarkan course_id
+        $certificateId = sprintf("%03d", Order::where('user_id', $user->id)->count()) . " / PSA / " . strtoupper($product->course_name) . " / " . now()->format('m.Y');
+        $coursename = strtoupper($product->course_name);
 
         $pdf = $this->pdf->loadView('home.sertifikat.index', [
             'user' => $user,
@@ -339,6 +341,6 @@ class AksesPembelianController extends Controller
             'coursename' => $coursename,
         ])->setPaper('a4', 'landscape');
 
-        return $pdf->stream('sertifikat_penyelesaian.pdf');
+        return $pdf->download('sertifikat_penyelesaian.pdf');
     }
 }
