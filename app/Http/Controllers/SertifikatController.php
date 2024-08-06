@@ -6,6 +6,7 @@ use App\Models\Categories;
 use App\Models\Sertifikat;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
+use App\Models\Subcategories;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,11 +17,12 @@ class SertifikatController extends Controller
         $user = Auth::user();
         $sertifikat = Sertifikat::all();
         $categori = Categories::all();
+        $subcategori = Subcategories::with('category')->get();
         if (!$user) {
             return redirect()->route('/');
         }
 
-        return view('admin.sertifikat.index', compact('user', 'sertifikat', 'categori'));
+        return view('admin.sertifikat.index', compact('user', 'sertifikat', 'categori', 'subcategori'));
     }
 
     public function store(Request $request)
