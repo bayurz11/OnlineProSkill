@@ -60,13 +60,9 @@
                                     <a href="#">{{ $courses->user->name }}</a>
                                 </li>
 
-                                @if ($courses->nama_kursus == 'Fundamental Computer Skill')
-                                    <li><i class="flaticon-mortarboard"></i>{{ $jumlahSertifikatFCS }} Siswa</li>
-                                @elseif ($courses->nama_kursus == 'Mahir Aplikasi Office Tingkat Advance')
-                                    <li><i class="flaticon-mortarboard"></i>{{ $jumlahSertifikatMOA }} Siswa</li>
-                                @elseif ($courses->nama_kursus == 'Design Menggunakan Canva Dan Figma')
-                                    <li><i class="flaticon-mortarboard"></i>{{ $jumlahSertifikatDGCF }} Siswa</li>
-                                @endif
+
+                                <li><i class="flaticon-mortarboard"></i>12 Siswa</li>
+
                             </ul>
                         </div>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
