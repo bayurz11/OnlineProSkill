@@ -280,7 +280,7 @@ class AksesPembelianController extends Controller
         }
 
         $firstCourse = $completedCourses->first();
-        $product = Kurikulum::where('course_id', $firstCourse->KelasTatapMuka->id)->first(); // Ambil data Kurikulum berdasarkan course_id
+        $product = $firstCourse->KelasTatapMuka; // Ambil data KelasTatapMuka
         $certificateId = sprintf("%03d", Order::where('user_id', $user->id)->count()) . " / PSA / " . strtoupper($product->nama_kursus) . " / " . now()->format('m.Y');
         $coursename = strtoupper($product->nama_kursus);
 
@@ -300,9 +300,8 @@ class AksesPembelianController extends Controller
     {
         $user = Auth::user();
 
-        // Cek jika pengguna login
         if (!$user) {
-            return redirect()->route('home')->with('error', 'Anda harus login untuk mencetak sertifikat.');
+            return redirect()->route('home')->with('error', 'Anda harus login untuk melihat pratinjau sertifikat.');
         }
 
         $profile = UserProfile::where('user_id', $user->id)->first();
@@ -327,7 +326,7 @@ class AksesPembelianController extends Controller
         }
 
         $firstCourse = $completedCourses->first();
-        $product = Kurikulum::where('course_id', $firstCourse->KelasTatapMuka->id)->first(); // Ambil data Kurikulum berdasarkan course_id
+        $product = $firstCourse->KelasTatapMuka; // Ambil data KelasTatapMuka
         $certificateId = sprintf("%03d", Order::where('user_id', $user->id)->count()) . " / PSA / " . strtoupper($product->nama_kursus) . " / " . now()->format('m.Y');
         $coursename = strtoupper($product->nama_kursus);
 
@@ -340,6 +339,6 @@ class AksesPembelianController extends Controller
             'coursename' => $coursename,
         ])->setPaper('a4', 'landscape');
 
-        return $pdf->download('sertifikat_penyelesaian.pdf');
+        return $pdf->stream('sertifikat_penyelesaian.pdf');
     }
 }
