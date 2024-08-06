@@ -30,6 +30,7 @@
             padding: 50px;
             box-sizing: border-box;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-position: center 50px;
         }
 
         .content {
