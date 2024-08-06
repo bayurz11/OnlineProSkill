@@ -295,7 +295,7 @@ class AksesPembelianController extends Controller
             ])->setPaper('a4', 'landscape');
 
 
-            return $pdf->merge('download', 'sertifikat_penyelesaian.pdf');
+            return $pdf->merge('sertifikat_penyelesaian.pdf');
         }
     }
 
