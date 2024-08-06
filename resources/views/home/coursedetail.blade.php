@@ -60,7 +60,7 @@
                                     <a href="#">{{ $courses->user->name }}</a>
                                 </li>
 
-                                <li><i class="flaticon-mortarboard"></i>2,250 Lulusan</li>
+                                <li><i class="flaticon-mortarboard"></i>{{ $sertifikatCount }} Lulusan</li>
                             </ul>
                         </div>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
