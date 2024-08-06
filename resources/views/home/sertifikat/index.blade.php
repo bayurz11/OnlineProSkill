@@ -21,8 +21,8 @@
         .certificate {
             background: url('{{ asset('public/1.png') }}') no-repeat center center;
             background-size: cover;
-            width: 842px;
-            height: 595px;
+            width: 1000px;
+            height: 707px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
