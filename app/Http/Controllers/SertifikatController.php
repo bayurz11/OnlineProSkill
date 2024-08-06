@@ -8,6 +8,7 @@ use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use App\Models\Subcategories;
 use App\Http\Controllers\Controller;
+use App\Models\KelasTatapMuka;
 use Illuminate\Support\Facades\Auth;
 
 class SertifikatController extends Controller
@@ -16,8 +17,7 @@ class SertifikatController extends Controller
     {
         $user = Auth::user();
         $sertifikat = Sertifikat::all();
-        $categori = Categories::all();
-        $subcategori = Subcategories::all();
+        $classroom = KelasTatapMuka::all();
         if (!$user) {
             return redirect()->route('/');
         }

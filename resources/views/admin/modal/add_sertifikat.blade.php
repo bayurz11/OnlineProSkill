@@ -37,9 +37,9 @@
                         <select id="category" class="js-example-basic-single form-select" name="kategori_id"
                             data-width="100%" required>
                             <option value="">Pilih Kategori</option>
-                            @foreach ($categori as $category)
-                                @if ($category->status == 1)
-                                    <option value="{{ $category->id }}">{{ $category->name_category }}</option>
+                            @foreach ($classroom as $class)
+                                @if ($class->status == 1)
+                                    <option value="{{ $class->id }}">{{ $class->nama_kursus }}</option>
                                 @endif
                             @endforeach
                         </select>
