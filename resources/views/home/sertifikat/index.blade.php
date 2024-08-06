@@ -125,12 +125,10 @@
             <img class="qr" src="{{ asset('public/3.jpg') }}" alt="QR Code">
             <h2>{{ $user->name }}</h2>
             <p>Atas Kelulusannya Pada Kelas</p>
-            <h3>
-                {{ $coursename }}
-
-            </h3>
+            <h3>{{ $coursename }}</h3>
         </div>
     </div>
 </body>
+
 
 </html>
