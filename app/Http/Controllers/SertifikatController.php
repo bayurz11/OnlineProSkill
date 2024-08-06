@@ -22,7 +22,7 @@ class SertifikatController extends Controller
             return redirect()->route('/');
         }
 
-        return view('admin.sertifikat.index', compact('user', 'sertifikat', 'subcategori'));
+        return view('admin.sertifikat.index', compact('user', 'sertifikat', 'classroom'));
     }
 
     public function store(Request $request)
