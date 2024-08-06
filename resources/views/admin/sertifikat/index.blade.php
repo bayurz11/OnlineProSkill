@@ -46,7 +46,7 @@
                                             <td>{{ $sertifikat->sertifikat_id }}</td>
                                             <td>{{ $sertifikat->name }}</td>
                                             <td>{{ $sertifikat->keterangan }}</td>
-                                            <td>{{ $sertifikat->kategori->name_category }}</td>
+                                            <td>{{ $sertifikat->kategori }}</td>
                                             <td><img src="{{ asset('public/uploads/' . $sertifikat->gambar) }}"
                                                     alt="Banner" class="wd-100 wd-sm-150 me-3"></td>
                                             <td>
