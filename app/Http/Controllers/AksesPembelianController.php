@@ -296,7 +296,6 @@ class AksesPembelianController extends Controller
         return $pdf->download('sertifikat_penyelesaian.pdf');
     }
 
-
     public function previewCertificate(Request $request)
     {
         $user = Auth::user();
