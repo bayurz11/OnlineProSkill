@@ -16,7 +16,7 @@ class SertifikatController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $sertifikat = Sertifikat::all();
+        $sertifikat = Sertifikat::with('kelasTatapMuka')->get();
         $classroom = KelasTatapMuka::all();
         if (!$user) {
             return redirect()->route('/');
