@@ -292,7 +292,7 @@ class AksesPembelianController extends Controller
                 'date' => now()->format('d F Y'),
                 'certificateId' => $certificateId,
                 'coursename' => $coursename,
-            ])->setPaper('a4', 'landscape');
+            ])->setPaper('landscape');
 
 
             return $pdf->download('sertifikat_penyelesaian.pdf');
