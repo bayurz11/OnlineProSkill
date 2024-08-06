@@ -6,30 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sertifikat</title>
     <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
         body,
         html {
             margin: 0;
             padding: 0;
-            width: 100%;
-            height: 100%;
+            width: 210mm;
+            height: 297mm;
             display: flex;
             justify-content: center;
             align-items: center;
             background-color: #f4f4f4;
+            box-sizing: border-box;
         }
 
         .certificate {
             background: url('{{ asset('public/1.png') }}') no-repeat center center;
             background-size: cover;
-            width: 1000px;
-            height: 707px;
+            width: 100%;
+            height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 50px;
+            padding: 20mm;
             box-sizing: border-box;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
         }
 
         .content {
@@ -40,21 +45,21 @@
 
         .content h1 {
             margin: 0;
-            font-size: 80px;
+            font-size: 40px;
             color: #007F73;
-            margin-top: 90px;
+            margin-top: 20mm;
         }
 
         .content h2 {
             margin: 0;
-            font-size: 60px;
+            font-size: 30px;
             color: #007F73;
-            margin-top: 20px;
+            margin-top: 10mm;
         }
 
         .content h3 {
             margin: 0;
-            font-size: 30px;
+            font-size: 15px;
             color: #007F73;
         }
 
@@ -66,8 +71,8 @@
         }
 
         .content p {
-            margin: 20px 0;
-            font-size: 18px;
+            margin: 10mm 0;
+            font-size: 9px;
             color: #666;
         }
 
@@ -75,8 +80,8 @@
             position: absolute;
             top: 20px;
             right: -26px;
-            width: 198px;
-            height: 250px;
+            width: 50mm;
+            height: 60mm;
             object-fit: cover;
             border-radius: 10%;
             border: 5px solid #fdffff;
@@ -84,11 +89,10 @@
 
         .content img.qr {
             position: absolute;
-            /* bottom: -194px; */
-            top: 398px;
-            left: 34px;
-            width: 180px;
-            height: 180px;
+            top: 100mm;
+            left: 10mm;
+            width: 45mm;
+            height: 45mm;
             object-fit: cover;
             border: 5px solid #fdffff;
         }
@@ -102,7 +106,7 @@
 
         .signature p {
             margin: 0;
-            font-size: 18px;
+            font-size: 9px;
             color: #333;
             text-align: right;
         }
@@ -129,6 +133,5 @@
         </div>
     </div>
 </body>
-
 
 </html>
