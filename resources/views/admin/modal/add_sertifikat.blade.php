@@ -44,15 +44,6 @@
                             @endforeach
                         </select>
                     </div>
-
-                    <div class="mb-3">
-                        <label for="subcategory" class="form-label">Subkategori<span
-                                class="text-danger">*</span></label>
-                        <select id="subcategory" class="form-control" name="subkategori_id" disabled>
-                            <option value="">Pilih Subkategori</option>
-                        </select>
-                    </div>
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
