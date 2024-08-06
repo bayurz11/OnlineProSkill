@@ -253,7 +253,6 @@ class AksesPembelianController extends Controller
     {
         $user = Auth::user();
 
-        // Cek jika pengguna login
         if (!$user) {
             return redirect()->route('home')->with('error', 'Anda harus login untuk mencetak sertifikat.');
         }
@@ -279,22 +278,27 @@ class AksesPembelianController extends Controller
             return redirect()->route('home')->with('error', 'Anda belum menyelesaikan kursus apapun.');
         }
 
-        $firstCourse = $completedCourses->first();
-        $product = $firstCourse->KelasTatapMuka; // Ambil data KelasTatapMuka
-        $certificateId = sprintf("%03d", Order::where('user_id', $user->id)->count()) . " / PSA / " . strtoupper($product->nama_kursus) . " / " . now()->format('m.Y');
-        $coursename = strtoupper($product->nama_kursus);
+        $pdfs = [];
+        foreach ($completedCourses as $course) {
+            $courseId = $course->KelasTatapMuka->id; // Ambil ID kursus
+            $kurikulum = Kurikulum::with('sections')->where('course_id', $courseId)->first();
+            $coursename = strtoupper($kurikulum->course_name); // Ambil nama kursus dari kurikulum
+            $certificateId = sprintf("%03d", Order::where('user_id', $user->id)->count()) . " / PSA / " . $coursename . " / " . now()->format('m.Y');
 
-        $pdf = $this->pdf->loadView('home.sertifikat.index', [
-            'user' => $user,
-            'profile' => $profile,
-            'completedCourses' => $completedCourses,
-            'date' => now()->format('d F Y'),
-            'certificateId' => $certificateId,
-            'coursename' => $coursename,
-        ])->setPaper('a4', 'landscape');
+            $pdf = $this->pdf->loadView('home.sertifikat.index', [
+                'user' => $user,
+                'profile' => $profile,
+                'completedCourses' => $completedCourses,
+                'date' => now()->format('d F Y'),
+                'certificateId' => $certificateId,
+                'coursename' => $coursename,
+            ])->setPaper('a4', 'landscape');
 
-        return $pdf->download('sertifikat_penyelesaian.pdf');
+
+            return $pdf->merge('download', 'sertifikat_penyelesaian.pdf');
+        }
     }
+
 
     public function previewCertificate(Request $request)
     {
