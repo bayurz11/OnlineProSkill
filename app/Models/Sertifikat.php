@@ -13,15 +13,9 @@ class Sertifikat extends Model
 
     protected $guarded = [];
 
-    // Relasi ke model Kategori
-    public function kategori()
+    // Relasi ke model KelasTatapMuka
+    public function KelasTatapMuka()
     {
-        return $this->belongsTo(Categories::class);
-    }
-
-    // Relasi ke model Subkategori
-    public function subkategori()
-    {
-        return $this->belongsTo(Subcategories::class);
+        return $this->belongsTo(KelasTatapMuka::class);
     }
 }
