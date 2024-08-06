@@ -344,7 +344,7 @@ class AksesPembelianController extends Controller
                 'date' => now()->format('d F Y'),
                 'certificateId' => $certificateId,
                 'coursename' => $coursename,
-            ])->setPaper('a4', 'landscape'); // Mengatur ukuran kertas menjadi legal dan orientasi landscape
+            ])->setPaper('A4', 'landscape'); // Mengatur ukuran kertas menjadi legal dan orientasi landscape
 
             return $pdf->stream('sertifikat_penyelesaian.pdf');
         }
