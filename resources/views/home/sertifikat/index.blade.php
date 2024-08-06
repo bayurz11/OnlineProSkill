@@ -7,7 +7,7 @@
     <title>Sertifikat</title>
     <style>
         @page {
-            size: A4;
+            size: A4 landscape;
             margin: 0;
         }
 
