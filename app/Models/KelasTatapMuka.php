@@ -47,4 +47,8 @@ class KelasTatapMuka extends Model
     {
         return $this->hasMany(Order::class, 'course_id');
     }
+    public function sertifikat()
+    {
+        return $this->hasMany(Sertifikat::class);
+    }
 }
