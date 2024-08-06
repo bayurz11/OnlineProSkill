@@ -164,9 +164,13 @@ class HomeController extends Controller
 
         $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
 
+        // Ambil sertifikat dan hitung jumlah subkategori_id sesuai dengan id dari product_id
+        $orderProductIds = Order::where('product_id', $id)->pluck('product_id');
+        $sertifikatCount = Sertifikat::whereIn('subkategori_id', $orderProductIds)->count();
 
-        return view('home.classroomdetail', compact('user', 'categori', 'jumlahPendaftaran', 'courses', 'kurikulum', 'courseList', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'section', 'joinedCourses'));
+        return view('home.classroomdetail', compact('user', 'categori', 'jumlahPendaftaran', 'courses', 'kurikulum', 'courseList', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'section', 'joinedCourses', 'sertifikatCount'));
     }
+
 
 
 

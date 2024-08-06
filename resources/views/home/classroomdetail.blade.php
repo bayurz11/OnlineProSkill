@@ -61,7 +61,7 @@
                                 </li>
 
 
-                                <li><i class="flaticon-mortarboard"></i>12 Siswa</li>
+                                <li><i class="flaticon-mortarboard"></i>{{ $sertifikatCount }}</li>
 
                             </ul>
                         </div>
