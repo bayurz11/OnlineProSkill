@@ -48,7 +48,6 @@ class SertifikatController extends Controller
             $sertifikat->gambar = $gambarName;
             $sertifikat->keterangan = $request->keterangan;
             $sertifikat->kategori_id = $request->kategori_id;
-            $sertifikat->subkategori_id = $request->subkategori_id;
             $sertifikat->save();
 
             // Redirect dengan pesan sukses
@@ -89,7 +88,6 @@ class SertifikatController extends Controller
         $sertifikat->sertifikat_id = $request->sertifikat_id;
         $sertifikat->keterangan = $request->keterangan;
         $sertifikat->kategori_id = $request->kategori_id;
-        $sertifikat->subkategori_id = $request->subkategori_id;
 
         // Cek apakah ada file gambar yang diunggah
         if ($request->hasFile('gambar')) {
