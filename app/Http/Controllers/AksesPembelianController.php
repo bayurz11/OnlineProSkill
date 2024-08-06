@@ -249,7 +249,99 @@ class AksesPembelianController extends Controller
         $this->pdf = $pdf;
     }
 
-    public function printCertificate(Request $request)
+    // public function printCertificate(Request $request)
+    // {
+    //     $user = Auth::user();
+
+    //     // Cek jika pengguna login
+    //     if (!$user) {
+    //         return redirect()->route('home')->with('error', 'Anda harus login untuk mencetak sertifikat.');
+    //     }
+
+    //     $profile = UserProfile::where('user_id', $user->id)->first();
+    //     $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
+
+    //     $completedCourses = $orders->filter(function ($order) use ($user) {
+    //         $kurikulum = Kurikulum::with('sections')->where('course_id', $order->KelasTatapMuka->id)->get();
+
+    //         return $kurikulum->every(function ($kurikulumItem) use ($user) {
+    //             return $kurikulumItem->sections->every(function ($section) use ($user) {
+    //                 $userSectionStatus = UserSectionStatus::where('user_id', $user->id)
+    //                     ->where('section_id', $section->id)
+    //                     ->first();
+
+    //                 return $userSectionStatus && $userSectionStatus->status === 1;
+    //             });
+    //         });
+    //     })->values(); // Tambahkan values() untuk mereset kunci array
+
+    //     if ($completedCourses->isEmpty()) {
+    //         return redirect()->route('home')->with('error', 'Anda belum menyelesaikan kursus apapun.');
+    //     }
+
+    //     $firstCourse = $completedCourses->first();
+    //     $product = $firstCourse->KelasTatapMuka; // Ambil data KelasTatapMuka
+    //     $certificateId = sprintf("%03d", Order::where('user_id', $user->id)->count()) . " / PSA / " . strtoupper($product->nama_kursus) . " / " . now()->format('m.Y');
+    //     $coursename = strtoupper($product->nama_kursus);
+
+    //     $pdf = $this->pdf->loadView('home.sertifikat.index', [
+    //         'user' => $user,
+    //         'profile' => $profile,
+    //         'completedCourses' => $completedCourses,
+    //         'date' => now()->format('d F Y'),
+    //         'certificateId' => $certificateId,
+    //         'coursename' => $coursename,
+    //     ])->setPaper('a4', 'landscape');
+
+    //     return $pdf->download('sertifikat_penyelesaian.pdf');
+    // }
+
+    // public function previewCertificate(Request $request)
+    // {
+    //     $user = Auth::user();
+
+    //     if (!$user) {
+    //         return redirect()->route('home')->with('error', 'Anda harus login untuk melihat pratinjau sertifikat.');
+    //     }
+
+    //     $profile = UserProfile::where('user_id', $user->id)->first();
+    //     $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
+
+    //     $completedCourses = $orders->filter(function ($order) use ($user) {
+    //         $kurikulum = Kurikulum::with('sections')->where('course_id', $order->KelasTatapMuka->id)->get();
+
+    //         return $kurikulum->every(function ($kurikulumItem) use ($user) {
+    //             return $kurikulumItem->sections->every(function ($section) use ($user) {
+    //                 $userSectionStatus = UserSectionStatus::where('user_id', $user->id)
+    //                     ->where('section_id', $section->id)
+    //                     ->first();
+
+    //                 return $userSectionStatus && $userSectionStatus->status === 1;
+    //             });
+    //         });
+    //     })->values(); // Tambahkan values() untuk mereset kunci array
+
+    //     if ($completedCourses->isEmpty()) {
+    //         return redirect()->route('home')->with('error', 'Anda belum menyelesaikan kursus apapun.');
+    //     }
+
+    //     $firstCourse = $completedCourses->first();
+    //     $product = $firstCourse->KelasTatapMuka; // Ambil data KelasTatapMuka
+    //     $certificateId = sprintf("%03d", Order::where('user_id', $user->id)->count()) . " / PSA / " . strtoupper($product->nama_kursus) . " / " . now()->format('m.Y');
+    //     $coursename = strtoupper($product->nama_kursus);
+
+    //     $pdf = $this->pdf->loadView('home.sertifikat.index', [
+    //         'user' => $user,
+    //         'profile' => $profile,
+    //         'completedCourses' => $completedCourses,
+    //         'date' => now()->format('d F Y'),
+    //         'certificateId' => $certificateId,
+    //         'coursename' => $coursename,
+    //     ])->setPaper('a4', 'landscape');
+
+    //     return $pdf->stream('sertifikat_penyelesaian.pdf');
+    // }
+    public function printCertificate(Request $request, $course_id)
     {
         $user = Auth::user();
 
@@ -259,35 +351,39 @@ class AksesPembelianController extends Controller
         }
 
         $profile = UserProfile::where('user_id', $user->id)->first();
-        $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
+        $order = Order::where('user_id', $user->id)
+            ->whereHas('KelasTatapMuka', function ($query) use ($course_id) {
+                $query->where('id', $course_id);
+            })->with('KelasTatapMuka')->first();
 
-        $completedCourses = $orders->filter(function ($order) use ($user) {
-            $kurikulum = Kurikulum::with('sections')->where('course_id', $order->KelasTatapMuka->id)->get();
-
-            return $kurikulum->every(function ($kurikulumItem) use ($user) {
-                return $kurikulumItem->sections->every(function ($section) use ($user) {
-                    $userSectionStatus = UserSectionStatus::where('user_id', $user->id)
-                        ->where('section_id', $section->id)
-                        ->first();
-
-                    return $userSectionStatus && $userSectionStatus->status === 1;
-                });
-            });
-        })->values(); // Tambahkan values() untuk mereset kunci array
-
-        if ($completedCourses->isEmpty()) {
-            return redirect()->route('home')->with('error', 'Anda belum menyelesaikan kursus apapun.');
+        if (!$order) {
+            return redirect()->route('home')->with('error', 'Anda belum menyelesaikan kursus ini.');
         }
 
-        $firstCourse = $completedCourses->first();
-        $product = $firstCourse->KelasTatapMuka; // Ambil data KelasTatapMuka
+        $kurikulum = Kurikulum::with('sections')->where('course_id', $order->KelasTatapMuka->id)->get();
+
+        $completed = $kurikulum->every(function ($kurikulumItem) use ($user) {
+            return $kurikulumItem->sections->every(function ($section) use ($user) {
+                $userSectionStatus = UserSectionStatus::where('user_id', $user->id)
+                    ->where('section_id', $section->id)
+                    ->first();
+
+                return $userSectionStatus && $userSectionStatus->status === 1;
+            });
+        });
+
+        if (!$completed) {
+            return redirect()->route('home')->with('error', 'Anda belum menyelesaikan kursus ini.');
+        }
+
+        $product = $order->KelasTatapMuka; // Ambil data KelasTatapMuka
         $certificateId = sprintf("%03d", Order::where('user_id', $user->id)->count()) . " / PSA / " . strtoupper($product->nama_kursus) . " / " . now()->format('m.Y');
         $coursename = strtoupper($product->nama_kursus);
 
         $pdf = $this->pdf->loadView('home.sertifikat.index', [
             'user' => $user,
             'profile' => $profile,
-            'completedCourses' => $completedCourses,
+            'completedCourses' => collect([$order]), // Menggunakan collect untuk mengubah menjadi koleksi
             'date' => now()->format('d F Y'),
             'certificateId' => $certificateId,
             'coursename' => $coursename,
@@ -296,7 +392,7 @@ class AksesPembelianController extends Controller
         return $pdf->download('sertifikat_penyelesaian.pdf');
     }
 
-    public function previewCertificate(Request $request)
+    public function previewCertificate(Request $request, $course_id)
     {
         $user = Auth::user();
 
@@ -305,35 +401,39 @@ class AksesPembelianController extends Controller
         }
 
         $profile = UserProfile::where('user_id', $user->id)->first();
-        $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
+        $order = Order::where('user_id', $user->id)
+            ->whereHas('KelasTatapMuka', function ($query) use ($course_id) {
+                $query->where('id', $course_id);
+            })->with('KelasTatapMuka')->first();
 
-        $completedCourses = $orders->filter(function ($order) use ($user) {
-            $kurikulum = Kurikulum::with('sections')->where('course_id', $order->KelasTatapMuka->id)->get();
-
-            return $kurikulum->every(function ($kurikulumItem) use ($user) {
-                return $kurikulumItem->sections->every(function ($section) use ($user) {
-                    $userSectionStatus = UserSectionStatus::where('user_id', $user->id)
-                        ->where('section_id', $section->id)
-                        ->first();
-
-                    return $userSectionStatus && $userSectionStatus->status === 1;
-                });
-            });
-        })->values(); // Tambahkan values() untuk mereset kunci array
-
-        if ($completedCourses->isEmpty()) {
-            return redirect()->route('home')->with('error', 'Anda belum menyelesaikan kursus apapun.');
+        if (!$order) {
+            return redirect()->route('home')->with('error', 'Anda belum menyelesaikan kursus ini.');
         }
 
-        $firstCourse = $completedCourses->first();
-        $product = $firstCourse->KelasTatapMuka; // Ambil data KelasTatapMuka
+        $kurikulum = Kurikulum::with('sections')->where('course_id', $order->KelasTatapMuka->id)->get();
+
+        $completed = $kurikulum->every(function ($kurikulumItem) use ($user) {
+            return $kurikulumItem->sections->every(function ($section) use ($user) {
+                $userSectionStatus = UserSectionStatus::where('user_id', $user->id)
+                    ->where('section_id', $section->id)
+                    ->first();
+
+                return $userSectionStatus && $userSectionStatus->status === 1;
+            });
+        });
+
+        if (!$completed) {
+            return redirect()->route('home')->with('error', 'Anda belum menyelesaikan kursus ini.');
+        }
+
+        $product = $order->KelasTatapMuka; // Ambil data KelasTatapMuka
         $certificateId = sprintf("%03d", Order::where('user_id', $user->id)->count()) . " / PSA / " . strtoupper($product->nama_kursus) . " / " . now()->format('m.Y');
         $coursename = strtoupper($product->nama_kursus);
 
         $pdf = $this->pdf->loadView('home.sertifikat.index', [
             'user' => $user,
             'profile' => $profile,
-            'completedCourses' => $completedCourses,
+            'completedCourses' => collect([$order]), // Menggunakan collect untuk mengubah menjadi koleksi
             'date' => now()->format('d F Y'),
             'certificateId' => $certificateId,
             'coursename' => $coursename,
