@@ -283,7 +283,7 @@ class AksesPembelianController extends Controller
             $courseId = $course->KelasTatapMuka->id; // Ambil ID kursus
             $kurikulum = Kurikulum::with('sections')->where('course_id', $courseId)->first();
             $coursename = strtoupper($kurikulum->nama_kelas); // Ambil nama kursus dari kurikulum
-            $certificateId = sprintf("%03d", Order::where('user_id', $user->id)->count()) . " / PSA / " . $coursename . " / " . now()->format('m.Y');
+            $certificateId = sprintf("%03d", Order::where('user_id', $user->id)->count()) . " / PSA / " . $courseId . " / " . now()->format('m.Y');
 
             $pdf = $this->pdf->loadView('home.sertifikat.index', [
                 'user' => $user,
@@ -305,7 +305,7 @@ class AksesPembelianController extends Controller
         $user = Auth::user();
 
         if (!$user) {
-            return redirect()->route('home')->with('error', 'Anda harus login untuk melihat pratinjau sertifikat.');
+            return redirect()->route('home')->with('error', 'Anda harus login untuk mencetak sertifikat.');
         }
 
         $profile = UserProfile::where('user_id', $user->id)->first();
@@ -329,20 +329,23 @@ class AksesPembelianController extends Controller
             return redirect()->route('home')->with('error', 'Anda belum menyelesaikan kursus apapun.');
         }
 
-        $firstCourse = $completedCourses->first();
-        $product = $firstCourse->KelasTatapMuka; // Ambil data KelasTatapMuka
-        $certificateId = sprintf("%03d", Order::where('user_id', $user->id)->count()) . " / PSA / " . strtoupper($product->nama_kursus) . " / " . now()->format('m.Y');
-        $coursename = strtoupper($product->nama_kursus);
+        $pdfs = [];
+        foreach ($completedCourses as $course) {
+            $courseId = $course->KelasTatapMuka->id; // Ambil ID kursus
+            $kurikulum = Kurikulum::with('sections')->where('course_id', $courseId)->first();
+            $coursename = strtoupper($kurikulum->nama_kelas); // Ambil nama kursus dari kurikulum
+            $certificateId = sprintf("%03d", Order::where('user_id', $user->id)->count()) . " / PSA / " . $courseId . " / " . now()->format('m.Y');
 
-        $pdf = $this->pdf->loadView('home.sertifikat.index', [
-            'user' => $user,
-            'profile' => $profile,
-            'completedCourses' => $completedCourses,
-            'date' => now()->format('d F Y'),
-            'certificateId' => $certificateId,
-            'coursename' => $coursename,
-        ])->setPaper('a4', 'landscape');
+            $pdf = $this->pdf->loadView('home.sertifikat.index', [
+                'user' => $user,
+                'profile' => $profile,
+                'completedCourses' => $completedCourses,
+                'date' => now()->format('d F Y'),
+                'certificateId' => $certificateId,
+                'coursename' => $coursename,
+            ])->setPaper('legal', 'landscape'); // Mengatur ukuran kertas menjadi legal dan orientasi landscape
 
-        return $pdf->stream('sertifikat_penyelesaian.pdf');
+            return $pdf->stream('sertifikat_penyelesaian.pdf');
+        }
     }
 }
