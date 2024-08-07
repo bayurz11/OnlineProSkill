@@ -72,7 +72,7 @@
         <!-- banner-area-end -->
 
         <!-- brand-area -->
-        <div class="brand-area brand-area-two">
+        <div class="brand-area brand-area-two" style="color: wheat">
             <div class="container-fluid">
                 <div class="marquee_mode">
                     <div class="brand__item">
