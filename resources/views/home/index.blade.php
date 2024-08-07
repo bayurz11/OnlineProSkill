@@ -113,82 +113,82 @@
             </div>
         </div>
         <!-- brand-area-end -->
-    @endguest
 
-    <!-- features-area -->
-    <section class="features__area-two section-pt-120 section-pb-90">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-6 col-lg-8">
-                    <div class="section__title text-center mb-40">
-                        <span class="sub-title">Our Top Features</span>
-                        <h2 class="title">Raih Tujuan Anda Bersama ProSkill Akademia</h2>
-                        <p>when an unknown printer took a galley of type and scrambled make <br> specimen book has
-                            survived not only five centuries</p>
-                    </div>
-                </div>
-            </div>
-            <div class="features__item-wrap">
+        <!-- features-area -->
+        <section class="features__area-two section-pt-120 section-pb-90">
+            <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="features__item-two">
-                            <div class="features__content-two">
-                                <div class="content-top">
-                                    <div class="features__icon-two">
-                                        <img src="public/assets/img/icons/h2_features_icon01.svg" alt="img"
-                                            class="injectable">
-                                    </div>
-                                    <h2 class="title">Expert Tutors</h2>
-                                </div>
-                                <p>when an unknown printer took a galley offe type and scrambled makes.</p>
-                            </div>
-                            <div class="features__item-shape">
-                                <img src="public/assets/img/others/features_item_shape.svg" alt="img"
-                                    class="injectable">
-                            </div>
+                    <div class="col-xl-6 col-lg-8">
+                        <div class="section__title text-center mb-40">
+                            <span class="sub-title">Our Top Features</span>
+                            <h2 class="title">Raih Tujuan Anda Bersama ProSkill Akademia</h2>
+                            <p>when an unknown printer took a galley of type and scrambled make <br> specimen book has
+                                survived not only five centuries</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="features__item-two">
-                            <div class="features__content-two">
-                                <div class="content-top">
-                                    <div class="features__icon-two">
-                                        <img src="public/assets/img/icons/h2_features_icon02.svg" alt="img"
-                                            class="injectable">
+                </div>
+                <div class="features__item-wrap">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="features__item-two">
+                                <div class="features__content-two">
+                                    <div class="content-top">
+                                        <div class="features__icon-two">
+                                            <img src="public/assets/img/icons/h2_features_icon01.svg" alt="img"
+                                                class="injectable">
+                                        </div>
+                                        <h2 class="title">Expert Tutors</h2>
                                     </div>
-                                    <h2 class="title">Effective Courses</h2>
+                                    <p>when an unknown printer took a galley offe type and scrambled makes.</p>
                                 </div>
-                                <p>when an unknown printer took a galley offe type and scrambled makes.</p>
-                            </div>
-                            <div class="features__item-shape">
-                                <img src="public/assets/img/others/features_item_shape.svg" alt="img"
-                                    class="injectable">
+                                <div class="features__item-shape">
+                                    <img src="public/assets/img/others/features_item_shape.svg" alt="img"
+                                        class="injectable">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="features__item-two">
-                            <div class="features__content-two">
-                                <div class="content-top">
-                                    <div class="features__icon-two">
-                                        <img src="public/assets/img/icons/h2_features_icon03.svg" alt="img"
-                                            class="injectable">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="features__item-two">
+                                <div class="features__content-two">
+                                    <div class="content-top">
+                                        <div class="features__icon-two">
+                                            <img src="public/assets/img/icons/h2_features_icon02.svg" alt="img"
+                                                class="injectable">
+                                        </div>
+                                        <h2 class="title">Effective Courses</h2>
                                     </div>
-                                    <h2 class="title">Earn Certificate</h2>
+                                    <p>when an unknown printer took a galley offe type and scrambled makes.</p>
                                 </div>
-                                <p>when an unknown printer took a galley offe type and scrambled makes.</p>
+                                <div class="features__item-shape">
+                                    <img src="public/assets/img/others/features_item_shape.svg" alt="img"
+                                        class="injectable">
+                                </div>
                             </div>
-                            <div class="features__item-shape">
-                                <img src="public/assets/img/others/features_item_shape.svg" alt="img"
-                                    class="injectable">
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="features__item-two">
+                                <div class="features__content-two">
+                                    <div class="content-top">
+                                        <div class="features__icon-two">
+                                            <img src="public/assets/img/icons/h2_features_icon03.svg" alt="img"
+                                                class="injectable">
+                                        </div>
+                                        <h2 class="title">Earn Certificate</h2>
+                                    </div>
+                                    <p>when an unknown printer took a galley offe type and scrambled makes.</p>
+                                </div>
+                                <div class="features__item-shape">
+                                    <img src="public/assets/img/others/features_item_shape.svg" alt="img"
+                                        class="injectable">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- features-area-end -->
+        </section>
+        <!-- features-area-end -->
+    @endguest
     <!-- course-area -->
     <section class="courses-area section-py-120" data-background="public/assets/img/bg/courses_bg.jpg">
         <div class="container">
