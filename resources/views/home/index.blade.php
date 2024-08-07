@@ -218,9 +218,9 @@
             <div class="tab-content" id="courseTabContent">
                 <div class="tab-pane fade show active" id="all-tab-pane" role="tabpanel" aria-labelledby="all-tab"
                     tabindex="0">
-                    @foreach ($KelasTatapMuka as $kelas)
-                        <div class="swiper courses-swiper-active">
-                            <div class="swiper-wrapper">
+                    <div class="swiper courses-swiper-active">
+                        <div class="swiper-wrapper">
+                            @foreach ($KelasTatapMuka as $kelas)
                                 <div class="swiper-slide">
                                     <div class="courses__item courses__item-two shine__animate-item">
                                         <div class="courses__item-thumb courses__item-thumb-two">
@@ -257,9 +257,9 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endforeach
                         </div>
-                    @endforeach
+                    </div>
                 </div>
 
             </div>
