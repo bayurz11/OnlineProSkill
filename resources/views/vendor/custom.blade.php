@@ -19,7 +19,8 @@
                 @if (is_array($element))
                     @foreach ($element as $page => $url)
                         @if ($page == $paginator->currentPage())
-                            <li style="background-color: #007F73; color: white; border-radius: 3px; padding: 5px 10px;">
+                            <li
+                                style="background-color: #007F73; color: white; border-radius: 100px; padding: 10px 10px;">
                                 <span>{{ $page }}</span>
                             </li>
                         @else
