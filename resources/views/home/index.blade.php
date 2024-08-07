@@ -198,7 +198,7 @@
                         <div class="section__title text-center mb-40">
                             <span class="sub-title">Kelas ProSkill Akademia</span>
                             <h2 class="title">Kelas Online dan Offline Kami</h2>
-                            <p class="desc">Saatnya meningkatkan keterampilan dalam dunia IT</p>
+                            <p class="desc">Saatnya Meningkatkan Keterampilan dan Skill Anda</p>
                         </div>
                         <div class="courses__nav">
                             <ul class="nav nav-tabs" id="courseTab" role="tablist">
