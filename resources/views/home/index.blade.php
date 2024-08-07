@@ -221,7 +221,7 @@
                     <div class="swiper courses-swiper-active">
                         <div class="swiper-wrapper">
                             @foreach ($KelasTatapMuka as $kelas)
-                                <div class="swiper-slide" style="width: 300px; height: 400px;">
+                                <div class="swiper-slide" style="width: 300px; height: 500px;">
                                     <div class="courses__item courses__item-two shine__animate-item"
                                         style="height: 100%;">
                                         <div class="courses__item-thumb courses__item-thumb-two" style="height: 50%;">
