@@ -76,40 +76,40 @@
             <div class="container-fluid">
                 <div class="marquee_mode">
                     <div class="brand__item">
-                        <a href="#"><img src="assets/img/brand/brand01.png" alt="brand"></a>
-                        <img src="assets/img/icons/brand_star.svg" alt="star">
+                        <a href="#"><img src="public/assets/img/brand/brand01.png" alt="brand"></a>
+                        <img src="public/assets/img/icons/brand_star.svg" alt="star">
                     </div>
                     <div class="brand__item">
-                        <a href="#"><img src="assets/img/brand/brand02.png" alt="brand"></a>
-                        <img src="assets/img/icons/brand_star.svg" alt="star">
+                        <a href="#"><img src="public/assets/img/brand/brand02.png" alt="brand"></a>
+                        <img src="public/assets/img/icons/brand_star.svg" alt="star">
                     </div>
                     <div class="brand__item">
-                        <a href="#"><img src="assets/img/brand/brand03.png" alt="brand"></a>
-                        <img src="assets/img/icons/brand_star.svg" alt="star">
+                        <a href="#"><img src="public/assets/img/brand/brand03.png" alt="brand"></a>
+                        <img src="public/assets/img/icons/brand_star.svg" alt="star">
                     </div>
                     <div class="brand__item">
-                        <a href="#"><img src="assets/img/brand/brand04.png" alt="brand"></a>
-                        <img src="assets/img/icons/brand_star.svg" alt="star">
+                        <a href="#"><img src="public/assets/img/brand/brand04.png" alt="brand"></a>
+                        <img src="public/assets/img/icons/brand_star.svg" alt="star">
                     </div>
                     <div class="brand__item">
-                        <a href="#"><img src="assets/img/brand/brand05.png" alt="brand"></a>
-                        <img src="assets/img/icons/brand_star.svg" alt="star">
+                        <a href="#"><img src="public/assets/img/brand/brand05.png" alt="brand"></a>
+                        <img src="public/assets/img/icons/brand_star.svg" alt="star">
                     </div>
                     <div class="brand__item">
-                        <a href="#"><img src="assets/img/brand/brand06.png" alt="brand"></a>
-                        <img src="assets/img/icons/brand_star.svg" alt="star">
+                        <a href="#"><img src="public/assets/img/brand/brand06.png" alt="brand"></a>
+                        <img src="public/assets/img/icons/brand_star.svg" alt="star">
                     </div>
                     <div class="brand__item">
-                        <a href="#"><img src="assets/img/brand/brand07.png" alt="brand"></a>
-                        <img src="assets/img/icons/brand_star.svg" alt="star">
+                        <a href="#"><img src="public/assets/img/brand/brand07.png" alt="brand"></a>
+                        <img src="public/assets/img/icons/brand_star.svg" alt="star">
                     </div>
                     <div class="brand__item">
-                        <a href="#"><img src="assets/img/brand/brand04.png" alt="brand"></a>
-                        <img src="assets/img/icons/brand_star.svg" alt="star">
+                        <a href="#"><img src="public/assets/img/brand/brand04.png" alt="brand"></a>
+                        <img src="public/assets/img/icons/brand_star.svg" alt="star">
                     </div>
                     <div class="brand__item">
-                        <a href="#"><img src="assets/img/brand/brand03.png" alt="brand"></a>
-                        <img src="assets/img/icons/brand_star.svg" alt="star">
+                        <a href="#"><img src="public/assets/img/brand/brand03.png" alt="brand"></a>
+                        <img src="public/assets/img/icons/brand_star.svg" alt="star">
                     </div>
                 </div>
             </div>
