@@ -407,7 +407,7 @@
             </div>
             <div class="all-courses-btn mt-30">
                 <div class="tg-button-wrap justify-content-center">
-                    <a href="{{ route('search') }}" class="btn arrow-btn">See All Courses <img
+                    <a href="{{ route('search') }}" class="btn arrow-btn">Lihat Semua Kursus <img
                             src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
                 </div>
             </div>
