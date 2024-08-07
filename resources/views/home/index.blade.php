@@ -384,8 +384,8 @@
                                                 <h2 class="title"><a
                                                         href="{{ route('event_detail', ['id' => $event->id]) }}">{{ $event->name }}</a>
                                                 </h2>
-                                                <a href="https://maps.google.com/maps" class="location"
-                                                    target="_blank"><i class="flaticon-map"></i>{{ $event->lokasi }}</a>
+                                                <a href="{{ $event->link_maps }}" class="location" target="_blank"><i
+                                                        class="flaticon-map"></i>{{ $event->lokasi }}</a>
                                             </div>
                                         </div>
                                     </div>
