@@ -255,7 +255,7 @@
                             <div class="tgmobile__search">
                                 <form action="{{ route('search') }} " method="GET">
                                     <input type="text" placeholder="Pencarian Kursus...">
-                                    <button><i class="fas fa-search"></i></button>
+                                    <button type="submit"><i class="fas fa-search"></i></button>
                                 </form>
                             </div>
                             <div class="tgmobile__menu-outer">
