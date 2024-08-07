@@ -137,9 +137,9 @@
                                             <img src="public/assets/img/icons/h2_features_icon01.svg" alt="img"
                                                 class="injectable">
                                         </div>
-                                        <h2 class="title">Expert Tutors</h2>
+                                        <h2 class="title">Tutor Ahli</h2>
                                     </div>
-                                    <p>when an unknown printer took a galley offe type and scrambled makes.</p>
+                                    <p>Belajar Langsung Dari Tutor Yang Ahli di Bidangnya.</p>
                                 </div>
                                 <div class="features__item-shape">
                                     <img src="public/assets/img/others/features_item_shape.svg" alt="img"
@@ -155,9 +155,9 @@
                                             <img src="public/assets/img/icons/h2_features_icon02.svg" alt="img"
                                                 class="injectable">
                                         </div>
-                                        <h2 class="title">Effective Courses</h2>
+                                        <h2 class="title">Kursus yang Efektif</h2>
                                     </div>
-                                    <p>when an unknown printer took a galley offe type and scrambled makes.</p>
+                                    <p>Kurikulum Kelas yang Sesuai Dengan Standar Industri.</p>
                                 </div>
                                 <div class="features__item-shape">
                                     <img src="public/assets/img/others/features_item_shape.svg" alt="img"
@@ -173,9 +173,9 @@
                                             <img src="public/assets/img/icons/h2_features_icon03.svg" alt="img"
                                                 class="injectable">
                                         </div>
-                                        <h2 class="title">Earn Certificate</h2>
+                                        <h2 class="title">Dapatkan Sertifikat</h2>
                                     </div>
-                                    <p>when an unknown printer took a galley offe type and scrambled makes.</p>
+                                    <p>Mendapatkan Sertifikat Setelah Menyelesaikan Kelas.</p>
                                 </div>
                                 <div class="features__item-shape">
                                     <img src="public/assets/img/others/features_item_shape.svg" alt="img"
