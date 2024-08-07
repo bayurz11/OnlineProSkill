@@ -9,7 +9,7 @@
         use Carbon\Carbon;
     @endphp
     <!-- breadcrumb-area -->
-    <section class="breadcrumb__area breadcrumb__bg" data-background="public/assets/img/bg/breadcrumb_bg.jpg">
+    <section class="breadcrumb__area breadcrumb__bg" data-background="public/assets/img/bg/breadcrumb_bg.jpg" loading="lazy">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -27,15 +27,15 @@
             </div>
         </div>
         <div class="breadcrumb__shape-wrap">
-            <img src="public/assets/img/others/breadcrumb_shape01.svg" alt="img" class="alltuchtopdown">
+            <img src="public/assets/img/others/breadcrumb_shape01.svg" alt="img" class="alltuchtopdown" loading="lazy">
             <img src="public/assets/img/others/breadcrumb_shape02.svg" alt="img" data-aos="fade-right"
-                data-aos-delay="300">
+                data-aos-delay="300" loading="lazy">
             <img src="public/assets/img/others/breadcrumb_shape03.svg" alt="img" data-aos="fade-up"
-                data-aos-delay="400">
+                data-aos-delay="400" loading="lazy">
             <img src="public/assets/img/others/breadcrumb_shape04.svg" alt="img" data-aos="fade-down-left"
-                data-aos-delay="400">
+                data-aos-delay="400" loading="lazy">
             <img src="public/assets/img/others/breadcrumb_shape05.svg" alt="img" data-aos="fade-left"
-                data-aos-delay="400">
+                data-aos-delay="400" loading="lazy">
         </div>
     </section>
     <!-- breadcrumb-area-end -->
@@ -50,7 +50,8 @@
                             <div class="event__item shine__animate-item">
                                 <div class="event__item-thumb">
                                     <a href="{{ route('event_detail', ['id' => $event->id]) }}" class="shine__animate-link">
-                                        <img src="{{ asset('public/uploads/events/' . $event->gambar) }}" alt="img">
+                                        <img src="{{ asset('public/uploads/events/' . $event->gambar) }}" alt="img"
+                                            loading="lazy">
                                     </a>
                                 </div>
                                 <div class="event__item-content">
