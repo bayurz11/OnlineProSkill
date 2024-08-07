@@ -49,23 +49,22 @@
                         <div class="col-xl-3 col-lg-4 col-md-6">
                             <div class="event__item shine__animate-item">
                                 <div class="event__item-thumb">
-                                    <a href="{{ route('event_detail', ['id' => $event->id]) }}"
-                                        class="shine__animate-link"><img
-                                            src="{{ asset('public/uploads/events/' . $event->gambar) }}" alt="img"></a>
+                                    <a href="{{ route('event_detail', ['id' => $event->id]) }}" class="shine__animate-link">
+                                        <img src="{{ asset('public/uploads/events/' . $event->gambar) }}" alt="img">
+                                    </a>
                                 </div>
                                 <div class="event__item-content">
                                     <span class="date">{{ Carbon::parse($event->tgl)->format('d - F - Y') }}</span>
-                                    <h2 class="title"><a
-                                            href="{{ route('event_detail', ['id' => $event->id]) }}">{{ $event->name }}</a>
+                                    <h2 class="title event-name">
+                                        <a href="{{ route('event_detail', ['id' => $event->id]) }}">{{ $event->name }}</a>
                                     </h2>
-                                    <a href="{{ $event->link_maps }}" class="location" target="_blank"><i
-                                            class="flaticon-map"></i>{{ $event->lokasi }}</a>
+                                    <a href="{{ $event->link_maps }}" class="location" target="_blank">
+                                        <i class="flaticon-map"></i>{{ $event->lokasi }}
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     @endforeach
-
-
                 </div>
                 <nav class="pagination__wrap mt-30">
                     <ul class="list-wrap">
@@ -78,6 +77,27 @@
             </div>
         </div>
     </section>
+
     <!-- event-area-end -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Dapatkan semua elemen nama event
+            var eventNames = document.querySelectorAll('.event-name a');
+            var maxWidth = 0;
+
+            // Hitung lebar maksimum
+            eventNames.forEach(function(eventName) {
+                var width = eventName.offsetWidth;
+                if (width > maxWidth) {
+                    maxWidth = width;
+                }
+            });
+
+            // Setel lebar maksimum ke semua elemen nama event
+            eventNames.forEach(function(eventName) {
+                eventName.style.width = maxWidth + 'px';
+            });
+        });
+    </script>
 
 @endsection
