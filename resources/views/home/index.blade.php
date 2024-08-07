@@ -222,7 +222,8 @@
                         <div class="swiper-wrapper">
                             @foreach ($KelasTatapMuka as $kelas)
                                 <div class="swiper-slide">
-                                    <div class="courses__item courses__item-two shine__animate-item">
+                                    <div class="courses__item courses__item-two shine__animate-item"
+                                        style="display: flex; flex-direction: column; height: 100%;">
                                         <div class="courses__item-thumb courses__item-thumb-two">
                                             <a href="{{ route('classroomdetail', ['id' => $kelas->id]) }}"
                                                 class="shine__animate-link">
