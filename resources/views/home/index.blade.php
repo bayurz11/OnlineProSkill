@@ -122,7 +122,7 @@
                 <div class="col-xl-6 col-lg-8">
                     <div class="section__title text-center mb-40">
                         <span class="sub-title">Our Top Features</span>
-                        <h2 class="title">Achieve Your Goal With SkillGrow</h2>
+                        <h2 class="title">Raih Tujuan Anda Bersama ProSkill Akademia</h2>
                         <p>when an unknown printer took a galley of type and scrambled make <br> specimen book has
                             survived not only five centuries</p>
                     </div>
