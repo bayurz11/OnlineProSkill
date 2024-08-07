@@ -20,11 +20,14 @@
                     @foreach ($element as $page => $url)
                         @if ($page == $paginator->currentPage())
                             <li
-                                style="background-color: #007F73; color: white; border-radius: 100px; padding: 50px 50px;">
+                                style="display: inline-block; width: 40px; height: 40px; background-color: #007F73; color: white; border-radius: 100px; text-align: center; line-height: 40px; padding: 10px 10px;">
                                 <span>{{ $page }}</span>
                             </li>
                         @else
-                            <li><a href="{{ $url }}">{{ $page }}</a></li>
+                            <li style="display: inline-block;">
+                                <a href="{{ $url }}"
+                                    style="display: block; padding: 10px 15px;">{{ $page }}</a>
+                            </li>
                         @endif
                     @endforeach
                 @endif
