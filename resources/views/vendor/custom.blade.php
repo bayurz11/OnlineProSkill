@@ -19,7 +19,9 @@
                 @if (is_array($element))
                     @foreach ($element as $page => $url)
                         @if ($page == $paginator->currentPage())
-                            <li class="active"><span>{{ $page }}</span></li>
+                            <li style="background-color: #007F73; color: white; border-radius: 3px; padding: 5px 10px;">
+                                <span>{{ $page }}</span>
+                            </li>
                         @else
                             <li><a href="{{ $url }}">{{ $page }}</a></li>
                         @endif
