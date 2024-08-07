@@ -221,43 +221,37 @@
                     <div class="swiper courses-swiper-active">
                         <div class="swiper-wrapper">
                             @foreach ($KelasTatapMuka as $kelas)
-                                <div class="swiper-slide" style="width: 300px; height: 400px;">
-                                    <div class="courses__item courses__item-two shine__animate-item"
-                                        style="height: 100%;">
-                                        <div class="courses__item-thumb courses__item-thumb-two" style="height: 50%;">
+                                <div class="swiper-slide">
+                                    <div class="courses__item courses__item-two shine__animate-item">
+                                        <div class="courses__item-thumb courses__item-thumb-two">
                                             <a href="{{ route('classroomdetail', ['id' => $kelas->id]) }}"
                                                 class="shine__animate-link">
-                                                <img src="{{ asset('public/uploads/' . $kelas->gambar) }}" alt="img"
-                                                    style="width: 100%; height: 100%; object-fit: cover;">
+                                                <img src="{{ asset('public/uploads/' . $kelas->gambar) }}" alt="img">
                                             </a>
                                         </div>
-                                        <div class="courses__item-content courses__item-content-two" style="height: 40%;">
-                                            <ul class="courses__item-meta list-wrap"
-                                                style="display: flex; justify-content: space-between;">
+                                        <div class="courses__item-content courses__item-content-two">
+                                            <ul class="courses__item-meta list-wrap">
                                                 <li class="courses__item-tag">
                                                     <a href="course.html">Development</a>
                                                 </li>
                                                 <li class="price"><del>$29.00</del>$9.00</li>
                                             </ul>
-                                            <h5 class="title" style="margin-top: 10px;"><a
+                                            <h5 class="title"><a
                                                     href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">{{ $kelas->nama_kursus }}</a>
                                             </h5>
-                                            <div class="courses__item-content-bottom" style="margin-top: 10px;">
+                                            <div class="courses__item-content-bottom">
                                                 <div class="author-two">
                                                     <a href="instructor-details.html"><img
                                                             src="public/assets/img/courses/course_author001.png"
-                                                            alt="img" style="width: 30px; height: 30px;">David
-                                                        Millar</a>
+                                                            alt="img">David Millar</a>
                                                 </div>
                                                 <div class="avg-rating">
                                                     <i class="fas fa-star"></i> (4.8 Reviews)
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="courses__item-bottom-two"
-                                            style="height: 10%; display: flex; justify-content: space-between;">
-                                            <ul class="list-wrap"
-                                                style="display: flex; justify-content: space-between; width: 100%;">
+                                        <div class="courses__item-bottom-two">
+                                            <ul class="list-wrap">
                                                 <li><i class="flaticon-book"></i>05</li>
                                                 <li><i class="flaticon-clock"></i>11h 20m</li>
                                                 <li><i class="flaticon-mortarboard"></i>22</li>
@@ -266,7 +260,6 @@
                                     </div>
                                 </div>
                             @endforeach
-
                         </div>
                     </div>
                 </div>
