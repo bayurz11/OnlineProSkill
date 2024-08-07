@@ -249,7 +249,7 @@
                                             </h5>
                                             <div class="courses__item-content-bottom mt-auto">
                                                 <div class="author-two">
-                                                    <a href="instructor-details.html">
+                                                    <a href="">
                                                         <img src="public/assets/img/courses/course_author001.png"
                                                             alt="img">{{ $kelas->user->name }}
                                                     </a>
