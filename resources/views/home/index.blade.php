@@ -235,7 +235,7 @@
                                                 <li class="courses__item-tag">
                                                     <a href="course.html">Development</a>
                                                 </li>
-                                                <li class="price">{{ number_format($kelas->price, 0, ',', ',') }}
+                                                <li class="price">Rp {{ number_format($kelas->price, 0, ',', ',') }}
                                                 </li>
                                             </ul>
                                             <h5 class="title"><a
