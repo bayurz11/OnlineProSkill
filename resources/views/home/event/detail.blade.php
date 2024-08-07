@@ -139,7 +139,7 @@
                                                         <img src="{{ asset('public/assets/img/icons/calendar.svg') }}"
                                                             alt="img" class="injectable">
                                                         Tanggal
-                                                        <span>{{ Carbon::parse($event->tgl)->format('d - F - Y') }}</span>
+                                                        <span>{{ Carbon::parse($event->tgl)->format('d - M - Y') }}</span>
                                                     </li>
                                                     <li>
                                                         <img src="{{ asset('public/assets/img/icons/course_icon02.svg') }}"
@@ -148,29 +148,12 @@
                                                         <span>10.00am</span>
                                                     </li>
                                                     <li>
-                                                        <img src="{{ asset('public/assets/img/icons/course_icon03.svg') }}"
-                                                            alt="img" class="injectable">
-                                                        Topics
-                                                        <span>12</span>
-                                                    </li>
-                                                    <li>
-                                                        <img src="{{ asset('public/assets/img/icons/course_icon04.svg') }}"
-                                                            alt="img" class="injectable">
-                                                        Quizzes
-                                                        <span>145</span>
-                                                    </li>
-                                                    <li>
                                                         <img src="{{ asset('public/assets/img/icons/course_icon05.svg') }}"
                                                             alt="img" class="injectable">
                                                         Certifications
                                                         <span>Yes</span>
                                                     </li>
-                                                    <li>
-                                                        <img src="{{ asset('public/assets/img/icons/course_icon06.svg') }}"
-                                                            alt="img" class="injectable">
-                                                        Total Seat
-                                                        <span>300</span>
-                                                    </li>
+
                                                 </ul>
                                             </div>
 
