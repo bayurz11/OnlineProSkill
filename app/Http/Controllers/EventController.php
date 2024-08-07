@@ -37,7 +37,7 @@ class EventController extends Controller
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
-        return view('home.event.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'categori', 'event'));
+        return view('home.event.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'categori', 'event'))->with('paginationView', 'vendor.custom');
     }
 
     public function detailEvent($id)

@@ -68,7 +68,7 @@
                     @endforeach
                 </div>
                 <nav class="pagination__wrap mt-30">
-                    {{ $event->links() }}
+                    {{ $event->links($paginationView) }}
                 </nav>
             </div>
         </div>
