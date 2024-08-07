@@ -80,23 +80,21 @@
 
     <!-- event-area-end -->
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Dapatkan semua elemen nama event
-            var eventNames = document.querySelectorAll('.event-name');
-            var maxWidth = 0;
+        // Mengatur tinggi untuk elemen event-name
+        var eventNames = document.querySelectorAll('.event-name');
+        var maxEventNameHeight = 0;
 
-            // Hitung lebar maksimum
-            eventNames.forEach(function(eventName) {
-                var width = eventName.offsetWidth;
-                if (width > maxWidth) {
-                    maxWidth = width;
-                }
-            });
+        // Temukan tinggi maksimum untuk event-name
+        eventNames.forEach(function(eventName) {
+            var height = eventName.offsetHeight;
+            if (height > maxEventNameHeight) {
+                maxEventNameHeight = height;
+            }
+        });
 
-            // Setel lebar maksimum ke semua elemen nama event
-            eventNames.forEach(function(eventName) {
-                eventName.style.width = maxWidth + 'px';
-            });
+        // Tetapkan tinggi maksimum ke semua elemen event-name
+        eventNames.forEach(function(eventName) {
+            eventName.style.height = maxEventNameHeight + 'px';
         });
     </script>
 
