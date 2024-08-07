@@ -235,7 +235,8 @@
                                                 <li class="courses__item-tag">
                                                     <a href="course.html">Development</a>
                                                 </li>
-                                                <li class="price"><del>$29.00</del>$9.00</li>
+                                                <li class="price"><del>{{ number_format($kelas->price, 0, ',', ',') }}
+                                                </li>
                                             </ul>
                                             <h5 class="title"><a
                                                     href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">{{ $kelas->nama_kursus }}</a>
