@@ -209,27 +209,7 @@
                                         Semua Kelas
                                     </button>
                                 </li>
-                                {{-- <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="design-tab" data-bs-toggle="tab"
-                                        data-bs-target="#design-tab-pane" type="button" role="tab"
-                                        aria-controls="design-tab-pane" aria-selected="false">
-                                        Design
-                                    </button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="business-tab" data-bs-toggle="tab"
-                                        data-bs-target="#business-tab-pane" type="button" role="tab"
-                                        aria-controls="business-tab-pane" aria-selected="false">
-                                        Business
-                                    </button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="development-tab" data-bs-toggle="tab"
-                                        data-bs-target="#development-tab-pane" type="button" role="tab"
-                                        aria-controls="development-tab-pane" aria-selected="false">
-                                        Development
-                                    </button>
-                                </li> --}}
+
                             </ul>
                         </div>
                     </div>
@@ -427,7 +407,7 @@
             </div>
             <div class="all-courses-btn mt-30">
                 <div class="tg-button-wrap justify-content-center">
-                    <a href="courses.html" class="btn arrow-btn">See All Courses <img
+                    <a href="{{ route('search') }}" class="btn arrow-btn">See All Courses <img
                             src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
                 </div>
             </div>
