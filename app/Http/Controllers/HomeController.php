@@ -25,7 +25,10 @@ class HomeController extends Controller
         $user = Auth::user();
         $profile = null;
         $cart = Session::get('cart', []);
-        $KelasTatapMuka = KelasTatapMuka::all();
+
+        // Mengambil KelasTatapMuka dan mengurutkannya berdasarkan kolom created_at
+        $KelasTatapMuka = KelasTatapMuka::orderBy('created_at', 'desc')->get();
+
         $event = AdminEvent::all();
         if ($user) {
             $profile = UserProfile::where('user_id', $user->id)->first();
@@ -42,6 +45,7 @@ class HomeController extends Controller
 
         return view('home.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'categori', 'KelasTatapMuka', 'event'));
     }
+
 
     public function classroom()
     {
