@@ -76,31 +76,31 @@
             <div class="container-fluid">
                 <div class="marquee_mode">
                     <div class="brand__item">
-                        <a href="#"><img src="public/assets/img/brand/brand01.png" alt="brand">
+                        <a href="#"><img src="public/assets/img/brand/brand01.png" alt="brand" loading="lazy">
                     </div>
                     <div class="brand__item">
-                        <a href="#"><img src="public/assets/img/brand/brand02.png" alt="brand">
+                        <a href="#"><img src="public/assets/img/brand/brand02.png" alt="brand" loading="lazy">
                     </div>
                     <div class="brand__item">
-                        <a href="#"><img src="public/assets/img/brand/brand03.png" alt="brand">
+                        <a href="#"><img src="public/assets/img/brand/brand03.png" alt="brand" loading="lazy">
                     </div>
                     <div class="brand__item">
-                        <a href="#"><img src="public/assets/img/brand/brand04.png" alt="brand">
+                        <a href="#"><img src="public/assets/img/brand/brand04.png" alt="brand" loading="lazy">
                     </div>
                     <div class="brand__item">
-                        <a href="#"><img src="public/assets/img/brand/brand05.png" alt="brand">
+                        <a href="#"><img src="public/assets/img/brand/brand05.png" alt="brand" loading="lazy">
                     </div>
                     <div class="brand__item">
-                        <a href="#"><img src="public/assets/img/brand/brand06.png" alt="brand">
+                        <a href="#"><img src="public/assets/img/brand/brand06.png" alt="brand" loading="lazy">
                     </div>
                     <div class="brand__item">
-                        <a href="#"><img src="public/assets/img/brand/brand07.png" alt="brand">
+                        <a href="#"><img src="public/assets/img/brand/brand07.png" alt="brand" loading="lazy">
                     </div>
                     <div class="brand__item">
-                        <a href="#"><img src="public/assets/img/brand/brand04.png" alt="brand">
+                        <a href="#"><img src="public/assets/img/brand/brand04.png" alt="brand" loading="lazy">
                     </div>
                     <div class="brand__item">
-                        <a href="#"><img src="public/assets/img/brand/brand03.png" alt="brand">
+                        <a href="#"><img src="public/assets/img/brand/brand03.png" alt="brand" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -127,7 +127,7 @@
                                     <div class="content-top">
                                         <div class="features__icon-two">
                                             <img src="public/assets/img/icons/h2_features_icon01.svg" alt="img"
-                                                class="injectable">
+                                                class="injectable" loading="lazy">
                                         </div>
                                         <h2 class="title">Tutor Ahli</h2>
                                     </div>
@@ -135,7 +135,7 @@
                                 </div>
                                 <div class="features__item-shape">
                                     <img src="public/assets/img/others/features_item_shape.svg" alt="img"
-                                        class="injectable">
+                                        class="injectable" loading="lazy">
                                 </div>
                             </div>
                         </div>
@@ -145,7 +145,7 @@
                                     <div class="content-top">
                                         <div class="features__icon-two">
                                             <img src="public/assets/img/icons/h2_features_icon02.svg" alt="img"
-                                                class="injectable">
+                                                class="injectable" loading="lazy">
                                         </div>
                                         <h2 class="title">Kursus yang Efektif</h2>
                                     </div>
@@ -153,7 +153,7 @@
                                 </div>
                                 <div class="features__item-shape">
                                     <img src="public/assets/img/others/features_item_shape.svg" alt="img"
-                                        class="injectable">
+                                        class="injectable" loading="lazy">
                                 </div>
                             </div>
                         </div>
@@ -163,7 +163,7 @@
                                     <div class="content-top">
                                         <div class="features__icon-two">
                                             <img src="public/assets/img/icons/h2_features_icon03.svg" alt="img"
-                                                class="injectable">
+                                                class="injectable" loading="lazy">
                                         </div>
                                         <h2 class="title">Dapatkan Sertifikat</h2>
                                     </div>
@@ -171,7 +171,7 @@
                                 </div>
                                 <div class="features__item-shape">
                                     <img src="public/assets/img/others/features_item_shape.svg" alt="img"
-                                        class="injectable">
+                                        class="injectable" loading="lazy">
                                 </div>
                             </div>
                         </div>
@@ -182,7 +182,7 @@
         <!-- features-area-end -->
     @endguest
     <!-- course-area -->
-    <section class="courses-area section-py-120" data-background="public/assets/img/bg/courses_bg.jpg">
+    <section class="courses-area section-py-120" data-background="public/assets/img/bg/courses_bg.jpg" loading="lazy">
         <div class="container">
             <div class="section__title-wrap">
                 <div class="row justify-content-center">
@@ -220,7 +220,7 @@
                                             <a href="{{ route('classroomdetail', ['id' => $kelas->id]) }}"
                                                 class="shine__animate-link">
                                                 <img src="{{ asset('public/uploads/' . $kelas->gambar) }}" alt="img"
-                                                    class="img-fluid">
+                                                    class="img-fluid" loading="lazy">
                                             </a>
                                         </div>
                                         <div
@@ -244,7 +244,7 @@
                                                 <div class="author-two">
                                                     <a href="">
                                                         <img src="public/assets/img/courses/course_author001.png"
-                                                            alt="img">{{ $kelas->user->name }}
+                                                            alt="img" loading="lazy">{{ $kelas->user->name }}
                                                     </a>
                                                 </div>
                                                 <div class="avg-rating">
@@ -369,7 +369,7 @@
                                                 <a href="{{ route('event_detail', ['id' => $event->id]) }}"
                                                     class="shine__animate-link">
                                                     <img src="{{ asset('public/uploads/events/' . $event->gambar) }}"
-                                                        alt="img">
+                                                        alt="img" loading="lazy">
                                                 </a>
                                             </div>
                                             <div class="event__item-content">
@@ -395,7 +395,7 @@
             </div>
         </div>
         <div class="event__shape">
-            <img src="public/assets/img/events/event_shape.png" alt="img" class="alltuchtopdown">
+            <img src="public/assets/img/events/event_shape.png" alt="img" class="alltuchtopdown" loading="lazy">
         </div>
     </section>
     <!-- event-area-end -->
@@ -417,7 +417,7 @@
                     <div class="blog__post-item shine__animate-item">
                         <div class="blog__post-thumb">
                             <a href="blog-details.html" class="shine__animate-link"><img
-                                    src="public/assets/img/blog/blog_post01.jpg" alt="img"></a>
+                                    src="public/assets/img/blog/blog_post01.jpg" alt="img" loading="lazy"></a>
                             <a href="blog.html" class="post-tag">Marketing</a>
                         </div>
                         <div class="blog__post-content">
