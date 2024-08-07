@@ -375,26 +375,29 @@
                                         <div class="event__item shine__animate-item">
                                             <div class="event__item-thumb">
                                                 <a href="{{ route('event_detail', ['id' => $event->id]) }}"
-                                                    class="shine__animate-link"><img
-                                                        src="{{ asset('public/uploads/events/' . $event->gambar) }}"
-                                                        alt="img"></a>
+                                                    class="shine__animate-link">
+                                                    <img src="{{ asset('public/uploads/events/' . $event->gambar) }}"
+                                                        alt="img">
+                                                </a>
                                             </div>
                                             <div class="event__item-content">
                                                 <span
                                                     class="date">{{ Carbon::parse($event->tgl)->format('d - F - Y') }}</span>
-                                                <h2 class="title"><a
+                                                <h2 class="title event-name">
+                                                    <a
                                                         href="{{ route('event_detail', ['id' => $event->id]) }}">{{ $event->name }}</a>
                                                 </h2>
-                                                <a href="{{ $event->link_maps }}" class="location" target="_blank"><i
-                                                        class="flaticon-map"></i>{{ $event->lokasi }}</a>
+                                                <a href="{{ $event->link_maps }}" class="location" target="_blank">
+                                                    <i class="flaticon-map"></i>{{ $event->lokasi }}
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
                                 @endforeach
-
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -504,6 +507,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var courseTitles = document.querySelectorAll('.course-title');
+            var courseTitles = document.querySelectorAll('.event-name');
             var maxHeight = 0;
 
             // Temukan tinggi maksimum
