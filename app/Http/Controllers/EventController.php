@@ -7,6 +7,7 @@ use App\Models\Categories;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use App\Models\NotifikasiUser;
+use Illuminate\Support\Carbon;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -19,7 +20,9 @@ class EventController extends Controller
         $user = Auth::user();
         $profile = null;
         $cart = Session::get('cart', []);
-        $event = AdminEvent::all();
+        // Mengambil event dan memfilter yang tanggalnya belum lewat
+        $event = AdminEvent::where('tgl', '>=', Carbon::now())->orderBy('created_at', 'desc')->get();
+
         if ($user) {
             $profile = UserProfile::where('user_id', $user->id)->first();
         }
