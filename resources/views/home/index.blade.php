@@ -369,7 +369,7 @@
                         <div class="event__item-wrap">
                             <div class="row justify-content-center">
                                 @foreach ($event as $event)
-                                    <div class="col-lg-4 col-md-6">
+                                    <div class="col-lg-4 col-md-6" style="width: auto;">
                                         <div class="event__item shine__animate-item">
                                             <div class="event__item-thumb">
                                                 <a href="{{ route('event_detail', ['id' => $event->id]) }}"
@@ -388,10 +388,10 @@
                                         </div>
                                     </div>
                                 @endforeach
-
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
