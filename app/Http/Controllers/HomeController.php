@@ -12,6 +12,7 @@ use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use App\Models\KelasTatapMuka;
 use App\Models\NotifikasiUser;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -29,7 +30,9 @@ class HomeController extends Controller
         // Mengambil KelasTatapMuka dan mengurutkannya berdasarkan kolom created_at
         $KelasTatapMuka = KelasTatapMuka::orderBy('created_at', 'desc')->get();
 
-        $event = AdminEvent::orderBy('created_at', 'desc')->get();
+        // Mengambil event dan memfilter yang tanggalnya belum lewat
+        $event = AdminEvent::where('tgl', '>=', Carbon::now())->orderBy('created_at', 'desc')->get();
+
         if ($user) {
             $profile = UserProfile::where('user_id', $user->id)->first();
         }
@@ -45,6 +48,7 @@ class HomeController extends Controller
 
         return view('home.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'categori', 'KelasTatapMuka', 'event'));
     }
+
 
 
     public function classroom()
