@@ -68,52 +68,52 @@
                 data-aos="fade-right" data-aos-delay="1600">
         </section>
         <!-- banner-area-end -->
-    @endguest
-    <!-- brand-area -->
-    <div class="brand-area brand-area-two">
-        <div class="container-fluid">
-            <div class="marquee_mode">
-                <div class="brand__item">
-                    <a href="#"><img src="assets/img/brand/brand01.png" alt="brand"></a>
-                    <img src="assets/img/icons/brand_star.svg" alt="star">
-                </div>
-                <div class="brand__item">
-                    <a href="#"><img src="assets/img/brand/brand02.png" alt="brand"></a>
-                    <img src="assets/img/icons/brand_star.svg" alt="star">
-                </div>
-                <div class="brand__item">
-                    <a href="#"><img src="assets/img/brand/brand03.png" alt="brand"></a>
-                    <img src="assets/img/icons/brand_star.svg" alt="star">
-                </div>
-                <div class="brand__item">
-                    <a href="#"><img src="assets/img/brand/brand04.png" alt="brand"></a>
-                    <img src="assets/img/icons/brand_star.svg" alt="star">
-                </div>
-                <div class="brand__item">
-                    <a href="#"><img src="assets/img/brand/brand05.png" alt="brand"></a>
-                    <img src="assets/img/icons/brand_star.svg" alt="star">
-                </div>
-                <div class="brand__item">
-                    <a href="#"><img src="assets/img/brand/brand06.png" alt="brand"></a>
-                    <img src="assets/img/icons/brand_star.svg" alt="star">
-                </div>
-                <div class="brand__item">
-                    <a href="#"><img src="assets/img/brand/brand07.png" alt="brand"></a>
-                    <img src="assets/img/icons/brand_star.svg" alt="star">
-                </div>
-                <div class="brand__item">
-                    <a href="#"><img src="assets/img/brand/brand04.png" alt="brand"></a>
-                    <img src="assets/img/icons/brand_star.svg" alt="star">
-                </div>
-                <div class="brand__item">
-                    <a href="#"><img src="assets/img/brand/brand03.png" alt="brand"></a>
-                    <img src="assets/img/icons/brand_star.svg" alt="star">
+
+        <!-- brand-area -->
+        <div class="brand-area brand-area-two">
+            <div class="container-fluid">
+                <div class="marquee_mode">
+                    <div class="brand__item">
+                        <a href="#"><img src="assets/img/brand/brand01.png" alt="brand"></a>
+                        <img src="assets/img/icons/brand_star.svg" alt="star">
+                    </div>
+                    <div class="brand__item">
+                        <a href="#"><img src="assets/img/brand/brand02.png" alt="brand"></a>
+                        <img src="assets/img/icons/brand_star.svg" alt="star">
+                    </div>
+                    <div class="brand__item">
+                        <a href="#"><img src="assets/img/brand/brand03.png" alt="brand"></a>
+                        <img src="assets/img/icons/brand_star.svg" alt="star">
+                    </div>
+                    <div class="brand__item">
+                        <a href="#"><img src="assets/img/brand/brand04.png" alt="brand"></a>
+                        <img src="assets/img/icons/brand_star.svg" alt="star">
+                    </div>
+                    <div class="brand__item">
+                        <a href="#"><img src="assets/img/brand/brand05.png" alt="brand"></a>
+                        <img src="assets/img/icons/brand_star.svg" alt="star">
+                    </div>
+                    <div class="brand__item">
+                        <a href="#"><img src="assets/img/brand/brand06.png" alt="brand"></a>
+                        <img src="assets/img/icons/brand_star.svg" alt="star">
+                    </div>
+                    <div class="brand__item">
+                        <a href="#"><img src="assets/img/brand/brand07.png" alt="brand"></a>
+                        <img src="assets/img/icons/brand_star.svg" alt="star">
+                    </div>
+                    <div class="brand__item">
+                        <a href="#"><img src="assets/img/brand/brand04.png" alt="brand"></a>
+                        <img src="assets/img/icons/brand_star.svg" alt="star">
+                    </div>
+                    <div class="brand__item">
+                        <a href="#"><img src="assets/img/brand/brand03.png" alt="brand"></a>
+                        <img src="assets/img/icons/brand_star.svg" alt="star">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- brand-area-end -->
-
+        <!-- brand-area-end -->
+    @endguest
 
     <!-- features-area -->
     <section class="features__area-two section-pt-120 section-pb-90">
