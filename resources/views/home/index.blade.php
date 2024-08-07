@@ -233,10 +233,11 @@
                                         <div class="courses__item-content courses__item-content-two">
                                             <ul class="courses__item-meta list-wrap">
                                                 <li class="courses__item-tag">
+                                                    {{-- <a href="course.html">Development</a> --}}
                                                     @if ($kelas->course_type == 'online')
-                                                        <span class="badge bg-primary">Online</span>
+                                                        <a>Online</a>
                                                     @else
-                                                        <span class="badge bg-secondary">Offline</span>
+                                                        <a>Offline</a>
                                                     @endif
                                                 </li>
                                                 <li class="price">Rp {{ number_format($kelas->price, 0, '.', '.') }}
