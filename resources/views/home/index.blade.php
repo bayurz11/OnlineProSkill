@@ -370,51 +370,25 @@
                     <div class="col-70">
                         <div class="event__item-wrap">
                             <div class="row justify-content-center">
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="event__item shine__animate-item">
-                                        <div class="event__item-thumb">
-                                            <a href="events-details.html" class="shine__animate-link"><img
-                                                    src="public/assets/img/events/event_thumb01.jpg" alt="img"></a>
-                                        </div>
-                                        <div class="event__item-content">
-                                            <span class="date">25 June, 2024</span>
-                                            <h2 class="title"><a href="events-details.html">The Accessible
-                                                    Target Sizes Cheatsheet</a></h2>
-                                            <a href="https://maps.google.com/maps" class="location" target="_blank"><i
-                                                    class="flaticon-map"></i>United Kingdom</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="event__item shine__animate-item">
-                                        <div class="event__item-thumb">
-                                            <a href="events-details.html" class="shine__animate-link"><img
-                                                    src="public/assets/img/events/event_thumb02.jpg" alt="img"></a>
-                                        </div>
-                                        <div class="event__item-content">
-                                            <span class="date">25 June, 2024</span>
-                                            <h2 class="title"><a href="events-details.html">Exactly How
-                                                    Technology Can Make Reading</a></h2>
-                                            <a href="https://maps.google.com/maps" class="location" target="_blank"><i
-                                                    class="flaticon-map"></i>Tokyo Japan</a>
+                                @foreach ($event as $event)
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="event__item shine__animate-item">
+                                            <div class="event__item-thumb">
+                                                <a href="events-details.html" class="shine__animate-link"><img
+                                                        src="public/assets/img/events/event_thumb01.jpg"
+                                                        alt="img"></a>
+                                            </div>
+                                            <div class="event__item-content">
+                                                <span class="date">25 June, 2024</span>
+                                                <h2 class="title"><a href="events-details.html">The Accessible
+                                                        Target Sizes Cheatsheet</a></h2>
+                                                <a href="https://maps.google.com/maps" class="location"
+                                                    target="_blank"><i class="flaticon-map"></i>United Kingdom</a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="event__item shine__animate-item">
-                                        <div class="event__item-thumb">
-                                            <a href="events-details.html" class="shine__animate-link"><img
-                                                    src="public/assets/img/events/event_thumb03.jpg" alt="img"></a>
-                                        </div>
-                                        <div class="event__item-content">
-                                            <span class="date">25 June, 2024</span>
-                                            <h2 class="title"><a href="events-details.html">Aewe Creating
-                                                    Futures Through Technology</a></h2>
-                                            <a href="https://maps.google.com/maps" class="location" target="_blank"><i
-                                                    class="flaticon-map"></i>New Work</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
+
                             </div>
                         </div>
                     </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\Section;
 use App\Models\Kurikulum;
+use App\Models\AdminEvent;
 use App\Models\Categories;
 use App\Models\Sertifikat;
 use App\Models\UserProfile;
@@ -25,6 +26,7 @@ class HomeController extends Controller
         $profile = null;
         $cart = Session::get('cart', []);
         $KelasTatapMuka = KelasTatapMuka::all();
+        $event = AdminEvent::all();
         if ($user) {
             $profile = UserProfile::where('user_id', $user->id)->first();
         }
@@ -38,7 +40,7 @@ class HomeController extends Controller
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
-        return view('home.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'categori', 'KelasTatapMuka'));
+        return view('home.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'categori', 'KelasTatapMuka', 'event'));
     }
 
     public function classroom()
