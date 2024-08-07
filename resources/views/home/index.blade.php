@@ -257,13 +257,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="courses__item-bottom-two">
-                                            <ul class="list-wrap">
-                                                <li><i class="flaticon-book"></i>05</li>
-                                                <li><i class="flaticon-clock"></i>11h 20m</li>
-                                                <li><i class="flaticon-mortarboard"></i>22</li>
-                                            </ul>
-                                        </div>
+
                                     </div>
                                 </div>
                             @endforeach
