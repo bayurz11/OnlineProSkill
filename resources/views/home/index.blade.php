@@ -277,7 +277,7 @@
         </div>
     </section>
     <!-- course-area-end -->
-    <!-- about-area -->
+    {{-- <!-- about-area -->
     <section class="about-area-two tg-motion-effects section-pb-120">
         <div class="container">
             <div class="row align-items-center justify-content-center">
@@ -345,7 +345,7 @@
             </div>
         </div>
     </section>
-    <!-- about-area-end -->
+    <!-- about-area-end --> --}}
 
     <!-- event-area -->
     <section class="event__area section-pt-120 section-pb-90">
