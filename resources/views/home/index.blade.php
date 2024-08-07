@@ -233,7 +233,7 @@
                                         <div class="courses__item-content courses__item-content-two">
                                             <ul class="courses__item-meta list-wrap">
                                                 <li class="courses__item-tag">
-                                                    @if ($cours->course_type == 'online')
+                                                    @if ($kelas->course_type == 'online')
                                                         <span class="badge bg-primary">Online</span>
                                                     @else
                                                         <span class="badge bg-secondary">Offline</span>
