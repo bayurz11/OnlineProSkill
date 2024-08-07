@@ -237,9 +237,8 @@
                                                 <li class="price"><del>$29.00</del>$9.00</li>
                                             </ul>
                                             <h5 class="title"><a
-                                                    href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">Learning
-                                                    JavaScript With
-                                                    Imagination</a></h5>
+                                                    href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">{{ $kelas->nama_kursus }}</a>
+                                            </h5>
                                             <div class="courses__item-content-bottom">
                                                 <div class="author-two">
                                                     <a href="instructor-details.html"><img
