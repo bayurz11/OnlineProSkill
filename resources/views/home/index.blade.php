@@ -76,209 +76,201 @@
             <div class="container-fluid">
                 <div class="marquee_mode">
                     <div class="brand__item">
-                        <a href="#"><img src="public/assets/img/brand/brand01.png" alt="brand"></a>
-                        <img src="public/assets/img/icons/brand_star.svg" alt="star">
+                        <a href="#"><img src="public/assets/img/brand/brand01.png" alt="brand">
                     </div>
                     <div class="brand__item">
-                        <a href="#"><img src="public/assets/img/brand/brand02.png" alt="brand"></a>
-                        <img src="public/assets/img/icons/brand_star.svg" alt="star">
-                    </div>
-                    <div class="brand__item">
-                        <a href="#"><img src="public/assets/img/brand/brand03.png" alt="brand"></a>
-                        <img src="public/assets/img/icons/brand_star.svg" alt="star">
-                    </div>
-                    <div class="brand__item">
-                        <a href="#"><img src="public/assets/img/brand/brand04.png" alt="brand"></a>
-                        <img src="public/assets/img/icons/brand_star.svg" alt="star">
-                    </div>
-                    <div class="brand__item">
-                        <a href="#"><img src="public/assets/img/brand/brand05.png" alt="brand"></a>
-                        <img src="public/assets/img/icons/brand_star.svg" alt="star">
-                    </div>
-                    <div class="brand__item">
-                        <a href="#"><img src="public/assets/img/brand/brand06.png" alt="brand"></a>
-                        <img src="public/assets/img/icons/brand_star.svg" alt="star">
-                    </div>
-                    <div class="brand__item">
-                        <a href="#"><img src="public/assets/img/brand/brand07.png" alt="brand"></a>
-                        <img src="public/assets/img/icons/brand_star.svg" alt="star">
-                    </div>
-                    <div class="brand__item">
-                        <a href="#"><img src="public/assets/img/brand/brand04.png" alt="brand"></a>
-                        <img src="public/assets/img/icons/brand_star.svg" alt="star">
-                    </div>
-                    <div class="brand__item">
-                        <a href="#"><img src="public/assets/img/brand/brand03.png" alt="brand"></a>
-                        <img src="public/assets/img/icons/brand_star.svg" alt="star">
+                        <a href="#"><img src="public/assets/img/brand/brand02.png" alt="brand">
+                            < </div>
+                                <div class="brand__item">
+                                    <a href="#"><img src="public/assets/img/brand/brand03.png" alt="brand">
+                                </div>
+                                <div class="brand__item">
+                                    <a href="#"><img src="public/assets/img/brand/brand04.png" alt="brand">
+                                </div>
+                                <div class="brand__item">
+                                    <a href="#"><img src="public/assets/img/brand/brand05.png" alt="brand">
+                                </div>
+                                <div class="brand__item">
+                                    <a href="#"><img src="public/assets/img/brand/brand06.png" alt="brand">
+                                </div>
+                                <div class="brand__item">
+                                    <a href="#"><img src="public/assets/img/brand/brand07.png" alt="brand">
+                                </div>
+                                <div class="brand__item">
+                                    <a href="#"><img src="public/assets/img/brand/brand04.png" alt="brand">
+                                </div>
+                                <div class="brand__item">
+                                    <a href="#"><img src="public/assets/img/brand/brand03.png" alt="brand">
+                                </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- brand-area-end -->
+            <!-- brand-area-end -->
 
-        <!-- features-area -->
-        <section class="features__area-two section-pt-120 section-pb-90">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6 col-lg-8">
-                        <div class="section__title text-center mb-40">
-                            <span class="sub-title">Our Top Features</span>
-                            <h2 class="title">Raih Tujuan Anda Bersama ProSkill Akademia</h2>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="features__item-wrap">
+            <!-- features-area -->
+            <section class="features__area-two section-pt-120 section-pb-90">
+                <div class="container">
                     <div class="row justify-content-center">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="features__item-two">
-                                <div class="features__content-two">
-                                    <div class="content-top">
-                                        <div class="features__icon-two">
-                                            <img src="public/assets/img/icons/h2_features_icon01.svg" alt="img"
-                                                class="injectable">
-                                        </div>
-                                        <h2 class="title">Tutor Ahli</h2>
-                                    </div>
-                                    <p>Belajar Langsung Dari Tutor Yang Ahli di Bidangnya.</p>
-                                </div>
-                                <div class="features__item-shape">
-                                    <img src="public/assets/img/others/features_item_shape.svg" alt="img"
-                                        class="injectable">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="features__item-two">
-                                <div class="features__content-two">
-                                    <div class="content-top">
-                                        <div class="features__icon-two">
-                                            <img src="public/assets/img/icons/h2_features_icon02.svg" alt="img"
-                                                class="injectable">
-                                        </div>
-                                        <h2 class="title">Kursus yang Efektif</h2>
-                                    </div>
-                                    <p>Kurikulum Kelas yang Sesuai Dengan Standar Industri.</p>
-                                </div>
-                                <div class="features__item-shape">
-                                    <img src="public/assets/img/others/features_item_shape.svg" alt="img"
-                                        class="injectable">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="features__item-two">
-                                <div class="features__content-two">
-                                    <div class="content-top">
-                                        <div class="features__icon-two">
-                                            <img src="public/assets/img/icons/h2_features_icon03.svg" alt="img"
-                                                class="injectable">
-                                        </div>
-                                        <h2 class="title">Dapatkan Sertifikat</h2>
-                                    </div>
-                                    <p>Mendapatkan Sertifikat Setelah Menyelesaikan Kelas.</p>
-                                </div>
-                                <div class="features__item-shape">
-                                    <img src="public/assets/img/others/features_item_shape.svg" alt="img"
-                                        class="injectable">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- features-area-end -->
-    @endguest
-    <!-- course-area -->
-    <section class="courses-area section-py-120" data-background="public/assets/img/bg/courses_bg.jpg">
-        <div class="container">
-            <div class="section__title-wrap">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6 col-lg-8">
-                        <div class="section__title text-center mb-40">
-                            <span class="sub-title">Kelas ProSkill Akademia</span>
-                            <h2 class="title">Kelas Online dan Offline Kami</h2>
-                            <p class="desc">Saatnya Meningkatkan Keterampilan dan Skill Anda</p>
-                        </div>
-                        <div class="courses__nav">
-                            <ul class="nav nav-tabs" id="courseTab" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="all-tab" data-bs-toggle="tab"
-                                        data-bs-target="#all-tab-pane" type="button" role="tab"
-                                        aria-controls="all-tab-pane" aria-selected="true">
-                                        Semua Kelas
-                                    </button>
-                                </li>
+                        <div class="col-xl-6 col-lg-8">
+                            <div class="section__title text-center mb-40">
+                                <span class="sub-title">Our Top Features</span>
+                                <h2 class="title">Raih Tujuan Anda Bersama ProSkill Akademia</h2>
 
-                            </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="features__item-wrap">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-4 col-md-6">
+                                <div class="features__item-two">
+                                    <div class="features__content-two">
+                                        <div class="content-top">
+                                            <div class="features__icon-two">
+                                                <img src="public/assets/img/icons/h2_features_icon01.svg" alt="img"
+                                                    class="injectable">
+                                            </div>
+                                            <h2 class="title">Tutor Ahli</h2>
+                                        </div>
+                                        <p>Belajar Langsung Dari Tutor Yang Ahli di Bidangnya.</p>
+                                    </div>
+                                    <div class="features__item-shape">
+                                        <img src="public/assets/img/others/features_item_shape.svg" alt="img"
+                                            class="injectable">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="features__item-two">
+                                    <div class="features__content-two">
+                                        <div class="content-top">
+                                            <div class="features__icon-two">
+                                                <img src="public/assets/img/icons/h2_features_icon02.svg" alt="img"
+                                                    class="injectable">
+                                            </div>
+                                            <h2 class="title">Kursus yang Efektif</h2>
+                                        </div>
+                                        <p>Kurikulum Kelas yang Sesuai Dengan Standar Industri.</p>
+                                    </div>
+                                    <div class="features__item-shape">
+                                        <img src="public/assets/img/others/features_item_shape.svg" alt="img"
+                                            class="injectable">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="features__item-two">
+                                    <div class="features__content-two">
+                                        <div class="content-top">
+                                            <div class="features__icon-two">
+                                                <img src="public/assets/img/icons/h2_features_icon03.svg" alt="img"
+                                                    class="injectable">
+                                            </div>
+                                            <h2 class="title">Dapatkan Sertifikat</h2>
+                                        </div>
+                                        <p>Mendapatkan Sertifikat Setelah Menyelesaikan Kelas.</p>
+                                    </div>
+                                    <div class="features__item-shape">
+                                        <img src="public/assets/img/others/features_item_shape.svg" alt="img"
+                                            class="injectable">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="tab-content" id="courseTabContent">
-                <div class="tab-pane fade show active" id="all-tab-pane" role="tabpanel" aria-labelledby="all-tab"
-                    tabindex="0">
-                    <div class="swiper courses-swiper-active">
-                        <div class="swiper-wrapper">
-                            @foreach ($KelasTatapMuka as $kelas)
-                                <div class="swiper-slide">
-                                    <div
-                                        class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
-                                        <div class="courses__item-thumb courses__item-thumb-two">
-                                            <a href="{{ route('classroomdetail', ['id' => $kelas->id]) }}"
-                                                class="shine__animate-link">
-                                                <img src="{{ asset('public/uploads/' . $kelas->gambar) }}" alt="img"
-                                                    class="img-fluid">
-                                            </a>
-                                        </div>
+            </section>
+            <!-- features-area-end -->
+        @endguest
+        <!-- course-area -->
+        <section class="courses-area section-py-120" data-background="public/assets/img/bg/courses_bg.jpg">
+            <div class="container">
+                <div class="section__title-wrap">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-6 col-lg-8">
+                            <div class="section__title text-center mb-40">
+                                <span class="sub-title">Kelas ProSkill Akademia</span>
+                                <h2 class="title">Kelas Online dan Offline Kami</h2>
+                                <p class="desc">Saatnya Meningkatkan Keterampilan dan Skill Anda</p>
+                            </div>
+                            <div class="courses__nav">
+                                <ul class="nav nav-tabs" id="courseTab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="all-tab" data-bs-toggle="tab"
+                                            data-bs-target="#all-tab-pane" type="button" role="tab"
+                                            aria-controls="all-tab-pane" aria-selected="true">
+                                            Semua Kelas
+                                        </button>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content" id="courseTabContent">
+                    <div class="tab-pane fade show active" id="all-tab-pane" role="tabpanel" aria-labelledby="all-tab"
+                        tabindex="0">
+                        <div class="swiper courses-swiper-active">
+                            <div class="swiper-wrapper">
+                                @foreach ($KelasTatapMuka as $kelas)
+                                    <div class="swiper-slide">
                                         <div
-                                            class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1">
-                                            <ul class="courses__item-meta list-wrap">
-                                                <li class="courses__item-tag">
-                                                    @if ($kelas->course_type == 'online')
-                                                        <span class="badge bg-primary">Online</span>
-                                                    @else
-                                                        <span class="badge bg-secondary">Offline</span>
-                                                    @endif
-                                                </li>
-                                                <li class="price">Rp {{ number_format($kelas->price, 0, '.', '.') }}</li>
-                                            </ul>
-                                            <h5 class="title course-title flex-grow-1">
-                                                <a
-                                                    href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">{{ $kelas->nama_kursus }}</a>
-                                            </h5>
-                                            <div class="courses__item-content-bottom mt-auto">
-                                                <div class="author-two">
-                                                    <a href="">
-                                                        <img src="public/assets/img/courses/course_author001.png"
-                                                            alt="img">{{ $kelas->user->name }}
-                                                    </a>
-                                                </div>
-                                                <div class="avg-rating">
-                                                    <i class="fas fa-star"></i> (4.8 Reviews)
+                                            class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
+                                            <div class="courses__item-thumb courses__item-thumb-two">
+                                                <a href="{{ route('classroomdetail', ['id' => $kelas->id]) }}"
+                                                    class="shine__animate-link">
+                                                    <img src="{{ asset('public/uploads/' . $kelas->gambar) }}"
+                                                        alt="img" class="img-fluid">
+                                                </a>
+                                            </div>
+                                            <div
+                                                class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1">
+                                                <ul class="courses__item-meta list-wrap">
+                                                    <li class="courses__item-tag">
+                                                        @if ($kelas->course_type == 'online')
+                                                            <span class="badge bg-primary">Online</span>
+                                                        @else
+                                                            <span class="badge bg-secondary">Offline</span>
+                                                        @endif
+                                                    </li>
+                                                    <li class="price">Rp {{ number_format($kelas->price, 0, '.', '.') }}
+                                                    </li>
+                                                </ul>
+                                                <h5 class="title course-title flex-grow-1">
+                                                    <a
+                                                        href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">{{ $kelas->nama_kursus }}</a>
+                                                </h5>
+                                                <div class="courses__item-content-bottom mt-auto">
+                                                    <div class="author-two">
+                                                        <a href="">
+                                                            <img src="public/assets/img/courses/course_author001.png"
+                                                                alt="img">{{ $kelas->user->name }}
+                                                        </a>
+                                                    </div>
+                                                    <div class="avg-rating">
+                                                        <i class="fas fa-star"></i> (4.8 Reviews)
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endforeach
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
 
-            <div class="all-courses-btn mt-30">
-                <div class="tg-button-wrap justify-content-center">
-                    <a href="{{ route('search') }}" class="btn arrow-btn">Lihat Semua Kelas <img
-                            src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
+                <div class="all-courses-btn mt-30">
+                    <div class="tg-button-wrap justify-content-center">
+                        <a href="{{ route('search') }}" class="btn arrow-btn">Lihat Semua Kelas <img
+                                src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- course-area-end -->
-    {{-- <!-- about-area -->
+        </section>
+        <!-- course-area-end -->
+        {{-- <!-- about-area -->
     <section class="about-area-two tg-motion-effects section-pb-120">
         <div class="container">
             <div class="row align-items-center justify-content-center">
@@ -348,199 +340,199 @@
     </section>
     <!-- about-area-end --> --}}
 
-    <!-- event-area -->
-    <section class="event__area section-pt-120 section-pb-90">
-        <div class="container">
-            <div class="event__inner-wrap">
-                <div class="row">
-                    <div class="col-30">
-                        <div class="event__content">
-                            <div class="section__title mb-20">
-                                <span class="sub-title">Acara Mendatang</span>
-                                <h2 class="title">Bergabunglah dengan Komunitas Kami dan Jadikan Lebih Besar</h2>
-                            </div>
+        <!-- event-area -->
+        <section class="event__area section-pt-120 section-pb-90">
+            <div class="container">
+                <div class="event__inner-wrap">
+                    <div class="row">
+                        <div class="col-30">
+                            <div class="event__content">
+                                <div class="section__title mb-20">
+                                    <span class="sub-title">Acara Mendatang</span>
+                                    <h2 class="title">Bergabunglah dengan Komunitas Kami dan Jadikan Lebih Besar</h2>
+                                </div>
 
-                            <div class="tg-button-wrap">
-                                <a href="{{ route('event') }}" class="btn arrow-btn">Lihat Semua Acara <img
-                                        src="public/assets/img/icons/right_arrow.svg" alt="img"
-                                        class="injectable"></a>
+                                <div class="tg-button-wrap">
+                                    <a href="{{ route('event') }}" class="btn arrow-btn">Lihat Semua Acara <img
+                                            src="public/assets/img/icons/right_arrow.svg" alt="img"
+                                            class="injectable"></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-70">
-                        <div class="event__item-wrap">
-                            <div class="row justify-content-center">
-                                @foreach ($event as $event)
-                                    <div class="col-lg-4 col-md-6">
-                                        <div class="event__item shine__animate-item">
-                                            <div class="event__item-thumb">
-                                                <a href="{{ route('event_detail', ['id' => $event->id]) }}"
-                                                    class="shine__animate-link">
-                                                    <img src="{{ asset('public/uploads/events/' . $event->gambar) }}"
-                                                        alt="img">
-                                                </a>
-                                            </div>
-                                            <div class="event__item-content">
-                                                <span
-                                                    class="date">{{ Carbon::parse($event->tgl)->format('d - F - Y') }}</span>
-                                                <h2 class="title event-name">
-                                                    <a
-                                                        href="{{ route('event_detail', ['id' => $event->id]) }}">{{ $event->name }}</a>
-                                                </h2>
-                                                <a href="{{ $event->link_maps }}" class="location" target="_blank">
-                                                    <i class="flaticon-map"></i>{{ $event->lokasi }}
-                                                </a>
+                        <div class="col-70">
+                            <div class="event__item-wrap">
+                                <div class="row justify-content-center">
+                                    @foreach ($event as $event)
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="event__item shine__animate-item">
+                                                <div class="event__item-thumb">
+                                                    <a href="{{ route('event_detail', ['id' => $event->id]) }}"
+                                                        class="shine__animate-link">
+                                                        <img src="{{ asset('public/uploads/events/' . $event->gambar) }}"
+                                                            alt="img">
+                                                    </a>
+                                                </div>
+                                                <div class="event__item-content">
+                                                    <span
+                                                        class="date">{{ Carbon::parse($event->tgl)->format('d - F - Y') }}</span>
+                                                    <h2 class="title event-name">
+                                                        <a
+                                                            href="{{ route('event_detail', ['id' => $event->id]) }}">{{ $event->name }}</a>
+                                                    </h2>
+                                                    <a href="{{ $event->link_maps }}" class="location" target="_blank">
+                                                        <i class="flaticon-map"></i>{{ $event->lokasi }}
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                @endforeach
+                                    @endforeach
 
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                </div>
-            </div>
-        </div>
-        <div class="event__shape">
-            <img src="public/assets/img/events/event_shape.png" alt="img" class="alltuchtopdown">
-        </div>
-    </section>
-    <!-- event-area-end -->
-
-    <!-- blog-area -->
-    <section class="blog__post-area blog__post-area-two">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="section__title text-center mb-40">
-                        <span class="sub-title">News & Blogs</span>
-                        <h2 class="title">Our Latest News Feed</h2>
-                        <p>when known printer took a galley of type scrambl edmake</p>
                     </div>
                 </div>
             </div>
-            <div class="row gutter-20">
-                <div class="col-xl-3 col-md-6">
-                    <div class="blog__post-item shine__animate-item">
-                        <div class="blog__post-thumb">
-                            <a href="blog-details.html" class="shine__animate-link"><img
-                                    src="public/assets/img/blog/blog_post01.jpg" alt="img"></a>
-                            <a href="blog.html" class="post-tag">Marketing</a>
-                        </div>
-                        <div class="blog__post-content">
-                            <div class="blog__post-meta">
-                                <ul class="list-wrap">
-                                    <li><i class="flaticon-calendar"></i>20 July, 2024</li>
-                                    <li><i class="flaticon-user-1"></i>by <a href="blog-details.html">Admin</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <h4 class="title"><a href="blog-details.html">How To Become idiculously Self-Aware
-                                    In 20 Minutes</a></h4>
+            <div class="event__shape">
+                <img src="public/assets/img/events/event_shape.png" alt="img" class="alltuchtopdown">
+            </div>
+        </section>
+        <!-- event-area-end -->
+
+        <!-- blog-area -->
+        <section class="blog__post-area blog__post-area-two">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="section__title text-center mb-40">
+                            <span class="sub-title">News & Blogs</span>
+                            <h2 class="title">Our Latest News Feed</h2>
+                            <p>when known printer took a galley of type scrambl edmake</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="blog__post-item shine__animate-item">
-                        <div class="blog__post-thumb">
-                            <a href="blog-details.html" class="shine__animate-link"><img
-                                    src="public/assets/img/blog/blog_post02.jpg" alt="img"></a>
-                            <a href="blog.html" class="post-tag">Students</a>
-                        </div>
-                        <div class="blog__post-content">
-                            <div class="blog__post-meta">
-                                <ul class="list-wrap">
-                                    <li><i class="flaticon-calendar"></i>20 July, 2024</li>
-                                    <li><i class="flaticon-user-1"></i>by <a href="blog-details.html">Admin</a>
-                                    </li>
-                                </ul>
+                <div class="row gutter-20">
+                    <div class="col-xl-3 col-md-6">
+                        <div class="blog__post-item shine__animate-item">
+                            <div class="blog__post-thumb">
+                                <a href="blog-details.html" class="shine__animate-link"><img
+                                        src="public/assets/img/blog/blog_post01.jpg" alt="img"></a>
+                                <a href="blog.html" class="post-tag">Marketing</a>
                             </div>
-                            <h4 class="title"><a href="blog-details.html">Get Started With UI Design With Tips
-                                    To Speed</a></h4>
+                            <div class="blog__post-content">
+                                <div class="blog__post-meta">
+                                    <ul class="list-wrap">
+                                        <li><i class="flaticon-calendar"></i>20 July, 2024</li>
+                                        <li><i class="flaticon-user-1"></i>by <a href="blog-details.html">Admin</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <h4 class="title"><a href="blog-details.html">How To Become idiculously Self-Aware
+                                        In 20 Minutes</a></h4>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="blog__post-item shine__animate-item">
-                        <div class="blog__post-thumb">
-                            <a href="blog-details.html" class="shine__animate-link"><img
-                                    src="public/assets/img/blog/blog_post03.jpg" alt="img"></a>
-                            <a href="blog.html" class="post-tag">Science</a>
-                        </div>
-                        <div class="blog__post-content">
-                            <div class="blog__post-meta">
-                                <ul class="list-wrap">
-                                    <li><i class="flaticon-calendar"></i>20 July, 2024</li>
-                                    <li><i class="flaticon-user-1"></i>by <a href="blog-details.html">Admin</a>
-                                    </li>
-                                </ul>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="blog__post-item shine__animate-item">
+                            <div class="blog__post-thumb">
+                                <a href="blog-details.html" class="shine__animate-link"><img
+                                        src="public/assets/img/blog/blog_post02.jpg" alt="img"></a>
+                                <a href="blog.html" class="post-tag">Students</a>
                             </div>
-                            <h4 class="title"><a href="blog-details.html">Make Your Own Expanding Contracting
-                                    Content</a></h4>
+                            <div class="blog__post-content">
+                                <div class="blog__post-meta">
+                                    <ul class="list-wrap">
+                                        <li><i class="flaticon-calendar"></i>20 July, 2024</li>
+                                        <li><i class="flaticon-user-1"></i>by <a href="blog-details.html">Admin</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <h4 class="title"><a href="blog-details.html">Get Started With UI Design With Tips
+                                        To Speed</a></h4>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="blog__post-item shine__animate-item">
-                        <div class="blog__post-thumb">
-                            <a href="blog-details.html" class="shine__animate-link"><img
-                                    src="public/assets/img/blog/blog_post04.jpg" alt="img"></a>
-                            <a href="blog.html" class="post-tag">Agency</a>
-                        </div>
-                        <div class="blog__post-content">
-                            <div class="blog__post-meta">
-                                <ul class="list-wrap">
-                                    <li><i class="flaticon-calendar"></i>20 July, 2024</li>
-                                    <li><i class="flaticon-user-1"></i>by <a href="blog-details.html">Admin</a>
-                                    </li>
-                                </ul>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="blog__post-item shine__animate-item">
+                            <div class="blog__post-thumb">
+                                <a href="blog-details.html" class="shine__animate-link"><img
+                                        src="public/assets/img/blog/blog_post03.jpg" alt="img"></a>
+                                <a href="blog.html" class="post-tag">Science</a>
                             </div>
-                            <h4 class="title"><a href="blog-details.html">What we are capable to usually
-                                    discovered</a></h4>
+                            <div class="blog__post-content">
+                                <div class="blog__post-meta">
+                                    <ul class="list-wrap">
+                                        <li><i class="flaticon-calendar"></i>20 July, 2024</li>
+                                        <li><i class="flaticon-user-1"></i>by <a href="blog-details.html">Admin</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <h4 class="title"><a href="blog-details.html">Make Your Own Expanding Contracting
+                                        Content</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6">
+                        <div class="blog__post-item shine__animate-item">
+                            <div class="blog__post-thumb">
+                                <a href="blog-details.html" class="shine__animate-link"><img
+                                        src="public/assets/img/blog/blog_post04.jpg" alt="img"></a>
+                                <a href="blog.html" class="post-tag">Agency</a>
+                            </div>
+                            <div class="blog__post-content">
+                                <div class="blog__post-meta">
+                                    <ul class="list-wrap">
+                                        <li><i class="flaticon-calendar"></i>20 July, 2024</li>
+                                        <li><i class="flaticon-user-1"></i>by <a href="blog-details.html">Admin</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <h4 class="title"><a href="blog-details.html">What we are capable to usually
+                                        discovered</a></h4>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- blog-area-end -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mengatur tinggi untuk elemen course-title
-            var courseTitles = document.querySelectorAll('.course-title');
-            var maxCourseTitleHeight = 0;
+        </section>
+        <!-- blog-area-end -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Mengatur tinggi untuk elemen course-title
+                var courseTitles = document.querySelectorAll('.course-title');
+                var maxCourseTitleHeight = 0;
 
-            // Temukan tinggi maksimum untuk course-title
-            courseTitles.forEach(function(title) {
-                if (title.offsetHeight > maxCourseTitleHeight) {
-                    maxCourseTitleHeight = title.offsetHeight;
-                }
+                // Temukan tinggi maksimum untuk course-title
+                courseTitles.forEach(function(title) {
+                    if (title.offsetHeight > maxCourseTitleHeight) {
+                        maxCourseTitleHeight = title.offsetHeight;
+                    }
+                });
+
+                // Tetapkan tinggi maksimum ke semua elemen course-title
+                courseTitles.forEach(function(title) {
+                    title.style.height = maxCourseTitleHeight + 'px';
+                });
+
+                // Mengatur tinggi untuk elemen event-name
+                var eventNames = document.querySelectorAll('.event-name');
+                var maxEventNameHeight = 0;
+
+                // Temukan tinggi maksimum untuk event-name
+                eventNames.forEach(function(eventName) {
+                    var height = eventName.offsetHeight;
+                    if (height > maxEventNameHeight) {
+                        maxEventNameHeight = height;
+                    }
+                });
+
+                // Tetapkan tinggi maksimum ke semua elemen event-name
+                eventNames.forEach(function(eventName) {
+                    eventName.style.height = maxEventNameHeight + 'px';
+                });
             });
-
-            // Tetapkan tinggi maksimum ke semua elemen course-title
-            courseTitles.forEach(function(title) {
-                title.style.height = maxCourseTitleHeight + 'px';
-            });
-
-            // Mengatur tinggi untuk elemen event-name
-            var eventNames = document.querySelectorAll('.event-name');
-            var maxEventNameHeight = 0;
-
-            // Temukan tinggi maksimum untuk event-name
-            eventNames.forEach(function(eventName) {
-                var height = eventName.offsetHeight;
-                if (height > maxEventNameHeight) {
-                    maxEventNameHeight = height;
-                }
-            });
-
-            // Tetapkan tinggi maksimum ke semua elemen event-name
-            eventNames.forEach(function(eventName) {
-                eventName.style.height = maxEventNameHeight + 'px';
-            });
-        });
-    </script>
+        </script>
 
 
-@endsection
+    @endsection
