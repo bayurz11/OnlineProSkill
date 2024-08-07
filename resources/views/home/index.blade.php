@@ -226,7 +226,7 @@
                                         <div class="courses__item-thumb courses__item-thumb-two">
                                             <a href="{{ route('classroomdetail', ['id' => $kelas->id]) }}"
                                                 class="shine__animate-link">
-                                                <img src="public/assets/img/courses/course_thumb01.jpg" alt="img">
+                                                <img src="{{ asset('public/uploads/' . $kelas->gambar) }}" alt="img">
                                             </a>
                                         </div>
                                         <div class="courses__item-content courses__item-content-two">
