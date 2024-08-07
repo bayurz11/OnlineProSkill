@@ -196,9 +196,9 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-6 col-lg-8">
                         <div class="section__title text-center mb-40">
-                            <span class="sub-title">Top Class Courses</span>
-                            <h2 class="title">Explore Our World's Best Courses</h2>
-                            <p class="desc">When known printer took a galley of type scrambl edmake</p>
+                            <span class="sub-title">Kelas ProSkill Akademia</span>
+                            <h2 class="title">Kelas Online dan Offline Kami</h2>
+                            <p class="desc">Saatnya meningkatkan keterampilan dalam dunia IT</p>
                         </div>
                         <div class="courses__nav">
                             <ul class="nav nav-tabs" id="courseTab" role="tablist">
