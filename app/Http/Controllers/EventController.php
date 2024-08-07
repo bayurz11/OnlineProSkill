@@ -20,8 +20,9 @@ class EventController extends Controller
         $user = Auth::user();
         $profile = null;
         $cart = Session::get('cart', []);
-        // Mengambil event dan memfilter yang tanggalnya belum lewat
-        $event = AdminEvent::where('tgl', '>=', Carbon::now())->orderBy('created_at', 'desc')->get();
+
+        // Mengambil event dan memfilter yang tanggalnya belum lewat, serta melakukan paginasi
+        $event = AdminEvent::where('tgl', '>=', Carbon::now())->orderBy('created_at', 'desc')->paginate(4);
 
         if ($user) {
             $profile = UserProfile::where('user_id', $user->id)->first();
@@ -38,6 +39,7 @@ class EventController extends Controller
 
         return view('home.event.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'categori', 'event'));
     }
+
     public function detailEvent($id)
     {
         $categori = Categories::all();
