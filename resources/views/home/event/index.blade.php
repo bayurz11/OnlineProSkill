@@ -82,7 +82,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Dapatkan semua elemen nama event
-            var eventNames = document.querySelectorAll('.event-name a');
+            var eventNames = document.querySelectorAll('.event-name');
             var maxWidth = 0;
 
             // Hitung lebar maksimum
