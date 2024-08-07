@@ -506,22 +506,40 @@
     <!-- blog-area-end -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Mengatur tinggi untuk elemen course-title
             var courseTitles = document.querySelectorAll('.course-title');
-            var courseTitles = document.querySelectorAll('.event-name');
-            var maxHeight = 0;
+            var maxCourseTitleHeight = 0;
 
-            // Temukan tinggi maksimum
+            // Temukan tinggi maksimum untuk course-title
             courseTitles.forEach(function(title) {
-                if (title.offsetHeight > maxHeight) {
-                    maxHeight = title.offsetHeight;
+                if (title.offsetHeight > maxCourseTitleHeight) {
+                    maxCourseTitleHeight = title.offsetHeight;
                 }
             });
 
             // Tetapkan tinggi maksimum ke semua elemen course-title
             courseTitles.forEach(function(title) {
-                title.style.height = maxHeight + 'px';
+                title.style.height = maxCourseTitleHeight + 'px';
+            });
+
+            // Mengatur tinggi untuk elemen event-name
+            var eventNames = document.querySelectorAll('.event-name');
+            var maxEventNameHeight = 0;
+
+            // Temukan tinggi maksimum untuk event-name
+            eventNames.forEach(function(eventName) {
+                var height = eventName.offsetHeight;
+                if (height > maxEventNameHeight) {
+                    maxEventNameHeight = height;
+                }
+            });
+
+            // Tetapkan tinggi maksimum ke semua elemen event-name
+            eventNames.forEach(function(eventName) {
+                eventName.style.height = maxEventNameHeight + 'px';
             });
         });
     </script>
+
 
 @endsection
