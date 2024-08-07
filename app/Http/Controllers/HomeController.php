@@ -29,7 +29,7 @@ class HomeController extends Controller
         // Mengambil KelasTatapMuka dan mengurutkannya berdasarkan kolom created_at
         $KelasTatapMuka = KelasTatapMuka::orderBy('created_at', 'desc')->get();
 
-        $event = AdminEvent::all();
+        $event = AdminEvent::orderBy('created_at', 'desc')->get();
         if ($user) {
             $profile = UserProfile::where('user_id', $user->id)->first();
         }
