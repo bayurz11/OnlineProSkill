@@ -355,13 +355,13 @@
                     <div class="col-30">
                         <div class="event__content">
                             <div class="section__title mb-20">
-                                <span class="sub-title">Upcoming Events</span>
-                                <h2 class="title">Join Our Community And Make it Bigger</h2>
+                                <span class="sub-title">Acara Mendatang</span>
+                                <h2 class="title">Bergabunglah dengan Komunitas Kami dan Jadikan Lebih Besar</h2>
                             </div>
                             <p>Edhen an unknown printer took a galley acrambled make a type specimen bookas
                                 centuries.Edhen anderely unknown printer took a galley.</p>
                             <div class="tg-button-wrap">
-                                <a href="events.html" class="btn arrow-btn">See All Events <img
+                                <a href="{{ route('event') }}" class="btn arrow-btn">Lihat Semua Acara <img
                                         src="public/assets/img/icons/right_arrow.svg" alt="img"
                                         class="injectable"></a>
                             </div>
