@@ -24,7 +24,7 @@ class HomeController extends Controller
         $user = Auth::user();
         $profile = null;
         $cart = Session::get('cart', []);
-
+        $KelasTatapMuka = KelasTatapMuka::all();
         if ($user) {
             $profile = UserProfile::where('user_id', $user->id)->first();
         }
@@ -38,7 +38,7 @@ class HomeController extends Controller
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
-        return view('home.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'categori'));
+        return view('home.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'categori', 'KelasTatapMuka'));
     }
 
     public function classroom()
