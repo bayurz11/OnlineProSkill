@@ -221,7 +221,7 @@
                     <div class="swiper courses-swiper-active">
                         <div class="swiper-wrapper">
                             @foreach ($KelasTatapMuka as $kelas)
-                                <div class="swiper-slide h-100">
+                                <div class="swiper-slide">
                                     <div
                                         class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
                                         <div class="courses__item-thumb courses__item-thumb-two">
@@ -243,7 +243,7 @@
                                                 </li>
                                                 <li class="price">Rp {{ number_format($kelas->price, 0, '.', '.') }}</li>
                                             </ul>
-                                            <h5 class="title flex-grow-1">
+                                            <h5 class="title course-title flex-grow-1">
                                                 <a
                                                     href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">{{ $kelas->nama_kursus }}</a>
                                             </h5>
@@ -266,6 +266,7 @@
                     </div>
                 </div>
             </div>
+
 
             <div class="all-courses-btn mt-30">
                 <div class="tg-button-wrap justify-content-center">
@@ -523,5 +524,23 @@
         </div>
     </section>
     <!-- blog-area-end -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var courseTitles = document.querySelectorAll('.course-title');
+            var maxHeight = 0;
+
+            // Temukan tinggi maksimum
+            courseTitles.forEach(function(title) {
+                if (title.offsetHeight > maxHeight) {
+                    maxHeight = title.offsetHeight;
+                }
+            });
+
+            // Tetapkan tinggi maksimum ke semua elemen course-title
+            courseTitles.forEach(function(title) {
+                title.style.height = maxHeight + 'px';
+            });
+        });
+    </script>
 
 @endsection
