@@ -82,14 +82,13 @@
              <div class="row align-items-center">
                  <div class="col-md-7">
                      <div class="copy-right-text">
-                         <p>©2024 proskill.sch.id.All rights reserved</p>
+                         <p>©2024 ProSkill Akademia</p>
                      </div>
                  </div>
                  <div class="col-md-5">
                      <div class="footer__bottom-menu">
                          <ul class="list-wrap">
-                             <li><a href="contact.html">Syarat dan Ketentuan</a></li>
-                             <li><a href="contact.html">Ketentuan Privasi</a></li>
+                             <li><a href="mailto:admin@proskill.sch.id">admin@proskill.sch.id</a></li>
                          </ul>
                      </div>
                  </div>
