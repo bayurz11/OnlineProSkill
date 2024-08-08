@@ -12,8 +12,8 @@
             </ol>
         </nav>
 
-        {{-- @include('admin.modal.add_event')
-        @include('admin.modal.edit_even') --}}
+        @include('admin.modal.add_kategoriblog')
+        @include('admin.modal.edit_even')
 
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
