@@ -34,4 +34,18 @@ class KategoriBlogController extends Controller
 
         return redirect()->route('kategori_blog')->with('success', 'Kategori berhasil disimpan.');
     }
+
+    public function updateStatuskategor($id, Request $request)
+    {
+        $category = KategoriBlog::find($id);
+
+        if ($category) {
+            $category->status = $request->input('status');
+            $category->save();
+
+            return response()->json(['success' => true]);
+        }
+
+        return response()->json(['success' => false]);
+    }
 }
