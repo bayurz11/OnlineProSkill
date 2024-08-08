@@ -67,6 +67,6 @@ class KategoriBlogController extends Controller
         $categories->name_kategori = $request->name_kategori;
 
         $categories->save();
-        return redirect()->route('categories')->with('success', 'Data updated successfully');
+        return redirect()->route('kategori_blog')->with('success', 'Data updated successfully');
     }
 }
