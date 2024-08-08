@@ -69,4 +69,18 @@ class KategoriBlogController extends Controller
         $categories->save();
         return redirect()->route('kategori_blog')->with('success', 'Data updated successfully');
     }
+
+    public function destroy($id)
+    {
+
+        $category = KategoriBlog::find($id);
+
+        if (!$category) {
+            return redirect()->route('kategori_blog')->with('error', 'Kategori tidak ditemukan');
+        }
+
+        $category->delete();
+
+        return redirect()->route('kategori_blog')->with('success', 'Kategori berhasil dihapus');
+    }
 }

@@ -121,20 +121,20 @@
 
         function hapus(id) {
             const confirmationBox = `
-            <div id="confirmationModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">
-                <div style="background: white; padding: 40px; border-radius: 8px; text-align: center;">
-                    <h4>Konfirmasi Penghapusan</h4><br>
-                    <p>Apakah Anda yakin ingin menghapus ini?</p><br>
-                    <button id="confirmDelete" class="btn btn-danger btn-lg">Ya, Hapus</button>
-                    <button id="cancelDelete" class="btn btn-secondary btn-lg">Batal</button>
-                </div>
+        <div id="confirmationModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">
+            <div style="background: white; padding: 40px; border-radius: 8px; text-align: center;">
+                <h4>Konfirmasi Penghapusan</h4><br>
+                <p>Apakah Anda yakin ingin menghapus ini?</p><br>
+                <button id="confirmDelete" class="btn btn-danger btn-lg">Ya, Hapus</button>
+                <button id="cancelDelete" class="btn btn-secondary btn-lg">Batal</button>
             </div>
-        `;
+        </div>
+    `;
 
             document.body.insertAdjacentHTML('beforeend', confirmationBox);
 
             document.getElementById('confirmDelete').onclick = function() {
-                fetch(`/event/${id}/destroy`, {
+                fetch(`/kategori_destroy/${id}`, {
                     method: 'POST',
                     headers: {
                         'X-CSRF-TOKEN': '{{ csrf_token() }}',
@@ -146,11 +146,11 @@
                 }).then(response => {
                     document.getElementById('confirmationModal').remove();
                     if (response.ok) {
-                        console.log('event berhasil dihapus. Mengalihkan ke halaman pengaturan event.');
-                        window.location.href = '{{ route('kelola_event') }}';
+                        console.log('Kategori berhasil dihapus. Mengalihkan ke halaman pengaturan kategori.');
+                        window.location.href = '{{ route('kategori_blog') }}';
                     } else {
                         response.text().then(text => {
-                            console.error('Gagal menghapus event:', text);
+                            console.error('Gagal menghapus kategori:', text);
                         });
                     }
                 }).catch(error => {
