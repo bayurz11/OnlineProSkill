@@ -30,18 +30,32 @@
                             <table id="dataTableExample" class="table">
                                 <thead>
                                     <tr>
-                                        <th>Nama </th>
-                                        <th>Tanggal Event</th>
-                                        <th>Lokasi</th>
+                                        <th>No</th>
+                                        <th>Nama Kategori</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($kategori_blog as $kategori)
+                                    @foreach ($kategori_blog as $key => $kategori)
                                         <tr>
-                                            <td>{{ $kategori->name }}</td>
-                                            <td>{{ $kategori->tgl }}</td>
-                                            <td>{{ $kategori->lokasi }}</td>
+                                            <td>{{ $key + 1 }}</td>
+                                            <td>{{ $kategori->name_kategori }}</td>
+                                            <td>
+
+                                                <div class="form-check form-switch mb-2">
+                                                    <input type="checkbox" class="form-check-input formSwitch"
+                                                        id="formSwitch{{ $kategori->id }}" data-id="{{ $kategori->id }}"
+                                                        data-status="{{ $kategori->status }}">
+                                                </div>
+
+
+                                                {{-- <a href="#"
+                                                    class="badge badgeLink {{ $kategori->status ? 'bg-success' : 'bg-danger' }}"
+                                                    data-id="{{ $kategori->id }}" data-status="{{ $kategori->status }}">
+                                                    {{ $kategori->status ? 'Active' : 'Inactive' }}
+                                                </a> --}}
+                                            </td>
                                             <td>
                                                 <button type="button" class="btn btn-primary btn-icon edit-button"
                                                     title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
@@ -57,7 +71,6 @@
                                     @endforeach
                                 </tbody>
                             </table>
-
                         </div>
                     </div>
                 </div>
