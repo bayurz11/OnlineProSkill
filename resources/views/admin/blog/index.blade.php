@@ -13,7 +13,7 @@
         </nav>
 
         @include('admin.modal.add_blog')
-        {{-- @include('admin.modal.edit_even') --}}
+        @include('admin.modal.edit_blog')
 
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
