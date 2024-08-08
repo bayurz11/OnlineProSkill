@@ -64,15 +64,7 @@ class KategoriBlogController extends Controller
     public function update(Request $request, $id)
     {
         $categories = KategoriBlog::findOrFail($id);
-        $categories->name_category = $request->name_category;
-
-
-        if ($request->hasFile('gambar')) {
-            $file = $request->file('gambar');
-            $filename = time() . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('uploads'), $filename);
-            $categories->gambar = $filename;
-        }
+        $categories->name_kategori = $request->name_kategori;
 
         $categories->save();
         return redirect()->route('categories')->with('success', 'Data updated successfully');
