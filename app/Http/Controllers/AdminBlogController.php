@@ -62,4 +62,25 @@ class AdminBlogController extends Controller
 
         return response()->json($blog);
     }
+
+    public function update(Request $request, $id)
+    {
+        $blog = Blog::findOrFail($id);
+
+        $blog->title = $request->title;
+        $blog->kategori_id = $request->kategori_id;
+        $blog->content = $request->content;
+        $blog->tag = $request->tag;
+        $blog->date = $request->date;
+
+        if ($request->hasFile('gambar')) {
+            $file = $request->file('gambar');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads'), $filename);
+            $blog->gambar = $filename;
+        }
+
+        $blog->save();
+        return redirect()->route('kategori_blog')->with('success', 'Data updated successfully');
+    }
 }

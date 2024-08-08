@@ -10,9 +10,9 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
                 </div>
                 <div class="modal-body">
-
                     <div class="mb-3">
-                        <label for="title" class="form-label">Judul Artikel<span class="text-danger">*</span></label>
+                        <label for="edit_title" class="form-label">Judul Artikel<span
+                                class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="edit_title" name="title"
                             placeholder="Masukkan Judul Artikel Anda" required>
                     </div>
@@ -41,13 +41,13 @@
                     <div class="mb-3">
                         <label for="content" class="form-label">Isi Artikel<span class="text-danger">*</span></label>
                         <textarea id="content" name="content" style="height: 400px; width: 100%; font-size: 18px;"></textarea>
-                        <input type="hidden" id="content_input" name="content" required>
+                        <input type="hidden" id="edit_content_input" name="content" required>
                         <script>
                             ClassicEditor
                                 .create(document.querySelector('#content'))
                                 .then(editor => {
                                     editor.model.document.on('change:data', () => {
-                                        const content_input = document.querySelector('#content_input');
+                                        const content_input = document.querySelector('#edit_content_input');
                                         content_input.value = editor.getData();
                                     });
                                 })
@@ -86,13 +86,16 @@
                 $('#editModalForm').attr('action', '/blog/' + id);
                 $('#edit_title').val(data.title);
                 $('#edit_category').val(data.kategori_id).trigger('change');
-                $('#edit_content').val(data.content);
                 $('#edit_content_input').val(data.content);
+                ClassicEditor.create(document.querySelector('#content')).then(editor => {
+                    editor.setData(data.content);
+                });
+
                 $('#edit_tag').val(data.tag);
                 $('#edit_date').val(data.date);
 
                 if (data.gambar) {
-                    $('#preview_edit').attr('src', `/public/uploads/${data.gambar}`).show();
+                    $('#preview_edit').attr('src', `/uploads/${data.gambar}`).show();
                 } else {
                     $('#preview_edit').hide();
                 }
