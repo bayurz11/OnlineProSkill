@@ -31,8 +31,8 @@
                                     <li class="{{ Request::is('event') ? 'active' : '' }}">
                                         <a href="{{ route('event') }}">Event</a>
                                     </li>
-                                    <li class="{{ Request::is('artikel') ? 'active' : '' }}">
-                                        <a href="">Artikel</a>
+                                    <li class="{{ Request::is('blog') ? 'active' : '' }}">
+                                        <a href="{{ route('blog') }}">Artikel</a>
                                     </li>
                                     {{-- <li class="menu-item-has-children {{ Request::is('#') ? 'active' : '' }}">
                                         <a href="#">Profil</a>

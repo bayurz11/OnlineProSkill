@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\AdminEventController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Middleware\AdminMiddleware;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\OauthController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PaymentController;
@@ -13,9 +14,11 @@ use App\Http\Controllers\SectionController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KurikulumController;
+use App\Http\Controllers\AdminEventController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\SertifikatController;
 use App\Http\Controllers\DaftarSiswaController;
+use App\Http\Controllers\HeroSectionController;
 use App\Http\Controllers\CourseMasterController;
 use App\Http\Controllers\SubcategoriesController;
 use App\Http\Controllers\AksesPembelianController;
@@ -24,8 +27,6 @@ use App\Http\Controllers\NotifikasiUserController;
 use App\Http\Controllers\DashboardStudenController;
 use App\Http\Controllers\RiwayatTransaksiController;
 use App\Http\Controllers\DashboardInstrukturController;
-use App\Http\Controllers\EventController;
-use App\Http\Controllers\HeroSectionController;
 use App\Http\Controllers\OrderHistoryManagerController;
 
 //Authentikasi
@@ -202,3 +203,6 @@ Route::get('/search', [SearchController::class, 'search'])->name('search');
 //Event 
 Route::get('/event', [EventController::class, 'index'])->name('event');
 Route::get('/event_detail/{id}', [EventController::class, 'detailEvent'])->name('event_detail');
+
+//Blog
+Route::get('/blog', [BlogController::class, 'index'])->name('blog');
