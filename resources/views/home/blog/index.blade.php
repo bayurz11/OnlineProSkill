@@ -8,6 +8,7 @@
     @php
         use Carbon\Carbon;
     @endphp
+
     <!-- breadcrumb-area -->
     <section class="breadcrumb__area breadcrumb__bg" data-background="public/assets/img/bg/breadcrumb_bg.jpg" loading="lazy">
         <div class="container">
@@ -39,7 +40,6 @@
         </div>
     </section>
     <!-- breadcrumb-area-end -->
-
     <!-- blog-area -->
     <section class="blog-area section-py-120">
         <div class="container">
@@ -50,7 +50,7 @@
                             <div class="blog__post-item shine__animate-item">
                                 <div class="blog__post-thumb">
                                     <a href="blog-details.html" class="shine__animate-link"><img
-                                            src="assets/img/blog/blog_post01.jpg" alt="img"></a>
+                                            src="public/assets/img/blog/blog_post01.jpg" alt="img"></a>
                                     <a href="blog.html" class="post-tag">Marketing</a>
                                 </div>
                                 <div class="blog__post-content">
@@ -69,7 +69,7 @@
                             <div class="blog__post-item shine__animate-item">
                                 <div class="blog__post-thumb">
                                     <a href="blog-details.html" class="shine__animate-link"><img
-                                            src="assets/img/blog/blog_post02.jpg" alt="img"></a>
+                                            src="public/assets/img/blog/blog_post02.jpg" alt="img"></a>
                                     <a href="blog.html" class="post-tag">Students</a>
                                 </div>
                                 <div class="blog__post-content">
@@ -88,7 +88,7 @@
                             <div class="blog__post-item shine__animate-item">
                                 <div class="blog__post-thumb">
                                     <a href="blog-details.html" class="shine__animate-link"><img
-                                            src="assets/img/blog/blog_post03.jpg" alt="img"></a>
+                                            src="public/assets/img/blog/blog_post03.jpg" alt="img"></a>
                                     <a href="blog.html" class="post-tag">Science</a>
                                 </div>
                                 <div class="blog__post-content">
@@ -107,7 +107,7 @@
                             <div class="blog__post-item shine__animate-item">
                                 <div class="blog__post-thumb">
                                     <a href="blog-details.html" class="shine__animate-link"><img
-                                            src="assets/img/blog/blog_post04.jpg" alt="img"></a>
+                                            src="public/assets/img/blog/blog_post04.jpg" alt="img"></a>
                                     <a href="blog.html" class="post-tag">Agency</a>
                                 </div>
                                 <div class="blog__post-content">
@@ -127,7 +127,7 @@
                             <div class="blog__post-item shine__animate-item">
                                 <div class="blog__post-thumb">
                                     <a href="blog-details.html" class="shine__animate-link"><img
-                                            src="assets/img/blog/blog_post05.jpg" alt="img"></a>
+                                            src="public/assets/img/blog/blog_post05.jpg" alt="img"></a>
                                     <a href="blog.html" class="post-tag">Agency</a>
                                 </div>
                                 <div class="blog__post-content">
@@ -147,7 +147,7 @@
                             <div class="blog__post-item shine__animate-item">
                                 <div class="blog__post-thumb">
                                     <a href="blog-details.html" class="shine__animate-link"><img
-                                            src="assets/img/blog/blog_post06.jpg" alt="img"></a>
+                                            src="public/assets/img/blog/blog_post06.jpg" alt="img"></a>
                                     <a href="blog.html" class="post-tag">Agency</a>
                                 </div>
                                 <div class="blog__post-content">
@@ -167,7 +167,7 @@
                             <div class="blog__post-item shine__animate-item">
                                 <div class="blog__post-thumb">
                                     <a href="blog-details.html" class="shine__animate-link"><img
-                                            src="assets/img/blog/blog_post07.jpg" alt="img"></a>
+                                            src="public/assets/img/blog/blog_post07.jpg" alt="img"></a>
                                     <a href="blog.html" class="post-tag">Agency</a>
                                 </div>
                                 <div class="blog__post-content">
@@ -187,7 +187,7 @@
                             <div class="blog__post-item shine__animate-item">
                                 <div class="blog__post-thumb">
                                     <a href="blog-details.html" class="shine__animate-link"><img
-                                            src="assets/img/blog/blog_post08.jpg" alt="img"></a>
+                                            src="public/assets/img/blog/blog_post08.jpg" alt="img"></a>
                                     <a href="blog.html" class="post-tag">Agency</a>
                                 </div>
                                 <div class="blog__post-content">
@@ -207,7 +207,7 @@
                             <div class="blog__post-item shine__animate-item">
                                 <div class="blog__post-thumb">
                                     <a href="blog-details.html" class="shine__animate-link"><img
-                                            src="assets/img/blog/blog_post09.jpg" alt="img"></a>
+                                            src="public/assets/img/blog/blog_post09.jpg" alt="img"></a>
                                     <a href="blog.html" class="post-tag">Agency</a>
                                 </div>
                                 <div class="blog__post-content">
@@ -227,7 +227,7 @@
                             <div class="blog__post-item shine__animate-item">
                                 <div class="blog__post-thumb">
                                     <a href="blog-details.html" class="shine__animate-link"><img
-                                            src="assets/img/blog/blog_post10.jpg" alt="img"></a>
+                                            src="public/assets/img/blog/blog_post10.jpg" alt="img"></a>
                                     <a href="blog.html" class="post-tag">Agency</a>
                                 </div>
                                 <div class="blog__post-content">
@@ -247,7 +247,7 @@
                             <div class="blog__post-item shine__animate-item">
                                 <div class="blog__post-thumb">
                                     <a href="blog-details.html" class="shine__animate-link"><img
-                                            src="assets/img/blog/blog_post11.jpg" alt="img"></a>
+                                            src="public/assets/img/blog/blog_post11.jpg" alt="img"></a>
                                     <a href="blog.html" class="post-tag">Agency</a>
                                 </div>
                                 <div class="blog__post-content">
@@ -267,7 +267,7 @@
                             <div class="blog__post-item shine__animate-item">
                                 <div class="blog__post-thumb">
                                     <a href="blog-details.html" class="shine__animate-link"><img
-                                            src="assets/img/blog/blog_post12.jpg" alt="img"></a>
+                                            src="public/assets/img/blog/blog_post12.jpg" alt="img"></a>
                                     <a href="blog.html" class="post-tag">Agency</a>
                                 </div>
                                 <div class="blog__post-content">
@@ -336,7 +336,7 @@
                             <div class="rc-post-item">
                                 <div class="rc-post-thumb">
                                     <a href="blog-details.html">
-                                        <img src="assets/img/blog/latest_post01.jpg" alt="img">
+                                        <img src="public/assets/img/blog/latest_post01.jpg" alt="img">
                                     </a>
                                 </div>
                                 <div class="rc-post-content">
@@ -348,7 +348,7 @@
                             <div class="rc-post-item">
                                 <div class="rc-post-thumb">
                                     <a href="blog-details.html">
-                                        <img src="assets/img/blog/latest_post02.jpg" alt="img">
+                                        <img src="public/assets/img/blog/latest_post02.jpg" alt="img">
                                     </a>
                                 </div>
                                 <div class="rc-post-content">
@@ -359,7 +359,7 @@
                             <div class="rc-post-item">
                                 <div class="rc-post-thumb">
                                     <a href="blog-details.html">
-                                        <img src="assets/img/blog/latest_post03.jpg" alt="img">
+                                        <img src="public/assets/img/blog/latest_post03.jpg" alt="img">
                                     </a>
                                 </div>
                                 <div class="rc-post-content">
@@ -371,7 +371,7 @@
                             <div class="rc-post-item">
                                 <div class="rc-post-thumb">
                                     <a href="blog-details.html">
-                                        <img src="assets/img/blog/latest_post04.jpg" alt="img">
+                                        <img src="public/assets/img/blog/latest_post04.jpg" alt="img">
                                     </a>
                                 </div>
                                 <div class="rc-post-content">
