@@ -31,7 +31,7 @@
                             <option value="">Pilih Kategori</option>
                             @foreach ($kategori_blog as $category)
                                 @if ($category->status == 1)
-                                    <option value="{{ $category->id }}">{{ $category->name_category }}</option>
+                                    <option value="{{ $category->id }}">{{ $category->name_kategori }}</option>
                                 @endif
                             @endforeach
                         </select>
