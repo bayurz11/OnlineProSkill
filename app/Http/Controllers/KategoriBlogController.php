@@ -29,7 +29,7 @@ class KategoriBlogController extends Controller
 
         // Simpan kategori baru
         $category = new KategoriBlog();
-        $category->name = $request->input('name_kategori');
+        $category->name_kategori = $request->input('name_kategori');
         $category->save();
 
         return redirect()->route('kategori_blog')->with('success', 'Kategori berhasil disimpan.');
