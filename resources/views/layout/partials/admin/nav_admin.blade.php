@@ -228,7 +228,7 @@
                             <a href="{{ route('kategori_blog') }}" class="nav-link">Kategori Artikel</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/error/500.html" class="nav-link">Artikel</a>
+                            <a href="{{ route('kelola_blog') }}" class="nav-link">Artikel</a>
                         </li>
                     </ul>
                 </div>
