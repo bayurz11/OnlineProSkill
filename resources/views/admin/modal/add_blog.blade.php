@@ -1,7 +1,7 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form id="articleForm" action="" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Tambah Artikel</h5>
@@ -102,5 +102,11 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
+
+        // Isi tanggal dengan tanggal saat ini ketika modal dibuka
+        $('#exampleModal').on('show.bs.modal', function() {
+            var today = new Date().toISOString().split('T')[0];
+            document.querySelector('#date').value = today;
+        });
     });
 </script>
