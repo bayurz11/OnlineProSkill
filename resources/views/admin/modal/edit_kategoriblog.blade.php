@@ -25,7 +25,7 @@
 </div>
 <script>
     $(document).ready(function() {
-        // Fetch data when the edit button is clicked
+
         $('.edit-button').on('click', function() {
             const id = $(this).data('id');
             fetch(`/kategori/${id}/edit`)
@@ -33,10 +33,14 @@
                 .then(data => {
                     $('#edit-id').val(data.id);
                     $('#name_kategori_edit').val(data.name_kategori);
+
+                    // Set the form action to the update route
+                    $('#editForm').attr('action', `/kategori/${data.id}`);
                 })
                 .catch(error => {
                     console.error('Error fetching data:', error);
                 });
         });
+
     });
 </script>
