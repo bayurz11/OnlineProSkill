@@ -48,4 +48,33 @@ class KategoriBlogController extends Controller
 
         return response()->json(['success' => false]);
     }
+
+    public function edit($id)
+    {
+        $categories = KategoriBlog::find($id);
+
+        if (!$categories) {
+            return response()->json(['message' => 'Categories not found'], 404);
+        }
+
+        return response()->json($categories);
+    }
+
+
+    public function update(Request $request, $id)
+    {
+        $categories = KategoriBlog::findOrFail($id);
+        $categories->name_category = $request->name_category;
+
+
+        if ($request->hasFile('gambar')) {
+            $file = $request->file('gambar');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads'), $filename);
+            $categories->gambar = $filename;
+        }
+
+        $categories->save();
+        return redirect()->route('categories')->with('success', 'Data updated successfully');
+    }
 }

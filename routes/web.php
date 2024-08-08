@@ -86,6 +86,9 @@ Route::middleware('isAdmin')->group(function () {
     Route::get('/kategori_blog', [KategoriBlogController::class, 'index'])->name('kategori_blog');
     Route::post('/storekategori', [KategoriBlogController::class, 'store'])->name('kategori.store');
     Route::post('/update-kategori-status/{id}', [KategoriBlogController::class, 'updateStatuskategor']);
+    Route::get('/kategori/{id}/edit', [KategoriBlogController::class, 'edit'])->name('kategori.edit');
+    Route::put('/kategori/{id}', [KategoriBlogController::class, 'update'])->name('kategori.update');
+    Route::delete('/kategori_destroy/{id}', [KategoriBlogController::class, 'destroy'])->name('kategori.destroy');
 
     //kelola Blog
     Route::get('/kelola_blog', [AdminBlogController::class, 'index'])->name('kelola_blog');
