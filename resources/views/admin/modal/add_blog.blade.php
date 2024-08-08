@@ -60,6 +60,11 @@
                         <input type="text" class="form-control" id="tag" name="tag">
                         <small class="text-secondary">Note : Isi Dengan Tags kursus yang relevan</small>
                     </div>
+                    <div class="mb-3">
+                        <label for="date" class="form-label">Tanggal</label>
+                        <input type="date" class="form-control" id="date" name="date">
+
+                    </div>
                 </div>
 
                 <div class="modal-footer">
