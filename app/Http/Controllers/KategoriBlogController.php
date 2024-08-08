@@ -16,6 +16,6 @@ class KategoriBlogController extends Controller
         if (!$user) {
             return redirect()->route('login_admin');
         }
-        return view('admin.blog.index', compact('user', 'blog', 'count'));
+        return view('admin.blog.kategori', compact('user', 'kategori_blog', 'count'));
     }
 }
