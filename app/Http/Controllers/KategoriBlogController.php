@@ -18,4 +18,20 @@ class KategoriBlogController extends Controller
         }
         return view('admin.blog.kategori', compact('user', 'kategori_blog', 'count'));
     }
+
+    public function store(Request $request)
+    {
+
+        // Validasi input
+        $request->validate([
+            'name_kategori' => 'required|string|max:255',
+        ]);
+
+        // Simpan kategori baru
+        $category = new KategoriBlog();
+        $category->name = $request->input('name_kategori');
+        $category->save();
+
+        return redirect()->route('kategori_blog')->with('success', 'Kategori berhasil disimpan.');
+    }
 }

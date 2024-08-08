@@ -84,6 +84,7 @@ Route::middleware('isAdmin')->group(function () {
 
     //kategori Blog
     Route::get('/kategori_blog', [KategoriBlogController::class, 'index'])->name('kategori_blog');
+    Route::post('/storekategori', [KategoriBlogController::class, 'store'])->name('kategori.store');
 
     //kelola Blog
     Route::get('/kelola_blog', [AdminBlogController::class, 'index'])->name('kelola_blog');
