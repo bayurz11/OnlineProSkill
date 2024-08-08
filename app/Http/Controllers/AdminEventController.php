@@ -15,11 +15,11 @@ class AdminEventController extends Controller
     {
         $user = Auth::user();
         $event = AdminEvent::all();
-        // $count = $categori->count();
+        $count = $event->count();
         if (!$user) {
             return redirect()->route('login_admin');
         }
-        return view('admin.event.index', compact('user', 'event'));
+        return view('admin.event.index', compact('user', 'event', 'count'));
     }
 
 

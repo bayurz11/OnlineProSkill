@@ -1,4 +1,4 @@
-@section('title', 'ProSkill Akademia | Event')
+@section('title', 'ProSkill Akademia | Blog')
 <?php $page = 'Event'; ?>
 
 @extends('layout.mainlayout_admin')
@@ -8,24 +8,24 @@
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Event</li>
+                <li class="breadcrumb-item active" aria-current="page">Blog</li>
             </ol>
         </nav>
 
-        @include('admin.modal.add_event')
-        @include('admin.modal.edit_even')
+        {{-- @include('admin.modal.add_event')
+        @include('admin.modal.edit_even') --}}
 
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h6 class="card-title">Event</h6>
+                        <h6 class="card-title">Blog</h6>
                         <button type="button" class="btn btn-outline-primary position-absolute top-0 end-0 mt-3 me-3"
                             data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="btn-icon-prepend"
                                 data-feather="plus-circle"></i>
-                            Event
+                            Blog
                         </button>
-                        <p class="text-muted mb-3">Jumlah Event : {{ $event->count() }} </p>
+                        <p class="text-muted mb-3">Jumlah Blog : {{ $blog->count() }} </p>
                         <div class="table-responsive">
                             <table id="dataTableExample" class="table">
                                 <thead>
@@ -37,18 +37,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($event as $event)
+                                    @foreach ($blog as $blog)
                                         <tr>
-                                            <td>{{ $event->name }}</td>
-                                            <td>{{ $event->tgl }}</td>
-                                            <td>{{ $event->lokasi }}</td>
+                                            <td>{{ $blog->name }}</td>
+                                            <td>{{ $blog->tgl }}</td>
+                                            <td>{{ $blog->lokasi }}</td>
                                             <td>
                                                 <button type="button" class="btn btn-primary btn-icon edit-button"
                                                     title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
-                                                    data-id="{{ $event->id }}">
+                                                    data-id="{{ $blog->id }}">
                                                     <i data-feather="edit"></i>
                                                 </button>
-                                                <button onclick="hapus('{{ $event->id }}')"
+                                                <button onclick="hapus('{{ $blog->id }}')"
                                                     class="btn btn-danger btn-icon" title="Hapus">
                                                     <i data-feather="trash-2"></i>
                                                 </button>
@@ -66,7 +66,7 @@
 
     </div>
 
-    <script>
+    {{-- <script>
         function hapus(id) {
             const confirmationBox = `
             <div id="confirmationModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">
@@ -111,7 +111,7 @@
                 document.getElementById('confirmationModal').remove();
             };
         }
-    </script>
+    </script> --}}
 
 
 @endsection

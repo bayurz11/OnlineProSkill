@@ -225,6 +225,9 @@
                             <a href="{{ route('kelola_event') }}" class="nav-link">Event</a>
                         </li>
                         <li class="nav-item">
+                            <a href="pages/error/500.html" class="nav-link">Kategori Artikel</a>
+                        </li>
+                        <li class="nav-item">
                             <a href="pages/error/500.html" class="nav-link">Artikel</a>
                         </li>
                     </ul>

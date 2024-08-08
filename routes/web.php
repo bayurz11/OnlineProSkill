@@ -12,6 +12,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\AdminBlogController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KurikulumController;
 use App\Http\Controllers\AdminEventController;
@@ -79,6 +80,9 @@ Route::middleware('isAdmin')->group(function () {
     Route::get('/event/{id}/edit', [AdminEventController::class, 'edit'])->name('event.edit');
     Route::put('/event/{id}/update', [AdminEventController::class, 'update'])->name('event.update');
     Route::delete('/event/{id}/destroy', [AdminEventController::class, 'destroy'])->name('event.destroy');
+
+    //kelola Blog
+    Route::get('/kelola_blog', [AdminBlogController::class, 'index'])->name('kelola_blog');
     //*******ADMIN OFFLINE COURSE SETTING*******//
 
     //Kursus Tatap Muka
