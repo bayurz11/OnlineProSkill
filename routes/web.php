@@ -93,6 +93,8 @@ Route::middleware('isAdmin')->group(function () {
     //kelola Blog
     Route::get('/kelola_blog', [AdminBlogController::class, 'index'])->name('kelola_blog');
     Route::post('/storeblog', [AdminBlogController::class, 'store'])->name('blog.store');
+    Route::get('/blog/{id}/edit', [AdminBlogController::class, 'edit'])->name('blog.edit');
+    Route::put('/blog/{id}', [AdminBlogController::class, 'update'])->name('blog.update');
     //*******ADMIN OFFLINE COURSE SETTING*******//
 
     //Kursus Tatap Muka

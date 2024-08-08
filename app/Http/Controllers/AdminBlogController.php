@@ -51,4 +51,15 @@ class AdminBlogController extends Controller
 
         return redirect()->back()->with('success', 'Artikel berhasil ditambahkan');
     }
+
+    public function edit($id)
+    {
+        $blog = Blog::find($id);
+
+        if (!$blog) {
+            return response()->json(['message' => 'Blog not found'], 404);
+        }
+
+        return response()->json($blog);
+    }
 }
