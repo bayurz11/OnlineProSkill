@@ -60,229 +60,13 @@
                                             <li><i class="flaticon-user-1"></i>by <a href="blog-details.html">Admin</a></li>
                                         </ul>
                                     </div>
-                                    <h4 class="title"><a href="blog-details.html">How To Become idiculously Self-Aware In
+                                    <h4 class="title blog-name"><a href="blog-details.html">How To Become idiculously
+                                            Self-Aware In
                                             20 Minutes</a></h4>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-4 col-md-6">
-                            <div class="blog__post-item shine__animate-item">
-                                <div class="blog__post-thumb">
-                                    <a href="blog-details.html" class="shine__animate-link"><img
-                                            src="public/assets/img/blog/blog_post02.jpg" alt="img"></a>
-                                    <a href="blog.html" class="post-tag">Students</a>
-                                </div>
-                                <div class="blog__post-content">
-                                    <div class="blog__post-meta">
-                                        <ul class="list-wrap">
-                                            <li><i class="flaticon-calendar"></i>20 July, 2024</li>
-                                            <li><i class="flaticon-user-1"></i>by <a href="blog-details.html">Admin</a></li>
-                                        </ul>
-                                    </div>
-                                    <h4 class="title"><a href="blog-details.html">Get Started With UI Design With Tips To
-                                            Speed</a></h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-                            <div class="blog__post-item shine__animate-item">
-                                <div class="blog__post-thumb">
-                                    <a href="blog-details.html" class="shine__animate-link"><img
-                                            src="public/assets/img/blog/blog_post03.jpg" alt="img"></a>
-                                    <a href="blog.html" class="post-tag">Science</a>
-                                </div>
-                                <div class="blog__post-content">
-                                    <div class="blog__post-meta">
-                                        <ul class="list-wrap">
-                                            <li><i class="flaticon-calendar"></i>20 July, 2024</li>
-                                            <li><i class="flaticon-user-1"></i>by <a href="blog-details.html">Admin</a></li>
-                                        </ul>
-                                    </div>
-                                    <h4 class="title"><a href="blog-details.html">Make Your Own Expanding Contracting
-                                            Content</a></h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-                            <div class="blog__post-item shine__animate-item">
-                                <div class="blog__post-thumb">
-                                    <a href="blog-details.html" class="shine__animate-link"><img
-                                            src="public/assets/img/blog/blog_post04.jpg" alt="img"></a>
-                                    <a href="blog.html" class="post-tag">Agency</a>
-                                </div>
-                                <div class="blog__post-content">
-                                    <div class="blog__post-meta">
-                                        <ul class="list-wrap">
-                                            <li><i class="flaticon-calendar"></i>20 July, 2024</li>
-                                            <li><i class="flaticon-user-1"></i>by <a href="blog-details.html">Admin</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <h4 class="title"><a href="blog-details.html">What we are capable to usually
-                                            discovered</a></h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-                            <div class="blog__post-item shine__animate-item">
-                                <div class="blog__post-thumb">
-                                    <a href="blog-details.html" class="shine__animate-link"><img
-                                            src="public/assets/img/blog/blog_post05.jpg" alt="img"></a>
-                                    <a href="blog.html" class="post-tag">Agency</a>
-                                </div>
-                                <div class="blog__post-content">
-                                    <div class="blog__post-meta">
-                                        <ul class="list-wrap">
-                                            <li><i class="flaticon-calendar"></i>20 July, 2024</li>
-                                            <li><i class="flaticon-user-1"></i>by <a href="blog-details.html">Admin</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <h4 class="title"><a href="blog-details.html">What we are capable to usually
-                                            discovered</a></h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-                            <div class="blog__post-item shine__animate-item">
-                                <div class="blog__post-thumb">
-                                    <a href="blog-details.html" class="shine__animate-link"><img
-                                            src="public/assets/img/blog/blog_post06.jpg" alt="img"></a>
-                                    <a href="blog.html" class="post-tag">Agency</a>
-                                </div>
-                                <div class="blog__post-content">
-                                    <div class="blog__post-meta">
-                                        <ul class="list-wrap">
-                                            <li><i class="flaticon-calendar"></i>20 July, 2024</li>
-                                            <li><i class="flaticon-user-1"></i>by <a href="blog-details.html">Admin</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <h4 class="title"><a href="blog-details.html">What we are capable to usually
-                                            discovered</a></h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-                            <div class="blog__post-item shine__animate-item">
-                                <div class="blog__post-thumb">
-                                    <a href="blog-details.html" class="shine__animate-link"><img
-                                            src="public/assets/img/blog/blog_post07.jpg" alt="img"></a>
-                                    <a href="blog.html" class="post-tag">Agency</a>
-                                </div>
-                                <div class="blog__post-content">
-                                    <div class="blog__post-meta">
-                                        <ul class="list-wrap">
-                                            <li><i class="flaticon-calendar"></i>20 July, 2024</li>
-                                            <li><i class="flaticon-user-1"></i>by <a href="blog-details.html">Admin</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <h4 class="title"><a href="blog-details.html">What we are capable to usually
-                                            discovered</a></h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-                            <div class="blog__post-item shine__animate-item">
-                                <div class="blog__post-thumb">
-                                    <a href="blog-details.html" class="shine__animate-link"><img
-                                            src="public/assets/img/blog/blog_post08.jpg" alt="img"></a>
-                                    <a href="blog.html" class="post-tag">Agency</a>
-                                </div>
-                                <div class="blog__post-content">
-                                    <div class="blog__post-meta">
-                                        <ul class="list-wrap">
-                                            <li><i class="flaticon-calendar"></i>20 July, 2024</li>
-                                            <li><i class="flaticon-user-1"></i>by <a href="blog-details.html">Admin</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <h4 class="title"><a href="blog-details.html">What we are capable to usually
-                                            discovered</a></h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-                            <div class="blog__post-item shine__animate-item">
-                                <div class="blog__post-thumb">
-                                    <a href="blog-details.html" class="shine__animate-link"><img
-                                            src="public/assets/img/blog/blog_post09.jpg" alt="img"></a>
-                                    <a href="blog.html" class="post-tag">Agency</a>
-                                </div>
-                                <div class="blog__post-content">
-                                    <div class="blog__post-meta">
-                                        <ul class="list-wrap">
-                                            <li><i class="flaticon-calendar"></i>20 July, 2024</li>
-                                            <li><i class="flaticon-user-1"></i>by <a href="blog-details.html">Admin</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <h4 class="title"><a href="blog-details.html">What we are capable to usually
-                                            discovered</a></h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-                            <div class="blog__post-item shine__animate-item">
-                                <div class="blog__post-thumb">
-                                    <a href="blog-details.html" class="shine__animate-link"><img
-                                            src="public/assets/img/blog/blog_post10.jpg" alt="img"></a>
-                                    <a href="blog.html" class="post-tag">Agency</a>
-                                </div>
-                                <div class="blog__post-content">
-                                    <div class="blog__post-meta">
-                                        <ul class="list-wrap">
-                                            <li><i class="flaticon-calendar"></i>20 July, 2024</li>
-                                            <li><i class="flaticon-user-1"></i>by <a href="blog-details.html">Admin</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <h4 class="title"><a href="blog-details.html">What we are capable to usually
-                                            discovered</a></h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-                            <div class="blog__post-item shine__animate-item">
-                                <div class="blog__post-thumb">
-                                    <a href="blog-details.html" class="shine__animate-link"><img
-                                            src="public/assets/img/blog/blog_post11.jpg" alt="img"></a>
-                                    <a href="blog.html" class="post-tag">Agency</a>
-                                </div>
-                                <div class="blog__post-content">
-                                    <div class="blog__post-meta">
-                                        <ul class="list-wrap">
-                                            <li><i class="flaticon-calendar"></i>20 July, 2024</li>
-                                            <li><i class="flaticon-user-1"></i>by <a href="blog-details.html">Admin</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <h4 class="title"><a href="blog-details.html">What we are capable to usually
-                                            discovered</a></h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-                            <div class="blog__post-item shine__animate-item">
-                                <div class="blog__post-thumb">
-                                    <a href="blog-details.html" class="shine__animate-link"><img
-                                            src="public/assets/img/blog/blog_post12.jpg" alt="img"></a>
-                                    <a href="blog.html" class="post-tag">Agency</a>
-                                </div>
-                                <div class="blog__post-content">
-                                    <div class="blog__post-meta">
-                                        <ul class="list-wrap">
-                                            <li><i class="flaticon-calendar"></i>20 July, 2024</li>
-                                            <li><i class="flaticon-user-1"></i>by <a href="blog-details.html">Admin</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <h4 class="title"><a href="blog-details.html">What we are capable to usually
-                                            discovered</a></h4>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                     <nav class="pagination__wrap mt-25">
                         <ul class="list-wrap">
@@ -399,20 +183,20 @@
     <!-- blog-area-end -->
 
     <script>
-        // Mengatur tinggi untuk elemen event-name
-        var eventNames = document.querySelectorAll('.event-name');
+        // Mengatur tinggi untuk elemen blog-name
+        var blogNames = document.querySelectorAll('.blog-name');
         var maxEventNameHeight = 0;
 
-        // Temukan tinggi maksimum untuk event-name
-        eventNames.forEach(function(eventName) {
+        // Temukan tinggi maksimum untuk blog-name
+        blogNames.forEach(function(eventName) {
             var height = eventName.offsetHeight;
             if (height > maxEventNameHeight) {
                 maxEventNameHeight = height;
             }
         });
 
-        // Tetapkan tinggi maksimum ke semua elemen event-name
-        eventNames.forEach(function(eventName) {
+        // Tetapkan tinggi maksimum ke semua elemen blog-name
+        blogNames.forEach(function(eventName) {
             eventName.style.height = maxEventNameHeight + 'px';
         });
     </script> --}}
