@@ -45,6 +45,7 @@ class AdminBlogController extends Controller
         $article->kategori_id = $request->kategori_id;
         $article->content = $request->content;
         $article->tag = $request->tag;
+        $article->date = $request->date;
         $article->user_id = Auth::user()->id;
         $article->save();
 

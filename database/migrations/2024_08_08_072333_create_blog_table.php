@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('kategori_id');
             $table->string('title');
-            $table->string('isi');
+            $table->string('content');
             $table->string('date');
             $table->string('gambar');
             $table->string('tag');
