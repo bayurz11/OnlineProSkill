@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('isi');
             $table->string('date');
             $table->string('gambar');
+            $table->string('tag');
             $table->timestamps();
 
             $table->foreign('kategori_id')->references('id')->on('kategori')->onDelete('cascade');
