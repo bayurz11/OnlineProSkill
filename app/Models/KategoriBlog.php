@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Blog extends Model
+class KategoriBlog extends Model
 {
     use HasFactory;
-    protected $table = 'blogs';
+
+    protected $table = 'kategori_blog';
     protected $primaryKey = 'id';
 
     protected $guarded = [];
@@ -16,10 +17,5 @@ class Blog extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-
-    public function kategori()
-    {
-        return $this->belongsTo(KategoriBlog::class);
     }
 }

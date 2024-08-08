@@ -28,6 +28,7 @@ use App\Http\Controllers\NotifikasiUserController;
 use App\Http\Controllers\DashboardStudenController;
 use App\Http\Controllers\RiwayatTransaksiController;
 use App\Http\Controllers\DashboardInstrukturController;
+use App\Http\Controllers\KategoriBlogController;
 use App\Http\Controllers\OrderHistoryManagerController;
 
 //Authentikasi
@@ -80,6 +81,9 @@ Route::middleware('isAdmin')->group(function () {
     Route::get('/event/{id}/edit', [AdminEventController::class, 'edit'])->name('event.edit');
     Route::put('/event/{id}/update', [AdminEventController::class, 'update'])->name('event.update');
     Route::delete('/event/{id}/destroy', [AdminEventController::class, 'destroy'])->name('event.destroy');
+
+    //kategori Blog
+    Route::get('/kategori_blog', [KategoriBlogController::class, 'index'])->name('kategori_blog');
 
     //kelola Blog
     Route::get('/kelola_blog', [AdminBlogController::class, 'index'])->name('kelola_blog');
