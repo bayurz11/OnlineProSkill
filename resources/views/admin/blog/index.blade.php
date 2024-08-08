@@ -39,9 +39,9 @@
                                 <tbody>
                                     @foreach ($blog as $blog)
                                         <tr>
-                                            <td>{{ $blog->name }}</td>
-                                            <td>{{ $blog->tgl }}</td>
-                                            <td>{{ $blog->lokasi }}</td>
+                                            <td>{{ $blog->title }}</td>
+                                            <td>{{ $blog->date }}</td>
+                                            <td>{{ $blog->user->name }}</td>
                                             <td>
                                                 <button type="button" class="btn btn-primary btn-icon edit-button"
                                                     title="Edit" data-bs-toggle="modal" data-bs-target="#editModal"
