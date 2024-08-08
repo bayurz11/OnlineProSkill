@@ -12,8 +12,8 @@
             </ol>
         </nav>
 
-        {{-- @include('admin.modal.add_event')
-        @include('admin.modal.edit_even') --}}
+        @include('admin.modal.add_event')
+        @include('admin.modal.edit_even')
 
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
@@ -30,9 +30,9 @@
                             <table id="dataTableExample" class="table">
                                 <thead>
                                     <tr>
-                                        <th>Nama </th>
-                                        <th>Tanggal Event</th>
-                                        <th>Lokasi</th>
+                                        <th>Judul Artikel </th>
+                                        <th>Tanggal Artikel</th>
+                                        <th>Penulis</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
