@@ -72,8 +72,8 @@
 </div>
 
 <script>
-    // Tags initialization
     document.addEventListener("DOMContentLoaded", function() {
+        // Initialize tags input
         var input = document.querySelector('input[name=tag]');
         new Tagify(input, {
             whitelist: [],
@@ -82,110 +82,20 @@
                 maxItems: 100
             }
         });
-    });
 
-    // Gambar preview
-    $(document).ready(function() {
+        // Gambar preview
         $("#gambar").change(function() {
             readURL(this);
         });
-    });
 
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                $('#preview').attr('src', e.target.result).show();
-            };
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-
-    // Include fields handling
-    document.addEventListener('DOMContentLoaded', function() {
-        const addIncludeButton = document.getElementById('add-include');
-        const includeContainer = document.getElementById('include-container');
-
-        addIncludeButton.addEventListener('click', function() {
-            const newInputGroup = document.createElement('div');
-            newInputGroup.classList.add('input-group', 'mb-2');
-            newInputGroup.innerHTML = `
-                <input type="text" class="form-control" name="include[]" >
-                <button class="btn btn-danger remove-include" type="button">-</button>
-            `;
-            includeContainer.appendChild(newInputGroup);
-
-            newInputGroup.querySelector('.remove-include').addEventListener('click', function() {
-                newInputGroup.remove();
-            });
-        });
-
-        includeContainer.addEventListener('click', function(event) {
-            if (event.target && event.target.classList.contains('remove-include')) {
-                event.target.closest('.input-group').remove();
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#preview').attr('src', e.target.result).show();
+                };
+                reader.readAsDataURL(input.files[0]);
             }
-        });
-    });
-
-    // Kategori dan Subkategori handling
-    document.addEventListener('DOMContentLoaded', function() {
-        const categorySelect = document.getElementById('category');
-        const subcategorySelect = document.getElementById('subcategory');
-
-        categorySelect.addEventListener('change', function() {
-            const categoryId = this.value;
-            subcategorySelect.disabled = !categoryId;
-            if (categoryId) {
-                fetch(`/get-subcategories/${categoryId}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        subcategorySelect.innerHTML = '<option value="">Pilih Subkategori</option>';
-                        data.forEach(subcategory => {
-                            if (subcategory.status == 1) {
-                                const option = document.createElement('option');
-                                option.value = subcategory.id;
-                                option.textContent = subcategory.name;
-                                subcategorySelect.appendChild(option);
-                            }
-                        });
-                    })
-                    .catch(error => console.error('Error fetching subcategories:', error));
-            } else {
-                subcategorySelect.innerHTML = '<option value="">Pilih Subkategori</option>';
-            }
-        });
-    });
-
-    // Price and discount handling
-    function togglePriceAndDiscount() {
-        var priceInput = document.getElementById("price");
-        var discountInput = document.getElementById("discount");
-        var freeCheckbox = document.getElementById("free");
-
-        if (freeCheckbox.checked) {
-            priceInput.value = ""; // Clear the price field
-            discountInput.value = ""; // Clear the discount field
-            priceInput.disabled = true; // Disable the price input
-            discountInput.disabled = true; // Disable the discount input
-        } else {
-            priceInput.disabled = false; // Enable the price input
-            discountInput.disabled = false; // Enable the discount input
         }
-    }
-
-    function calculateDiscountedPrice() {
-        var priceInput = document.getElementById("price");
-        var discountInput = document.getElementById("discount");
-        var discountedPriceInput = document.getElementById("discountedPrice");
-
-        var price = parseFloat(priceInput.value);
-        var discount = parseFloat(discountInput.value);
-
-        if (!isNaN(price) && !isNaN(discount)) {
-            var discountedPrice = price - (price * (discount / 100));
-            discountedPriceInput.value = discountedPrice.toFixed(); // Display up to 2 decimal places
-        } else {
-            discountedPriceInput.value = ""; // Clear the discounted price if inputs are not valid numbers
-        }
-    }
+    });
 </script>
