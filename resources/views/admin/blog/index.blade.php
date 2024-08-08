@@ -12,7 +12,7 @@
             </ol>
         </nav>
 
-        @include('admin.modal.add_event')
+        @include('admin.modal.add_blog')
         @include('admin.modal.edit_even')
 
         <div class="row">
