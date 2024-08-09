@@ -120,6 +120,11 @@
                             </div>
                         </div>
 
+                        @php
+                            // Jika $tags adalah array JSON atau objek yang perlu di-decode
+                            $tags = json_decode($tags); // Decode JSON jika diperlukan
+                        @endphp
+
                         <div class="blog-widget">
                             <h4 class="widget-title">Tags</h4>
                             <div class="tagcloud">
