@@ -77,7 +77,7 @@ class BlogController extends Controller
                 });
             })
             ->when($tag, function ($query, $tag) {
-                return $query->whereHas('tags', function ($query) use ($tag) {
+                return $query->whereHas('tag', function ($query) use ($tag) {
                     $query->where('tag', 'like', "%{$tag}%");
                 });
             })
