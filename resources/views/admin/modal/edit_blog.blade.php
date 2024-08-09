@@ -3,8 +3,9 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <form id="editModalForm" method="POST" enctype="multipart/form-data">
-                @csrf
                 @method('PUT')
+                @csrf
+
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Edit Artikel</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
@@ -101,7 +102,7 @@
                     }
 
                     // Set the form action to the update route
-                    $('#editForm').attr('action', `/blog/${data.id}`);
+                    $('#editModalForm').attr('action', `/blog/${data.id}`);
 
                     // Set the existing content into the already initialized editor
                     editorInstance.setData(data.content);
