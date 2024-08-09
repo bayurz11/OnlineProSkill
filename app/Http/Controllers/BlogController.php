@@ -170,7 +170,8 @@ class BlogController extends Controller
             'categori',
             'blog',
             'filteredBlogs',
-            'tags'
+            'tags',
+            'blogs'
         ));
     }
 }
