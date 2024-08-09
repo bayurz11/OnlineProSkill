@@ -21,7 +21,6 @@ class BlogController extends Controller
      */
     public function index()
     {
-        // $categori = Categories::all();
         $user = Auth::user();
         $profile = null;
         $cart = Session::get('cart', []);
