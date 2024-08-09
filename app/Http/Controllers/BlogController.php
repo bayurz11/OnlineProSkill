@@ -61,9 +61,10 @@ class BlogController extends Controller
         $category = $request->input('category');
         $tag = $request->input('tag');
 
-        // Ambil daftar kategori dan tag
-        $categories = Blog::all(); // Asumsikan Kategori adalah model untuk kategori
-        $tags = Blog::all(); // Asumsikan Tag adalah model untuk tag
+        // Ambil daftar kategori dan tag dari model Kategori dan Tag
+        // Misalkan Anda memiliki model Category dan Tag untuk kategori dan tag
+        $categories = Blog::all(); // Ambil semua kategori
+        $tags = Blog::all(); // Ambil semua tag
 
         // Lakukan pencarian dan tambahkan pagination
         $blog = Blog::when($search, function ($query, $search) {
@@ -77,7 +78,7 @@ class BlogController extends Controller
             })
             ->when($tag, function ($query, $tag) {
                 return $query->whereHas('tags', function ($query) use ($tag) {
-                    $query->where('name', 'like', "%{$tag}%");
+                    $query->where('tag', 'like', "%{$tag}%");
                 });
             })
             ->paginate(6); // Pagination dengan 6 item per halaman
@@ -98,6 +99,7 @@ class BlogController extends Controller
         return view('home.blog.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'blog', 'search', 'category', 'tag', 'categories', 'tags'))
             ->with('paginationView', 'vendor.custom');
     }
+
 
 
 
