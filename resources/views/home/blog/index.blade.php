@@ -104,7 +104,8 @@
                                 <ul class="list-wrap">
                                     @foreach ($categories as $category)
                                         <li><a href="{{ route('blog', ['category' => $category->name]) }}"><i
-                                                    class="flaticon-angle-right"></i>{{ $category->kategori }}</a></li>
+                                                    class="flaticon-angle-right"></i>{{ $category->kategori->name_kategori }}</a>
+                                        </li>
                                     @endforeach
                                 </ul>
                             </div>
