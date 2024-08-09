@@ -66,9 +66,8 @@
 </div>
 
 <script>
-    let editorInstance;
-
     // Initialize CKEditor only once when the page loads
+    let editorInstance;
     ClassicEditor
         .create(document.querySelector('#conten'))
         .then(editor => {
@@ -84,6 +83,16 @@
         });
 
     $(document).ready(function() {
+        // Initialize tags input
+        var input = document.querySelector('input[name=tag]');
+        var tagify = new Tagify(input, {
+            whitelist: [],
+            dropdown: {
+                enabled: 1,
+                maxItems: 100
+            }
+        });
+
         $('.edit-button').on('click', function() {
             const id = $(this).data('id');
             fetch(`/blog/${id}/edit`)
@@ -107,10 +116,10 @@
                     // Set the existing content into the already initialized editor
                     editorInstance.setData(data.content);
 
-                    // Extract value from tags and display only the content
+                    // Parse tags and set them into Tagify
                     const tags = JSON.parse(data.tag);
-                    const tagValues = tags.map(tag => tag.value).join(', ');
-                    $('#edit_tag').val(tagValues);
+                    tagify.removeAllTags(); // Clear existing tags
+                    tagify.addTags(tags.map(tag => tag.value));
                 })
                 .catch(error => {
                     console.error('Error fetching data:', error);
