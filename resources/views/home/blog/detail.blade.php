@@ -19,7 +19,11 @@
                                 <a href="{{ route('/') }}">Beranda</a>
                             </span>
                             <span class="breadcrumb-separator"><i class="fas fa-angle-right"></i></span>
-                            <span property="itemListElement" typeof="ListItem">Blog</span>
+                            <span property="itemListElement" typeof="ListItem">
+                                <a href="{{ route('blog') }}">Artikel</a>
+                            </span>
+                            <span class="breadcrumb-separator"><i class="fas fa-angle-right"></i></span>
+                            <span property="itemListElement" typeof="ListItem">{{ $blog->title }}</span>
                         </nav>
                     </div>
                 </div>
