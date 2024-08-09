@@ -58,9 +58,9 @@
                                 <ul class="list-wrap">
                                     <li><i class="flaticon-calendar"></i>{{ Carbon::parse($blog->date)->format('d M, Y') }}
                                     </li>
-                                    <li><i class="flaticon-user-1"></i> by <a href="#">Admin</a></li>
-                                    <li><i class="flaticon-clock"></i> 5 Min Read</li>
-                                    <li><i class="far fa-comment-alt"></i> 05 Comments</li>
+                                    <li><i class="flaticon-user-1"></i> by <a href="#">{{ $item->user->name }}</a>
+                                    </li>
+
                                 </ul>
                             </div>
                             <h3 class="title">How To Become idiculously Self-Aware In 20 Minutes</h3>
