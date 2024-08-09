@@ -88,6 +88,7 @@
                     $('#edit-id').val(data.id);
                     $('#edit_title').val(data.title);
                     $('#edit_category').val(data.kategori_id);
+                    $('#edit_date').val(data.date);
 
                     if (data.gambar) {
                         $('#preview_edit').attr('src', `/public/uploads/${data.gambar}`).show();
@@ -103,7 +104,7 @@
                         .create(document.querySelector('#conten'))
                         .then(editor => {
                             editor.setData(data
-                            .content); // Set the existing content into the editor
+                                .content); // Set the existing content into the editor
 
                             editor.model.document.on('change:data', () => {
                                 const content_input = document.querySelector(
