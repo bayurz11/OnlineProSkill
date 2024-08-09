@@ -30,7 +30,7 @@ class HomeController extends Controller
 
         // Mengambil KelasTatapMuka dan mengurutkannya berdasarkan kolom created_at
         $KelasTatapMuka = KelasTatapMuka::orderBy('created_at', 'desc')->get();
-        $KelasTatapMuka = Blog::orderBy('created_at', 'desc')->take(4)->get();
+        $blog = Blog::orderBy('created_at', 'desc')->take(4)->get();
 
         // Mengambil event dan memfilter yang tanggalnya belum lewat, lalu membatasi 3 terbaru
         $event = AdminEvent::where('tgl', '>=', Carbon::now())
