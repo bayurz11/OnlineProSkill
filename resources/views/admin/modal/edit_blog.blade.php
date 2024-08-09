@@ -83,12 +83,12 @@
         });
 
     $(document).ready(function() {
-        // Fetch data when the edit button is clicked
         $('.edit-button').on('click', function() {
             const id = $(this).data('id');
             fetch(`/blog/${id}/edit`)
                 .then(response => response.json())
                 .then(data => {
+                    // Set other fields as before
                     $('#edit-id').val(data.id);
                     $('#edit_title').val(data.title);
                     $('#edit_category').val(data.kategori_id);
@@ -106,8 +106,10 @@
                     // Set the existing content into the already initialized editor
                     editorInstance.setData(data.content);
 
-                    // Set the existing tags
-                    $('#edit_tag').val(data.tag);
+                    // Extract value from tags and display only the content
+                    const tags = JSON.parse(data.tag);
+                    const tagValues = tags.map(tag => tag.value).join(', ');
+                    $('#edit_tag').val(tagValues);
                 })
                 .catch(error => {
                     console.error('Error fetching data:', error);
@@ -128,6 +130,5 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
-
     });
 </script>
