@@ -125,7 +125,7 @@
                             <div class="tagcloud">
                                 @foreach ($tags as $tag)
                                     @php
-                                        $tagArray = json_decode($tag->tags, true);
+                                        $tagArray = json_decode($tag->tag, true);
                                     @endphp
                                     @foreach ($tagArray as $tagItem)
                                         <a
