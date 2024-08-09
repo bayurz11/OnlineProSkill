@@ -104,7 +104,6 @@
                     $('#edit_title').val(data.title);
                     $('#edit_category').val(data.kategori_id);
                     $('#edit_date').val(data.date);
-                    $('#edit_tag').val(data.tag);
 
                     // Handle image preview
                     if (data.gambar) {
@@ -131,8 +130,6 @@
                     console.error('Error fetching data:', error);
                 });
         });
-
-
 
         // Display the uploaded image preview
         $('#gambar_edit').change(function() {
