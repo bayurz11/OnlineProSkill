@@ -71,10 +71,11 @@ class BlogController extends Controller
                 ->orWhere('content', 'like', "%{$search}%");
         })
             ->when($category, function ($query, $category) {
-                return $query->whereHas('categories', function ($query) use ($category) {
-                    $query->where('name', 'like', "%{$category}%");
+                return $query->whereHas('kategori_blog', function ($query) use ($category) {
+                    $query->where('kategori_id', $category);
                 });
             })
+
             ->when($tag, function ($query, $tag) {
                 return $query->whereHas('tags', function ($query) use ($tag) {
                     $query->where('name', 'like', "%{$tag}%");
