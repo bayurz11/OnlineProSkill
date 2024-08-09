@@ -52,7 +52,10 @@
                                     <div class="blog__post-thumb">
                                         <a href="blog-details.html" class="shine__animate-link"><img
                                                 src="{{ asset('public/uploads/' . $blog->gambar) }}" alt="img"></a>
-                                        <a href="blog.html" class="post-tag">{{ $blog->tag }}</a>
+                                        <a href="blog.html" class="post-tag">
+                                            {{ json_decode($blog->tag, true)[0]['value'] }}
+                                        </a>
+
 
                                     </div>
                                     <div class="blog__post-content">
