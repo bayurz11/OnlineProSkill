@@ -78,33 +78,44 @@
 </div>
 
 <script>
-    function editBlog(id) {
-        $.ajax({
-            url: '/blog/' + id + '/edit',
-            method: 'GET',
-            success: function(data) {
-                $('#editModalForm').attr('action', '/blog/' + id);
-                $('#edit_title').val(data.title);
-                $('#edit_category').val(data.kategori_id).trigger('change');
-                $('#edit_content_input').val(data.content);
-                ClassicEditor.create(document.querySelector('#content')).then(editor => {
-                    editor.setData(data.content);
+    $(document).ready(function() {
+        // Fetch data when the edit button is clicked
+        $('.edit-button').on('click', function() {
+            const id = $(this).data('id');
+            fetch(`/blog/${id}/edit`)
+                .then(response => response.json())
+                .then(data => {
+                    $('#edit-id').val(data.id);
+                    $('#edit_title').val(data.title);
+
+                    if (data.gambar) {
+                        $('#preview_edit').attr('src', `/public/uploads/${data.gambar}`).show();
+                    } else {
+                        $('#preview_edit').hide();
+                    }
+
+                    // Set the form action to the update route
+                    $('#editForm').attr('action', `/blog/${data.id}`);
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
                 });
-
-                $('#edit_tag').val(data.tag);
-                $('#edit_date').val(data.date);
-
-                if (data.gambar) {
-                    $('#preview_edit').attr('src', `/uploads/${data.gambar}`).show();
-                } else {
-                    $('#preview_edit').hide();
-                }
-
-                $('#editModal').modal('show');
-            },
-            error: function(xhr) {
-                alert('Blog not found');
-            }
         });
-    }
+
+        // Display the uploaded image preview
+        $('#gambar_edit').change(function() {
+            readURL(this);
+        });
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#preview_edit').attr('src', e.target.result).show();
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+    });
 </script>
