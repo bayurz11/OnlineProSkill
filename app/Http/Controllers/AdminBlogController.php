@@ -83,4 +83,18 @@ class AdminBlogController extends Controller
         $blog->save();
         return redirect()->route('kelola_blog')->with('success', 'Data updated successfully');
     }
+
+    public function destroy($id)
+    {
+
+        $category = Blog::find($id);
+
+        if (!$category) {
+            return redirect()->route('kelola_blog')->with('error', 'Data tidak ditemukan');
+        }
+
+        $category->delete();
+
+        return redirect()->route('kelola_blog')->with('success', 'Data berhasil dihapus');
+    }
 }

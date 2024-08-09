@@ -95,6 +95,7 @@ Route::middleware('isAdmin')->group(function () {
     Route::post('/storeblog', [AdminBlogController::class, 'store'])->name('blog.store');
     Route::get('/blog/{id}/edit', [AdminBlogController::class, 'edit'])->name('blog.edit');
     Route::put('/blog/{id}', [AdminBlogController::class, 'update'])->name('blog.update');
+    Route::delete('/blog_destroy/{id}', [AdminBlogController::class, 'destroy'])->name('blog.destroy');
     //*******ADMIN OFFLINE COURSE SETTING*******//
 
     //Kursus Tatap Muka
