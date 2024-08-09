@@ -6,6 +6,7 @@ use App\Models\Blog;
 use App\Models\AdminEvent;
 use App\Models\Categories;
 use App\Models\UserProfile;
+use Illuminate\Http\Request;
 use App\Models\NotifikasiUser;
 use Illuminate\Support\Carbon;
 use App\Http\Controllers\Controller;
@@ -19,12 +20,43 @@ class BlogController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    // public function index()
+    // {
+    //     $user = Auth::user();
+    //     $profile = null;
+    //     $cart = Session::get('cart', []);
+    //     $blog = Blog::all();
+    //     if ($user) {
+    //         $profile = UserProfile::where('user_id', $user->id)->first();
+    //     }
+
+    //     // Ambil notifikasi untuk pengguna yang sedang login
+    //     $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
+    //         ->orderBy('created_at', 'desc')
+    //         ->get()
+    //         : collect(); // Menggunakan collect() untuk membuat koleksi kosong jika pengguna belum login
+
+    //     // Hitung jumlah notifikasi dengan status = 1
+    //     $notifikasiCount = $notifikasi->where('status', 1)->count();
+
+    //     return view('home.blog.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi',  'blog'))->with('paginationView', 'vendor.custom');
+    // }
+
+    public function index(Request $request)
     {
         $user = Auth::user();
         $profile = null;
         $cart = Session::get('cart', []);
-        $blog = Blog::all();
+
+        // Ambil kata kunci pencarian dari request
+        $search = $request->input('search');
+
+        // Lakukan pencarian berdasarkan judul blog atau tag jika ada kata kunci pencarian
+        $blog = Blog::when($search, function ($query, $search) {
+            return $query->where('title', 'like', "%{$search}%")
+                ->orWhere('tag', 'like', "%{$search}%");
+        })->get();
+
         if ($user) {
             $profile = UserProfile::where('user_id', $user->id)->first();
         }
@@ -38,8 +70,10 @@ class BlogController extends Controller
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
-        return view('home.blog.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi',  'blog'))->with('paginationView', 'vendor.custom');
+        return view('home.blog.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'blog', 'search'))
+            ->with('paginationView', 'vendor.custom');
     }
+
 
     /**
      * Show the form for creating a new resource.

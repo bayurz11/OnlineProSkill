@@ -40,40 +40,44 @@
         </div>
     </section>
     <!-- breadcrumb-area-end -->
+
     <!-- blog-area -->
     <section class="blog-area section-py-120">
         <div class="container">
             <div class="row">
                 <div class="col-xl-9 col-lg-8">
                     <div class="row gutter-20">
-                        @foreach ($blog as $blog)
-                            <div class="col-xl-4 col-md-6">
-                                <div class="blog__post-item shine__animate-item">
-                                    <div class="blog__post-thumb">
-                                        <a href="blog-details.html" class="shine__animate-link"><img
-                                                src="{{ asset('public/uploads/' . $blog->gambar) }}" alt="img"></a>
-                                        <a href="blog.html" class="post-tag">
-                                            {{ json_decode($blog->tag, true)[0]['value'] }}
-                                        </a>
-
-
-                                    </div>
-                                    <div class="blog__post-content">
-                                        <div class="blog__post-meta">
-                                            <ul class="list-wrap">
-                                                <li><i
-                                                        class="flaticon-calendar"></i>{{ Carbon::parse($blog->date)->format('d M, Y') }}
-                                                </li>
-                                                <li><i class="flaticon-user-1"></i>by <a
-                                                        href="blog-details.html">{{ $blog->user->name }}</a>
-                                                </li>
-                                            </ul>
+                        @if ($blog->isEmpty())
+                            <p>No blog posts found matching your search criteria.</p>
+                        @else
+                            @foreach ($blog as $item)
+                                <div class="col-xl-4 col-md-6">
+                                    <div class="blog__post-item shine__animate-item">
+                                        <div class="blog__post-thumb">
+                                            <a href="blog-details.html" class="shine__animate-link">
+                                                <img src="{{ asset('public/uploads/' . $item->gambar) }}" alt="img">
+                                            </a>
+                                            <a href="blog.html" class="post-tag">
+                                                {{ json_decode($item->tag, true)[0]['value'] }}
+                                            </a>
                                         </div>
-                                        <h4 class="title blog-name"><a href="blog-details.html">{{ $blog->title }}</a></h4>
+                                        <div class="blog__post-content">
+                                            <div class="blog__post-meta">
+                                                <ul class="list-wrap">
+                                                    <li><i
+                                                            class="flaticon-calendar"></i>{{ Carbon::parse($item->date)->format('d M, Y') }}
+                                                    </li>
+                                                    <li><i class="flaticon-user-1"></i>by <a
+                                                            href="blog-details.html">{{ $item->user->name }}</a></li>
+                                                </ul>
+                                            </div>
+                                            <h4 class="title blog-name"><a href="blog-details.html">{{ $item->title }}</a>
+                                            </h4>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        @endif
                     </div>
 
                     <nav class="pagination__wrap mt-25">
@@ -85,31 +89,34 @@
                         </ul>
                     </nav>
                 </div>
+
                 <div class="col-xl-3 col-lg-4">
                     <aside class="blog-sidebar">
                         <div class="blog-widget widget_search">
                             <div class="sidebar-search-form">
-                                <form action="#">
-                                    <input type="text" placeholder="Search here">
-                                    <button><i class="flaticon-search"></i></button>
+                                <form action="{{ route('home.blog.index') }}" method="GET">
+                                    <input type="text" name="search" placeholder="Search here"
+                                        value="{{ request()->input('search') }}">
+                                    <button type="submit"><i class="flaticon-search"></i></button>
                                 </form>
                             </div>
                         </div>
+
                         <div class="blog-widget">
                             <h4 class="widget-title">Kategori</h4>
                             <div class="shop-cat-list">
                                 <ul class="list-wrap">
-                                    <li>
-                                        <a href="#"><i class="flaticon-angle-right"></i>Art & Design</a>
-                                    </li>
-
+                                    <li><a href="#"><i class="flaticon-angle-right"></i>Art & Design</a></li>
+                                    <!-- Tambahkan kategori lainnya sesuai kebutuhan -->
                                 </ul>
                             </div>
                         </div>
+
                         <div class="blog-widget">
                             <h4 class="widget-title">Tags</h4>
                             <div class="tagcloud">
                                 <a href="#">Education</a>
+                                <!-- Tambahkan tag lainnya sesuai kebutuhan -->
                             </div>
                         </div>
                     </aside>
@@ -117,6 +124,7 @@
             </div>
         </div>
     </section>
+
     <!-- blog-area-end -->
 
     <script>
