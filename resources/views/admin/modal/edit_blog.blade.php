@@ -39,12 +39,12 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="content" class="form-label">Isi Artikel<span class="text-danger">*</span></label>
-                        <textarea id="content" name="content" style="height: 400px; width: 100%; font-size: 18px;"></textarea>
+                        <label for="conten" class="form-label">Isi Artikel<span class="text-danger">*</span></label>
+                        <textarea id="conten" name="content" style="height: 400px; width: 100%; font-size: 18px;"></textarea>
                         <input type="hidden" id="edit_content_input" name="content" required>
                         <script>
                             ClassicEditor
-                                .create(document.querySelector('#content'))
+                                .create(document.querySelector('#conten'))
                                 .then(editor => {
                                     editor.model.document.on('change:data', () => {
                                         const content_input = document.querySelector('#edit_content_input');
