@@ -64,54 +64,9 @@
                                 </ul>
                             </div>
                             <h3 class="title">{{ $blog->title }}</h3>
-                            {{ $blog->content }}
-                            <p>Maximus ligula eleifend id nisl quis interdum. Sed malesuada tortor non turpis semper
-                                bibendum. Ut ac nisi porta, malesuada risus nonrra dolo areay Vestibulum ante ipsum primis
-                                in faucibus orci luctus et ultrices posuere cubilia curae in tristique libero, quis ultrices
-                                diamraesent varius diam dui. Class aptent taciti sociosqu ad litora torquent per conubia
-                                nostra.Maximus ligula eleifend.</p>
-                            <p>Maximus ligula eleifend id nisl quis interdum. Sed malesuada tortor non turpis semper
-                                bibendum. Ut ac nisi porta, malesuada risus nonrra dolo areay Vestibulum ante ipsum primis
-                                in faucibus orci luctus et ultrices posuere cubilia curae in tristique libero, quis ultrices
-                                diamraesent varius diam dui. Class aptent taciti sociosqu ad litora torquent per conubia
-                                nostra.Maximus ligula eleifend.</p>
-                            <blockquote>
-                                <p>“ urabitur varius eros rutrum consequat Mauris areathe sollicitudin enim condimentum
-                                    luctus enim justo non molestie nisl ”</p>
-                            </blockquote>
-                            <p>Maximus ligula eleifend id nisl quis interdum. Sed malesuada tortor non turpis semper
-                                bibendum. Ut ac nisi porta, malesuada risus nonrra dolo areay Vestibulum ante ipsum primis
-                                in faucibus orci luctus et ultrices posuere cubilia curae.</p>
-                            <div class="blog__details-content-inner">
-                                <h4 class="inner-title">What Will I Learn From This Course?</h4>
-                                <p>Maximus ligula eleifend id nisl quis interdum. Sed malesuada tortor non turpis semper
-                                    bibendum. Ut ac nisi porta, malesuada risus non viverra dolor. Vestibulum ante ipsum
-                                    primis in faucibus orci luctus et ultrices posuere.</p>
-                                <ul class="about__info-list list-wrap">
-                                    <li class="about__info-list-item">
-                                        <i class="flaticon-angle-right"></i>
-                                        <p class="content">Work with color & Gradients & Grids</p>
-                                    </li>
-                                    <li class="about__info-list-item">
-                                        <i class="flaticon-angle-right"></i>
-                                        <p class="content">All the useful shortcuts</p>
-                                    </li>
-                                    <li class="about__info-list-item">
-                                        <i class="flaticon-angle-right"></i>
-                                        <p class="content">Be able to create Flyers, Brochures, Advertisements</p>
-                                    </li>
-                                    <li class="about__info-list-item">
-                                        <i class="flaticon-angle-right"></i>
-                                        <p class="content">How to work with Images & Text</p>
-                                    </li>
-                                </ul>
-                            </div>
-                            <p>Maximus ligula eleifend id nisl quis interdum. Sed malesuada tortor non turpis semper
-                                bibendum. Ut ac nisi porta, malesuada risus nonrra dolo areay Vestibulum ante ipsum primis
-                                in faucibus orci luctus et ultrices posuere cubilia curae in tristique libero, quis ultrices
-                                diamraesent varius diam dui. Class aptent taciti sociosqu ad litora torquent per conubia
-                                nostra.Maximus ligula eleifend id nisl quis interdum. Sed malesuada tortor non turpis semper
-                                bibendum. Ut ac nisi porta, malesuada risus nonVestibulum ante ipsum primis</p>
+                            {!! $blog->content !!}
+
+
                             <div class="blog__details-bottom">
                                 <div class="row align-items-center">
                                     <div class="col-xl-6 col-md-7">
