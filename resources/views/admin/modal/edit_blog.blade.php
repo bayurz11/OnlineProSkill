@@ -48,7 +48,6 @@
                     <div class="mb-3">
                         <label for="edit_tag" class="form-label">Tag</label>
                         <input type="text" class="form-control" id="edit_tag" name="tag">
-                        <small class="text-secondary">Note : Isi Dengan Tags kursus yang relevan</small>
                     </div>
                     <div class="mb-3">
                         <label for="edit_date" class="form-label">Tanggal</label>
@@ -66,8 +65,9 @@
 </div>
 
 <script>
-    // Initialize CKEditor only once when the page loads
     let editorInstance;
+
+    // Initialize CKEditor only once when the page loads
     ClassicEditor
         .create(document.querySelector('#conten'))
         .then(editor => {
@@ -83,7 +83,7 @@
         });
 
     $(document).ready(function() {
-        // Initialize tags input
+        // Initialize Tagify on the tags input
         var input = document.querySelector('input[name=tag]');
         var tagify = new Tagify(input, {
             whitelist: [],
@@ -93,17 +93,19 @@
             }
         });
 
+        // Handle the edit button click event
         $('.edit-button').on('click', function() {
             const id = $(this).data('id');
             fetch(`/blog/${id}/edit`)
                 .then(response => response.json())
                 .then(data => {
-                    // Set other fields as before
+                    // Set other fields in the modal
                     $('#edit-id').val(data.id);
                     $('#edit_title').val(data.title);
                     $('#edit_category').val(data.kategori_id);
                     $('#edit_date').val(data.date);
 
+                    // Handle image preview
                     if (data.gambar) {
                         $('#preview_edit').attr('src', `/public/uploads/${data.gambar}`).show();
                     } else {
@@ -113,13 +115,17 @@
                     // Set the form action to the update route
                     $('#editModalForm').attr('action', `/blog/${data.id}`);
 
-                    // Set the existing content into the already initialized editor
+                    // Set the existing content into the CKEditor
                     editorInstance.setData(data.content);
 
-                    // Parse tags and set them into Tagify
-                    const tags = JSON.parse(data.tag);
-                    tagify.removeAllTags(); // Clear existing tags
-                    tagify.addTags(tags.map(tag => tag.value));
+                    // Parse and set tags in Tagify
+                    try {
+                        const tags = JSON.parse(data.tag);
+                        tagify.removeAllTags(); // Clear existing tags
+                        tagify.addTags(tags.map(tag => tag.value)); // Add new tags
+                    } catch (error) {
+                        console.error('Error parsing tags:', error);
+                    }
                 })
                 .catch(error => {
                     console.error('Error fetching data:', error);
