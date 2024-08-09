@@ -94,13 +94,19 @@
                                         <div class="tg-post-social justify-content-start justify-content-md-end">
                                             <h5 class="social-title">Share :</h5>
                                             <ul class="list-wrap p-0 mb-0">
-                                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                                <li><a href="#"
+                                                        onclick="shareOnFacebook('{{ url()->current() }}')"><i
+                                                            class="fab fa-facebook-f"></i></a></li>
+                                                <li><a href="#"
+                                                        onclick="shareOnTwitter('{{ url()->current() }}', '{{ $blog->title }}')"><i
+                                                            class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#"
+                                                        onclick="shareOnLinkedIn('{{ url()->current() }}')"><i
+                                                            class="fab fa-linkedin-in"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -161,4 +167,25 @@
         </div>
     </section>
     <!-- blog-details-area-end -->
+
+    <script>
+        function shareOnFacebook(url) {
+            const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+            window.open(facebookUrl, 'facebook-share-dialog', 'width=800,height=600');
+            return false;
+        }
+
+        function shareOnTwitter(url, text) {
+            const twitterUrl =
+                `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`;
+            window.open(twitterUrl, 'twitter-share-dialog', 'width=800,height=600');
+            return false;
+        }
+
+        function shareOnLinkedIn(url) {
+            const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+            window.open(linkedinUrl, 'linkedin-share-dialog', 'width=800,height=600');
+            return false;
+        }
+    </script>
 @endsection
