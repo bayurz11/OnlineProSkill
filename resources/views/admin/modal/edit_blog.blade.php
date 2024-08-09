@@ -82,59 +82,71 @@
             console.error('Error initializing CKEditor:', error);
         });
 
+    $(document).ready(function() {
+        // Initialize Tagify on the tags input
+        var input = document.querySelector('input[name=tag]');
+        var tagify = new Tagify(input, {
+            whitelist: [],
+            dropdown: {
+                enabled: 1,
+                maxItems: 100
+            }
+        });
 
-    // Handle the edit button click event
-    $('.edit-button').on('click', function() {
-        const id = $(this).data('id');
-        fetch(`/blog/${id}/edit`)
-            .then(response => response.json())
-            .then(data => {
-                // Set other fields in the modal
-                $('#edit-id').val(data.id);
-                $('#edit_title').val(data.title);
-                $('#edit_category').val(data.kategori_id);
-                $('#edit_date').val(data.date);
-                $('#edit_tag').val(data.tag);
+        // Handle the edit button click event
+        $('.edit-button').on('click', function() {
+            const id = $(this).data('id');
+            fetch(`/blog/${id}/edit`)
+                .then(response => response.json())
+                .then(data => {
+                    // Set other fields in the modal
+                    $('#edit-id').val(data.id);
+                    $('#edit_title').val(data.title);
+                    $('#edit_category').val(data.kategori_id);
+                    $('#edit_date').val(data.date);
+                    $('#edit_tag').val(data.tag);
 
-                // Handle image preview
-                if (data.gambar) {
-                    $('#preview_edit').attr('src', `/public/uploads/${data.gambar}`).show();
-                } else {
-                    $('#preview_edit').hide();
-                }
+                    // Handle image preview
+                    if (data.gambar) {
+                        $('#preview_edit').attr('src', `/public/uploads/${data.gambar}`).show();
+                    } else {
+                        $('#preview_edit').hide();
+                    }
 
-                // Set the form action to the update route
-                $('#editModalForm').attr('action', `/blog/${data.id}`);
+                    // Set the form action to the update route
+                    $('#editModalForm').attr('action', `/blog/${data.id}`);
 
-                // Set the existing content into the CKEditor
-                editorInstance.setData(data.content);
+                    // Set the existing content into the CKEditor
+                    editorInstance.setData(data.content);
 
-                // Set tags in Tagify
-                try {
-                    tagify.removeAllTags(); // Clear existing tags
-                    tagify.addTags(data.tag.map(tag => tag.value)); // Add new tags
-                } catch (error) {
-                    console.error('Error setting tags:', error);
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-            });
-    });
+                    // Set tags in Tagify
+                    try {
+                        tagify.removeAllTags(); // Clear existing tags
+                        tagify.addTags(data.tag.map(tag => tag.value)); // Add new tags
+                    } catch (error) {
+                        console.error('Error setting tags:', error);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        });
 
-    // Display the uploaded image preview
-    $('#gambar_edit').change(function() {
-        readURL(this);
-    });
 
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                $('#preview_edit').attr('src', e.target.result).show();
-            };
-            reader.readAsDataURL(input.files[0]);
+
+        // Display the uploaded image preview
+        $('#gambar_edit').change(function() {
+            readURL(this);
+        });
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#preview_edit').attr('src', e.target.result).show();
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
         }
-    }
     });
 </script>
