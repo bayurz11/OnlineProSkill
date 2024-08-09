@@ -67,7 +67,7 @@ class BlogController extends Controller
         $blogs = Blog::all();
         $tags = [];
         foreach ($blogs as $blog) {
-            $blogTags = json_decode($blog->tags, true); // Mengubah JSON menjadi array
+            $blogTags = json_decode($blog->tag, true); // Mengubah JSON menjadi array
             foreach ($blogTags as $blogTag) {
                 if (!in_array($blogTag['value'], $tags)) {
                     $tags[] = $blogTag['value'];
