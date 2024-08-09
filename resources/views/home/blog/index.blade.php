@@ -82,7 +82,6 @@
 
                     <!-- Tambahkan pagination -->
                     <nav class="pagination__wrap mt-25">
-                        {{-- {{ $blog->links() }} --}}
                         {{ $blog->links($paginationView) }}
                     </nav>
                 </div>
