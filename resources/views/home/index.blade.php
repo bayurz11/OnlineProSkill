@@ -473,26 +473,23 @@
                 }
             });
 
-            // Tetapkan tinggi maksimum ke semua elemen event-name
-            blogNames.forEach(function(blogNames) {
-                blogNames.style.height = maxblogNamesHeight + 'px';
-            });
-            // Mengatur tinggi untuk elemen event-name
+            // Mengatur tinggi untuk elemen .blog-name
             var blogNames = document.querySelectorAll('.blog-name');
-            var maxblogNamesHeight = 0;
+            var maxBlogNamesHeight = 0;
 
-            // Temukan tinggi maksimum untuk event-name
-            blogNames.forEach(function(blogNames) {
-                var height = blogNames.offsetHeight;
-                if (height > maxblogNamesHeight) {
-                    maxblogNamesHeight = height;
+            // Temukan tinggi maksimum untuk .blog-name
+            blogNames.forEach(function(blogName) {
+                var height = blogName.offsetHeight;
+                if (height > maxBlogNamesHeight) {
+                    maxBlogNamesHeight = height;
                 }
             });
 
-            // Tetapkan tinggi maksimum ke semua elemen event-name
-            blogNames.forEach(function(blogNames) {
-                blogNames.style.height = maxblogNamesHeight + 'px';
+            // Tetapkan tinggi maksimum ke semua elemen .blog-name
+            blogNames.forEach(function(blogName) {
+                blogName.style.height = maxBlogNamesHeight + 'px';
             });
+
         });
     </script>
 
