@@ -83,15 +83,6 @@
         });
 
     $(document).ready(function() {
-        // Initialize Tagify on the tags input
-        var input = document.querySelector('input[name=tag]');
-        var tagify = new Tagify(input, {
-            whitelist: [],
-            dropdown: {
-                enabled: 1,
-                maxItems: 100
-            }
-        });
 
         // Handle the edit button click event
         $('.edit-button').on('click', function() {
