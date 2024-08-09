@@ -73,7 +73,7 @@
                                         <div class="tg-post-tag">
                                             <h5 class="tag-title">Tags :</h5>
                                             <ul class="list-wrap p-0 mb-0">
-                                                <li><a href="#">Bath Cleaning</a></li>
+                                                <li><a href="#">{{ $blog->tag }}</a></li>
                                                 <li><a href="#">Cleaning</a></li>
                                             </ul>
                                         </div>
