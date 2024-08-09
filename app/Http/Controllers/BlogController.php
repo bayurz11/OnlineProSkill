@@ -21,14 +21,11 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $categori = Categories::all();
+        // $categori = Categories::all();
         $user = Auth::user();
         $profile = null;
         $cart = Session::get('cart', []);
-
-        // Mengambil event dan memfilter yang tanggalnya belum lewat, serta melakukan paginasi
-        $event = AdminEvent::where('tgl', '>=', Carbon::now())->orderBy('created_at', 'desc')->paginate(4);
-
+        $blog = Blog::all();
         if ($user) {
             $profile = UserProfile::where('user_id', $user->id)->first();
         }
@@ -42,7 +39,7 @@ class BlogController extends Controller
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
-        return view('home.blog.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'categori', 'event'))->with('paginationView', 'vendor.custom');
+        return view('home.blog.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi',  'blog'))->with('paginationView', 'vendor.custom');
     }
 
     /**
