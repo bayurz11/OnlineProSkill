@@ -57,7 +57,9 @@
                                     <div class="blog__post-content">
                                         <div class="blog__post-meta">
                                             <ul class="list-wrap">
-                                                <li><i class="flaticon-calendar"></i>20 July, 2024</li>
+                                                <li><i
+                                                        class="flaticon-calendar"></i>{{ Carbon::parse($item->date)->format('d - F - Y') }}
+                                                </li>
                                                 <li><i class="flaticon-user-1"></i>by <a
                                                         href="blog-details.html">{{ $blog->user->name }}</a>
                                                 </li>
