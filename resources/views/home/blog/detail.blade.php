@@ -116,51 +116,45 @@
                     <aside class="blog-sidebar">
                         <div class="blog-widget widget_search">
                             <div class="sidebar-search-form">
-                                <form action="#">
-                                    <input type="text" placeholder="Search here">
-                                    <button><i class="flaticon-search"></i></button>
+                                <form action="{{ route('blog') }}" method="GET">
+                                    <input type="text" name="search" placeholder="Search here"
+                                        value="{{ request()->input('search') }}">
+                                    <button type="submit"><i class="flaticon-search"></i></button>
                                 </form>
                             </div>
                         </div>
+
                         <div class="blog-widget">
-                            <h4 class="widget-title">Categories</h4>
+                            <h4 class="widget-title">Kategori</h4>
                             <div class="shop-cat-list">
                                 <ul class="list-wrap">
-                                    <li>
-                                        <a href="#"><i class="flaticon-angle-right"></i>Art & Design</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="flaticon-angle-right"></i>Business</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="flaticon-angle-right"></i>Data Science</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="flaticon-angle-right"></i>Development</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="flaticon-angle-right"></i>Finance</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="flaticon-angle-right"></i>Health & Fitness</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="flaticon-angle-right"></i>Lifestyle</a>
-                                    </li>
+                                    @php
+                                        // Mengambil hanya kategori yang unik berdasarkan kategori_id
+                                        $uniqueCategories = $categories->unique('kategori_id');
+                                    @endphp
+
+                                    @foreach ($uniqueCategories as $category)
+                                        <li>
+                                            <a href="{{ route('blog', ['category' => $category->kategori_id]) }}">
+                                                <i
+                                                    class="flaticon-angle-right"></i>{{ $category->kategori->name_kategori }}
+                                            </a>
+                                        </li>
+                                    @endforeach
+
                                 </ul>
                             </div>
                         </div>
+
                         <div class="blog-widget">
                             <h4 class="widget-title">Tags</h4>
                             <div class="tagcloud">
-                                <a href="#">Education</a>
-                                <a href="#">Training</a>
-                                <a href="#">Online</a>
-                                <a href="#">Learn</a>
-                                <a href="#">Course</a>
-                                <a href="#">LMS</a>
+                                @foreach ($tags as $tag)
+                                    <a href="{{ route('blog', ['tag' => $tag]) }}">{{ $tag }}</a>
+                                @endforeach
                             </div>
                         </div>
+
                     </aside>
                 </div>
             </div>

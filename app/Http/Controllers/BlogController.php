@@ -107,13 +107,14 @@ class BlogController extends Controller
             ->with('paginationView', 'vendor.custom');
     }
 
-    public function blogDetail($id)
+    public function blogDetail($id, Request $request)
     {
         $categori = Categories::all();
         $user = Auth::user();
         $profile = null;
         $cart = Session::get('cart', []);
         $blog = Blog::find($id);
+
         if ($user) {
             $profile = UserProfile::where('user_id', $user->id)->first();
         }
@@ -127,6 +128,49 @@ class BlogController extends Controller
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
-        return view('home.blog.detail', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'categori', 'blog'));
+        // Bagian pencarian
+        $search = $request->input('search');
+        $category = $request->input('category');
+        $tag = $request->input('tag');
+
+        // Ambil semua blog dan proses tag
+        $blogs = Blog::all();
+        $tags = [];
+        foreach ($blogs as $blogItem) {
+            $blogTags = json_decode($blogItem->tag, true); // Mengubah JSON menjadi array
+            foreach ($blogTags as $blogTag) {
+                if (!in_array($blogTag['value'], $tags)) {
+                    $tags[] = $blogTag['value'];
+                }
+            }
+        }
+
+        // Lakukan pencarian tanpa pagination
+        $filteredBlogs = Blog::when($search, function ($query, $search) {
+            return $query->where('title', 'like', "%{$search}%")
+                ->orWhere('tag', 'like', "%{$search}%");
+        })
+            ->when($category, function ($query, $category) {
+                return $query->whereHas('kategori', function ($query) use ($category) {
+                    $query->where('kategori_id', $category);
+                });
+            })
+            ->when($tag, function ($query, $tag) {
+                // Cek apakah data tag disimpan sebagai JSON
+                return $query->orWhere('tag', 'like', "%{$tag}%");
+            })
+            ->get(); // Mengambil semua hasil tanpa pagination
+
+        return view('home.blog.detail', compact(
+            'user',
+            'profile',
+            'cart',
+            'notifikasiCount',
+            'notifikasi',
+            'categori',
+            'blog',
+            'filteredBlogs',
+            'tags'
+        ));
     }
 }
