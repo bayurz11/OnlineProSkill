@@ -418,16 +418,18 @@
                         <div class="blog__post-item shine__animate-item">
                             <div class="blog__post-thumb">
                                 <a href="{{ route('blog_detail', ['id' => $blog->id]) }}"
-                                    class="shine__animate-link"><img src="public/assets/img/blog/blog_post01.jpg"
+                                    class="shine__animate-link"><img src="{{ asset('public/uploads/' . $blog->gambar) }}"
                                         alt="img" loading="lazy"></a>
-                                <a href="blog.html" class="post-tag">Marketing</a>
+                                <a href="blog.html" class="post-tag">{{ json_decode($blog->tag, true)[0]['value'] }}</a>
                             </div>
                             <div class="blog__post-content">
                                 <div class="blog__post-meta">
                                     <ul class="list-wrap">
-                                        <li><i class="flaticon-calendar"></i>20 July, 2024</li>
+                                        <li><i
+                                                class="flaticon-calendar"></i>{{ Carbon::parse($item->date)->format('d M, Y') }}
+                                        </li>
                                         <li><i class="flaticon-user-1"></i>by <a
-                                                href="{{ route('blog_detail', ['id' => $blog->id]) }}">Admin</a>
+                                                href="{{ route('blog_detail', ['id' => $blog->id]) }}">{{ $blog->user->name }}</a>
                                         </li>
                                     </ul>
                                 </div>
