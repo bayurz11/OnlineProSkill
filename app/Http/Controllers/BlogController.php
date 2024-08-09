@@ -65,12 +65,12 @@ class BlogController extends Controller
 
         // Ambil semua blog dan proses tag
         $blogs = Blog::all();
-        $tags = [];
+        $tag = [];
         foreach ($blogs as $blog) {
             $blogTags = json_decode($blog->tag, true); // Mengubah JSON menjadi array
             foreach ($blogTags as $blogTag) {
-                if (!in_array($blogTag['value'], $tags)) {
-                    $tags[] = $blogTag['value'];
+                if (!in_array($blogTag['value'], $tag)) {
+                    $tag[] = $blogTag['value'];
                 }
             }
         }
@@ -85,6 +85,7 @@ class BlogController extends Controller
                 });
             })
             ->when($tag, function ($query, $tag) {
+                // Cek apakah data tag disimpan sebagai JSON
                 return $query->whereRaw("JSON_CONTAINS(tag, '\"$tag\"', '$')"); // Untuk MySQL
             })
             ->paginate(6); // Pagination dengan 6 item per halaman
