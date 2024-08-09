@@ -154,6 +154,6 @@
         blogNames.forEach(function(eventName) {
             eventName.style.height = maxEventNameHeight + 'px';
         });
-    </script> --}}
+    </script>
 
 @endsection
