@@ -64,7 +64,10 @@
                                 </ul>
                             </div>
                             <h3 class="title">{{ $blog->title }}</h3>
-                            {!! $blog->content !!}
+                            <div style="text-align: justify;">
+                                {!! $blog->content !!}
+                            </div>
+
 
 
                             <div class="blog__details-bottom">
