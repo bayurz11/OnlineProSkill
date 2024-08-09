@@ -51,7 +51,7 @@
                 <div class="col-xl-9 col-lg-8">
                     <div class="blog__details-wrapper">
                         <div class="blog__details-thumb">
-                            <img src="assets/img/blog/blog_details.jpg" alt="img">
+                            <img src="{{ asset('public/uploads/' . $blog->gambar) }}" alt="img">
                         </div>
                         <div class="blog__details-content">
                             <div class="blog__post-meta">
