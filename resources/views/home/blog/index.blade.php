@@ -62,9 +62,7 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <h4 class="title blog-name"><a href="blog-details.html">How To Become idiculously
-                                                Self-Aware In
-                                                20 Minutes</a></h4>
+                                        <h4 class="title blog-name"><a href="blog-details.html">{{ $blog->title }}</a></h4>
                                     </div>
                                 </div>
                             </div>
