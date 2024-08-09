@@ -87,6 +87,7 @@
                 .then(data => {
                     $('#edit-id').val(data.id);
                     $('#edit_title').val(data.title);
+                    $('#edit_tag').val(data.tag);
 
                     if (data.gambar) {
                         $('#preview_edit').attr('src', `/public/uploads/${data.gambar}`).show();
