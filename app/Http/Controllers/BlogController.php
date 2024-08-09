@@ -55,7 +55,7 @@ class BlogController extends Controller
         $blog = Blog::when($search, function ($query, $search) {
             return $query->where('title', 'like', "%{$search}%")
                 ->orWhere('tag', 'like', "%{$search}%");
-        })->paginate(2); // Pagination dengan 6 item per halaman
+        })->paginate(3); // Pagination dengan 6 item per halaman
 
         if ($user) {
             $profile = UserProfile::where('user_id', $user->id)->first();
