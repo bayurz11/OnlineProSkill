@@ -96,91 +96,20 @@
                             </div>
                         </div>
                         <div class="blog-widget">
-                            <h4 class="widget-title">Categories</h4>
+                            <h4 class="widget-title">Kategori</h4>
                             <div class="shop-cat-list">
                                 <ul class="list-wrap">
                                     <li>
                                         <a href="#"><i class="flaticon-angle-right"></i>Art & Design</a>
                                     </li>
-                                    <li>
-                                        <a href="#"><i class="flaticon-angle-right"></i>Business</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="flaticon-angle-right"></i>Data Science</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="flaticon-angle-right"></i>Development</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="flaticon-angle-right"></i>Finance</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="flaticon-angle-right"></i>Health & Fitness</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="flaticon-angle-right"></i>Lifestyle</a>
-                                    </li>
+
                                 </ul>
-                            </div>
-                        </div>
-                        <div class="blog-widget">
-                            <h4 class="widget-title">Latest Post</h4>
-                            <div class="rc-post-item">
-                                <div class="rc-post-thumb">
-                                    <a href="blog-details.html">
-                                        <img src="public/assets/img/blog/latest_post01.jpg" alt="img">
-                                    </a>
-                                </div>
-                                <div class="rc-post-content">
-                                    <span class="date"><i class="flaticon-calendar"></i> April 13, 2024</span>
-                                    <h4 class="title"><a href="blog-details.html">the Right Learning Path for your</a>
-                                    </h4>
-                                </div>
-                            </div>
-                            <div class="rc-post-item">
-                                <div class="rc-post-thumb">
-                                    <a href="blog-details.html">
-                                        <img src="public/assets/img/blog/latest_post02.jpg" alt="img">
-                                    </a>
-                                </div>
-                                <div class="rc-post-content">
-                                    <span class="date"><i class="flaticon-calendar"></i> April 13, 2024</span>
-                                    <h4 class="title"><a href="blog-details.html">The Growing Need Management</a></h4>
-                                </div>
-                            </div>
-                            <div class="rc-post-item">
-                                <div class="rc-post-thumb">
-                                    <a href="blog-details.html">
-                                        <img src="public/assets/img/blog/latest_post03.jpg" alt="img">
-                                    </a>
-                                </div>
-                                <div class="rc-post-content">
-                                    <span class="date"><i class="flaticon-calendar"></i> April 13, 2024</span>
-                                    <h4 class="title"><a href="blog-details.html">the Right Learning Path for your</a>
-                                    </h4>
-                                </div>
-                            </div>
-                            <div class="rc-post-item">
-                                <div class="rc-post-thumb">
-                                    <a href="blog-details.html">
-                                        <img src="public/assets/img/blog/latest_post04.jpg" alt="img">
-                                    </a>
-                                </div>
-                                <div class="rc-post-content">
-                                    <span class="date"><i class="flaticon-calendar"></i> April 13, 2024</span>
-                                    <h4 class="title"><a href="blog-details.html">The Growing Need Management</a></h4>
-                                </div>
                             </div>
                         </div>
                         <div class="blog-widget">
                             <h4 class="widget-title">Tags</h4>
                             <div class="tagcloud">
                                 <a href="#">Education</a>
-                                <a href="#">Training</a>
-                                <a href="#">Online</a>
-                                <a href="#">Learn</a>
-                                <a href="#">Course</a>
-                                <a href="#">LMS</a>
                             </div>
                         </div>
                     </aside>
