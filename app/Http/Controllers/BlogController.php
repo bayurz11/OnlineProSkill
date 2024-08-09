@@ -81,7 +81,7 @@ class BlogController extends Controller
                     $query->where('name', 'like', "%{$tag}%");
                 });
             })
-            ->groupBy('kategori_id')
+            ->distinct('kategori_id')
             ->paginate(6); // Pagination dengan 6 item per halaman
 
         if ($user) {
