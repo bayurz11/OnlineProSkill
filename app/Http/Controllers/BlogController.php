@@ -86,7 +86,7 @@ class BlogController extends Controller
             })
             ->when($tag, function ($query, $tag) {
                 // Cek apakah data tag disimpan sebagai JSON
-                return $query->whereRaw("JSON_CONTAINS(tag, '\"$tag\"', '$')"); // Untuk MySQL
+                return $query->orWhere('tag', 'like', "%{$tag}%");
             })
             ->paginate(6); // Pagination dengan 6 item per halaman
 
