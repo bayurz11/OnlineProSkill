@@ -66,13 +66,15 @@
 
 <script>
     let editorInstance;
+    let tagify;
 
-    // Initialize CKEditor only once when the page loads
+    // Initialize CKEditor when the page loads
     ClassicEditor
         .create(document.querySelector('#conten'))
         .then(editor => {
             editorInstance = editor;
 
+            // Update the hidden input field when CKEditor content changes
             editor.model.document.on('change:data', () => {
                 const content_input = document.querySelector('#edit_content_input');
                 content_input.value = editor.getData();
@@ -83,6 +85,8 @@
         });
 
     $(document).ready(function() {
+        // Initialize Tagify on the input field
+        tagify = new Tagify(document.querySelector('#edit_tag'));
 
         // Handle the edit button click event
         $('.edit-button').on('click', function() {
@@ -95,7 +99,6 @@
                     $('#edit_title').val(data.title);
                     $('#edit_category').val(data.kategori_id);
                     $('#edit_date').val(data.date);
-                    $('#edit_tag').val(data.tag);
 
                     // Handle image preview
                     if (data.gambar) {
@@ -113,7 +116,10 @@
                     // Set tags in Tagify
                     try {
                         tagify.removeAllTags(); // Clear existing tags
-                        tagify.addTags(data.tag.map(tag => tag.value)); // Add new tags
+                        // Add new tags from the server response
+                        if (Array.isArray(data.tag)) {
+                            tagify.addTags(data.tag.map(tag => tag.value));
+                        }
                     } catch (error) {
                         console.error('Error setting tags:', error);
                     }
@@ -122,8 +128,6 @@
                     console.error('Error fetching data:', error);
                 });
         });
-
-
 
         // Display the uploaded image preview
         $('#gambar_edit').change(function() {
