@@ -48,7 +48,7 @@
                 <div class="col-xl-9 col-lg-8">
                     <div class="row gutter-20">
                         @if ($blog->isEmpty())
-                            <p>No blog posts found matching your search criteria.</p>
+                            <p>Tidak ditemukan postingan blog yang sesuai dengan kriteria pencarian Anda.</p>
                         @else
                             @foreach ($blog as $item)
                                 <div class="col-xl-4 col-md-6">
