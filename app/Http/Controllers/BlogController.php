@@ -56,16 +56,24 @@ class BlogController extends Controller
         $profile = null;
         $cart = Session::get('cart', []);
 
-        // Ambil kata kunci pencarian, kategori, dan tag dari request
         $search = $request->input('search');
         $category = $request->input('category');
         $tag = $request->input('tag');
 
-        // Ambil daftar kategori dan tag dari model Kategori dan Tag
-        // Misalkan Anda memiliki model Category dan Tag untuk kategori dan tag
-        $categories = Blog::all(); // Ambil semua kategori
-        $tags = Blog::all(); // Ambil semua tag
+        // Ambil daftar kategori dari model Blog
+        $categories = Blog::all(); // Asumsi Kategori adalah model untuk kategori
 
+        // Ambil semua blog dan proses tag
+        $blogs = Blog::all();
+        $tags = [];
+        foreach ($blogs as $blog) {
+            $blogTags = json_decode($blog->tags, true); // Mengubah JSON menjadi array
+            foreach ($blogTags as $blogTag) {
+                if (!in_array($blogTag['value'], $tags)) {
+                    $tags[] = $blogTag['value'];
+                }
+            }
+        }
         // Lakukan pencarian dan tambahkan pagination
         $blog = Blog::when($search, function ($query, $search) {
             return $query->where('title', 'like', "%{$search}%")
@@ -77,9 +85,7 @@ class BlogController extends Controller
                 });
             })
             ->when($tag, function ($query, $tag) {
-                return $query->whereHas('tag', function ($query) use ($tag) {
-                    $query->where('tag', 'like', "%{$tag}%");
-                });
+                return $query->whereRaw("JSON_CONTAINS(tags, '\"$tag\"', '$')"); // Untuk MySQL
             })
             ->paginate(6); // Pagination dengan 6 item per halaman
 
