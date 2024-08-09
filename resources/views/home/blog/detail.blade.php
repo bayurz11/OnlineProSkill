@@ -83,7 +83,7 @@
                                                             @endforeach
                                                         @endif
                                                     </a></li>
-                                                <li><a href="#">Cleaning</a></li>
+
                                             </ul>
                                         </div>
                                     </div>
