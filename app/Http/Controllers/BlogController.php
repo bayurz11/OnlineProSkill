@@ -77,7 +77,7 @@ class BlogController extends Controller
         // Lakukan pencarian dan tambahkan pagination
         $blog = Blog::when($search, function ($query, $search) {
             return $query->where('title', 'like', "%{$search}%")
-                ->orWhere('content', 'like', "%{$search}%");
+                ->orWhere('tag', 'like', "%{$search}%");
         })
             ->when($category, function ($query, $category) {
                 return $query->whereHas('kategori', function ($query) use ($category) {
