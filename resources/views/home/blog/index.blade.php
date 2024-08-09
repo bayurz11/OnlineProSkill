@@ -58,7 +58,7 @@
                                         <div class="blog__post-meta">
                                             <ul class="list-wrap">
                                                 <li><i
-                                                        class="flaticon-calendar"></i>{{ Carbon::parse($blog->date)->format('d - M - Y') }}
+                                                        class="flaticon-calendar"></i>{{ Carbon::parse($blog->date)->format('d M , Y') }}
                                                 </li>
                                                 <li><i class="flaticon-user-1"></i>by <a
                                                         href="blog-details.html">{{ $blog->user->name }}</a>
