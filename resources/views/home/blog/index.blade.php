@@ -58,7 +58,7 @@
                                                 class="shine__animate-link">
                                                 <img src="{{ asset('public/uploads/' . $item->gambar) }}" alt="img">
                                             </a>
-                                            <a href="" class="post-tag">
+                                            <a href="{{ route('blog_detail', ['id' => $item->id]) }}" class="post-tag">
                                                 {{ json_decode($item->tag, true)[0]['value'] }}
                                             </a>
                                         </div>
