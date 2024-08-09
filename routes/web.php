@@ -223,3 +223,4 @@ Route::get('/event_detail/{id}', [EventController::class, 'detailEvent'])->name(
 
 //Blog
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+Route::get('/blog_detail/{id}', [BlogController::class, 'blogDetail'])->name('blog_detail');

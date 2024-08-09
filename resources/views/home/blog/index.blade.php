@@ -54,7 +54,8 @@
                                 <div class="col-xl-4 col-md-6">
                                     <div class="blog__post-item shine__animate-item">
                                         <div class="blog__post-thumb">
-                                            <a href="blog-details.html" class="shine__animate-link">
+                                            <a href="{{ route('blog_detail', ['id' => $item->id]) }}"
+                                                class="shine__animate-link">
                                                 <img src="{{ asset('public/uploads/' . $item->gambar) }}" alt="img">
                                             </a>
                                             <a href="blog.html" class="post-tag">

@@ -107,54 +107,26 @@ class BlogController extends Controller
             ->with('paginationView', 'vendor.custom');
     }
 
-
-
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function blogDetail($id)
     {
-        //
-    }
+        $categori = Categories::all();
+        $user = Auth::user();
+        $profile = null;
+        $cart = Session::get('cart', []);
+        $blog = Blog::find($id);
+        if ($user) {
+            $profile = UserProfile::where('user_id', $user->id)->first();
+        }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreBlogRequest $request)
-    {
-        //
-    }
+        // Ambil notifikasi untuk pengguna yang sedang login
+        $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
+            ->orderBy('created_at', 'desc')
+            ->get()
+            : collect(); // Menggunakan collect() untuk membuat koleksi kosong jika pengguna belum login
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Blog $blog)
-    {
-        //
-    }
+        // Hitung jumlah notifikasi dengan status = 1
+        $notifikasiCount = $notifikasi->where('status', 1)->count();
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Blog $blog)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateBlogRequest $request, Blog $blog)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Blog $blog)
-    {
-        //
+        return view('home.event.detail', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'categori', 'blog'));
     }
 }
