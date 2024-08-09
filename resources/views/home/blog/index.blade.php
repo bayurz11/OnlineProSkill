@@ -53,6 +53,7 @@
                                         <a href="blog-details.html" class="shine__animate-link"><img
                                                 src="{{ asset('public/uploads/' . $blog->gambar) }}" alt="img"></a>
                                         <a href="blog.html" class="post-tag">Marketing</a>
+
                                     </div>
                                     <div class="blog__post-content">
                                         <div class="blog__post-meta">
