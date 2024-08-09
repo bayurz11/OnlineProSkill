@@ -120,20 +120,14 @@
                             </div>
                         </div>
 
-                        @php
-                            // Jika $tags adalah array JSON atau objek yang perlu di-decode
-                            $tags = json_decode($tags); // Decode JSON jika diperlukan
-                        @endphp
-
                         <div class="blog-widget">
                             <h4 class="widget-title">Tags</h4>
                             <div class="tagcloud">
                                 @foreach ($tags as $tag)
-                                    <a href="{{ route('blog', ['tag' => $tag->value]) }}">{{ $tag->value }}</a>
+                                    <a href="{{ route('blog', ['tag' => $tag->tag]) }}">{{ $tag->tag }}</a>
                                 @endforeach
                             </div>
                         </div>
-
 
                     </aside>
                 </div>
