@@ -45,8 +45,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-9 col-lg-8">
-                    @foreach ($blog as $blog)
-                        <div class="row gutter-20">
+                    <div class="row gutter-20">
+                        @foreach ($blog as $blog)
                             <div class="col-xl-4 col-md-6">
                                 <div class="blog__post-item shine__animate-item">
                                     <div class="blog__post-thumb">
@@ -68,9 +68,8 @@
                                     </div>
                                 </div>
                             </div>
-
-                        </div>
-                    @endforeach
+                        @endforeach
+                    </div>
 
                     <nav class="pagination__wrap mt-25">
                         <ul class="list-wrap">
