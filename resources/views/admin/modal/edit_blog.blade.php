@@ -92,6 +92,7 @@
                     $('#edit-id').val(data.id);
                     $('#edit_title').val(data.title);
                     $('#edit_category').val(data.kategori_id);
+                    $('#edit_date').val(data.date);
 
                     if (data.gambar) {
                         $('#preview_edit').attr('src', `/public/uploads/${data.gambar}`).show();
