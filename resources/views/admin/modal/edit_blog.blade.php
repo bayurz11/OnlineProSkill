@@ -118,21 +118,19 @@
                     // Set the existing content into the CKEditor
                     editorInstance.setData(data.content);
 
-                    // Parse and set tags in Tagify
+                    // Set tags in Tagify
                     try {
-                        const tags = JSON.parse(data
-                        .tag); // Parse tag data if it's in string format
                         tagify.removeAllTags(); // Clear existing tags
-                        tagify.addTags(tags.map(tag => tag
-                        .value)); // Map the tags to their values and add them
+                        tagify.addTags(data.tag.map(tag => tag.value)); // Add new tags
                     } catch (error) {
-                        console.error('Error parsing tags:', error);
+                        console.error('Error setting tags:', error);
                     }
                 })
                 .catch(error => {
                     console.error('Error fetching data:', error);
                 });
         });
+
 
 
         // Display the uploaded image preview
