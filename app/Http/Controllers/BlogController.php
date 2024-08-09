@@ -51,11 +51,11 @@ class BlogController extends Controller
         // Ambil kata kunci pencarian dari request
         $search = $request->input('search');
 
-        // Lakukan pencarian berdasarkan judul blog atau tag jika ada kata kunci pencarian
+        // Lakukan pencarian dan tambahkan pagination
         $blog = Blog::when($search, function ($query, $search) {
             return $query->where('title', 'like', "%{$search}%")
                 ->orWhere('tag', 'like', "%{$search}%");
-        })->get();
+        })->paginate(6); // Pagination dengan 6 item per halaman
 
         if ($user) {
             $profile = UserProfile::where('user_id', $user->id)->first();
@@ -73,7 +73,6 @@ class BlogController extends Controller
         return view('home.blog.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'blog', 'search'))
             ->with('paginationView', 'vendor.custom');
     }
-
 
     /**
      * Show the form for creating a new resource.

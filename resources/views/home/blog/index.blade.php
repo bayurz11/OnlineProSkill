@@ -80,13 +80,9 @@
                         @endif
                     </div>
 
+                    <!-- Tambahkan pagination -->
                     <nav class="pagination__wrap mt-25">
-                        <ul class="list-wrap">
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="blog.html">2</a></li>
-                            <li><a href="blog.html">3</a></li>
-                            <li><a href="blog.html">4</a></li>
-                        </ul>
+                        {{ $blog->links() }}
                     </nav>
                 </div>
 
@@ -94,7 +90,7 @@
                     <aside class="blog-sidebar">
                         <div class="blog-widget widget_search">
                             <div class="sidebar-search-form">
-                                <form action="{{ route('blog') }}" method="GET">
+                                <form action="{{ route('home.blog.index') }}" method="GET">
                                     <input type="text" name="search" placeholder="Search here"
                                         value="{{ request()->input('search') }}">
                                     <button type="submit"><i class="flaticon-search"></i></button>
