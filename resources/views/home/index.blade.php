@@ -431,7 +431,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <h4 class="title"><a
+                                <h4 class="title blog-name"><a
                                         href="{{ route('blog_detail', ['id' => $blog->id]) }}">{{ $blog->title }}</a>
                                 </h4>
                             </div>
@@ -474,8 +474,24 @@
             });
 
             // Tetapkan tinggi maksimum ke semua elemen event-name
-            eventNames.forEach(function(eventName) {
-                eventName.style.height = maxEventNameHeight + 'px';
+            blogNames.forEach(function(blogNames) {
+                blogNames.style.height = maxblogNamesHeight + 'px';
+            });
+            // Mengatur tinggi untuk elemen event-name
+            var blogNames = document.querySelectorAll('.blog-name');
+            var maxblogNamesHeight = 0;
+
+            // Temukan tinggi maksimum untuk event-name
+            blogNames.forEach(function(blogNames) {
+                var height = blogNames.offsetHeight;
+                if (height > maxblogNamesHeight) {
+                    maxblogNamesHeight = height;
+                }
+            });
+
+            // Tetapkan tinggi maksimum ke semua elemen event-name
+            blogNames.forEach(function(blogNames) {
+                blogNames.style.height = maxblogNamesHeight + 'px';
             });
         });
     </script>
