@@ -81,6 +81,6 @@ class AdminBlogController extends Controller
         }
 
         $blog->save();
-        return redirect()->route('kategori_blog')->with('success', 'Data updated successfully');
+        return redirect()->route('kelola_blog')->with('success', 'Data updated successfully');
     }
 }
