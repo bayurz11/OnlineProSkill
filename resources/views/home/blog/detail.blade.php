@@ -56,7 +56,8 @@
                         <div class="blog__details-content">
                             <div class="blog__post-meta">
                                 <ul class="list-wrap">
-                                    <li><i class="flaticon-calendar"></i> 20 July, 2024</li>
+                                    <li><i class="flaticon-calendar"></i>{{ Carbon::parse($blog->date)->format('d M, Y') }}
+                                    </li>
                                     <li><i class="flaticon-user-1"></i> by <a href="#">Admin</a></li>
                                     <li><i class="flaticon-clock"></i> 5 Min Read</li>
                                     <li><i class="far fa-comment-alt"></i> 05 Comments</li>
