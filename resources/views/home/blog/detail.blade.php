@@ -112,7 +112,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-4">
+                {{-- <div class="col-xl-3 col-lg-4">
                     <aside class="blog-sidebar">
                         <div class="blog-widget widget_search">
                             <div class="sidebar-search-form">
@@ -156,7 +156,7 @@
                         </div>
 
                     </aside>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
