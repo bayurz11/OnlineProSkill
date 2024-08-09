@@ -85,7 +85,7 @@ class BlogController extends Controller
                 });
             })
             ->when($tag, function ($query, $tag) {
-                return $query->whereRaw("JSON_CONTAINS(tags, '\"$tag\"', '$')"); // Untuk MySQL
+                return $query->whereRaw("JSON_CONTAINS(tag, '\"$tag\"', '$')"); // Untuk MySQL
             })
             ->paginate(6); // Pagination dengan 6 item per halaman
 
