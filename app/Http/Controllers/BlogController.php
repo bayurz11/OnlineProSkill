@@ -58,11 +58,11 @@ class BlogController extends Controller
 
         // Ambil kata kunci pencarian, kategori, dan tag dari request
         $search = $request->input('search');
-        $category = $request->input('category')->unique('id');
+        $category = $request->input('category');
         $tag = $request->input('tag');
 
         // Ambil daftar kategori dan tag
-        $categories = Blog::all();
+        $categories = Blog::all()->unique('id');
         $tags = Blog::all();
 
         // Lakukan pencarian dan tambahkan pagination
