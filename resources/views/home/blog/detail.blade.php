@@ -64,6 +64,7 @@
                                 </ul>
                             </div>
                             <h3 class="title">{{ $blog->title }}</h3>
+                            {{ $blog->content }}
                             <p>Maximus ligula eleifend id nisl quis interdum. Sed malesuada tortor non turpis semper
                                 bibendum. Ut ac nisi porta, malesuada risus nonrra dolo areay Vestibulum ante ipsum primis
                                 in faucibus orci luctus et ultrices posuere cubilia curae in tristique libero, quis ultrices
