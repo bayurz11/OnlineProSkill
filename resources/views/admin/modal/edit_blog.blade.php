@@ -42,19 +42,6 @@
                         <label for="conten" class="form-label">Isi Artikel<span class="text-danger">*</span></label>
                         <textarea id="conten" name="content" style="height: 400px; width: 100%; font-size: 18px;"></textarea>
                         <input type="hidden" id="edit_content_input" name="content" required>
-                        <script>
-                            ClassicEditor
-                                .create(document.querySelector('#conten'))
-                                .then(editor => {
-                                    editor.model.document.on('change:data', () => {
-                                        const content_input = document.querySelector('#edit_content_input');
-                                        content_input.value = editor.getData();
-                                    });
-                                })
-                                .catch(error => {
-                                    console.error(error);
-                                });
-                        </script>
                     </div>
 
                     <div class="mb-3">
@@ -78,6 +65,23 @@
 </div>
 
 <script>
+    let editorInstance;
+
+    // Initialize CKEditor only once when the page loads
+    ClassicEditor
+        .create(document.querySelector('#conten'))
+        .then(editor => {
+            editorInstance = editor;
+
+            editor.model.document.on('change:data', () => {
+                const content_input = document.querySelector('#edit_content_input');
+                content_input.value = editor.getData();
+            });
+        })
+        .catch(error => {
+            console.error('Error initializing CKEditor:', error);
+        });
+
     $(document).ready(function() {
         // Fetch data when the edit button is clicked
         $('.edit-button').on('click', function() {
@@ -88,7 +92,6 @@
                     $('#edit-id').val(data.id);
                     $('#edit_title').val(data.title);
                     $('#edit_category').val(data.kategori_id);
-                    $('#edit_date').val(data.date);
 
                     if (data.gambar) {
                         $('#preview_edit').attr('src', `/public/uploads/${data.gambar}`).show();
@@ -99,22 +102,8 @@
                     // Set the form action to the update route
                     $('#editForm').attr('action', `/blog/${data.id}`);
 
-                    // Load content into CKEditor
-                    ClassicEditor
-                        .create(document.querySelector('#conten'))
-                        .then(editor => {
-                            editor.setData(data
-                                .content); // Set the existing content into the editor
-
-                            editor.model.document.on('change:data', () => {
-                                const content_input = document.querySelector(
-                                    '#edit_content_input');
-                                content_input.value = editor.getData();
-                            });
-                        })
-                        .catch(error => {
-                            console.error('Error loading editor:', error);
-                        });
+                    // Set the existing content into the already initialized editor
+                    editorInstance.setData(data.content);
 
                     // Set the existing tags
                     $('#edit_tag').val(data.tag);
