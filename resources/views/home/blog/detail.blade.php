@@ -130,7 +130,7 @@
                                 <ul class="list-wrap">
                                     @php
                                         // Mengambil hanya kategori yang unik berdasarkan kategori_id
-                                        $uniqueCategories = $blog->unique('kategori_id');
+                                        $uniqueCategories = $blogs->unique('kategori_id');
                                     @endphp
 
                                     @foreach ($uniqueCategories as $category)
