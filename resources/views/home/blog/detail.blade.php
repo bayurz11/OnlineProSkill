@@ -65,7 +65,8 @@
                             </div>
                             <h3 class="title">{{ $blog->title }}</h3>
                             <div style="text-align: justify;">
-                                {!! $blog->content !!}
+                                {!! str_replace('<img', '<img style="display: block; margin: 0 auto;"', $blog->content) !!}
+
                             </div>
 
 
