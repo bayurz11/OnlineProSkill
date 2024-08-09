@@ -124,10 +124,11 @@
                             <h4 class="widget-title">Tags</h4>
                             <div class="tagcloud">
                                 @foreach ($tags as $tag)
-                                    <a href="{{ route('blog', ['tag' => $tag->tag]) }}">{{ $tag->tag }}</a>
+                                    <a href="{{ route('blog', ['tag' => $tag->value]) }}">{{ $tag->value }}</a>
                                 @endforeach
                             </div>
                         </div>
+
 
                     </aside>
                 </div>
