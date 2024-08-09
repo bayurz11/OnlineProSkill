@@ -417,20 +417,23 @@
                     <div class="col-xl-3 col-md-6">
                         <div class="blog__post-item shine__animate-item">
                             <div class="blog__post-thumb">
-                                <a href="blog-details.html" class="shine__animate-link"><img
-                                        src="public/assets/img/blog/blog_post01.jpg" alt="img" loading="lazy"></a>
+                                <a href="{{ route('blog_detail', ['id' => $blog->id]) }}"
+                                    class="shine__animate-link"><img src="public/assets/img/blog/blog_post01.jpg"
+                                        alt="img" loading="lazy"></a>
                                 <a href="blog.html" class="post-tag">Marketing</a>
                             </div>
                             <div class="blog__post-content">
                                 <div class="blog__post-meta">
                                     <ul class="list-wrap">
                                         <li><i class="flaticon-calendar"></i>20 July, 2024</li>
-                                        <li><i class="flaticon-user-1"></i>by <a href="blog-details.html">Admin</a>
+                                        <li><i class="flaticon-user-1"></i>by <a
+                                                href="{{ route('blog_detail', ['id' => $blog->id]) }}">Admin</a>
                                         </li>
                                     </ul>
                                 </div>
-                                <h4 class="title"><a href="blog-details.html">How To Become idiculously Self-Aware
-                                        In 20 Minutes</a></h4>
+                                <h4 class="title"><a
+                                        href="{{ route('blog_detail', ['id' => $blog->id]) }}">{{ $blog->title }}</a>
+                                </h4>
                             </div>
                         </div>
                     </div>
