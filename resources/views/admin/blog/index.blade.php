@@ -91,11 +91,11 @@
                 }).then(response => {
                     document.getElementById('confirmationModal').remove();
                     if (response.ok) {
-                        console.log('Blog berhasil dihapus. Mengalihkan ke halaman pengaturan blog.');
+                        console.log('Kategori berhasil dihapus. Mengalihkan ke halaman pengaturan Kategori.');
                         window.location.href = '{{ route('kelola_blog') }}';
                     } else {
                         response.text().then(text => {
-                            console.error('Gagal menghapus blog:', text);
+                            console.error('Gagal menghapus Kategori:', text);
                         });
                     }
                 }).catch(error => {
