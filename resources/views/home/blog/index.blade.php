@@ -90,7 +90,7 @@
                     <aside class="blog-sidebar">
                         <div class="blog-widget widget_search">
                             <div class="sidebar-search-form">
-                                <form action="{{ route('home.blog.index') }}" method="GET">
+                                <form action="{{ route('blog') }}" method="GET">
                                     <input type="text" name="search" placeholder="Search here"
                                         value="{{ request()->input('search') }}">
                                     <button type="submit"><i class="flaticon-search"></i></button>
