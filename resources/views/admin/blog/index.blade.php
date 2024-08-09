@@ -83,11 +83,14 @@
 
             document.getElementById('confirmDelete').onclick = function() {
                 fetch(`/blog_destroy/${id}`, {
-                    method: 'DELETE',
+                    method: 'POST',
                     headers: {
                         'X-CSRF-TOKEN': '{{ csrf_token() }}',
                         'Content-Type': 'application/json'
-                    }
+                    },
+                    body: JSON.stringify({
+                        _method: 'DELETE'
+                    })
                 }).then(response => {
                     document.getElementById('confirmationModal').remove();
                     if (response.ok) {
