@@ -124,17 +124,10 @@
                             <h4 class="widget-title">Tags</h4>
                             <div class="tagcloud">
                                 @foreach ($tags as $tag)
-                                    @php
-                                        $tagArray = json_decode($tag->tag, true);
-                                    @endphp
-                                    @foreach ($tagArray as $tagItem)
-                                        <a
-                                            href="{{ route('blog', ['tag' => $tagItem['value']]) }}">{{ $tagItem['value'] }}</a>
-                                    @endforeach
+                                    <a href="{{ route('blog', ['tag' => $tag]) }}">{{ $tag }}</a>
                                 @endforeach
                             </div>
                         </div>
-
 
                     </aside>
                 </div>
