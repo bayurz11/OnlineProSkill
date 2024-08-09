@@ -132,7 +132,7 @@ class BlogController extends Controller
         $search = $request->input('search');
         $category = $request->input('category');
         $tag = $request->input('tag');
-        $categories = Blog::all();
+
         // Ambil semua blog dan proses tag
         $blogs = Blog::all();
         $tags = [];
