@@ -102,12 +102,20 @@
                             <h4 class="widget-title">Kategori</h4>
                             <div class="shop-cat-list">
                                 <ul class="list-wrap">
-                                    @foreach ($categories as $category)
-                                        <li><a href="{{ route('blog', ['category' => $category->kategori_id]) }}">
+                                    @php
+                                        // Mengambil hanya kategori yang unik berdasarkan kategori_id
+                                        $uniqueCategories = $categories->unique('kategori_id');
+                                    @endphp
+
+                                    @foreach ($uniqueCategories as $category)
+                                        <li>
+                                            <a href="{{ route('blog', ['category' => $category->kategori_id]) }}">
                                                 <i
-                                                    class="flaticon-angle-right"></i>{{ $category->kategori->name_kategori }}</a>
+                                                    class="flaticon-angle-right"></i>{{ $category->kategori->name_kategori }}
+                                            </a>
                                         </li>
                                     @endforeach
+
                                 </ul>
                             </div>
                         </div>
