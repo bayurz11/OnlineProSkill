@@ -82,19 +82,16 @@
             document.body.insertAdjacentHTML('beforeend', confirmationBox);
 
             document.getElementById('confirmDelete').onclick = function() {
-                fetch(`/blog/${id}/destroy`, {
-                    method: 'POST',
+                fetch(`/blog_destroy/${id}`, {
+                    method: 'DELETE',
                     headers: {
                         'X-CSRF-TOKEN': '{{ csrf_token() }}',
                         'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        _method: 'DELETE'
-                    })
+                    }
                 }).then(response => {
                     document.getElementById('confirmationModal').remove();
                     if (response.ok) {
-                        console.log('blog berhasil dihapus. Mengalihkan ke halaman pengaturan blog.');
+                        console.log('Blog berhasil dihapus. Mengalihkan ke halaman pengaturan blog.');
                         window.location.href = '{{ route('kelola_blog') }}';
                     } else {
                         response.text().then(text => {

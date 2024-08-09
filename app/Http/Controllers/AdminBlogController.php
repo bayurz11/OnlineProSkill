@@ -87,13 +87,13 @@ class AdminBlogController extends Controller
     public function destroy($id)
     {
 
-        $category = Blog::find($id);
+        $blog = Blog::find($id);
 
-        if (!$category) {
+        if (!$blog) {
             return redirect()->route('kelola_blog')->with('error', 'Data tidak ditemukan');
         }
 
-        $category->delete();
+        $blog->delete();
 
         return redirect()->route('kelola_blog')->with('success', 'Data berhasil dihapus');
     }
