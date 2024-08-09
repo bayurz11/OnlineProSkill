@@ -58,7 +58,7 @@
                                                 class="shine__animate-link">
                                                 <img src="{{ asset('public/uploads/' . $item->gambar) }}" alt="img">
                                             </a>
-                                            <a href="blog.html" class="post-tag">
+                                            <a href="" class="post-tag">
                                                 {{ json_decode($item->tag, true)[0]['value'] }}
                                             </a>
                                         </div>
@@ -69,10 +69,12 @@
                                                             class="flaticon-calendar"></i>{{ Carbon::parse($item->date)->format('d M, Y') }}
                                                     </li>
                                                     <li><i class="flaticon-user-1"></i>by <a
-                                                            href="blog-details.html">{{ $item->user->name }}</a></li>
+                                                            href="{{ route('blog_detail', ['id' => $item->id]) }}">{{ $item->user->name }}</a>
+                                                    </li>
                                                 </ul>
                                             </div>
-                                            <h4 class="title blog-name"><a href="blog-details.html">{{ $item->title }}</a>
+                                            <h4 class="title blog-name"><a
+                                                    href="{{ route('blog_detail', ['id' => $item->id]) }}">{{ $item->title }}</a>
                                             </h4>
                                         </div>
                                     </div>
