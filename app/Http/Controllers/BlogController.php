@@ -127,6 +127,6 @@ class BlogController extends Controller
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
-        return view('home.event.detail', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'categori', 'blog'));
+        return view('home.blog.detail', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'categori', 'blog'));
     }
 }
