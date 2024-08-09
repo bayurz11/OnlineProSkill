@@ -102,8 +102,10 @@
                             <h4 class="widget-title">Kategori</h4>
                             <div class="shop-cat-list">
                                 <ul class="list-wrap">
-                                    <li><a href="#"><i class="flaticon-angle-right"></i>Art & Design</a></li>
-                                    <!-- Tambahkan kategori lainnya sesuai kebutuhan -->
+                                    @foreach ($categories as $category)
+                                        <li><a href="{{ route('blog', ['category' => $category->name]) }}"><i
+                                                    class="flaticon-angle-right"></i>{{ $category->name }}</a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -111,10 +113,12 @@
                         <div class="blog-widget">
                             <h4 class="widget-title">Tags</h4>
                             <div class="tagcloud">
-                                <a href="#">Education</a>
-                                <!-- Tambahkan tag lainnya sesuai kebutuhan -->
+                                @foreach ($tags as $tag)
+                                    <a href="{{ route('blog', ['tag' => $tag->name]) }}">{{ $tag->name }}</a>
+                                @endforeach
                             </div>
                         </div>
+
                     </aside>
                 </div>
             </div>
