@@ -20,7 +20,9 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\SertifikatController;
 use App\Http\Controllers\DaftarSiswaController;
 use App\Http\Controllers\HeroSectionController;
+use App\Http\Controllers\HubungiKamiController;
 use App\Http\Controllers\CourseMasterController;
+use App\Http\Controllers\KategoriBlogController;
 use App\Http\Controllers\SubcategoriesController;
 use App\Http\Controllers\AksesPembelianController;
 use App\Http\Controllers\KelasTatapMukaController;
@@ -28,7 +30,6 @@ use App\Http\Controllers\NotifikasiUserController;
 use App\Http\Controllers\DashboardStudenController;
 use App\Http\Controllers\RiwayatTransaksiController;
 use App\Http\Controllers\DashboardInstrukturController;
-use App\Http\Controllers\KategoriBlogController;
 use App\Http\Controllers\OrderHistoryManagerController;
 
 //Authentikasi
@@ -224,3 +225,6 @@ Route::get('/event_detail/{id}', [EventController::class, 'detailEvent'])->name(
 //Blog
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/blog_detail/{id}', [BlogController::class, 'blogDetail'])->name('blog_detail');
+
+//Hubungi Kami
+Route::get('/hubungikami', [HubungiKamiController::class, 'index'])->name('hubungikami');
