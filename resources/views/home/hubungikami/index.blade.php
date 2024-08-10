@@ -90,17 +90,18 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-grp">
-                                        <input id="name" type="text" placeholder="Nama *" required>
+                                        <input id="name" name="name" type="text" placeholder="Nama *" required>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-grp">
-                                        <input id="email" type="email" placeholder="E-mail *" required>
+                                        <input id="email" name="email" type="email" placeholder="E-mail *" required>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-grp">
-                                        <input id="phone" type="phone" placeholder="Nomor Telepon *" required>
+                                        <input id="phone" type="phone" name="phone" placeholder="Nomor Telepon *"
+                                            required>
                                     </div>
                                 </div>
                             </div>
