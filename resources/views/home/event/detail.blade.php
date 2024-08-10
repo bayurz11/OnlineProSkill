@@ -85,22 +85,23 @@
                                         // Ambil URL dari database
                                         $url = $event->link_maps;
 
-                                        // Ekstrak koordinat dari URL
+                                        // Ekstrak koordinat dari URL menggunakan regex yang lebih spesifik
                                         preg_match('/@(-?\d+\.\d+),(-?\d+\.\d+),/', $url, $matches);
-                                        $latitude = $matches[1];
-                                        $longitude = $matches[2];
+
+                                        // Pastikan ada koordinat yang ditemukan
+                                        $latitude = isset($matches[1]) ? $matches[1] : '0';
+                                        $longitude = isset($matches[2]) ? $matches[2] : '0';
                                     @endphp
 
                                     <div class="event__map">
                                         <h4 class="title">Lokasi</h4>
                                         <div class="map">
                                             <iframe
-                                                src="https://www.google.com/maps?q={{ $latitude }},{{ $longitude }}&hl=es;z=14&output=embed"
+                                                src="https://www.google.com/maps?q={{ $latitude }},{{ $longitude }}&hl=id&z=17&output=embed"
                                                 style="border:0;" allowfullscreen="" loading="lazy"
                                                 referrerpolicy="no-referrer-when-downgrade"></iframe>
                                         </div>
                                     </div>
-
 
                                     {{-- <div class="event__details-overview">
                                         <h4 class="title-two">Event Overview</h4>
