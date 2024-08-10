@@ -103,6 +103,16 @@
 
                                         </div>
                                     </div>
+                                    <div class="event__widget">
+                                        <div class="event__map">
+                                            <h4 class="title">Map</h4>
+                                            <div class="map">
+                                                <iframe src="{{ $event->link_maps }}" width="600" height="450"
+                                                    style="border:0;" allowfullscreen="" loading="lazy"
+                                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                     {{-- <div class="event__details-overview">
                                         <h4 class="title-two">Event Overview</h4>
