@@ -68,8 +68,12 @@
                                                 By
                                                 <a href="instructor-details.html">{{ $event->user->name }}</a>
                                             </li>
-                                            <li class="location"><i class="flaticon-placeholder"></i>{{ $event->lokasi }}
+                                            <li class="location">
+                                                <a href="{{ $event->link_maps }}" target="_blank">
+                                                    <i class="flaticon-placeholder"></i>{{ $event->lokasi }}
+                                                </a>
                                             </li>
+
 
                                         </ul>
                                     </div>
@@ -97,9 +101,10 @@
                                         <h4 class="title">Lokasi</h4>
                                         <div class="map">
                                             <iframe
-                                                src="https://www.google.com/maps/place={{ $latitude }},{{ $longitude }}&hl=id&z=17&output=embed"
+                                                src="https://www.google.com/maps?q={{ $latitude }},{{ $longitude }}&hl=id&z=17&output=embed"
                                                 style="border:0;" allowfullscreen="" loading="lazy"
                                                 referrerpolicy="no-referrer-when-downgrade"></iframe>
+
                                         </div>
                                     </div>
 
