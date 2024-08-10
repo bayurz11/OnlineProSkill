@@ -103,8 +103,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-two arrow-btn">Submit Now <img
-                                    src="assets/img/icons/right_arrow.svg" alt="img" class="injectable"></button>
+                            <button type="submit" class="btn btn-two arrow-btn">Kirim Sekarang <img
+                                    src="public/assets/img/icons/right_arrow.svg" alt="img"
+                                    class="injectable"></button>
                         </form>
                         <p class="ajax-response mb-0"></p>
                     </div>
