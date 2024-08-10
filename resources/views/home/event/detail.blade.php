@@ -215,7 +215,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="event__widget">
+                                    {{-- <div class="event__widget">
                                         <div class="event__map">
                                             <h4 class="title">Map</h4>
                                             <div class="map">
@@ -225,7 +225,7 @@
                                                     referrerpolicy="no-referrer-when-downgrade"></iframe>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </aside>
                             </div>
                         </div>
