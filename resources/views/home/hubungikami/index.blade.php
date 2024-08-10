@@ -81,7 +81,7 @@
                 <div class="col-lg-8">
                     <div class="contact-form-wrap">
                         <h4 class="title">Kirimkan Kami Pesan</h4>
-                        <p>Nama, Alamat email dan Nomor Telepon Anda tidak akan dipublikasikan. Kolom yang wajib diisi
+                        <p>Alamat email dan Nomor Telepon Anda tidak akan dipublikasikan. Kolom yang wajib diisi
                             ditandai dengan *
                         </p>
                         <form id="contact-form" action="public/assets/mail.php" method="POST">
