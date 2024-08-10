@@ -169,14 +169,14 @@
                                                     </li>
                                                     <!-- Twitter Share -->
                                                     <li>
-                                                        <a href="https://twitter.com/intent/tweet?url={{ urlencode(url()->current()) }}&text={{ urlencode($courseTitle) }}"
+                                                        <a href="https://twitter.com/intent/tweet?url={{ urlencode(url()->current()) }}&text={{ urlencode($event->name) }}"
                                                             target="_blank">
                                                             <i class="fab fa-twitter"></i>
                                                         </a>
                                                     </li>
                                                     <!-- WhatsApp Share -->
                                                     <li>
-                                                        <a href="https://api.whatsapp.com/send?text={{ urlencode($courseTitle) }}%20{{ urlencode(url()->current()) }}"
+                                                        <a href="https://api.whatsapp.com/send?text={{ urlencode($event->name) }}%20{{ urlencode(url()->current()) }}"
                                                             target="_blank">
                                                             <i class="fab fa-whatsapp"></i>
                                                         </a>
