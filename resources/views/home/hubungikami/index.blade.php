@@ -130,23 +130,19 @@
     <!-- contact-area-end -->
     <script>
         function sendMessage() {
-            // Ambil nilai dari input form
             var name = document.getElementById('name').value;
             var email = document.getElementById('email').value;
             var phone = document.getElementById('phone').value;
             var message = document.getElementById('message').value;
 
-            // Format pesan yang akan dikirimkan
+            console.log('Name:', name); // Periksa output di konsol
+            console.log('Email:', email); // Periksa output di konsol
+
             var whatsappMessage = `Halo, saya ${name},\n\n${message}\n\nEmail: ${email}\nNomor Telepon: ${phone}`;
-
-            // Nomor WhatsApp tujuan (nomor harus tanpa tanda '+' dan menggunakan kode negara, misalnya 6281266187125)
             var whatsappNumber = '6281266187125';
-
-            // Buat URL WhatsApp API
             var whatsappURL =
                 `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(whatsappMessage)}`;
 
-            // Buka URL di tab baru
             window.open(whatsappURL, '_blank');
         }
     </script>
