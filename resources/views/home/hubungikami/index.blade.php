@@ -120,12 +120,13 @@
                         const message = document.getElementById('message').value;
 
                         const whatsappUrl = `https://wa.me/+6281266187125?text=${encodeURIComponent(
-                        `Nama: ${name}\nEmail: ${email}\nNomor Telepon: ${phone}\nPesan: ${message}`
-                    )}`;
+                            `Nama: ${name}\nEmail: ${email}\nNomor Telepon: ${phone}\nPesan: ${message}`
+                        )}`;
 
                         window.open(whatsappUrl, '_blank');
                     }
                 </script>
+
 
             </div>
             <!-- contact-map -->
