@@ -101,7 +101,7 @@
                                 <div class="col-md-4">
                                     <div class="form-grp">
                                         <input id="phone" type="phone" name="phone" placeholder="Nomor Telepon *"
-                                            required>
+                                            required maxlength="12">
                                     </div>
                                 </div>
                             </div>
@@ -112,20 +112,8 @@
                     </div>
                 </div>
 
-                <script>
-                    function sendMessage() {
-                        const name = document.getElementById('name').value;
-                        const email = document.getElementById('email').value;
-                        const phone = document.getElementById('phone').value;
-                        const message = document.getElementById('message').value;
 
-                        const whatsappUrl = `https://wa.me/+6281266187125?text=${encodeURIComponent(
-                            `Nama: ${name}\nEmail: ${email}\nNomor Telepon: ${phone}\nPesan: ${message}`
-                        )}`;
 
-                        window.open(whatsappUrl, '_blank');
-                    }
-                </script>
 
 
             </div>
@@ -140,5 +128,27 @@
         </div>
     </section>
     <!-- contact-area-end -->
+    <script>
+        function sendMessage(event) {
+            event.preventDefault(); // Mencegah form untuk di-submit secara default
 
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+
+            if (!name || !email || !phone || !message) {
+                alert('Harap isi semua field yang diperlukan!');
+                return;
+            }
+
+            const whatsappUrl = `https://wa.me/+6281266187125?text=${encodeURIComponent(
+                `Nama: ${name}\nEmail: ${email}\nNomor Telepon: ${phone}\nPesan: ${message}`
+            )}`;
+
+            window.open(whatsappUrl, '_blank');
+        }
+
+        document.getElementById('contact-form').addEventListener('submit', sendMessage);
+    </script>
 @endsection
