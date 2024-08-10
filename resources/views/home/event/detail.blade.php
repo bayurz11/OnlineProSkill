@@ -201,15 +201,15 @@
                                                             <i class="fab fa-whatsapp"></i>
                                                         </a>
                                                     </li>
-                                                    <!-- Instagram Profile (Instagram tidak mendukung direct share links) -->
+                                                    <!-- Instagram Profile -->
                                                     <li>
                                                         <a href="https://www.instagram.com/yourprofile" target="_blank">
                                                             <i class="fab fa-instagram"></i>
                                                         </a>
                                                     </li>
-
                                                 </ul>
                                             </div>
+
 
                                             <div class="courses__details-enroll">
                                                 <div class="tg-button-wrap">
