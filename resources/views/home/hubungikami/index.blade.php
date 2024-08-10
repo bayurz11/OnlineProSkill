@@ -118,7 +118,7 @@
                         const phone = document.getElementById('phone').value;
                         const message = document.getElementById('message').value;
 
-                        const whatsappUrl = `https://wa.me/YOUR_PHONE_NUMBER?text=${encodeURIComponent(
+                        const whatsappUrl = `https://wa.me/081318207954?text=${encodeURIComponent(
                         `Nama: ${name}\nEmail: ${email}\nNomor Telepon: ${phone}\nPesan: ${message}`
                     )}`;
 
