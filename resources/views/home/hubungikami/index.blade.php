@@ -81,7 +81,9 @@
                 <div class="col-lg-8">
                     <div class="contact-form-wrap">
                         <h4 class="title">Kirimkan Kami Pesan</h4>
-                        <p>Alamat email Anda tidak akan dipublikasikan. Kolom yang wajib diisi ditandai dengan *</p>
+                        <p>Nama, Alamat email dan Nomor Telepon Anda tidak akan dipublikasikan. Kolom yang wajib diisi
+                            ditandai dengan *
+                        </p>
                         <form id="contact-form" action="public/assets/mail.php" method="POST">
                             <div class="form-grp">
                                 <textarea name="message" placeholder="Pesan Anda" required></textarea>
@@ -99,7 +101,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-grp">
-                                        <input name="phone" type="url" placeholder="nomor telepon *" required>
+                                        <input name="phone" type="phone" placeholder="nomor telepon *" required>
                                     </div>
                                 </div>
                             </div>
