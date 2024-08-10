@@ -107,11 +107,11 @@
                             </div>
                             <button type="button" class="btn btn-two arrow-btn" onclick="sendMessage()">Kirim
                                 Sekarang</button>
+
                         </form>
                         <p class="ajax-response mb-0"></p>
                     </div>
                 </div>
-
 
 
 
@@ -129,28 +129,25 @@
     </section>
     <!-- contact-area-end -->
     <script>
-        function sendMessage(event) {
-            event.preventDefault(); // Mencegah form untuk di-submit secara default
+        function sendMessage() {
+            // Ambil nilai dari input form
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone').value;
+            var message = document.getElementById('message').value;
 
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const message = document.getElementById('message').value;
+            // Format pesan yang akan dikirimkan
+            var whatsappMessage = `Halo, saya ${name},\n\n${message}\n\nEmail: ${email}\nNomor Telepon: ${phone}`;
 
-            if (!name || !email || !phone || !message) {
-                alert('Harap isi semua field yang diperlukan!');
-                return;
-            }
+            // Nomor WhatsApp tujuan (nomor harus tanpa tanda '+' dan menggunakan kode negara, misalnya 6281266187125)
+            var whatsappNumber = '6281266187125';
 
-            const whatsappUrl = `https://wa.me/+6281266187125?text=${encodeURIComponent(
-                `Nama: ${name}\nEmail: ${email}\nNomor Telepon: ${phone}\nPesan: ${message}`
-            )}`;
+            // Buat URL WhatsApp API
+            var whatsappURL =
+                `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(whatsappMessage)}`;
 
-            window.open(whatsappUrl, '_blank');
+            // Buka URL di tab baru
+            window.open(whatsappURL, '_blank');
         }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('contact-form').addEventListener('submit', sendMessage);
-        });
     </script>
 @endsection
