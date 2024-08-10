@@ -73,7 +73,7 @@
 
                                         </ul>
                                     </div>
-                                    <div class="event__details-overview">
+                                    {{-- <div class="event__details-overview">
                                         <h4 class="title-two">Event Overview</h4>
                                         <p>Dorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                             incididunt ut labore et dolore magna aliqua Quis ipsum suspendisse ultrices
@@ -121,7 +121,7 @@
                                     <p>Morem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                         incididunt ut labore et dolore magna aliqua Quis ipsum suspendisse ultrices gravida.
                                         Risus commodo viverra maecenas accumsan.Dorem ipsum dolor sit amet, consectetur
-                                        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magn.</p>
+                                        adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magn.</p> --}}
                                 </div>
                             </div>
                             <div class="col-30">
