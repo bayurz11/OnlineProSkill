@@ -83,24 +83,14 @@
                                     </div>
                                     <div class="event__map">
                                         <h4 class="title">Lokasi</h4>
+                                        {{ $event->link_maps }}
                                         <div class="map">
-                                            <iframe id="googleMapFrame" src="" style="border:0;" allowfullscreen=""
-                                                loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                                            </iframe>
+                                            <iframe
+                                                src="https://www.google.com/maps/embed?pb=!3m1!4b1!4m6!3m5!1s0x2e69775e79e70e01:0x301576d14feb9e0!8m2!3d-6.3227303!4d107.3375791!16zL20vMGdjODAx?entry=ttu"
+                                                style="border:0;" allowfullscreen="" loading="lazy"
+                                                referrerpolicy="no-referrer-when-downgrade"></iframe>
                                         </div>
                                     </div>
-
-                                    <script>
-                                        // Ambil data dari Blade
-                                        var linkMaps = @json($event->link_maps);
-
-                                        // Ambil elemen iframe
-                                        var iframe = document.getElementById('googleMapFrame');
-
-                                        // Set atribut src dengan data dari linkMaps
-                                        iframe.src = linkMaps;
-                                    </script>
-
                                     {{-- <div class="event__details-overview">
                                         <h4 class="title-two">Event Overview</h4>
                                         <p>Dorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
