@@ -73,6 +73,14 @@
 
                                         </ul>
                                     </div>
+                                    <div class="event__details-overview">
+                                        <h4 class="title-two">Event Overview</h4>
+                                        <p>Dorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                            incididunt ut labore et dolore magna aliqua Quis ipsum suspendisse ultrices
+                                            gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.dolor sit
+                                            amet, consectetur adipiscing elited do eiusmod tempor incididunt ut labore et
+                                            dolore magna aliqua.</p>
+                                    </div>
                                     <div class="event__map">
                                         <h4 class="title">Map</h4>
                                         <div class="map">
