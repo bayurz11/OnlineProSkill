@@ -81,37 +81,51 @@
                 <div class="col-lg-8">
                     <div class="contact-form-wrap">
                         <h4 class="title">Kirimkan Kami Pesan</h4>
-                        <p>Alamat email dan Nomor Telepon Anda tidak akan dipublikasikan. Kolom yang wajib diisi
-                            ditandai dengan *
-                        </p>
-                        <form id="contact-form" action="public/assets/mail.php" method="POST">
+                        <p>Alamat email dan Nomor Telepon Anda tidak akan dipublikasikan. Kolom yang wajib diisi ditandai
+                            dengan *</p>
+                        <form id="contact-form" action="#" method="POST">
                             <div class="form-grp">
-                                <textarea name="message" placeholder="Pesan Anda" required></textarea>
+                                <textarea id="message" placeholder="Pesan Anda" required></textarea>
                             </div>
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-grp">
-                                        <input name="name" type="text" placeholder="Nama *" required>
+                                        <input id="name" type="text" placeholder="Nama *" required>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-grp">
-                                        <input name="email" type="email" placeholder="E-mail *" required>
+                                        <input id="email" type="email" placeholder="E-mail *" required>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-grp">
-                                        <input name="phone" type="phone" placeholder="nomor telepon *" required>
+                                        <input id="phone" type="phone" placeholder="Nomor Telepon *" required>
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-two arrow-btn">Kirim Sekarang <img
-                                    src="public/assets/img/icons/right_arrow.svg" alt="img"
-                                    class="injectable"></button>
+                            <button type="button" class="btn btn-two arrow-btn" onclick="sendMessage()">Kirim
+                                Sekarang</button>
                         </form>
                         <p class="ajax-response mb-0"></p>
                     </div>
                 </div>
+
+                <script>
+                    function sendMessage() {
+                        const name = document.getElementById('name').value;
+                        const email = document.getElementById('email').value;
+                        const phone = document.getElementById('phone').value;
+                        const message = document.getElementById('message').value;
+
+                        const whatsappUrl = `https://wa.me/YOUR_PHONE_NUMBER?text=${encodeURIComponent(
+                        `Nama: ${name}\nEmail: ${email}\nNomor Telepon: ${phone}\nPesan: ${message}`
+                    )}`;
+
+                        window.open(whatsappUrl, '_blank');
+                    }
+                </script>
+
             </div>
             <!-- contact-map -->
             <div class="contact-map">
