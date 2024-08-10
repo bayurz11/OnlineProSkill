@@ -26,8 +26,8 @@
                              <ul class="list-wrap">
                                  <li><a href="events-details.html">Tentang Kami</a></li>
                                  <li><a href="events-details.html">Hubungi Kami</a></li>
-                                 <li><a
-                                         href="https://drive.google.com/file/d/1FiVmF5_hau_8xRKfvoM8Wel1tUezCzA_/view">Brosur</a>
+                                 <li><a href="https://drive.google.com/file/d/1FiVmF5_hau_8xRKfvoM8Wel1tUezCzA_/view"
+                                         target="_blank">Brosur</a>
                                  </li>
                                  <li><a href="events-details.html">Contoh Sertifikat</a></li>
                                  <li><a href="{{ route('blog') }}">Artikel</a></li>
