@@ -80,16 +80,16 @@
                 </div>
                 <div class="col-lg-8">
                     <div class="contact-form-wrap">
-                        <h4 class="title">Send Us Message</h4>
-                        <p>Your email address will not be published. Required fields are marked *</p>
+                        <h4 class="title">Kirimkan Kami Pesan</h4>
+                        <p>Alamat email Anda tidak akan dipublikasikan. Kolom yang wajib diisi ditandai dengan *</p>
                         <form id="contact-form" action="public/assets/mail.php" method="POST">
                             <div class="form-grp">
-                                <textarea name="message" placeholder="Comment" required></textarea>
+                                <textarea name="message" placeholder="Pesan Anda" required></textarea>
                             </div>
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-grp">
-                                        <input name="name" type="text" placeholder="Name *" required>
+                                        <input name="name" type="text" placeholder="Nama *" required>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -99,7 +99,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-grp">
-                                        <input name="website" type="url" placeholder="Website *" required>
+                                        <input name="phone" type="url" placeholder="nomor telepon *" required>
                                     </div>
                                 </div>
                             </div>
