@@ -207,13 +207,7 @@
                                                             <i class="fab fa-instagram"></i>
                                                         </a>
                                                     </li>
-                                                    <!-- YouTube Share -->
-                                                    <li>
-                                                        <a href="https://www.youtube.com/share?url={{ urlencode(url()->current()) }}"
-                                                            target="_blank">
-                                                            <i class="fab fa-youtube"></i>
-                                                        </a>
-                                                    </li>
+
                                                 </ul>
                                             </div>
 
