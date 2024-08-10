@@ -95,11 +95,12 @@
                                         <h4 class="title">Lokasi</h4>
                                         <div class="map">
                                             <iframe
-                                                src="https://www.google.com/maps?q={{ $latitude }},{{ $longitude }}&hl=es;z=14&output=embed"
-                                                style="border:0;" allowfullscreen="" loading="lazy"
-                                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                                src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q={{ $latitude }},{{ $longitude }}&zoom=14"
+                                                style="border:0; width:100%; height:400px;" allowfullscreen=""
+                                                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                                         </div>
                                     </div>
+
 
 
                                     {{-- <div class="event__details-overview">
