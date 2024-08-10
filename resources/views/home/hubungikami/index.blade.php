@@ -149,6 +149,8 @@
             window.open(whatsappUrl, '_blank');
         }
 
-        document.getElementById('contact-form').addEventListener('submit', sendMessage);
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('contact-form').addEventListener('submit', sendMessage);
+        });
     </script>
 @endsection
