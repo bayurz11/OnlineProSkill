@@ -89,18 +89,18 @@
                                         preg_match('/@(-?\d+\.\d+),(-?\d+\.\d+),/', $url, $matches);
                                         $latitude = $matches[1];
                                         $longitude = $matches[2];
-
-                                        // Buat URL embed sederhana tanpa API Key
-                                        $embedUrl = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10000!2d{$longitude}!3d{$latitude}!3m2!1i1024!2i768!4f13.1";
                                     @endphp
 
                                     <div class="event__map">
                                         <h4 class="title">Lokasi</h4>
                                         <div class="map">
-                                            <iframe src="{{ $embedUrl }}" style="border:0;" allowfullscreen=""
-                                                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                            <iframe
+                                                src="https://www.google.com/maps?q={{ $latitude }},{{ $longitude }}&hl=es;z=14&output=embed"
+                                                style="border:0;" allowfullscreen="" loading="lazy"
+                                                referrerpolicy="no-referrer-when-downgrade"></iframe>
                                         </div>
                                     </div>
+
 
                                     {{-- <div class="event__details-overview">
                                         <h4 class="title-two">Event Overview</h4>
