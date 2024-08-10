@@ -83,12 +83,8 @@
                                     </div>
                                     <div class="event__map">
                                         <h4 class="title">Lokasi</h4>
-                                        {{ $event->link_maps }}
-                                        <div class="map">
-                                            <iframe
-                                                src="https://www.google.com/maps/embed?pb=!3m1!4b1!4m6!3m5!1s0x2e69775e79e70e01:0x301576d14feb9e0!8m2!3d-6.3227303!4d107.3375791!16zL20vMGdjODAx"
-                                                style="border:0;" allowfullscreen="" loading="lazy"
-                                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                        <div class="map" id="mapContainer">
+                                            <!-- Iframe akan diisi dengan JavaScript -->
                                         </div>
                                     </div>
                                     {{-- <div class="event__details-overview">
@@ -244,4 +240,41 @@
         </div>
     </section>
     <!-- event-details-area-end -->
+
+    <script>
+        var mapsUrl = '{{ $event->link_maps }}'; // Ambil URL dari data yang dikirim
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ambil URL dari variabel JavaScript
+            var mapsUrl = window.mapsUrl;
+
+            // Konversi URL ke format embed tanpa API Key
+            function convertToEmbedUrl(url) {
+                // Ambil koordinat dari URL
+                var match = url.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/);
+                if (match) {
+                    var lat = match[1];
+                    var lng = match[2];
+                    // Buat URL embed
+                    return `https://www.google.com/maps/embed/v1/view?center=${lat},${lng}&zoom=10`;
+                }
+                return '';
+            }
+
+            var embedUrl = convertToEmbedUrl(mapsUrl);
+
+            // Buat elemen iframe
+            var iframe = document.createElement('iframe');
+            iframe.src = embedUrl;
+            iframe.style.border = '0';
+            iframe.allowFullscreen = true;
+            iframe.loading = 'lazy';
+            iframe.referrerPolicy = 'no-referrer-when-downgrade';
+            iframe.width = '100%'; // Sesuaikan lebar sesuai kebutuhan
+            iframe.height = '450'; // Sesuaikan tinggi sesuai kebutuhan
+
+            // Tambahkan iframe ke container
+            document.getElementById('mapContainer').appendChild(iframe);
+        });
+    </script>
 @endsection
