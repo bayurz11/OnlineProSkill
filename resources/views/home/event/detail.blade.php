@@ -81,12 +81,27 @@
                                             amet, consectetur adipiscing elited do eiusmod tempor incididunt ut labore et
                                             dolore magna aliqua.</p>
                                     </div>
+                                    @php
+                                        // Ambil URL dari database
+                                        $url = $event->link_maps;
+
+                                        // Ekstrak koordinat dari URL
+                                        preg_match('/@(-?\d+\.\d+),(-?\d+\.\d+),/', $url, $matches);
+                                        $latitude = $matches[1];
+                                        $longitude = $matches[2];
+
+                                        // Buat URL embed tanpa API Key
+                                        $embedUrl = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d...!2d{$longitude}!3d{$latitude}!3m2!1i1024!2i768!4f13.1";
+                                    @endphp
+
                                     <div class="event__map">
                                         <h4 class="title">Lokasi</h4>
-                                        <div class="map" id="mapContainer">
-                                            <!-- Iframe akan diisi dengan JavaScript -->
+                                        <div class="map">
+                                            <iframe src="{{ $embedUrl }}" style="border:0;" allowfullscreen=""
+                                                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                                         </div>
                                     </div>
+
                                     {{-- <div class="event__details-overview">
                                         <h4 class="title-two">Event Overview</h4>
                                         <p>Dorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
@@ -240,41 +255,4 @@
         </div>
     </section>
     <!-- event-details-area-end -->
-
-    <script>
-        var mapsUrl = '{{ $event->link_maps }}'; // Ambil URL dari data yang dikirim
-
-        document.addEventListener('DOMContentLoaded', function() {
-            // Ambil URL dari variabel JavaScript
-            var mapsUrl = window.mapsUrl;
-
-            // Konversi URL ke format embed tanpa API Key
-            function convertToEmbedUrl(url) {
-                // Ambil koordinat dari URL
-                var match = url.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/);
-                if (match) {
-                    var lat = match[1];
-                    var lng = match[2];
-                    // Buat URL embed
-                    return `https://www.google.com/maps/embed/v1/view?center=${lat},${lng}&zoom=10`;
-                }
-                return '';
-            }
-
-            var embedUrl = convertToEmbedUrl(mapsUrl);
-
-            // Buat elemen iframe
-            var iframe = document.createElement('iframe');
-            iframe.src = embedUrl;
-            iframe.style.border = '0';
-            iframe.allowFullscreen = true;
-            iframe.loading = 'lazy';
-            iframe.referrerPolicy = 'no-referrer-when-downgrade';
-            iframe.width = '100%'; // Sesuaikan lebar sesuai kebutuhan
-            iframe.height = '450'; // Sesuaikan tinggi sesuai kebutuhan
-
-            // Tambahkan iframe ke container
-            document.getElementById('mapContainer').appendChild(iframe);
-        });
-    </script>
 @endsection
