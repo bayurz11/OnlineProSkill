@@ -86,7 +86,7 @@
                                         {{ $event->link_maps }}
                                         <div class="map">
                                             <iframe
-                                                src="https://www.google.com/maps/embed?pb=!3m1!4b1!4m6!3m5!1s0x2e69775e79e70e01:0x301576d14feb9e0!8m2!3d-6.3227303!4d107.3375791!16zL20vMGdjODAx?entry=ttu"
+                                                src="https://www.google.com/maps/embed?pb=!3m1!4b1!4m6!3m5!1s0x2e69775e79e70e01:0x301576d14feb9e0!8m2!3d-6.3227303!4d107.3375791!16zL20vMGdjODAx"
                                                 style="border:0;" allowfullscreen="" loading="lazy"
                                                 referrerpolicy="no-referrer-when-downgrade"></iframe>
                                         </div>
