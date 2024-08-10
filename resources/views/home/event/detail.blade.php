@@ -188,7 +188,7 @@
                                                     </li>
                                                     <li>
                                                         <a href="#"
-                                                            onclick="shareOnTwitter('{{ url()->current() }}', '{{ $blog->title }}')">
+                                                            onclick="shareOnTwitter('{{ url()->current() }}', '{{ $event->name }}')">
                                                             <i class="fab fa-twitter"></i>
                                                         </a>
                                                     </li>
