@@ -160,13 +160,43 @@
                                             <div class="courses__details-social">
                                                 <h5 class="title">Share this course:</h5>
                                                 <ul class="list-wrap">
-                                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                                    <li><a href="#"><i class="fab fa-whatsapp"></i></a></li>
-                                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                                                    <!-- Facebook Share -->
+                                                    <li>
+                                                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(url()->current()) }}"
+                                                            target="_blank">
+                                                            <i class="fab fa-facebook-f"></i>
+                                                        </a>
+                                                    </li>
+                                                    <!-- Twitter Share -->
+                                                    <li>
+                                                        <a href="https://twitter.com/intent/tweet?url={{ urlencode(url()->current()) }}&text={{ urlencode($courseTitle) }}"
+                                                            target="_blank">
+                                                            <i class="fab fa-twitter"></i>
+                                                        </a>
+                                                    </li>
+                                                    <!-- WhatsApp Share -->
+                                                    <li>
+                                                        <a href="https://api.whatsapp.com/send?text={{ urlencode($courseTitle) }}%20{{ urlencode(url()->current()) }}"
+                                                            target="_blank">
+                                                            <i class="fab fa-whatsapp"></i>
+                                                        </a>
+                                                    </li>
+                                                    <!-- Instagram Profile (Instagram tidak mendukung direct share links) -->
+                                                    <li>
+                                                        <a href="https://www.instagram.com/yourprofile" target="_blank">
+                                                            <i class="fab fa-instagram"></i>
+                                                        </a>
+                                                    </li>
+                                                    <!-- YouTube Share -->
+                                                    <li>
+                                                        <a href="https://www.youtube.com/share?url={{ urlencode(url()->current()) }}"
+                                                            target="_blank">
+                                                            <i class="fab fa-youtube"></i>
+                                                        </a>
+                                                    </li>
                                                 </ul>
                                             </div>
+
                                             <div class="courses__details-enroll">
                                                 <div class="tg-button-wrap">
                                                     <a href="contact.html" class="btn arrow-btn">Join This Event <img
