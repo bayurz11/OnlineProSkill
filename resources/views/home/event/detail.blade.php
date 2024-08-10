@@ -180,35 +180,34 @@
                                             <div class="courses__details-social">
                                                 <h5 class="title">Bagikan Kelas ini:</h5>
                                                 <ul class="list-wrap">
-                                                    <!-- Facebook Share -->
                                                     <li>
-                                                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(url()->current()) }}"
-                                                            target="_blank">
+                                                        <a href="#"
+                                                            onclick="shareOnFacebook('{{ url()->current() }}')">
                                                             <i class="fab fa-facebook-f"></i>
                                                         </a>
                                                     </li>
-                                                    <!-- Twitter Share -->
                                                     <li>
-                                                        <a href="https://twitter.com/intent/tweet?url={{ urlencode(url()->current()) }}&text={{ urlencode($event->name) }}"
-                                                            target="_blank">
+                                                        <a href="#"
+                                                            onclick="shareOnTwitter('{{ url()->current() }}', '{{ $blog->title }}')">
                                                             <i class="fab fa-twitter"></i>
                                                         </a>
                                                     </li>
-                                                    <!-- WhatsApp Share -->
                                                     <li>
-                                                        <a href="https://api.whatsapp.com/send?text={{ urlencode($event->name) }}%20{{ urlencode(url()->current()) }}"
-                                                            target="_blank">
+                                                        <a href="#"
+                                                            onclick="shareOnWhatsApp('{{ url()->current() }}')">
                                                             <i class="fab fa-whatsapp"></i>
                                                         </a>
                                                     </li>
-                                                    <!-- Instagram Profile -->
+
                                                     <li>
-                                                        <a href="https://www.instagram.com/yourprofile" target="_blank">
-                                                            <i class="fab fa-instagram"></i>
+                                                        <a href="#"
+                                                            onclick="shareOnLinkedIn('{{ url()->current() }}')">
+                                                            <i class="fab fa-linkedin-in"></i>
                                                         </a>
                                                     </li>
                                                 </ul>
                                             </div>
+
 
 
                                             <div class="courses__details-enroll">
@@ -240,4 +239,33 @@
         </div>
     </section>
     <!-- event-details-area-end -->
+
+    <script>
+        function shareOnFacebook(url) {
+            const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+            window.open(facebookUrl, 'facebook-share-dialog', 'width=800,height=600');
+            return false;
+        }
+
+        function shareOnTwitter(url, text) {
+            const twitterUrl =
+                `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`;
+            window.open(twitterUrl, 'twitter-share-dialog', 'width=800,height=600');
+            return false;
+        }
+
+        function shareOnWhatsApp(url) {
+            const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(url)}`;
+            window.open(whatsappUrl, 'whatsapp-share-dialog', 'width=800,height=600');
+            return false;
+        }
+
+        function shareOnLinkedIn(url) {
+            const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+            window.open(linkedinUrl, 'linkedin-share-dialog', 'width=800,height=600');
+            return false;
+        }
+    </script>
+
+
 @endsection
