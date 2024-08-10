@@ -153,7 +153,7 @@
                                                 <h2 class="title">$19.00</h2>
                                             </div> --}}
                                             <div class="courses__information-wrap">
-                                                <h5 class="title">Event Information:</h5>
+                                                <h5 class="title">Informasi Acara:</h5>
                                                 <ul class="list-wrap">
                                                     <li>
                                                         <img src="{{ asset('public/assets/img/icons/calendar.svg') }}"
@@ -164,13 +164,13 @@
                                                     <li>
                                                         <img src="{{ asset('public/assets/img/icons/course_icon02.svg') }}"
                                                             alt="img" class="injectable">
-                                                        Start Time
+                                                        Waktu
                                                         <span>10.00am</span>
                                                     </li>
                                                     <li>
                                                         <img src="{{ asset('public/assets/img/icons/course_icon05.svg') }}"
                                                             alt="img" class="injectable">
-                                                        Certifications
+                                                        Sertifikat
                                                         <span>Yes</span>
                                                     </li>
 
@@ -178,7 +178,7 @@
                                             </div>
 
                                             <div class="courses__details-social">
-                                                <h5 class="title">Share this course:</h5>
+                                                <h5 class="title">Bagikan Kelas ini:</h5>
                                                 <ul class="list-wrap">
                                                     <!-- Facebook Share -->
                                                     <li>
