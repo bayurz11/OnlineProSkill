@@ -68,12 +68,8 @@
                                                 By
                                                 <a href="instructor-details.html">{{ $event->user->name }}</a>
                                             </li>
-                                            <li class="location">
-                                                <a href="{{ $event->link_maps }}" target="_blank">
-                                                    <i class="flaticon-placeholder"></i>{{ $event->lokasi }}
-                                                </a>
+                                            <li class="location"><i class="flaticon-placeholder"></i>{{ $event->lokasi }}
                                             </li>
-
 
                                         </ul>
                                     </div>
