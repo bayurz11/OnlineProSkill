@@ -52,23 +52,16 @@
                                 <p class="title"><span>{{ $sertifikat->count() }}</span> Siswa Terdaftar</p>
                                 <img src="{{ asset('public/assets/img/others/1.png') }}" alt="img">
                             </div>
-                            <table align="center" valign="middle">
-                                <tr>
-                                    <td>
-                                        <div class="icon">
-                                            <img src="{{ asset('public/assets/img/banner/h2_banner_icon.svg') }}" alt="img"
-                                                class="injectable">
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="content">
-                                            <span>Jumlah Siswa</span>
-                                            <h4 class="title">{{ $daftar_siswa->count() }} Siswa</h4>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-
+                            <div class="banner__student" data-aos="fade-left" data-aos-delay="200">
+                                <div class="icon">
+                                    <img src="{{ asset('public/assets/img/banner/h2_banner_icon.svg') }}" alt="img"
+                                        class="injectable">
+                                </div>
+                                <div class="content">
+                                    <span>Jumlah Siswa</span>
+                                    <h4 class="title">{{ $daftar_siswa->count() }} Siswa</h4>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
