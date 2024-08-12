@@ -41,10 +41,10 @@
                     <div class="col-xl-7 col-lg-6 col-md-8">
                         <div class="banner__images-two tg-svg">
                             <img src="{{ asset('public/assets/img/banner/1.png') }}" alt="img" class="main-img">
-                            <div class="shape big-shape" data-aos="fade-up" data-aos-delay="600">
+                            {{-- <div class="shape big-shape" data-aos="fade-up" data-aos-delay="600">
                                 <img src="{{ asset('public/assets/img/banner/h2_banner_shape01.svg') }}" alt="shape"
                                     class="injectable tg-motion-effects1">
-                            </div>
+                            </div> --}}
                             <span class="svg-icon" id="banner-svg"
                                 data-svg-icon="{{ asset('public/assets/img/banner/h2_banner_shape02.svg') }}"></span>
                             <div class="about__enrolled" data-aos="fade-right" data-aos-delay="200">
