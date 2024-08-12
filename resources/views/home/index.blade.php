@@ -499,6 +499,13 @@
                 blogName.style.height = maxBlogNamesHeight + 'px';
             });
 
+            $(document).ready(function() {
+                $('.popup-video').magnificPopup({
+                    type: 'iframe'
+                });
+            });
+
+
         });
     </script>
 
