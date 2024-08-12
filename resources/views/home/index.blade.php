@@ -35,6 +35,8 @@
                                         class="injectable"></a>
                                 <a href="https://www.youtube.com/watch?v=b2Az7_lLh3g" class="play-btn popup-video"><i
                                         class="fas fa-play"></i> Watch Our <br> Class Demo</a>
+                                <a href="https://www.youtube.com/watch?v=NwCzzvlDOmo" class="play-btn popup-video"><i
+                                        class="fas fa-play"></i> Watch Our <br> Class Demo</a>
                             </div>
                         </div>
                     </div>
