@@ -33,7 +33,7 @@
                                 <a href="{{ route('search') }}" class="btn arrow-btn">Bergabung Sekarang<img
                                         src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                         class="injectable"></a>
-                                <a href="#" class="play-btn popup-video" onclick="playVideo(); return false;">
+                                <a href="#" class="play-btn popup-video" onclick="playVideo(event);">
                                     <i class="fas fa-play"></i> Tonton Kami
                                 </a>
 
@@ -42,7 +42,10 @@
                                     allowfullscreen></iframe>
 
                                 <script>
-                                    function playVideo() {
+                                    function playVideo(event) {
+                                        // Mencegah link default behavior
+                                        event.preventDefault();
+
                                         // URL video YouTube
                                         var videoUrl = "https://www.youtube.com/embed/xgdG0oER96Q?autoplay=1&rel=0";
 
