@@ -40,7 +40,7 @@
                     </div>
                     <div class="col-xl-7 col-lg-6 col-md-8">
                         <div class="banner__images-two tg-svg">
-                            <img src="{{ asset('public/assets/img/banner/2.png') }}" alt="img" class="main-img"
+                            <img src="{{ asset('public/assets/img/banner/1.png') }}" alt="img" class="main-img"
                                 loading="lazy">
                             <div class="shape big-shape" data-aos="fade-up" data-aos-delay="600">
                                 <img src="{{ asset('public/assets/img/banner/h2_banner_shape01.svg') }}" alt="shape"
@@ -52,16 +52,23 @@
                                 <p class="title"><span>{{ $sertifikat->count() }}</span> Siswa Terdaftar</p>
                                 <img src="{{ asset('public/assets/img/others/1.png') }}" alt="img">
                             </div>
-                            <div class="banner__student" data-aos="fade-left" data-aos-delay="200">
-                                <div class="icon">
-                                    <img src="{{ asset('public/assets/img/banner/h2_banner_icon.svg') }}" alt="img"
-                                        class="injectable">
-                                </div>
-                                <div class="content">
-                                    <span>Jumlah Siswa</span>
-                                    <h4 class="title">{{ $daftar_siswa->count() }} Siswa</h4>
-                                </div>
-                            </div>
+                            <table align="center" valign="middle">
+                                <tr>
+                                    <td>
+                                        <div class="icon">
+                                            <img src="{{ asset('public/assets/img/banner/h2_banner_icon.svg') }}" alt="img"
+                                                class="injectable">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="content">
+                                            <span>Jumlah Siswa</span>
+                                            <h4 class="title">{{ $daftar_siswa->count() }} Siswa</h4>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
                         </div>
                     </div>
                 </div>
