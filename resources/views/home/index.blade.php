@@ -49,7 +49,7 @@
                             <span class="svg-icon" id="banner-svg"
                                 data-svg-icon="{{ asset('public/assets/img/banner/h2_banner_shape02.svg') }}"></span>
                             <div class="about__enrolled" data-aos="fade-right" data-aos-delay="200">
-                                <p class="title"><span>36K+</span> Enrolled Students</p>
+                                <p class="title"><span>{{ $sertifikat->count() }}</span> Siswa Terdaftar</p>
                                 <img src="{{ asset('public/assets/img/others/student_grp.png') }}" alt="img">
                             </div>
                             <div class="banner__student" data-aos="fade-left" data-aos-delay="200">
@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="content">
                                     <span>Jumlah Siswa</span>
-                                    <h4 class="title">{{ $daftar_siswa->count() }}Siswa</h4>
+                                    <h4 class="title">{{ $daftar_siswa->count() }} Siswa</h4>
                                 </div>
                             </div>
                         </div>

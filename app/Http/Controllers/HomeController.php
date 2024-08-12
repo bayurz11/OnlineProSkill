@@ -28,6 +28,7 @@ class HomeController extends Controller
         $profile = null;
         $cart = Session::get('cart', []);
         $daftar_siswa = UserProfile::where('role_id', 3)->get();
+        $sertifikat = Sertifikat::all();
 
         // Mengambil KelasTatapMuka dan mengurutkannya berdasarkan kolom created_at
         $KelasTatapMuka = KelasTatapMuka::orderBy('created_at', 'desc')->get();
@@ -52,7 +53,7 @@ class HomeController extends Controller
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
-        return view('home.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'categori', 'KelasTatapMuka', 'event', 'blog', 'daftar_siswa'));
+        return view('home.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'categori', 'KelasTatapMuka', 'event', 'blog', 'daftar_siswa', 'sertifikat'));
     }
 
     public function classroom()
