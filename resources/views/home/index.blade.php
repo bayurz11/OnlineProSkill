@@ -33,8 +33,24 @@
                                 <a href="{{ route('search') }}" class="btn arrow-btn">Bergabung Sekarang<img
                                         src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                         class="injectable"></a>
-                                <a href="https://www.youtube.com/watch?v=xgdG0oER96Q&t=4s" class="play-btn popup-video"><i
-                                        class="fas fa-play"></i> Tonton Kami </a>
+                                <a href="#" class="play-btn popup-video" onclick="playVideo(); return false;">
+                                    <i class="fas fa-play"></i> Tonton Kami
+                                </a>
+
+                                <!-- Tempatkan iframe di bawah tombol atau di lokasi yang diinginkan -->
+                                <iframe id="youtubeVideo" width="100%" height="400" src="" frameborder="0"
+                                    allowfullscreen></iframe>
+
+                                <script>
+                                    function playVideo() {
+                                        // URL video YouTube
+                                        var videoUrl = "https://www.youtube.com/embed/xgdG0oER96Q?autoplay=1&rel=0";
+
+                                        // Set URL video ke iframe
+                                        document.getElementById('youtubeVideo').src = videoUrl;
+                                    }
+                                </script>
+
                             </div>
                         </div>
                     </div>
