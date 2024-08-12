@@ -33,27 +33,8 @@
                                 <a href="{{ route('search') }}" class="btn arrow-btn">Bergabung Sekarang<img
                                         src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                         class="injectable"></a>
-                                <a href="#" class="play-btn popup-video" onclick="playVideo(event);">
-                                    <i class="fas fa-play"></i> Tonton Kami
-                                </a>
-
-                                <!-- Tempatkan iframe di bawah tombol atau di lokasi yang diinginkan -->
-                                <iframe id="youtubeVideo" width="100%" height="400" src="" frameborder="0"
-                                    allowfullscreen></iframe>
-
-                                <script>
-                                    function playVideo(event) {
-                                        // Mencegah link default behavior
-                                        event.preventDefault();
-
-                                        // URL video YouTube
-                                        var videoUrl = "https://www.youtube.com/embed/xgdG0oER96Q?autoplay=1&rel=0";
-
-                                        // Set URL video ke iframe
-                                        document.getElementById('youtubeVideo').src = videoUrl;
-                                    }
-                                </script>
-
+                                <a href="https://www.youtube.com/watch?v=b2Az7_lLh3g" class="play-btn popup-video"><i
+                                        class="fas fa-play"></i> Watch Our <br> Class Demo</a>
                             </div>
                         </div>
                     </div>
