@@ -34,7 +34,7 @@
                                         src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                         class="injectable"></a>
                                 <a href="https://www.youtube.com/watch?v=NwCzzvlDOmo" class="play-btn popup-video"><i
-                                        class="fas fa-play"></i> Tonton Kami </a>
+                                        class="fas fa-play"></i> Sekilas <br> Tantang Kami</a>
                             </div>
                         </div>
                     </div>
