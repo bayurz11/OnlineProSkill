@@ -34,7 +34,7 @@
                                         src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                         class="injectable"></a>
                                 <a href="https://www.youtube.com/watch?v=NwCzzvlDOmo" class="play-btn popup-video"><i
-                                        class="fas fa-play"></i> Sekilas Tentang<br> ProSkill</a>
+                                        class="fas fa-play"></i> Sekilas Tentang<br> ProSkill Akademia</a>
                             </div>
                         </div>
                     </div>
