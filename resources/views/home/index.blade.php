@@ -40,7 +40,7 @@
                     </div>
                     <div class="col-xl-7 col-lg-6 col-md-8">
                         <div class="banner__images-two tg-svg">
-                            <img src="{{ asset('public/assets/img/banner/1.png') }}" alt="img" class="main-img"
+                            <img src="{{ asset('public/assets/img/banner/h2_banner_img.png') }}" alt="img" class="main-img"
                                 loading="lazy">
                             <div class="shape big-shape" data-aos="fade-up" data-aos-delay="600">
                                 <img src="{{ asset('public/assets/img/banner/h2_banner_shape01.svg') }}" alt="shape"
