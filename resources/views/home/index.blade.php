@@ -34,7 +34,7 @@
                                         src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                         class="injectable"></a>
                                 <a href="https://www.youtube.com/watch?v=xgdG0oER96Q&t=4s" class="play-btn popup-video"><i
-                                        class="fas fa-play"></i> Watch Our <br> Class Demo</a>
+                                        class="fas fa-play"></i> Tonton Kami </a>
                             </div>
                         </div>
                     </div>
