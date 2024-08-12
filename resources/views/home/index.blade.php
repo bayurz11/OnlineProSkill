@@ -45,8 +45,8 @@
                                 <img src="{{ asset('public/assets/img/banner/h2_banner_shape01.svg') }}" alt="shape"
                                     class="injectable tg-motion-effects1">
                             </div>
-                            <span class="svg-icon" id="banner-svg"
-                                data-svg-icon="{{ asset('public/assets/img/banner/h2_banner_shape02.svg') }}"></span>
+                            {{-- <span class="svg-icon" id="banner-svg"
+                                data-svg-icon="{{ asset('public/assets/img/banner/h2_banner_shape02.svg') }}"></span> --}}
                             <div class="about__enrolled" data-aos="fade-right" data-aos-delay="200">
                                 <p class="title"><span>{{ $sertifikat->count() }}</span> Siswa Terdaftar</p>
                                 <img src="{{ asset('public/assets/img/others/1.png') }}" alt="img">
