@@ -33,10 +33,8 @@
                                 <a href="{{ route('search') }}" class="btn arrow-btn">Bergabung Sekarang<img
                                         src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                         class="injectable"></a>
-                                <a href="https://www.youtube.com/watch?v=b2Az7_lLh3g" class="play-btn popup-video"><i
-                                        class="fas fa-play"></i> Watch Our <br> Class Demo</a>
                                 <a href="https://www.youtube.com/watch?v=NwCzzvlDOmo" class="play-btn popup-video"><i
-                                        class="fas fa-play"></i> Watch Our <br> Class Demo</a>
+                                        class="fas fa-play"></i> Tonton Kami </a>
                             </div>
                         </div>
                     </div>
