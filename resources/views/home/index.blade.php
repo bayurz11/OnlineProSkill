@@ -29,6 +29,7 @@
                                 </span>
                                 hasilkan. Jadikan itu milik Anda di ProSkill Akademia.
                             </h3>
+
                             <div class="banner__btn-two" data-aos="fade-right" data-aos-delay="600">
                                 <a href="{{ route('search') }}" class="btn arrow-btn">Bergabung Sekarang<img
                                         src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
