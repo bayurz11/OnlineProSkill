@@ -30,7 +30,7 @@
                                 Make of it. Make it Yours at SkillGro.
                             </h3>
                             <div class="banner__btn-two" data-aos="fade-right" data-aos-delay="600">
-                                <a href="contact.html" class="btn arrow-btn">Start Free Trial <img
+                                <a href="{{ route('search') }}" class="btn arrow-btn">Bergabung Sekarang<img
                                         src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                         class="injectable"></a>
                                 <a href="https://www.youtube.com/watch?v=b2Az7_lLh3g" class="play-btn popup-video"><i
@@ -406,8 +406,8 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="section__title text-center mb-40">
-                        <span class="sub-title">Berita & Blog</span>
-                        <h2 class="title">Berita Terbaru Kami</h2>
+                        <span class="sub-title">Artikel</span>
+                        <h2 class="title">Berita Terbaru dan Tips Singkat tentang Komputer</h2>
                         {{-- <p>when known printer took a galley of type scrambl edmake</p> --}}
                     </div>
                 </div>
