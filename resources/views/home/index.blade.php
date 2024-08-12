@@ -406,9 +406,9 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <div class="section__title text-center mb-40">
-                        <span class="sub-title">News & Blogs</span>
-                        <h2 class="title">Our Latest News Feed</h2>
-                        <p>when known printer took a galley of type scrambl edmake</p>
+                        <span class="sub-title">Berita & Blog</span>
+                        <h2 class="title">Berita Terbaru Kami</h2>
+                        {{-- <p>when known printer took a galley of type scrambl edmake</p> --}}
                     </div>
                 </div>
             </div>
