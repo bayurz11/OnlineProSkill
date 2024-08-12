@@ -4905,14 +4905,14 @@ textarea {
   box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 0.15);
   position: absolute;
   right: 18%;
-  top: 5%;
+  top: 16%;
   padding: 15px 18px;
   gap: 10px;
 }
 @media (max-width: 1199.98px) {
   .banner__student {
     right: 0;
-    top: 13%;
+    top: 5%;
   }
 }
 .banner__student .icon {
