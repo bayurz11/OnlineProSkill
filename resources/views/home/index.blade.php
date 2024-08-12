@@ -51,7 +51,7 @@
                                 <p class="title"><span>{{ $sertifikat->count() }}</span> Siswa Terdaftar</p>
                                 <img src="{{ asset('public/assets/img/others/1.png') }}" alt="img">
                             </div>
-                            <div class="about__enrolled" data-aos="fade-right" data-aos-delay="400">
+                            <div class="about__enrolled" data-aos="fade-left" data-aos-delay="400">
                                 <p class="title"><span>{{ $sertifikat->count() }}</span> Siswa Terdaftar</p>
                                 <img src="{{ asset('public/assets/img/others/1.png') }}" alt="img">
                             </div>
