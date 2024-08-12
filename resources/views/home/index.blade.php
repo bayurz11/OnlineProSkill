@@ -33,16 +33,8 @@
                                 <a href="{{ route('search') }}" class="btn arrow-btn">Bergabung Sekarang<img
                                         src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                         class="injectable"></a>
-                                <a href="https://www.youtube.com/watch?v=xgdG0oER96Q&t=4s" class="play-btn popup-video">
-                                    <i class="fas fa-play"></i> Tonton Kami
-                                </a>
-
-                                <iframe width="560" height="315" src="https://www.youtube.com/embed/xgdG0oER96Q?start=4"
-                                    title="YouTube video player" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; 
-                                            encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    allowfullscreen></iframe>
-
+                                <a href="https://www.youtube.com/watch?v=xgdG0oER96Q&t=4s" class="play-btn popup-video"><i
+                                        class="fas fa-play"></i> Tonton Kami </a>
                             </div>
                         </div>
                     </div>
@@ -498,13 +490,6 @@
             blogNames.forEach(function(blogName) {
                 blogName.style.height = maxBlogNamesHeight + 'px';
             });
-
-            $(document).ready(function() {
-                $('.popup-video').magnificPopup({
-                    type: 'iframe'
-                });
-            });
-
 
         });
     </script>
