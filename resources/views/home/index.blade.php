@@ -51,6 +51,10 @@
                                 <p class="title"><span>{{ $sertifikat->count() }}</span> Siswa Terdaftar</p>
                                 <img src="{{ asset('public/assets/img/others/1.png') }}" alt="img">
                             </div>
+                            <div class="about__enrolled" data-aos="fade-right" data-aos-delay="200">
+                                <p class="title"><span>{{ $sertifikat->count() }}</span> Siswa Terdaftar</p>
+                                <img src="{{ asset('public/assets/img/others/1.png') }}" alt="img">
+                            </div>
                             <div class="banner__student" data-aos="fade-left" data-aos-delay="200">
                                 <div class="icon">
                                     <img src="{{ asset('public/assets/img/banner/h2_banner_icon.svg') }}" alt="img"
