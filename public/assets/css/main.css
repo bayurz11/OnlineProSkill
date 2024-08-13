@@ -4347,7 +4347,7 @@ textarea {
 @media (max-width: 1199.98px) {
   .banner__images-two .big-shape {
     left: 0;
-    width: 400px;
+    /* width: 400px; */
     top: 2%;
   }
   .banner__images-two .big-shape svg {
