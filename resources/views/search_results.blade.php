@@ -56,7 +56,7 @@
                                         </div>
                                     </li>
                                     @foreach ($categori as $index => $category)
-                                        @if ($category->status == 1)
+                                        @if ($category->status == 1 && ($categoryCounts[$category->id] ?? 0) > 0)
                                             <li class="category-item {{ $index >= 4 ? 'hidden' : '' }}">
                                                 <div class="form-check">
                                                     <input class="form-check-input category-checkbox" type="checkbox"
@@ -71,6 +71,7 @@
                                             </li>
                                         @endif
                                     @endforeach
+
                                 </ul>
                                 <div class="show-more">
                                     <a href="#" onclick="showMoreCategories(event)">Tampilkan Lebih Banyak +</a>
