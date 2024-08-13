@@ -67,7 +67,7 @@
                     </div>
                 @else
                     <div class="col-lg-7">
-                        <p>Keranjang Anda kosong. <a href="{{ route('classroom') }}">Lihat kelas yang
+                        <p>Keranjang Anda kosong. <a href="{{ route('search') }}">Lihat kelas yang
                                 tersedia.</a></p>
                     </div>
                 @endif
