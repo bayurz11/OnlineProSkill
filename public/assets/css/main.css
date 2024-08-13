@@ -4911,7 +4911,7 @@ textarea {
 }
 @media (max-width: 1199.98px) {
   .banner__student {
-    right: 0;
+    right: 5%;
     top: 13%;
   }
 }
