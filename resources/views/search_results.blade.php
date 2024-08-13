@@ -251,6 +251,11 @@
                                                             href="#">{{ $cours->user->name }}</a>&nbsp;&nbsp;
                                                         @if (in_array($cours->id, $joinedCourses))
                                                             <span class="badge bg-success">Joined</span>
+                                                        @endif &nbsp;&nbsp;
+                                                        @if ($cours->course_type == 'online')
+                                                            <span class="badge bg-primary">Online</span>
+                                                        @else
+                                                            <span class="badge bg-secondary">Offline</span>
                                                         @endif
                                                     </p>
                                                     <div class="courses__item-bottom">
@@ -263,11 +268,7 @@
                                                         </div>
                                                         <h5 class="price">Rp
                                                             {{ number_format($cours->price, 0, ',', ',') }}</h5>
-                                                        @if ($cours->course_type == 'online')
-                                                            <span class="badge bg-primary">Online</span>
-                                                        @else
-                                                            <span class="badge bg-secondary">Offline</span>
-                                                        @endif
+
                                                     </div>
                                                 </div>
                                             </div>
