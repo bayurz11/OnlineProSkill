@@ -149,14 +149,14 @@
                             <div class="row align-items-center">
                                 <div class="col-md-5">
                                     <div class="courses-top-left">
-                                        <p>Showing {{ $results->count() }} total results</p>
+                                        <p>Menampilkan {{ $results->count() }} total results</p>
                                     </div>
                                 </div>
                                 <div class="col-md-7">
                                     <div
                                         class="d-flex justify-content-center justify-content-md-end align-items-center flex-wrap">
                                         <div class="courses-top-right m-0 ms-md-auto">
-                                            <span class="sort-by">Sort By:</span>
+                                            <span class="sort-by">Urutkan Berdasarkan:</span>
                                             <div class="courses-top-right-select">
                                                 <form id="sortForm" method="GET" action="{{ route('search') }}">
                                                     <select name="orderby" class="orderby">
