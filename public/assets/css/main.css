@@ -4329,7 +4329,7 @@ textarea {
 }
 @media (max-width: 1199.98px) {
   .banner__images-two img {
-    width: 350px;
+    width: 400px;
   }
 }
 .banner__images-two .big-shape {
@@ -4371,7 +4371,7 @@ textarea {
 @media (max-width: 991.98px) {
   .banner__images-two .svg-icon {
     left: 30%;
-    top: -5%;
+    top: -18%;
   }
 }
 .banner__images-two .svg-icon svg {
