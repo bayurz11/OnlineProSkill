@@ -4904,7 +4904,7 @@ textarea {
   -o-box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 0.15);
   box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 0.15);
   position: absolute;
-  right: 100%;
+  right: 200%;
   top: 13%;
   padding: 15px 18px;
   gap: 10px;
