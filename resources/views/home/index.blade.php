@@ -194,7 +194,7 @@
                                 </div>
                             </div>
                             <div class="faq__img faq__img-two">
-                                <img src="public/assets/img/others/faq_img.png" alt="img">
+                                <img src="{{ asset('public/assets/img/banner/2.png') }}" alt="img">
                                 <div class="shape-one">
                                     <img src="public/assets/img/others/faq_shape01.svg" class="injectable tg-motion-effects4"
                                         alt="img">
