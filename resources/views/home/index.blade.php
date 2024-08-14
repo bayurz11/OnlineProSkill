@@ -182,6 +182,7 @@
         <!-- features-area-end -->
 
 
+
         <!-- about-area -->
         <section class="about-area-two tg-motion-effects section-pb-120">
             <div class="container">
@@ -194,14 +195,14 @@
                                 </div>
                             </div>
                             <div class="faq__img faq__img-two">
-                                <img src="public/assets/img/others/faq_img.png" alt="img">
+                                <img src="assets/img/others/faq_img.png" alt="img">
                                 <div class="shape-one">
-                                    <img src="public/assets/img/others/faq_shape01.svg" class="injectable tg-motion-effects4"
+                                    <img src="assets/img/others/faq_shape01.svg" class="injectable tg-motion-effects4"
                                         alt="img">
                                 </div>
                                 <div class="shape-two">
                                     <span class="svg-icon" id="faq-two-svg"
-                                        data-svg-icon="public/assets/img/others/faq_shape02.svg"></span>
+                                        data-svg-icon="assets/img/others/faq_shape02.svg"></span>
                                 </div>
                             </div>
                         </div>
@@ -242,8 +243,8 @@
                                 </li>
                             </ul>
                             <div class="tg-button-wrap">
-                                <a href="{{ route('search') }}" class="btn arrow-btn">Bergabung Bersama Kami <img
-                                        src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
+                                <a href="about-us.html" class="btn arrow-btn">Start Free Trial <img
+                                        src="assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
                             </div>
                         </div>
                     </div>
