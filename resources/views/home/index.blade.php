@@ -113,7 +113,7 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-6 col-lg-8">
                         <div class="section__title text-center mb-40">
-                            <span class="sub-title">Our Top Features</span>
+                            <span class="sub-title">Mengapa Memilih ProSkill</span>
                             <h2 class="title">Raih Tujuan Anda Bersama ProSkill Akademia</h2>
 
                         </div>
