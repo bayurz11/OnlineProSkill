@@ -198,7 +198,7 @@
                 <div class="collapse" id="charts">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="{{ route('herosection') }}" class="nav-link">Hero Section</a>
+                            <a href="{{ route('herosection') }}" class="nav-link">Banner Area</a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/charts/chartjs.html" class="nav-link">Hubungi Kami</a>
