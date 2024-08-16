@@ -249,9 +249,9 @@
                                                             alt="img" loading="lazy">{{ $kelas->user->name }}
                                                     </a>
                                                 </div>
-                                                <div class="avg-rating">
+                                                {{-- <div class="avg-rating">
                                                     <i class="fas fa-star"></i> (4.8 Reviews)
-                                                </div>
+                                                </div> --}}
                                             </div>
                                         </div>
                                     </div>
