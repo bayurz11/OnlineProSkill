@@ -422,7 +422,8 @@
                                 <a href="{{ route('blog_detail', ['id' => $blog->id]) }}"
                                     class="shine__animate-link"><img src="{{ asset('public/uploads/' . $blog->gambar) }}"
                                         alt="img" loading="lazy"></a>
-                                <a href="blog.html" class="post-tag">{{ json_decode($blog->tag, true)[0]['value'] }}</a>
+                                <a href="{{ route('blog_detail', ['id' => $blog->id]) }}"
+                                    class="post-tag">{{ json_decode($blog->tag, true)[0]['value'] }}</a>
                             </div>
                             <div class="blog__post-content">
                                 <div class="blog__post-meta">
