@@ -166,7 +166,7 @@
                                             <img src="public/assets/img/icons/h2_features_icon03.svg" alt="img"
                                                 class="injectable" loading="lazy">
                                         </div>
-                                        <h2 class="title">Dapatkan Sertifikat</h2>
+                                        <h2 class="title">Sertifikat Penyelesaian</h2>
                                     </div>
                                     <p>Mendapatkan Sertifikat Setelah Menyelesaikan Kelas.</p>
                                 </div>
