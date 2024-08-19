@@ -81,7 +81,7 @@
             top: 10px;
             right: -26px;
             width: 190px;
-            height: 250px;
+            height: 150px;
             object-fit: cover;
             border-radius: 10%;
             border: 5px solid #fdffff;
