@@ -48,6 +48,7 @@ class SertifikatController extends Controller
             $sertifikat->gambar = $gambarName;
             $sertifikat->keterangan = $request->keterangan;
             $sertifikat->kategori_id = $request->kategori_id;
+            $sertifikat->link = url("/cetak_sertifikat/{$sertifikat->id}");
             $sertifikat->save();
 
             // Redirect dengan pesan sukses
