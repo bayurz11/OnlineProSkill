@@ -139,7 +139,7 @@ class SettingController extends Controller
         // Menangani upload gambar untuk sertifikat
         if ($request->hasFile('sertifikat_foto')) {
             $sertifikatFotoName = time() . '_sertifikat.' . $request->sertifikat_foto->extension();
-            $request->sertifikat_foto->move(public_path('uploads/sertifikat'), $sertifikatFotoName);
+            $request->sertifikat_foto->move(public_path('uploads/fotosertifikat'), $sertifikatFotoName);
 
             // Buat atau perbarui sertifikat terkait
             $sertifikat = Sertifikat::firstOrNew(['user_id' => $user->id]);
