@@ -356,7 +356,8 @@ class AksesPembelianController extends Controller
     {
         $user = Auth::user();
         // Temukan sertifikat berdasarkan user_id dan sertifikat_id
-        $sertifikat = Sertifikat::where('user_id', $user->id)->where('id', $id)->first();
+        $sertifikat = Sertifikat::where('user_id', $user->id)->first();
+
 
         // Cek apakah sertifikat ditemukan
         if (!$sertifikat) {
