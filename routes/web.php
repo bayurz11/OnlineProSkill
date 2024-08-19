@@ -169,7 +169,7 @@ Route::middleware('isStuden')->group(function () {
     //lesson
     Route::get('/lesson/{id}', [AksesPembelianController::class, 'lesson'])->name('lesson');
     Route::put('/sectionupdatestatus/{id}', [AksesPembelianController::class, 'updatestatus'])->name('sectionstatus');
-    Route::post('/print-certificate', [AksesPembelianController::class, 'printCertificate'])->name('print_certificate');
+
     Route::get('/certificate/preview', [AksesPembelianController::class, 'previewCertificate'])->name('certificate.preview');
 
 
@@ -228,3 +228,6 @@ Route::get('/blog_detail/{id}', [BlogController::class, 'blogDetail'])->name('bl
 
 //Hubungi Kami
 Route::get('/hubungikami', [HubungiKamiController::class, 'index'])->name('hubungikami');
+
+
+Route::post('/print-certificate', [AksesPembelianController::class, 'printCertificate'])->name('print_certificate');
