@@ -7,6 +7,7 @@ use App\Models\Section;
 use Barryvdh\DomPDF\PDF;
 use App\Models\Kurikulum;
 use App\Models\Categories;
+use App\Models\Sertifikat;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use App\Models\NotifikasiUser;
@@ -15,6 +16,7 @@ use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class AksesPembelianController extends Controller
 {
@@ -249,54 +251,54 @@ class AksesPembelianController extends Controller
         $this->pdf = $pdf;
     }
 
-    public function printCertificate(Request $request)
-    {
-        $user = Auth::user();
+    // public function printCertificate(Request $request)
+    // {
+    //     $user = Auth::user();
 
-        if (!$user) {
-            return redirect()->route('home')->with('error', 'Anda harus login untuk mencetak sertifikat.');
-        }
+    //     if (!$user) {
+    //         return redirect()->route('home')->with('error', 'Anda harus login untuk mencetak sertifikat.');
+    //     }
 
-        $profile = UserProfile::where('user_id', $user->id)->first();
-        $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
+    //     $profile = UserProfile::where('user_id', $user->id)->first();
+    //     $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
 
-        $completedCourses = $orders->filter(function ($order) use ($user) {
-            $kurikulum = Kurikulum::with('sections')->where('course_id', $order->KelasTatapMuka->id)->get();
+    //     $completedCourses = $orders->filter(function ($order) use ($user) {
+    //         $kurikulum = Kurikulum::with('sections')->where('course_id', $order->KelasTatapMuka->id)->get();
 
-            return $kurikulum->every(function ($kurikulumItem) use ($user) {
-                return $kurikulumItem->sections->every(function ($section) use ($user) {
-                    $userSectionStatus = UserSectionStatus::where('user_id', $user->id)
-                        ->where('section_id', $section->id)
-                        ->first();
+    //         return $kurikulum->every(function ($kurikulumItem) use ($user) {
+    //             return $kurikulumItem->sections->every(function ($section) use ($user) {
+    //                 $userSectionStatus = UserSectionStatus::where('user_id', $user->id)
+    //                     ->where('section_id', $section->id)
+    //                     ->first();
 
-                    return $userSectionStatus && $userSectionStatus->status === 1;
-                });
-            });
-        })->values(); // Tambahkan values() untuk mereset kunci array
+    //                 return $userSectionStatus && $userSectionStatus->status === 1;
+    //             });
+    //         });
+    //     })->values(); // Tambahkan values() untuk mereset kunci array
 
-        if ($completedCourses->isEmpty()) {
-            return redirect()->route('home')->with('error', 'Anda belum menyelesaikan kursus apapun.');
-        }
+    //     if ($completedCourses->isEmpty()) {
+    //         return redirect()->route('home')->with('error', 'Anda belum menyelesaikan kursus apapun.');
+    //     }
 
-        $pdfs = [];
-        foreach ($completedCourses as $course) {
-            $courseId = $course->KelasTatapMuka->id; // Ambil ID kursus
-            $kurikulum = Kurikulum::with('sections')->where('course_id', $courseId)->first();
-            $coursename = strtoupper($kurikulum->nama_kelas); // Ambil nama kursus dari kurikulum
-            $certificateId = sprintf("%03d", Order::where('user_id', $user->id)->count()) . " / PSA / " . $courseId . " / " . now()->format('m.Y');
+    //     $pdfs = [];
+    //     foreach ($completedCourses as $course) {
+    //         $courseId = $course->KelasTatapMuka->id; // Ambil ID kursus
+    //         $kurikulum = Kurikulum::with('sections')->where('course_id', $courseId)->first();
+    //         $coursename = strtoupper($kurikulum->nama_kelas); // Ambil nama kursus dari kurikulum
+    //         $certificateId = sprintf("%03d", Order::where('user_id', $user->id)->count()) . " / PSA / " . $courseId . " / " . now()->format('m.Y');
 
-            $pdf = $this->pdf->loadView('home.sertifikat.index', [
-                'user' => $user,
-                'profile' => $profile,
-                'completedCourses' => $completedCourses,
-                'date' => now()->format('d F Y'),
-                'certificateId' => $certificateId,
-                'coursename' => $coursename,
-            ])->setPaper('legal', 'landscape'); // Mengatur ukuran kertas menjadi legal dan orientasi landscape
+    //         $pdf = $this->pdf->loadView('home.sertifikat.index', [
+    //             'user' => $user,
+    //             'profile' => $profile,
+    //             'completedCourses' => $completedCourses,
+    //             'date' => now()->format('d F Y'),
+    //             'certificateId' => $certificateId,
+    //             'coursename' => $coursename,
+    //         ])->setPaper('legal', 'landscape'); // Mengatur ukuran kertas menjadi legal dan orientasi landscape
 
-            return $pdf->download('sertifikat_penyelesaian.pdf');
-        }
-    }
+    //         return $pdf->download('sertifikat_penyelesaian.pdf');
+    //     }
+    // }
 
 
 
@@ -348,5 +350,25 @@ class AksesPembelianController extends Controller
 
             return $pdf->stream('sertifikat_penyelesaian.pdf');
         }
+    }
+
+    public function printCertificate($id)
+    {
+        $user = Auth::user();
+        // Temukan sertifikat berdasarkan ID
+        $sertifikat = Sertifikat::findOrFail($id);
+        // Pastikan sertifikat ditemukan
+        if (!$sertifikat) {
+            return response()->json(['message' => 'Sertifikat tidak ditemukan'], 404);
+        }
+
+        // Ambil link dari sertifikat
+        $link = $sertifikat->link;
+
+        // Generate QR code sebagai string SVG
+        $qrCode = QrCode::size(300)->generate($link);
+
+        // Setelah menemukan sertifikat, arahkan pengguna ke view sertifikat
+        return view('home.sertifikat.cetak', compact('sertifikat', 'qrCode', 'user'));
     }
 }
