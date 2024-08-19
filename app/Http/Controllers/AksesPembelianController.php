@@ -357,13 +357,14 @@ class AksesPembelianController extends Controller
         $user = Auth::user();
         // Temukan sertifikat berdasarkan ID
         $sertifikat = Sertifikat::findOrFail($id);
-        // Pastikan sertifikat ditemukan
-        if (!$sertifikat) {
-            return response()->json(['message' => 'Sertifikat tidak ditemukan'], 404);
-        }
 
         // Ambil link dari sertifikat
         $link = $sertifikat->link;
+
+        // Cek apakah $link null atau tidak
+        if (is_null($link)) {
+            return response()->json(['message' => 'Link sertifikat tidak ditemukan'], 404);
+        }
 
         // Generate QR code sebagai string SVG
         $qrCode = QrCode::size(300)->generate($link);
