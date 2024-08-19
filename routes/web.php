@@ -144,6 +144,7 @@ Route::middleware('isAdmin')->group(function () {
     Route::put('/sertifikat/{id}/update', [SertifikatController::class, 'update'])->name('sertifikat.update');
     Route::delete('/sertifikat/{id}/destroy', [SertifikatController::class, 'destroy'])->name('sertifikat.destroy');
     Route::get('/cetak_sertifikat/{id}', [SertifikatController::class, 'cetakSertifikat'])->name('cetak_sertifikat');
+    Route::get('/print/{id}', [SertifikatController::class, 'printCertificate'])->name('print');
 });
 
 //*********STUDEN*********//
@@ -169,7 +170,7 @@ Route::middleware('isStuden')->group(function () {
     //lesson
     Route::get('/lesson/{id}', [AksesPembelianController::class, 'lesson'])->name('lesson');
     Route::put('/sectionupdatestatus/{id}', [AksesPembelianController::class, 'updatestatus'])->name('sectionstatus');
-
+    Route::post('/print-certificate', [AksesPembelianController::class, 'printCertificate'])->name('print_certificate');
     Route::get('/certificate/preview', [AksesPembelianController::class, 'previewCertificate'])->name('certificate.preview');
 
 
@@ -228,6 +229,3 @@ Route::get('/blog_detail/{id}', [BlogController::class, 'blogDetail'])->name('bl
 
 //Hubungi Kami
 Route::get('/hubungikami', [HubungiKamiController::class, 'index'])->name('hubungikami');
-
-
-Route::post('/print-certificate', [AksesPembelianController::class, 'printCertificate'])->name('print_certificate');

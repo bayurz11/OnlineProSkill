@@ -67,14 +67,10 @@
                                                         <i data-feather="printer"></i>
                                                     </a>
                                                 @else
-                                                    <form action="{{ route('print_certificate') }}" method="POST"
-                                                        target="_blank" style="display:inline;">
-                                                        @csrf
-                                                        <button type="submit" class="btn btn-warning btn-icon"
-                                                            title="print">
-                                                            <i data-feather="printer"></i>
-                                                        </button>
-                                                    </form>
+                                                    <a href="{{ route('print', ['id' => $sertifikat->id]) }}"
+                                                        class="btn btn-warning btn-icon" title="print" target="_blank">
+                                                        <i data-feather="printer"></i>
+                                                    </a>
                                                 @endif
 
 
