@@ -8,7 +8,6 @@
     <style>
         @page {
             size: A4 landscape;
-            margin: 0;
         }
 
         body,
@@ -25,6 +24,8 @@
         }
 
         .certificate {
+            background: url('{{ asset('public/1.png') }}') no-repeat center center;
+            background-size: cover;
             width: 1000px;
             height: 707px;
             display: flex;
@@ -86,9 +87,11 @@
             border: 5px solid #fdffff;
         }
 
+
         .qr svg {
             width: 180px;
             height: 180px;
+
         }
 
         .qr {
@@ -130,36 +133,10 @@
         .print-button:hover {
             background-color: #005f54;
         }
-
-        @media print {
-
-            body,
-            html {
-                width: 100%;
-                height: 100%;
-                margin: 0;
-                padding: 0;
-            }
-
-            .certificate {
-                width: 100%;
-                height: 100%;
-                background: url('{{ asset('public/1.png') }}') no-repeat center center;
-                background-size: contain;
-                background-repeat: no-repeat;
-                background-position: center;
-                box-shadow: none;
-                padding: 0;
-            }
-
-            .print-button {
-                display: none;
-            }
-        }
     </style>
 </head>
 
-<body style="background: url('{{ asset('public/1.png') }}') no-repeat center center; background-size: cover;">
+<body>
     <div class="certificate">
         <div class="content">
             <h1>SERTIFIKAT</h1>
@@ -182,6 +159,7 @@
 
     <!-- Button Cetak -->
     <button class="print-button" onclick="window.print();">Cetak Sertifikat</button>
+
 </body>
 
 </html>
