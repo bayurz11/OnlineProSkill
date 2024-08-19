@@ -143,11 +143,17 @@
             }
 
             .certificate {
-                box-shadow: none;
-                width: 100%;
-                height: 100%;
+                background: url('{{ asset('public/1.png') }}') no-repeat center center;
                 background-size: cover;
-                background-position: center;
+                width: 1000px;
+                height: 707px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                padding: 50px;
+                box-sizing: border-box;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             }
 
             .print-button {
