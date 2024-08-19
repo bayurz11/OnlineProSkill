@@ -133,6 +133,22 @@
         .print-button:hover {
             background-color: #005f54;
         }
+
+        /* CSS khusus untuk pencetakan */
+        @media print {
+
+            body,
+            html {
+                width: 100%;
+                height: 100%;
+                display: block;
+                background-color: #fff;
+            }
+
+            .print-button {
+                display: none;
+            }
+        }
     </style>
 </head>
 
