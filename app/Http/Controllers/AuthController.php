@@ -5,15 +5,16 @@ namespace App\Http\Controllers;
 use Closure;
 use App\Models\User;
 use App\Models\UserRoles;
+use App\Models\Sertifikat;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use App\Models\KelasTatapMuka;
 use Illuminate\Support\Carbon;
+use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
@@ -428,6 +429,15 @@ class AuthController extends Controller
         $userProfile->role_id = 3;
         $userProfile->phone_number = $request->phone_number;
         $userProfile->save();
+
+        // Create Sertifikat entry
+        $sertifikat = new Sertifikat();
+        $sertifikat->name = $request->name;
+        $sertifikat->user_id = $user->id;
+
+        // Generate URL and save it to 'link' field
+        $sertifikat->link = url("/cetak_sertifikat/{$sertifikat->id}");
+        $sertifikat->save(); // Save changes to the database
 
         Auth::login($user);
 
