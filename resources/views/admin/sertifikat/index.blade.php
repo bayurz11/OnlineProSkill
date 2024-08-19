@@ -47,8 +47,11 @@
                                             <td>{{ $sertifikat->name }}</td>
                                             <td>{{ $sertifikat->keterangan }}</td>
                                             <td>{{ $sertifikat->kelasTatapMuka->nama_kursus }}</td>
-                                            <td><img src="{{ asset('public/uploads/' . $sertifikat->gambar) }}"
-                                                    alt="Banner" class="wd-100 wd-sm-150 me-3"></td>
+                                            <td>
+                                                <img src="{{ file_exists(public_path('uploads/' . $sertifikat->gambar)) ? asset('public/uploads/' . $sertifikat->gambar) : asset('public/1.png') }}"
+                                                    alt="Banner" class="wd-100 wd-sm-150 me-3">
+                                            </td>
+
                                             <td>
                                                 <button type="button" class="btn btn-primary btn-icon edit-button"
                                                     title="Edit" data-bs-toggle="modal"
