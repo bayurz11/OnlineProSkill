@@ -8,6 +8,7 @@
     <style>
         @page {
             size: A4 landscape;
+            margin: 0;
         }
 
         body,
@@ -135,10 +136,18 @@
         @media print {
 
             body,
-            html .certificate {
-                background: url('{{ asset('public/1.png') }}') no-repeat center center;
-                background-size: cover;
+            html {
+                background: none;
+                width: 100%;
+                height: 100%;
+            }
+
+            .certificate {
                 box-shadow: none;
+                width: 100%;
+                height: 100%;
+                background-size: cover;
+                background-position: center;
             }
 
             .print-button {
@@ -171,7 +180,6 @@
 
     <!-- Button Cetak -->
     <button class="print-button" onclick="window.print();">Cetak Sertifikat</button>
-
 </body>
 
 </html>
