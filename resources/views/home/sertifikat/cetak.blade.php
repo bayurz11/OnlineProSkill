@@ -24,7 +24,7 @@
         }
 
         .certificate {
-            /* background: url('{{ asset('public/1.png') }}') no-repeat center center; */
+            background: url('{{ asset('public/1.png') }}') no-repeat center center;
             background-size: cover;
             width: 1000px;
             height: 707px;
@@ -87,9 +87,11 @@
             border: 5px solid #fdffff;
         }
 
+
         .qr svg {
             width: 180px;
             height: 180px;
+
         }
 
         .qr {
@@ -116,38 +118,6 @@
             color: #333;
             text-align: right;
         }
-
-        .print-button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #007F73;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .print-button:hover {
-            background-color: #005f54;
-        }
-
-        @media print {
-            .certificate {
-                background: url('{{ asset('public/1.png') }}') no-repeat center center;
-                background-size: cover;
-            }
-
-            body,
-            html {
-                background: none;
-                padding: 0;
-            }
-
-            .print-button {
-                display: none;
-            }
-        }
     </style>
 </head>
 
@@ -172,8 +142,6 @@
         </div>
     </div>
 
-    <!-- Button Cetak -->
-    <button class="print-button" onclick="window.print();">Cetak Sertifikat</button>
 
 </body>
 
