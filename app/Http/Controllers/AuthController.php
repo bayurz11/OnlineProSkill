@@ -430,13 +430,12 @@ class AuthController extends Controller
         $userProfile->phone_number = $request->phone_number;
         $userProfile->save();
 
-        // Create Sertifikat entry
         $sertifikat = new Sertifikat();
         $sertifikat->name = $request->name;
         $sertifikat->user_id = $user->id;
-        $sertifikat->save(); // Save to get the ID
+        $sertifikat->save(); // Auto-generate id here
 
-        // Generate URL and update the 'link' field
+        // Update URL link after saving
         $sertifikat->link = url("/cetak_sertifikat/{$sertifikat->id}");
         $sertifikat->save(); // Save again to update the link
 
