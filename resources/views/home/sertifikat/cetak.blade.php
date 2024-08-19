@@ -145,10 +145,17 @@
                 background-color: #fff;
             }
 
+            .certificate {
+                background: url('{{ asset('public/1.png') }}') no-repeat center center;
+                background-size: cover;
+                width: 100%;
+                height: 100%;
+                box-shadow: none;
+            }
+
             .print-button {
                 display: none;
             }
-        }
     </style>
 </head>
 
