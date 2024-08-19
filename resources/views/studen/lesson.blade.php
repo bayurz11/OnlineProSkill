@@ -111,7 +111,7 @@
                                 </form>
 
                                 @if ($allSectionsCompleted)
-                                    <form id="printForm" action="{{ route('print_certificate', ['id' => $user_id]) }}"
+                                    <form id="printForm" action="{{ route('print_certificate', ['id' => $user->id]) }}"
                                         method="POST" class="ms-3">
                                         @csrf
                                         <button type="submit" class="btn btn-secondary">Sertifikat Penyelesaian</button>
