@@ -434,6 +434,7 @@ class AuthController extends Controller
         $sertifikat = new Sertifikat();
         $sertifikat->name = $request->name;
         $sertifikat->user_id = $user->id;
+        $sertifikat->save();
 
         // Generate URL and save it to 'link' field
         $sertifikat->link = url("/cetak_sertifikat/{$sertifikat->id}");
