@@ -434,11 +434,11 @@ class AuthController extends Controller
         $sertifikat = new Sertifikat();
         $sertifikat->name = $request->name;
         $sertifikat->user_id = $user->id;
-        $sertifikat->save();
+        $sertifikat->save(); // Save to get the ID
 
-        // Generate URL and save it to 'link' field
+        // Generate URL and update the 'link' field
         $sertifikat->link = url("/cetak_sertifikat/{$sertifikat->id}");
-        $sertifikat->save(); // Save changes to the database
+        $sertifikat->save(); // Save again to update the link
 
         Auth::login($user);
 
