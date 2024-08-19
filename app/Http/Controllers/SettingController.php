@@ -103,7 +103,7 @@ class SettingController extends Controller
         $profile->bio = $request->input('bio');
         $profile->save();
 
-        $sertifikat = new Sertifikat();
+        $sertifikat = Sertifikat::where('user_id', $user->id)->firstOrFail();
         $sertifikat->foto = $request->fotoName;
         $profile->save();
 
