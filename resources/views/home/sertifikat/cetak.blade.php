@@ -25,8 +25,6 @@
         }
 
         .certificate {
-            background: url('{{ asset('public/1.png') }}') no-repeat center center;
-            background-size: cover;
             width: 1000px;
             height: 707px;
             display: flex;
@@ -161,7 +159,7 @@
     </style>
 </head>
 
-<body>
+<body style="background: url('{{ asset('public/1.png') }}') no-repeat center center; background-size: cover;">
     <div class="certificate">
         <div class="content">
             <h1>SERTIFIKAT</h1>
