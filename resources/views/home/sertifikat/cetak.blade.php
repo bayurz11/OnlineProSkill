@@ -87,12 +87,20 @@
             border: 5px solid #fdffff;
         }
 
+
+        .qr svg {
+            width: 180px;
+            height: 180px;
+
+        }
+
         .qr {
             position: absolute;
             top: 398px;
             left: 34px;
             width: 180px;
             height: 180px;
+            object-fit: cover;
             border: 5px solid #fdffff;
             border-radius: 10px;
         }
@@ -109,21 +117,6 @@
             font-size: 18px;
             color: #333;
             text-align: right;
-        }
-
-        .print-button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: #fff;
-            background-color: #007F73;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .print-button:hover {
-            background-color: #005f5f;
         }
     </style>
 </head>
@@ -149,8 +142,6 @@
         </div>
     </div>
 
-    <!-- Button to Print the Certificate -->
-    <button class="print-button" onclick="window.print()">Cetak Sertifikat</button>
 
 </body>
 
