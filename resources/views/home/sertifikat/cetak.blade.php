@@ -87,11 +87,9 @@
             border: 5px solid #fdffff;
         }
 
-
         .qr svg {
             width: 180px;
             height: 180px;
-
         }
 
         .qr {
@@ -134,28 +132,24 @@
             background-color: #005f54;
         }
 
-        /* CSS khusus untuk pencetakan */
         @media print {
 
             body,
             html {
-                width: 100%;
-                height: 100%;
-                display: block;
                 background-color: #fff;
+                display: block;
             }
 
             .certificate {
                 background: url('{{ asset('public/1.png') }}') no-repeat center center;
                 background-size: cover;
-                width: 100%;
-                height: 100%;
                 box-shadow: none;
             }
 
             .print-button {
                 display: none;
             }
+        }
     </style>
 </head>
 
