@@ -355,8 +355,13 @@ class AksesPembelianController extends Controller
     public function printCertificate($id)
     {
         $user = Auth::user();
-        // Temukan sertifikat berdasarkan ID
-        $sertifikat = Sertifikat::all();
+        // Temukan sertifikat berdasarkan user_id dan sertifikat_id
+        $sertifikat = Sertifikat::where('user_id', $user->id)->where('id', $id)->first();
+
+        // Cek apakah sertifikat ditemukan
+        if (!$sertifikat) {
+            return response()->json(['message' => 'Sertifikat tidak ditemukan'], 404);
+        }
 
         // Ambil link dari sertifikat
         $link = $sertifikat->link;
