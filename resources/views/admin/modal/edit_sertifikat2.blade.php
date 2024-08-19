@@ -90,12 +90,7 @@
                     } else {
                         subcategorySelect.html('<option value="">Pilih Subkategori</option>');
                     }
-                    // Update image preview
-                    if (data.gambar) {
-                        $('#preview_edit').attr('src', `/public/uploads/${data.gambar}`).show();
-                    } else {
-                        $('#preview_edit').hide();
-                    }
+
 
                     // Set the form action to the update route
                     $('#editSertifikatForm').attr('action', `/sertifikat/${data.id}/update`);
@@ -106,10 +101,7 @@
                 });
         });
 
-        // Display the uploaded image preview
-        $('#edit_gambar').change(function() {
-            readURL(this);
-        });
+
 
         function readURL(input) {
             if (input.files && input.files[0]) {
