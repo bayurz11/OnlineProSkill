@@ -78,9 +78,9 @@
 
         .content img.photo {
             position: absolute;
-            top: 20px;
+            top: 25px;
             right: -26px;
-            width: 198px;
+            width: 118px;
             height: 250px;
             object-fit: cover;
             border-radius: 10%;
