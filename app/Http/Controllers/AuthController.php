@@ -436,7 +436,7 @@ class AuthController extends Controller
         $sertifikat->save(); // Auto-generate id here
 
         // Update URL link after saving
-        $sertifikat->link = url("/cetak_sertifikat/{$sertifikat->id}");
+        $sertifikat->link = url("/print/{$sertifikat->id}");
         $sertifikat->save(); // Save again to update the link
 
         Auth::login($user);
@@ -497,7 +497,7 @@ class AuthController extends Controller
         $sertifikat->save(); // Auto-generate id here
 
         // Update URL link after saving
-        $sertifikat->link = url("/cetak_sertifikat/{$sertifikat->id}");
+        $sertifikat->link = url("/print/{$sertifikat->id}");
         $sertifikat->save(); // Save again to update the link
         Auth::login($user);
 
