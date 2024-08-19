@@ -87,6 +87,7 @@
             border: 5px solid #fdffff;
         }
 
+
         .qr svg {
             width: 180px;
             height: 180px;
