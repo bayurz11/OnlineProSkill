@@ -80,7 +80,7 @@
             position: absolute;
             top: 60px;
             right: -26px;
-            width: 190px;
+            width: 180px;
             height: 200px;
             object-fit: cover;
             border-radius: 10%;
