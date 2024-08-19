@@ -356,7 +356,7 @@ class AksesPembelianController extends Controller
     {
         $user = Auth::user();
         // Temukan sertifikat berdasarkan ID
-        $sertifikat = Sertifikat::findOrFail($id);
+        $sertifikat = Sertifikat::all();
 
         // Ambil link dari sertifikat
         $link = $sertifikat->link;
