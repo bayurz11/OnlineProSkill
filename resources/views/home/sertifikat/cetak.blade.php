@@ -145,15 +145,10 @@
             .certificate {
                 background: url('{{ asset('public/1.png') }}') no-repeat center center;
                 background-size: cover;
-                width: 1000px;
-                height: 707px;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                align-items: center;
-                padding: 50px;
-                box-sizing: border-box;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                box-shadow: none;
+                width: 100%;
+                height: 100%;
+                background-position: center;
             }
 
             .print-button {
@@ -185,7 +180,41 @@
     </div>
 
     <!-- Button Cetak -->
-    <button class="print-button" onclick="window.print();">Cetak Sertifikat</button>
+    <!-- Button Cetak -->
+    <button class="print-button" onclick="printPage();">Cetak Sertifikat</button>
+
 </body>
+<script>
+    function printPage() {
+        // Buat elemen iframe
+        var iframe = document.createElement('iframe');
+        iframe.style.position = 'absolute';
+        iframe.style.width = '0';
+        iframe.style.height = '0';
+        iframe.style.border = 'none';
+        document.body.appendChild(iframe);
+
+        // Ambil dokumen dalam iframe
+        var iframeDoc = iframe.contentWindow.document;
+
+        // Salin konten halaman ke dalam iframe
+        iframeDoc.open();
+        iframeDoc.write('<html><head><title>Print</title>');
+        iframeDoc.write(
+            '<style>@media print {body, html {background: none; width: 100%; height: 100%;}} .certificate { background: url("{{ asset('public/1.png') }}") no-repeat center center; background-size: cover; width: 1000px; height: 707px; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 50px; box-sizing: border-box; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); } </style>'
+        );
+        iframeDoc.write('</head><body>');
+        iframeDoc.write(document.querySelector('.certificate').outerHTML);
+        iframeDoc.write('</body></html>');
+        iframeDoc.close();
+
+        // Cetak iframe
+        iframe.contentWindow.focus();
+        iframe.contentWindow.print();
+
+        // Hapus iframe setelah cetak
+        document.body.removeChild(iframe);
+    }
+</script>
 
 </html>
