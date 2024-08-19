@@ -14,6 +14,7 @@
 
         @include('admin.modal.add_sertifikat')
         @include('admin.modal.edit_sertifikat')
+        @include('admin.modal.edit_sertifikat2')
 
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
@@ -49,12 +50,24 @@
                                             <td>{{ $sertifikat->kelasTatapMuka->nama_kursus }}</td>
 
                                             <td>
-                                                <button type="button" class="btn btn-primary btn-icon edit-button"
-                                                    title="Edit" data-bs-toggle="modal"
-                                                    data-bs-target="#editSertifikatModal" data-id="{{ $sertifikat->id }}"
-                                                    onclick="editSertifikat({{ $sertifikat->id }})">
-                                                    <i data-feather="edit"></i>
-                                                </button>
+                                                @if ($sertifikat->gambar)
+                                                    <button type="button" class="btn btn-primary btn-icon edit-button"
+                                                        title="Edit" data-bs-toggle="modal"
+                                                        data-bs-target="#editSertifikatModal"
+                                                        data-id="{{ $sertifikat->id }}"
+                                                        onclick="editSertifikat({{ $sertifikat->id }})">
+                                                        <i data-feather="edit"></i>
+                                                    </button>
+                                                @else
+                                                    <button type="button" class="btn btn-primary btn-icon edit-button"
+                                                        title="Edit" data-bs-toggle="modal"
+                                                        data-bs-target="#editSertifikat2Modal"
+                                                        data-id="{{ $sertifikat->id }}"
+                                                        onclick="editSertifikat({{ $sertifikat->id }})">
+                                                        <i data-feather="edit"></i>
+                                                    </button>
+                                                @endif
+
                                                 <button onclick="hapus('{{ $sertifikat->id }}')"
                                                     class="btn btn-danger btn-icon" title="Hapus">
                                                     <i data-feather="trash-2"></i>

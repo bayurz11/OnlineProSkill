@@ -1,4 +1,4 @@
-<div class="modal fade" id="editSertifikatModal" tabindex="-1" aria-labelledby="editSertifikatModalLabel"
+<div class="modal fade" id="editSertifikat2Modal" tabindex="-1" aria-labelledby="editSertifikat2ModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -6,7 +6,7 @@
                 @csrf
                 @method('PUT')
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editSertifikatModalLabel">Edit Sertifikat</h5>
+                    <h5 class="modal-title" id="editSertifikat2ModalLabel">Edit Sertifikat</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
                 </div>
                 <div class="modal-body">
