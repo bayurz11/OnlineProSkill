@@ -127,7 +127,7 @@
             <p>ID : 122222a</p>
 
 
-            <div class="qr">{!! $qrCode !!}</div>
+            {{-- <div class="qr">{!! $qrCode !!}</div> --}}
             <h2>Bayu</h2>
             <p>Atas Kelulusannya Pada Kelas</p>
             <h3>Tes Qr</h3>
