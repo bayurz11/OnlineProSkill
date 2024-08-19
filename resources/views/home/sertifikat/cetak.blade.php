@@ -87,11 +87,9 @@
             border: 5px solid #fdffff;
         }
 
-
         .qr svg {
             width: 180px;
             height: 180px;
-
         }
 
         .qr {
@@ -132,6 +130,23 @@
 
         .print-button:hover {
             background-color: #005f54;
+        }
+
+        @media print {
+            .certificate {
+                background: url('{{ asset('public/1.png') }}') no-repeat center center;
+                background-size: cover;
+            }
+
+            body,
+            html {
+                background: none;
+                padding: 0;
+            }
+
+            .print-button {
+                display: none;
+            }
         }
     </style>
 </head>
