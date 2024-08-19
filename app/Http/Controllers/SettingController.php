@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Categories;
-use App\Models\Sertifikat;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use App\Models\NotifikasiUser;
@@ -70,46 +69,6 @@ class SettingController extends Controller
 
     //     return redirect()->route('profil')->with('success', 'Profil berhasil diperbarui.');
     // }190724
-    // public function updateprofil(Request $request, $id)
-    // {
-    //     $user = Auth::user();
-
-    //     // Pastikan pengguna yang terautentikasi hanya dapat memperbarui profil mereka sendiri
-    //     $profile = UserProfile::where('user_id', $user->id)->firstOrFail();
-
-    //     // Validasi data permintaan
-    //     $request->validate([
-    //         'name' => 'required|string|max:255',
-    //         'dateofBirth' => 'required|date',
-    //         'gender' => 'required|string',
-    //         'phonenumber' => 'required|string|max:15',
-    //         'alamat' => 'required|string|max:255',
-    //         'bio' => 'nullable|string',
-    //         'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10000'
-    //     ]);
-
-    //     // Menangani upload gambar
-    //     if ($request->hasFile('foto')) {
-    //         $fotoName = time() . '.' . $request->foto->extension();
-    //         $request->foto->move(public_path('uploads'), $fotoName);
-    //         $profile->gambar = $fotoName;
-    //     }
-
-    //     // Perbarui data profil
-    //     $profile->date_of_birth = $request->input('dateofBirth');
-    //     $profile->gender = $request->input('gender');
-    //     $profile->phone_number = $request->input('phonenumber');
-    //     $profile->address = $request->input('alamat');
-    //     $profile->bio = $request->input('bio');
-    //     $profile->save();
-
-    //     // Perbarui data pengguna
-    //     $user->update([
-    //         'name' => $request->name,
-    //     ]);
-
-    //     return redirect()->route('profil')->with('success', 'Profil berhasil diperbarui.');
-    // }
     public function updateprofil(Request $request, $id)
     {
         $user = Auth::user();
@@ -125,26 +84,14 @@ class SettingController extends Controller
             'phonenumber' => 'required|string|max:15',
             'alamat' => 'required|string|max:255',
             'bio' => 'nullable|string',
-            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
-            'sertifikat_foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10000' // Validasi untuk foto sertifikat
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10000'
         ]);
 
-        // Menangani upload gambar untuk profil
+        // Menangani upload gambar
         if ($request->hasFile('foto')) {
             $fotoName = time() . '.' . $request->foto->extension();
             $request->foto->move(public_path('uploads'), $fotoName);
             $profile->gambar = $fotoName;
-        }
-
-        // Menangani upload gambar untuk sertifikat
-        if ($request->hasFile('sertifikat_foto')) {
-            $sertifikatFotoName = time() . '_sertifikat.' . $request->sertifikat_foto->extension();
-            $request->sertifikat_foto->move(public_path('uploads/pasfoto'), $sertifikatFotoName);
-
-            // Buat atau perbarui sertifikat terkait
-            $sertifikat = Sertifikat::firstOrNew(['user_id' => $user->id]);
-            $sertifikat->foto = $sertifikatFotoName;
-            $sertifikat->save();
         }
 
         // Perbarui data profil
@@ -160,9 +107,8 @@ class SettingController extends Controller
             'name' => $request->name,
         ]);
 
-        return redirect()->route('profil')->with('success', 'Profil dan sertifikat berhasil diperbarui.');
+        return redirect()->route('profil')->with('success', 'Profil berhasil diperbarui.');
     }
-
 
     public function updatePassword(Request $request, $id)
     {
