@@ -47,11 +47,8 @@
                                             <td>{{ $sertifikat->name }}</td>
                                             <td>{{ $sertifikat->keterangan }}</td>
                                             <td>{{ $sertifikat->kelasTatapMuka->nama_kursus }}</td>
-                                            <td>
-                                                <img src="{{ file_exists(public_path('uploads/' . $sertifikat->gambar)) ? asset('public/uploads/' . $sertifikat->gambar) : asset('public/1.png') }}"
-                                                    alt="Banner" class="wd-100 wd-sm-150 me-3">
-                                            </td>
-
+                                            <td><img src="{{ asset('public/uploads/' . $sertifikat->gambar) }}"
+                                                    alt="Banner" class="wd-100 wd-sm-150 me-3"></td>
                                             <td>
                                                 <button type="button" class="btn btn-primary btn-icon edit-button"
                                                     title="Edit" data-bs-toggle="modal"
@@ -64,10 +61,18 @@
                                                     <i data-feather="trash-2"></i>
                                                 </button>
 
-                                                <a href="{{ route('cetak_sertifikat', ['id' => $sertifikat->id]) }}"
-                                                    class="btn btn-warning btn-icon" title="print" target="_blank">
-                                                    <i data-feather="printer"></i>
-                                                </a>
+                                                @if ($sertifikat->gambar)
+                                                    <a href="{{ route('cetak_sertifikat', ['id' => $sertifikat->id]) }}"
+                                                        class="btn btn-warning btn-icon" title="print" target="_blank">
+                                                        <i data-feather="printer"></i>
+                                                    </a>
+                                                @else
+                                                    <a href="{{ route('print_certificate') }}"
+                                                        class="btn btn-warning btn-icon" title="print" target="_blank">
+                                                        <i data-feather="printer"></i>
+                                                    </a>
+                                                @endif
+
                                             </td>
                                         </tr>
                                     @endforeach
