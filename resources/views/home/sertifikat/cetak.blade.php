@@ -17,6 +17,7 @@
             width: 100%;
             height: 100%;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             background-color: #f4f4f4;
@@ -116,6 +117,21 @@
             color: #333;
             text-align: right;
         }
+
+        .print-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007F73;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .print-button:hover {
+            background-color: #005f54;
+        }
     </style>
 </head>
 
@@ -125,13 +141,13 @@
             <h1>SERTIFIKAT</h1>
             <div class="underline"></div>
             <p>ID : 122222a</p>
-            {{-- @if ($profile && $profile->gambar)
+            @if ($profile && $profile->gambar)
                 @if (strpos($profile->gambar, 'googleusercontent') !== false)
                     <img class="photo" src="{{ $profile->gambar }}" alt="Foto Peserta">
                 @else
                     <img class="photo" src="{{ asset('public/uploads/' . $profile->gambar) }}" alt="Foto Peserta">
                 @endif
-            @endif --}}
+            @endif
 
             <div class="qr">{!! $qrCode !!}</div>
             <h2>{{ $user->name }}</h2>
@@ -139,6 +155,10 @@
             <h3>Tes Qr</h3>
         </div>
     </div>
+
+    <!-- Button Cetak -->
+    <button class="print-button" onclick="window.print();">Cetak Sertifikat</button>
+
 </body>
 
 </html>

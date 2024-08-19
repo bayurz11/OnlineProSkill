@@ -355,6 +355,7 @@ class AksesPembelianController extends Controller
     public function printCertificate($id)
     {
         $user = Auth::user();
+        $profile = UserProfile::where('user_id', $user->id)->first();
         // Temukan sertifikat berdasarkan user_id dan sertifikat_id
         $sertifikat = Sertifikat::where('user_id', $user->id)->first();
 
@@ -376,6 +377,6 @@ class AksesPembelianController extends Controller
         $qrCode = QrCode::size(300)->generate($link);
 
         // Setelah menemukan sertifikat, arahkan pengguna ke view sertifikat
-        return view('home.sertifikat.cetak', compact('sertifikat', 'qrCode', 'user'));
+        return view('home.sertifikat.cetak', compact('sertifikat', 'qrCode', 'user', 'profile'));
     }
 }
