@@ -128,7 +128,7 @@
 
 
             {{-- <div class="qr">{!! $qrCode !!}</div> --}}
-            <h2>Bayu</h2>
+            <h2>{{ $sertifikat->name }}</h2>
             <p>Atas Kelulusannya Pada Kelas</p>
             <h3>Tes Qr</h3>
         </div>
