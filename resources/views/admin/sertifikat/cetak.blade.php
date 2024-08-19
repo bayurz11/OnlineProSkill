@@ -125,9 +125,15 @@
             <h1>SERTIFIKAT</h1>
             <div class="underline"></div>
             <p>ID : 122222a</p>
+            {{-- @if ($profile && $profile->gambar)
+                @if (strpos($profile->gambar, 'googleusercontent') !== false)
+                    <img class="photo" src="{{ $profile->gambar }}" alt="Foto Peserta">
+                @else
+                    <img class="photo" src="{{ asset('public/uploads/' . $profile->gambar) }}" alt="Foto Peserta">
+                @endif
+            @endif --}}
 
-
-            {{-- <div class="qr">{!! $qrCode !!}</div> --}}
+            <div class="qr">{!! $qrCode !!}</div>
             <h2>{{ $sertifikat->name }}</h2>
             <p>Atas Kelulusannya Pada Kelas</p>
             <h3>Tes Qr</h3>

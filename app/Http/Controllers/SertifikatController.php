@@ -7,9 +7,10 @@ use App\Models\Sertifikat;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use App\Models\Subcategories;
-use App\Http\Controllers\Controller;
 use App\Models\KelasTatapMuka;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class SertifikatController extends Controller
 {
@@ -133,8 +134,18 @@ class SertifikatController extends Controller
     {
         // Temukan sertifikat berdasarkan ID
         $sertifikat = Sertifikat::findOrFail($id);
+        // Pastikan sertifikat ditemukan
+        if (!$sertifikat) {
+            return response()->json(['message' => 'Sertifikat tidak ditemukan'], 404);
+        }
+
+        // Ambil link dari sertifikat
+        $link = $sertifikat->link;
+
+        // Generate QR code sebagai string SVG
+        $qrCode = QrCode::size(300)->generate($link);
 
         // Setelah menemukan sertifikat, arahkan pengguna ke view sertifikat
-        return view('admin.sertifikat.cetak', compact('sertifikat'));
+        return view('admin.sertifikat.cetak', compact('sertifikat', 'qrCode'));
     }
 }

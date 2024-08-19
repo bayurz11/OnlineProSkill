@@ -491,6 +491,14 @@ class AuthController extends Controller
         $userProfile->phone_number = $request->phone_number;
         $userProfile->save();
 
+        $sertifikat = new Sertifikat();
+        $sertifikat->name = $request->name;
+        $sertifikat->user_id = $user->id;
+        $sertifikat->save(); // Auto-generate id here
+
+        // Update URL link after saving
+        $sertifikat->link = url("/cetak_sertifikat/{$sertifikat->id}");
+        $sertifikat->save(); // Save again to update the link
         Auth::login($user);
 
         return redirect()->route('cart.view')->with('info', 'Pendaftaran berhasil! Silahkan Gabung Kelas Kami');
