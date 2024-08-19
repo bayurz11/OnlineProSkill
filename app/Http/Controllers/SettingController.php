@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Categories;
+use App\Models\Sertifikat;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use App\Models\NotifikasiUser;
@@ -100,6 +101,10 @@ class SettingController extends Controller
         $profile->phone_number = $request->input('phonenumber');
         $profile->address = $request->input('alamat');
         $profile->bio = $request->input('bio');
+        $profile->save();
+
+        $sertifikat = new Sertifikat();
+        $sertifikat->foto = $request->fotoName;
         $profile->save();
 
         // Perbarui data pengguna
