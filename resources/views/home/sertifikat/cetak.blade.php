@@ -135,12 +135,7 @@
         @media print {
 
             body,
-            html {
-                background-color: #fff;
-                display: block;
-            }
-
-            .certificate {
+            html .certificate {
                 background: url('{{ asset('public/1.png') }}') no-repeat center center;
                 background-size: cover;
                 box-shadow: none;
