@@ -87,13 +87,13 @@
                          <p>©2024 ProSkill Akademia</p>
                      </div>
                  </div>
-                 <div class="col-md-5">
+                 {{-- <div class="col-md-5">
                      <div class="footer__bottom-menu">
                          <ul class="list-wrap">
                              <li><a href="mailto:admin@proskill.sch.id">admin@proskill.sch.id</a></li>
                          </ul>
                      </div>
-                 </div>
+                 </div> --}}
              </div>
          </div>
      </div>
