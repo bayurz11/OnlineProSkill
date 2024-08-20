@@ -30,6 +30,7 @@ use App\Http\Controllers\NotifikasiUserController;
 use App\Http\Controllers\DashboardStudenController;
 use App\Http\Controllers\RiwayatTransaksiController;
 use App\Http\Controllers\DashboardInstrukturController;
+use App\Http\Controllers\HubungiKamiSettingController;
 use App\Http\Controllers\OrderHistoryManagerController;
 
 //Authentikasi
@@ -145,6 +146,9 @@ Route::middleware('isAdmin')->group(function () {
     Route::delete('/sertifikat/{id}/destroy', [SertifikatController::class, 'destroy'])->name('sertifikat.destroy');
     Route::get('/cetak_sertifikat/{id}', [SertifikatController::class, 'cetakSertifikat'])->name('cetak_sertifikat');
     Route::get('/print/{id}', [SertifikatController::class, 'printCertificate'])->name('print');
+
+    //Hubungi Kami
+    Route::get('/settingcontactus', [HubungiKamiSettingController::class, 'index'])->name('settingcontactus');
 });
 
 //*********STUDEN*********//

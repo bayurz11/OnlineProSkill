@@ -201,7 +201,7 @@
                             <a href="{{ route('herosection') }}" class="nav-link">Banner Area</a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/charts/chartjs.html" class="nav-link">Hubungi Kami</a>
+                            <a href="{{ route('settingcontactus') }}" class="nav-link">Hubungi Kami</a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/charts/flot.html" class="nav-link">Tentang Kami</a>
