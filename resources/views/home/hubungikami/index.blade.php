@@ -61,7 +61,7 @@
                                 </div>
                                 <div class="content">
                                     <h4 class="title">Telepon</h4>
-                                    <a href="tel:81266187125">+62 8126 6187 125</a>
+                                    <a href="tel:+6281266187125">+62 8126 6187 125</a>
                                 </div>
                             </li>
                             <li>
