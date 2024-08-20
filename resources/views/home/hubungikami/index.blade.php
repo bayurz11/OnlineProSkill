@@ -61,9 +61,15 @@
                                 </div>
                                 <div class="content">
                                     <h4 class="title">Telepon</h4>
-                                    <a href="tel:{{ $contactUs->telepon }}">{{ $contactUs->telepon }}</a>
+                                    @if (is_array($contactUs->telepon))
+                                        @php
+                                            $phoneNumber = $contactUs->telepon[0];
+                                        @endphp
+                                        <a href="tel:{{ $phoneNumber }}">{{ $phoneNumber }}</a>
+                                    @else
+                                        <a href="tel:{{ $contactUs->telepon }}">{{ $contactUs->telepon }}</a>
+                                    @endif
                                 </div>
-
 
                             </li>
                             <li>
