@@ -111,7 +111,7 @@
                     if (response.ok) {
                         console.log(
                             'subcategory berhasil dihapus. Mengalihkan ke halaman contact.');
-                        window.location.href = '{{ route('contact') }}';
+                        window.location.href = '{{ route('settingcontactus') }}';
                     } else {
                         response.text().then(text => {
                             console.error('Gagal menghapus subcategory:', text);
