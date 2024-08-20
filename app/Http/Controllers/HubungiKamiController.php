@@ -21,7 +21,7 @@ class HubungiKamiController extends Controller
         $user = Auth::user();
         $profile = null;
         $cart = Session::get('cart', []);
-        $contactUs = ContactUs::all();
+        $contactUs = ContactUs::first();
 
 
         if ($user) {
