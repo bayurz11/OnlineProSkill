@@ -62,10 +62,7 @@
                                                     <i data-feather="trash-2"></i>
                                                 </button>
 
-                                                <a href="{{ route('cetak_contact', ['id' => $contact->id]) }}"
-                                                    class="btn btn-warning btn-icon" title="print" target="_blank">
-                                                    <i data-feather="printer"></i>
-                                                </a>
+
 
 
                                             </td>
