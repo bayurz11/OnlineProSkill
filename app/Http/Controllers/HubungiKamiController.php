@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ContactUs;
 use App\Models\AdminEvent;
 use App\Models\Categories;
 use App\Models\UserProfile;
@@ -20,7 +21,7 @@ class HubungiKamiController extends Controller
         $user = Auth::user();
         $profile = null;
         $cart = Session::get('cart', []);
-
+        $contactUs = ContactUs::all();
 
 
         if ($user) {
@@ -36,6 +37,6 @@ class HubungiKamiController extends Controller
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
-        return view('home.hubungikami.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi',));
+        return view('home.hubungikami.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'contactUs'));
     }
 }
