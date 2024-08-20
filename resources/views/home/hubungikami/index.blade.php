@@ -61,13 +61,13 @@
                                 </div>
                                 <div class="content">
                                     <h4 class="title">Telepon</h4>
-                                    @if (is_array($contactUs->telepon) && count($contactUs->telepon) > 0)
+                                    @if (is_array($contactUs->telepon))
                                         @php
-                                            $lastPhoneNumber = end($contactUs->telepon)[0];
+                                            $phoneNumber = $contactUs->telepon[0];
                                         @endphp
-                                        <a href="tel:{{ $lastPhoneNumber }}">{{ $lastPhoneNumber }}</a>
+                                        <a href="tel:{{ $phoneNumber }}">{{ $phoneNumber }}</a>
                                     @else
-                                        <p>No phone number available</p>
+                                        <a href="tel:{{ $contactUs->telepon }}">{{ $contactUs->telepon }}</a>
                                     @endif
                                 </div>
 
