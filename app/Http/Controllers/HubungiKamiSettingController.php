@@ -10,12 +10,13 @@ class HubungiKamiSettingController extends Controller
 {
     public function index()
     {
+        $contactUs = ContactUs::all();
         $user = Auth::user();
         if (!$user) {
             return redirect()->route('/');
         }
 
-        return view('admin.PengaturanUmum.contactUs', compact('user'));
+        return view('admin.PengaturanUmum.contactUs', compact('user', 'contactUs'));
     }
 
     public function store(Request $request)

@@ -1,5 +1,5 @@
 @section('title', 'ProSkill Akademia | Hubungi Kami')
-<?php $page = 'sertifikat'; ?>
+<?php $page = 'contact'; ?>
 
 @extends('layout.mainlayout_admin')
 @section('content')
@@ -31,7 +31,7 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>ID Sertifikat</th>
+                                        <th>ID contact</th>
                                         <th>Nama</th>
                                         <th>Keterangan</th>
                                         <th>Kategori</th>
@@ -40,54 +40,37 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {{-- @foreach ($sertifikat as $key => $sertifikat)
+                                    @foreach ($contactUs as $key => $contact)
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
-                                            <td>{{ $sertifikat->sertifikat_id }}</td>
-                                            <td>{{ $sertifikat->name }}</td>
-                                            <td>{{ $sertifikat->keterangan }}</td>
-                                            <td>{{ $sertifikat->kelasTatapMuka->nama_kursus }}</td>
+                                            <td>{{ $contact->alamat }}</td>
+                                            <td>{{ $contact->telepon }}</td>
+                                            <td>{{ $contact->email }}</td>
 
                                             <td>
-                                                @if ($sertifikat->gambar)
-                                                    <button type="button" class="btn btn-primary btn-icon edit-button"
-                                                        title="Edit" data-bs-toggle="modal"
-                                                        data-bs-target="#editSertifikatModal"
-                                                        data-id="{{ $sertifikat->id }}"
-                                                        onclick="editSertifikat({{ $sertifikat->id }})">
-                                                        <i data-feather="edit"></i>
-                                                    </button>
-                                                @else
-                                                    <button type="button" class="btn btn-primary btn-icon edit-button"
-                                                        title="Edit" data-bs-toggle="modal"
-                                                        data-bs-target="#editSertifikat2Modal"
-                                                        data-id="{{ $sertifikat->id }}"
-                                                        onclick="editSertifikat({{ $sertifikat->id }})">
-                                                        <i data-feather="edit"></i>
-                                                    </button>
-                                                @endif
 
-                                                <button onclick="hapus('{{ $sertifikat->id }}')"
+                                                <button type="button" class="btn btn-primary btn-icon edit-button"
+                                                    title="Edit" data-bs-toggle="modal" data-bs-target="#editcontactModal"
+                                                    data-id="{{ $contact->id }}"
+                                                    onclick="editcontact({{ $contact->id }})">
+                                                    <i data-feather="edit"></i>
+                                                </button>
+
+
+                                                <button onclick="hapus('{{ $contact->id }}')"
                                                     class="btn btn-danger btn-icon" title="Hapus">
                                                     <i data-feather="trash-2"></i>
                                                 </button>
 
-                                                @if ($sertifikat->gambar)
-                                                    <a href="{{ route('cetak_sertifikat', ['id' => $sertifikat->id]) }}"
-                                                        class="btn btn-warning btn-icon" title="print" target="_blank">
-                                                        <i data-feather="printer"></i>
-                                                    </a>
-                                                @else
-                                                    <a href="{{ route('print', ['id' => $sertifikat->id]) }}"
-                                                        class="btn btn-warning btn-icon" title="print" target="_blank">
-                                                        <i data-feather="printer"></i>
-                                                    </a>
-                                                @endif
+                                                <a href="{{ route('cetak_contact', ['id' => $contact->id]) }}"
+                                                    class="btn btn-warning btn-icon" title="print" target="_blank">
+                                                    <i data-feather="printer"></i>
+                                                </a>
 
 
                                             </td>
                                         </tr>
-                                    @endforeach --}}
+                                    @endforeach
                                 </tbody>
                             </table>
 
@@ -117,7 +100,7 @@
             document.body.insertAdjacentHTML('beforeend', confirmationBox);
 
             document.getElementById('confirmDelete').onclick = function() {
-                fetch(`/sertifikat/${id}/destroy`, {
+                fetch(`/contact/${id}/destroy`, {
                     method: 'POST', // Menggunakan POST bukan DELETE
                     headers: {
                         'X-CSRF-TOKEN': '{{ csrf_token() }}',
@@ -130,8 +113,8 @@
                     document.getElementById('confirmationModal').remove();
                     if (response.ok) {
                         console.log(
-                            'subcategory berhasil dihapus. Mengalihkan ke halaman sertifikat.');
-                        window.location.href = '{{ route('sertifikat') }}';
+                            'subcategory berhasil dihapus. Mengalihkan ke halaman contact.');
+                        window.location.href = '{{ route('contact') }}';
                     } else {
                         response.text().then(text => {
                             console.error('Gagal menghapus subcategory:', text);
