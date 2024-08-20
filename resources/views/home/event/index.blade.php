@@ -39,7 +39,18 @@
         </div>
     </section>
     <!-- breadcrumb-area-end -->
+    @if ($event->count() > 0)
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title text-center">
 
+                        <p>Belum Ada Event yang Akan di Selengarakan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
     <!-- event-area -->
     <section class="event__area-two section-py-120">
         <div class="container">
