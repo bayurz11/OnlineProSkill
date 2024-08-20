@@ -64,7 +64,7 @@
                                     @if (!empty($contactUs->telepon))
                                         @php
                                             // Menghapus tanda kurung siku dan tanda kutip
-                                            $phoneNumber = trim($contactUs->telepon, '[""]"');
+                                            $phoneNumber = trim($contactUs->telepon, '[""]"],["');
                                         @endphp
                                         <a href="tel:{{ $phoneNumber }}">{{ $phoneNumber }}</a>
                                     @else
