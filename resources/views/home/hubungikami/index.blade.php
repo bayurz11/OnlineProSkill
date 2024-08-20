@@ -67,7 +67,7 @@
                                 <div class="content">
                                     <h4 class="title">Telepon</h4>
                                     @foreach ($teleponArray as $telepon)
-                                        {{ trim($telepon) }}<br>
+                                        {{ $teleponArray[0] }}
                                     @endforeach
                                 </div>
 
