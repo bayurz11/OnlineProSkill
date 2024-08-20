@@ -76,20 +76,20 @@
             </div>
         </section>
         <!-- event-area-end -->
+    @else
+        <section class="event__area-two section-py-120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-title text-center">
 
-    @endif
-    <section class="event__area-two section-py-120">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-title text-center">
-
-                        <p>Belum Ada Event yang Akan di Selengarakan</p>
+                            <p>Belum Ada Event yang Akan di Selengarakan</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
     <script>
         // Mengatur tinggi untuk elemen event-name
         var eventNames = document.querySelectorAll('.event-name');
