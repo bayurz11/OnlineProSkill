@@ -12,8 +12,8 @@
             </ol>
         </nav>
 
-        {{-- @include('admin.modal.add_sertifikat')
-        @include('admin.modal.edit_sertifikat') --}}
+        @include('admin.modal.add_contactUs')
+        @include('admin.modal.edit_contactUs')
 
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
