@@ -149,6 +149,7 @@ Route::middleware('isAdmin')->group(function () {
 
     //Hubungi Kami
     Route::get('/settingcontactus', [HubungiKamiSettingController::class, 'index'])->name('settingcontactus');
+    Route::get('/contactus/store', [HubungiKamiSettingController::class, 'store'])->name('contactus.store');
 });
 
 //*********STUDEN*********//
