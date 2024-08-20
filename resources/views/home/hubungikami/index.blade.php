@@ -59,10 +59,15 @@
                                 <div class="icon">
                                     <img src="public/assets/img/icons/contact_phone.svg" alt="img" class="injectable">
                                 </div>
+                                @php
+                                    // Memecah string nomor telepon menjadi array
+                                    $teleponArray = explode(',', $contactUs->telepon);
+                                @endphp
+
                                 <div class="content">
                                     <h4 class="title">Telepon</h4>
-                                    @foreach ($contactUs->telepon as $telepon)
-                                        <a href="tel:{{ $telepon }}">{{ $telepon }}</a><br>
+                                    @foreach ($teleponArray as $telepon)
+                                        <a href="tel:{{ trim($telepon) }}">{{ trim($telepon) }}</a><br>
                                     @endforeach
                                 </div>
 
