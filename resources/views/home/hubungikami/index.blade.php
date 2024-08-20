@@ -61,9 +61,9 @@
                                 </div>
                                 <div class="content">
                                     <h4 class="title">Telepon</h4>
-                                    <a href="{{ $contactUs->telepon }}">{{ $contactUs->telepon }}</a>
-                                    <a href="tel:0123456789">+1 (800) 123 456 789</a>
+                                    <a href="tel:{{ $contactUs->telepon[0] }}">{{ $contactUs->telepon[0] }}</a>
                                 </div>
+
                             </li>
                             <li>
                                 <div class="icon">
