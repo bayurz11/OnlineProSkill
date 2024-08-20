@@ -70,8 +70,8 @@
                                 </div>
                                 <div class="content">
                                     <h4 class="title">E-mail Address</h4>
-                                    <a href="mailto:info@gmail.com">info@gmail.com</a>
-                                    <a href="mailto:info@gmail.com">info@gmail.com</a>
+                                    <a href="proskill.akademia@gmail.com">proskill.akademia@gmail.com</a>
+                                    <a href="mailto:admin@proskill.sch.id">admin@proskill.sch.id</a>
                                 </div>
                             </li>
                         </ul>
