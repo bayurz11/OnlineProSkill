@@ -61,18 +61,17 @@
                                 </div>
                                 <div class="content">
                                     <h4 class="title">Telepon</h4>
-                                    @if (is_array($contactUs->telepon) && count($contactUs->telepon) > 0)
+                                    @if (!empty($contactUs->telepon))
                                         @php
-                                            // Mendapatkan elemen terakhir dari array
-                                            $lastPhoneNumberArray = end($contactUs->telepon);
-                                            // Menghapus simbol tambahan dari elemen terakhir
-                                            $phoneNumber = trim($lastPhoneNumberArray, '[]"');
+                                            // Menghapus tanda kurung siku dan tanda kutip
+                                            $phoneNumber = trim($contactUs->telepon, '[""]"');
                                         @endphp
                                         <a href="tel:{{ $phoneNumber }}">{{ $phoneNumber }}</a>
                                     @else
                                         <p>No phone number available</p>
                                     @endif
                                 </div>
+
                             </li>
                             <li>
                                 <div class="icon">
