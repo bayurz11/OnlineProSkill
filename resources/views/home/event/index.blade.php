@@ -40,53 +40,54 @@
     </section>
     <!-- breadcrumb-area-end -->
     @if ($event->count() > 0)
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="section-title text-center">
-
-                        <p>Belum Ada Event yang Akan di Selengarakan</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endif
-    <!-- event-area -->
-    <section class="event__area-two section-py-120">
-        <div class="container">
-            <div class="event__inner-wrap">
-                <div class="row justify-content-center">
-                    @foreach ($event as $item)
-                        <div class="col-xl-3 col-lg-4 col-md-6">
-                            <div class="event__item shine__animate-item">
-                                <div class="event__item-thumb">
-                                    <a href="{{ route('event_detail', ['id' => $item->id]) }}" class="shine__animate-link">
-                                        <img src="{{ asset('public/uploads/events/' . $item->gambar) }}" alt="img"
-                                            loading="lazy">
-                                    </a>
-                                </div>
-                                <div class="event__item-content">
-                                    <span class="date">{{ Carbon::parse($item->tgl)->format('d - F - Y') }}</span>
-                                    <h2 class="title event-name">
-                                        <a href="{{ route('event_detail', ['id' => $item->id]) }}">{{ $item->name }}</a>
-                                    </h2>
-                                    <a href="{{ $item->link_maps }}" class="location" target="_blank">
-                                        <i class="flaticon-map"></i>{{ $item->lokasi }}
-                                    </a>
+        <!-- event-area -->
+        <section class="event__area-two section-py-120">
+            <div class="container">
+                <div class="event__inner-wrap">
+                    <div class="row justify-content-center">
+                        @foreach ($event as $item)
+                            <div class="col-xl-3 col-lg-4 col-md-6">
+                                <div class="event__item shine__animate-item">
+                                    <div class="event__item-thumb">
+                                        <a href="{{ route('event_detail', ['id' => $item->id]) }}"
+                                            class="shine__animate-link">
+                                            <img src="{{ asset('public/uploads/events/' . $item->gambar) }}" alt="img"
+                                                loading="lazy">
+                                        </a>
+                                    </div>
+                                    <div class="event__item-content">
+                                        <span class="date">{{ Carbon::parse($item->tgl)->format('d - F - Y') }}</span>
+                                        <h2 class="title event-name">
+                                            <a
+                                                href="{{ route('event_detail', ['id' => $item->id]) }}">{{ $item->name }}</a>
+                                        </h2>
+                                        <a href="{{ $item->link_maps }}" class="location" target="_blank">
+                                            <i class="flaticon-map"></i>{{ $item->lokasi }}
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    </div>
+                    <nav class="pagination__wrap mt-30">
+                        {{ $event->links($paginationView) }}
+                    </nav>
                 </div>
-                <nav class="pagination__wrap mt-30">
-                    {{ $event->links($paginationView) }}
-                </nav>
+            </div>
+        </section>
+        <!-- event-area-end -->
+
+    @endif
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-title text-center">
+
+                    <p>Belum Ada Event yang Akan di Selengarakan</p>
+                </div>
             </div>
         </div>
-    </section>
-
-
-    <!-- event-area-end -->
+    </div>
     <script>
         // Mengatur tinggi untuk elemen event-name
         var eventNames = document.querySelectorAll('.event-name');
