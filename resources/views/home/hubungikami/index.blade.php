@@ -61,8 +61,9 @@
                                 </div>
                                 <div class="content">
                                     <h4 class="title">Telepon</h4>
-                                    <a href="tel:{{ $contactUs->telepon[0] }}">{{ $contactUs->telepon[0] }}</a>
+                                    <a href="tel:{{ $contactUs->telepon }}">{{ $contactUs->telepon }}</a>
                                 </div>
+
 
                             </li>
                             <li>
