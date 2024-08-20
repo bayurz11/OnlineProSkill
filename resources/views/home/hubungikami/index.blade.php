@@ -51,8 +51,8 @@
                                     <img src="public/assets/img/icons/map.svg" alt="img" class="injectable">
                                 </div>
                                 <div class="content">
-                                    <h4 class="title">Address</h4>
-                                    <p>Awamileaug Drive, Kensington <br> London, UK</p>
+                                    <h4 class="title">Alamat</h4>
+                                    <p>{{ $contactUs->alamat }}</p>
                                 </div>
                             </li>
                             <li>
