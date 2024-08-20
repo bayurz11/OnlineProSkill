@@ -14,6 +14,6 @@ class HubungiKamiSettingController extends Controller
             return redirect()->route('/');
         }
 
-        return view('admin.setting.contactus', compact('user'));
+        return view('admin.PengaturanUmum.contactUs', compact('user'));
     }
 }
