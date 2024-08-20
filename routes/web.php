@@ -152,6 +152,7 @@ Route::middleware('isAdmin')->group(function () {
     Route::post('/contactus/store', [HubungiKamiSettingController::class, 'store'])->name('contactus.store');
     Route::get('/contact/{id}/edit', [HubungiKamiSettingController::class, 'edit'])->name('contact.edit');
     Route::put('/contact/{id}/update', [HubungiKamiSettingController::class, 'update'])->name('contact.update');
+    Route::delete('/contact/{id}/destroy', [HubungiKamiSettingController::class, 'destroy'])->name('contact.destroy');
 });
 
 //*********STUDEN*********//
