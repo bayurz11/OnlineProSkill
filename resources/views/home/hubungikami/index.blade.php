@@ -59,18 +59,11 @@
                                 <div class="icon">
                                     <img src="public/assets/img/icons/contact_phone.svg" alt="img" class="injectable">
                                 </div>
-                                @php
-                                    // Memecah string nomor telepon menjadi array
-                                    $teleponArray = explode(',', $contactUs->telepon);
-                                @endphp
-
                                 <div class="content">
                                     <h4 class="title">Telepon</h4>
-                                    @foreach ($teleponArray as $telepon)
-                                        {{ $teleponArray[0] }}
-                                    @endforeach
+                                    <a href="{{ $contactUs->telepon }}">{{ $contactUs->telepon }}</a>
+                                    <a href="tel:0123456789">+1 (800) 123 456 789</a>
                                 </div>
-
                             </li>
                             <li>
                                 <div class="icon">
