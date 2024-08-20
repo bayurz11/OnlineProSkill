@@ -61,13 +61,14 @@
                                 </div>
                                 <div class="content">
                                     <h4 class="title">Telepon</h4>
-                                    @if (is_array($contactUs->telepon))
+                                    @if (!empty($contactUs->telepon))
                                         @php
-                                            $phoneNumber = $contactUs->telepon[0];
+                                            // Menghapus tanda kurung siku dan tanda kutip
+                                            $phoneNumber = trim($contactUs->telepon, '[]"');
                                         @endphp
                                         <a href="tel:{{ $phoneNumber }}">{{ $phoneNumber }}</a>
                                     @else
-                                        <a href="tel:{{ $contactUs->telepon }}">{{ $contactUs->telepon }}</a>
+                                        <p>No phone number available</p>
                                     @endif
                                 </div>
 
