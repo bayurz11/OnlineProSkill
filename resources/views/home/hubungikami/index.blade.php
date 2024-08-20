@@ -60,8 +60,8 @@
                                     <img src="public/assets/img/icons/contact_phone.svg" alt="img" class="injectable">
                                 </div>
                                 <div class="content">
-                                    <h4 class="title">Phone</h4>
-                                    <a href="tel:0123456789">+1 (800) 123 456 789</a>
+                                    <h4 class="title">Telepon</h4>
+                                    <a href="{{ $contactUs->telepon }}">{{ $contactUs->telepon }}</a>
                                     <a href="tel:0123456789">+1 (800) 123 456 789</a>
                                 </div>
                             </li>
