@@ -38,4 +38,18 @@ class HubungiKamiSettingController extends Controller
         // Redirect or respond with a success message
         return redirect()->back()->with('success', 'Contact information saved successfully!');
     }
+
+    public function destroy($id)
+    {
+
+        $contactUs = ContactUs::find($id);
+
+        if (!$contactUs) {
+            return redirect()->route('settingcontactus')->with('error', 'sertifikat tidak ditemukan');
+        }
+
+        $contactUs->delete();
+
+        return redirect()->route('settingcontactus')->with('success', 'sertifikat berhasil dihapus');
+    }
 }
