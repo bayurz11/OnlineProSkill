@@ -488,7 +488,7 @@
                             </div>
                             <div class="testimonial__author testimonial__author-two">
                                 <div class="testimonial__author-thumb testimonial__author-thumb-two">
-                                    <img src="assets/img/others/testi_author02.png" alt="img">
+                                    <img src="public/assets/img/others/testi_author02.png" alt="img">
                                 </div>
                                 <div class="testimonial__author-content testimonial__author-content-two">
                                     <h2 class="title">Jenny Wilson</h2>
