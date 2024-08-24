@@ -412,8 +412,8 @@
             <div class="row align-items-center">
                 <div class="col-xl-5 col-lg-6 col-md-8">
                     <div class="section__title mb-50">
-                        <span class="sub-title">Our Testimonials</span>
-                        <h2 class="title">What Students Think and Say About SkillGrow</h2>
+                        <span class="sub-title">Testimonial Kami</span>
+                        <h2 class="title">Apa yang Siswa Pikirkan dan Katakan Tentang ProSkill</h2>
                     </div>
                 </div>
                 <div class="col-xl-7 col-lg-6 col-md-4">
