@@ -406,90 +406,133 @@
     @endif
 
     <!-- testimonial-area -->
-    <section class="testimonial__area-five section-pb-120">
+    <section class="testimonial__area-six section-py-140 testimonial__bg-three"
+        data-background="public/assets/img/bg/h8_testimonial_bg.jpg">
         <div class="container">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-xl-6 col-lg-6 col-md-8">
-                    <div class="testimonial__img-three testimonial__img-four tg-svg">
-                        <img src="public/assets/img/others/h7_testimonial_img.png" alt="img">
-                        <div class="banner__review" data-aos="fade-right" data-aos-delay="400">
-                            <div class="icon">
-                                <img src="public/assets/img/icons/star.svg" alt="" class="injectable">
-                            </div>
-                            <h6 class="title">4.9/5 <span>Real Reviews</span></h6>
-                        </div>
-                        <div class="testimonial__img-icon">
-                            <img src="public/assets/img/icons/quote02.svg" alt="" class="injectable">
-                        </div>
-                        <span class="svg-icon" id="testimonial-svg-two"
-                            data-svg-icon="public/assets/img/others/h7_testimonial_img_shape.svg"></span>
+            <div class="row align-items-center">
+                <div class="col-xl-5 col-lg-6 col-md-8">
+                    <div class="section__title mb-50">
+                        <span class="sub-title">Our Testimonials</span>
+                        <h2 class="title">What Students Think and Say About SkillGrow</h2>
                     </div>
                 </div>
-                <div class="col-xl-6 col-lg-6">
-                    <div class="testimonial__content-three testimonial__content-four">
-                        <div class="section__title mb-25">
-                            <span class="sub-title">Testimonials</span>
-                            <h2 class="title bold">What’s our client Say <br> About us</h2>
-                        </div>
-                        <div class="swiper-container testimonial-active-four">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="testimonial__item-four">
-                                        <div class="rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <p>“ Manage and strea mline operations tear acrosers multiple locations wear sales
-                                            channels, and employees improve efficiency stre sales channe amline ”</p>
-                                        <div class="testimonial__bottom-two">
-                                            <h4 class="title">Brooklyn Simmons</h4>
-                                            <span>Engineer</span>
-                                        </div>
-                                    </div>
+                <div class="col-xl-7 col-lg-6 col-md-4">
+                    <div class="testimonial__nav-two">
+                        <button class="testimonial-button-prev"><i class="skillgro-right-arrow"></i></button>
+                        <button class="testimonial-button-next"><i class="skillgro-right-arrow"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-container testimonial-active-five">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="testimonial__item-two testimonial__item-five">
+                            <div class="testimonial__content-two">
+                                <h2 class="title">Great Quality!</h2>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
                                 </div>
-                                <div class="swiper-slide">
-                                    <div class="testimonial__item-four">
-                                        <div class="rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <p>“ Manage and strea mline operations tear acrosers multiple locations wear sales
-                                            channels, and employees improve efficiency stre sales channe amline ”</p>
-                                        <div class="testimonial__bottom-two">
-                                            <h4 class="title">Brooklyn Simmons</h4>
-                                            <span>Engineer</span>
-                                        </div>
-                                    </div>
+                                <p>“ when an unknown printer took alley ffferer area typey and scrambled to make a type
+                                    specimen book hass”</p>
+                            </div>
+                            <div class="testimonial__author testimonial__author-two">
+                                <div class="testimonial__author-thumb testimonial__author-thumb-two">
+                                    <img src="public/assets/img/others/testi_author01.png" alt="img">
                                 </div>
-                                <div class="swiper-slide">
-                                    <div class="testimonial__item-four">
-                                        <div class="rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <p>“ Manage and strea mline operations tear acrosers multiple locations wear sales
-                                            channels, and employees improve efficiency stre sales channe amline ”</p>
-                                        <div class="testimonial__bottom-two">
-                                            <h4 class="title">Brooklyn Simmons</h4>
-                                            <span>Engineer</span>
-                                        </div>
-                                    </div>
+                                <div class="testimonial__author-content testimonial__author-content-two">
+                                    <h2 class="title">Wade Warren</h2>
+                                    <span>Designer</span>
                                 </div>
                             </div>
-                            <div class="testimonial-pagination testimonial-pagination-two"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial__item-two testimonial__item-five">
+                            <div class="testimonial__content-two">
+                                <h2 class="title">Great Quality!</h2>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p>“ when an unknown printer took alley ffferer area typey and scrambled to make a type
+                                    specimen book hass”</p>
+                            </div>
+                            <div class="testimonial__author testimonial__author-two">
+                                <div class="testimonial__author-thumb testimonial__author-thumb-two">
+                                    <img src="public/assets/img/others/testi_author02.png" alt="img">
+                                </div>
+                                <div class="testimonial__author-content testimonial__author-content-two">
+                                    <h2 class="title">Jenny Wilson</h2>
+                                    <span>Designer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial__item-two testimonial__item-five">
+                            <div class="testimonial__content-two">
+                                <h2 class="title">Great Quality!</h2>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p>“ when an unknown printer took alley ffferer area typey and scrambled to make a type
+                                    specimen book hass”</p>
+                            </div>
+                            <div class="testimonial__author testimonial__author-two">
+                                <div class="testimonial__author-thumb testimonial__author-thumb-two">
+                                    <img src="public/assets/img/others/testi_author03.png" alt="img">
+                                </div>
+                                <div class="testimonial__author-content testimonial__author-content-two">
+                                    <h2 class="title">Kristin Watson</h2>
+                                    <span>Designer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial__item-two testimonial__item-five">
+                            <div class="testimonial__content-two">
+                                <h2 class="title">Great Quality!</h2>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p>“ when an unknown printer took alley ffferer area typey and scrambled to make a type
+                                    specimen book hass”</p>
+                            </div>
+                            <div class="testimonial__author testimonial__author-two">
+                                <div class="testimonial__author-thumb testimonial__author-thumb-two">
+                                    <img src="assets/img/others/testi_author02.png" alt="img">
+                                </div>
+                                <div class="testimonial__author-content testimonial__author-content-two">
+                                    <h2 class="title">Jenny Wilson</h2>
+                                    <span>Designer</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="testimonial__shape-wrap-two">
+            <img src="public/assets/img/others/h8_testimonial_shape01.svg" alt="shape" data-aos="fade-down-left"
+                data-aos-delay="400">
+            <img src="public/assets/img/others/h8_testimonial_shape02.svg" alt="shape" data-aos="fade-up-right"
+                data-aos-delay="400">
         </div>
     </section>
     <!-- testimonial-area-end -->
