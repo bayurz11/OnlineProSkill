@@ -429,8 +429,7 @@
                         <div class="testimonial__item-two testimonial__item-five">
                             <div class="testimonial__content-two">
 
-                                <p>“ when an unknown printer took alley ffferer area typey and scrambled to make a type
-                                    specimen book hass”</p>
+                                <p>“ when an unknown ”</p>
                             </div>
                             <div class="testimonial__author testimonial__author-two">
                                 <div class="testimonial__author-thumb testimonial__author-thumb-two">
@@ -447,8 +446,7 @@
                         <div class="testimonial__item-two testimonial__item-five">
                             <div class="testimonial__content-two">
 
-                                <p>“ when an unknown printer took alley ffferer area typey and scrambled to make a type
-                                    specimen book hass”</p>
+                                <p>“ when an unknown printer took alley ffferer”</p>
                             </div>
                             <div class="testimonial__author testimonial__author-two">
                                 <div class="testimonial__author-thumb testimonial__author-thumb-two">
@@ -465,8 +463,7 @@
                         <div class="testimonial__item-two testimonial__item-five">
                             <div class="testimonial__content-two">
 
-                                <p>“ when an unknown printer took alley ffferer area typey and scrambled to make a type
-                                    specimen book hass”</p>
+                                <p>“ when an unknown printer took alley ffferer area typey and hass”</p>
                             </div>
                             <div class="testimonial__author testimonial__author-two">
                                 <div class="testimonial__author-thumb testimonial__author-thumb-two">
@@ -601,6 +598,24 @@
             blogNames.forEach(function(blogName) {
                 blogName.style.height = maxBlogNamesHeight + 'px';
             });
+
+            // Select all testimonial items
+            var testimonialItems = document.querySelectorAll('.testimonial__item-two');
+            var maxTestimonialHeight = 0;
+
+            // Find the maximum height among all testimonial items
+            testimonialItems.forEach(function(testimonialItem) {
+                var height = testimonialItem.offsetHeight;
+                if (height > maxTestimonialHeight) {
+                    maxTestimonialHeight = height;
+                }
+            });
+
+            // Set the maximum height to all testimonial items
+            testimonialItems.forEach(function(testimonialItem) {
+                testimonialItem.style.height = maxTestimonialHeight + 'px';
+            });
+
 
         });
     </script>
