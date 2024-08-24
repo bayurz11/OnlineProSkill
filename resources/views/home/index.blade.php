@@ -404,6 +404,96 @@
         </section>
         <!-- event-area-end -->
     @endif
+
+    <!-- testimonial-area -->
+    <section class="testimonial__area-five section-pb-120">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-xl-6 col-lg-6 col-md-8">
+                    <div class="testimonial__img-three testimonial__img-four tg-svg">
+                        <img src="assets/img/others/h7_testimonial_img.png" alt="img">
+                        <div class="banner__review" data-aos="fade-right" data-aos-delay="400">
+                            <div class="icon">
+                                <img src="assets/img/icons/star.svg" alt="" class="injectable">
+                            </div>
+                            <h6 class="title">4.9/5 <span>Real Reviews</span></h6>
+                        </div>
+                        <div class="testimonial__img-icon">
+                            <img src="assets/img/icons/quote02.svg" alt="" class="injectable">
+                        </div>
+                        <span class="svg-icon" id="testimonial-svg-two"
+                            data-svg-icon="assets/img/others/h7_testimonial_img_shape.svg"></span>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6">
+                    <div class="testimonial__content-three testimonial__content-four">
+                        <div class="section__title mb-25">
+                            <span class="sub-title">Testimonials</span>
+                            <h2 class="title bold">What’s our client Say <br> About us</h2>
+                        </div>
+                        <div class="swiper-container testimonial-active-four">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="testimonial__item-four">
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <p>“ Manage and strea mline operations tear acrosers multiple locations wear sales
+                                            channels, and employees improve efficiency stre sales channe amline ”</p>
+                                        <div class="testimonial__bottom-two">
+                                            <h4 class="title">Brooklyn Simmons</h4>
+                                            <span>Engineer</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="testimonial__item-four">
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <p>“ Manage and strea mline operations tear acrosers multiple locations wear sales
+                                            channels, and employees improve efficiency stre sales channe amline ”</p>
+                                        <div class="testimonial__bottom-two">
+                                            <h4 class="title">Brooklyn Simmons</h4>
+                                            <span>Engineer</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="testimonial__item-four">
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <p>“ Manage and strea mline operations tear acrosers multiple locations wear sales
+                                            channels, and employees improve efficiency stre sales channe amline ”</p>
+                                        <div class="testimonial__bottom-two">
+                                            <h4 class="title">Brooklyn Simmons</h4>
+                                            <span>Engineer</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-pagination testimonial-pagination-two"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- testimonial-area-end -->
+
     <!-- blog-area -->
     <section class="blog__post-area blog__post-area-two">
         <div class="container">
