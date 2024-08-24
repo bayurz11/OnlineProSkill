@@ -428,7 +428,14 @@
                     <div class="swiper-slide">
                         <div class="testimonial__item-two testimonial__item-five">
                             <div class="testimonial__content-two">
-
+                                <h2 class="title">Great Quality!</h2>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
                                 <p>“ when an unknown printer took alley ffferer area typey and scrambled to make a type
                                     specimen book hass”</p>
                             </div>
@@ -446,7 +453,14 @@
                     <div class="swiper-slide">
                         <div class="testimonial__item-two testimonial__item-five">
                             <div class="testimonial__content-two">
-
+                                <h2 class="title">Great Quality!</h2>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
                                 <p>“ when an unknown printer took alley ffferer area typey and scrambled to make a type
                                     specimen book hass”</p>
                             </div>
@@ -464,7 +478,14 @@
                     <div class="swiper-slide">
                         <div class="testimonial__item-two testimonial__item-five">
                             <div class="testimonial__content-two">
-
+                                <h2 class="title">Great Quality!</h2>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
                                 <p>“ when an unknown printer took alley ffferer area typey and scrambled to make a type
                                     specimen book hass”</p>
                             </div>
@@ -482,7 +503,14 @@
                     <div class="swiper-slide">
                         <div class="testimonial__item-two testimonial__item-five">
                             <div class="testimonial__content-two">
-
+                                <h2 class="title">Great Quality!</h2>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
                                 <p>“ when an unknown printer took alley ffferer area typey and scrambled to make a type
                                     specimen book hass”</p>
                             </div>
