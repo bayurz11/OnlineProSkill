@@ -429,13 +429,6 @@
                         <div class="testimonial__item-two testimonial__item-five">
                             <div class="testimonial__content-two">
 
-                                <div class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
                                 <p>“ when an unknown printer took alley ffferer area typey and scrambled to make a type
                                     specimen book hass”</p>
                             </div>
@@ -454,13 +447,6 @@
                         <div class="testimonial__item-two testimonial__item-five">
                             <div class="testimonial__content-two">
 
-                                <div class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
                                 <p>“ when an unknown printer took alley ffferer area typey and scrambled to make a type
                                     specimen book hass”</p>
                             </div>
@@ -479,13 +465,6 @@
                         <div class="testimonial__item-two testimonial__item-five">
                             <div class="testimonial__content-two">
 
-                                <div class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
                                 <p>“ when an unknown printer took alley ffferer area typey and scrambled to make a type
                                     specimen book hass”</p>
                             </div>
@@ -504,13 +483,6 @@
                         <div class="testimonial__item-two testimonial__item-five">
                             <div class="testimonial__content-two">
 
-                                <div class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
                                 <p>“ when an unknown printer took alley ffferer area typey and scrambled to make a type
                                     specimen book hass”</p>
                             </div>
