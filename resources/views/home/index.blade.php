@@ -500,30 +500,35 @@
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="testimonial__item-two testimonial__item-five">
-                            <div class="testimonial__content-two">
-                                <h2 class="title">Great Quality!</h2>
-                                <div class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <p>“ when an unknown ”</p>
+                    <div
+                        style="background-color: #f9f9f9; border-radius: 10px; padding: 20px; max-width: 300px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <h3 style="color: #1a7731; margin: 0;">Great Quality!</h3>
+                            <div style="color: #ffcc00;">
+                                <span>&#9733;</span>
+                                <span>&#9733;</span>
+                                <span>&#9733;</span>
+                                <span>&#9733;</span>
+                                <span>&#9733;</span>
                             </div>
-                            <div class="testimonial__author testimonial__author-two">
-                                <div class="testimonial__author-thumb testimonial__author-thumb-two">
-                                    <img src="public/assets/img/others/testi_author02.png" alt="img">
-                                </div>
-                                <div class="testimonial__author-content testimonial__author-content-two">
-                                    <h2 class="title">Jenny Wilson</h2>
-                                    <span>Designer</span>
-                                </div>
+                        </div>
+                        <p style="font-style: italic; color: #555; margin: 0 0 20px;">
+                            “when an unknown printer took alley fferrer area typey and scrambled to make a type specimen
+                            book hass”
+                        </p>
+                        <div style="display: flex; align-items: center;">
+                            <div
+                                style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; margin-right: 10px;">
+                                <img src="avatar-placeholder.png" alt="User Avatar" style="width: 100%; height: auto;">
+                            </div>
+                            <div>
+                                <h4 style="margin: 0; font-size: 1.1em; color: #333;">Kristin Watson</h4>
+                                <p style="margin: 0; color: #777;">Designer</p>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
