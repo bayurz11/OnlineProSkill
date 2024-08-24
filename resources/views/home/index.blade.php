@@ -511,8 +511,7 @@
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                 </div>
-                                <p>“ when an unknown printer took alley ffferer area typey and scrambled to make a type
-                                    specimen book hass”</p>
+                                <p>“ when an unknown ”</p>
                             </div>
                             <div class="testimonial__author testimonial__author-two">
                                 <div class="testimonial__author-thumb testimonial__author-thumb-two">
