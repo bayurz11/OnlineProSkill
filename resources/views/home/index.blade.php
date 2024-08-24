@@ -528,8 +528,10 @@
                 </div>
             </div>
         </div>
-        <div class="event__shape">
-            <img src="public/assets/img/events/event_shape.png" alt="img" class="alltuchtopdown" loading="lazy">
+        <div class="testimonial__shape-wrap-two">
+            <img src="public/assets/img/events/event_shape.png" alt="shape" class="alltuchtopdown" loading="lazy"
+                data-aos="fade-down-left" data-aos-delay="400">
+
         </div>
     </section>
     <!-- testimonial-area-end -->
