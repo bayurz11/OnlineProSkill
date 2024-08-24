@@ -532,7 +532,7 @@
             <img src="public/assets/img/events/event_shape.png" alt="shape" class="alltuchtopdown" loading="lazy"
                 data-aos="fade-down-left" data-aos-delay="400">
             <img src="public/assets/img/events/event_shape.png" alt="shape" data-aos="fade-up-right"
-                data-aos-delay="400">
+                class="alltuchtopdown" loading="lazy" data-aos-delay="400">
         </div>
     </section>
     <!-- testimonial-area-end -->
