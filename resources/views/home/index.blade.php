@@ -429,7 +429,8 @@
                         <div class="testimonial__item-two testimonial__item-five">
                             <div class="testimonial__content-two">
 
-                                <p>“ when an unknown ”</p>
+                                <p>“ when an unknown printer took alley ffferer area typey and scrambled to make a type
+                                    specimen book hass”</p>
                             </div>
                             <div class="testimonial__author testimonial__author-two">
                                 <div class="testimonial__author-thumb testimonial__author-thumb-two">
@@ -446,7 +447,8 @@
                         <div class="testimonial__item-two testimonial__item-five">
                             <div class="testimonial__content-two">
 
-                                <p>“ when an unknown printer took alley ffferer”</p>
+                                <p>“ when an unknown printer took alley ffferer area typey and scrambled to make a type
+                                    specimen book hass”</p>
                             </div>
                             <div class="testimonial__author testimonial__author-two">
                                 <div class="testimonial__author-thumb testimonial__author-thumb-two">
@@ -463,7 +465,8 @@
                         <div class="testimonial__item-two testimonial__item-five">
                             <div class="testimonial__content-two">
 
-                                <p>“ when an unknown printer took alley ffferer area typey and hass”</p>
+                                <p>“ when an unknown printer took alley ffferer area typey and scrambled to make a type
+                                    specimen book hass”</p>
                             </div>
                             <div class="testimonial__author testimonial__author-two">
                                 <div class="testimonial__author-thumb testimonial__author-thumb-two">
@@ -614,27 +617,6 @@
             // Set the maximum height to all testimonial items
             testimonialItems.forEach(function(testimonialItem) {
                 testimonialItem.style.height = maxTestimonialHeight + 'px';
-            });
-            document.addEventListener("DOMContentLoaded", function() {
-                var testimonialItems = document.querySelectorAll('.testimonial__item-two');
-
-                testimonialItems.forEach(function(item) {
-                    var authorContent = item.querySelector('.testimonial__author-content-two');
-                    var contentHeight = item.querySelector('.testimonial__content-two')
-                    .offsetHeight;
-                    var itemHeight = item.offsetHeight;
-
-                    // Jika tidak ada teks, maka kita tempatkan authorContent di bagian bawah
-                    if (contentHeight === 0) {
-                        authorContent.style.position = 'absolute';
-                        authorContent.style.bottom = '0';
-                        authorContent.style.width = '100%';
-                    } else {
-                        // Jika ada teks, pastikan authorContent tetap di bawah teks
-                        authorContent.style.position = 'relative';
-                        authorContent.style.bottom = 'auto';
-                    }
-                });
             });
 
 
