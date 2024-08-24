@@ -615,6 +615,27 @@
             testimonialItems.forEach(function(testimonialItem) {
                 testimonialItem.style.height = maxTestimonialHeight + 'px';
             });
+            document.addEventListener("DOMContentLoaded", function() {
+                var testimonialItems = document.querySelectorAll('.testimonial__item-two');
+
+                testimonialItems.forEach(function(item) {
+                    var authorContent = item.querySelector('.testimonial__author-content-two');
+                    var contentHeight = item.querySelector('.testimonial__content-two')
+                    .offsetHeight;
+                    var itemHeight = item.offsetHeight;
+
+                    // Jika tidak ada teks, maka kita tempatkan authorContent di bagian bawah
+                    if (contentHeight === 0) {
+                        authorContent.style.position = 'absolute';
+                        authorContent.style.bottom = '0';
+                        authorContent.style.width = '100%';
+                    } else {
+                        // Jika ada teks, pastikan authorContent tetap di bawah teks
+                        authorContent.style.position = 'relative';
+                        authorContent.style.bottom = 'auto';
+                    }
+                });
+            });
 
 
         });
