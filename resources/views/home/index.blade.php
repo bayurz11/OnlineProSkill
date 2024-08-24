@@ -411,18 +411,18 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-xl-6 col-lg-6 col-md-8">
                     <div class="testimonial__img-three testimonial__img-four tg-svg">
-                        <img src="assets/img/others/h7_testimonial_img.png" alt="img">
+                        <img src="public/assets/img/others/h7_testimonial_img.png" alt="img">
                         <div class="banner__review" data-aos="fade-right" data-aos-delay="400">
                             <div class="icon">
-                                <img src="assets/img/icons/star.svg" alt="" class="injectable">
+                                <img src="public/assets/img/icons/star.svg" alt="" class="injectable">
                             </div>
                             <h6 class="title">4.9/5 <span>Real Reviews</span></h6>
                         </div>
                         <div class="testimonial__img-icon">
-                            <img src="assets/img/icons/quote02.svg" alt="" class="injectable">
+                            <img src="public/assets/img/icons/quote02.svg" alt="" class="injectable">
                         </div>
                         <span class="svg-icon" id="testimonial-svg-two"
-                            data-svg-icon="assets/img/others/h7_testimonial_img_shape.svg"></span>
+                            data-svg-icon="public/assets/img/others/h7_testimonial_img_shape.svg"></span>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6">
