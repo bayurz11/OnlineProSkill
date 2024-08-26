@@ -427,43 +427,6 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="testimonial__item-two testimonial__item-five">
-                            <div class="testimonial__content-two">
-                                <h2 class="title">Great Quality!</h2>
-                                <div class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <p>“ when an unknown printer took alley ffferer area typey and scrambled to make a type
-                                    specimen book hass”</p>
-                            </div>
-                            <div class="testimonial__author testimonial__author-two">
-                                <div class="testimonial__author-thumb testimonial__author-thumb-two">
-                                    <img src="public/assets/img/others/testi_author01.png" alt="img">
-                                </div>
-                                <div class="testimonial__author-content testimonial__author-content-two">
-                                    <h2 class="title">Wade Warren</h2>
-                                    <span>Designer</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="testimonial__item-two testimonial__item-five">
-                            <div class="testimonial__content-two">
-                                <h2 class="title">Great Quality!</h2>
-                                <div class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <p>“ when an unknown printer took alley ffferer area typey and scrambled to make a type
-                                    specimen book hass”</p>
-                            </div>
                             <div class="testimonial__author testimonial__author-two">
                                 <div class="testimonial__author-thumb testimonial__author-thumb-two">
                                     <img src="public/assets/img/others/testi_author02.png" alt="img">
@@ -472,11 +435,7 @@
                                     <h2 class="title">Jenny Wilson</h2>
                                     <span>Designer</span>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="testimonial__item-two testimonial__item-five">
+                            </div> <br>
                             <div class="testimonial__content-two">
                                 <h2 class="title">Great Quality!</h2>
                                 <div class="rating">
@@ -489,15 +448,59 @@
                                 <p>“ when an unknown printer took alley ffferer area typey and scrambled to make a type
                                     specimen book hass”</p>
                             </div>
+
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial__item-two testimonial__item-five">
                             <div class="testimonial__author testimonial__author-two">
                                 <div class="testimonial__author-thumb testimonial__author-thumb-two">
-                                    <img src="public/assets/img/others/testi_author03.png" alt="img">
+                                    <img src="public/assets/img/others/testi_author02.png" alt="img">
                                 </div>
                                 <div class="testimonial__author-content testimonial__author-content-two">
-                                    <h2 class="title">Kristin Watson</h2>
+                                    <h2 class="title">Jenny Wilson</h2>
                                     <span>Designer</span>
                                 </div>
+                            </div> <br>
+                            <div class="testimonial__content-two">
+                                <h2 class="title">Great Quality!</h2>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p>“ when an unknown printer took alley ffferer area typey and scrambled to make a type
+                                    specimen book hass”</p>
                             </div>
+
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial__item-two testimonial__item-five">
+                            <div class="testimonial__author testimonial__author-two">
+                                <div class="testimonial__author-thumb testimonial__author-thumb-two">
+                                    <img src="public/assets/img/others/testi_author02.png" alt="img">
+                                </div>
+                                <div class="testimonial__author-content testimonial__author-content-two">
+                                    <h2 class="title">Jenny Wilson</h2>
+                                    <span>Designer</span>
+                                </div>
+                            </div> <br>
+                            <div class="testimonial__content-two">
+                                <h2 class="title">Great Quality!</h2>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p>“ when an unknown printer took alley ffferer area typey and scrambled to make a type
+                                    specimen book hass”</p>
+                            </div>
+
                         </div>
                     </div>
                     <div class="swiper-slide">
