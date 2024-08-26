@@ -110,50 +110,6 @@ class PaymentController extends Controller
     }
 
 
-    // public function success($uuid)
-    // {
-    //     $apiInstance = new InvoiceApi();
-    //     $result = $apiInstance->getInvoices(null, $uuid);
-
-    //     // Ambil semua pesanan yang cocok dengan external_id
-    //     $orders = Order::where('external_id', $uuid)->get();
-
-    //     if ($orders->isEmpty()) {
-    //         return redirect()->route('cart.view')->with('error', 'Pesanan tidak ditemukan.');
-    //     }
-
-    //     foreach ($orders as $order) {
-    //         if ($order->status == 'settled') {
-    //             // Mengosongkan cart di dalam session
-    //             session()->forget('cart');
-
-    //             // Tambahkan notifikasi untuk pengguna
-    //             Notifikasiuser::create([
-    //                 'user_id' => $order->user_id,
-    //                 'status' => 1,
-    //                 'message' => 'Pembayaran berhasil di proses'
-    //             ]);
-
-    //             return response()->json('Pembayaran berhasil di proses');
-    //         }
-
-    //         //update status
-    //         $order->status = $result[0]['status'];
-    //         $order->save();
-    //     }
-
-    //     // Mengosongkan cart di dalam session
-    //     session()->forget('cart');
-
-    //     // Tambahkan notifikasi untuk pengguna
-    //     NotifikasiUser::create([
-    //         'user_id' => $orders->first()->user_id,
-    //         'status' => 1,
-    //         'message' => 'Pembayaran Berhasil'
-    //     ]);
-
-    //     return redirect()->route('classroom')->with('success', 'Pembayaran Berhasil');
-    // } 11-07-24
     public function success($uuid)
     {
         $apiInstance = new InvoiceApi();
