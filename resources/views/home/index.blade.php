@@ -515,14 +515,7 @@
                                 </div>
                             </div> <br>
                             <div class="testimonial__content-two">
-                                <h2 class="title">Great Quality!</h2>
-                                <div class="rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
+
                                 <p>“ when an unknown ”</p>
                             </div>
 
