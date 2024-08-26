@@ -510,16 +510,16 @@
                                     <h2 class="title">Jenny Wilson</h2>
                                     <span>Designer</span>
                                 </div>
-                            </div>
+                            </div> <br>
                             <div class="testimonial__content-two">
-                                {{-- <h2 class="title">Great Quality!</h2>
+                                <h2 class="title">Great Quality!</h2>
                                 <div class="rating">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
-                                </div> --}}
+                                </div>
                                 <p>“ when an unknown ”</p>
                             </div>
 
