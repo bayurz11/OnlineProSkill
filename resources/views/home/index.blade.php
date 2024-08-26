@@ -654,7 +654,7 @@
                     delay: 0, // No delay between transitions
                     disableOnInteraction: false,
                 },
-                speed: 2000, // Adjust the speed to control how fast the marquee scrolls
+                speed: 200, // Adjust the speed to control how fast the marquee scrolls
                 breakpoints: {
                     320: {
                         slidesPerView: 1,
