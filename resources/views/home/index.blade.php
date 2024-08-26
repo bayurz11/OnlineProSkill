@@ -521,6 +521,8 @@
                 </div>
             </div>
         </div>
+
+
         <div class="testimonial__shape-wrap-two">
             <img src="public/assets/img/events/event_shape.png" alt="shape" class="alltuchtopdown" loading="lazy"
                 data-aos="fade-down-left" data-aos-delay="400">
