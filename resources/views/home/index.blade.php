@@ -502,6 +502,15 @@
                     </div>
                     <div class="swiper-slide">
                         <div class="testimonial__item-two testimonial__item-five">
+                            <div class="testimonial__author testimonial__author-two">
+                                <div class="testimonial__author-thumb testimonial__author-thumb-two">
+                                    <img src="public/assets/img/others/testi_author02.png" alt="img">
+                                </div>
+                                <div class="testimonial__author-content testimonial__author-content-two">
+                                    <h2 class="title">Jenny Wilson</h2>
+                                    <span>Designer</span>
+                                </div>
+                            </div>
                             <div class="testimonial__content-two">
                                 <h2 class="title">Great Quality!</h2>
                                 <div class="rating">
@@ -513,15 +522,7 @@
                                 </div>
                                 <p>“ when an unknown ”</p>
                             </div>
-                            <div class="testimonial__author testimonial__author-two">
-                                <div class="testimonial__author-thumb testimonial__author-thumb-two">
-                                    <img src="public/assets/img/others/testi_author02.png" alt="img">
-                                </div>
-                                <div class="testimonial__author-content testimonial__author-content-two">
-                                    <h2 class="title">Jenny Wilson</h2>
-                                    <span>Designer</span>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
