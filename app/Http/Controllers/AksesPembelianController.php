@@ -367,7 +367,7 @@ class AksesPembelianController extends Controller
         }
 
         // Ambil link dan product_id dari sertifikat
-        $sertifikatId = $sertifikat->sertifikat_id;
+        $sertifikat_id = $sertifikat->sertifikat_id;
         $link = $sertifikat->link;
         $productId = $sertifikat->product_id;
 
@@ -384,6 +384,6 @@ class AksesPembelianController extends Controller
         $qrCode = QrCode::size(300)->generate($link);
 
         // Setelah menemukan sertifikat, arahkan pengguna ke view sertifikat
-        return view('home.sertifikat.cetak', compact('sertifikat', 'qrCode', 'user', 'profile', 'productId', 'namaKursus', 'sertifikatId'));
+        return view('home.sertifikat.cetak', compact('sertifikat', 'qrCode', 'user', 'profile', 'productId', 'namaKursus', 'sertifikat_id'));
     }
 }
