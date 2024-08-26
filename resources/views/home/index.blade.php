@@ -654,11 +654,7 @@
                     delay: 2000, // Set delay to 2000ms (2 seconds)
                     disableOnInteraction: false,
                 },
-                speed: 1000, // Adjust the speed to control how fast the transition scrolls
-                effect: 'slide', // Try 'fade', 'cube', 'coverflow', 'flip' for different effects
-                preloadImages: true,
-                updateOnWindowResize: true,
-                loopAdditionalSlides: 3, // Add extra slides for smoother looping
+                speed: 2000, // Adjust the speed to control how fast the marquee scrolls
                 breakpoints: {
                     320: {
                         slidesPerView: 1,
@@ -677,7 +673,6 @@
             });
         });
     </script>
-
 
 
 @endsection
