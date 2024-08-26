@@ -137,6 +137,7 @@
             <h2>{{ $sertifikat->name }}</h2>
             <p>Atas Kelulusannya Pada Kelas</p>
             <h3>{{ $sertifikat->course->nama_kursus }}</h3>
+
         </div>
     </div>
 </body>
