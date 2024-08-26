@@ -136,7 +136,8 @@ class SertifikatController extends Controller
     {
         // Temukan sertifikat berdasarkan ID
         $sertifikat = Sertifikat::findOrFail($id);
-        $CourseMaster = CourseMaster::all();
+
+
         // Pastikan sertifikat ditemukan
         if (!$sertifikat) {
             return response()->json(['message' => 'Sertifikat tidak ditemukan'], 404);
@@ -149,6 +150,6 @@ class SertifikatController extends Controller
         $qrCode = QrCode::size(300)->generate($link);
 
         // Setelah menemukan sertifikat, arahkan pengguna ke view sertifikat
-        return view('admin.sertifikat.cetak', compact('sertifikat', 'qrCode', 'CourseMaster'));
+        return view('admin.sertifikat.cetak', compact('sertifikat', 'qrCode'));
     }
 }
