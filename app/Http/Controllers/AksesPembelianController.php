@@ -357,17 +357,18 @@ class AksesPembelianController extends Controller
     {
         $user = Auth::user();
         $profile = UserProfile::where('user_id', $user->id)->first();
+
         // Temukan sertifikat berdasarkan user_id dan sertifikat_id
         $sertifikat = Sertifikat::where('user_id', $user->id)->first();
-
 
         // Cek apakah sertifikat ditemukan
         if (!$sertifikat) {
             return response()->json(['message' => 'Sertifikat tidak ditemukan'], 404);
         }
 
-        // Ambil link dari sertifikat
+        // Ambil link dan product_id dari sertifikat
         $link = $sertifikat->link;
+        $productId = $sertifikat->product_id;
 
         // Cek apakah $link null atau tidak
         if (is_null($link)) {
@@ -378,6 +379,6 @@ class AksesPembelianController extends Controller
         $qrCode = QrCode::size(300)->generate($link);
 
         // Setelah menemukan sertifikat, arahkan pengguna ke view sertifikat
-        return view('home.sertifikat.cetak', compact('sertifikat', 'qrCode', 'user', 'profile'));
+        return view('home.sertifikat.cetak', compact('sertifikat', 'qrCode', 'user', 'profile', 'productId'));
     }
 }
