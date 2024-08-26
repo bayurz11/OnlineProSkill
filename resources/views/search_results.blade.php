@@ -276,7 +276,7 @@
                                             </div>
                                         </div>
                                         <nav class="pagination__wrap mt-30">
-                                            {{ $cours->links($paginationView) }}
+                                            {{ $results->links($paginationView) }}
                                         </nav>
                                     @endforeach
                                 </div>
@@ -338,7 +338,7 @@
                                             </div>
                                         </div>
                                         <nav class="pagination__wrap mt-30">
-                                            {{ $cours->links($paginationView) }}
+                                            {{ $results->links($paginationView) }}
                                         </nav>
                                     @endforeach
                                 </div>
