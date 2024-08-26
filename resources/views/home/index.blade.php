@@ -498,7 +498,7 @@
 
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    {{-- <div class="swiper-slide">
                         <div class="testimonial__item-two testimonial__item-five">
                             <div class="testimonial__author testimonial__author-two">
                                 <div class="testimonial__author-thumb testimonial__author-thumb-two">
@@ -517,7 +517,7 @@
                             </div>
 
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
