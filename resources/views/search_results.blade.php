@@ -276,10 +276,10 @@
                                             </div>
                                         </div>
                                     @endforeach
-                                    <nav class="pagination__wrap mt-30">
-                                        {{ $results->links($paginationView) }}
-                                    </nav>
                                 </div>
+                                <nav class="pagination__wrap mt-30">
+                                    {{ $results->links($paginationView) }}
+                                </nav>
                             </div>
 
                             <div class="tab-pane fade" id="list" role="tabpanel" aria-labelledby="list-tab">
