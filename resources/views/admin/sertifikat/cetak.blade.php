@@ -87,8 +87,8 @@
         }
 
         .qr svg {
-            width: 180px;
-            height: 180px;
+            width: 150px;
+            height: 150px;
 
         }
 
