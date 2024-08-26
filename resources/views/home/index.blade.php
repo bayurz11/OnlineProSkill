@@ -647,31 +647,18 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             var swiper = new Swiper(".testimonial-active-five", {
-                slidesPerView: 3,
-                spaceBetween: 30,
-                loop: true,
+                slidesPerView: "auto", // Allows multiple slides per view without a fixed number
+                spaceBetween: 30, // Adjusts space between slides
+                loop: true, // Enables looping of slides
+                freeMode: true, // Enables continuous scrolling without snapping to slides
+                speed: 5000, // Adjusts the speed of scrolling; increase or decrease as needed
                 autoplay: {
                     delay: 0, // No delay between transitions
-                    disableOnInteraction: false,
-                },
-                speed: 2000, // Adjust the speed to control how fast the marquee scrolls
-                breakpoints: {
-                    320: {
-                        slidesPerView: 1,
-                    },
-                    768: {
-                        slidesPerView: 2,
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                    },
-                },
-                navigation: {
-                    nextEl: ".testimonial-button-next",
-                    prevEl: ".testimonial-button-prev",
+                    disableOnInteraction: false, // Autoplay won't stop on interaction
                 },
             });
         });
     </script>
+
 
 @endsection
