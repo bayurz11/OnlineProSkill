@@ -423,9 +423,9 @@
                     </div>
                 </div>
             </div>
-            <div class="marquee_mode">
-                <div class="swiper-container testimonial-active-five">
-                    <div class="swiper-wrapper">
+            <div class="swiper-container testimonial-active-five">
+                <div class="swiper-wrapper">
+                    <div class="marquee_mode">
                         <div class="swiper-slide">
                             <div class="testimonial__item-two testimonial__item-five">
                                 <div class="testimonial__author testimonial__author-two">
@@ -518,8 +518,7 @@
                                 </p>
                             </div>
 
-                        </div>
-                    </div> --}}
+                        </div> --}}
                     </div>
                 </div>
             </div>
