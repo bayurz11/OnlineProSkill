@@ -138,7 +138,7 @@
             <div class="qr">{!! $qrCode !!}</div>
             <h2>{{ $user->name }}</h2>
             <p>Atas Kelulusannya Pada Kelas</p>
-            <h3>{{ $productId }}</h3>
+            <h3> {{ $namaKursus }}</h3>
         </div>
     </div>
 
