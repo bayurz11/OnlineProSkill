@@ -236,6 +236,7 @@ Route::get('/blog_detail/{id}', [BlogController::class, 'blogDetail'])->name('bl
 
 //Hubungi Kami
 Route::get('/hubungikami', [HubungiKamiController::class, 'index'])->name('hubungikami');
+
 //sertifikat
 Route::get('/cetak_sertifikat/{id}', [SertifikatController::class, 'cetakSertifikat'])->name('cetak_sertifikat');
 Route::get('/print/{id}', [SertifikatController::class, 'printCertificate'])->name('print');
