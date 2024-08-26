@@ -366,14 +366,13 @@ class AksesPembelianController extends Controller
             return response()->json(['message' => 'Sertifikat tidak ditemukan'], 404);
         }
 
-        // Ambil sertifikat_id, link, dan product_id dari sertifikat
-        $sertifikatId = $sertifikat->sertifikat_id;
+        // Ambil link dan product_id dari sertifikat
         $link = $sertifikat->link;
         $productId = $sertifikat->product_id;
 
         // Ambil nama_kursus dari kursus menggunakan relasi
-        $kursus = $sertifikat->kursus;
-        $namaKursus = $kursus ? $kursus->nama_kursus : 'Nama kursus tidak ditemukan';
+        $course = $sertifikat->course;
+        $namaKursus = $course ? $course->nama_kursus : 'Nama kursus tidak ditemukan';
 
         // Cek apakah $link null atau tidak
         if (is_null($link)) {
@@ -384,6 +383,6 @@ class AksesPembelianController extends Controller
         $qrCode = QrCode::size(300)->generate($link);
 
         // Setelah menemukan sertifikat, arahkan pengguna ke view sertifikat
-        return view('home.sertifikat.cetak', compact('sertifikat', 'qrCode', 'user', 'profile', 'sertifikatId', 'productId', 'namaKursus'));
+        return view('home.sertifikat.cetak', compact('sertifikat', 'qrCode', 'user', 'profile', 'productId', 'namaKursus'));
     }
 }
