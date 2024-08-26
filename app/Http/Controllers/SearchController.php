@@ -151,7 +151,7 @@ class SearchController extends Controller
                     return $query->orderBy('price', 'asc');
                 }
             })
-            ->paginate(10); // Change this line to use pagination, set 10 items per page
+            ->paginate(6); // Change this line to use pagination, set 10 items per page
 
         // Ambil notifikasi untuk pengguna yang sedang login
         $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
