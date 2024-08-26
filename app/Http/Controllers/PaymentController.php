@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Order;
 use Xendit\Configuration;
+use App\Models\Sertifikat;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\KelasTatapMuka;
@@ -110,6 +111,46 @@ class PaymentController extends Controller
     }
 
 
+    // public function success($uuid)
+    // {
+    //     $apiInstance = new InvoiceApi();
+    //     $result = $apiInstance->getInvoices(null, $uuid);
+
+    //     $orders = Order::where('external_id', $uuid)->get();
+
+    //     if ($orders->isEmpty()) {
+    //         return redirect()->route('cart.view')->with('error', 'Pesanan tidak ditemukan.');
+    //     }
+
+    //     foreach ($orders as $order) {
+
+    //         $order->status = $result[0]['status'];
+    //         $order->save();
+
+    //         if ($order->status == 'SETTLED') {
+
+    //             session()->forget('cart');
+
+    //             Notifikasiuser::create([
+    //                 'user_id' => $order->user_id,
+    //                 'status' => 1,
+    //                 'message' => 'Pembayaran berhasil di proses'
+    //             ]);
+
+    //             return redirect()->route('akses_pembelian')->with('success', 'Pembayaran berhasil di proses');
+    //         }
+    //     }
+
+    //     session()->forget('cart');
+
+    //     NotifikasiUser::create([
+    //         'user_id' => $orders->first()->user_id,
+    //         'status' => 1,
+    //         'message' => 'Pembayaran Berhasil'
+    //     ]);
+
+    //     return redirect()->route('akses_pembelian')->with('success', 'Pembayaran Berhasil');
+    // }260824
     public function success($uuid)
     {
         $apiInstance = new InvoiceApi();
@@ -130,11 +171,26 @@ class PaymentController extends Controller
 
                 session()->forget('cart');
 
-                Notifikasiuser::create([
+                NotifikasiUser::create([
                     'user_id' => $order->user_id,
                     'status' => 1,
                     'message' => 'Pembayaran berhasil di proses'
                 ]);
+
+                // Kirim data ke tabel sertifikat jika user_id sama
+                $product_id = $order->product_id;
+                $user_id = $order->user_id;
+
+                // Cek apakah user_id sudah ada di tabel sertifikat
+                $sertifikat = Sertifikat::where('user_id', $user_id)->first();
+
+                if (!$sertifikat) {
+                    // Jika tidak ada, buat data sertifikat baru
+                    Sertifikat::create([
+                        'user_id' => $user_id,
+                        'product_id' => $product_id,
+                    ]);
+                }
 
                 return redirect()->route('akses_pembelian')->with('success', 'Pembayaran berhasil di proses');
             }
