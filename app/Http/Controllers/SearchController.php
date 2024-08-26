@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Session;
 
 class SearchController extends Controller
 {
+
     // public function search(Request $request)
     // {
     //     $user = Auth::user();
@@ -22,6 +23,12 @@ class SearchController extends Controller
     //     $categori = Categories::all();
     //     $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
     //     $category_ids = $request->input('categories', []);
+    //     $tingkatLevels = KelasTatapMuka::distinct()->pluck('tingkat');
+
+    //     // Menghitung jumlah kursus per tingkat
+    //     $tingkatCounts = KelasTatapMuka::select('tingkat', DB::raw('count(*) as total'))
+    //         ->groupBy('tingkat')
+    //         ->pluck('total', 'tingkat');
 
     //     // Pastikan category_ids adalah array
     //     if (!is_array($category_ids)) {
@@ -30,14 +37,36 @@ class SearchController extends Controller
     //     $category_ids = array_filter($category_ids); // Hapus elemen kosong
 
     //     $search_term = $request->input('search_term');
+    //     $orderby = $request->input('orderby', 'latest'); // Default ke 'latest' jika tidak ada input
+    //     $selectedTingkat = $request->input('tingkat', []);
 
-    //     // Mencari berdasarkan kategori dan term pencarian
+    //     // Pastikan selectedTingkat adalah array
+    //     if (!is_array($selectedTingkat)) {
+    //         $selectedTingkat = explode(',', $selectedTingkat);
+    //     }
+    //     $selectedTingkat = array_filter($selectedTingkat); // Hapus elemen kosong
+
+    //     // Mencari berdasarkan kategori, tingkat, dan term pencarian
     //     $results = KelasTatapMuka::query()
     //         ->when(!empty($category_ids), function ($query) use ($category_ids) {
     //             return $query->whereIn('kategori_id', $category_ids);
     //         })
     //         ->when($search_term, function ($query, $search_term) {
     //             return $query->where('nama_kursus', 'like', '%' . $search_term . '%');
+    //         })
+    //         ->when(!empty($selectedTingkat), function ($query) use ($selectedTingkat) {
+    //             return $query->whereIn('tingkat', $selectedTingkat);
+    //         })
+    //         ->when($orderby, function ($query, $orderby) {
+    //             if ($orderby == 'latest') {
+    //                 return $query->orderBy('created_at', 'desc');
+    //             } elseif ($orderby == 'oldest') {
+    //                 return $query->orderBy('created_at', 'asc');
+    //             } elseif ($orderby == 'highest_price') {
+    //                 return $query->orderBy('price', 'desc');
+    //             } elseif ($orderby == 'lowest_price') {
+    //                 return $query->orderBy('price', 'asc');
+    //             }
     //         })
     //         ->get();
 
@@ -68,9 +97,8 @@ class SearchController extends Controller
     //         ->groupBy('kategori_id')
     //         ->pluck('total', 'kategori_id');
 
-    //     return view('search_results', compact('results', 'categori', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'course', 'categoryCounts', 'category_ids'));
-    // }220724
-
+    //     return view('search_results', compact('results', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'course', 'categoryCounts', 'category_ids', 'tingkatLevels', 'tingkatCounts', 'categori'))->with('paginationView', 'vendor.custom');
+    // }260824
     public function search(Request $request)
     {
         $user = Auth::user();
@@ -101,7 +129,7 @@ class SearchController extends Controller
         }
         $selectedTingkat = array_filter($selectedTingkat); // Hapus elemen kosong
 
-        // Mencari berdasarkan kategori, tingkat, dan term pencarian
+        // Mencari berdasarkan kategori, tingkat, dan term pencarian dengan pagination
         $results = KelasTatapMuka::query()
             ->when(!empty($category_ids), function ($query) use ($category_ids) {
                 return $query->whereIn('kategori_id', $category_ids);
@@ -123,7 +151,7 @@ class SearchController extends Controller
                     return $query->orderBy('price', 'asc');
                 }
             })
-            ->get();
+            ->paginate(10); // Change this line to use pagination, set 10 items per page
 
         // Ambil notifikasi untuk pengguna yang sedang login
         $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
