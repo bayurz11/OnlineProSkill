@@ -239,4 +239,4 @@ Route::get('/hubungikami', [HubungiKamiController::class, 'index'])->name('hubun
 
 //sertifikat
 Route::get('/cetak_sertifikat/{id}', [SertifikatController::class, 'cetakSertifikat'])->name('cetak_sertifikat');
-Route::get('/print/{user_id}', [SertifikatController::class, 'printCertificate'])->name('print');
+Route::get('/print/{id}', [SertifikatController::class, 'printCertificate'])->name('print');
