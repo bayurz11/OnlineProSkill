@@ -136,7 +136,7 @@
             <div class="qr">{!! $qrCode !!}</div>
             <h2>{{ $sertifikat->name }}</h2>
             <p>Atas Kelulusannya Pada Kelas</p>
-            <h3>{{ $sertifikat->product_id }}r</h3>
+            <h3>{{ $sertifikat->product_id->nama_kursus }}</h3>
         </div>
     </div>
 </body>

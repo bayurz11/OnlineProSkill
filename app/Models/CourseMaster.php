@@ -47,4 +47,8 @@ class CourseMaster extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function sertifikat()
+    {
+        return $this->belongsTo(Sertifikat::class);
+    }
 }
