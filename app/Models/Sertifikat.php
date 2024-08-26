@@ -18,7 +18,7 @@ class Sertifikat extends Model
     {
         return $this->belongsTo(KelasTatapMuka::class, 'kategori_id');
     }
-    public function CourseMaster()
+    public function course()
     {
         return $this->belongsTo(CourseMaster::class, 'product_id');
     }
