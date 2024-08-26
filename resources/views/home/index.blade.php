@@ -651,7 +651,7 @@
                 spaceBetween: 30,
                 loop: true,
                 autoplay: {
-                    delay: 2000, // Set delay to 2000ms (2 seconds)
+                    delay: 1000, // Set delay to 2000ms (2 seconds)
                     disableOnInteraction: false,
                 },
                 speed: 2000, // Adjust the speed to control how fast the marquee scrolls
