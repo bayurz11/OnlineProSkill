@@ -647,24 +647,18 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             var swiper = new Swiper(".testimonial-active-five", {
-                slidesPerView: "auto", // Memungkinkan beberapa slide per tampilan tanpa jumlah tetap
-                spaceBetween: 30, // Mengatur jarak antar slide
-                loop: true, // Mengaktifkan perulangan slide
-                freeMode: true, // Mengaktifkan scroll kontinu tanpa terhenti di slide
-                speed: 100, // Mengatur kecepatan perpindahan; kurangi nilainya untuk animasi yang lebih halus
+                slidesPerView: "auto", // Allows multiple slides per view without a fixed number
+                spaceBetween: 30, // Adjusts space between slides
+                loop: true, // Enables looping of slides
+                freeMode: true, // Enables continuous scrolling without snapping to slides
+                speed: 5000, // Adjusts the speed of scrolling; increase or decrease as needed
                 autoplay: {
-                    delay: 0, // Tidak ada penundaan antar transisi
-                    disableOnInteraction: false, // Autoplay tidak berhenti saat ada interaksi
+                    delay: 0, // No delay between transitions
+                    disableOnInteraction: false, // Autoplay won't stop on interaction
                 },
-                effect: 'fade', // Menambahkan efek fade untuk transisi yang lebih halus
-                fadeEffect: {
-                    crossFade: true, // Mengaktifkan crossfade untuk transisi yang lebih mulus
-                },
-                touchReleaseOnEdges: true, // Mengizinkan sentuhan di pinggiran untuk pengalaman pengguna yang lebih halus
             });
         });
     </script>
-
 
 
 @endsection
