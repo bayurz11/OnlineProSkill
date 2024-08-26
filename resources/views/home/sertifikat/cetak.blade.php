@@ -126,7 +126,7 @@
         <div class="content">
             <h1>SERTIFIKAT</h1>
             <div class="underline"></div>
-            <p>{{ $sertifikat->sertifikat_id }}</p>
+            <p>{{ $sertifikatId }}</p>
             @if ($profile && $profile->gambar)
                 @if (strpos($profile->gambar, 'googleusercontent') !== false)
                     <img class="photo" src="{{ $profile->gambar }}" alt="Foto Peserta">
