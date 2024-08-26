@@ -80,7 +80,7 @@
                         </div>
 
 
-                        <div class="courses-widget">
+                        {{-- <div class="courses-widget">
                             <h4 class="widget-title">Harga</h4>
                             <div class="courses-cat-list">
                                 <ul class="list-wrap">
@@ -109,7 +109,7 @@
 
                                 </ul>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="courses-widget">
                             <h4 class="widget-title">Level</h4>
