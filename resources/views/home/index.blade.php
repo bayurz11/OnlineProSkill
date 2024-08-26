@@ -651,7 +651,7 @@
                 spaceBetween: 30, // Mengatur jarak antar slide
                 loop: true, // Mengaktifkan perulangan slide
                 freeMode: true, // Mengaktifkan scroll kontinu tanpa terhenti di slide
-                speed: 1500, // Mengatur kecepatan perpindahan; kurangi nilainya untuk animasi yang lebih halus
+                speed: 100, // Mengatur kecepatan perpindahan; kurangi nilainya untuk animasi yang lebih halus
                 autoplay: {
                     delay: 0, // Tidak ada penundaan antar transisi
                     disableOnInteraction: false, // Autoplay tidak berhenti saat ada interaksi
