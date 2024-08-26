@@ -644,5 +644,34 @@
         });
     </script>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var swiper = new Swiper(".testimonial-active-five", {
+                slidesPerView: 3,
+                spaceBetween: 30,
+                loop: true,
+                autoplay: {
+                    delay: 0, // No delay between transitions
+                    disableOnInteraction: false,
+                },
+                speed: 2000, // Adjust the speed to control how fast the marquee scrolls
+                breakpoints: {
+                    320: {
+                        slidesPerView: 1,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                    },
+                },
+                navigation: {
+                    nextEl: ".testimonial-button-next",
+                    prevEl: ".testimonial-button-prev",
+                },
+            });
+        });
+    </script>
 
 @endsection
