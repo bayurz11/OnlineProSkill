@@ -20,6 +20,6 @@ class Sertifikat extends Model
     }
     public function course()
     {
-        return $this->belongsTo(CourseMaster::class, 'product_id');
+        return $this->belongsTo(KelasTatapMuka::class, 'product_id');
     }
 }
