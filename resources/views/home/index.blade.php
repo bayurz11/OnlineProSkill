@@ -651,10 +651,12 @@
                 spaceBetween: 30,
                 loop: true,
                 autoplay: {
-                    delay: 2000, // Set delay to 2000ms (2 seconds)
+                    delay: 0, // No delay between transitions
                     disableOnInteraction: false,
                 },
                 speed: 2000, // Adjust the speed to control how fast the marquee scrolls
+                loopedSlides: 3, // Duplicate slides for smoother loop transition
+                loopAdditionalSlides: 3, // Additional slides for smoother loop transition
                 breakpoints: {
                     320: {
                         slidesPerView: 1,
@@ -673,6 +675,7 @@
             });
         });
     </script>
+
 
 
 @endsection
