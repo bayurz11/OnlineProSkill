@@ -425,82 +425,80 @@
             </div>
             <div class="swiper-container testimonial-active-five">
                 <div class="swiper-wrapper">
-                    <div class="marquee_mode">
-                        <div class="swiper-slide">
-                            <div class="testimonial__item-two testimonial__item-five">
-                                <div class="testimonial__author testimonial__author-two">
-                                    <div class="testimonial__author-thumb testimonial__author-thumb-two">
-                                        <img src="public/assets/img/others/user1.png" alt="img">
-                                    </div>
-                                    <div class="testimonial__author-content testimonial__author-content-two">
-                                        <h2 class="title">Jeff Chua</h2>
-                                        <span>Siswa SD</span>
-                                    </div>
-                                </div> <br>
-                                <div class="testimonial__content-two">
-
-                                    <p>“ Sangat Bermanfaat ”</p>
+                    <div class="swiper-slide">
+                        <div class="testimonial__item-two testimonial__item-five">
+                            <div class="testimonial__author testimonial__author-two">
+                                <div class="testimonial__author-thumb testimonial__author-thumb-two">
+                                    <img src="public/assets/img/others/user1.png" alt="img">
                                 </div>
-
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="testimonial__item-two testimonial__item-five">
-                                <div class="testimonial__author testimonial__author-two">
-                                    <div class="testimonial__author-thumb testimonial__author-thumb-two">
-                                        <img src="public/assets/img/others/user3.png" alt="img">
-                                    </div>
-                                    <div class="testimonial__author-content testimonial__author-content-two">
-                                        <h2 class="title">ANZELTHA NAJLA AUDIA</h2>
-                                        <span>Siswa SMP</span>
-                                    </div>
-                                </div> <br>
-                                <div class="testimonial__content-two">
-
-                                    <p>“ Sangat Bermanfaat dan Menambah Pengetahuan Basic computer ”</p>
+                                <div class="testimonial__author-content testimonial__author-content-two">
+                                    <h2 class="title">Jeff Chua</h2>
+                                    <span>Siswa SD</span>
                                 </div>
+                            </div> <br>
+                            <div class="testimonial__content-two">
 
+                                <p>“ Sangat Bermanfaat ”</p>
                             </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="testimonial__item-two testimonial__item-five">
-                                <div class="testimonial__author testimonial__author-two">
-                                    <div class="testimonial__author-thumb testimonial__author-thumb-two">
-                                        <img src="public/assets/img/others/user2.png" alt="img">
-                                    </div>
-                                    <div class="testimonial__author-content testimonial__author-content-two">
-                                        <h2 class="title">LINA</h2>
-                                        <span>Ibu Rumah Tangga</span>
-                                    </div>
-                                </div> <br>
-                                <div class="testimonial__content-two">
 
-                                    <p>“ Semoga lebih Banyak Program Baru ”</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial__item-two testimonial__item-five">
+                            <div class="testimonial__author testimonial__author-two">
+                                <div class="testimonial__author-thumb testimonial__author-thumb-two">
+                                    <img src="public/assets/img/others/user3.png" alt="img">
                                 </div>
-
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="testimonial__item-two testimonial__item-five">
-                                <div class="testimonial__author testimonial__author-two">
-                                    <div class="testimonial__author-thumb testimonial__author-thumb-two">
-                                        <img src="public/assets/img/others/user5.png" alt="img">
-                                    </div>
-                                    <div class="testimonial__author-content testimonial__author-content-two">
-                                        <h2 class="title">ABDUL AZIZ</h2>
-                                        <span>Siswa SMA</span>
-                                    </div>
-                                </div> <br>
-                                <div class="testimonial__content-two">
-
-                                    <p>“ Kurusu ini Sangat Bermanfaat Teruutama Bagi Orang Awam tentang Soal Komputer dan AI
-                                        ”
-                                    </p>
+                                <div class="testimonial__author-content testimonial__author-content-two">
+                                    <h2 class="title">ANZELTHA NAJLA AUDIA</h2>
+                                    <span>Siswa SMP</span>
                                 </div>
+                            </div> <br>
+                            <div class="testimonial__content-two">
 
+                                <p>“ Sangat Bermanfaat dan Menambah Pengetahuan Basic computer ”</p>
                             </div>
+
                         </div>
-                        {{-- <div class="swiper-slide">
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial__item-two testimonial__item-five">
+                            <div class="testimonial__author testimonial__author-two">
+                                <div class="testimonial__author-thumb testimonial__author-thumb-two">
+                                    <img src="public/assets/img/others/user2.png" alt="img">
+                                </div>
+                                <div class="testimonial__author-content testimonial__author-content-two">
+                                    <h2 class="title">LINA</h2>
+                                    <span>Ibu Rumah Tangga</span>
+                                </div>
+                            </div> <br>
+                            <div class="testimonial__content-two">
+
+                                <p>“ Semoga lebih Banyak Program Baru ”</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial__item-two testimonial__item-five">
+                            <div class="testimonial__author testimonial__author-two">
+                                <div class="testimonial__author-thumb testimonial__author-thumb-two">
+                                    <img src="public/assets/img/others/user5.png" alt="img">
+                                </div>
+                                <div class="testimonial__author-content testimonial__author-content-two">
+                                    <h2 class="title">ABDUL AZIZ</h2>
+                                    <span>Siswa SMA</span>
+                                </div>
+                            </div> <br>
+                            <div class="testimonial__content-two">
+
+                                <p>“ Kurusu ini Sangat Bermanfaat Teruutama Bagi Orang Awam tentang Soal Komputer dan AI ”
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                    {{-- <div class="swiper-slide">
                         <div class="testimonial__item-two testimonial__item-five">
                             <div class="testimonial__author testimonial__author-two">
                                 <div class="testimonial__author-thumb testimonial__author-thumb-two">
@@ -518,8 +516,8 @@
                                 </p>
                             </div>
 
-                        </div> --}}
-                    </div>
+                        </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
