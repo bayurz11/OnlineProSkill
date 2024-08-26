@@ -438,8 +438,7 @@
                             </div> <br>
                             <div class="testimonial__content-two">
 
-                                <p>“ when an unknown printer took alley ffferer area typey and scrambled to make a type
-                                    specimen book hass”</p>
+                                <p>“ Sangat Bermanfaat ”</p>
                             </div>
 
                         </div>
@@ -448,17 +447,16 @@
                         <div class="testimonial__item-two testimonial__item-five">
                             <div class="testimonial__author testimonial__author-two">
                                 <div class="testimonial__author-thumb testimonial__author-thumb-two">
-                                    <img src="public/assets/img/others/testi_author02.png" alt="img">
+                                    <img src="public/assets/img/others/user3.png" alt="img">
                                 </div>
                                 <div class="testimonial__author-content testimonial__author-content-two">
-                                    <h2 class="title">Jenny Wilson</h2>
-                                    <span>Designer</span>
+                                    <h2 class="title">ANZELTHA NAJLA AUDIA</h2>
+                                    <span>Siswa SMP</span>
                                 </div>
                             </div> <br>
                             <div class="testimonial__content-two">
 
-                                <p>“ when an unknown printer took alley ffferer area typey and scrambled to make a type
-                                    specimen book hass”</p>
+                                <p>“ Sangat Bermanfaat dan Menambah Pengetahuan Basic computer ”</p>
                             </div>
 
                         </div>
@@ -467,17 +465,16 @@
                         <div class="testimonial__item-two testimonial__item-five">
                             <div class="testimonial__author testimonial__author-two">
                                 <div class="testimonial__author-thumb testimonial__author-thumb-two">
-                                    <img src="public/assets/img/others/testi_author02.png" alt="img">
+                                    <img src="public/assets/img/others/user2.png" alt="img">
                                 </div>
                                 <div class="testimonial__author-content testimonial__author-content-two">
-                                    <h2 class="title">Jenny Wilson</h2>
-                                    <span>Designer</span>
+                                    <h2 class="title">LINA</h2>
+                                    <span>Ibu Rumah Tangga</span>
                                 </div>
                             </div> <br>
                             <div class="testimonial__content-two">
 
-                                <p>“ when an unknown printer took alley ffferer area typey and scrambled to make a type
-                                    specimen book hass”</p>
+                                <p>“ Semoga lebih Banyak Program Baru ”</p>
                             </div>
 
                         </div>
@@ -486,16 +483,37 @@
                         <div class="testimonial__item-two testimonial__item-five">
                             <div class="testimonial__author testimonial__author-two">
                                 <div class="testimonial__author-thumb testimonial__author-thumb-two">
-                                    <img src="public/assets/img/others/testi_author02.png" alt="img">
+                                    <img src="public/assets/img/others/user5.png" alt="img">
                                 </div>
                                 <div class="testimonial__author-content testimonial__author-content-two">
-                                    <h2 class="title">Jenny Wilson</h2>
-                                    <span>Designer</span>
+                                    <h2 class="title">ABDUL AZIZ</h2>
+                                    <span>Siswa SMA</span>
                                 </div>
                             </div> <br>
                             <div class="testimonial__content-two">
 
-                                <p>“ when an unknown ”</p>
+                                <p>“ Kurusu ini Sangat Bermanfaat Teruutama Bagi Orang Awam tentang Soal Komputer dan AI ”
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial__item-two testimonial__item-five">
+                            <div class="testimonial__author testimonial__author-two">
+                                <div class="testimonial__author-thumb testimonial__author-thumb-two">
+                                    <img src="public/assets/img/others/user4.png" alt="img">
+                                </div>
+                                <div class="testimonial__author-content testimonial__author-content-two">
+                                    <h2 class="title">BAYHAQI MUFTI</h2>
+                                    <span>Siswa SMP</span>
+                                </div>
+                            </div> <br>
+                            <div class="testimonial__content-two">
+
+                                <p>“ Hal yang Menarik Selama Saya mengikuti Kursus ini Adalah Saya Bisa Menggunakan Aplikasi
+                                    Microseof Word, Excel, dan Powerpoint, Saya Juga Bisa Menggunakan Teknologi AI ”
+                                </p>
                             </div>
 
                         </div>
