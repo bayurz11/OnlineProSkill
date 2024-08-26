@@ -144,8 +144,7 @@ Route::middleware('isAdmin')->group(function () {
     Route::get('/sertifikat/{id}/edit', [SertifikatController::class, 'edit'])->name('sertifikat.edit');
     Route::put('/sertifikat/{id}/update', [SertifikatController::class, 'update'])->name('sertifikat.update');
     Route::delete('/sertifikat/{id}/destroy', [SertifikatController::class, 'destroy'])->name('sertifikat.destroy');
-    Route::get('/cetak_sertifikat/{id}', [SertifikatController::class, 'cetakSertifikat'])->name('cetak_sertifikat');
-    Route::get('/print/{id}', [SertifikatController::class, 'printCertificate'])->name('print');
+
 
     //Hubungi Kami
     Route::get('/settingcontactus', [HubungiKamiSettingController::class, 'index'])->name('settingcontactus');
@@ -237,3 +236,6 @@ Route::get('/blog_detail/{id}', [BlogController::class, 'blogDetail'])->name('bl
 
 //Hubungi Kami
 Route::get('/hubungikami', [HubungiKamiController::class, 'index'])->name('hubungikami');
+//sertifikat
+Route::get('/cetak_sertifikat/{id}', [SertifikatController::class, 'cetakSertifikat'])->name('cetak_sertifikat');
+Route::get('/print/{id}', [SertifikatController::class, 'printCertificate'])->name('print');
