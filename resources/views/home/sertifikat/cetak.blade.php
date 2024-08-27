@@ -177,8 +177,8 @@
             <h3>{{ $namaKursus }}</h3>
         </div>
         <!-- Cetak Sertifikat Button Moved Inside the .certificate Div -->
-        <button class="print-button" onclick="window.print()">Cetak Sertifikat</button>
     </div>
+    <button class="print-button" onclick="window.print()">Cetak Sertifikat</button>
 </body>
 
 </html>
