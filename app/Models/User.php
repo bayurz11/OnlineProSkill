@@ -72,4 +72,8 @@ class User extends Authenticatable
     {
         return $this->sectionStatuses()->where('section_id', $sectionId)->where('status', true)->exists();
     }
+    public function profile()
+    {
+        return $this->hasOne(UserProfile::class);
+    }
 }

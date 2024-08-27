@@ -135,6 +135,7 @@
                 @endif
             @endif
 
+
             <div class="qr">{!! $qrCode !!}</div>
             <h2>{{ $sertifikat->name }}</h2>
             <p>Atas Kelulusannya Pada Kelas</p>

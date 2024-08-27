@@ -137,19 +137,13 @@ class SertifikatController extends Controller
         // Temukan sertifikat berdasarkan ID
         $sertifikat = Sertifikat::findOrFail($id);
 
-
-        // Pastikan sertifikat ditemukan
-        if (!$sertifikat) {
-            return response()->json(['message' => 'Sertifikat tidak ditemukan'], 404);
-        }
-
-        // Ambil link dari sertifikat
-        $link = $sertifikat->link;
+        // Ambil profil pengguna yang terkait dengan sertifikat
+        $profile = $sertifikat->user->profile; // Asumsi ada relasi user ke profile
 
         // Generate QR code sebagai string SVG
-        $qrCode = QrCode::size(300)->generate($link);
+        $qrCode = QrCode::size(300)->generate($sertifikat->link);
 
-        // Setelah menemukan sertifikat, arahkan pengguna ke view sertifikat
-        return view('admin.sertifikat.cetak', compact('sertifikat', 'qrCode'));
+        // Arahkan pengguna ke view sertifikat dengan data yang diperlukan
+        return view('admin.sertifikat.cetak', compact('sertifikat', 'qrCode', 'profile'));
     }
 }
