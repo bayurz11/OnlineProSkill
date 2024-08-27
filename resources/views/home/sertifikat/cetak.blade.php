@@ -12,13 +12,13 @@
 
         body,
         html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
+
+            padding: 50px;
+            width: 1000px;
+            height: 707px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             background: url('{{ asset('public/1.png') }}') no-repeat center center;
             background-size: cover;
