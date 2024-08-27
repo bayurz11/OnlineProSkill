@@ -141,15 +141,6 @@
             border-radius: 10px;
         }
 
-        .qr-text {
-            font-size: 8px;
-            /* Adjust font size as needed */
-            color: #333;
-            /* Adjust color if needed */
-            text-align: left;
-            margin-top: 5px;
-        }
-
         .signature {
             width: 100%;
             display: flex;
@@ -252,15 +243,6 @@
                 border: 5px solid #fdffff;
             }
 
-            .qr-text {
-                font-size: 8px;
-                /* Adjust font size as needed */
-                color: #333;
-                /* Adjust color if needed */
-                text-align: left;
-                margin-top: 5px;
-            }
-
             .qr svg {
                 width: 150px;
                 height: 150px;
@@ -292,12 +274,7 @@
                     @endif
                 @endif
 
-                <div class="qr">
-                    {!! $qrCode !!}
-                    <p class="qr-text">Scan QR Code Untuk Mengecek Orisinalitas Sertifikat. Cukup Cek Kesamaan Nama dan
-                        ID sertifikat Saja.</p>
-                </div>
-
+                <div class="qr">{!! $qrCode !!}</div>
                 <h2>{{ $user->name }}</h2>
                 <p>Atas Kelulusannya Pada Kelas</p>
                 <h3>{{ $namaKursus }}</h3>
