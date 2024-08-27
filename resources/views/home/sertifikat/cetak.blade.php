@@ -100,7 +100,7 @@
 
         .qr {
             position: absolute;
-            top: 150mm;
+            top: 130mm;
             left: 15mm;
             width: 150px;
             height: 150px;
