@@ -208,8 +208,9 @@ class PaymentController extends Controller
                 $order->nomor_invoice = $invoiceNumber; // Tambahkan nomor invoice
                 $order->save();
 
-                // Ambil nama_kursus
+                // Ambil nama_kursus dan ambil inisial
                 $namaKursus = $kelas->nama_kursus;
+                $inisialNamaKursus = implode('', array_map(fn($word) => strtoupper($word[0]), explode(' ', $namaKursus)));
 
                 // Cek apakah user_id ada di tabel Sertifikat
                 $certificate = Sertifikat::where('user_id', $userId)->first();
@@ -217,16 +218,18 @@ class PaymentController extends Controller
                 if ($certificate) {
                     // Jika ada, tambahkan product_id ke tabel Sertifikat
                     $certificate->product_id = $kelas->id;
-                    // Format sertifikat_id
-                    $certificate->sertifikat_id = $userId . '/PSA/' . $namaKursus . '/' . $bulanTahun;
+                    // Format sertifikat_id menggunakan ID Sertifikat dan inisial nama kursus
+                    $certificate->sertifikat_id = $certificate->id . '/PSA/' . $inisialNamaKursus . '/' . $bulanTahun;
                     $certificate->save();
                 } else {
                     // Jika tidak ada, buat entri baru di tabel Sertifikat
                     $newCertificate = new Sertifikat();
                     $newCertificate->user_id = $userId;
                     $newCertificate->product_id = $kelas->id;
-                    // Format sertifikat_id
-                    $newCertificate->sertifikat_id = $userId . '/PSA/' . $namaKursus . '/' . $bulanTahun;
+                    $newCertificate->save();
+
+                    // Update sertifikat_id setelah ID sertifikat tersedia
+                    $newCertificate->sertifikat_id = $newCertificate->id . '/PSA/' . $inisialNamaKursus . '/' . $bulanTahun;
                     $newCertificate->save();
                 }
             }
@@ -236,6 +239,7 @@ class PaymentController extends Controller
             return redirect()->back()->with('error', 'Pembayaran gagal. Silakan coba lagi.');
         }
     }
+
 
 
 
