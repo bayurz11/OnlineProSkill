@@ -151,7 +151,8 @@
 <body>
 
     <div class="certificate">
-        <img class="background" src="{{ asset('public/1.png') }}" alt="Background">
+        <img class="background" src="{{ asset('public/1.png') }}" alt="Background" style="border: 1px solid red;">
+
         <div class="content">
             <h1>SERTIFIKAT</h1>
             <div class="underline"></div>
