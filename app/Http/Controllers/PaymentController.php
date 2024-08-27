@@ -249,7 +249,7 @@ class PaymentController extends Controller
                     // Update sertifikat_id setelah ID sertifikat tersedia
                     $certificateIdFormatted = str_pad($newCertificate->id, 3, '0', STR_PAD_LEFT);
                     $newCertificate->sertifikat_id = $certificateIdFormatted . '/PSA/' . $inisialNamaKursus . '/' . $bulanTahun;
-                    $newCertificate->link = "/print/{$newCertificate->id}"; // Tambahkan link cetak sertifikat
+                    $newCertificate->link = url("/print/{$newCertificate->id}"); // Tambahkan link cetak sertifikat
                     $newCertificate->save();
                 } else {
                     if ($certificate) {
@@ -258,7 +258,7 @@ class PaymentController extends Controller
                         // Format sertifikat_id menggunakan ID Sertifikat yang dipad menjadi 3 angka dan inisial nama kursus
                         $certificateIdFormatted = str_pad($certificate->id, 3, '0', STR_PAD_LEFT);
                         $certificate->sertifikat_id = $certificateIdFormatted . ' / PSA / ' . $inisialNamaKursus . ' / ' . $bulanTahun;
-                        $certificate->link = "/print/{$certificate->id}"; // Tambahkan link cetak sertifikat
+                        $certificate->link = url("/print/{$certificate->id}"); // Tambahkan link cetak sertifikat
                         $certificate->save();
                     } else {
                         // Jika tidak ada, buat entri baru di tabel Sertifikat
@@ -271,7 +271,7 @@ class PaymentController extends Controller
                         // Update sertifikat_id setelah ID sertifikat tersedia
                         $certificateIdFormatted = str_pad($newCertificate->id, 3, '0', STR_PAD_LEFT);
                         $newCertificate->sertifikat_id = $certificateIdFormatted . '/PSA/' . $inisialNamaKursus . '/' . $bulanTahun;
-                        $newCertificate->link = "/print/{$newCertificate->id}"; // Tambahkan link cetak sertifikat
+                        $newCertificate->link = url("/print/{$newCertificate->id}"); // Tambahkan link cetak sertifikat
                         $newCertificate->save();
                     }
                 }
