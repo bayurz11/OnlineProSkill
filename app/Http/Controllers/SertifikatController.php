@@ -135,8 +135,9 @@ class SertifikatController extends Controller
     public function printCertificate($id)
     {
         // Temukan sertifikat berdasarkan ID
+        $user = Auth::user();
         $sertifikate = Sertifikat::findOrFail($id);
-        $sertifikat = Sertifikat::with('userProfile')->find($id);
+        $sertifikat = Sertifikat::where('user_id', $user->id)->first();
 
 
         // Pastikan sertifikat ditemukan
