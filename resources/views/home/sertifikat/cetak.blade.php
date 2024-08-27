@@ -89,8 +89,8 @@
 
 
         .qr svg {
-            width: 180px;
-            height: 180px;
+            width: 150px;
+            height: 150px;
 
         }
 
@@ -98,8 +98,8 @@
             position: absolute;
             top: 398px;
             left: 34px;
-            width: 180px;
-            height: 180px;
+            width: 150px;
+            height: 150px;
             object-fit: cover;
             border: 5px solid #fdffff;
             border-radius: 10px;
