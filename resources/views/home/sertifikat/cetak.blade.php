@@ -15,16 +15,12 @@
         body,
         html {
             margin: 0;
-            padding: 0;
+            padding: 5px;
             width: 297mm;
-            /* Gunakan 100vw untuk lebar layar penuh */
             height: 210mm;
-            /* Gunakan 100vh untuk tinggi layar penuh */
             display: flex;
             justify-content: center;
-            /* Memusatkan secara horizontal */
             align-items: center;
-            /* Memusatkan secara vertikal */
             background: url('{{ asset('public/1.png') }}') no-repeat center center;
             background-size: cover;
         }
