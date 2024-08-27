@@ -257,26 +257,28 @@
 
 <body>
     <div class="certificate-container">
-        <div class="content">
-            <h1>SERTIFIKAT</h1>
-            <div class="underline"></div>
-            <p>ID : {{ $sertifikat->sertifikat_id }}</p>
-            @if ($profile && !empty($profile->gambar))
-                @if (strpos($profile->gambar, 'googleusercontent') !== false)
-                    <!-- Gambar yang di-hosting oleh Google -->
-                    <img class="photo" src="{{ $profile->gambar }}" alt="Foto Peserta">
-                @else
-                    <!-- Gambar yang di-hosting di server lokal -->
-                    <img class="photo" src="{{ asset('public/uploads/' . $profile->gambar) }}" alt="Foto Peserta">
+        <div class="certificate">
+            <div class="content">
+                <h1>SERTIFIKAT</h1>
+                <div class="underline"></div>
+                <p>ID : {{ $sertifikat->sertifikat_id }}</p>
+                @if ($profile && !empty($profile->gambar))
+                    @if (strpos($profile->gambar, 'googleusercontent') !== false)
+                        <!-- Gambar yang di-hosting oleh Google -->
+                        <img class="photo" src="{{ $profile->gambar }}" alt="Foto Peserta">
+                    @else
+                        <!-- Gambar yang di-hosting di server lokal -->
+                        <img class="photo" src="{{ asset('public/uploads/' . $profile->gambar) }}" alt="Foto Peserta">
+                    @endif
                 @endif
-            @endif
 
 
-            <div class="qr">{!! $qrCode !!}</div>
-            <h2>{{ $sertifikat->name }}</h2>
-            <p>Atas Kelulusannya Pada Kelas</p>
-            <h3>{{ $sertifikat->course->nama_kursus }}</h3>
+                <div class="qr">{!! $qrCode !!}</div>
+                <h2>{{ $sertifikat->name }}</h2>
+                <p>Atas Kelulusannya Pada Kelas</p>
+                <h3>{{ $sertifikat->course->nama_kursus }}</h3>
 
+            </div>
         </div>
     </div>
     <button class="print-button" onclick="window.print()">Cetak Sertifikat</button>
