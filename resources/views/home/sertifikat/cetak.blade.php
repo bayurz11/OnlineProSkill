@@ -20,6 +20,8 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            background: url('{{ asset('public/1.png') }}') no-repeat center center;
+            background-size: cover;
             background-color: #f4f4f4;
         }
 
