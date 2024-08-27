@@ -235,6 +235,14 @@
                 border: 5px solid #fdffff;
             }
 
+            .qr .span {
+                top: 130mm;
+                left: 15mm;
+                width: 150px;
+                height: 150px;
+                border: 5px solid #fdffff;
+            }
+
             .qr {
                 top: 130mm;
                 left: 15mm;
