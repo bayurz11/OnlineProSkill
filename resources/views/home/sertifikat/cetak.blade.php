@@ -18,6 +18,7 @@
             width: 1000px;
             height: 707px;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             background: url('{{ asset('public/1.png') }}') no-repeat center center;
@@ -30,13 +31,13 @@
             height: 707px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             padding: 50px;
             box-sizing: border-box;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             background-color: transparent;
-            /* Removed shadow for printing; add if not needed */
-            box-shadow: none;
+            /* Pastikan background elemen ini transparan */
         }
 
         .content {
