@@ -194,7 +194,7 @@ class PaymentController extends Controller
             $invoiceNumber = 'PSA-' . Carbon::now('Asia/Jakarta')->format('mdHi') . '-' . $userId;
 
             // Format bulan dan tahun
-            $bulanTahun = Carbon::now()->format('mY'); // contoh: 082024
+            $bulanTahun = Carbon::now()->format('m.Y'); // contoh: 082024
 
             // Masukkan ke tabel orders
             foreach ($items as $kelas) {
