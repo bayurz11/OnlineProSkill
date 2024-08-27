@@ -112,13 +112,13 @@
 
                                 @if ($allSectionsCompleted)
                                     <form id="printForm" action="{{ route('print_certificate', ['id' => $user->id]) }}"
-                                        method="POST" class="ms-3" target="_blank" onsubmit="downloadCertificate(event)">
+                                        method="POST" class="ms-3" target="_blank" onsubmit="openInNewTab(event)">
                                         @csrf
                                         <button type="submit" class="btn btn-secondary">Sertifikat Penyelesaian</button>
                                     </form>
 
                                     <script>
-                                        function downloadCertificate(event) {
+                                        function openInNewTab(event) {
                                             event.preventDefault(); // Prevent the form from submitting normally
                                             const form = event.target;
                                             const formData = new FormData(form);
@@ -136,11 +136,9 @@
                                                     const url = window.URL.createObjectURL(blob);
                                                     const a = document.createElement('a');
                                                     a.href = url;
-                                                    a.download = 'certificate.pdf'; // Set the filename for the download
-                                                    document.body.appendChild(a); // Append the link to the body
-                                                    a.click(); // Trigger a click event on the link
-                                                    a.remove(); // Remove the link from the document
-                                                    window.URL.revokeObjectURL(url); // Release the object URL
+                                                    a.target = '_blank';
+                                                    a.click();
+                                                    window.URL.revokeObjectURL(url);
                                                 })
                                                 .catch(error => console.error('Error:', error));
                                         }
