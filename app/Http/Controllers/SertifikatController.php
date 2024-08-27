@@ -20,12 +20,13 @@ class SertifikatController extends Controller
     {
         $user = Auth::user();
         $sertifikat = Sertifikat::with('kelasTatapMuka')->get();
+        $productName = $sertifikat->product_id ? KelasTatapMuka::where('id', $sertifikat->product_id)->value('nama_kursus') : null;
         $classroom = KelasTatapMuka::all();
         if (!$user) {
             return redirect()->route('/');
         }
 
-        return view('admin.sertifikat.index', compact('user', 'sertifikat', 'classroom'));
+        return view('admin.sertifikat.index', compact('user', 'sertifikat', 'classroom', 'productName'));
     }
 
     public function store(Request $request)
