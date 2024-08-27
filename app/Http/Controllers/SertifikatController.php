@@ -135,9 +135,7 @@ class SertifikatController extends Controller
     public function printCertificate($id)
     {
         // Temukan sertifikat berdasarkan ID
-        $user = Auth::user();
-        $sertifikate = Sertifikat::findOrFail($id);
-        $sertifikat = Sertifikat::where('user_id', $user->id)->first();
+        $sertifikat = Sertifikat::findOrFail($id);
 
 
         // Pastikan sertifikat ditemukan
@@ -152,6 +150,6 @@ class SertifikatController extends Controller
         $qrCode = QrCode::size(300)->generate($link);
 
         // Setelah menemukan sertifikat, arahkan pengguna ke view sertifikat
-        return view('admin.sertifikat.cetak', compact('sertifikat', 'qrCode', 'sertifikate'));
+        return view('admin.sertifikat.cetak', compact('sertifikat', 'qrCode'));
     }
 }
