@@ -8,25 +8,24 @@
     <style>
         @page {
             size: A4 landscape;
-            margin: 0;
         }
 
         body,
         html {
-            margin: 50;
-            padding: 50;
-            width: 1000px;
-            height: 707px;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: url('{{ asset('public/1.png') }}') no-repeat center center;
-            background-size: cover;
             background-color: #f4f4f4;
         }
 
         .certificate {
+            background: url('{{ asset('public/1.png') }}') no-repeat center center;
+            background-size: cover;
             width: 1000px;
             height: 707px;
             display: flex;
@@ -36,7 +35,6 @@
             padding: 50px;
             box-sizing: border-box;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            background-color: transparent;
         }
 
         .content {
@@ -120,44 +118,25 @@
         }
 
         .print-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
             padding: 10px 20px;
             background-color: #007F73;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            margin-top: 20px;
-            /* Adds some space between the button and the certificate content */
         }
 
         .print-button:hover {
             background-color: #005f59;
         }
-
-        /* Media query untuk memastikan background dicetak */
-        @media print {
-            body {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-                background: url('{{ asset('public/1.png') }}') no-repeat center center !important;
-                background-size: cover !important;
-            }
-
-            .print-button {
-                display: none;
-                /* Menyembunyikan tombol cetak saat mencetak */
-            }
-        }
     </style>
 </head>
 
 <body>
-    <!-- Pesan untuk pengguna agar mengaktifkan pencetakan background -->
-    <div id="printMessage" style="display: none;">
-        <p>Pastikan untuk mengaktifkan opsi "Print Backgrounds" atau "Cetak Background" pada pengaturan pencetakan
-            browser Anda.</p>
-    </div>
-
+    <button class="print-button" onclick="window.print()">Cetak Sertifikat</button>
     <div class="certificate">
         <div class="content">
             <h1>SERTIFIKAT</h1>
@@ -176,9 +155,7 @@
             <p>Atas Kelulusannya Pada Kelas</p>
             <h3>{{ $namaKursus }}</h3>
         </div>
-        <!-- Cetak Sertifikat Button Moved Inside the .certificate Div -->
     </div>
-    <button class="print-button" onclick="window.print()">Cetak Sertifikat</button>
 </body>
 
 </html>
