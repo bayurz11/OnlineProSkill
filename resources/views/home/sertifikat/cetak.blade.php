@@ -15,8 +15,8 @@
         html {
             margin: 0;
             padding: 0;
-            width: 3508px;
-            height: 2480px;
+            width: 1000px;
+            height: 707px;
             display: flex;
             flex-direction: column;
             justify-content: center;
