@@ -24,6 +24,6 @@ class Sertifikat extends Model
     }
     public function userProfile()
     {
-        return $this->belongsTo(UserProfile::class, 'id', 'id');
+        return $this->belongsTo(UserProfile::class, 'user_id', 'id');
     }
 }
