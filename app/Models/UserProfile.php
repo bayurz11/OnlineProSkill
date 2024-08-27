@@ -22,4 +22,8 @@ class UserProfile extends Model
     {
         return $this->hasOne(UserRoles::class);
     }
+    public function sertifikat()
+    {
+        return $this->hasMany(Sertifikat::class, 'user_id', 'id');
+    }
 }
