@@ -22,4 +22,8 @@ class Sertifikat extends Model
     {
         return $this->belongsTo(KelasTatapMuka::class, 'product_id');
     }
+    public function userProfile()
+    {
+        return $this->belongsTo(UserProfile::class, 'user_id', 'id');
+    }
 }

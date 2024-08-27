@@ -124,19 +124,21 @@
         <div class="content">
             <h1>SERTIFIKAT</h1>
             <div class="underline"></div>
-            <p>ID : {{ $sertifikat->sertifikat_id }}</p>
-            @if ($sertifikat && $profile->gambar)
-                @if (strpos($profile->gambar, 'googleusercontent') !== false)
-                    <img class="photo" src="{{ $profile->gambar }}" alt="Foto Peserta">
+            <p>ID : {{ $sertifikate->sertifikat_id }}</p>
+            @if ($sertifikat && $sertifikat->userProfile && !empty($sertifikat->userProfile->gambar))
+                @if (strpos($sertifikat->userProfile->gambar, 'googleusercontent') !== false)
+                    <!-- Gambar yang di-hosting oleh Google -->
+                    <img class="photo" src="{{ $sertifikat->userProfile->gambar }}" alt="Foto Peserta">
                 @else
-                    <img class="photo" src="{{ asset('public/uploads/' . $profile->gambar) }}" alt="Foto Peserta">
+                    <!-- Gambar yang di-hosting di server lokal -->
+                    <img class="photo" src="{{ asset('public/uploads/' . $sertifikat->userProfile->gambar) }}"
+                        alt="Foto Peserta">
                 @endif
             @endif
-
             <div class="qr">{!! $qrCode !!}</div>
-            <h2>{{ $sertifikat->name }}</h2>
+            <h2>{{ $sertifikate->name }}</h2>
             <p>Atas Kelulusannya Pada Kelas</p>
-            <h3>{{ $sertifikat->course->nama_kursus }}</h3>
+            <h3>{{ $sertifikate->course->nama_kursus }}</h3>
 
         </div>
     </div>
