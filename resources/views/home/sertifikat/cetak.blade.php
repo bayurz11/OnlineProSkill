@@ -252,6 +252,15 @@
                 border: 5px solid #fdffff;
             }
 
+            .qr-text {
+                font-size: 8px;
+                /* Adjust font size as needed */
+                color: #333;
+                /* Adjust color if needed */
+                text-align: left;
+                margin-top: 5px;
+            }
+
             .qr svg {
                 width: 150px;
                 height: 150px;
