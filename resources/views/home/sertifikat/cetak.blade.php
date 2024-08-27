@@ -16,21 +16,24 @@
         html {
             margin: 0;
             padding: 0;
-            width: 297mm;
-            /* Lebar A4 dalam orientasi landscape */
-            height: 210mm;
-            /* Tinggi A4 dalam orientasi landscape */
+            width: 100vw;
+            /* Gunakan 100vw untuk lebar layar penuh */
+            height: 100vh;
+            /* Gunakan 100vh untuk tinggi layar penuh */
             display: flex;
-            flex-direction: column;
             justify-content: center;
+            /* Memusatkan secara horizontal */
             align-items: center;
+            /* Memusatkan secara vertikal */
             background: url('{{ asset('public/1.png') }}') no-repeat center center;
             background-size: cover;
         }
 
         .certificate {
             width: 100%;
+            max-width: 100%;
             height: 100%;
+            max-height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -40,7 +43,12 @@
             box-sizing: border-box;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             position: relative;
+            max-width: 297mm;
+            /* Menentukan lebar maksimal sesuai ukuran kertas A4 landscape */
+            max-height: 210mm;
+            /* Menentukan tinggi maksimal sesuai ukuran kertas A4 landscape */
         }
+
 
         .content {
             width: 100%;
