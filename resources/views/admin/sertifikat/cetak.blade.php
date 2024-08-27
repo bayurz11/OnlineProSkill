@@ -94,7 +94,7 @@
 
         .qr {
             position: absolute;
-            top: 400px;
+            top: 410px;
             left: 20px;
             width: 150px;
             height: 150px;
