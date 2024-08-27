@@ -236,7 +236,7 @@ class PaymentController extends Controller
                 $certificate = Sertifikat::where('user_id', $userId)->first();
 
                 // Periksa apakah ada data sertifikat dengan product_id, sertifikat_id, dan checkout_link yang sudah terisi
-                $isAllFilled = $certificate && $certificate->product_id && $certificate->sertifikat_id && $certificate->checkout_link;
+                $isAllFilled = $certificate && $certificate->product_id && $certificate->sertifikat_id && $certificate->link;
 
                 if ($isAllFilled) {
                     // Jika semua data sudah terisi, buat entri baru di tabel Sertifikat
