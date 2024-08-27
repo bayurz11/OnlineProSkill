@@ -15,15 +15,28 @@
         html {
             margin: 0;
             padding: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            /* Background color to distinguish the certificate area */
+            overflow: hidden;
+            /* Prevents scroll bars from appearing */
+        }
+
+        .certificate-container {
             width: 148.5mm;
             /* Half of 297mm */
             height: 105mm;
             /* Half of 210mm */
             display: flex;
+            justify-content: center;
+            align-items: center;
             background: url('{{ asset('public/1.png') }}') no-repeat center center;
             background-size: cover;
-            overflow: hidden;
-            /* Prevents scroll bars from appearing */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         }
 
         .certificate {
@@ -38,7 +51,6 @@
             padding: 10mm;
             /* Half of 20mm */
             box-sizing: border-box;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             position: relative;
         }
 
@@ -175,11 +187,16 @@
                 background-size: cover !important;
             }
 
+            .certificate-container {
+                width: 297mm;
+                height: 210mm;
+                box-shadow: none;
+            }
+
             .certificate {
                 padding: 20mm;
                 max-width: 297mm;
                 max-height: 210mm;
-                box-shadow: none;
             }
 
             .content h1 {
@@ -239,23 +256,25 @@
 </head>
 
 <body>
-    <div class="certificate">
-        <div class="content">
-            <h1>SERTIFIKAT</h1>
-            <div class="underline"></div>
-            <p>{{ $sertifikat_id }}</p>
-            @if ($profile && $profile->gambar)
-                @if (strpos($profile->gambar, 'googleusercontent') !== false)
-                    <img class="photo" src="{{ $profile->gambar }}" alt="Foto Peserta">
-                @else
-                    <img class="photo" src="{{ asset('public/uploads/' . $profile->gambar) }}" alt="Foto Peserta">
+    <div class="certificate-container">
+        <div class="certificate">
+            <div class="content">
+                <h1>SERTIFIKAT</h1>
+                <div class="underline"></div>
+                <p>{{ $sertifikat_id }}</p>
+                @if ($profile && $profile->gambar)
+                    @if (strpos($profile->gambar, 'googleusercontent') !== false)
+                        <img class="photo" src="{{ $profile->gambar }}" alt="Foto Peserta">
+                    @else
+                        <img class="photo" src="{{ asset('public/uploads/' . $profile->gambar) }}" alt="Foto Peserta">
+                    @endif
                 @endif
-            @endif
 
-            <div class="qr">{!! $qrCode !!}</div>
-            <h2>{{ $user->name }}</h2>
-            <p>Atas Kelulusannya Pada Kelas</p>
-            <h3>{{ $namaKursus }}</h3>
+                <div class="qr">{!! $qrCode !!}</div>
+                <h2>{{ $user->name }}</h2>
+                <p>Atas Kelulusannya Pada Kelas</p>
+                <h3>{{ $namaKursus }}</h3>
+            </div>
         </div>
     </div>
     <button class="print-button" onclick="window.print()">Cetak Sertifikat</button>
