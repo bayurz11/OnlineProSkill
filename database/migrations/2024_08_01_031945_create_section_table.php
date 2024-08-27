@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('duration');
             $table->string('file_path');
             $table->string('status');
-            $table->foreign('kurikulum_id')->references('id')->on('kurikulum')->onDelete('cascade');
+            $table->foreign('kurikulum_id')->references('id')->on('section')->onDelete('cascade');
             $table->timestamps();
         });
     }
