@@ -15,12 +15,10 @@
         body,
         html {
             margin: 0;
-            padding: 5px;
+            padding: 0;
             width: 297mm;
             height: 210mm;
             display: flex;
-            justify-content: center;
-            align-items: center;
             background: url('{{ asset('public/1.png') }}') no-repeat center center;
             background-size: cover;
         }
