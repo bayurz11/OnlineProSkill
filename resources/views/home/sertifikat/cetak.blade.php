@@ -274,7 +274,8 @@
                     @endif
                 @endif
 
-                <div class="qr">{!! $qrCode !!}</div>
+                <div class="qr">{!! $qrCode !!} <span>Scan QR Code Untuk Mengecek Orisinalitas Sertifikat.
+                        Cukup Cek Kesamaan Nama dan ID sertifikat Saja</span> </div>
                 <h2>{{ $user->name }}</h2>
                 <p>Atas Kelulusannya Pada Kelas</p>
                 <h3>{{ $namaKursus }}</h3>
