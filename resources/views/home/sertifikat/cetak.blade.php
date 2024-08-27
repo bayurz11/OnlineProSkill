@@ -24,8 +24,6 @@
         }
 
         .certificate {
-            background: url('{{ asset('public/1.png') }}') no-repeat center center;
-            background-size: cover;
             width: 1000px;
             height: 707px;
             display: flex;
@@ -35,12 +33,27 @@
             padding: 50px;
             box-sizing: border-box;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            /* To position background image inside the container */
+        }
+
+        .certificate img.background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            /* Ensures the background image is behind all other content */
         }
 
         .content {
             width: 100%;
             text-align: center;
             position: relative;
+            z-index: 1;
+            /* Ensures content is above the background image */
         }
 
         .content h1 {
@@ -138,6 +151,7 @@
 <body>
 
     <div class="certificate">
+        <img class="background" src="{{ asset('public/1.png') }}" alt="Background">
         <div class="content">
             <h1>SERTIFIKAT</h1>
             <div class="underline"></div>
