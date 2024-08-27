@@ -256,7 +256,7 @@
 </head>
 
 <body>
-    <div class="certificate">
+    <div class="certificate-container">
         <div class="content">
             <h1>SERTIFIKAT</h1>
             <div class="underline"></div>
