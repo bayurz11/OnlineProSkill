@@ -123,9 +123,14 @@
         }
 
         .print-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
+            position: fixed;
+            /* Ganti absolute dengan fixed */
+            bottom: 20px;
+            /* Tempatkan tombol di bawah */
+            left: 50%;
+            /* Pusatkan secara horizontal */
+            transform: translateX(-50%);
+            /* Geser setengah lebar tombol ke kiri untuk memusatkan */
             padding: 10px 20px;
             background-color: #007F73;
             color: white;
