@@ -30,13 +30,13 @@
             height: 707px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             padding: 50px;
             box-sizing: border-box;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             background-color: transparent;
-            /* Pastikan background elemen ini transparan */
+            /* Removed shadow for printing; add if not needed */
+            box-shadow: none;
         }
 
         .content {
