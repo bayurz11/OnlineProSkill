@@ -9,35 +9,38 @@
         @page {
             size: A4 landscape;
             margin: 0;
+            /* Hapus margin default */
         }
 
         body,
         html {
             margin: 0;
             padding: 0;
-            width: 1000px;
-            height: 707px;
+            width: 297mm;
+            /* Lebar A4 dalam orientasi landscape */
+            height: 210mm;
+            /* Tinggi A4 dalam orientasi landscape */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             background: url('{{ asset('public/1.png') }}') no-repeat center center;
-            /* Tambahkan background pada body */
             background-size: cover;
         }
 
         .certificate {
-            width: 1000px;
-            height: 707px;
+            width: 100%;
+            height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            padding: 50px;
+            padding: 20mm;
+            /* Ganti ke mm untuk ukuran yang konsisten saat mencetak */
             box-sizing: border-box;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             position: relative;
-            /* Sedikit transparansi untuk teks yang lebih mudah dibaca */
+            background-color: rgba(255, 255, 255, 0.85);
         }
 
         .content {
@@ -50,14 +53,14 @@
             margin: 0;
             font-size: 80px;
             color: #007F73;
-            margin-top: 90px;
+            margin-top: 20mm;
         }
 
         .content h2 {
             margin: 0;
             font-size: 60px;
             color: #007F73;
-            margin-top: 20px;
+            margin-top: 10mm;
         }
 
         .content h3 {
@@ -74,14 +77,14 @@
         }
 
         .content p {
-            margin: 20px 0;
+            margin: 10mm 0;
             font-size: 18px;
             color: #666;
         }
 
         .content img.photo {
             position: absolute;
-            top: 65px;
+            top: 25mm;
             right: -26px;
             width: 180px;
             height: 200px;
@@ -97,8 +100,8 @@
 
         .qr {
             position: absolute;
-            top: 420px;
-            left: 15px;
+            top: 140mm;
+            left: 15mm;
             width: 150px;
             height: 150px;
             object-fit: cover;
@@ -137,11 +140,18 @@
         }
 
         @media print {
-            body {
+
+            body,
+            html {
                 -webkit-print-color-adjust: exact;
                 /* Safari dan Chrome */
                 print-color-adjust: exact;
                 /* Firefox */
+                width: 297mm;
+                /* Pastikan body mengikuti ukuran A4 landscape */
+                height: 210mm;
+                margin: 0;
+                /* Hapus margin saat mencetak */
                 background: url('{{ asset('public/1.png') }}') no-repeat center center !important;
                 background-size: cover !important;
             }
