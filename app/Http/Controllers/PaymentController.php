@@ -23,6 +23,7 @@ class PaymentController extends Controller
 
         // Configuration::setXenditKey("");
     }
+
     // public function payment(Request $request)
     // {
     //     // Validasi permintaan
@@ -102,13 +103,28 @@ class PaymentController extends Controller
     //             $order->price = $kelas->price;
     //             $order->nomor_invoice = $invoiceNumber; // Tambahkan nomor invoice
     //             $order->save();
+
+    //             // Cek apakah user_id ada di tabel Sertifikat
+    //             $certificate = Sertifikat::where('user_id', $userId)->first();
+
+    //             if ($certificate) {
+    //                 // Jika ada, tambahkan product_id ke tabel Sertifikat
+    //                 $certificate->product_id = $kelas->id;
+    //                 $certificate->save();
+    //             } else {
+    //                 // Jika tidak ada, buat entri baru di tabel Sertifikat
+    //                 $newCertificate = new Sertifikat();
+    //                 $newCertificate->user_id = $userId;
+    //                 $newCertificate->product_id = $kelas->id;
+    //                 $newCertificate->save();
+    //             }
     //         }
 
     //         return redirect($result['invoice_url']);
     //     } catch (\Xendit\XenditSdkException $e) {
     //         return redirect()->back()->with('error', 'Pembayaran gagal. Silakan coba lagi.');
     //     }
-    // }260824
+    // }270824
     public function payment(Request $request)
     {
         // Validasi permintaan
@@ -177,6 +193,9 @@ class PaymentController extends Controller
             // Generate nomor invoice unik
             $invoiceNumber = 'PSA-' . Carbon::now('Asia/Jakarta')->format('mdHi') . '-' . $userId;
 
+            // Format bulan dan tahun
+            $bulanTahun = Carbon::now()->format('mY'); // contoh: 082024
+
             // Masukkan ke tabel orders
             foreach ($items as $kelas) {
                 $order = new Order();
@@ -189,18 +208,25 @@ class PaymentController extends Controller
                 $order->nomor_invoice = $invoiceNumber; // Tambahkan nomor invoice
                 $order->save();
 
+                // Ambil nama_kursus
+                $namaKursus = $kelas->nama_kursus;
+
                 // Cek apakah user_id ada di tabel Sertifikat
                 $certificate = Sertifikat::where('user_id', $userId)->first();
 
                 if ($certificate) {
                     // Jika ada, tambahkan product_id ke tabel Sertifikat
                     $certificate->product_id = $kelas->id;
+                    // Format sertifikat_id
+                    $certificate->sertifikat_id = $userId . '/PSA/' . $namaKursus . '/' . $bulanTahun;
                     $certificate->save();
                 } else {
                     // Jika tidak ada, buat entri baru di tabel Sertifikat
                     $newCertificate = new Sertifikat();
                     $newCertificate->user_id = $userId;
                     $newCertificate->product_id = $kelas->id;
+                    // Format sertifikat_id
+                    $newCertificate->sertifikat_id = $userId . '/PSA/' . $namaKursus . '/' . $bulanTahun;
                     $newCertificate->save();
                 }
             }
@@ -210,6 +236,7 @@ class PaymentController extends Controller
             return redirect()->back()->with('error', 'Pembayaran gagal. Silakan coba lagi.');
         }
     }
+
 
 
 
