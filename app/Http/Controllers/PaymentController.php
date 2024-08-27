@@ -218,8 +218,9 @@ class PaymentController extends Controller
                 if ($certificate) {
                     // Jika ada, tambahkan product_id ke tabel Sertifikat
                     $certificate->product_id = $kelas->id;
-                    // Format sertifikat_id menggunakan ID Sertifikat dan inisial nama kursus
-                    $certificate->sertifikat_id = $certificate->id . '/PSA/' . $inisialNamaKursus . '/' . $bulanTahun;
+                    // Format sertifikat_id menggunakan ID Sertifikat yang dipad menjadi 3 angka dan inisial nama kursus
+                    $certificateIdFormatted = str_pad($certificate->id, 3, '0', STR_PAD_LEFT);
+                    $certificate->sertifikat_id = $certificateIdFormatted . '/PSA/' . $inisialNamaKursus . '/' . $bulanTahun;
                     $certificate->save();
                 } else {
                     // Jika tidak ada, buat entri baru di tabel Sertifikat
@@ -229,7 +230,8 @@ class PaymentController extends Controller
                     $newCertificate->save();
 
                     // Update sertifikat_id setelah ID sertifikat tersedia
-                    $newCertificate->sertifikat_id = $newCertificate->id . '/PSA/' . $inisialNamaKursus . '/' . $bulanTahun;
+                    $certificateIdFormatted = str_pad($newCertificate->id, 3, '0', STR_PAD_LEFT);
+                    $newCertificate->sertifikat_id = $certificateIdFormatted . '/PSA/' . $inisialNamaKursus . '/' . $bulanTahun;
                     $newCertificate->save();
                 }
             }
@@ -239,6 +241,7 @@ class PaymentController extends Controller
             return redirect()->back()->with('error', 'Pembayaran gagal. Silakan coba lagi.');
         }
     }
+
 
 
 
