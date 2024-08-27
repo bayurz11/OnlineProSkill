@@ -21,12 +21,12 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: #f4f4f4;
+            background: url('{{ asset('public/1.png') }}') no-repeat center center;
+            /* Tambahkan background pada body */
+            background-size: cover;
         }
 
         .certificate {
-            background: url('{{ asset('public/1.png') }}') no-repeat center center;
-            background-size: cover;
             width: 1000px;
             height: 707px;
             display: flex;
@@ -37,6 +37,8 @@
             box-sizing: border-box;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             position: relative;
+            background-color: rgba(255, 255, 255, 0.85);
+            /* Sedikit transparansi untuk teks yang lebih mudah dibaca */
         }
 
         .content {
@@ -136,10 +138,13 @@
         }
 
         @media print {
-
-            body,
-            html {
-                background-color: #fff;
+            body {
+                -webkit-print-color-adjust: exact;
+                /* Safari dan Chrome */
+                print-color-adjust: exact;
+                /* Firefox */
+                background: url('{{ asset('public/1.png') }}') no-repeat center center !important;
+                background-size: cover !important;
             }
 
             .print-button {
@@ -151,22 +156,11 @@
                 box-shadow: none;
                 /* Hapus shadow jika tidak diinginkan di cetakan */
             }
-
-            .content {
-                width: 100%;
-                text-align: center;
-            }
-
-            .certificate {
-                background: url('{{ asset('public/1.png') }}') no-repeat center center !important;
-                background-size: cover !important;
-            }
         }
     </style>
 </head>
 
 <body>
-
     <div class="certificate">
         <div class="content">
             <h1>SERTIFIKAT</h1>
