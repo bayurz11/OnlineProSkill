@@ -112,11 +112,39 @@
 
                                 @if ($allSectionsCompleted)
                                     <form id="printForm" action="{{ route('print_certificate', ['id' => $user->id]) }}"
-                                        method="POST" class="ms-3">
+                                        method="POST" class="ms-3" target="_blank" onsubmit="openInNewTab(event)">
                                         @csrf
                                         <button type="submit" class="btn btn-secondary">Sertifikat Penyelesaian</button>
                                     </form>
+
+                                    <script>
+                                        function openInNewTab(event) {
+                                            event.preventDefault(); // Prevent the form from submitting normally
+                                            const form = event.target;
+                                            const formData = new FormData(form);
+                                            const actionUrl = form.action;
+
+                                            fetch(actionUrl, {
+                                                    method: 'POST',
+                                                    body: formData,
+                                                    headers: {
+                                                        'X-CSRF-TOKEN': form.querySelector('input[name="_token"]').value
+                                                    }
+                                                })
+                                                .then(response => response.blob())
+                                                .then(blob => {
+                                                    const url = window.URL.createObjectURL(blob);
+                                                    const a = document.createElement('a');
+                                                    a.href = url;
+                                                    a.target = '_blank';
+                                                    a.click();
+                                                    window.URL.revokeObjectURL(url);
+                                                })
+                                                .catch(error => console.error('Error:', error));
+                                        }
+                                    </script>
                                 @endif
+
 
                             </div>
                         </div>
