@@ -6,39 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sertifikat</title>
     <style>
-        /* Aturan untuk tampilan layar */
+        @page {
+            size: A4 landscape;
+            margin: 0;
+            /* Hapus margin default */
+        }
+
         body,
         html {
             margin: 0;
             padding: 0;
-            width: 100vw;
-            /* Gunakan vw (viewport width) untuk fleksibilitas layar */
-            height: 70vh;
-            /* Gunakan vh (viewport height) untuk fleksibilitas layar */
+            width: 297mm;
+            /* Lebar A4 dalam orientasi landscape */
+            height: 210mm;
+            /* Tinggi A4 dalam orientasi landscape */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             background: url('{{ asset('public/1.png') }}') no-repeat center center;
-            background-size: contain;
-            /* Menyesuaikan ukuran background untuk preview layar */
+            background-size: cover;
         }
 
         .certificate {
-            width: 90%;
-            /* Fleksibel sesuai layar */
-            height: 90%;
-            /* Fleksibel sesuai layar */
+            width: 100%;
+            height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            padding: 2%;
-            /* Menggunakan % untuk padding agar fleksibel sesuai layar */
+            padding: 20mm;
+            /* Ganti ke mm untuk ukuran yang konsisten saat mencetak */
             box-sizing: border-box;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             position: relative;
-            background-color: rgba(255, 255, 255, 0.85);
         }
 
         .content {
@@ -49,22 +50,21 @@
 
         .content h1 {
             margin: 0;
-            font-size: 4vw;
-            /* Menyesuaikan font berdasarkan lebar viewport */
+            font-size: 80px;
             color: #007F73;
-            margin-top: 5vh;
+            margin-top: 20mm;
         }
 
         .content h2 {
             margin: 0;
-            font-size: 3vw;
+            font-size: 60px;
             color: #007F73;
-            margin-top: 2vh;
+            margin-top: 10mm;
         }
 
         .content h3 {
             margin: 0;
-            font-size: 1.5vw;
+            font-size: 30px;
             color: #007F73;
         }
 
@@ -76,33 +76,33 @@
         }
 
         .content p {
-            margin: 2vh 0;
-            font-size: 1vw;
+            margin: 10mm 0;
+            font-size: 18px;
             color: #666;
         }
 
         .content img.photo {
             position: absolute;
-            top: 5vh;
-            right: -2vw;
-            width: 9vw;
-            height: 10vh;
+            top: 25mm;
+            right: -26px;
+            width: 180px;
+            height: 200px;
             object-fit: cover;
             border-radius: 10%;
             border: 5px solid #fdffff;
         }
 
         .qr svg {
-            width: 8vw;
-            height: 8vw;
+            width: 150px;
+            height: 150px;
         }
 
         .qr {
             position: absolute;
-            top: 60vh;
-            left: 2vw;
-            width: 8vw;
-            height: 8vw;
+            top: 140mm;
+            left: 15mm;
+            width: 150px;
+            height: 150px;
             object-fit: cover;
             border: 5px solid #fdffff;
             border-radius: 10px;
@@ -117,16 +117,16 @@
 
         .signature p {
             margin: 0;
-            font-size: 1vw;
+            font-size: 18px;
             color: #333;
             text-align: right;
         }
 
         .print-button {
             position: absolute;
-            top: 2vh;
-            right: 2vw;
-            padding: 1vh 2vw;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
             background-color: #007F73;
             color: white;
             border: none;
@@ -138,7 +138,6 @@
             background-color: #005f59;
         }
 
-        /* Aturan untuk pencetakan */
         @media print {
 
             body,
@@ -156,17 +155,14 @@
                 background-size: cover !important;
             }
 
-            .certificate {
-                width: 100%;
-                height: 100%;
-                padding: 20mm;
-                box-shadow: none;
-                /* Hapus shadow jika tidak diinginkan di cetakan */
-            }
-
             .print-button {
                 display: none;
                 /* Sembunyikan tombol cetak saat mencetak */
+            }
+
+            .certificate {
+                box-shadow: none;
+                /* Hapus shadow jika tidak diinginkan di cetakan */
             }
         }
     </style>
