@@ -37,7 +37,6 @@
             box-sizing: border-box;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             position: relative;
-            background-color: rgba(255, 255, 255, 0.85);
             /* Sedikit transparansi untuk teks yang lebih mudah dibaca */
         }
 
