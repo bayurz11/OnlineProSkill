@@ -235,7 +235,7 @@
                 border: 5px solid #fdffff;
             }
 
-            .qr .span {
+            .span {
                 top: 130mm;
                 left: 15mm;
                 width: 150px;
