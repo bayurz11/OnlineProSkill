@@ -76,6 +76,11 @@
             color: #666;
         }
 
+        .content img.background {
+            background-size: cover;
+
+        }
+
         .content img.photo {
             position: absolute;
             top: 65px;
