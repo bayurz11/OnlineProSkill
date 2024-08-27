@@ -20,6 +20,12 @@ class Order extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    // Di dalam model Sertifikat
+    public function product()
+    {
+        return $this->belongsTo(KelasTatapMuka::class, 'product_id');
+    }
     // public function KelasTatapMuka()
     // {
     //     return $this->belongsTo(KelasTatapMuka::class);
