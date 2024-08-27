@@ -37,7 +37,6 @@
             box-sizing: border-box;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             background-color: transparent;
-            /* Pastikan background elemen ini transparan */
         }
 
         .content {
@@ -121,15 +120,14 @@
         }
 
         .print-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
             padding: 10px 20px;
             background-color: #007F73;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            margin-top: 20px;
+            /* Adds some space between the button and the certificate content */
         }
 
         .print-button:hover {
@@ -160,7 +158,6 @@
             browser Anda.</p>
     </div>
 
-    <button class="print-button" onclick="window.print()">Cetak Sertifikat</button>
     <div class="certificate">
         <div class="content">
             <h1>SERTIFIKAT</h1>
@@ -179,6 +176,8 @@
             <p>Atas Kelulusannya Pada Kelas</p>
             <h3>{{ $namaKursus }}</h3>
         </div>
+        <!-- Cetak Sertifikat Button Moved Inside the .certificate Div -->
+        <button class="print-button" onclick="window.print()">Cetak Sertifikat</button>
     </div>
 </body>
 
