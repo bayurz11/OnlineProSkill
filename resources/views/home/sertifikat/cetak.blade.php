@@ -162,7 +162,7 @@
             left: 50%;
             transform: translateX(-50%);
             padding: 10px 20px;
-            background-color: #007F73;
+            background-color: #ffc107;
             color: white;
             border: none;
             border-radius: 5px;
@@ -170,7 +170,7 @@
         }
 
         .print-button:hover {
-            background-color: #005f59;
+            background-color: #ff9800;
         }
 
         @media print {
