@@ -18,7 +18,11 @@ class Sertifikat extends Model
     {
         return $this->belongsTo(KelasTatapMuka::class, 'kategori_id');
     }
-
+    // Di dalam model Sertifikat
+    public function product()
+    {
+        return $this->belongsTo(KelasTatapMuka::class, 'product_id');
+    }
 
     public function course()
     {

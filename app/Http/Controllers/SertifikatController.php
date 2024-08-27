@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Order;
 use App\Models\Categories;
 use App\Models\Sertifikat;
 use App\Models\UserProfile;
-use App\Models\CourseMaster;
 use Illuminate\Http\Request;
 use App\Models\Subcategories;
 use App\Models\KelasTatapMuka;
 use App\Http\Controllers\Controller;
+use App\Models\CourseMaster;
 use Illuminate\Support\Facades\Auth;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
@@ -21,13 +20,12 @@ class SertifikatController extends Controller
     {
         $user = Auth::user();
         $sertifikat = Sertifikat::with('kelasTatapMuka')->get();
-        $productName = $sertifikat->product_id ? Order::where('id', $sertifikat->product_id)->value('nama_kursus') : null;
         $classroom = KelasTatapMuka::all();
         if (!$user) {
             return redirect()->route('/');
         }
 
-        return view('admin.sertifikat.index', compact('user', 'sertifikat', 'classroom', 'productName'));
+        return view('admin.sertifikat.index', compact('user', 'sertifikat', 'classroom'));
     }
 
     public function store(Request $request)
