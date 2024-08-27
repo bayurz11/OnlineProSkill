@@ -95,7 +95,7 @@
         .qr {
             position: absolute;
             top: 400px;
-            left: 26px;
+            left: 20px;
             width: 150px;
             height: 150px;
             object-fit: cover;
