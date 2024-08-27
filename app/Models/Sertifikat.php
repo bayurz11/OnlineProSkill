@@ -16,7 +16,7 @@ class Sertifikat extends Model
     // Relasi ke model KelasTatapMuka
     public function KelasTatapMuka()
     {
-        return $this->belongsTo(KelasTatapMuka::class, 'kategori_id');
+        return $this->belongsTo(KelasTatapMuka::class, 'kategori_id', 'product_id');
     }
     public function course()
     {
