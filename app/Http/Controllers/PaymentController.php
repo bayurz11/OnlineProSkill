@@ -213,6 +213,9 @@ class PaymentController extends Controller
             // Format bulan dan tahun
             $bulanTahun = Carbon::now()->format('m.Y'); // contoh: 082024
 
+            // Ambil nama user berdasarkan userId
+            $userName = Auth::user()->name;
+
             // Masukkan ke tabel orders
             foreach ($items as $kelas) {
                 $order = new Order();
@@ -233,18 +236,20 @@ class PaymentController extends Controller
                 $certificate = Sertifikat::where('user_id', $userId)->first();
 
                 // Periksa apakah ada data sertifikat dengan product_id, sertifikat_id, dan checkout_link yang sudah terisi
-                $isAllFilled = $certificate && $certificate->product_id && $certificate->sertifikat_id && $certificate->link;
+                $isAllFilled = $certificate && $certificate->product_id && $certificate->sertifikat_id && $certificate->checkout_link;
 
                 if ($isAllFilled) {
                     // Jika semua data sudah terisi, buat entri baru di tabel Sertifikat
                     $newCertificate = new Sertifikat();
                     $newCertificate->user_id = $userId;
+                    $newCertificate->name = $userName; // Tambahkan nama user
                     $newCertificate->product_id = $kelas->id;
                     $newCertificate->save();
 
                     // Update sertifikat_id setelah ID sertifikat tersedia
                     $certificateIdFormatted = str_pad($newCertificate->id, 3, '0', STR_PAD_LEFT);
                     $newCertificate->sertifikat_id = $certificateIdFormatted . '/PSA/' . $inisialNamaKursus . '/' . $bulanTahun;
+                    $newCertificate->checkout_link = "/print/{$newCertificate->id}"; // Tambahkan link cetak sertifikat
                     $newCertificate->save();
                 } else {
                     if ($certificate) {
@@ -253,17 +258,20 @@ class PaymentController extends Controller
                         // Format sertifikat_id menggunakan ID Sertifikat yang dipad menjadi 3 angka dan inisial nama kursus
                         $certificateIdFormatted = str_pad($certificate->id, 3, '0', STR_PAD_LEFT);
                         $certificate->sertifikat_id = $certificateIdFormatted . ' / PSA / ' . $inisialNamaKursus . ' / ' . $bulanTahun;
+                        $certificate->checkout_link = "/print/{$certificate->id}"; // Tambahkan link cetak sertifikat
                         $certificate->save();
                     } else {
                         // Jika tidak ada, buat entri baru di tabel Sertifikat
                         $newCertificate = new Sertifikat();
                         $newCertificate->user_id = $userId;
+                        $newCertificate->name = $userName; // Tambahkan nama user
                         $newCertificate->product_id = $kelas->id;
                         $newCertificate->save();
 
                         // Update sertifikat_id setelah ID sertifikat tersedia
                         $certificateIdFormatted = str_pad($newCertificate->id, 3, '0', STR_PAD_LEFT);
                         $newCertificate->sertifikat_id = $certificateIdFormatted . '/PSA/' . $inisialNamaKursus . '/' . $bulanTahun;
+                        $newCertificate->checkout_link = "/print/{$newCertificate->id}"; // Tambahkan link cetak sertifikat
                         $newCertificate->save();
                     }
                 }
@@ -274,6 +282,7 @@ class PaymentController extends Controller
             return redirect()->back()->with('error', 'Pembayaran gagal. Silakan coba lagi.');
         }
     }
+
 
 
 
