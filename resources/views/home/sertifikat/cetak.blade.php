@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sertifikat</title>
     <style>
+        @page {
+            size: A4 landscape;
+            margin: 0;
+        }
+
         body,
         html {
             margin: 0;
