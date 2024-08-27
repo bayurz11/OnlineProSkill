@@ -41,8 +41,8 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 1000px;
+            height: 707px;
             object-fit: cover;
             z-index: -1;
             /* Ensures the background image is behind all other content */
