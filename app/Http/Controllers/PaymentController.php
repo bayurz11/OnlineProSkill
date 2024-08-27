@@ -24,6 +24,7 @@ class PaymentController extends Controller
         // Configuration::setXenditKey("");
     }
 
+
     // public function payment(Request $request)
     // {
     //     // Validasi permintaan
@@ -92,6 +93,9 @@ class PaymentController extends Controller
     //         // Generate nomor invoice unik
     //         $invoiceNumber = 'PSA-' . Carbon::now('Asia/Jakarta')->format('mdHi') . '-' . $userId;
 
+    //         // Format bulan dan tahun
+    //         $bulanTahun = Carbon::now()->format('m.Y'); // contoh: 082024
+
     //         // Masukkan ke tabel orders
     //         foreach ($items as $kelas) {
     //             $order = new Order();
@@ -104,18 +108,30 @@ class PaymentController extends Controller
     //             $order->nomor_invoice = $invoiceNumber; // Tambahkan nomor invoice
     //             $order->save();
 
+    //             // Ambil nama_kursus dan ambil inisial
+    //             $namaKursus = $kelas->nama_kursus;
+    //             $inisialNamaKursus = implode('', array_map(fn($word) => strtoupper($word[0]), explode(' ', $namaKursus)));
+
     //             // Cek apakah user_id ada di tabel Sertifikat
     //             $certificate = Sertifikat::where('user_id', $userId)->first();
 
     //             if ($certificate) {
     //                 // Jika ada, tambahkan product_id ke tabel Sertifikat
     //                 $certificate->product_id = $kelas->id;
+    //                 // Format sertifikat_id menggunakan ID Sertifikat yang dipad menjadi 3 angka dan inisial nama kursus
+    //                 $certificateIdFormatted = str_pad($certificate->id, 3, '0', STR_PAD_LEFT);
+    //                 $certificate->sertifikat_id = $certificateIdFormatted . ' / PSA / ' . $inisialNamaKursus . ' / ' . $bulanTahun;
     //                 $certificate->save();
     //             } else {
     //                 // Jika tidak ada, buat entri baru di tabel Sertifikat
     //                 $newCertificate = new Sertifikat();
     //                 $newCertificate->user_id = $userId;
     //                 $newCertificate->product_id = $kelas->id;
+    //                 $newCertificate->save();
+
+    //                 // Update sertifikat_id setelah ID sertifikat tersedia
+    //                 $certificateIdFormatted = str_pad($newCertificate->id, 3, '0', STR_PAD_LEFT);
+    //                 $newCertificate->sertifikat_id = $certificateIdFormatted . '/PSA/' . $inisialNamaKursus . '/' . $bulanTahun;
     //                 $newCertificate->save();
     //             }
     //         }
@@ -125,6 +141,7 @@ class PaymentController extends Controller
     //         return redirect()->back()->with('error', 'Pembayaran gagal. Silakan coba lagi.');
     //     }
     // }270824
+
     public function payment(Request $request)
     {
         // Validasi permintaan
@@ -215,15 +232,11 @@ class PaymentController extends Controller
                 // Cek apakah user_id ada di tabel Sertifikat
                 $certificate = Sertifikat::where('user_id', $userId)->first();
 
-                if ($certificate) {
-                    // Jika ada, tambahkan product_id ke tabel Sertifikat
-                    $certificate->product_id = $kelas->id;
-                    // Format sertifikat_id menggunakan ID Sertifikat yang dipad menjadi 3 angka dan inisial nama kursus
-                    $certificateIdFormatted = str_pad($certificate->id, 3, '0', STR_PAD_LEFT);
-                    $certificate->sertifikat_id = $certificateIdFormatted . ' / PSA / ' . $inisialNamaKursus . ' / ' . $bulanTahun;
-                    $certificate->save();
-                } else {
-                    // Jika tidak ada, buat entri baru di tabel Sertifikat
+                // Periksa apakah ada data sertifikat dengan product_id, sertifikat_id, dan checkout_link yang sudah terisi
+                $isAllFilled = $certificate && $certificate->product_id && $certificate->sertifikat_id && $certificate->link;
+
+                if ($isAllFilled) {
+                    // Jika semua data sudah terisi, buat entri baru di tabel Sertifikat
                     $newCertificate = new Sertifikat();
                     $newCertificate->user_id = $userId;
                     $newCertificate->product_id = $kelas->id;
@@ -233,6 +246,26 @@ class PaymentController extends Controller
                     $certificateIdFormatted = str_pad($newCertificate->id, 3, '0', STR_PAD_LEFT);
                     $newCertificate->sertifikat_id = $certificateIdFormatted . '/PSA/' . $inisialNamaKursus . '/' . $bulanTahun;
                     $newCertificate->save();
+                } else {
+                    if ($certificate) {
+                        // Jika ada sertifikat, tambahkan product_id ke tabel Sertifikat
+                        $certificate->product_id = $kelas->id;
+                        // Format sertifikat_id menggunakan ID Sertifikat yang dipad menjadi 3 angka dan inisial nama kursus
+                        $certificateIdFormatted = str_pad($certificate->id, 3, '0', STR_PAD_LEFT);
+                        $certificate->sertifikat_id = $certificateIdFormatted . ' / PSA / ' . $inisialNamaKursus . ' / ' . $bulanTahun;
+                        $certificate->save();
+                    } else {
+                        // Jika tidak ada, buat entri baru di tabel Sertifikat
+                        $newCertificate = new Sertifikat();
+                        $newCertificate->user_id = $userId;
+                        $newCertificate->product_id = $kelas->id;
+                        $newCertificate->save();
+
+                        // Update sertifikat_id setelah ID sertifikat tersedia
+                        $certificateIdFormatted = str_pad($newCertificate->id, 3, '0', STR_PAD_LEFT);
+                        $newCertificate->sertifikat_id = $certificateIdFormatted . '/PSA/' . $inisialNamaKursus . '/' . $bulanTahun;
+                        $newCertificate->save();
+                    }
                 }
             }
 
@@ -241,7 +274,6 @@ class PaymentController extends Controller
             return redirect()->back()->with('error', 'Pembayaran gagal. Silakan coba lagi.');
         }
     }
-
 
 
 
