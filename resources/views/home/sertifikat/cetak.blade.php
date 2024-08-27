@@ -24,8 +24,8 @@
         }
 
         .certificate {
-            /* background: url('{{ asset('public/1.png') }}') no-repeat center center;
-            background-size: cover; */
+            background: url('{{ asset('public/1.png') }}') no-repeat center center;
+            background-size: cover;
             width: 1000px;
             height: 707px;
             display: flex;
@@ -74,11 +74,6 @@
             margin: 20px 0;
             font-size: 18px;
             color: #666;
-        }
-
-        .content img.background {
-            background-size: cover;
-
         }
 
         .content img.photo {
@@ -144,7 +139,6 @@
 
     <div class="certificate">
         <div class="content">
-            <img class="background" src="{{ asset('public/1.png') }}" alt="background">
             <h1>SERTIFIKAT</h1>
             <div class="underline"></div>
             <p>{{ $sertifikat_id }}</p>
