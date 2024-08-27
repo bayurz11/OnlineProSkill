@@ -16,9 +16,9 @@
         html {
             margin: 0;
             padding: 0;
-            width: 100%;
+            width: 297mm;
             /* Gunakan 100vw untuk lebar layar penuh */
-            height: 100%;
+            height: 210mm;
             /* Gunakan 100vh untuk tinggi layar penuh */
             display: flex;
             justify-content: center;
