@@ -87,11 +87,9 @@
             border: 5px solid #fdffff;
         }
 
-
         .qr svg {
             width: 150px;
             height: 150px;
-
         }
 
         .qr {
@@ -118,10 +116,27 @@
             color: #333;
             text-align: right;
         }
+
+        .print-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #007F73;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .print-button:hover {
+            background-color: #005f59;
+        }
     </style>
 </head>
 
 <body>
+    <button class="print-button" onclick="window.print()">Cetak Sertifikat</button>
     <div class="certificate">
         <div class="content">
             <h1>SERTIFIKAT</h1>
@@ -138,11 +153,9 @@
             <div class="qr">{!! $qrCode !!}</div>
             <h2>{{ $user->name }}</h2>
             <p>Atas Kelulusannya Pada Kelas</p>
-            <h3> {{ $namaKursus }}</h3>
+            <h3>{{ $namaKursus }}</h3>
         </div>
     </div>
-
-
 </body>
 
 </html>
