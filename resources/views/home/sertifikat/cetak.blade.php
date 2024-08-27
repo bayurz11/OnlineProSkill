@@ -13,8 +13,8 @@
 
         body,
         html {
-            margin: 0;
-            padding: 0;
+            margin: 50;
+            padding: 50;
             width: 1000px;
             height: 707px;
             display: flex;
