@@ -47,7 +47,9 @@
                                             <td>{{ $sertifikat->sertifikat_id }}</td>
                                             <td>{{ $sertifikat->name }}</td>
                                             <td>{{ $sertifikat->keterangan }}</td>
-                                            <td>{{ $sertifikat->kelasTatapMuka->nama_kursus }}</td>
+                                            <td>{{ $sertifikat->kelasTatapMuka->nama_kursus ?? 'Nama kursus tidak tersedia' }}
+                                            </td>
+
 
                                             <td>
                                                 @if ($sertifikat->gambar)
