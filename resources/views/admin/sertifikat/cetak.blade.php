@@ -125,13 +125,13 @@
             <h1>SERTIFIKAT</h1>
             <div class="underline"></div>
             <p>ID : {{ $sertifikat->sertifikat_id }}</p>
-            {{-- @if ($profile && $profile->gambar)
+            @if ($sertifikat && $profile->gambar)
                 @if (strpos($profile->gambar, 'googleusercontent') !== false)
                     <img class="photo" src="{{ $profile->gambar }}" alt="Foto Peserta">
                 @else
                     <img class="photo" src="{{ asset('public/uploads/' . $profile->gambar) }}" alt="Foto Peserta">
                 @endif
-            @endif --}}
+            @endif
 
             <div class="qr">{!! $qrCode !!}</div>
             <h2>{{ $sertifikat->name }}</h2>
