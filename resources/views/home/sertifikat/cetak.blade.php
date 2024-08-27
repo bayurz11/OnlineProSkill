@@ -8,6 +8,7 @@
     <style>
         @page {
             size: A4 landscape;
+            margin: 0;
         }
 
         body,
@@ -20,12 +21,12 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            background: url('{{ asset('public/1.png') }}') no-repeat center center;
+            background-size: cover;
             background-color: #f4f4f4;
         }
 
         .certificate {
-            background: url('{{ asset('public/1.png') }}') no-repeat center center;
-            background-size: cover;
             width: 1000px;
             height: 707px;
             display: flex;
@@ -35,6 +36,8 @@
             padding: 50px;
             box-sizing: border-box;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: transparent;
+            /* Pastikan background elemen ini transparan */
         }
 
         .content {
@@ -132,10 +135,31 @@
         .print-button:hover {
             background-color: #005f59;
         }
+
+        /* Media query untuk memastikan background dicetak */
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                background: url('{{ asset('public/1.png') }}') no-repeat center center !important;
+                background-size: cover !important;
+            }
+
+            .print-button {
+                display: none;
+                /* Menyembunyikan tombol cetak saat mencetak */
+            }
+        }
     </style>
 </head>
 
 <body>
+    <!-- Pesan untuk pengguna agar mengaktifkan pencetakan background -->
+    <div id="printMessage" style="display: none;">
+        <p>Pastikan untuk mengaktifkan opsi "Print Backgrounds" atau "Cetak Background" pada pengaturan pencetakan
+            browser Anda.</p>
+    </div>
+
     <button class="print-button" onclick="window.print()">Cetak Sertifikat</button>
     <div class="certificate">
         <div class="content">
