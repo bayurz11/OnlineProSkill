@@ -124,7 +124,7 @@
         <div class="content">
             <h1>SERTIFIKAT</h1>
             <div class="underline"></div>
-            <p>ID : {{ $sertifikate->sertifikat_id }}</p>
+            <p>ID : {{ $sertifikat->sertifikat_id }}</p>
             @if ($profile && !empty($profile->gambar))
                 @if (strpos($profile->gambar, 'googleusercontent') !== false)
                     <!-- Gambar yang di-hosting oleh Google -->
@@ -136,9 +136,9 @@
             @endif
 
             <div class="qr">{!! $qrCode !!}</div>
-            <h2>{{ $sertifikate->name }}</h2>
+            <h2>{{ $sertifikat->name }}</h2>
             <p>Atas Kelulusannya Pada Kelas</p>
-            <h3>{{ $sertifikate->course->nama_kursus }}</h3>
+            <h3>{{ $sertifikat->course->nama_kursus }}</h3>
 
         </div>
     </div>
