@@ -12,21 +12,20 @@
 
         body,
         html {
-
-            padding: 50px;
-            width: 1000px;
-            height: 707px;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            background: url('{{ asset('public/1.png') }}') no-repeat center center;
-            background-size: cover;
             background-color: #f4f4f4;
         }
 
         .certificate {
-
+            /* background: url('{{ asset('public/1.png') }}') no-repeat center center;
+            background-size: cover; */
             width: 1000px;
             height: 707px;
             display: flex;
@@ -137,9 +136,10 @@
 </head>
 
 <body>
-    <button class="print-button" onclick="window.print()">Cetak Sertifikat</button>
+
     <div class="certificate">
         <div class="content">
+            <img class="background" src="{{ asset('public/1.png') }}" alt="background">
             <h1>SERTIFIKAT</h1>
             <div class="underline"></div>
             <p>{{ $sertifikat_id }}</p>
@@ -157,6 +157,7 @@
             <h3>{{ $namaKursus }}</h3>
         </div>
     </div>
+    <button class="print-button" onclick="window.print()">Cetak Sertifikat</button>
 </body>
 
 </html>
