@@ -8,6 +8,7 @@
     <style>
         @page {
             size: A4 landscape;
+            margin: 0;
         }
 
         body,
@@ -35,6 +36,7 @@
             padding: 50px;
             box-sizing: border-box;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
         .content {
@@ -131,6 +133,34 @@
 
         .print-button:hover {
             background-color: #005f59;
+        }
+
+        @media print {
+
+            body,
+            html {
+                background-color: #fff;
+            }
+
+            .print-button {
+                display: none;
+                /* Sembunyikan tombol cetak saat mencetak */
+            }
+
+            .certificate {
+                box-shadow: none;
+                /* Hapus shadow jika tidak diinginkan di cetakan */
+            }
+
+            .content {
+                width: 100%;
+                text-align: center;
+            }
+
+            .certificate {
+                background: url('{{ asset('public/1.png') }}') no-repeat center center !important;
+                background-size: cover !important;
+            }
         }
     </style>
 </head>
