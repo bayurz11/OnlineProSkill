@@ -102,7 +102,7 @@
                         <div class="tab-pane fade show active" id="grid" role="tabpanel" aria-labelledby="grid-tab">
                             <div
                                 class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
-                                @foreach ($course as $cours)
+                                @forelse ($course as $cours)
                                     @if ($cours->status == 1)
                                         <div class="col">
                                             <div class="courses__item shine__animate-item">
@@ -119,11 +119,10 @@
                                                             href="{{ route('coursedetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
                                                     </h5>
                                                     <p class="author">By <a
-                                                            href="#">{{ $cours->user->name }}</a>&nbsp;&nbsp; <img
-                                                            src="{{ asset('public/assets/img/icons/course_icon06.svg') }}"
+                                                            href="#">{{ $cours->user->name }}</a>&nbsp;&nbsp;
+                                                        <img src="{{ asset('public/assets/img/icons/course_icon06.svg') }}"
                                                             alt="img" class="injectable">
-                                                        Siswa
-                                                        <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}</span>
+                                                        Siswa <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}</span>
                                                     </p>
 
                                                     <div class="courses__item-bottom">
@@ -142,10 +141,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    @else
-                                        Kelas online belum ditambahkaan
                                     @endif
-                                @endforeach
+                                @empty
+                                    <p>Data Belum Ditambahkan</p>
+                                @endforelse
+
 
                             </div>
                         </div>
