@@ -73,8 +73,9 @@
                                 </div>
                                 <div class="content">
                                     <h4 class="title">E-mail Address</h4>
-                                    <a href="mailto:proskill.akademia@gmail.com">proskill.akademia@gmail.com</a>
-                                    <a href="mailto:admin@proskill.sch.id">admin@proskill.sch.id</a>
+                                    @foreach ($emailList as $email)
+                                        <a href="mailto:{{ $email }}">{{ $email }}</a>
+                                    @endforeach
                                 </div>
                             </li>
                         </ul>

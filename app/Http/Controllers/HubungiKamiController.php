@@ -28,6 +28,11 @@ class HubungiKamiController extends Controller
         if (!is_array($teleponList)) {
             $teleponList = [];
         }
+        $emailList = json_decode($contactUs->email, true);
+
+        if (!is_array($emailList)) {
+            $emailList = [];
+        }
 
         if ($user) {
             $profile = UserProfile::where('user_id', $user->id)->first();
@@ -42,6 +47,6 @@ class HubungiKamiController extends Controller
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
-        return view('home.hubungikami.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'contactUs', 'teleponList'));
+        return view('home.hubungikami.index', compact('user', 'emailList', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'contactUs', 'teleponList'));
     }
 }
