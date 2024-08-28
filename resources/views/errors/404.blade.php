@@ -60,7 +60,7 @@
     <div class="flex-center position-ref full-height">
         <div class="content">
             <div class="title">
-                <img src="assets/img/others/error_img.svg" alt="img" class="injectable">
+                <img src="{{ asset('public/assets/img/others/error_img.svg') }}" alt="img" class="injectable">
                 Halaman Tidak Ditemukan - 404
             </div>
             <a href="{{ route('/') }}" class="btn">Kembali ke Beranda</a>
