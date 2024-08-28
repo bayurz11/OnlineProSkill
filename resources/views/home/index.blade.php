@@ -215,47 +215,49 @@
                     <div class="swiper courses-swiper-active">
                         <div class="swiper-wrapper">
                             @foreach ($KelasTatapMuka as $kelas)
-                                <div class="swiper-slide">
-                                    <div
-                                        class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
-                                        <div class="courses__item-thumb courses__item-thumb-two">
-                                            <a href="{{ route('classroomdetail', ['id' => $kelas->id]) }}"
-                                                class="shine__animate-link">
-                                                <img src="{{ asset('public/uploads/' . $kelas->gambar) }}" alt="img"
-                                                    class="img-fluid" loading="lazy">
-                                            </a>
-                                        </div>
+                                @if ($cours->status == 1)
+                                    <div class="swiper-slide">
                                         <div
-                                            class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1">
-                                            <ul class="courses__item-meta list-wrap">
-                                                <li class="courses__item-tag">
-                                                    @if ($kelas->course_type == 'online')
-                                                        <span class="badge bg-primary">Online</span>
-                                                    @else
-                                                        <span class="badge bg-secondary">Offline</span>
-                                                    @endif
-                                                </li>
-                                                <li class="price">Rp {{ number_format($kelas->price, 0, '.', '.') }}
-                                                </li>
-                                            </ul>
-                                            <h5 class="title course-title flex-grow-1">
-                                                <a
-                                                    href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">{{ $kelas->nama_kursus }}</a>
-                                            </h5>
-                                            <div class="courses__item-content-bottom mt-auto">
-                                                <div class="author-two">
-                                                    <a href="">
-                                                        <img src="public/assets/img/courses/course_author001.png"
-                                                            alt="img" loading="lazy">{{ $kelas->user->name }}
-                                                    </a>
-                                                </div>
-                                                {{-- <div class="avg-rating">
+                                            class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
+                                            <div class="courses__item-thumb courses__item-thumb-two">
+                                                <a href="{{ route('classroomdetail', ['id' => $kelas->id]) }}"
+                                                    class="shine__animate-link">
+                                                    <img src="{{ asset('public/uploads/' . $kelas->gambar) }}"
+                                                        alt="img" class="img-fluid" loading="lazy">
+                                                </a>
+                                            </div>
+                                            <div
+                                                class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1">
+                                                <ul class="courses__item-meta list-wrap">
+                                                    <li class="courses__item-tag">
+                                                        @if ($kelas->course_type == 'online')
+                                                            <span class="badge bg-primary">Online</span>
+                                                        @else
+                                                            <span class="badge bg-secondary">Offline</span>
+                                                        @endif
+                                                    </li>
+                                                    <li class="price">Rp {{ number_format($kelas->price, 0, '.', '.') }}
+                                                    </li>
+                                                </ul>
+                                                <h5 class="title course-title flex-grow-1">
+                                                    <a
+                                                        href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">{{ $kelas->nama_kursus }}</a>
+                                                </h5>
+                                                <div class="courses__item-content-bottom mt-auto">
+                                                    <div class="author-two">
+                                                        <a href="">
+                                                            <img src="public/assets/img/courses/course_author001.png"
+                                                                alt="img" loading="lazy">{{ $kelas->user->name }}
+                                                        </a>
+                                                    </div>
+                                                    {{-- <div class="avg-rating">
                                                     <i class="fas fa-star"></i> (4.8 Reviews)
                                                 </div> --}}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                @endif
                             @endforeach
                         </div>
                     </div>
