@@ -130,7 +130,7 @@
                                             <img src="public/assets/img/icons/h2_features_icon01.svg" alt="img"
                                                 class="injectable" loading="lazy">
                                         </div>
-                                        <h2 class="title">Tutor Ahli</h2>
+                                        <h2 class="title">Tutor/Instruktur Ahli</h2>
                                     </div>
                                     <p>Belajar Langsung Dari Tutor Yang Ahli di Bidangnya.</p>
                                 </div>
