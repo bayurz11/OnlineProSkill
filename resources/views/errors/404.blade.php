@@ -40,8 +40,8 @@
 
         .btn {
             display: inline-block;
-            padding: 10px 20px;
-            font-size: 14px;
+            padding: 15px 20px;
+            font-size: 18px;
             color: #fff;
             background-color: #f7b125;
             border: none;
