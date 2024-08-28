@@ -1,5 +1,4 @@
 <!-- Edit Modal -->
-<!-- Edit Modal -->
 <div class="modal fade" id="editcontactModal" tabindex="-1" aria-labelledby="editcontactModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -12,25 +11,26 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="alamat" class="form-label">Alamat<span class="text-danger">*</span></label>
+                        <label for="editalamat" class="form-label">Alamat<span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="editalamat" name="alamat"
                             placeholder="Masukkan Alamat Anda" required>
                     </div>
                     <div class="mb-3">
-                        <label for="telepon" class="form-label">Telepon <span class="text-danger">*</span></label>
-                        <div id="telepon-container">
+                        <label for="edittelepon" class="form-label">Telepon <span class="text-danger">*</span></label>
+                        <div id="edittelepon-container">
                             <div class="input-group mb-2">
-                                <input type="text" class="form-control" id="edittelepon" name="telepon[]">
-                                <button class="btn btn-success" type="button" id="add-telepon">+</button>
+                                <input type="text" class="form-control" name="telepon[]">
+                                <button class="btn btn-success" type="button" id="editadd-telepon">+</button>
                             </div>
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Alamat Email <span class="text-danger">*</span></label>
-                        <div id="email-container">
+                        <label for="editemail" class="form-label">Alamat Email <span
+                                class="text-danger">*</span></label>
+                        <div id="editemail-container">
                             <div class="input-group mb-2">
-                                <input type="email" class="form-control" id="editemail" name="email[]">
-                                <button class="btn btn-success" type="button" id="add-email">+</button>
+                                <input type="email" class="form-control" name="email[]">
+                                <button class="btn btn-success" type="button" id="editadd-email">+</button>
                             </div>
                         </div>
                     </div>
