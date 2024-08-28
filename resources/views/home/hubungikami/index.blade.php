@@ -61,7 +61,9 @@
                                 </div>
                                 <div class="content">
                                     <h4 class="title">Telepon</h4>
-                                    <a href="tel:+6281266187125">+62 8126 6187 125</a>
+                                    @foreach ($teleponList as $tlp)
+                                        <a href="tel:+6281266187125">+62 8126 6187 125</a>
+                                    @endforeach
                                 </div>
                             </li>
                             <li>
@@ -70,7 +72,7 @@
                                 </div>
                                 <div class="content">
                                     <h4 class="title">E-mail Address</h4>
-                                    <a href="proskill.akademia@gmail.com">proskill.akademia@gmail.com</a>
+                                    <a href="mailto:proskill.akademia@gmail.com">proskill.akademia@gmail.com</a>
                                     <a href="mailto:admin@proskill.sch.id">admin@proskill.sch.id</a>
                                 </div>
                             </li>
