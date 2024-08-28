@@ -47,46 +47,72 @@
 
 <script>
     $(document).ready(function() {
-        // Handle the edit button click event
+        // Menangani klik tombol edit
         $('.edit-button').on('click', function() {
             const id = $(this).data('id');
             fetch(`/contact/${id}/edit`)
                 .then(response => response.json())
                 .then(data => {
-                    // Populate the form fields with fetched data
+                    // Memasukkan data alamat
                     $('#editalamat').val(data.alamat);
 
-                    // Populate telepon fields
-                    $('#edittelepon-container').empty(); // Clear the container first
-                    data.telepon.forEach((telepon, index) => {
-                        $('#edittelepon-container').append(`
-                        <div class="input-group mb-2">
-                            <input type="text" class="form-control" name="telepon[]" value="${telepon}">
-                            ${index === 0 ? '<button class="btn btn-success" type="button" id="add-telepon">+</button>' : '<button class="btn btn-danger remove-telepon" type="button">-</button>'}
-                        </div>
-                    `);
-                    });
+                    // Mengelola telepon
+                    const teleponContainer = $('#edittelepon-container');
+                    teleponContainer.html('');
 
-                    // Populate email fields
-                    $('#editemail-container').empty(); // Clear the container first
-                    data.email.forEach((email, index) => {
-                        $('#editemail-container').append(`
-                        <div class="input-group mb-2">
-                            <input type="email" class="form-control" name="email[]" value="${email}">
-                            ${index === 0 ? '<button class="btn btn-success" type="button" id="add-email">+</button>' : '<button class="btn btn-danger remove-email" type="button">-</button>'}
-                        </div>
-                    `);
-                    });
+                    try {
+                        const teleponList = JSON.parse(data.telepon);
 
-                    // Set the form action to the update route
-                    $('#editeditcontactModalForm').attr('action', `/contact/${data.id}/update`);
+                        if (Array.isArray(teleponList)) {
+                            teleponList.forEach(item => {
+                                const inputGroup = $(`
+                                <div class="input-group mb-2">
+                                    <input type="text" class="form-control" name="telepon[]" value="${item}">
+                                    <button class="btn btn-danger remove-telepon" type="button">-</button>
+                                </div>
+                            `);
+                                teleponContainer.append(inputGroup);
+                            });
+                        } else {
+                            console.error('Parsed telepon bukan array:', teleponList);
+                        }
+                    } catch (e) {
+                        console.error('Error parsing telepon:', e, data.telepon);
+                    }
+
+                    // Mengelola email
+                    const emailContainer = $('#editemail-container');
+                    emailContainer.html('');
+
+                    try {
+                        const emailList = JSON.parse(data.email);
+
+                        if (Array.isArray(emailList)) {
+                            emailList.forEach(item => {
+                                const inputGroup = $(`
+                                <div class="input-group mb-2">
+                                    <input type="email" class="form-control" name="email[]" value="${item}">
+                                    <button class="btn btn-danger remove-email" type="button">-</button>
+                                </div>
+                            `);
+                                emailContainer.append(inputGroup);
+                            });
+                        } else {
+                            console.error('Parsed email bukan array:', emailList);
+                        }
+                    } catch (e) {
+                        console.error('Error parsing email:', e, data.email);
+                    }
+
+                    // Mengatur aksi form untuk rute pembaruan
+                    $('#editcontactModalForm').attr('action', `/contact/${data.id}/update`);
                 })
                 .catch(error => {
                     console.error('Error fetching data:', error);
                 });
         });
 
-        // Add new input fields for telepon
+        // Menambah input baru untuk telepon
         $(document).on('click', '#editadd-telepon', function() {
             $('#edittelepon-container').append(`
             <div class="input-group mb-2">
@@ -96,12 +122,12 @@
         `);
         });
 
-        // Remove telepon input fields
+        // Menghapus input telepon
         $(document).on('click', '.remove-telepon', function() {
             $(this).closest('.input-group').remove();
         });
 
-        // Add new input fields for email
+        // Menambah input baru untuk email
         $(document).on('click', '#editadd-email', function() {
             $('#editemail-container').append(`
             <div class="input-group mb-2">
@@ -111,7 +137,7 @@
         `);
         });
 
-        // Remove email input fields
+        // Menghapus input email
         $(document).on('click', '.remove-email', function() {
             $(this).closest('.input-group').remove();
         });
