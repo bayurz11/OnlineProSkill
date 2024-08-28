@@ -62,9 +62,10 @@
                                 <div class="content">
                                     <h4 class="title">Telepon</h4>
                                     @foreach ($teleponList as $tlp)
-                                        <a href="tel:+6281266187125">{{ $tlp }}</a>
+                                        <a href="tel:{{ $tlp }}">{{ $tlp }}</a>
                                     @endforeach
                                 </div>
+
                             </li>
                             <li>
                                 <div class="icon">

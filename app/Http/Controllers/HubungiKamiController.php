@@ -29,6 +29,7 @@ class HubungiKamiController extends Controller
             $teleponList = [];
         }
 
+
         if ($user) {
             $profile = UserProfile::where('user_id', $user->id)->first();
         }
