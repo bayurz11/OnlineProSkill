@@ -144,7 +144,7 @@
                                     @endif
                                 @empty
                                     <div class="d-flex justify-content-center align-items-center" style="height: 200px;">
-                                        <p class="text-center">Data Belum Ditambahkan</p>
+                                        <p class="text-center">Belum Ada Kelas yang Ditambahkan</p>
                                     </div>
                                 @endforelse
 
@@ -212,7 +212,7 @@
                                     @endif
                                 @empty
                                     <div class="d-flex justify-content-center align-items-center" style="height: 200px;">
-                                        <p class="text-center">Data Belum Ditambahkan</p>
+                                        <p class="text-center">Belum Ada Kelas yang Ditambahkan</p>
                                     </div>
                                 @endforelse
                             </div>
