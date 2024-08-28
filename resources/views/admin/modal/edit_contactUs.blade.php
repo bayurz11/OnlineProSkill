@@ -1,13 +1,13 @@
 <!-- Edit Modal -->
 <!-- Edit Modal -->
-<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+<div class="modal fade" id="editcontactModal" tabindex="-1" aria-labelledby="editcontactModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form id="editModalForm" method="POST" enctype="multipart/form-data">
+            <form id="editcontactModalForm" method="POST" enctype="multipart/form-data">
                 @method('PUT')
                 @csrf
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editModalLabel">Edit Kontak</h5>
+                    <h5 class="modal-title" id="editcontactModalLabel">Edit Kontak</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -79,7 +79,7 @@
                     });
 
                     // Set the form action to the update route
-                    $('#editModalForm').attr('action', `/contact/${data.id}/update`);
+                    $('#editcontactModalForm').attr('action', `/contact/${data.id}/update`);
                 })
                 .catch(error => {
                     console.error('Error fetching data:', error);
