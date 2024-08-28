@@ -43,7 +43,7 @@
             padding: 10px 20px;
             font-size: 14px;
             color: #fff;
-            background-color: #636b6f;
+            background-color: #f7b125;
             border: none;
             border-radius: 5px;
             text-decoration: none;
@@ -51,7 +51,7 @@
         }
 
         .btn:hover {
-            background-color: #555;
+            background-color: #af7d19;
         }
     </style>
 </head>
