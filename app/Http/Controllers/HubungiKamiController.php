@@ -23,6 +23,11 @@ class HubungiKamiController extends Controller
         $cart = Session::get('cart', []);
         $contactUs = ContactUs::first();
 
+        $teleponList = json_decode($contactUs->telepon, true);
+
+        if (!is_array($teleponList)) {
+            $teleponList = [];
+        }
 
         if ($user) {
             $profile = UserProfile::where('user_id', $user->id)->first();

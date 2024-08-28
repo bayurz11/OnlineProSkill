@@ -61,8 +61,11 @@
                                 </div>
                                 <div class="content">
                                     <h4 class="title">Telepon</h4>
-                                    <a href="tel:+6281266187125">+62 8126 6187 125</a>
+                                    @foreach ($teleponList as $tlp)
+                                        <a href="tel:{{ $tlp }}">{{ $tlp }}</a>
+                                    @endforeach
                                 </div>
+
                             </li>
                             <li>
                                 <div class="icon">
