@@ -179,6 +179,7 @@ class SearchController extends Controller
 
         // Hitung jumlah kursus per kategori
         $categoryCounts = KelasTatapMuka::select('kategori_id', DB::raw('count(*) as total'))
+            ->where('status', 1)
             ->groupBy('kategori_id')
             ->pluck('total', 'kategori_id');
 
