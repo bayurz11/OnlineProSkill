@@ -39,17 +39,48 @@ class HubungiKamiSettingController extends Controller
         return redirect()->back()->with('success', 'Contact information saved successfully!');
     }
 
+    public function edit($id)
+    {
+        $contactUs = ContactUs::find($id);
+
+        if (!$contactUs) {
+            return response()->json(['message' => 'contactUs not found'], 404);
+        }
+
+        return response()->json($contactUs);
+    }
+
+    public function update(Request $request, $id)
+    {
+        // Validasi input
+        $request->validate([
+            'alamat' => 'required|string|max:255',
+            'include.*' => 'nullable|string|max:15', // assuming these are phone numbers
+            'includemail.*' => 'nullable|email|max:255',
+        ]);
+
+        // Temukan contactUs berdasarkan ID
+        $contactUs = ContactUs::find($id);
+
+        $contactUs->alamat = $request->input('alamat');
+        $contactUs->telepon = json_encode($request->input('include')); // Store as JSON array
+        $contactUs->email = json_encode($request->input('includemail')); // Store as JSON array
+        $contactUs->save();
+
+        // Redirect dengan pesan sukses
+        return redirect()->route('settingcontactus')->with('success', 'Data berhasil diperbarui.');
+    }
     public function destroy($id)
     {
 
         $contactUs = ContactUs::find($id);
 
         if (!$contactUs) {
-            return redirect()->route('settingcontactus')->with('error', 'sertifikat tidak ditemukan');
+            return redirect()->route('settingcontactus')->with('error', 'Data tidak ditemukan');
         }
 
         $contactUs->delete();
 
-        return redirect()->route('settingcontactus')->with('success', 'sertifikat berhasil dihapus');
+        return redirect()->route('settingcontactus')->with('success', 'Data berhasil dihapus');
     }
 }
