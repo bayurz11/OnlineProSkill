@@ -1,5 +1,4 @@
 <!-- Edit Modal -->
-<!-- Edit Modal -->
 <div class="modal fade" id="editcontactModal" tabindex="-1" aria-labelledby="editcontactModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -12,27 +11,24 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="alamat" class="form-label">Alamat<span class="text-danger">*</span></label>
+                        <label for="editalamat" class="form-label">Alamat<span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="editalamat" name="alamat"
                             placeholder="Masukkan Alamat Anda" required>
                     </div>
                     <div class="mb-3">
-                        <label for="telepon" class="form-label">Telepon <span class="text-danger">*</span></label>
+                        <label for="edittelepon" class="form-label">Telepon <span class="text-danger">*</span></label>
                         <div id="telepon-container">
-                            <div class="input-group mb-2">
-                                <input type="text" class="form-control" id="edittelepon" name="telepon[]">
-                                <button class="btn btn-success" type="button" id="add-telepon">+</button>
-                            </div>
+                            <!-- Input telepon akan dinamis di sini -->
                         </div>
+                        <button class="btn btn-success" type="button" id="add-telepon">Tambah Telepon</button>
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Alamat Email <span class="text-danger">*</span></label>
+                        <label for="editemail" class="form-label">Alamat Email <span
+                                class="text-danger">*</span></label>
                         <div id="email-container">
-                            <div class="input-group mb-2">
-                                <input type="email" class="form-control" id="email" name="email[]">
-                                <button class="btn btn-success" type="button" id="add-email">+</button>
-                            </div>
+                            <!-- Input email akan dinamis di sini -->
                         </div>
+                        <button class="btn btn-success" type="button" id="add-email">Tambah Email</button>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -43,6 +39,7 @@
         </div>
     </div>
 </div>
+
 
 
 <script>
@@ -57,7 +54,7 @@
                     $('#editalamat').val(data.alamat);
 
                     // Mengelola telepon
-                    const teleponContainer = $('#edittelepon-container');
+                    const teleponContainer = $('#telepon-container');
                     teleponContainer.html('');
 
                     try {
@@ -81,7 +78,7 @@
                     }
 
                     // Mengelola email
-                    const emailContainer = $('#editemail-container');
+                    const emailContainer = $('#email-container');
                     emailContainer.html('');
 
                     try {
@@ -113,8 +110,8 @@
         });
 
         // Menambah input baru untuk telepon
-        $(document).on('click', '#editadd-telepon', function() {
-            $('#edittelepon-container').append(`
+        $(document).on('click', '#add-telepon', function() {
+            $('#telepon-container').append(`
             <div class="input-group mb-2">
                 <input type="text" class="form-control" name="telepon[]" placeholder="Masukkan nomor telepon">
                 <button class="btn btn-danger remove-telepon" type="button">-</button>
@@ -128,8 +125,8 @@
         });
 
         // Menambah input baru untuk email
-        $(document).on('click', '#editadd-email', function() {
-            $('#editemail-container').append(`
+        $(document).on('click', '#add-email', function() {
+            $('#email-container').append(`
             <div class="input-group mb-2">
                 <input type="email" class="form-control" name="email[]" placeholder="Masukkan alamat email">
                 <button class="btn btn-danger remove-email" type="button">-</button>
