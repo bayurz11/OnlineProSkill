@@ -55,21 +55,23 @@ class HubungiKamiSettingController extends Controller
         // Validasi input
         $request->validate([
             'alamat' => 'required|string|max:255',
-            'include.*' => 'nullable|string|max:15', // assuming these are phone numbers
-            'includemail.*' => 'nullable|email|max:255',
+            'include.*' => 'nullable|string|max:15', // Validasi untuk telepon
+            'includemail.*' => 'nullable|email|max:255', // Validasi untuk email
         ]);
 
-        // Temukan contactUs berdasarkan ID
-        $contactUs = ContactUs::find($id);
+        // Temukan ContactUs berdasarkan ID
+        $contactUs = ContactUs::findOrFail($id);
 
+        // Update data
         $contactUs->alamat = $request->input('alamat');
-        $contactUs->telepon = json_encode($request->input('include')); // Store as JSON array
-        $contactUs->email = json_encode($request->input('includemail')); // Store as JSON array
+        $contactUs->telepon = json_encode($request->input('include')); // Simpan sebagai array JSON
+        $contactUs->email = json_encode($request->input('includemail')); // Simpan sebagai array JSON
         $contactUs->save();
 
         // Redirect dengan pesan sukses
         return redirect()->route('settingcontactus')->with('success', 'Data berhasil diperbarui.');
     }
+
     public function destroy($id)
     {
 
