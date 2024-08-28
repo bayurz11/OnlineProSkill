@@ -21,7 +21,7 @@ class HubungiKamiController extends Controller
         $user = Auth::user();
         $profile = null;
         $cart = Session::get('cart', []);
-        $contactUs = ContactUs::first();
+        $contactUs = ContactUs::all();
 
         $teleponList = json_decode($contactUs->telepon, true);
 
