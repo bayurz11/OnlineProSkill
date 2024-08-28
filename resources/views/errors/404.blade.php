@@ -44,6 +44,7 @@
             <div class="title">
                 Halaman Tidak Ditemukan - 404
             </div>
+            <a href="{{ route('/') }}"></a>
         </div>
     </div>
 </body>
