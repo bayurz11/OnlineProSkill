@@ -63,7 +63,7 @@
                 <img src="assets/img/others/error_img.svg" alt="img" class="injectable">
                 Halaman Tidak Ditemukan - 404
             </div>
-            <a href="{{ route('home') }}" class="btn">Kembali ke Beranda</a>
+            <a href="{{ route('/') }}" class="btn">Kembali ke Beranda</a>
         </div>
     </div>
 </body>
