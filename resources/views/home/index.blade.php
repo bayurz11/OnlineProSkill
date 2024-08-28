@@ -530,7 +530,7 @@
     </section>
     <!-- testimonial-area-end -->
     <!-- faq-area -->
-    <section class="faq__area">
+    <section class="faq__area section-pt-120 section-pb-90">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
