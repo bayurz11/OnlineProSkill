@@ -61,7 +61,7 @@
         <div class="content">
             <div class="title">
                 <img src="{{ asset('public/assets/img/others/error_img.svg') }}" alt="img" class="injectable">
-                Halaman Tidak Ditemukan - 404
+                Halaman Tidak Ditemukan
             </div>
             <a href="{{ route('/') }}" class="btn">Kembali ke Beranda</a>
         </div>
