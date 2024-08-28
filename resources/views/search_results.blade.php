@@ -152,7 +152,7 @@
                             <div class="row align-items-center">
                                 <div class="col-md-5">
                                     <div class="courses-top-left">
-                                        <p>Menampilkan {{ $results->count() }} total hasil</p>
+                                        <p>Menampilkan {{ $course->count() }} total hasil</p>
                                     </div>
                                 </div>
                                 <div class="col-md-7">
