@@ -1,4 +1,5 @@
 <!-- Edit Modal -->
+<!-- Edit Modal -->
 <div class="modal fade" id="editcontactModal" tabindex="-1" aria-labelledby="editcontactModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -11,26 +12,25 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="editalamat" class="form-label">Alamat<span class="text-danger">*</span></label>
+                        <label for="alamat" class="form-label">Alamat<span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="editalamat" name="alamat"
                             placeholder="Masukkan Alamat Anda" required>
                     </div>
                     <div class="mb-3">
-                        <label for="edittelepon" class="form-label">Telepon <span class="text-danger">*</span></label>
-                        <div id="edittelepon-container">
+                        <label for="telepon" class="form-label">Telepon <span class="text-danger">*</span></label>
+                        <div id="telepon-container">
                             <div class="input-group mb-2">
-                                <input type="text" class="form-control" name="telepon[]">
-                                <button class="btn btn-success" type="button" id="editadd-telepon">+</button>
+                                <input type="text" class="form-control" id="edittelepon" name="telepon[]">
+                                <button class="btn btn-success" type="button" id="add-telepon">+</button>
                             </div>
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="editemail" class="form-label">Alamat Email <span
-                                class="text-danger">*</span></label>
-                        <div id="editemail-container">
+                        <label for="email" class="form-label">Alamat Email <span class="text-danger">*</span></label>
+                        <div id="email-container">
                             <div class="input-group mb-2">
-                                <input type="email" class="form-control" name="email[]">
-                                <button class="btn btn-success" type="button" id="editadd-email">+</button>
+                                <input type="email" class="form-control" id="editemail" name="email[]">
+                                <button class="btn btn-success" type="button" id="add-email">+</button>
                             </div>
                         </div>
                     </div>
@@ -43,7 +43,6 @@
         </div>
     </div>
 </div>
-
 
 
 <script>
@@ -63,7 +62,7 @@
                         $('#edittelepon-container').append(`
                         <div class="input-group mb-2">
                             <input type="text" class="form-control" name="telepon[]" value="${telepon}">
-                            ${index === 0 ? '<button class="btn btn-success" type="button" id="editadd-telepon">+</button>' : '<button class="btn btn-danger remove-telepon" type="button">-</button>'}
+                            ${index === 0 ? '<button class="btn btn-success" type="button" id="add-telepon">+</button>' : '<button class="btn btn-danger remove-telepon" type="button">-</button>'}
                         </div>
                     `);
                     });
@@ -74,13 +73,13 @@
                         $('#editemail-container').append(`
                         <div class="input-group mb-2">
                             <input type="email" class="form-control" name="email[]" value="${email}">
-                            ${index === 0 ? '<button class="btn btn-success" type="button" id="editadd-email">+</button>' : '<button class="btn btn-danger remove-email" type="button">-</button>'}
+                            ${index === 0 ? '<button class="btn btn-success" type="button" id="add-email">+</button>' : '<button class="btn btn-danger remove-email" type="button">-</button>'}
                         </div>
                     `);
                     });
 
                     // Set the form action to the update route
-                    $('#editcontactModalForm').attr('action', `/contact/${data.id}/update`);
+                    $('#editeditcontactModalForm').attr('action', `/contact/${data.id}/update`);
                 })
                 .catch(error => {
                     console.error('Error fetching data:', error);
