@@ -251,29 +251,31 @@
                                                             <a
                                                                 href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
                                                         </h5>
-                                                        <p class="author"> <a
-                                                                @if (in_array($cours->id, $joinedCourses)) <span class="badge bg-success" data-bs-toggle="tooltip"
+                                                        <p class="author">&nbsp;&nbsp;
+                                                            @if (in_array($cours->id, $joinedCourses))
+                                                                <span class="badge bg-success" data-bs-toggle="tooltip"
                                                                     title="Anda sudah bergabung dengan kelas ini">
                                                                     <i class="fas fa-check"></i>
-                                                                </span> @endif
-                                                                &nbsp;&nbsp;
-                                                                @if ($cours->course_type == 'online') <span class="badge bg-primary">Online</span>
+                                                                </span>
+                                                            @endif &nbsp;&nbsp;
+                                                            @if ($cours->course_type == 'online')
+                                                                <span class="badge bg-primary">Online</span>
                                                             @else
-                                                                <span class="badge bg-secondary">Kelas Tatap Muka</span> @endif
-                                                                </p>
-                                                                <div class="courses__item-bottom">
-                                                                    <div class="button">
-                                                                        <a
-                                                                            href="{{ route('classroomdetail', ['id' => $cours->id]) }}">
-                                                                            <span class="text">Detail</span>
-                                                                            <i class="flaticon-arrow-right"></i>
-                                                                        </a>
-                                                                    </div>
-                                                                    <h5 class="price">Rp
-                                                                        {{ number_format($cours->price, 0, ',', ',') }}
-                                                                    </h5>
+                                                                <span class="badge bg-secondary">Kelas Tatap Muka</span>
+                                                            @endif
+                                                        </p>
+                                                        <div class="courses__item-bottom">
+                                                            <div class="button">
+                                                                <a
+                                                                    href="{{ route('classroomdetail', ['id' => $cours->id]) }}">
+                                                                    <span class="text">Detail</span>
+                                                                    <i class="flaticon-arrow-right"></i>
+                                                                </a>
+                                                            </div>
+                                                            <h5 class="price">Rp
+                                                                {{ number_format($cours->price, 0, ',', ',') }}</h5>
 
-                                                                </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
