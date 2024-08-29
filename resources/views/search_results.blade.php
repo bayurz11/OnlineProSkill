@@ -8,7 +8,8 @@
         use Carbon\Carbon;
     @endphp
     <!-- breadcrumb-area -->
-    <section class="breadcrumb__area breadcrumb__bg" data-background="{{ asset('public/assets/img/bg/breadcrumb_bg.jpg') }}">
+    <div class="breadcrumb__area breadcrumb__bg breadcrumb__bg-two"
+        data-background="{{ asset('public/assets/img/bg/breadcrumb_bg.jpg') }}">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -36,7 +37,7 @@
             <img src="{{ asset('public/assets/img/others/breadcrumb_shape05.svg') }}" alt="img" data-aos="fade-left"
                 data-aos-delay="400">
         </div>
-    </section>
+    </div>
     <!-- breadcrumb-area-end -->
     <!-- all-courses -->
     <section class="all-courses-area section-py-120">
