@@ -171,16 +171,14 @@
                                                     <a
                                                         href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">{{ $kelas->nama_kursus }}</a>
                                                 </h5>
-                                                <div class="courses__item-content-bottom mt-auto">
-                                                    <div class="author-two">
-                                                        <a href="">
-                                                            <img src="public/assets/img/courses/course_author001.png"
-                                                                alt="img" loading="lazy">{{ $kelas->user->name }}
+                                                <div class="courses__item-bottom">
+                                                    <div class="button">
+                                                        <a href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">
+                                                            <span class="text">Detail</span>
+                                                            <i class="flaticon-arrow-right"></i>
                                                         </a>
                                                     </div>
-                                                    {{-- <div class="avg-rating">
-                                                    <i class="fas fa-star"></i> (4.8 Reviews)
-                                                </div> --}}
+
                                                 </div>
                                             </div>
                                         </div>
