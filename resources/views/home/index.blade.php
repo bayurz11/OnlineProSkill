@@ -108,79 +108,7 @@
         </div>
         <!-- brand-area-end -->
 
-        <!-- features-area -->
-        <section class="features__area-two section-pt-120 section-pb-90">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6 col-lg-8">
-                        <div class="section__title text-center mb-40">
-                            <span class="sub-title">Mengapa Memilih ProSkill</span>
-                            <h2 class="title">Raih Tujuan Anda Bersama ProSkill Akademia</h2>
 
-                        </div>
-                    </div>
-                </div>
-                <div class="features__item-wrap">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="features__item-two">
-                                <div class="features__content-two">
-                                    <div class="content-top">
-                                        <div class="features__icon-two">
-                                            <img src="public/assets/img/icons/h2_features_icon01.svg" alt="img"
-                                                class="injectable" loading="lazy">
-                                        </div>
-                                        <h2 class="title">Tutor/Instruktur Ahli</h2>
-                                    </div>
-                                    <p>Belajar Langsung Dari Tutor Yang Ahli di Bidangnya.</p>
-                                </div>
-                                <div class="features__item-shape">
-                                    <img src="public/assets/img/others/features_item_shape.svg" alt="img"
-                                        class="injectable" loading="lazy">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="features__item-two">
-                                <div class="features__content-two">
-                                    <div class="content-top">
-                                        <div class="features__icon-two">
-                                            <img src="public/assets/img/icons/h2_features_icon02.svg" alt="img"
-                                                class="injectable" loading="lazy">
-                                        </div>
-                                        <h2 class="title">Kursus yang Efektif</h2>
-                                    </div>
-                                    <p>Kurikulum Kelas yang Sesuai Dengan Standar Industri.</p>
-                                </div>
-                                <div class="features__item-shape">
-                                    <img src="public/assets/img/others/features_item_shape.svg" alt="img"
-                                        class="injectable" loading="lazy">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="features__item-two">
-                                <div class="features__content-two">
-                                    <div class="content-top">
-                                        <div class="features__icon-two">
-                                            <img src="public/assets/img/icons/h2_features_icon03.svg" alt="img"
-                                                class="injectable" loading="lazy">
-                                        </div>
-                                        <h2 class="title">Sertifikat Penyelesaian</h2>
-                                    </div>
-                                    <p>Mendapatkan Sertifikat Setelah Menyelesaikan Kelas.</p>
-                                </div>
-                                <div class="features__item-shape">
-                                    <img src="public/assets/img/others/features_item_shape.svg" alt="img"
-                                        class="injectable" loading="lazy">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- features-area-end -->
 
     @endguest
     <!-- course-area -->
@@ -406,7 +334,81 @@
         </section>
         <!-- event-area-end -->
     @endif
+    @guest
+        <!-- features-area -->
+        <section class="features__area-two section-pt-120 section-pb-90">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6 col-lg-8">
+                        <div class="section__title text-center mb-40">
+                            <span class="sub-title">Mengapa Memilih ProSkill</span>
+                            <h2 class="title">Raih Tujuan Anda Bersama ProSkill Akademia</h2>
 
+                        </div>
+                    </div>
+                </div>
+                <div class="features__item-wrap">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="features__item-two">
+                                <div class="features__content-two">
+                                    <div class="content-top">
+                                        <div class="features__icon-two">
+                                            <img src="public/assets/img/icons/h2_features_icon01.svg" alt="img"
+                                                class="injectable" loading="lazy">
+                                        </div>
+                                        <h2 class="title">Tutor/Instruktur Ahli</h2>
+                                    </div>
+                                    <p>Belajar Langsung Dari Tutor Yang Ahli di Bidangnya.</p>
+                                </div>
+                                <div class="features__item-shape">
+                                    <img src="public/assets/img/others/features_item_shape.svg" alt="img"
+                                        class="injectable" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="features__item-two">
+                                <div class="features__content-two">
+                                    <div class="content-top">
+                                        <div class="features__icon-two">
+                                            <img src="public/assets/img/icons/h2_features_icon02.svg" alt="img"
+                                                class="injectable" loading="lazy">
+                                        </div>
+                                        <h2 class="title">Kursus yang Efektif</h2>
+                                    </div>
+                                    <p>Kurikulum Kelas yang Sesuai Dengan Standar Industri.</p>
+                                </div>
+                                <div class="features__item-shape">
+                                    <img src="public/assets/img/others/features_item_shape.svg" alt="img"
+                                        class="injectable" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="features__item-two">
+                                <div class="features__content-two">
+                                    <div class="content-top">
+                                        <div class="features__icon-two">
+                                            <img src="public/assets/img/icons/h2_features_icon03.svg" alt="img"
+                                                class="injectable" loading="lazy">
+                                        </div>
+                                        <h2 class="title">Sertifikat Penyelesaian</h2>
+                                    </div>
+                                    <p>Mendapatkan Sertifikat Setelah Menyelesaikan Kelas.</p>
+                                </div>
+                                <div class="features__item-shape">
+                                    <img src="public/assets/img/others/features_item_shape.svg" alt="img"
+                                        class="injectable" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- features-area-end -->
+    @endguest
     <!-- testimonial-area -->
     <section class="testimonial__area-six section-py-140 testimonial__bg-three"
         data-background="public/assets/img/bg/h8_testimonial_bg.jpg">
