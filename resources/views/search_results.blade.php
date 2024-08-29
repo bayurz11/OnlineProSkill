@@ -253,8 +253,10 @@
                                                         <p class="author">By <a
                                                                 href="#">{{ $cours->user->name }}</a>&nbsp;&nbsp;
                                                             @if (in_array($cours->id, $joinedCourses))
-                                                                <span class="badge bg-success"><i
-                                                                        class="fas fa-check"></i></span>
+                                                                <span class="badge bg-success" data-bs-toggle="tooltip"
+                                                                    title="Anda sudah bergabung dengan kelas ini">
+                                                                    <i class="fas fa-check"></i>
+                                                                </span>
                                                             @endif &nbsp;&nbsp;
                                                             @if ($cours->course_type == 'online')
                                                                 <span class="badge bg-primary">Online</span>
@@ -314,8 +316,10 @@
                                                     <p class="author">By <a
                                                             href="#">{{ $cours->user->name }}</a>&nbsp;&nbsp;
                                                         @if (in_array($cours->id, $joinedCourses))
-                                                            <span class="badge bg-success"><i
-                                                                    class="fas fa-check"></i></span>
+                                                            <span class="badge bg-success" data-bs-toggle="tooltip"
+                                                                title="Anda sudah bergabung dengan kelas ini">
+                                                                <i class="fas fa-check"></i>
+                                                            </span>
                                                         @endif
                                                     </p>
                                                     <p class="info">{!! $cours->content !!}</p>
@@ -472,8 +476,10 @@
                 localStorage.setItem('showMoreCategories', 'true');
             }
         });
+        // Aktifkan semua tooltip di halaman
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
     </script>
-
-
-
 @endsection
