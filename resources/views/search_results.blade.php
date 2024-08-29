@@ -253,7 +253,7 @@
                                                         <p class="author">By <a
                                                                 href="#">{{ $cours->user->name }}</a>&nbsp;&nbsp;
                                                             @if (in_array($cours->id, $joinedCourses))
-                                                                <span class="badge bg-success">Joined</span>
+                                                                <span class="badge bg-success"></span>
                                                             @endif &nbsp;&nbsp;
                                                             @if ($cours->course_type == 'online')
                                                                 <span class="badge bg-primary">Online</span>
@@ -313,7 +313,7 @@
                                                     <p class="author">By <a
                                                             href="#">{{ $cours->user->name }}</a>&nbsp;&nbsp;
                                                         @if (in_array($cours->id, $joinedCourses))
-                                                            <span class="badge bg-success">Joined</span>
+                                                            <span class="badge bg-success"></span>
                                                         @endif
                                                     </p>
                                                     <p class="info">{!! $cours->content !!}</p>
