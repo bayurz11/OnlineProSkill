@@ -174,7 +174,7 @@
                                                 <div class="courses__item-bottom">
                                                     <div class="button">
                                                         <a href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">
-                                                            <span class="text">Detail</span>
+                                                            <span class="text">Detail Kelas</span>
                                                             <i class="flaticon-arrow-right"></i>
                                                         </a>
                                                     </div>
