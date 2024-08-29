@@ -161,7 +161,7 @@
                                                         @if ($kelas->course_type == 'online')
                                                             <span class="badge bg-primary">Online</span>
                                                         @else
-                                                            <span class="badge bg-secondary">Offline</span>
+                                                            <span class="badge bg-secondary">Kelas Tatap Muka</span>
                                                         @endif
                                                     </li>
                                                     <li class="price">Rp {{ number_format($kelas->price, 0, '.', '.') }}
