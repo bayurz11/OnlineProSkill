@@ -251,7 +251,7 @@
                                                             <a
                                                                 href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
                                                         </h5>
-                                                        <p class="author">&nbsp;&nbsp;
+                                                        <p class="author">
                                                             @if (in_array($cours->id, $joinedCourses))
                                                                 <span class="badge bg-success" data-bs-toggle="tooltip"
                                                                     title="Anda sudah bergabung dengan kelas ini">
