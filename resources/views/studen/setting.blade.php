@@ -39,7 +39,7 @@
                                 <li>
                                     <img src="{{ asset('public/assets/img/icons/course_icon03.svg') }}" alt="img"
                                         class="injectable">
-                                    {{ $orders->count() }}
+                                    {{ $orders->count() }} Kelas
                                 </li>
                                 <li>
                                     <img src="{{ asset('public/assets/img/icons/course_icon05.svg') }}" alt="img"
