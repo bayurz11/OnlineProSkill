@@ -41,11 +41,7 @@
                                         class="injectable">
                                     {{ $orders->count() }} Kelas
                                 </li>
-                                <li>
-                                    <img src="{{ asset('public/assets/img/icons/course_icon05.svg') }}" alt="img"
-                                        class="injectable">
-                                    4 Certificate
-                                </li>
+
                             </ul>
                         </div>
                     </div>
