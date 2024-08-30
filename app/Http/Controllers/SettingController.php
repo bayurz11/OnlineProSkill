@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Order;
 use App\Models\Categories;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
@@ -32,7 +33,11 @@ class SettingController extends Controller
 
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
-        return view('studen.setting', compact('user', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount'));
+        $orders = Order::where('user_id', $user->id)
+        ->whereIn('status', ['PAID', 'SETTLED'])
+        ->with('KelasTatapMuka')
+        ->get();
+        return view('studen.setting', compact('user', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount','orders));
     }
 
     // public function updateprofil(Request $request, $id)
