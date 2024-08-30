@@ -141,7 +141,7 @@ class AuthController extends Controller
                 case 'Administrator':
                     return redirect()->route('dashboard')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                 case 'Instruktur':
-                    return redirect()->route('/')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+                    return redirect()->route('dashboard')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                 case 'Studen':
                     $profile = $user->userProfile;
                     if (!$profile || !$profile->gambar || !$profile->date_of_birth || !$profile->phone_number) {
