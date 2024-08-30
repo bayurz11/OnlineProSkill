@@ -372,13 +372,14 @@
                                     <img src="public/assets/img/others/user1.png" alt="img">
                                 </div>
                                 <div class="testimonial__author-content testimonial__author-content-two">
-                                    <h2 class="title">Jeff Chua</h2>
-                                    <span>Siswa SD</span>
+                                    <h2 class="title">Lonando Decaprio</h2>
+                                    <span>Mahasiswa</span>
                                 </div>
                             </div> <br>
                             <div class="testimonial__content-two">
 
-                                <p>“ Sangat Bermanfaat ”</p>
+                                <p>“ Nyaman yang Pastinya, Mr nya Juga Sabar, Instruktur Menyampaikan Materi Mudah
+                                    Dimengerti ”</p>
                             </div>
 
                         </div>
