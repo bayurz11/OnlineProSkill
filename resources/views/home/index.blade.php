@@ -378,7 +378,8 @@
                             </div> <br>
                             <div class="testimonial__content-two">
 
-                                <p>“ Nyaman yang Pastinya, Mr nya Juga Sabar, Instruktur Menyampaikan Materi Mudah
+                                <p>“ Harga Terjangkau, Tempatnya Bersih dan Nyaman yang Pastinya, Mr nya Juga Sabar,
+                                    Instruktur Menyampaikan Materi Mudah
                                     Dimengerti ”</p>
                             </div>
 
@@ -409,13 +410,15 @@
                                     <img src="public/assets/img/others/user2.png" alt="img">
                                 </div>
                                 <div class="testimonial__author-content testimonial__author-content-two">
-                                    <h2 class="title">LINA</h2>
-                                    <span>Ibu Rumah Tangga</span>
+                                    <h2 class="title">Fransisca Angelina</h2>
+                                    <span>Mahasiswa</span>
                                 </div>
                             </div> <br>
                             <div class="testimonial__content-two">
 
-                                <p>“ Semoga lebih Banyak Program Baru ”</p>
+                                <p>“ kesan saya selama saya mengikuti kursus ini sangat lah baik dari segi lingkungan dan
+                                    staff, dan juga fasilitas yang sangat memadai. terimakasih juga kepada Mr. beni ya....
+                                    beliau sangat bersabar dalam mengajar siswa-siswi nya. ”</p>
                             </div>
 
                         </div>
@@ -434,6 +437,26 @@
                             <div class="testimonial__content-two">
 
                                 <p>“ Kurusu ini Sangat Bermanfaat Teruutama Bagi Orang Awam tentang Soal Komputer dan AI ”
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial__item-two testimonial__item-five">
+                            <div class="testimonial__author testimonial__author-two">
+                                <div class="testimonial__author-thumb testimonial__author-thumb-two">
+                                    <img src="public/assets/img/others/user6.png" alt="img">
+                                </div>
+                                <div class="testimonial__author-content testimonial__author-content-two">
+                                    <h2 class="title">Nabila Putri Aulia</h2>
+                                    <span>Freelance</span>
+                                </div>
+                            </div> <br>
+                            <div class="testimonial__content-two">
+
+                                <p>“ saya ingin menambah pengetahuan Microsoft Office agar saya lebih mudah mengerjakan
+                                    pekerjaan di dunia pekerjaan yang sudah serba digital. ”
                                 </p>
                             </div>
 
