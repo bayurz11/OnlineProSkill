@@ -34,10 +34,10 @@ class SettingController extends Controller
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
         $orders = Order::where('user_id', $user->id)
-        ->whereIn('status', ['PAID', 'SETTLED'])
-        ->with('KelasTatapMuka')
-        ->get();
-        return view('studen.setting', compact('user', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount','orders));
+            ->whereIn('status', ['PAID', 'SETTLED'])
+            ->with('KelasTatapMuka')
+            ->get();
+        return view('studen.setting', compact('user', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders'));
     }
 
     // public function updateprofil(Request $request, $id)
