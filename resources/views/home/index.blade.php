@@ -789,7 +789,7 @@
         document.addEventListener("DOMContentLoaded", function() {
             var swiper = new Swiper(".testimonial-active-five", {
                 slidesPerView: 3,
-                spaceBetween: 30,
+                spaceBetween: 60,
                 loop: true,
                 autoplay: {
                     delay: 1000, // Set delay to 2000ms (2 seconds)
