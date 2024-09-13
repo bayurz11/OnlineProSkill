@@ -126,10 +126,10 @@
                                                                         <div class="course-item-meta">
                                                                             <span
                                                                                 class="item-meta duration">{{ $sectionItem->duration }}</span>
-                                                                            <span class="item-meta course-item-status">
+                                                                            {{-- <span class="item-meta course-item-status">
                                                                                 <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
                                                                                     alt="icon">
-                                                                            </span>
+                                                                            </span> --}}
                                                                         </div>
                                                                     </a>
                                                                 </li>
