@@ -29,8 +29,8 @@
                                  <li><a href="https://drive.google.com/file/d/1m0-XrXIJyAIMYHWLa7u8isGLIzX0CD0D/view?usp=sharing"
                                          target="_blank">Brosur</a>
                                  </li>
-                                 <li><a
-                                         href="https://drive.google.com/file/d/1A6Ll5hiO6NfKZlhcckAtAGCx5H0kj1TL/view?usp=sharing">Contoh
+                                 <li><a href="https://drive.google.com/file/d/1A6Ll5hiO6NfKZlhcckAtAGCx5H0kj1TL/view?usp=sharing"
+                                         target="_blank">Contoh
                                          Sertifikat</a></li>
                                  <li><a href="{{ route('blog') }}">Artikel</a></li>
                              </ul>
