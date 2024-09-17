@@ -40,8 +40,8 @@
     </section>
     <!-- breadcrumb-area-end -->
     <!-- features-area -->
-    <section class="features__area">
-        <div class="container" style="background-color: #FE9900;">
+    <section class="features__area" style="background-color: #FE9900;">
+        <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-6">
                     <div class="section__title white-title text-center mb-50">
