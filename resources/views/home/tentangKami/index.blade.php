@@ -47,7 +47,8 @@
                     <div class="section__title white-title text-center mb-50">
                         <span class="sub-title">Tentang Kami</span>
                         <h2 class="title">Proskill Akademia adalah lembaga kursus yang dikelola oleh</h2>
-                        <p>PT Bahagia Sukses Digimedia <br> Nomor Induk Berusaha PT. Bahagia Sukses Digimedia: 1910220049534
+                        <p style="text-color:#fbfbfb">PT Bahagia Sukses Digimedia <br> Nomor Induk Berusaha PT. Bahagia
+                            Sukses Digimedia: 1910220049534
                             <br>SK Depkumham: AHU-043447 .AH.01.30.Tahun 2022<br>Jl.DI Panjaitan Km 7 Komplek Taman Mekar
                             Sari 2 Blok C No.22, Melayu Kota Piring, Tanjung Pinang Timur, Tanjung Pinang, Kepulauan Riau,
                             29123
