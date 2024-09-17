@@ -64,7 +64,7 @@
                         </div>
                         <div class="features__content">
                             <h4 class="title">Rekomendasi Disdik No</h4>
-                            <p>B/412.35/3/5.3.02/2024</p>
+                            <p style="color:#fbfbfb">B/412.35/3/5.3.02/2024</p>
                         </div>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
                         </div>
                         <div class="features__content">
                             <h4 class="title">Nomor Izin Operasional DPMPTSP No</h4>
-                            <p>503/92/5.10.05.3/2024</p>
+                            <p style="color:#fbfbfb">503/92/5.10.05.3/2024</p>
                         </div>
                     </div>
                 </div>
@@ -87,7 +87,7 @@
                         </div>
                         <div class="features__content">
                             <h4 class="title">NPSN Kemendikbud Ristek</h4>
-                            <p>K9999032</p>
+                            <p style="color:#fbfbfb">K9999032</p>
                         </div>
                     </div>
                 </div>
