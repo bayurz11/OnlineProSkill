@@ -1,5 +1,5 @@
  <!-- footer-area -->
- <footer class="footer__area">
+ <footer class="footer__area" style="background-color: #FE9900;">
      <div class="footer__top">
          <div class="container">
              <div class="row">
