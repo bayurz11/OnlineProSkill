@@ -53,27 +53,34 @@
                          <h4 class="footer__widget-title">LAINNYA</h4>
                          <div class="footer__contact-content">
                              <p>Terhubung dengan <br> Sosial Media Kami</p>
-                             <ul class="list-wrap footer__social">
-                                 <li>
+                             <ul class="list-unstyled d-flex footer__social">
+                                 <li style="transition: background-color 0.3s ease;"
+                                     onmouseover="this.style.backgroundColor='#25d366';"
+                                     onmouseout="this.style.backgroundColor='';" class="me-3">
                                      <a href="https://wa.me/6281266187125?text=Halo," target="_blank">
                                          <img src="{{ asset('public/assets/img/icons/whatsapp.svg') }}" alt="img"
                                              class="injectable">
                                      </a>
                                  </li>
-                                 <li>
-                                     <a href="https://www.instagram.com/proskillakademia?igsh=MTJzdjNteGNrMGVpOA== "
+                                 <li style="transition: background-color 0.3s ease;"
+                                     onmouseover="this.style.backgroundColor='#E4405F';"
+                                     onmouseout="this.style.backgroundColor='';" class="me-3">
+                                     <a href="https://www.instagram.com/proskillakademia?igsh=MTJzdjNteGNrMGVpOA=="
                                          target="_blank">
                                          <img src="{{ asset('public/assets/img/icons/instagram.svg') }}" alt="img"
                                              class="injectable">
                                      </a>
                                  </li>
-                                 <li>
+                                 <li style="transition: background-color 0.3s ease;"
+                                     onmouseover="this.style.backgroundColor='#FF0000';"
+                                     onmouseout="this.style.backgroundColor='';" class="me-3">
                                      <a href="https://www.youtube.com/channel/UCNw50VFi4Rdmv1WpKlWGHUQ" target="_blank">
                                          <img src="{{ asset('public/assets/img/icons/youtube.svg') }}" alt="img"
                                              class="injectable">
                                      </a>
                                  </li>
                              </ul>
+
                          </div>
 
                      </div>
