@@ -23,14 +23,6 @@
                         Riwayat Transaksi
                     </a>
                 </li>
-                <li class="{{ Request::is('sertifikat/cetak') ? 'active' : '' }}">
-                    <a href="{{ route('history') }}">
-                        <img src="{{ asset('public/assets/img/icons/course_icon05.svg') }}" alt="img"
-                            class="injectable">
-                        Sertifikat
-                    </a>
-                    </form>
-                </li>
 
 
             </ul>
