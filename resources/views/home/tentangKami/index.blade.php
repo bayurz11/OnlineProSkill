@@ -39,6 +39,67 @@
         </div>
     </section>
     <!-- breadcrumb-area-end -->
-    <!-- contact-area -->
+    <!-- features-area -->
+    <section class="features__area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-6">
+                    <div class="section__title white-title text-center mb-50">
+                        <span class="sub-title">How We Start Journey</span>
+                        <h2 class="title">Start your Learning Journey Today!</h2>
+                        <p>Groove’s intuitive shared inbox makesteam members together <br> organize, prioritize and.In this
+                            episode.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="features__item">
+                        <div class="features__icon">
+                            <img src="assets/img/icons/features_icon01.svg" class="injectable" alt="img">
+                        </div>
+                        <div class="features__content">
+                            <h4 class="title">Learn with Experts</h4>
+                            <p>Curate anding area share Pluralsight content to reach your</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="features__item">
+                        <div class="features__icon">
+                            <img src="assets/img/icons/features_icon02.svg" class="injectable" alt="img">
+                        </div>
+                        <div class="features__content">
+                            <h4 class="title">Learn Anything</h4>
+                            <p>Curate anding area share Pluralsight content to reach your</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="features__item">
+                        <div class="features__icon">
+                            <img src="assets/img/icons/features_icon03.svg" class="injectable" alt="img">
+                        </div>
+                        <div class="features__content">
+                            <h4 class="title">Get Online Certificate</h4>
+                            <p>Curate anding area share Pluralsight content to reach your</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="features__item">
+                        <div class="features__icon">
+                            <img src="assets/img/icons/features_icon04.svg" class="injectable" alt="img">
+                        </div>
+                        <div class="features__content">
+                            <h4 class="title">E-mail Marketing</h4>
+                            <p>Curate anding area share Pluralsight content to reach your</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- features-area-end -->
 
 @endsection
