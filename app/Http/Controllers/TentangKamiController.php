@@ -44,6 +44,6 @@ class TentangKamiController extends Controller
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
-        return view('home.hubungikami.index', compact('user', 'emailList', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'contactUs', 'teleponList'));
+        return view('home.tentangKami.index', compact('user', 'emailList', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'contactUs', 'teleponList'));
     }
 }
