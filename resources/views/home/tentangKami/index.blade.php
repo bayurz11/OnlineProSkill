@@ -86,17 +86,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-4 col-md-6">
-                    <div class="features__item">
-                        <div class="features__icon">
-                            <img src="public/assets/img/icons/features_icon04.svg" class="injectable" alt="img">
-                        </div>
-                        <div class="features__content">
-                            <h4 class="title">E-mail Marketing</h4>
-                            <p>Curate anding area share Pluralsight content to reach your</p>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </section>
