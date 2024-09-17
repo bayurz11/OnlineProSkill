@@ -59,24 +59,29 @@
                                      onmouseout="this.style.backgroundColor='';" class="me-3">
                                      <a href="https://wa.me/6281266187125?text=Halo," target="_blank">
                                          <img src="{{ asset('public/assets/img/icons/whatsapp.svg') }}" alt="img"
-                                             class="injectable">
+                                             class="injectable"
+                                             style="transition: filter 0.3s ease; filter: invert(0%);">
                                      </a>
                                  </li>
                                  <li style="transition: background-color 0.3s ease;"
-                                     onmouseover="this.style.backgroundColor='#E4405F';"
-                                     onmouseout="this.style.backgroundColor='';" class="me-3">
+                                     onmouseover="this.style.backgroundColor='#E4405F'; this.querySelector('img').style.filter='invert(64%) sepia(32%) saturate(744%) hue-rotate(314deg) brightness(98%) contrast(101%)';"
+                                     onmouseout="this.style.backgroundColor=''; this.querySelector('img').style.filter='invert(0%)';"
+                                     class="me-3">
                                      <a href="https://www.instagram.com/proskillakademia?igsh=MTJzdjNteGNrMGVpOA=="
                                          target="_blank">
                                          <img src="{{ asset('public/assets/img/icons/instagram.svg') }}" alt="img"
-                                             class="injectable">
+                                             class="injectable"
+                                             style="transition: filter 0.3s ease; filter: invert(0%);">
                                      </a>
                                  </li>
                                  <li style="transition: background-color 0.3s ease;"
-                                     onmouseover="this.style.backgroundColor='#FF0000';"
-                                     onmouseout="this.style.backgroundColor='';" class="me-3">
+                                     onmouseover="this.style.backgroundColor='#FF0000'; this.querySelector('img').style.filter='invert(44%) sepia(95%) saturate(7473%) hue-rotate(355deg) brightness(98%) contrast(116%)';"
+                                     onmouseout="this.style.backgroundColor=''; this.querySelector('img').style.filter='invert(0%)';"
+                                     class="me-3">
                                      <a href="https://www.youtube.com/channel/UCNw50VFi4Rdmv1WpKlWGHUQ" target="_blank">
                                          <img src="{{ asset('public/assets/img/icons/youtube.svg') }}" alt="img"
-                                             class="injectable">
+                                             class="injectable"
+                                             style="transition: filter 0.3s ease; filter: invert(0%);">
                                      </a>
                                  </li>
                              </ul>
