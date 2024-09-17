@@ -59,8 +59,8 @@
                             <img src="public/assets/img/icons/features_icon03.svg" class="injectable" alt="img">
                         </div>
                         <div class="features__content">
-                            <h4 class="title">Learn with Experts</h4>
-                            <p>Curate anding area share Pluralsight content to reach your</p>
+                            <h4 class="title">Nomor Izin Operasional DPMPTSP No</h4>
+                            <p>503/92/5.10.05.3/2024</p>
                         </div>
                     </div>
                 </div>
@@ -70,8 +70,8 @@
                             <img src="public/assets/img/icons/features_icon03.svg" class="injectable" alt="img">
                         </div>
                         <div class="features__content">
-                            <h4 class="title">Learn Anything</h4>
-                            <p>Curate anding area share Pluralsight content to reach your</p>
+                            <h4 class="title">Rekomendasi Disdik No</h4>
+                            <p>B/412.35/3/5.3.02/2024</p>
                         </div>
                     </div>
                 </div>
@@ -81,8 +81,8 @@
                             <img src="public/assets/img/icons/features_icon03.svg" class="injectable" alt="img">
                         </div>
                         <div class="features__content">
-                            <h4 class="title">Get Online Certificate</h4>
-                            <p>Curate anding area share Pluralsight content to reach your</p>
+                            <h4 class="title">NPSN Kemendikbud Ristek</h4>
+                            <p>K9999032</p>
                         </div>
                     </div>
                 </div>
