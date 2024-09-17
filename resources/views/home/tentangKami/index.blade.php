@@ -41,7 +41,7 @@
     <!-- breadcrumb-area-end -->
     <!-- features-area -->
     <section class="features__area">
-        <div class="container">
+        <div class="container" style="background-color: #FE9900;">
             <div class="row justify-content-center">
                 <div class="col-xl-6">
                     <div class="section__title white-title text-center mb-50">
@@ -50,7 +50,8 @@
                         <p>PT Bahagia Sukses Digimedia <br> Nomor Induk Berusaha PT. Bahagia Sukses Digimedia: 1910220049534
                             <br>SK Depkumham: AHU-043447 .AH.01.30.Tahun 2022<br>Jl.DI Panjaitan Km 7 Komplek Taman Mekar
                             Sari 2 Blok C No.22, Melayu Kota Piring, Tanjung Pinang Timur, Tanjung Pinang, Kepulauan Riau,
-                            29123</p>
+                            29123
+                        </p>
                     </div>
                 </div>
             </div>
