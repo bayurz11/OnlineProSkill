@@ -45,25 +45,22 @@
             <div class="row justify-content-center">
                 <div class="col-xl-6">
                     <div class="section__title white-title text-center mb-50">
-                        <span class="sub-title">How We Start Journey</span>
-                        <h2 class="title">Start your Learning Journey Today!</h2>
-                        <p>Groove’s intuitive shared inbox makesteam members together <br> organize, prioritize and.In this
-                            episode.</p>
+
+                        <h2 class="title">Tentang Kami</h2>
+                        <p>Proskill Akademia adalah lembaga kursus yang dikelola oleh:
+
+                            PT Bahagia Sukses Digimedia
+
+                            Nomor Induk Berusaha PT. Bahagia Sukses Digimedia: 1910220049534
+
+                            SK Depkumham: AHU-043447 .AH.01.30.Tahun 2022
+
+                            Jl.DI Panjaitan Km 7 Komplek Taman Mekar Sari 2 Blok C No.22, Melayu Kota Piring, Tanjung Pinang
+                            Timur, Tanjung Pinang, Kepulauan Riau, 29123</p>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-xl-3 col-lg-4 col-md-6">
-                    <div class="features__item">
-                        <div class="features__icon">
-                            <img src="public/assets/img/icons/features_icon03.svg" class="injectable" alt="img">
-                        </div>
-                        <div class="features__content">
-                            <h4 class="title">Nomor Izin Operasional DPMPTSP No</h4>
-                            <p>503/92/5.10.05.3/2024</p>
-                        </div>
-                    </div>
-                </div>
                 <div class="col-xl-3 col-lg-4 col-md-6">
                     <div class="features__item">
                         <div class="features__icon">
@@ -75,6 +72,18 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-xl-3 col-lg-4 col-md-6">
+                    <div class="features__item">
+                        <div class="features__icon">
+                            <img src="public/assets/img/icons/features_icon03.svg" class="injectable" alt="img">
+                        </div>
+                        <div class="features__content">
+                            <h4 class="title">Nomor Izin Operasional DPMPTSP No</h4>
+                            <p>503/92/5.10.05.3/2024</p>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-xl-3 col-lg-4 col-md-6">
                     <div class="features__item">
                         <div class="features__icon">
