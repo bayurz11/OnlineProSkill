@@ -32,6 +32,7 @@ use App\Http\Controllers\RiwayatTransaksiController;
 use App\Http\Controllers\DashboardInstrukturController;
 use App\Http\Controllers\HubungiKamiSettingController;
 use App\Http\Controllers\OrderHistoryManagerController;
+use App\Http\Controllers\TentangKamiController;
 
 //Authentikasi
 Route::post('/login', [AuthController::class, 'login'])->name('login');
@@ -236,6 +237,8 @@ Route::get('/blog_detail/{id}', [BlogController::class, 'blogDetail'])->name('bl
 
 //Hubungi Kami
 Route::get('/hubungikami', [HubungiKamiController::class, 'index'])->name('hubungikami');
+//Hubungi Tentang Kami
+Route::get('/tentangkami', [TentangKamiController::class, 'index'])->name('tentangkami');
 
 //sertifikat
 Route::get('/cetak_sertifikat/{id}', [SertifikatController::class, 'cetakSertifikat'])->name('cetak_sertifikat');

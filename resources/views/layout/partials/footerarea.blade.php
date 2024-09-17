@@ -24,7 +24,7 @@
                          <h4 class="footer__widget-title">PROSKILL</h4>
                          <div class="footer__link">
                              <ul class="list-wrap">
-                                 <li><a href="events-details.html">Tentang Kami</a></li>
+                                 <li><a href="{{ route('tentangkami') }}">Tentang Kami</a></li>
                                  <li><a href="{{ route('hubungikami') }}">Hubungi Kami</a></li>
                                  <li><a href="https://drive.google.com/file/d/1m0-XrXIJyAIMYHWLa7u8isGLIzX0CD0D/view?usp=sharing"
                                          target="_blank">Brosur</a>
