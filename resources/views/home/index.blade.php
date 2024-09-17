@@ -50,7 +50,7 @@
                             <span class="svg-icon" id="banner-svg"
                                 data-svg-icon="{{ asset('public/assets/img/banner/h2_banner_shape02.svg') }}"></span>
                             <div class="about__enrolled" data-aos="fade-right" data-aos-delay="200">
-                                <p class="title"><span>{{ $sertifikat->count() }}</span> Siswa Terdaftar</p>
+                                <p class="title"><span>{{ $sertifikat->count() }}</span> Sertifikat</p>
                                 <img src="{{ asset('public/assets/img/others/1.png') }}" alt="img">
                             </div>
                             <div class="banner__student" data-aos="fade-left" data-aos-delay="200">
@@ -59,7 +59,7 @@
                                         class="injectable">
                                 </div>
                                 <div class="content">
-                                    <span>Jumlah Siswa</span>
+                                    <span>Siswa Terdaftar</span>
                                     <h4 class="title">{{ $daftar_siswa->count() }} Siswa</h4>
                                 </div>
                             </div>

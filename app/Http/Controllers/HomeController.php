@@ -31,7 +31,7 @@ class HomeController extends Controller
         $sertifikat = Sertifikat::all();
 
         // Mengambil KelasTatapMuka dan mengurutkannya berdasarkan kolom created_at
-        $KelasTatapMuka = KelasTatapMuka::orderBy('created_at', 'desc')->get();
+        $KelasTatapMuka = KelasTatapMuka::orderBy('created_at', 'asc')->get();
         $blog = Blog::orderBy('created_at', 'desc')->take(4)->get();
 
         // Mengambil event dan memfilter yang tanggalnya belum lewat, lalu membatasi 3 terbaru
