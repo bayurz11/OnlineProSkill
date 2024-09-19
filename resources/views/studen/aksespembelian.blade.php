@@ -68,13 +68,13 @@
                                             </button>
                                         </li>
 
-                                        <li class="nav-item" role="presentation">
+                                        {{-- <li class="nav-item" role="presentation">
                                             <button class="nav-link" id="business-tab" data-bs-toggle="tab"
                                                 data-bs-target="#business-tab-pane" type="button" role="tab"
                                                 aria-controls="business-tab-pane" aria-selected="false">
                                                 Kursus Selesai
                                             </button>
-                                        </li>
+                                        </li> --}}
                                     </ul>
                                 </div>
                                 <div class="tab-content" id="courseTabContent">
@@ -114,14 +114,14 @@
                                                                     </a>
                                                                 </div>
                                                             </div>
-                                                            <div class="progress-item progress-item-two">
+                                                            {{-- <div class="progress-item progress-item-two">
                                                                 <h6 class="title">Selesai <span>12%</span></h6>
                                                                 <div class="progress" role="progressbar"
                                                                     aria-label="Example with label" aria-valuenow="25"
                                                                     aria-valuemin="0" aria-valuemax="100">
                                                                     <div class="progress-bar" style="width: 12%"></div>
                                                                 </div>
-                                                            </div>
+                                                            </div> --}}
                                                         </div>
                                                     </div>
                                                 </div>
