@@ -237,7 +237,8 @@ Route::get('/blog_detail/{id}', [BlogController::class, 'blogDetail'])->name('bl
 
 //Hubungi Kami
 Route::get('/hubungikami', [HubungiKamiController::class, 'index'])->name('hubungikami');
-//Hubungi Tentang Kami
+
+//Tentang Kami
 Route::get('/tentangkami', [TentangKamiController::class, 'index'])->name('tentangkami');
 
 //sertifikat

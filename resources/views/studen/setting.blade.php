@@ -160,10 +160,10 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="form-grp">
+                                                {{-- <div class="form-grp">
                                                     <label for="bio">Bio</label>
                                                     <textarea id="bio" name="bio">{{ $profile->bio }}</textarea>
-                                                </div>
+                                                </div> --}}
                                                 <div class="submit-btn mt-25">
                                                     <button type="submit" class="btn">Perbahrui Informasi</button>
                                                 </div>
