@@ -83,8 +83,16 @@
                                 <div class="courses__overview-wrap">
                                     <h3 class="title">Deskripsi Kelas</h3>
                                     <p> {!! $courses->content !!}</p>
-                                    <h3 class="title">Pelajaran yang Didapat</h3>
-
+                                    <h3 class="title">Persyaratan</h3>
+                                    <ul class="about__info-list list-wrap">
+                                        @foreach ($courseList as $course)
+                                            <li class="about__info-list-item">
+                                                <i class="flaticon-angle-right"></i>
+                                                <p class="content">{{ $course }}</p>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                    <h3 class="title">Apa yang akan Anda pelajari</h3>
                                     <ul class="about__info-list list-wrap">
                                         @foreach ($courseList as $course)
                                             <li class="about__info-list-item">
