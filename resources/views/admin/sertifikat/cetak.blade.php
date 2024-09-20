@@ -131,9 +131,9 @@
             /* Half of 130mm */
             left: 7.5mm;
             /* Half of 15mm */
-            width: 75px;
+            width: 78px;
             /* Half of 150px */
-            height: 75px;
+            height: 78px;
             /* Half of 150px */
             object-fit: cover;
             border: 2.5px solid #fdffff;
@@ -228,7 +228,7 @@
             }
 
             .content img.photo {
-                top: 22mm;
+                top: 24mm;
                 right: -26px;
                 width: 180px;
                 height: 200px;
@@ -238,8 +238,8 @@
             .qr {
                 top: 130mm;
                 left: 15mm;
-                width: 155px;
-                height: 155px;
+                width: 156px;
+                height: 156px;
                 border: 5px solid #fdffff;
             }
 
