@@ -77,6 +77,17 @@
                             </div>
                         </div>
                     </div>
+                    <div class="mb-3">
+                        <label for="edit_perstaratan" class="form-label">Yang akan dipelajari <span
+                                class="text-danger">*</span></label>
+                        <div id="edit-perstaratan-container">
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" id="edit_perstaratan"
+                                    name="perstaratan[]">
+                                <button class="btn btn-success" type="button" id="add-edit-perstaratan">+</button>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="mb-3">
                         <label for="edit_price" class="form-label">Harga (Rp)<span
@@ -228,6 +239,28 @@
                     } catch (e) {
                         console.error('Error parsing include:', e, data.include);
                     }
+                    const perstaratanContainer = $('#edit-perstaratan-container');
+                    perstaratanContainer.html('');
+
+                    try {
+                        const perstaratans = JSON.parse(data.perstaratan);
+
+                        if (Array.isArray(perstaratans)) {
+                            perstaratans.forEach(item => {
+                                const inputGroup = $(`
+                                <div class="input-group mb-2">
+                                    <input type="text" class="form-control" name="perstaratan[]" value="${item}">
+                                    <button class="btn btn-danger remove-edit-perstaratan" type="button">-</button>
+                                </div>
+                            `);
+                                perstaratanContainer.append(inputGroup);
+                            });
+                        } else {
+                            console.error('Parsed perstaratan is not an array:', perstaratans);
+                        }
+                    } catch (e) {
+                        console.error('Error parsing perstaratan:', e, data.perstaratan);
+                    }
 
                     toggleEditPriceAndDiscount();
                 })
@@ -272,6 +305,20 @@
         });
 
         $(document).on('click', '.remove-edit-include', function() {
+            $(this).closest('.input-group').remove();
+        });
+
+        $('#add-edit-perstaratan').on('click', function() {
+            const inputGroup = $(`
+            <div class="input-group mb-2">
+                <input type="text" class="form-control" name="perstaratan[]">
+                <button class="btn btn-danger remove-edit-perstaratan" type="button">-</button>
+            </div>
+        `);
+            $('#edit-perstaratan-container').append(inputGroup);
+        });
+
+        $(document).on('click', '.remove-edit-perstaratan', function() {
             $(this).closest('.input-group').remove();
         });
 
