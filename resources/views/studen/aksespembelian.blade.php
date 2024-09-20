@@ -83,9 +83,10 @@
                                         <div
                                             class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
                                             @if ($orders->isEmpty())
-
-                                                <div class="alert alert-warning" role="alert">
-                                                    Anda Belum Mengikuti kelas
+                                                <div class="col mb-4">
+                                                    <div class="alert alert-warning" role="alert">
+                                                        Anda Belum Mengikuti kelas
+                                                    </div>
                                                 </div>
                                                 @foreach ($KelasTatapMuka as $kelas)
                                                     @if ($kelas->status == 1)
