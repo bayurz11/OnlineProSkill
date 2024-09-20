@@ -136,9 +136,9 @@
             height: 75px;
             /* Half of 150px */
             object-fit: cover;
-            border: 3px solid #fdffff;
+            border: 4px solid #fdffff;
             /* Half of 5px */
-            border-radius: 3px;
+            border-radius: 5px;
         }
 
         .signature {
