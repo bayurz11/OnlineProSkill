@@ -146,7 +146,7 @@
 
                                                         <img src="{{ $profile && $profile->gambar ? (strpos($profile->gambar, 'googleusercontent') !== false ? $profile->gambar : asset('public/uploads/' . $profile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
                                                             alt="img" width="50" height="50"
-                                                            style="border-radius: 50%;">
+                                                            style="border-radius: 50%; object-fit: cover;">
 
                                                     </a>
                                                     <ul class="sub-menu" style="left: 15; right: 20;">
