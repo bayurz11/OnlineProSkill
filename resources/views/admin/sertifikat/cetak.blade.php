@@ -228,7 +228,7 @@
             }
 
             .content img.photo {
-                top: 15mm;
+                top: 22mm;
                 right: -26px;
                 width: 180px;
                 height: 200px;
