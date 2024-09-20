@@ -300,6 +300,11 @@ class HomeController extends Controller
         if (!is_array($courseList)) {
             $courseList = [];
         }
+        $perstaratan = json_decode($courses->perstaratan, true);
+
+        if (!is_array($perstaratan)) {
+            $perstaratan = [];
+        }
 
         $fasilitas = json_decode($courses->fasilitas, true);
 
@@ -322,7 +327,7 @@ class HomeController extends Controller
         $orderProductIds = Order::where('product_id', $id)->pluck('product_id');
         $sertifikatCount = Sertifikat::whereIn('kategori_id', $orderProductIds)->count();
 
-        return view('home.coursedetail', compact('user', 'categori', 'jumlahPendaftaran', 'courses', 'kurikulum', 'courseList', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'section', 'joinedCourses', 'sertifikatCount'));
+        return view('home.coursedetail', compact('user', 'categori', 'jumlahPendaftaran', 'courses', 'kurikulum', 'courseList', 'perstaratan', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'section', 'joinedCourses', 'sertifikatCount'));
     }
 
     public function checkout(Request $request, $id)
