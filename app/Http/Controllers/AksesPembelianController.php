@@ -65,7 +65,7 @@ class AksesPembelianController extends Controller
         }
 
         $profile = UserProfile::where('user_id', $user->id)->first();
-        $KelasTatapMuka = KelasTatapMuka::orderBy('created_at', 'asc')->get();
+        $KelasTatapMuka = KelasTatapMuka::inRandomOrder()->get();
         $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
             ->orderBy('created_at', 'desc')
             ->get()
