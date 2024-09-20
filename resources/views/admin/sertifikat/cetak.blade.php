@@ -138,7 +138,7 @@
             object-fit: cover;
             border: 3px solid #fdffff;
             /* Half of 5px */
-            border-radius: 5px;
+            border-radius: 3px;
         }
 
         .signature {
