@@ -104,7 +104,7 @@
 
         .content img.photo {
             position: absolute;
-            top: 9mm;
+            top: 12mm;
             /* Half of 15mm */
             right: -13px;
             /* Half of -26px */
