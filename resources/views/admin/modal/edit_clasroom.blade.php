@@ -250,6 +250,28 @@
                     } catch (e) {
                         console.error('Error parsing include:', e, data.include);
                     }
+                    const perstaratanContainer = $('#edit-perstaratan-container');
+                    perstaratanContainer.html('');
+
+                    try {
+                        const perstaratans = JSON.parse(data.perstaratan);
+
+                        if (Array.isArray(perstaratans)) {
+                            perstaratans.forEach(item => {
+                                const inputGroup = $(`
+                                <div class="input-group mb-2">
+                                    <input type="text" class="form-control" name="perstaratan[]" value="${item}">
+                                    <button class="btn btn-danger remove-edit-perstaratan" type="button">-</button>
+                                </div>
+                            `);
+                                perstaratanContainer.append(inputGroup);
+                            });
+                        } else {
+                            console.error('Parsed perstaratan is not an array:', perstaratans);
+                        }
+                    } catch (e) {
+                        console.error('Error parsing perstaratan:', e, data.perstaratan);
+                    }
 
                     toggleEditPriceAndDiscount();
                 })

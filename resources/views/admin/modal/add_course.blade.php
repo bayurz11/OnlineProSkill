@@ -108,6 +108,16 @@
                             </div>
                         </div>
                     </div>
+                    <div class="mb-3">
+                        <label for="perstaratan" class="form-label">Perstaratan <span
+                                class="text-danger">*</span></label>
+                        <div id="perstaratan-container">
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" id="perstaratan" name="perstaratan[]">
+                                <button class="btn btn-success" type="button" id="add-perstaratan">+</button>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="mb-3">
                         <label for="price" class="form-label">Harga (Rp)<span class="text-danger">*</span></label>
@@ -205,7 +215,30 @@
             }
         });
     });
+    document.addEventListener('DOMContentLoaded', function() {
+        const addperstaratanButton = document.getElementById('add-perstaratan');
+        const perstaratanContainer = document.getElementById('perstaratan-container');
 
+        addperstaratanButton.addEventListener('click', function() {
+            const newInputGroup = document.createElement('div');
+            newInputGroup.classList.add('input-group', 'mb-2');
+            newInputGroup.innerHTML = `
+                <input type="text" class="form-control" name="perstaratan[]" >
+                <button class="btn btn-danger remove-perstaratan" type="button">-</button>
+            `;
+            perstaratanContainer.appendChild(newInputGroup);
+
+            newInputGroup.querySelector('.remove-perstaratan').addEventListener('click', function() {
+                newInputGroup.remove();
+            });
+        });
+
+        perstaratanContainer.addEventListener('click', function(event) {
+            if (event.target && event.target.classList.contains('remove-perstaratan')) {
+                event.target.closest('.input-group').remove();
+            }
+        });
+    });
     // Kategori dan Subkategori handling
     document.addEventListener('DOMContentLoaded', function() {
         const categorySelect = document.getElementById('category');
