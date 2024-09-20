@@ -78,7 +78,7 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="edit_perstaratan" class="form-label">Yang akan dipelajari <span
+                        <label for="edit_perstaratan" class="form-label">Perstaratan <span
                                 class="text-danger">*</span></label>
                         <div id="edit-perstaratan-container">
                             <div class="input-group mb-2">
