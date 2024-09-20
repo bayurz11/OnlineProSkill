@@ -238,8 +238,8 @@
             .qr {
                 top: 130mm;
                 left: 15mm;
-                width: 150px;
-                height: 150px;
+                width: 155px;
+                height: 155px;
                 border: 5px solid #fdffff;
             }
 
