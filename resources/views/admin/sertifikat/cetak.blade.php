@@ -240,7 +240,7 @@
                 left: 15mm;
                 width: 150px;
                 height: 150px;
-                border: 5px solid #fdffff;
+                border: 8px solid #fdffff;
             }
 
             .qr svg {
