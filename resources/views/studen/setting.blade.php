@@ -85,12 +85,10 @@
                                                 <div class="instructor__cover-info">
                                                     <div class="instructor__cover-info-left"
                                                         onclick="document.getElementById('foto').click();">
-                                                        <div class="thumb"
-                                                            style="width: 120px; height: 120px; overflow: hidden;">
+                                                        <div class="thumb">
                                                             <img id="profileImage"
                                                                 src="{{ $profile && $profile->gambar ? (strpos($profile->gambar, 'googleusercontent') !== false ? $profile->gambar : asset('public/uploads/' . $profile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
-                                                                alt="img" width="auto" height="auto"
-                                                                style="max-width: none; max-height: none;">
+                                                                alt="img" width="120" height="120">
                                                             <p>maksimal 2Mb</p>
                                                         </div>
                                                     </div>
@@ -100,7 +98,6 @@
                                                             style="display: none;" accept="image/*">
                                                     </div>
                                                 </div>
-
 
                                             </div>
 
