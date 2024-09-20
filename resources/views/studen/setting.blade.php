@@ -88,8 +88,8 @@
                                                         <div class="thumb">
                                                             <img id="profileImage"
                                                                 src="{{ $profile && $profile->gambar ? (strpos($profile->gambar, 'googleusercontent') !== false ? $profile->gambar : asset('public/uploads/' . $profile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
-                                                                alt="img" width="120" height="120" object-fit:
-                                                                cover>
+                                                                alt="img" width="120" height="120"
+                                                                style="object-fit: cover;">
                                                             <p>maksimal 2Mb</p>
                                                         </div>
                                                     </div>
@@ -99,8 +99,8 @@
                                                             style="display: none;" accept="image/*">
                                                     </div>
                                                 </div>
-
                                             </div>
+
 
                                             <div class="instructor__profile-form-wrap">
 
