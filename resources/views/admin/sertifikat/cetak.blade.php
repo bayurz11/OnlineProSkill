@@ -278,7 +278,7 @@
 
 
                 <div class="qr">{!! $qrCode !!}</div>
-                <h2>{{ $sertifikat->name }}</h2>
+                <h2 style="text-transform: uppercase;">{{ $sertifikat->name }}</h2>
                 <p>Atas Kelulusannya Pada Kelas</p>
                 <h3>{{ $sertifikat->course->nama_kursus }}</h3>
 
