@@ -131,12 +131,12 @@
             /* Half of 130mm */
             left: 7.5mm;
             /* Half of 15mm */
-            width: 78px;
+            width: 75px;
             /* Half of 150px */
-            height: 78px;
+            height: 75px;
             /* Half of 150px */
             object-fit: cover;
-            border: 2.5px solid #fdffff;
+            border: 3px solid #fdffff;
             /* Half of 5px */
             border-radius: 10px;
         }
