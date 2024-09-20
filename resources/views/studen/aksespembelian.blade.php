@@ -89,7 +89,7 @@
                                                 @foreach ($KelasTatapMuka as $kelas)
                                                     @if ($kelas->status == 1)
                                                         <div
-                                                            class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
+                                                            class="row courses__grid-wrap row-cols-3 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
                                                             <div
                                                                 class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
                                                                 <div class="courses__item-thumb courses__item-thumb-two">
