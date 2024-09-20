@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('deskripsi');
             $table->string('tingkat');
             $table->json('include');
+            $table->json('perstaratan');
             $table->decimal('price', 10, 2)->nullable();
             $table->integer('discount')->nullable();
             $table->decimal('discountedPrice', 10, 2)->nullable();

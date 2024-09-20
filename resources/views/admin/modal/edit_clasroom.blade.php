@@ -88,6 +88,17 @@
                             </div>
                         </div>
                     </div>
+                    <div class="mb-3">
+                        <label for="edit_perstaratan" class="form-label">Perstaratan <span
+                                class="text-danger">*</span></label>
+                        <div id="edit-perstaratan-container">
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" id="edit_perstaratan"
+                                    name="perstaratan[]">
+                                <button class="btn btn-success" type="button" id="add-edit-perstaratan">+</button>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="mb-3">
                         <label for="edit_price" class="form-label">Harga (Rp)<span
@@ -283,6 +294,19 @@
         });
 
         $(document).on('click', '.remove-edit-include', function() {
+            $(this).closest('.input-group').remove();
+        });
+        $('#add-edit-perstaratan').on('click', function() {
+            const inputGroup = $(`
+            <div class="input-group mb-2">
+                <input type="text" class="form-control" name="perstaratan[]">
+                <button class="btn btn-danger remove-edit-perstaratan" type="button">-</button>
+            </div>
+        `);
+            $('#edit-perstaratan-container').append(inputGroup);
+        });
+
+        $(document).on('click', '.remove-edit-perstaratan', function() {
             $(this).closest('.input-group').remove();
         });
 
