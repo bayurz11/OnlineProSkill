@@ -87,7 +87,7 @@
                                                     <div class="alert alert-warning" role="alert">
                                                         Anda Belum Mengikuti kelas
                                                     </div>
-                                                </div>
+                                                </div> <br>
                                                 <div class="col mb-4">
                                                     <div class="swiper courses-swiper-active">
                                                         <div class="swiper-wrapper">
