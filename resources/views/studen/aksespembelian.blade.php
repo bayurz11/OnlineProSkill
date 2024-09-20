@@ -83,11 +83,13 @@
                                         <div
                                             class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
                                             @if ($orders->isEmpty())
-                                                <div class="col mb-4">
+                                                <div class="col mb-16">
                                                     <div class="alert alert-warning" role="alert">
                                                         Anda Belum Mengikuti kelas
                                                     </div>
-                                                </div> <br>
+                                                </div>
+
+                                                {{-- Menambahkan rekomendasi kelas --}}
                                                 @foreach ($KelasTatapMuka as $kelas)
                                                     @if ($kelas->status == 1)
                                                         <div class="col mb-4">
@@ -107,8 +109,8 @@
                                                                             @if ($kelas->course_type == 'online')
                                                                                 <span class="badge bg-primary">Online</span>
                                                                             @else
-                                                                                <span class="badge bg-secondary">Kelas
-                                                                                    Tatap Muka</span>
+                                                                                <span class="badge bg-secondary">Kelas Tatap
+                                                                                    Muka</span>
                                                                             @endif
                                                                         </li>
                                                                         <li class="price">Rp
@@ -127,7 +129,6 @@
                                                                                 <i class="flaticon-arrow-right"></i>
                                                                             </a>
                                                                         </div>
-
                                                                     </div>
                                                                 </div>
                                                             </div>
