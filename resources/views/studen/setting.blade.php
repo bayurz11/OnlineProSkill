@@ -83,7 +83,8 @@
 
                                             <div class="instructor__cover-bg">
                                                 <div class="instructor__cover-info">
-                                                    <div class="instructor__cover-info-left">
+                                                    <div class="instructor__cover-info-left"
+                                                        onclick="document.getElementById('foto').click();">
                                                         <div class="thumb">
                                                             <img id="profileImage"
                                                                 src="{{ $profile && $profile->gambar ? (strpos($profile->gambar, 'googleusercontent') !== false ? $profile->gambar : asset('public/uploads/' . $profile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
@@ -95,12 +96,9 @@
                                                     <div class="instructor__cover-info-right">
                                                         <input type="file" id="foto" name="foto"
                                                             style="display: none;" accept="image/*">
-                                                        <a href="#" class="btn btn-two arrow-btn"
-                                                            onclick="document.getElementById('foto').click(); return false;">
-                                                            Unggah Foto Profil
-                                                        </a>
                                                     </div>
                                                 </div>
+
                                             </div>
 
                                             <div class="instructor__profile-form-wrap">
