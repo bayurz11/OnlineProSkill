@@ -10,6 +10,7 @@ use App\Models\Categories;
 use App\Models\Sertifikat;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
+use App\Models\KelasTatapMuka;
 use App\Models\NotifikasiUser;
 use App\Models\UserSectionStatus;
 use Illuminate\Support\Facades\Log;
@@ -64,7 +65,7 @@ class AksesPembelianController extends Controller
         }
 
         $profile = UserProfile::where('user_id', $user->id)->first();
-
+        $KelasTatapMuka = KelasTatapMuka::orderBy('created_at', 'asc')->get();
         $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
             ->orderBy('created_at', 'desc')
             ->get()
@@ -91,7 +92,7 @@ class AksesPembelianController extends Controller
             }
         }
 
-        return view('studen.aksespembelian', compact('user', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum'));
+        return view('studen.aksespembelian', compact('user', 'categori', 'profile', 'cart', 'KelasTatapMuka', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum'));
     }
 
     // public function lesson($id)
