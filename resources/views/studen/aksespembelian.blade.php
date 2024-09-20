@@ -83,64 +83,56 @@
                                         <div
                                             class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
                                             @if ($orders->isEmpty())
-                                                <div class="col mb-16">
-                                                    <div class="alert alert-warning" role="alert">
-                                                        Anda Belum Mengikuti kelas
-                                                    </div>
-                                                </div>
+
 
                                                 {{-- Menambahkan rekomendasi kelas --}}
-                                                <div class="row">
-                                                    @foreach ($KelasTatapMuka as $kelas)
-                                                        @if ($kelas->status == 1)
-                                                            <div class="col mb-4">
+
+                                                @foreach ($KelasTatapMuka as $kelas)
+                                                    @if ($kelas->status == 1)
+                                                        <div class="col mb-4">
+                                                            <div
+                                                                class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
+                                                                <div class="courses__item-thumb courses__item-thumb-two">
+                                                                    <a href="{{ route('classroomdetail', ['id' => $kelas->id]) }}"
+                                                                        class="shine__animate-link">
+                                                                        <img src="{{ asset('public/uploads/' . $kelas->gambar) }}"
+                                                                            alt="img" class="img-fluid" loading="lazy">
+                                                                    </a>
+                                                                </div>
                                                                 <div
-                                                                    class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
-                                                                    <div
-                                                                        class="courses__item-thumb courses__item-thumb-two">
-                                                                        <a href="{{ route('classroomdetail', ['id' => $kelas->id]) }}"
-                                                                            class="shine__animate-link">
-                                                                            <img src="{{ asset('public/uploads/' . $kelas->gambar) }}"
-                                                                                alt="img" class="img-fluid"
-                                                                                loading="lazy">
-                                                                        </a>
-                                                                    </div>
-                                                                    <div
-                                                                        class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1">
-                                                                        <ul class="courses__item-meta list-wrap">
-                                                                            <li class="courses__item-tag">
-                                                                                @if ($kelas->course_type == 'online')
-                                                                                    <span
-                                                                                        class="badge bg-primary">Online</span>
-                                                                                @else
-                                                                                    <span class="badge bg-secondary">Kelas
-                                                                                        Tatap
-                                                                                        Muka</span>
-                                                                                @endif
-                                                                            </li>
-                                                                            <li class="price">Rp
-                                                                                {{ number_format($kelas->price, 0, '.', '.') }}
-                                                                            </li>
-                                                                        </ul>
-                                                                        <h5 class="title course-title flex-grow-1">
+                                                                    class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1">
+                                                                    <ul class="courses__item-meta list-wrap">
+                                                                        <li class="courses__item-tag">
+                                                                            @if ($kelas->course_type == 'online')
+                                                                                <span class="badge bg-primary">Online</span>
+                                                                            @else
+                                                                                <span class="badge bg-secondary">Kelas
+                                                                                    Tatap
+                                                                                    Muka</span>
+                                                                            @endif
+                                                                        </li>
+                                                                        <li class="price">Rp
+                                                                            {{ number_format($kelas->price, 0, '.', '.') }}
+                                                                        </li>
+                                                                    </ul>
+                                                                    <h5 class="title course-title flex-grow-1">
+                                                                        <a
+                                                                            href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">{{ $kelas->nama_kursus }}</a>
+                                                                    </h5>
+                                                                    <div class="courses__item-bottom">
+                                                                        <div class="button">
                                                                             <a
-                                                                                href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">{{ $kelas->nama_kursus }}</a>
-                                                                        </h5>
-                                                                        <div class="courses__item-bottom">
-                                                                            <div class="button">
-                                                                                <a
-                                                                                    href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">
-                                                                                    <span class="text">Detail Kelas</span>
-                                                                                    <i class="flaticon-arrow-right"></i>
-                                                                                </a>
-                                                                            </div>
+                                                                                href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">
+                                                                                <span class="text">Detail Kelas</span>
+                                                                                <i class="flaticon-arrow-right"></i>
+                                                                            </a>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        @endif
-                                                    @endforeach
-                                                </div>
+                                                        </div>
+                                                    @endif
+                                                @endforeach
                                             @else
                                                 @foreach ($orders as $order)
                                                     <div class="col mb-4">
