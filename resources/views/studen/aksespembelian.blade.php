@@ -89,7 +89,7 @@
                                                 </div>
                                                 @foreach ($KelasTatapMuka as $kelas)
                                                     @if ($kelas->status == 1)
-                                                        <div class="swiper-slide">
+                                                        <div class="col mb-4">
                                                             <div
                                                                 class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
                                                                 <div class="courses__item-thumb courses__item-thumb-two">
