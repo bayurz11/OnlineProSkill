@@ -87,7 +87,7 @@
                                                     <div class="alert alert-warning" role="alert">
                                                         Anda Belum Mengikuti kelas
                                                     </div>
-                                                </div>
+                                                </div> <br>
                                                 @foreach ($KelasTatapMuka as $kelas)
                                                     @if ($kelas->status == 1)
                                                         <div class="col mb-4">
