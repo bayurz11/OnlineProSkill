@@ -89,7 +89,6 @@
                                                     </div>
                                                 </div>
 
-                                                <!-- Menampilkan kelas yang tersedia jika order kosong -->
                                                 <div class="swiper courses-swiper-active">
                                                     <div class="swiper-wrapper">
                                                         @foreach ($KelasTatapMuka as $kelas)
@@ -103,7 +102,8 @@
                                                                                 class="shine__animate-link">
                                                                                 <img src="{{ asset('public/uploads/' . $kelas->gambar) }}"
                                                                                     alt="img" class="img-fluid"
-                                                                                    loading="lazy">
+                                                                                    loading="lazy"
+                                                                                    style="width: 100%; height: auto; object-fit: cover;">
                                                                             </a>
                                                                         </div>
                                                                         <div
@@ -145,7 +145,6 @@
                                                     </div>
                                                 </div>
                                             @else
-                                                <!-- Menampilkan order yang ada -->
                                                 @foreach ($orders as $order)
                                                     <div class="col mb-4">
                                                         <div
@@ -154,16 +153,15 @@
                                                                 <a href="{{ route('lesson', ['id' => $order->product_id]) }}"
                                                                     class="shine__animate-link">
                                                                     <img src="{{ $order->KelasTatapMuka->gambar ? asset('public/uploads/' . $order->KelasTatapMuka->gambar) : asset('public/assets/img/courses/course_thumb01.jpg') }}"
-                                                                        alt="img" class="wd-100 wd-sm-150">
+                                                                        alt="img" class="img-fluid"
+                                                                        style="width: 100%; height: auto; object-fit: cover;">
                                                                 </a>
                                                             </div>
                                                             <div
                                                                 class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1">
-                                                                <h5 class="title">
+                                                                <h5 class="title flex-grow-1">
                                                                     <a
-                                                                        href="{{ route('lesson', ['id' => $order->product_id]) }}">
-                                                                        {{ $order->KelasTatapMuka->nama_kursus ?? 'Nama kelas tidak tersedia' }}
-                                                                    </a>
+                                                                        href="{{ route('lesson', ['id' => $order->product_id]) }}">{{ $order->KelasTatapMuka->nama_kursus ?? 'Nama kelas tidak tersedia' }}</a>
                                                                 </h5>
                                                                 <div class="courses__item-content-bottom">
                                                                     <div class="author-two">
@@ -189,7 +187,6 @@
                                         </div>
                                     </div>
 
-                                    <!-- Tab untuk kelas yang sudah selesai -->
                                     <div class="tab-pane fade" id="business-tab-pane" role="tabpanel"
                                         aria-labelledby="business-tab" tabindex="0">
                                         <div
@@ -197,18 +194,20 @@
                                             @foreach ($orders as $order)
                                                 @if ($order->completion == 100)
                                                     <div class="col">
-                                                        <div class="courses__item courses__item-two shine__animate-item">
+                                                        <div
+                                                            class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
                                                             <div class="courses__item-thumb courses__item-thumb-two">
                                                                 <a href="{{ route('lesson', ['id' => $order->product_id]) }}"
                                                                     class="shine__animate-link">
                                                                     <img src="{{ $order->KelasTatapMuka->gambar ? asset('public/uploads/' . $order->KelasTatapMuka->gambar) : asset('public/assets/img/courses/course_thumb01.jpg') }}"
-                                                                        alt="img" class="wd-100 wd-sm-150">
+                                                                        alt="img" class="img-fluid"
+                                                                        style="width: 100%; height: auto; object-fit: cover;">
                                                                 </a>
                                                             </div>
                                                             <div class="courses__item-content courses__item-content-two">
                                                                 <h5 class="title">
                                                                     <a
-                                                                        href="{{ route('lesson', ['id' => $order->id]) }}">{{ $order->KelasTatapMuka->nama_kursus ?? 'Nama kelas tidak tersedia' }}</a>
+                                                                        href="{{ route('lesson', ['id' => $order->product_id]) }}">{{ $order->KelasTatapMuka->nama_kursus ?? 'Nama kelas tidak tersedia' }}</a>
                                                                 </h5>
                                                                 <div class="progress-item progress-item-two">
                                                                     <h6 class="title">Selesai <span>100%</span></h6>
