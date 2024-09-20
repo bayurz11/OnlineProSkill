@@ -88,9 +88,9 @@
                                                 </div>
                                                 <div class="row">
                                                     @foreach ($KelasTatapMuka->where('status', 1)->take(3) as $kelas)
-                                                        <div
-                                                            class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
-                                                            <div class="col mb-4">
+                                                        <div class="col mb-4">
+                                                            <div
+                                                                class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
                                                                 <div
                                                                     class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
                                                                     <div
