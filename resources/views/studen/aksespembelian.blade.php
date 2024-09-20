@@ -89,74 +89,67 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="tab-content" id="courseTabContent">
-                                                    <div class="tab-pane fade show active" id="all-tab-pane" role="tabpanel"
-                                                        aria-labelledby="all-tab" tabindex="0">
-                                                        <div class="swiper courses-swiper-active">
-                                                            <div class="swiper-wrapper">
-                                                                @foreach ($KelasTatapMuka as $kelas)
-                                                                    @if ($kelas->status == 1)
-                                                                        <div class="swiper-slide">
-                                                                            <div
-                                                                                class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
-                                                                                <div
-                                                                                    class="courses__item-thumb courses__item-thumb-two">
-                                                                                    <a href="{{ route('classroomdetail', ['id' => $kelas->id]) }}"
-                                                                                        class="shine__animate-link">
-                                                                                        <img src="{{ asset('public/uploads/' . $kelas->gambar) }}"
-                                                                                            alt="img" class="img-fluid"
-                                                                                            loading="lazy">
+                                                <!-- Menampilkan kelas yang tersedia jika order kosong -->
+                                                <div class="swiper courses-swiper-active">
+                                                    <div class="swiper-wrapper">
+                                                        @foreach ($KelasTatapMuka as $kelas)
+                                                            @if ($kelas->status == 1)
+                                                                <div class="swiper-slide">
+                                                                    <div
+                                                                        class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
+                                                                        <div
+                                                                            class="courses__item-thumb courses__item-thumb-two">
+                                                                            <a href="{{ route('classroomdetail', ['id' => $kelas->id]) }}"
+                                                                                class="shine__animate-link">
+                                                                                <img src="{{ asset('public/uploads/' . $kelas->gambar) }}"
+                                                                                    alt="img" class="img-fluid"
+                                                                                    loading="lazy">
+                                                                            </a>
+                                                                        </div>
+                                                                        <div
+                                                                            class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1">
+                                                                            <ul class="courses__item-meta list-wrap">
+                                                                                <li class="courses__item-tag">
+                                                                                    @if ($kelas->course_type == 'online')
+                                                                                        <span
+                                                                                            class="badge bg-primary">Online</span>
+                                                                                    @else
+                                                                                        <span
+                                                                                            class="badge bg-secondary">Kelas
+                                                                                            Tatap Muka</span>
+                                                                                    @endif
+                                                                                </li>
+                                                                                <li class="price">Rp
+                                                                                    {{ number_format($kelas->price, 0, '.', '.') }}
+                                                                                </li>
+                                                                            </ul>
+                                                                            <h5 class="title course-title flex-grow-1">
+                                                                                <a
+                                                                                    href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">{{ $kelas->nama_kursus }}</a>
+                                                                            </h5>
+                                                                            <div class="courses__item-bottom">
+                                                                                <div class="button">
+                                                                                    <a
+                                                                                        href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">
+                                                                                        <span class="text">Detail
+                                                                                            Kelas</span>
+                                                                                        <i class="flaticon-arrow-right"></i>
                                                                                     </a>
-                                                                                </div>
-                                                                                <div
-                                                                                    class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1">
-                                                                                    <ul
-                                                                                        class="courses__item-meta list-wrap">
-                                                                                        <li class="courses__item-tag">
-                                                                                            @if ($kelas->course_type == 'online')
-                                                                                                <span
-                                                                                                    class="badge bg-primary">Online</span>
-                                                                                            @else
-                                                                                                <span
-                                                                                                    class="badge bg-secondary">Kelas
-                                                                                                    Tatap Muka</span>
-                                                                                            @endif
-                                                                                        </li>
-                                                                                        <li class="price">Rp
-                                                                                            {{ number_format($kelas->price, 0, '.', '.') }}
-                                                                                        </li>
-                                                                                    </ul>
-                                                                                    <h5
-                                                                                        class="title course-title flex-grow-1">
-                                                                                        <a
-                                                                                            href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">{{ $kelas->nama_kursus }}</a>
-                                                                                    </h5>
-                                                                                    <div class="courses__item-bottom">
-                                                                                        <div class="button">
-                                                                                            <a
-                                                                                                href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">
-                                                                                                <span class="text">Detail
-                                                                                                    Kelas</span>
-                                                                                                <i
-                                                                                                    class="flaticon-arrow-right"></i>
-                                                                                            </a>
-                                                                                        </div>
-
-                                                                                    </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    @endif
-                                                                @endforeach
-                                                            </div>
-                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            @endif
+                                                        @endforeach
                                                     </div>
                                                 </div>
                                             @else
+                                                <!-- Menampilkan order yang ada -->
                                                 @foreach ($orders as $order)
                                                     <div class="col mb-4">
-                                                        <div class="courses__item courses__item-two shine__animate-item"
-                                                            style="display: flex; flex-direction: column; height: 100%;">
+                                                        <div
+                                                            class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
                                                             <div class="courses__item-thumb courses__item-thumb-two">
                                                                 <a href="{{ route('lesson', ['id' => $order->product_id]) }}"
                                                                     class="shine__animate-link">
@@ -164,8 +157,8 @@
                                                                         alt="img" class="wd-100 wd-sm-150">
                                                                 </a>
                                                             </div>
-                                                            <div class="courses__item-content courses__item-content-two"
-                                                                style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                                                            <div
+                                                                class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1">
                                                                 <h5 class="title">
                                                                     <a
                                                                         href="{{ route('lesson', ['id' => $order->product_id]) }}">
@@ -193,12 +186,10 @@
                                                     </div>
                                                 @endforeach
                                             @endif
-
-
                                         </div>
-
                                     </div>
 
+                                    <!-- Tab untuk kelas yang sudah selesai -->
                                     <div class="tab-pane fade" id="business-tab-pane" role="tabpanel"
                                         aria-labelledby="business-tab" tabindex="0">
                                         <div
@@ -219,15 +210,6 @@
                                                                     <a
                                                                         href="{{ route('lesson', ['id' => $order->id]) }}">{{ $order->KelasTatapMuka->nama_kursus ?? 'Nama kelas tidak tersedia' }}</a>
                                                                 </h5>
-                                                                <div class="courses__item-content-bottom">
-                                                                    <div class="author-two">
-                                                                        <a href="instructor-details.html">
-                                                                            <img src="{{ asset('public/assets/img/courses/course_author001.png') }}"
-                                                                                alt="img">
-                                                                            {{ $order->KelasTatapMuka->user->name }}
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
                                                                 <div class="progress-item progress-item-two">
                                                                     <h6 class="title">Selesai <span>100%</span></h6>
                                                                     <div class="progress" role="progressbar"
@@ -252,8 +234,8 @@
                                             @endforeach
                                         </div>
                                     </div>
-
                                 </div>
+
                             </div>
                         </div>
                     </div>
