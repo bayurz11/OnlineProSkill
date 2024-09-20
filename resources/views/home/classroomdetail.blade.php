@@ -81,17 +81,6 @@
                             <div class="tab-pane fade show active" id="overview-tab-pane" role="tabpanel"
                                 aria-labelledby="overview-tab" tabindex="0">
                                 <div class="courses__overview-wrap">
-                                    <h3 class="title">Deskripsi Kelas</h3>
-                                    <p> {!! $courses->content !!}</p>
-                                    <h3 class="title">Persyaratan</h3>
-                                    <ul class="about__info-list list-wrap">
-                                        @foreach ($perstaratan as $perstaratan)
-                                            <li class="about__info-list-item">
-                                                <i class="flaticon-angle-right"></i>
-                                                <p class="content">{{ $perstaratan }}</p>
-                                            </li>
-                                        @endforeach
-                                    </ul>
                                     <h3 class="title">Apa yang akan Anda pelajari</h3>
                                     <ul class="about__info-list list-wrap">
                                         @foreach ($courseList as $course)
@@ -101,6 +90,17 @@
                                             </li>
                                         @endforeach
                                     </ul>
+                                    <h3 class="title">Persyaratan</h3>
+                                    <ul class="about__info-list list-wrap">
+                                        @foreach ($perstaratan as $perstaratan)
+                                            <li class="about__info-list-item">
+                                                <i class="flaticon-angle-right"></i>
+                                                <p class="content">{{ $perstaratan }}</p>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                    <h3 class="title">Deskripsi Kelas</h3>
+                                    <p> {!! $courses->content !!}</p>
 
                                 </div>
                             </div>
