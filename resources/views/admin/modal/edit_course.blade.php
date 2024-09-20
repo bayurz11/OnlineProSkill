@@ -78,7 +78,7 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="edit_perstaratan" class="form-label">Perstaratan <span
+                        <label for="edit_perstaratan" class="form-label">Perstaratan<span
                                 class="text-danger">*</span></label>
                         <div id="edit-perstaratan-container">
                             <div class="input-group mb-2">
@@ -239,6 +239,7 @@
                     } catch (e) {
                         console.error('Error parsing include:', e, data.include);
                     }
+
                     const perstaratanContainer = $('#edit-perstaratan-container');
                     perstaratanContainer.html('');
 
@@ -304,15 +305,11 @@
             $('#edit-include-container').append(inputGroup);
         });
 
-        $(document).on('click', '.remove-edit-include', function() {
-            $(this).closest('.input-group').remove();
-        });
-
         $('#add-edit-perstaratan').on('click', function() {
             const inputGroup = $(`
             <div class="input-group mb-2">
-                <input type="text" class="form-control" name="perstaratan[]">
-                <button class="btn btn-danger remove-edit-perstaratan" type="button">-</button>
+                <input type="text" class="form-control" name="include[]">
+                <button class="btn btn-danger remove-edit-include" type="button">-</button>
             </div>
         `);
             $('#edit-perstaratan-container').append(inputGroup);
