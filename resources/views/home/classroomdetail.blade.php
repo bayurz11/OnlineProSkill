@@ -85,10 +85,10 @@
                                     <p> {!! $courses->content !!}</p>
                                     <h3 class="title">Persyaratan</h3>
                                     <ul class="about__info-list list-wrap">
-                                        @foreach ($courseList as $course)
+                                        @foreach ($perstaratan as $perstaratan)
                                             <li class="about__info-list-item">
                                                 <i class="flaticon-angle-right"></i>
-                                                <p class="content">{{ $course }}</p>
+                                                <p class="content">{{ $perstaratan }}</p>
                                             </li>
                                         @endforeach
                                     </ul>

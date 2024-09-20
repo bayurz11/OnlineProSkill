@@ -161,6 +161,11 @@ class HomeController extends Controller
         if (!is_array($courseList)) {
             $courseList = [];
         }
+        $perstaratan = json_decode($courses->perstaratan, true);
+
+        if (!is_array($perstaratan)) {
+            $perstaratan = [];
+        }
 
         $fasilitas = json_decode($courses->fasilitas, true);
 
