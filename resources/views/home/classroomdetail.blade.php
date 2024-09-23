@@ -112,21 +112,6 @@
                             <div class="tab-pane fade" id="curriculum-tab-pane" role="tabpanel"
                                 aria-labelledby="curriculum-tab" tabindex="0">
                                 <div class="courses__curriculum-wrap">
-                                    <h3 class="title">Apa yang akan Anda pelajari</h3>
-                                    <ul class="about__info-list list-wrap">
-                                        @foreach ($courseList as $course)
-                                            <li class="about__info-list-item">
-                                                <i class="flaticon-angle-right"></i>
-                                                <p class="content">{{ $course }}</p>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="jadwal-tab-pane" role="tabpanel" aria-labelledby="jadwal-tab"
-                                tabindex="0">
-                                <div class="courses__curriculum-wrap">
                                     <h3 class="title">Kurikulum Kelas</h3>
                                     <p>Apa saja yang akan dipelajari di kelas ini</p>
                                     <div class="accordion" id="accordionExample">
@@ -169,6 +154,22 @@
                                         @endforeach
 
                                     </div>
+
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="jadwal-tab-pane" role="tabpanel" aria-labelledby="jadwal-tab"
+                                tabindex="0">
+                                <div class="courses__curriculum-wrap">
+                                    <h3 class="title">Kurikulum Kelas</h3>
+                                    <h3 class="title">Apa yang akan Anda pelajari</h3>
+                                    <ul class="about__info-list list-wrap">
+                                        @foreach ($courseList as $course)
+                                            <li class="about__info-list-item">
+                                                <i class="flaticon-angle-right"></i>
+                                                <p class="content">{{ $course }}</p>
+                                            </li>
+                                        @endforeach
+                                    </ul>
 
                                 </div>
                             </div>
