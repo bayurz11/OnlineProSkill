@@ -78,7 +78,7 @@
                             <h2 class="title">Total keranjang</h2>
 
                             @php
-                                $biayaPendaftaran = 50000; // Biaya pendaftaran (contoh: Rp 50,000)
+                                $biayaPendaftaran = 20000; // Biaya pendaftaran (contoh: Rp 50,000)
                                 $totalPrice = array_sum(array_column($cart, 'price')); // Total harga keranjang
                                 $totalPriceWithPendaftaran = $totalPrice + $biayaPendaftaran; // Total dengan biaya pendaftaran
                             @endphp
