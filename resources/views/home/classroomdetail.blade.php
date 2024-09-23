@@ -160,8 +160,8 @@
                             <div class="tab-pane fade" id="jadwal-tab-pane" role="tabpanel" aria-labelledby="jadwal-tab"
                                 tabindex="0">
                                 <div class="courses__curriculum-wrap">
-                                    <h3 class="title">Jadwal Kelas</h3>
-                                    <h3 class="title">Senin dan Rabu </h3>
+                                    <h3 class="title">Senin dan Rabu</h3>
+
                                     <ul class="about__info-list list-wrap">
                                         <li class="about__info-list-item">
                                             <i class="flaticon-angle-right"></i>
