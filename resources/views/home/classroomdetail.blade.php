@@ -76,11 +76,14 @@
                                     data-bs-target="#curriculum-tab-pane" type="button" role="tab"
                                     aria-controls="curriculum-tab-pane" aria-selected="false">Kurikulum</button>
                             </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="jadwal-tab" data-bs-toggle="tab"
-                                    data-bs-target="#jadwal-tab-pane" type="button" role="tab"
-                                    aria-controls="jadwal-tab-pane" aria-selected="false">Jadwal Kelas</button>
-                            </li>
+                            @if ($courses->course_type !== 'online')
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="jadwal-tab" data-bs-toggle="tab"
+                                        data-bs-target="#jadwal-tab-pane" type="button" role="tab"
+                                        aria-controls="jadwal-tab-pane" aria-selected="false">Jadwal Kelas</button>
+                                </li>
+                            @endif
+
                         </ul>
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="overview-tab-pane" role="tabpanel"
