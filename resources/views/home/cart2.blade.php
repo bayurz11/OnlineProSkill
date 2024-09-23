@@ -77,11 +77,20 @@
                         <div class="cart__collaterals-wrap">
                             <h2 class="title">Total keranjang</h2>
 
+                            @php
+                                $biayaPendaftaran = 50000; // Biaya pendaftaran (contoh: Rp 50,000)
+                                $totalPrice = array_sum(array_column($cart, 'price')); // Total harga keranjang
+                                $totalPriceWithPendaftaran = $totalPrice + $biayaPendaftaran; // Total dengan biaya pendaftaran
+                            @endphp
+
                             <ul class="list-wrap">
                                 <li>Jumlah Quantity <span>{{ array_sum(array_column($cart, 'quantity')) }}</span></li>
+                                <li>Total Produk <span class="amount">Rp
+                                        {{ number_format($totalPrice, 0, ',', ',') }}</span></li>
+                                <li>Biaya Pendaftaran <span class="amount">Rp
+                                        {{ number_format($biayaPendaftaran, 0, ',', ',') }}</span></li>
                                 <li>Total <span class="amount">Rp
-                                        {{ number_format(array_sum(array_column($cart, 'price')), 0, ',', ',') }}</span>
-                                </li>
+                                        {{ number_format($totalPriceWithPendaftaran, 0, ',', ',') }}</span></li>
                             </ul>
 
                             @auth
@@ -90,6 +99,8 @@
                                     @foreach ($cart as $item)
                                         <input type="hidden" name="cart_items[]" value="{{ $item['id'] }}">
                                     @endforeach
+
+                                    <input type="hidden" name="biaya_pendaftaran" value="{{ $biayaPendaftaran }}">
 
                                     <div class="form-grp" hidden>
                                         <label for="name">Nama *</label>
@@ -127,6 +138,7 @@
                 @else
                     <p></p>
                 @endif
+
             </div>
 
         </div>

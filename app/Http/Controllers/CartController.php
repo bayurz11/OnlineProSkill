@@ -21,37 +21,7 @@ class CartController extends Controller
         return view('home.cart');
     }
 
-    // public function show()
-    // {
-    //     $user = Auth::user();
-    //     $cart = Session::get('cart', []);
-    //     $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
-    //     $courses = KelasTatapMuka::whereIn('id', array_column($cart, 'id'))->get();
-    //     if ($courses->isEmpty()) {
-    //         return redirect()->route('cart.view')->with('info', 'Kelas tidak ditemukan.');
-    //     }
-    //     return view('home.cart', compact('user', 'cart', 'profile', 'courses'));
-    // }
-    // public function show()
-    // {
-    //     $user = Auth::user();
-    //     $cart = Session::get('cart', []);
-    //     $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
-    //     $courses = KelasTatapMuka::whereIn('id', array_column($cart, 'id'))->get();
 
-    //     if ($courses->isEmpty() && !empty($cart)) {
-    //         return redirect()->route('cart.view')->with('info', 'Kelas tidak ditemukan.');
-    //     }
-    //     // Ambil notifikasi untuk pengguna yang sedang login
-    //     $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
-    //         ->orderBy('created_at', 'desc')
-    //         ->get()
-    //         : collect();
-
-    //     // Hitung jumlah notifikasi dengan status = 1
-    //     $notifikasiCount = $notifikasi->where('status', 1)->count();
-    //     return view('home.cart1', compact('user', 'cart', 'profile', 'courses', 'notifikasiCount', 'notifikasi'));
-    // }
     public function show()
     {
         $categori = Categories::all();
