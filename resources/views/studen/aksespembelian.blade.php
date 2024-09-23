@@ -142,48 +142,45 @@
                                                 </div>
                                             </div>
                                         @else
-                                            <div class="row">
+                                            <div
+                                                class="row row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
                                                 @foreach ($orders as $order)
-                                                    <div
-                                                        class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
-                                                        <div class="col mb-4">
-                                                            <div
-                                                                class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
-                                                                <div class="courses__item-thumb courses__item-thumb-two">
-                                                                    <a href="{{ route('lesson', ['id' => $order->product_id]) }}"
-                                                                        class="shine__animate-link">
-                                                                        <img src="{{ $order->KelasTatapMuka->gambar ? asset('public/uploads/' . $order->KelasTatapMuka->gambar) : asset('public/assets/img/courses/course_thumb01.jpg') }}"
-                                                                            alt="img" class="img-fluid"
-                                                                            style="width: 100%; height: auto; object-fit: cover;">
-                                                                    </a>
-                                                                </div>
-                                                                <div
-                                                                    class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1">
-                                                                    <h5 class="title flex-grow-1">
-                                                                        <a
-                                                                            href="{{ route('lesson', ['id' => $order->product_id]) }}">{{ $order->KelasTatapMuka->nama_kursus ?? 'Nama kelas tidak tersedia' }}</a>
-                                                                    </h5>
-                                                                    <div class="courses__item-content-bottom">
-                                                                        <div class="author-two">
-                                                                            <a href="#">
-                                                                                <img src="{{ asset('public/assets/img/courses/course_author001.png') }}"
-                                                                                    alt="img">
-                                                                                {{ $order->KelasTatapMuka->user->name }}
-                                                                                @if ($order->KelasTatapMuka->course_type == 'online')
-                                                                                    <span
-                                                                                        class="badge bg-primary">Online</span>
-                                                                                @else
-                                                                                    <span
-                                                                                        class="badge bg-secondary">Offline</span>
-                                                                                @endif
-                                                                            </a>
-                                                                        </div>
+                                                    <div class="col mb-4">
+                                                        <div class="card h-100 shadow-sm">
+                                                            <!-- Thumbnail Gambar -->
+                                                            <div class="card-img-top">
+                                                                <a
+                                                                    href="{{ route('lesson', ['id' => $order->product_id]) }}">
+                                                                    <img src="{{ $order->KelasTatapMuka->gambar ? asset('public/uploads/' . $order->KelasTatapMuka->gambar) : asset('public/assets/img/courses/course_thumb01.jpg') }}"
+                                                                        alt="img" class="img-fluid"
+                                                                        style="height: 200px; object-fit: cover;">
+                                                                </a>
+                                                            </div>
+                                                            <!-- Konten Kartu -->
+                                                            <div class="card-body d-flex flex-column">
+                                                                <h5 class="card-title text-truncate">
+                                                                    <a
+                                                                        href="{{ route('lesson', ['id' => $order->product_id]) }}">{{ $order->KelasTatapMuka->nama_kursus ?? 'Nama kelas tidak tersedia' }}</a>
+                                                                </h5>
+                                                                <!-- Konten Bawah (Author + Badge) -->
+                                                                <div class="mt-auto">
+                                                                    <div class="d-flex align-items-center">
+                                                                        <img src="{{ asset('public/assets/img/courses/course_author001.png') }}"
+                                                                            alt="Author" class="rounded-circle me-2"
+                                                                            style="width: 30px; height: 30px;">
+                                                                        <span>{{ $order->KelasTatapMuka->user->name }}</span>
+                                                                        <span
+                                                                            class="badge ms-auto {{ $order->KelasTatapMuka->course_type == 'online' ? 'bg-primary' : 'bg-secondary' }}">
+                                                                            {{ ucfirst($order->KelasTatapMuka->course_type) }}
+                                                                        </span>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                    </div>
                                                 @endforeach
                                             </div>
+
                                         @endif
                                     </div>
                                 </div>
