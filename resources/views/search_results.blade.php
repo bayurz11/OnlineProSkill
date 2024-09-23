@@ -386,12 +386,13 @@
 
             function toggleAllLevels(source) {
                 if (source.checked) {
-                    tingkatCheckboxes.forEach(checkbox => checkbox.checked = false);
+                    tingkatCheckboxes.forEach(checkbox => checkbox.checked =
+                    false); // Uncheck all "tingkat" checkboxes
                     updateUrl(Array.from(checkboxes)
                         .filter(checkbox => checkbox.checked)
                         .map(checkbox => checkbox.value),
                         sortBySelect.value,
-                        []);
+                        []); // Empty tingkat array in URL when "difficulty_all" is checked
                 }
             }
 
@@ -432,7 +433,8 @@
             tingkatCheckboxes.forEach(checkbox => {
                 checkbox.addEventListener('change', function() {
                     if (this.checked) {
-                        difficultyAllCheckbox.checked = false;
+                        difficultyAllCheckbox.checked =
+                        false; // Uncheck "difficulty_all" if any specific "tingkat" is checked
                     }
 
                     const selectedTingkat = Array.from(tingkatCheckboxes)
@@ -449,12 +451,13 @@
 
             difficultyAllCheckbox.addEventListener('change', function() {
                 if (this.checked) {
-                    tingkatCheckboxes.forEach(checkbox => checkbox.checked = false);
+                    tingkatCheckboxes.forEach(checkbox => checkbox.checked =
+                    false); // Uncheck all "tingkat" checkboxes
                     updateUrl(Array.from(checkboxes)
                         .filter(checkbox => checkbox.checked)
                         .map(checkbox => checkbox.value),
                         sortBySelect.value,
-                        []);
+                        []); // Empty tingkat array in URL when "difficulty_all" is checked
                 }
             });
 
