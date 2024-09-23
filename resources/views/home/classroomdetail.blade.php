@@ -76,6 +76,11 @@
                                     data-bs-target="#curriculum-tab-pane" type="button" role="tab"
                                     aria-controls="curriculum-tab-pane" aria-selected="false">Kurikulum</button>
                             </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="jadwal-tab" data-bs-toggle="tab"
+                                    data-bs-target="#jadwal-tab-pane" type="button" role="tab"
+                                    aria-controls="jadwal-tab-pane" aria-selected="false">Jadwal Kelas</button>
+                            </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="overview-tab-pane" role="tabpanel"
@@ -106,6 +111,54 @@
                             </div>
                             <div class="tab-pane fade" id="curriculum-tab-pane" role="tabpanel"
                                 aria-labelledby="curriculum-tab" tabindex="0">
+                                <div class="courses__curriculum-wrap">
+                                    <h3 class="title">Kurikulum Kelas</h3>
+                                    <p>Apa saja yang akan dipelajari di kelas ini</p>
+                                    <div class="accordion" id="accordionExample">
+                                        @foreach ($kurikulum as $index => $kurikulumItem)
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading{{ $index }}">
+                                                    <button class="accordion-button {{ $index != 0 ? 'collapsed' : '' }}"
+                                                        type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#collapse{{ $index }}"
+                                                        aria-expanded="{{ $index == 0 ? 'true' : 'false' }}"
+                                                        aria-controls="collapse{{ $index }}">
+                                                        {{ $kurikulumItem->title }}
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse{{ $index }}"
+                                                    class="accordion-collapse collapse {{ $index == 0 ? 'show' : '' }}"
+                                                    aria-labelledby="heading{{ $index }}"
+                                                    data-bs-parent="#accordionExample">
+                                                    <div class="accordion-body">
+                                                        <ul class="list-wrap">
+                                                            @foreach ($section[$kurikulumItem->id] ?? [] as $sectionItem)
+                                                                <li class="course-item">
+                                                                    <a href="#" class="course-item-link">
+                                                                        {{ $sectionItem->title }}
+                                                                        <div class="course-item-meta">
+                                                                            <span
+                                                                                class="item-meta duration">{{ $sectionItem->duration }}</span>
+                                                                            {{-- <span class="item-meta course-item-status">
+                                                                                <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
+                                                                                    alt="icon">
+                                                                            </span> --}}
+                                                                        </div>
+                                                                    </a>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="jadwal-tab-pane" role="tabpanel" aria-labelledby="jadwal-tab"
+                                tabindex="0">
                                 <div class="courses__curriculum-wrap">
                                     <h3 class="title">Kurikulum Kelas</h3>
                                     <p>Apa saja yang akan dipelajari di kelas ini</p>
