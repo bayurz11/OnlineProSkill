@@ -74,10 +74,10 @@
                                             </li>
                                         @endif
                                     @endforeach
-
                                 </ul>
                                 <div class="show-more">
-                                    <a href="#" onclick="showMoreCategories(event)">Tampilkan Lebih Banyak +</a>
+                                    <a href="#" id="toggleButton" onclick="showMoreCategories(event)">Tampilkan Lebih
+                                        Banyak +</a>
                                 </div>
                             </div>
                         </div>
@@ -365,6 +365,7 @@
             const sortBySelect = document.querySelector('select[name="orderby"]');
             const tingkatCheckboxes = document.querySelectorAll('.tingkat-checkbox');
             const difficultyAllCheckbox = document.getElementById('difficulty_all');
+            const showMoreButton = document.getElementById('toggleButton');
 
             function updateUrl(selectedCategories, orderby, selectedTingkat) {
                 const url = new URL(window.location.href);
@@ -458,28 +459,42 @@
             });
 
             // Initial display of categories
-            var categoryItems = document.querySelectorAll('.list-wrap .category-item');
+            const categoryItems = document.querySelectorAll('.list-wrap .category-item');
             const showMoreCategoriesStatus = localStorage.getItem('showMoreCategories') === 'true';
 
-            for (var i = 4; i < categoryItems.length; i++) {
-                categoryItems[i].style.display = showMoreCategoriesStatus ? 'block' : 'none';
+            for (let i = 4; i < categoryItems.length; i++) {
+                categoryItems[i].classList.toggle('hidden', !showMoreCategoriesStatus);
             }
 
+            showMoreButton.innerText = showMoreCategoriesStatus ? 'Tampilkan Lebih Sedikit -' :
+                'Tampilkan Lebih Banyak +';
+
             // Show more categories function
-            window.showMoreCategories = function(event) {
+            showMoreButton.addEventListener('click', function(event) {
                 event.preventDefault();
-                var categoryItems = document.querySelectorAll('.list-wrap .category-item');
-                for (var i = 4; i < categoryItems.length; i++) {
-                    categoryItems[i].style.display = 'block';
+                const hiddenCategories = document.querySelectorAll('.category-item.hidden');
+
+                if (hiddenCategories.length > 0) {
+                    hiddenCategories.forEach(category => category.classList.remove('hidden'));
+                    showMoreButton.innerText = 'Tampilkan Lebih Sedikit -';
+                    localStorage.setItem('showMoreCategories', 'true');
+                } else {
+                    categoryItems.forEach((category, index) => {
+                        if (index >= 4) {
+                            category.classList.add('hidden');
+                        }
+                    });
+                    showMoreButton.innerText = 'Tampilkan Lebih Banyak +';
+                    localStorage.setItem('showMoreCategories', 'false');
                 }
-                event.target.style.display = 'none';
-                localStorage.setItem('showMoreCategories', 'true');
-            }
+            });
         });
+
         // Aktifkan semua tooltip di halaman
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
         var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl)
-        })
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
     </script>
+
 @endsection
