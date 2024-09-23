@@ -199,6 +199,23 @@
                                         </ul>
                                     </div>
                                 @endif
+                                @if ($courses->nama_kursus === 'Digital Design Menggunakan Canva dan Figma')
+                                    <div class="courses__curriculum-wrap">
+                                        <h3 class="title">Jumat dan Sabut</h3>
+
+                                        <ul class="about__info-list list-wrap">
+                                            <li class="about__info-list-item">
+                                                <i class="flaticon-angle-right"></i>
+                                                <p class="content">Pagi : 09.30 - 11.00</p>
+                                            </li>
+                                            <li class="about__info-list-item">
+                                                <i class="flaticon-angle-right"></i>
+                                                <p class="content">Siang : 13.30 - 15.00</p>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
