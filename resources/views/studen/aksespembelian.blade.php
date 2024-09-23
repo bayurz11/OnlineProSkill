@@ -142,9 +142,8 @@
                                                 </div>
                                             </div>
                                         @else
-                                            @foreach ($orders as $order)
-                                                <div
-                                                    class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
+                                            <div class="row">
+                                                @foreach ($orders as $order)
                                                     <div class="col mb-4">
                                                         <div
                                                             class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
@@ -181,7 +180,8 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                            @endforeach
+                                                @endforeach
+                                            </div>
                                         @endif
                                     </div>
                                 </div>
