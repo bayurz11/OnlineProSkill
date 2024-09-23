@@ -462,12 +462,16 @@
             const categoryItems = document.querySelectorAll('.list-wrap .category-item');
             const showMoreCategoriesStatus = localStorage.getItem('showMoreCategories') === 'true';
 
-            for (let i = 4; i < categoryItems.length; i++) {
-                categoryItems[i].classList.toggle('hidden', !showMoreCategoriesStatus);
+            // Jika kategori kurang dari 4, sembunyikan tombol "Tampilkan Lebih Banyak +"
+            if (categoryItems.length <= 4) {
+                showMoreButton.style.display = 'none';
+            } else {
+                for (let i = 4; i < categoryItems.length; i++) {
+                    categoryItems[i].classList.toggle('hidden', !showMoreCategoriesStatus);
+                }
+                showMoreButton.innerText = showMoreCategoriesStatus ? 'Tampilkan Lebih Sedikit -' :
+                    'Tampilkan Lebih Banyak +';
             }
-
-            showMoreButton.innerText = showMoreCategoriesStatus ? 'Tampilkan Lebih Sedikit -' :
-                'Tampilkan Lebih Banyak +';
 
             // Show more categories function
             showMoreButton.addEventListener('click', function(event) {
