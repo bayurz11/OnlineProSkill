@@ -163,12 +163,12 @@
                                     <h3 class="title">Jadwal Kelas</h3>
 
                                     <ul class="about__info-list list-wrap">
-                                        @foreach ($courseList as $course)
-                                            <li class="about__info-list-item">
-                                                <i class="flaticon-angle-right"></i>
-                                                <p class="content">{{ $course }}</p>
-                                            </li>
-                                        @endforeach
+
+                                        <li class="about__info-list-item">
+                                            <i class="flaticon-angle-right"></i>
+                                            <p class="content">Senin : 10 : 00 s/d </p>
+                                        </li>
+
                                     </ul>
 
                                 </div>
