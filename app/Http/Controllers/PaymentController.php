@@ -184,6 +184,9 @@ class PaymentController extends Controller
         if (empty($items)) {
             return redirect()->back()->with('error', 'Tidak ada kelas yang valid di keranjang.');
         }
+        // Tambahkan biaya pendaftaran ke total
+        $biayaPendaftaran = $request->input('biaya_pendaftaran');
+        $totalAmount += $biayaPendaftaran;
 
         // Gabungkan nama-nama kelas menjadi satu string untuk deskripsi
         $description = "Pembelian Kelas: " . implode(', ', $classNames);
