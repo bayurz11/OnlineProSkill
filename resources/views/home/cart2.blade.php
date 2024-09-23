@@ -78,7 +78,20 @@
                             <h2 class="title">Total keranjang</h2>
 
                             @php
-                                $biayaPendaftaran = 20000; // Biaya pendaftaran (contoh: Rp 50,000)
+                                // Cek apakah user sudah pernah melakukan order
+                                $biayaPendaftaran = 20000; // Biaya pendaftaran default
+                                if (Auth::check()) {
+                                    // Cari apakah user sudah pernah melakukan order
+                                    $userOrders = \App\Models\Order::where('user_id', Auth::id())
+                                        ->where('status', '!=', 'canceled')
+                                        ->exists();
+
+                                    // Jika user sudah pernah order, set biaya pendaftaran menjadi 0
+                                    if ($userOrders) {
+                                        $biayaPendaftaran = 0;
+                                    }
+                                }
+
                                 $totalPrice = array_sum(array_column($cart, 'price')); // Total harga keranjang
                                 $totalPriceWithPendaftaran = $totalPrice + $biayaPendaftaran; // Total dengan biaya pendaftaran
                             @endphp
@@ -138,6 +151,7 @@
                 @else
                     <p></p>
                 @endif
+
 
             </div>
 

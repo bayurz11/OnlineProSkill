@@ -150,6 +150,7 @@ class PaymentController extends Controller
             'email' => 'required|email',
             'phone' => 'nullable',
             'cart_items' => 'required|array',
+            'biaya_pendaftaran' => 'required|numeric',
         ]);
 
         // Ambil user ID
