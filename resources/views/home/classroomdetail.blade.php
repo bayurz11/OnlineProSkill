@@ -159,7 +159,7 @@
                             </div>
                             <div class="tab-pane fade" id="jadwal-tab-pane" role="tabpanel" aria-labelledby="jadwal-tab"
                                 tabindex="0">
-                                @if ($courses->nama_kursus === 'Fundamental Computer Skill')
+                                @if ($courses->nama_kursus === 'Mahir Aplikasi Office Tingkat Advance')
                                     <div class="courses__curriculum-wrap">
                                         <h3 class="title">Senin dan Rabu</h3>
 
