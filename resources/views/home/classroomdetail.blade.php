@@ -251,12 +251,14 @@
                                     Sertifikat
                                     <span>{{ $courses->sertifikat }}</span>
                                 </li>
-                                <li>
-                                    <img src="{{ asset('public/assets/img/icons/course_icon06.svg') }}" alt="img"
-                                        class="injectable">
-                                    Kuota Kelas
-                                    <span>{{ $jumlahPendaftaran }}/{{ $courses->kuota }}</span>
-                                </li>
+                                @if ($courses->course_type !== 'online')
+                                    <li>
+                                        <img src="{{ asset('public/assets/img/icons/course_icon06.svg') }}"
+                                            alt="img" class="injectable">
+                                        Kuota Kelas
+                                        <span>{{ $jumlahPendaftaran }}/{{ $courses->kuota }}</span>
+                                    </li>
+                                @endif
                             </ul>
                         </div>
 
