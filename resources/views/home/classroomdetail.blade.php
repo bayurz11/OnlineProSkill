@@ -161,14 +161,20 @@
                                 tabindex="0">
                                 <div class="courses__curriculum-wrap">
                                     <h3 class="title">Jadwal Kelas</h3>
-
+                                    <h3 class="title">Senin dan Rabu </h3>
                                     <ul class="about__info-list list-wrap">
-
                                         <li class="about__info-list-item">
                                             <i class="flaticon-angle-right"></i>
-                                            <p class="content">Senin : 10 : 00 s/d </p>
+                                            <p class="content">Pagi : 10.00 - 11.30</p>
                                         </li>
-
+                                        <li class="about__info-list-item">
+                                            <i class="flaticon-angle-right"></i>
+                                            <p class="content">Siang : 14.30 - 16.00</p>
+                                        </li>
+                                        <li class="about__info-list-item">
+                                            <i class="flaticon-angle-right"></i>
+                                            <p class="content">Malam : 19.00 - 20.30</p>
+                                        </li>
                                     </ul>
 
                                 </div>
