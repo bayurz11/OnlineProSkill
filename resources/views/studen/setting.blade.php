@@ -90,7 +90,7 @@
                                                                 src="{{ $profile && $profile->gambar ? (strpos($profile->gambar, 'googleusercontent') !== false ? $profile->gambar : asset('public/uploads/' . $profile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
                                                                 alt="img" width="120" height="120"
                                                                 style="object-fit: cover;">
-                                                            <p align="center">max 2Mb<span style="color: red">*</span></p>
+                                                            <p align="center">Max 2 Mb<span style="color: red">*</span></p>
                                                         </div>
                                                     </div>
 
