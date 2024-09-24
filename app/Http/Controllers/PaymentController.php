@@ -24,124 +24,6 @@ class PaymentController extends Controller
         // Configuration::setXenditKey("");
     }
 
-
-    // public function payment(Request $request)
-    // {
-    //     // Validasi permintaan
-    //     $request->validate([
-    //         'name' => 'required|string',
-    //         'email' => 'required|email',
-    //         'phone' => 'nullable',
-    //         'cart_items' => 'required|array',
-    //     ]);
-
-    //     // Ambil user ID
-    //     $userId = Auth::id();
-    //     $uuid = (string) Str::uuid();
-
-    //     // Hitung total harga
-    //     $totalAmount = 0;
-    //     $items = [];
-    //     $classNames = [];
-
-    //     foreach ($request->cart_items as $itemId) {
-    //         // Cek apakah user sudah membeli kelas ini
-    //         $existingOrder = Order::where('user_id', $userId)
-    //             ->where('product_id', $itemId)
-    //             ->where('status', '!=', 'canceled') // Asumsikan bahwa status 'canceled' berarti transaksi dibatalkan
-    //             ->first();
-
-    //         if ($existingOrder) {
-    //             return redirect()->back()->with('error', 'Anda sudah membeli kelas ini: ' . KelasTatapMuka::find($itemId)->nama_kursus);
-    //         }
-
-    //         // Jika belum, tambahkan ke daftar item
-    //         $kelas = KelasTatapMuka::find($itemId);
-    //         if ($kelas) {
-    //             $totalAmount += $kelas->price;
-    //             $items[] = $kelas;
-    //             $classNames[] = $kelas->nama_kursus; // Asumsikan bahwa nama kelas ada di properti 'nama_kursus'
-    //         }
-    //     }
-
-    //     if (empty($items)) {
-    //         return redirect()->back()->with('error', 'Tidak ada kelas yang valid di keranjang.');
-    //     }
-
-    //     // Gabungkan nama-nama kelas menjadi satu string untuk deskripsi
-    //     $description = "Pembelian Kelas: " . implode(', ', $classNames);
-
-    //     // Panggil Xendit
-    //     $apiInstance = new InvoiceApi();
-    //     $createInvoiceRequest = new CreateInvoiceRequest([
-    //         'external_id' => $uuid,
-    //         'description' => $description,
-    //         'amount' => $totalAmount,
-    //         'currency' => 'IDR',
-    //         "customer" => [
-    //             "given_names" => $request->name,
-    //             "email" => $request->email,
-    //             "mobile_number" => $request->phone,
-    //         ],
-    //         "success_redirect_url" => route('success', ['uuid' => $uuid]),
-    //         "failure_redirect_url" => route('cart.view'), // Arahkan ke halaman Cart jika gagal
-    //     ]);
-
-    //     try {
-    //         $result = $apiInstance->createInvoice($createInvoiceRequest);
-
-    //         // Generate nomor invoice unik
-    //         $invoiceNumber = 'PSA-' . Carbon::now('Asia/Jakarta')->format('mdHi') . '-' . $userId;
-
-    //         // Format bulan dan tahun
-    //         $bulanTahun = Carbon::now()->format('m.Y'); // contoh: 082024
-
-    //         // Masukkan ke tabel orders
-    //         foreach ($items as $kelas) {
-    //             $order = new Order();
-    //             $order->user_id = $userId;
-    //             $order->product_id = $kelas->id;
-    //             $order->checkout_link = $result['invoice_url'];
-    //             $order->external_id = $uuid;
-    //             $order->status = "pending";
-    //             $order->price = $kelas->price;
-    //             $order->nomor_invoice = $invoiceNumber; // Tambahkan nomor invoice
-    //             $order->save();
-
-    //             // Ambil nama_kursus dan ambil inisial
-    //             $namaKursus = $kelas->nama_kursus;
-    //             $inisialNamaKursus = implode('', array_map(fn($word) => strtoupper($word[0]), explode(' ', $namaKursus)));
-
-    //             // Cek apakah user_id ada di tabel Sertifikat
-    //             $certificate = Sertifikat::where('user_id', $userId)->first();
-
-    //             if ($certificate) {
-    //                 // Jika ada, tambahkan product_id ke tabel Sertifikat
-    //                 $certificate->product_id = $kelas->id;
-    //                 // Format sertifikat_id menggunakan ID Sertifikat yang dipad menjadi 3 angka dan inisial nama kursus
-    //                 $certificateIdFormatted = str_pad($certificate->id, 3, '0', STR_PAD_LEFT);
-    //                 $certificate->sertifikat_id = $certificateIdFormatted . ' / PSA / ' . $inisialNamaKursus . ' / ' . $bulanTahun;
-    //                 $certificate->save();
-    //             } else {
-    //                 // Jika tidak ada, buat entri baru di tabel Sertifikat
-    //                 $newCertificate = new Sertifikat();
-    //                 $newCertificate->user_id = $userId;
-    //                 $newCertificate->product_id = $kelas->id;
-    //                 $newCertificate->save();
-
-    //                 // Update sertifikat_id setelah ID sertifikat tersedia
-    //                 $certificateIdFormatted = str_pad($newCertificate->id, 3, '0', STR_PAD_LEFT);
-    //                 $newCertificate->sertifikat_id = $certificateIdFormatted . '/PSA/' . $inisialNamaKursus . '/' . $bulanTahun;
-    //                 $newCertificate->save();
-    //             }
-    //         }
-
-    //         return redirect($result['invoice_url']);
-    //     } catch (\Xendit\XenditSdkException $e) {
-    //         return redirect()->back()->with('error', 'Pembayaran gagal. Silakan coba lagi.');
-    //     }
-    // }270824
-
     public function payment(Request $request)
     {
         // Validasi permintaan
@@ -268,7 +150,7 @@ class PaymentController extends Controller
                         // Jika tidak ada, buat entri baru di tabel Sertifikat
                         $newCertificate = new Sertifikat();
                         $newCertificate->user_id = $userId;
-                        $newCertificate->name = $userName; // Tambahkan nama user
+                        $newCertificate->name = $userName;
                         $newCertificate->product_id = $kelas->id;
                         $newCertificate->save();
 
@@ -286,9 +168,6 @@ class PaymentController extends Controller
             return redirect()->back()->with('error', 'Pembayaran gagal. Silakan coba lagi.');
         }
     }
-
-
-
 
 
 

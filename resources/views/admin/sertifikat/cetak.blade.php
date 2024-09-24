@@ -209,7 +209,7 @@
             }
 
             .content h2 {
-                font-size: 60px;
+                font-size: 45px;
                 margin-top: 10mm;
             }
 
