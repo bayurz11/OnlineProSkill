@@ -71,17 +71,14 @@
 
         .content h2 {
             margin: 0;
-            font-size: 30px;
-            /* Half of 60px */
+            font-size: 25px;
             color: #007F73;
             margin-top: 5mm;
-            /* Half of 10mm */
         }
 
         .content h3 {
             margin: 0;
             font-size: 15px;
-            /* Half of 30px */
             color: #007F73;
         }
 
