@@ -210,7 +210,7 @@
 
             .content h2 {
                 font-size: 45px;
-                margin-top: 10mm;
+                margin-top: 15mm;
             }
 
             .content h3 {
