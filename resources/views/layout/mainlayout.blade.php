@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="{{ asset('public/assets/css/spacing.css') }}">
     <link rel="stylesheet" href="{{ asset('public/assets/css/tg-cursor.css') }}">
     <link rel="stylesheet" href="{{ asset('public/assets/css/main.css') }}">
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet"> <!-- Tailwind CSS -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet"> <!-- Tailwind CSS -->
     <script src="https://www.google.com/recaptcha/api.js"></script>
     {{-- <script>
         function onSubmit(token) {
