@@ -14,40 +14,40 @@
     <title>Bootcamp Power BI</title>
 </head>
 
-<body>
+<body class="bg-gray-100 text-gray-800">
     <div id="app">
-        <header class="bg-blue-600 text-white p-4 text-center">
-            <h1 class="text-3xl font-bold">Bootcamp Power BI</h1>
-            <p class="mt-2">Kuasi Data Visualization dan Business Intelligence!</p>
+        <header class="bg-blue-600 text-white p-6 text-center rounded-b-lg shadow-lg">
+            <h1 class="text-4xl font-bold">Bootcamp Power BI</h1>
+            <p class="mt-2 text-lg">Kuasi Data Visualization dan Business Intelligence!</p>
         </header>
 
-        <main class="max-w-4xl mx-auto p-4">
-            <section class="mt-8">
-                <h2 class="text-2xl font-semibold">Tentang Bootcamp</h2>
-                <p class="mt-2">
+        <main class="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md mt-6">
+            <section class="mt-6">
+                <h2 class="text-3xl font-semibold border-b-2 border-blue-600 pb-2">Tentang Bootcamp</h2>
+                <p class="mt-4 leading-relaxed">
                     Bergabunglah dengan Bootcamp Power BI kami dan pelajari cara menganalisis dan memvisualisasikan data
                     secara efektif. Program ini dirancang untuk membantu Anda menguasai keterampilan yang diperlukan di
                     dunia kerja.
                 </p>
             </section>
 
-            <section class="mt-8">
-                <h2 class="text-2xl font-semibold">Jadwal Bootcamp</h2>
-                <ul class="list-disc list-inside mt-2">
-                    <li>Minggu 1: Pengenalan Power BI dan Dasar-Dasar Data</li>
-                    <li>Minggu 2: Membuat Dashboard Interaktif</li>
-                    <li>Minggu 3: Analisis Data Lanjutan dan Visualisasi</li>
-                    <li>Minggu 4: Proyek Akhir dan Presentasi</li>
+            <section class="mt-6">
+                <h2 class="text-3xl font-semibold border-b-2 border-blue-600 pb-2">Jadwal Bootcamp</h2>
+                <ul class="list-disc list-inside mt-4">
+                    <li class="mt-2">Minggu 1: Pengenalan Power BI dan Dasar-Dasar Data</li>
+                    <li class="mt-2">Minggu 2: Membuat Dashboard Interaktif</li>
+                    <li class="mt-2">Minggu 3: Analisis Data Lanjutan dan Visualisasi</li>
+                    <li class="mt-2">Minggu 4: Proyek Akhir dan Presentasi</li>
                 </ul>
             </section>
 
-            <section class="mt-8">
-                <h2 class="text-2xl font-semibold">Pendaftaran</h2>
-                <p class="mt-2">
+            <section class="mt-6">
+                <h2 class="text-3xl font-semibold border-b-2 border-blue-600 pb-2">Pendaftaran</h2>
+                <p class="mt-4 leading-relaxed">
                     Untuk mendaftar, silakan klik tombol di bawah ini:
                 </p>
                 <a href="#"
-                    class="inline-block mt-4 bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition">
+                    class="inline-block mt-4 bg-blue-600 text-white py-3 px-6 rounded hover:bg-blue-700 transition duration-300 transform hover:scale-105">
                     Daftar Sekarang
                 </a>
             </section>
