@@ -10,7 +10,9 @@
 
 <body>
     <div id="app"></div>
-
+    <motion.div>
+        <h1>Hello, World!</h1>
+    </motion.div>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 
