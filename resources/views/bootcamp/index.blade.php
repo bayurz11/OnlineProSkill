@@ -10,8 +10,7 @@
         content="Proskill, Proskill Akademia, teknologi komputer, kursus komputer, proskill akademia, proskill, kursus komputer tanjungpinang">
 
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('public/assets/img/favicon.png') }}">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <title>Bootcamp Power BI</title>
+    <link rel="stylesheet" href="{{ asset('public/assets/css/bootstrap.min.css') }}">
 </head>
 
 <body class="bg-gray-100 text-gray-800">
