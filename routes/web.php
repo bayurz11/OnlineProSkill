@@ -12,6 +12,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\BootcampController;
 use App\Http\Controllers\AdminBlogController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KurikulumController;
@@ -21,6 +22,7 @@ use App\Http\Controllers\SertifikatController;
 use App\Http\Controllers\DaftarSiswaController;
 use App\Http\Controllers\HeroSectionController;
 use App\Http\Controllers\HubungiKamiController;
+use App\Http\Controllers\TentangKamiController;
 use App\Http\Controllers\CourseMasterController;
 use App\Http\Controllers\KategoriBlogController;
 use App\Http\Controllers\SubcategoriesController;
@@ -29,10 +31,9 @@ use App\Http\Controllers\KelasTatapMukaController;
 use App\Http\Controllers\NotifikasiUserController;
 use App\Http\Controllers\DashboardStudenController;
 use App\Http\Controllers\RiwayatTransaksiController;
-use App\Http\Controllers\DashboardInstrukturController;
 use App\Http\Controllers\HubungiKamiSettingController;
+use App\Http\Controllers\DashboardInstrukturController;
 use App\Http\Controllers\OrderHistoryManagerController;
-use App\Http\Controllers\TentangKamiController;
 
 //Authentikasi
 Route::post('/login', [AuthController::class, 'login'])->name('login');
@@ -244,3 +245,8 @@ Route::get('/tentangkami', [TentangKamiController::class, 'index'])->name('tenta
 //sertifikat
 Route::get('/cetak_sertifikat/{id}', [SertifikatController::class, 'cetakSertifikat'])->name('cetak_sertifikat');
 Route::get('/print/{id}', [SertifikatController::class, 'printCertificate'])->name('print');
+
+
+//*********Bootcamp*********//
+//landingpage
+Route::get('/bootcamp', [BootcampController::class, 'index'])->name('bootcamp');
