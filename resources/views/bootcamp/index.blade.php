@@ -9,7 +9,7 @@
         <div id="app">
             <header class="bg-blue-600 text-white p-6 text-center rounded-b-lg shadow-lg">
                 <h1 class="text-4xl font-bold">Bootcamp Power BI</h1>
-                <p class="mt-2 text-lg">Kuasi Data Visualization dan Business Intelligence!</p>
+                <p class="mt-2 text-lg">Kuasai Data Visualization dan Business Intelligence!</p>
             </header>
 
             <main class="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md mt-6">
