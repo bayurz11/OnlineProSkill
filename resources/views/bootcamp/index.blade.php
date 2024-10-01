@@ -67,8 +67,8 @@
                             bottom: 0; 
                             left: 0; 
                             right: 0; 
-                            height: 150px; 
-                            background: linear-gradient(transparent, rgba(0, 0, 0, 0.5)); 
+                            height: 200px; 
+                            background: linear-gradient(transparent, rgba(252, 252, 252, 0.5)); 
                             z-index: 1;">
         </div>
     </section>
