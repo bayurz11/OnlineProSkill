@@ -1,4 +1,4 @@
-@section('title', 'ProSkill Akademia | Profil Saya')
+@section('title', 'Bootcamp Power BI')
 <?php $page = 'index'; ?>
 
 @extends('layout.mainlayout')
