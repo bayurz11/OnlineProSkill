@@ -48,7 +48,7 @@
                         <div class="shape big-shape" data-aos="fade-up-right" data-aos-delay="600">
                             <img src="public/assets/img/banner/banner_shape01.png" alt="shape"
                                 class="tg-motion-effects1">
-                            {{-- <div
+                            <div
                                 style="
                             position: absolute; 
                             bottom: 0; 
@@ -57,7 +57,7 @@
                             height: 600px; 
                             background: linear-gradient(to bottom, transparent, white); /* Sesuaikan dengan warna background */
                             z-index: 1;">
-                            </div> --}}
+                            </div>
                         </div>
                         <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme"
                             data-aos="fade-right" data-aos-delay="600">
@@ -82,7 +82,7 @@
         </div>
         <img src="public/assets/img/banner/banner_shape01.svg" alt="shape" class="line-shape" data-aos="fade-right"
             data-aos-delay="1600" style="max-width: 100%; height: auto;">
-        <div
+        {{-- <div
             style="
         position: absolute; 
         bottom: 0; 
@@ -91,7 +91,7 @@
         height: 900px; 
         background: linear-gradient(to bottom, transparent, white); /* Sesuaikan dengan warna background */
         z-index: 1;">
-        </div>
+        </div> --}}
     </section>
     <!-- banner-area-end -->
 
