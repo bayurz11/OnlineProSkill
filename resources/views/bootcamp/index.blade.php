@@ -29,7 +29,7 @@
                             📊 Jadilah ahli dalam visualisasi data dan ambil langkah pertama menuju karier yang lebih cerah!
                             Daftar sekarang, dan wujudkan impianmu menjadi data-driven professional!
                         </p><br>
-                        <p data-aos="fade-right" data-aos-delay="600">
+                        <p data-aos="fade-right" data-aos-delay="700">
                             📝 Temukan lebih banyak informasi dan daftar di Proskill Akademia!
                         </p>
                         <div class="banner__btn-wrap" data-aos="fade-right" data-aos-delay="800">
@@ -43,7 +43,8 @@
 
                 <div class="col-lg-6" style="position: relative;">
                     <div class="banner__images">
-                        <img src="public/assets/img/banner/banner_img.png" alt="img" class="main-img">
+                        <img src="public/assets/img/banner/banner_img.png" alt="img" class="main-img"
+                            data-aos="fade-right" data-aos-delay="600">
                         <div class="shape big-shape" data-aos="fade-up-right" data-aos-delay="600">
                             <img src="public/assets/img/banner/banner_shape01.png" alt="shape"
                                 class="tg-motion-effects1">
