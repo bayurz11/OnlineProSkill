@@ -42,7 +42,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="info-section" data-aos="fade-down" data-aos-delay="800"
+                    <div class="info-section" data-aos="fade-top" data-aos-delay="800"
                         style="margin-top: 40px; display: flex; justify-content: space-between; text-align: center; padding: 20px; ">
                         <div style="flex: 1; color: white;">
                             <p style="margin-bottom: 15px;">Date</p>
