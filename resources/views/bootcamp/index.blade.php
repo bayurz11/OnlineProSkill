@@ -80,18 +80,7 @@
 
             </div>
         </div>
-        <img src="public/assets/img/banner/banner_shape01.svg" alt="shape" class="line-shape" data-aos="fade-right"
-            data-aos-delay="1600" style="max-width: 100%; height: auto;">
-        {{-- <div
-            style="
-        position: absolute; 
-        bottom: 0; 
-        left: 0; 
-        right: 0; 
-        height: 900px; 
-        background: linear-gradient(to bottom, transparent, white); /* Sesuaikan dengan warna background */
-        z-index: 1;">
-        </div> --}}
+
     </section>
     <!-- banner-area-end -->
 
