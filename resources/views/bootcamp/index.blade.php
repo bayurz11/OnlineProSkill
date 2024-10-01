@@ -40,10 +40,9 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="banner__images">
-                        <img src="public/assets/img/banner/power-bi.png" alt="img" class="main-img"
-                            style="max-width: 100%; height: auto;">
+
                         <div class="shape big-shape" data-aos="fade-up-right" data-aos-delay="600">
-                            <img src="public/assets/img/banner/banner_shape01.png" alt="shape" class="tg-motion-effects1"
+                            <img src="public/assets/img/banner/power-bi.png" alt="shape" class="tg-motion-effects1"
                                 style="max-width: 100%; height: auto;">
                         </div>
                         <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme"
