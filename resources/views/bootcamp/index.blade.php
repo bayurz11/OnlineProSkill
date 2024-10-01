@@ -63,7 +63,16 @@
                             class="shape small-shape tg-motion-effects3">
 
                     </div>
-
+                    <div
+                        style="
+                            position: absolute; 
+                            bottom: 0; 
+                            left: 0; 
+                            right: 0; 
+                            height: 100px; 
+                            background: linear-gradient(to bottom, transparent, white); /* Sesuaikan dengan warna background */
+                            z-index: 1;">
+                    </div>
                 </div>
 
 
