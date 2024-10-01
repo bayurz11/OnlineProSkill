@@ -7,16 +7,16 @@
 
     <!-- banner-area -->
     <section class="banner-area banner-bg tg-motion-effects" data-background="public/assets/img/banner/banner_bg.jpg"
-        style="height: 100vh; width: 100vw; display: flex; align-items: center; justify-content: center;">
-        <div class="container" style="max-width: 100%; height: auto; padding-left: 80px; padding-right: 20px;">
-            <div class="row justify-content-between align-items-start">
-                <div class="col-xl-6 col-lg-8">
-                    <div class="banner__content" style="padding: 35px;">
-                        <span class="sub-title">ProSkill Akademia</span>
-                        <h3 class="title tg-svg" data-aos="fade-right" data-aos-delay="400">
+        style="min-height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center;">
+        <div class="container" style="width: 90%; max-width: 1200px; padding-left: 5%; padding-right: 5%; height: auto;">
+            <div class="row justify-content-between align-items-start" style="display: flex; flex-wrap: wrap;">
+                <div class="col-xl-6 col-lg-8 col-md-12" style="flex: 1; padding-bottom: 20px;">
+                    <div class="banner__content" style="padding: 20px;">
+                        <span class="sub-title" style="font-size: 1.2rem;">ProSkill Akademia</span>
+                        <h3 class="title tg-svg" data-aos="fade-right" data-aos-delay="400"
+                            style="font-size: 2.5rem; line-height: 1.2;">
                             <b style="color: #007368">Bootcamp</b>
-                            <span class="position-relative">
-
+                            <span class="position-relative" style="display: inline-block;">
                                 <svg x="0px" y="0px" preserveAspectRatio="none" viewBox="0 0 209 59" fill="none"
                                     xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto;">
                                     <path
@@ -26,50 +26,41 @@
                                 Power BI.
                             </span>
                         </h3>
-                        <p data-aos="fade-right" data-aos-delay="600">
+                        <p data-aos="fade-right" data-aos-delay="600" style="font-size: 1rem; margin-bottom: 15px;">
                             📊 Jadilah ahli dalam visualisasi data dan ambil langkah pertama menuju karier yang lebih cerah!
                             Daftar sekarang, dan wujudkan impianmu menjadi data-driven professional!
-                        </p><br>
-                        <p data-aos="fade-right" data-aos-delay="700">
+                        </p>
+                        <p data-aos="fade-right" data-aos-delay="700" style="font-size: 1rem;">
                             📝 Temukan lebih banyak informasi dan daftar di Proskill Akademia!
                         </p>
-                        <div class="banner__btn-wrap" data-aos="fade-right" data-aos-delay="800">
-                            <a href="contact.html" class="btn arrow-btn">Daftar Sekarang
-                                <img src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable">
+                        <div class="banner__btn-wrap" data-aos="fade-right" data-aos-delay="800" style="margin-top: 20px;">
+                            <a href="contact.html" class="btn arrow-btn" style="font-size: 1rem; padding: 10px 20px;">Daftar
+                                Sekarang
+                                <img src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"
+                                    style="margin-left: 10px;">
                             </a>
                         </div>
                     </div>
-
                 </div>
 
-                <div class="col-lg-6" style="position: relative;">
-                    <div class="banner__images">
+                <div class="col-lg-6 col-md-12" style="position: relative; flex: 1;">
+                    <div class="banner__images" style="text-align: center;">
                         <img src="public/assets/img/banner/man.png" alt="img" class="main-img" data-aos="fade-left"
-                            data-aos-delay="800">
+                            data-aos-delay="800" style="max-width: 100%; height: auto;">
 
                         <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme"
-                            data-aos="fade-left" data-aos-delay="600">
-
+                            data-aos="fade-left" data-aos-delay="600" style="max-width: 30%; height: auto;">
                     </div>
                     <div
-                        style="
-                            position: absolute; 
-                            bottom: 0; 
-                            left: 0; 
-                            right: 0; 
-                            height: 80px; 
-                            background: linear-gradient(to bottom, transparent, white); /* Sesuaikan dengan warna background */
-                            z-index: 1;">
+                        style="position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(to bottom, transparent, white); z-index: 1;">
                     </div>
                 </div>
-
-
             </div>
         </div>
         <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="line-shape" data-aos="fade-right"
-            data-aos-delay="1000" style="max-width: 40%; height: auto;">
-
+            data-aos-delay="1000" style="max-width: 30%; height: auto;">
     </section>
+
     <!-- banner-area-end -->
 
 
