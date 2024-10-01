@@ -41,7 +41,33 @@
 
                 </div>
 
-
+                <div class="col-lg-6">
+                    <div class="banner__images">
+                        <img src="assets/img/banner/banner_img.png" alt="img" class="main-img">
+                        <div class="shape big-shape" data-aos="fade-up-right" data-aos-delay="600">
+                            <img src="assets/img/banner/banner_shape01.png" alt="shape" class="tg-motion-effects1">
+                        </div>
+                        <img src="assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme">
+                        <img src="assets/img/banner/banner_shape02.png" alt="shape"
+                            class="shape small-shape tg-motion-effects3">
+                        <div class="banner__author">
+                            <div class="banner__author-item">
+                                <div class="image">
+                                    <img src="assets/img/banner/banner_author01.png" alt="img">
+                                </div>
+                                <h6 class="name">Robert Fox</h6>
+                            </div>
+                            <div class="banner__author-item">
+                                <div class="image">
+                                    <img src="assets/img/banner/banner_author02.png" alt="img">
+                                </div>
+                                <h6 class="name">Michel Jones</h6>
+                            </div>
+                            <img src="assets/img/banner/banner_shape02.svg" alt="shape"
+                                class="arrow-shape tg-motion-effects3">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <img src="public/assets/img/banner/banner_shape01.svg" alt="shape" class="line-shape" data-aos="fade-right"
