@@ -45,8 +45,7 @@
                     <div class="banner__images">
                         <img src="public/assets/img/banner/banner_img.png" alt="img" class="main-img">
                         <div class="shape big-shape" data-aos="fade-up-right" data-aos-delay="600">
-                            <img src="public/assets/img/banner/banner_shape01.png" alt="shape"
-                                class="tg-motion-effects1">
+
                         </div>
                         <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme">
                         <img src="public/assets/img/banner/banner_shape02.png" alt="shape"
