@@ -8,14 +8,13 @@
     <!-- banner-area -->
     <section class="banner-area banner-bg tg-motion-effects" data-background="public/assets/img/banner/banner_bg.jpg"
         style="height: 100vh; width: 100vw; display: flex; align-items: center; justify-content: center;">
-        <div class="container" style="max-width: 100%; height: auto; padding-left: 80px; padding-right: 20px;">
-            <div class="row justify-content-between align-items-start">
-                <div class="col-xl-6 col-lg-8">
-                    <div class="banner__content" style="padding: 35px;">
+        <div class="container" style="max-width: 100%; height: auto; padding-left: 20px; padding-right: 20px;">
+            <div class="row justify-content-between align-items-start" style="flex-direction: column; text-align: center;">
+                <div class="col-xl-6 col-lg-8" style="width: 100%;">
+                    <div class="banner__content" style="padding: 20px;">
                         <h3 class="title tg-svg" data-aos="fade-right" data-aos-delay="400">
                             <b style="color: #007368">Bootcamp</b>
-                            <span class="position-relative">
-
+                            <span class="position-relative" style="display: inline-block;">
                                 <svg x="0px" y="0px" preserveAspectRatio="none" viewBox="0 0 209 59" fill="none"
                                     xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto;">
                                     <path
@@ -38,37 +37,31 @@
                             </a>
                         </div>
                     </div>
-
                 </div>
 
-                <div class="col-lg-6" style="position: relative;">
+                <div class="col-lg-6" style="width: 100%; position: relative;">
                     <div class="banner__images">
                         <img src="public/assets/img/banner/man.png" alt="img" class="main-img" data-aos="fade-right"
-                            data-aos-delay="600">
+                            data-aos-delay="600" style="max-width: 80%; margin: 0 auto;">
 
                         <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme"
-                            data-aos="fade-right" data-aos-delay="1000">
-
+                            data-aos="fade-right" data-aos-delay="1000" style="max-width: 50%; margin: 0 auto;">
                     </div>
                     <div
                         style="
-                            position: absolute; 
-                            bottom: 0; 
-                            left: 0; 
-                            right: 0; 
-                            height: 80px; 
-                            background: linear-gradient(to bottom, transparent, white); /* Sesuaikan dengan warna background */
-                            z-index: 1;">
+                        position: absolute; 
+                        bottom: 0; 
+                        left: 0; 
+                        right: 0; 
+                        height: 50px; 
+                        background: linear-gradient(to bottom, transparent, white);
+                        z-index: 1;">
                     </div>
                 </div>
-
-
             </div>
         </div>
-        <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="line-shape" data-aos="fade-right"
-            data-aos-delay="1000" style="max-width: 90%; height: auto;">
-
     </section>
+
     <!-- banner-area-end -->
 
 
