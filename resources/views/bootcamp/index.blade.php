@@ -65,7 +65,7 @@
 
             </div>
         </div>
-        <img src="public/assets/img/icons/right_arrow.svg" alt="shape" class="line-shape" data-aos="fade-right"
+        <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="line-shape" data-aos="fade-right"
             data-aos-delay="1600" style="max-width: 100%; height: auto;">
 
     </section>
