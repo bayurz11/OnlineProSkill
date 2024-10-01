@@ -41,7 +41,7 @@
 
                 </div>
 
-                <div class="col-lg-6">
+                <div class="col-lg-6" style="position: relative;">
                     <div class="banner__images">
                         <img src="public/assets/img/banner/banner_img.png" alt="img" class="main-img">
                         <div class="shape big-shape" data-aos="fade-up-right" data-aos-delay="600">
@@ -52,8 +52,20 @@
                         <img src="public/assets/img/banner/banner_shape02.png" alt="shape"
                             class="shape small-shape tg-motion-effects3">
 
+                        <!-- Overlay div with opacity -->
+                        <div
+                            style="
+                            position: absolute; 
+                            bottom: 0; 
+                            left: 0; 
+                            right: 0; 
+                            height: 150px; 
+                            background: linear-gradient(transparent, rgba(0, 0, 0, 0.5)); 
+                            z-index: 1;">
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
         <img src="public/assets/img/banner/banner_shape01.svg" alt="shape" class="line-shape" data-aos="fade-right"
