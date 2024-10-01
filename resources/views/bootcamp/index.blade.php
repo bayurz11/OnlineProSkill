@@ -11,7 +11,7 @@
         <div class="container" style="width: 90%; max-width: 1200px; padding-left: 5%; padding-right: 5%; height: auto;">
             <div class="row justify-content-between align-items-start" style="display: flex; flex-wrap: wrap;">
                 <div class="col-xl-6 col-lg-8 col-md-12" style="flex: 1; padding-bottom: 20px;">
-                    <img src="{{ asset('public/assets/img/logo/logo.svg') }}" alt="Logo">
+                    <img src="{{ asset('public/assets/img/logo/logo.svg') }}" alt="Logo" data-aos-delay="400">
                     <div class="banner__content" style="padding: 20px;">
                         <h3 class="title tg-svg" data-aos="fade-right" data-aos-delay="400"
                             style="font-size: 2.5rem; line-height: 1.2;">
