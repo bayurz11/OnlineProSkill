@@ -12,7 +12,7 @@
             <div class="row justify-content-between align-items-start" style="display: flex; flex-wrap: wrap;">
                 <div class="col-xl-6 col-lg-8 col-md-12" style="flex: 1; padding-bottom: 20px;">
                     <div class="banner__content" style="padding: 20px;">
-                        <span class="sub-title" style="font-size: 1.2rem;">ProSkill Akademia</span>
+                        <img src="{{ asset('public/assets/img/logo/logo.svg') }}" alt="Logo">
                         <h3 class="title tg-svg" data-aos="fade-right" data-aos-delay="400"
                             style="font-size: 2.5rem; line-height: 1.2;">
                             <b style="color: #007368">Bootcamp</b>
