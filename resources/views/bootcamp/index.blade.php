@@ -11,7 +11,7 @@
         <div class="container" style="max-width: 100%; height: auto; padding-left: 20px; padding-right: 20px;">
             <div class="row justify-content-between align-items-start">
                 <div class="col-xl-6 col-lg-8">
-                    <div class="banner__content" style="padding: 20px;">
+                    <div class="banner__content" style="padding: 35px;">
                         <h3 class="title tg-svg" data-aos="fade-right" data-aos-delay="400">
                             <b>Bootcamp</b>
                             <span class="position-relative">
