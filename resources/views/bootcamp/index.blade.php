@@ -12,7 +12,7 @@
                 <div class="col-xl-5 col-lg-6">
                     <div class="banner__content">
                         <h3 class="title tg-svg" data-aos="fade-right" data-aos-delay="400">
-                            Bootcamp
+                            <b>Bootcamp</b>
                             <span class="position-relative">
                                 <span class="svg-icon" id="banner-svg"
                                     data-svg-icon="public/assets/img/objects/title_shape.svg"></span>
