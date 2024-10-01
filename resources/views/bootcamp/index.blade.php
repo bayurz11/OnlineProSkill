@@ -59,9 +59,10 @@
                             z-index: 1;">
                             </div>
                         </div>
-                        <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme">
-                        <img src="public/assets/img/banner/banner_shape02.png" alt="shape"
-                            class="shape small-shape tg-motion-effects3">
+                        <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme"
+                            data-aos="fade-right" data-aos-delay="600">
+                        <img src="public/assets/img/banner/banner_shape02.png" alt="shape" data-aos="fade-right"
+                            data-aos-delay="600" class="shape small-shape tg-motion-effects3">
 
                     </div>
                     <div
