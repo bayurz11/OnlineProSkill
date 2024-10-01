@@ -6,8 +6,9 @@
 @section('content')
 
     <!-- banner-area -->
-    <section class="banner-area banner-bg tg-motion-effects" data-background="public/assets/img/banner/banner_bg.jpg">
-        <div class="container">
+    <section class="banner-area banner-bg tg-motion-effects" data-background="public/assets/img/banner/banner_bg.jpg"
+        style="height: 100vh; width: 100vw; display: flex; align-items: center; justify-content: center;">
+        <div class="container" style="max-width: 100%; height: auto;">
             <div class="row justify-content-between align-items-start">
                 <div class="col-xl-6 col-lg-8">
                     <div class="banner__content">
@@ -17,7 +18,7 @@
                                 <span class="svg-icon" id="banner-svg"
                                     data-svg-icon="public/assets/img/objects/title_shape.svg"></span>
                                 <svg x="0px" y="0px" preserveAspectRatio="none" viewBox="0 0 209 59" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
+                                    xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto;">
                                     <path
                                         d="M4.74438 7.70565C69.7006 -1.18799 136.097 -2.38304 203.934 4.1205C207.178 4.48495 209.422 7.14626 208.933 10.0534C206.793 23.6481 205.415 36.5704 204.801 48.8204C204.756 51.3291 202.246 53.5582 199.213 53.7955C136.093 59.7623 74.1922 60.5985 13.5091 56.3043C10.5653 56.0924 7.84371 53.7277 7.42158 51.0325C5.20725 38.2627 2.76333 25.6511 0.0898448 13.1978C-0.465589 10.5873 1.61173 8.1379 4.73327 7.70565"
                                         fill="currentcolor" />
@@ -26,35 +27,38 @@
                             </span>
 
                         </h3>
-                        <p data-aos="fade-right" data-aos-delay="600">📊 Jadilah ahli dalam visualisasi data dan ambil
-                            langkah pertama menuju karier yang lebih cerah! Daftar sekarang , dan wujudkan impianmu menjadi
-                            data-driven professional!
+                        <p data-aos="fade-right" data-aos-delay="600">
+                            📊 Jadilah ahli dalam visualisasi data dan ambil langkah pertama menuju karier yang lebih cerah!
+                            Daftar sekarang, dan wujudkan impianmu menjadi data-driven professional!
                         </p>
                         <div class="banner__btn-wrap" data-aos="fade-right" data-aos-delay="800">
-                            <a href="contact.html" class="btn arrow-btn">Daftar Sekarang<img
-                                    src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
+                            <a href="contact.html" class="btn arrow-btn">Daftar Sekarang
+                                <img src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable">
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="banner__images">
-                        <img src="public/assets/img/banner/power-bi.png" alt="img" class="main-img">
+                        <img src="public/assets/img/banner/power-bi.png" alt="img" class="main-img"
+                            style="max-width: 100%; height: auto;">
                         <div class="shape big-shape" data-aos="fade-up-right" data-aos-delay="600">
-                            <img src="public/assets/img/banner/banner_shape01.png" alt="shape"
-                                class="tg-motion-effects1">
+                            <img src="public/assets/img/banner/banner_shape01.png" alt="shape" class="tg-motion-effects1"
+                                style="max-width: 100%; height: auto;">
                         </div>
-                        <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme">
+                        <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme"
+                            style="max-width: 100%; height: auto;">
                         <img src="public/assets/img/banner/banner_shape02.png" alt="shape"
-                            class="shape small-shape tg-motion-effects3">
-
+                            class="shape small-shape tg-motion-effects3" style="max-width: 100%; height: auto;">
                     </div>
                 </div>
             </div>
         </div>
         <img src="public/assets/img/banner/banner_shape01.svg" alt="shape" class="line-shape" data-aos="fade-right"
-            data-aos-delay="1600">
+            data-aos-delay="1600" style="max-width: 100%; height: auto;">
     </section>
     <!-- banner-area-end -->
+
 
     <!-- about-area -->
     <section class="about-area tg-motion-effects section-py-120">
