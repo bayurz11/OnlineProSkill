@@ -62,14 +62,7 @@
 
 
         <div
-            style="
-                            position: absolute; 
-                            bottom: 0; 
-                            left: 0; 
-                            right: 0; 
-                            height: 400px; 
-                            background: linear-gradient(transparent, rgba(252, 252, 252, 100)); 
-                            z-index: 1;">
+            style="position: absolute;  bottom: 0;  left: 0;  right: 0;  height: 300px; background: linear-gradient(transparent, rgba(252, 252, 252, 1000)); z-index: 1;">
         </div>
     </section>
     <!-- banner-area-end -->
