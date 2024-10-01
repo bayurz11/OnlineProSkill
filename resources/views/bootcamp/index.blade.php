@@ -83,7 +83,7 @@
         <div
             style="
         position: absolute; 
-        bottom: 0; 
+        bottom: 30; 
         left: 0; 
         right: 0; 
         height: 500px; 
