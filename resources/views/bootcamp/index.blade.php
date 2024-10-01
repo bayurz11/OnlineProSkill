@@ -47,7 +47,7 @@
                             data-aos-delay="600">
 
                         <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme"
-                            data-aos="fade-right" data-aos-delay="900">
+                            data-aos="fade-right" data-aos-delay="1000">
 
                     </div>
                     <div
