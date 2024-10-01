@@ -175,7 +175,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-delay="800">
                     <div class="faq__content">
                         <div class="section__title pb-10">
                             <span class="sub-title">Faq’s</span>
