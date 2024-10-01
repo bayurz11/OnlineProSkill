@@ -45,20 +45,7 @@
                     <div class="banner__images">
                         <img src="public/assets/img/banner/man.png" alt="img" class="main-img" data-aos="fade-right"
                             data-aos-delay="600">
-                        <div class="shape big-shape" data-aos="fade-up-right" data-aos-delay="600">
-                            <img src="public/assets/img/banner/banner_shape01.png" alt="shape"
-                                class="tg-motion-effects1">
-                            <div
-                                style="
-                            position: absolute; 
-                            bottom: 0; 
-                            left: 0; 
-                            right: 0; 
-                            height: 600px; 
-                            background: linear-gradient(to bottom, transparent, white); /* Sesuaikan dengan warna background */
-                            z-index: 1;">
-                            </div>
-                        </div>
+
                         <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme"
                             data-aos="fade-right" data-aos-delay="600">
                         <img src="public/assets/img/banner/banner_shape02.png" alt="shape" data-aos="fade-right"
@@ -80,7 +67,18 @@
 
             </div>
         </div>
-
+        <img src="public/assets/img/banner/banner_shape01.svg" alt="shape" class="line-shape" data-aos="fade-right"
+            data-aos-delay="1600" style="max-width: 100%; height: auto;">
+        {{-- <div
+            style="
+        position: absolute; 
+        bottom: 0; 
+        left: 0; 
+        right: 0; 
+        height: 900px; 
+        background: linear-gradient(to bottom, transparent, white); /* Sesuaikan dengan warna background */
+        z-index: 1;">
+        </div> --}}
     </section>
     <!-- banner-area-end -->
 
