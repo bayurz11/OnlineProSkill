@@ -53,7 +53,7 @@
                             bottom: 0; 
                             left: 0; 
                             right: 0; 
-                            height: 800px; 
+                            height: 900px; 
                             background: linear-gradient(to bottom, transparent, white); /* Sesuaikan dengan warna background */
                             z-index: 1;">
                             </div>
