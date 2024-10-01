@@ -43,16 +43,24 @@
                     </div>
                 </div>
 
-                <div class="col-lg-6 col-md-12" style="position: relative; flex: 1;">
-                    <div class="banner__images" style="text-align: center;">
+                <div class="col-lg-6" style="position: relative;">
+                    <div class="banner__images">
                         <img src="public/assets/img/banner/man.png" alt="img" class="main-img" data-aos="fade-left"
-                            data-aos-delay="800" style="max-width: 100%; height: auto;">
+                            data-aos-delay="800">
 
                         <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme"
-                            data-aos="fade-left" data-aos-delay="600" style="max-width: 30%; height: auto;">
+                            data-aos="fade-left" data-aos-delay="600">
+
                     </div>
                     <div
-                        style="position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(to bottom, transparent, white); z-index: 1;">
+                        style="
+                            position: absolute; 
+                            bottom: 0; 
+                            left: 0; 
+                            right: 0; 
+                            height: 80px; 
+                            background: linear-gradient(to bottom, transparent, white); /* Sesuaikan dengan warna background */
+                            z-index: 1;">
                     </div>
                 </div>
             </div>
