@@ -41,7 +41,8 @@
 
                 </div>
 
-                <div class="col-lg-6">
+                <div class="col-lg-6"
+                    style="background: linear-gradient(135deg, rgba(0, 115, 104, 0.8), rgba(0, 175, 144, 0.6));">
                     <div class="banner__images">
                         <img src="public/assets/img/banner/banner_img.png" alt="img" class="main-img">
                         <div class="shape big-shape" data-aos="fade-up-right" data-aos-delay="600">
@@ -51,9 +52,9 @@
                         <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme">
                         <img src="public/assets/img/banner/banner_shape02.png" alt="shape"
                             class="shape small-shape tg-motion-effects3">
-
                     </div>
                 </div>
+
             </div>
         </div>
         <img src="public/assets/img/banner/banner_shape01.svg" alt="shape" class="line-shape" data-aos="fade-right"
