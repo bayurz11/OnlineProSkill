@@ -46,22 +46,7 @@
                         <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme">
                         <img src="public/assets/img/banner/banner_shape02.png" alt="shape"
                             class="shape small-shape tg-motion-effects3">
-                        <div class="banner__author">
-                            <div class="banner__author-item">
-                                <div class="image">
-                                    <img src="public/assets/img/banner/banner_author01.png" alt="img">
-                                </div>
-                                <h6 class="name">Robert Fox</h6>
-                            </div>
-                            <div class="banner__author-item">
-                                <div class="image">
-                                    <img src="public/assets/img/banner/banner_author02.png" alt="img">
-                                </div>
-                                <h6 class="name">Michel Jones</h6>
-                            </div>
-                            <img src="public/assets/img/banner/banner_shape02.svg" alt="shape"
-                                class="arrow-shape tg-motion-effects3">
-                        </div>
+
                     </div>
                 </div>
             </div>
