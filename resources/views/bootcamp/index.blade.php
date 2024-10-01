@@ -9,7 +9,7 @@
     <section class="banner-area banner-bg tg-motion-effects" data-background="public/assets/img/banner/banner_bg.png">
         <div class="container">
             <div class="row justify-content-between align-items-start">
-                <div class="col-xl-6 col-lg-6">
+                <div class="col-xl-6 col-lg-8">
                     <div class="banner__content">
                         <h3 class="title tg-svg" data-aos="fade-right" data-aos-delay="400">
                             <b>Bootcamp</b>
