@@ -38,7 +38,7 @@
                     </div>
 
                 </div>
-                <div class="col-lg-6" style="padding-top: 50px;"> <!-- Atau bisa juga menggunakan padding-top -->
+                <div class="col-lg-6" style="padding-top: 90px;"> <!-- Atau bisa juga menggunakan padding-top -->
                     <div class="banner__images" style="padding-top: 50px;">
 
                         <div class="shape big-shape" data-aos="fade-up-right" data-aos-delay="600">
