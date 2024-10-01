@@ -31,7 +31,7 @@
                             data-driven professional!
                         </p>
                         <div class="banner__btn-wrap" data-aos="fade-right" data-aos-delay="800">
-                            <a href="contact.html" class="btn arrow-btn">Daftar Sekarang.. <img
+                            <a href="contact.html" class="btn arrow-btn">Daftar Sekarang<img
                                     src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
                         </div>
                     </div>
