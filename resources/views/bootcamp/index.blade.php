@@ -69,170 +69,6 @@
     </section>
     <!-- banner-area-end -->
 
-    <!-- categories-area -->
-    <section class="categories-area section-py-120">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-5 col-lg-7">
-                    <div class="section__title text-center mb-40">
-                        <span class="sub-title">Trending Categories</span>
-                        <h2 class="title">Top Category We Have</h2>
-                        <p class="desc">when known printer took a galley of type scrambl edmake</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="categories__wrap">
-                        <div class="swiper categories-active">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="categories__item">
-                                        <a href="courses.html">
-                                            <div class="icon">
-                                                <i class="flaticon-graphic-design"></i>
-                                            </div>
-                                            <span class="name">Graphic Design</span>
-                                            <span class="courses">(22)</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="categories__item">
-                                        <a href="courses.html">
-                                            <div class="icon">
-                                                <i class="flaticon-investment"></i>
-                                            </div>
-                                            <span class="name">Finance</span>
-                                            <span class="courses">(41)</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="categories__item">
-                                        <a href="courses.html">
-                                            <div class="icon">
-                                                <i class="flaticon-coding"></i>
-                                            </div>
-                                            <span class="name">Development</span>
-                                            <span class="courses">(29)</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="categories__item">
-                                        <a href="courses.html">
-                                            <div class="icon">
-                                                <i class="flaticon-email"></i>
-                                            </div>
-                                            <span class="name">Marketing</span>
-                                            <span class="courses">(31)</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="categories__item">
-                                        <a href="courses.html">
-                                            <div class="icon">
-                                                <i class="flaticon-fashion"></i>
-                                            </div>
-                                            <span class="name">Life Style</span>
-                                            <span class="courses">(23)</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="categories__item">
-                                        <a href="courses.html">
-                                            <div class="icon">
-                                                <i class="flaticon-interaction"></i>
-                                            </div>
-                                            <span class="name">Management</span>
-                                            <span class="courses">(19)</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="categories__item">
-                                        <a href="courses.html">
-                                            <div class="icon">
-                                                <i class="flaticon-web-design"></i>
-                                            </div>
-                                            <span class="name">App Design</span>
-                                            <span class="courses">(18)</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="categories__nav">
-                            <button class="categories-button-prev">
-                                <svg width="16" height="14" viewBox="0 0 16 14" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M15 7L1 7M1 7L7 1M1 7L7 13" stroke="#161439" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </button>
-                            <button class="categories-button-next">
-                                <svg width="16" height="14" viewBox="0 0 16 14" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M1 7L15 7M15 7L9 1M15 7L9 13" stroke="#161439" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- categories-area-end -->
-
-    <!-- brand-area -->
-    <div class="brand-area">
-        <div class="container-fluid">
-            <div class="marquee_mode">
-                <div class="brand__item">
-                    <a href="#"><img src="public/assets/img/brand/brand01.png" alt="brand"></a>
-                    <img src="public/assets/img/icons/brand_star.svg" alt="star">
-                </div>
-                <div class="brand__item">
-                    <a href="#"><img src="public/assets/img/brand/brand02.png" alt="brand"></a>
-                    <img src="public/assets/img/icons/brand_star.svg" alt="star">
-                </div>
-                <div class="brand__item">
-                    <a href="#"><img src="public/assets/img/brand/brand03.png" alt="brand"></a>
-                    <img src="public/assets/img/icons/brand_star.svg" alt="star">
-                </div>
-                <div class="brand__item">
-                    <a href="#"><img src="public/assets/img/brand/brand04.png" alt="brand"></a>
-                    <img src="public/assets/img/icons/brand_star.svg" alt="star">
-                </div>
-                <div class="brand__item">
-                    <a href="#"><img src="public/assets/img/brand/brand05.png" alt="brand"></a>
-                    <img src="public/assets/img/icons/brand_star.svg" alt="star">
-                </div>
-                <div class="brand__item">
-                    <a href="#"><img src="public/assets/img/brand/brand06.png" alt="brand"></a>
-                    <img src="public/assets/img/icons/brand_star.svg" alt="star">
-                </div>
-                <div class="brand__item">
-                    <a href="#"><img src="public/assets/img/brand/brand07.png" alt="brand"></a>
-                    <img src="public/assets/img/icons/brand_star.svg" alt="star">
-                </div>
-                <div class="brand__item">
-                    <a href="#"><img src="public/assets/img/brand/brand04.png" alt="brand"></a>
-                    <img src="public/assets/img/icons/brand_star.svg" alt="star">
-                </div>
-                <div class="brand__item">
-                    <a href="#"><img src="public/assets/img/brand/brand03.png" alt="brand"></a>
-                    <img src="public/assets/img/icons/brand_star.svg" alt="star">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- brand-area-end -->
-
     <!-- about-area -->
     <section class="about-area tg-motion-effects section-py-120">
         <div class="container">
@@ -300,7 +136,6 @@
         </div>
     </section>
     <!-- about-area-end -->
-
     <!-- course-area -->
     <section class="courses-area section-pt-120 section-pb-90" data-background="public/assets/img/bg/courses_bg.jpg">
         <div class="container">
@@ -1300,8 +1135,8 @@
                         <div class="faq__img">
                             <img src="public/assets/img/others/faq_img.png" alt="img">
                             <div class="shape-one">
-                                <img src="public/assets/img/others/faq_shape01.svg"
-                                    class="injectable tg-motion-effects4" alt="img">
+                                <img src="public/assets/img/others/faq_shape01.svg" class="injectable tg-motion-effects4"
+                                    alt="img">
                             </div>
                             <div class="shape-two">
                                 <span class="svg-icon" id="faq-svg"
@@ -1341,8 +1176,8 @@
                                 <div class="accordion-item">
                                     <h2 class="accordion-header">
                                         <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                                            aria-expanded="false" aria-controls="collapseTwo">
+                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                            aria-controls="collapseTwo">
                                             Why choose us for your education?
                                         </button>
                                     </h2>
