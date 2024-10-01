@@ -159,7 +159,7 @@
     <section class="faq__area">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-delay="600">
                     <div class="faq__img-wrap tg-svg">
 
                         <div class="faq__img">
