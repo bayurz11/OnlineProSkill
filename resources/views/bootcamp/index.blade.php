@@ -25,7 +25,7 @@
                                 </svg>
                                 Power BI.
                             </span>
-                        </h3>
+                        </h3> <br>
                         <p data-aos="fade-right" data-aos-delay="600" style="font-size: 1rem; margin-bottom: 15px;">
                             📊 Jadilah ahli dalam visualisasi data dan ambil langkah pertama menuju karier yang lebih cerah!
                             Daftar sekarang, dan wujudkan impianmu menjadi data-driven professional!
