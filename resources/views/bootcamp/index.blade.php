@@ -67,7 +67,7 @@
                             bottom: 0; 
                             left: 0; 
                             right: 0; 
-                            height: 200px; 
+                            height: 300px; 
                             background: linear-gradient(transparent, rgba(252, 252, 252, 5)); 
                             z-index: 1;">
         </div>
