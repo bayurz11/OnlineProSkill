@@ -1,7 +1,7 @@
 @section('title', 'Bootcamp Power BI')
 <?php $page = 'index'; ?>
 
-@extends('layout.mainlayout')
+@extends('layout.mainlayoutbootcamp')
 
 @section('content')
 
