@@ -59,8 +59,7 @@
                             </div>
                         </div>
                         <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme">
-                        <img src="public/assets/img/banner/banner_shape02.png" alt="shape"
-                            class="shape small-shape tg-motion-effects3">
+
 
                     </div>
                     <div
@@ -74,14 +73,12 @@
                             z-index: 1;">
                     </div>
                 </div>
-
-
+                <img src="public/assets/img/banner/banner_shape02.png" alt="shape"
+                    class="shape small-shape tg-motion-effects3">
             </div>
         </div>
         <img src="public/assets/img/banner/banner_shape01.svg" alt="shape" class="line-shape" data-aos="fade-right"
             data-aos-delay="1600" style="max-width: 100%; height: auto;">
-
-
         <div
             style="
         position: absolute; 
