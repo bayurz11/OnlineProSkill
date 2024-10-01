@@ -38,7 +38,7 @@
                     </div>
 
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6" style="margin-top: 50px;"> <!-- Atau bisa juga menggunakan padding-top -->
                     <div class="banner__images">
 
                         <div class="shape big-shape" data-aos="fade-up-right" data-aos-delay="600">
@@ -51,6 +51,7 @@
                             class="shape small-shape tg-motion-effects3" style="max-width: 100%; height: auto;">
                     </div>
                 </div>
+
             </div>
         </div>
         <img src="public/assets/img/banner/banner_shape01.svg" alt="shape" class="line-shape" data-aos="fade-right"
