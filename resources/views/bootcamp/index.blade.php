@@ -40,6 +40,21 @@
                                     style="margin-left: 10px;">
                             </a>
                         </div>
+                        <div class="info-section"
+                            style="margin-top: 40px; display: flex; justify-content: space-between; text-align: center;">
+                            <div style="flex: 1; color: white;">
+                                <p style="margin-bottom: 10px;">Date</p>
+                                <p style="font-weight: bold;">Sept 21</p>
+                            </div>
+                            <div style="flex: 1; color: white;">
+                                <p style="margin-bottom: 10px;">Duration</p>
+                                <p style="font-weight: bold;">5 Weeks</p>
+                            </div>
+                            <div style="flex: 1; color: white;">
+                                <p style="margin-bottom: 10px;">Time</p>
+                                <p style="font-weight: bold;">6-8 hrs per week</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -68,7 +83,6 @@
         <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="line-shape" data-aos="fade-right"
             data-aos-delay="1000" style="max-width: 30%; height: auto;">
     </section>
-
     <!-- banner-area-end -->
 
 
