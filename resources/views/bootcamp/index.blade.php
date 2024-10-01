@@ -42,7 +42,7 @@
                 <div class="col-lg-6" style="width: 100%; position: relative;">
                     <div class="banner__images">
                         <img src="public/assets/img/banner/man.png" alt="img" class="main-img" data-aos="fade-right"
-                            data-aos-delay="600" style="max-width: 80%; margin: 0 auto;">
+                            data-aos-delay="600" style="max-width: 50%; margin: 0 auto;">
 
                         <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme"
                             data-aos="fade-right" data-aos-delay="1000" style="max-width: 50%; margin: 0 auto;">
