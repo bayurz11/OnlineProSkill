@@ -47,7 +47,16 @@
                         <div class="shape big-shape" data-aos="fade-up-right" data-aos-delay="600">
                             <img src="public/assets/img/banner/banner_shape01.png" alt="shape"
                                 class="tg-motion-effects1">
-
+                            <div
+                                style="
+                            position: absolute; 
+                            bottom: 0; 
+                            left: 0; 
+                            right: 0; 
+                            height: 1600px; 
+                            background: linear-gradient(to bottom, transparent, white); /* Sesuaikan dengan warna background */
+                            z-index: 1;">
+                            </div>
                         </div>
                         <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme">
                         <img src="public/assets/img/banner/banner_shape02.png" alt="shape"
