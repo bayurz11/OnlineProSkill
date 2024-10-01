@@ -8,7 +8,7 @@
     <!-- banner-area -->
     <section class="banner-area banner-bg tg-motion-effects" data-background="public/assets/img/banner/banner_bg.jpg"
         style="height: 100vh; width: 100vw; display: flex; align-items: center; justify-content: center;">
-        <div class="container" style="max-width: 100%; height: auto;">
+        <div class="container" style="max-width: 100%; height: auto; padding-left: 20px; padding-right: 20px;">
             <div class="row justify-content-between align-items-start">
                 <div class="col-xl-6 col-lg-8">
                     <div class="banner__content">
