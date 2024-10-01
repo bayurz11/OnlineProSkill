@@ -27,11 +27,12 @@
                             </span>
                         </h3> <br>
                         <p data-aos="fade-right" data-aos-delay="600" style="font-size: 1rem; margin-bottom: 15px;">
-                            📊 Jadilah ahli dalam visualisasi data dan ambil langkah pertama menuju karier yang lebih cerah!
-                            Daftar sekarang, dan wujudkan impianmu menjadi data-driven professional!
+                            📊 Jadilah ahli dalam <b>visualisasi data</b> dan ambil langkah pertama menuju karier yang lebih
+                            cerah!
+                            <b>Daftar sekarang</b>, dan wujudkan impianmu <b>menjadi data-driven professional!.</b>
                         </p>
                         <p data-aos="fade-right" data-aos-delay="700" style="font-size: 1rem;">
-                            📝 Temukan lebih banyak informasi dan daftar di Proskill Akademia!
+                            📝 Temukan lebih banyak informasi dan daftar di <b>Proskill Akademia!.</b>
                         </p>
                         <div class="banner__btn-wrap" data-aos="fade-right" data-aos-delay="800" style="margin-top: 20px;">
                             <a href="contact.html" class="btn arrow-btn" style="font-size: 1rem; padding: 10px 20px;">Daftar
