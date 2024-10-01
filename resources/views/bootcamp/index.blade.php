@@ -13,7 +13,7 @@
                 <div class="col-xl-6 col-lg-8">
                     <div class="banner__content" style="padding: 35px;">
                         <h3 class="title tg-svg" data-aos="fade-right" data-aos-delay="400">
-                            <b>Bootcamp</b>
+                            <b style="background-color: white">Bootcamp</b>
                             <span class="position-relative">
 
                                 <svg x="0px" y="0px" preserveAspectRatio="none" viewBox="0 0 209 59" fill="none"
