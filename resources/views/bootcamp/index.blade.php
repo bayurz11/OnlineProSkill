@@ -6,69 +6,50 @@
 @section('content')
 
     <!-- banner-area -->
-    <section class="banner-area banner-bg tg-motion-effects" data-background="public/assets/img/banner/banner_bg.jpg"
-        style="height: 100vh; width: 100vw; display: flex; align-items: center; justify-content: center;">
-        <div class="container" style="max-width: 100%; height: auto; padding-left: 80px; padding-right: 20px;">
-            <div class="row justify-content-between align-items-start">
-                <div class="col-xl-6 col-lg-8">
-                    <div class="banner__content" style="padding: 35px;">
-                        <h3 class="title tg-svg" data-aos="fade-right" data-aos-delay="400">
-                            <b style="color: #007368">Bootcamp</b>
-                            <span class="position-relative">
-
-                                <svg x="0px" y="0px" preserveAspectRatio="none" viewBox="0 0 209 59" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto;">
-                                    <path
-                                        d="M4.74438 7.70565C69.7006 -1.18799 136.097 -2.38304 203.934 4.1205C207.178 4.48495 209.422 7.14626 208.933 10.0534C206.793 23.6481 205.415 36.5704 204.801 48.8204C204.756 51.3291 202.246 53.5582 199.213 53.7955C136.093 59.7623 74.1922 60.5985 13.5091 56.3043C10.5653 56.0924 7.84371 53.7277 7.42158 51.0325C5.20725 38.2627 2.76333 25.6511 0.0898448 13.1978C-0.465589 10.5873 1.61173 8.1379 4.73327 7.70565"
-                                        fill="currentcolor" />
-                                </svg>
-                                Power BI.
-                            </span>
-                        </h3>
-                        <p data-aos="fade-right" data-aos-delay="600">
-                            📊 Jadilah ahli dalam visualisasi data dan ambil langkah pertama menuju karier yang lebih cerah!
-                            Daftar sekarang, dan wujudkan impianmu menjadi data-driven professional!
-                        </p><br>
-                        <p data-aos="fade-right" data-aos-delay="700">
-                            📝 Temukan lebih banyak informasi dan daftar di Proskill Akademia!
-                        </p>
-                        <div class="banner__btn-wrap" data-aos="fade-right" data-aos-delay="800">
-                            <a href="contact.html" class="btn arrow-btn">Daftar Sekarang
-                                <img src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable">
-                            </a>
-                        </div>
+    <section style="height: 100vh; width: 100vw; display: flex; align-items: center; justify-content: center;">
+        <div style="max-width: 100%; height: auto; padding-left: 20px; padding-right: 20px;">
+            <div style="display: flex; flex-direction: column;">
+                <div style="padding: 20px; max-width: 100%;">
+                    <h3 style="font-size: 24px;">
+                        <b style="color: #007368;">Bootcamp</b>
+                        <span style="position: relative; display: inline-block;">
+                            <svg style="width: 100%; height: auto;" x="0px" y="0px" preserveAspectRatio="none"
+                                viewBox="0 0 209 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M4.74438 7.70565C69.7006 -1.18799 136.097 -2.38304 203.934 4.1205C207.178 4.48495 209.422 7.14626 208.933 10.0534C206.793 23.6481 205.415 36.5704 204.801 48.8204C204.756 51.3291 202.246 53.5582 199.213 53.7955C136.093 59.7623 74.1922 60.5985 13.5091 56.3043C10.5653 56.0924 7.84371 53.7277 7.42158 51.0325C5.20725 38.2627 2.76333 25.6511 0.0898448 13.1978C-0.465589 10.5873 1.61173 8.1379 4.73327 7.70565"
+                                    fill="currentcolor" />
+                            </svg>
+                            Power BI.
+                        </span>
+                    </h3>
+                    <p>
+                        📊 Jadilah ahli dalam visualisasi data dan ambil langkah pertama menuju karier yang lebih cerah!
+                        Daftar sekarang, dan wujudkan impianmu menjadi data-driven professional!
+                    </p>
+                    <p>
+                        📝 Temukan lebih banyak informasi dan daftar di Proskill Akademia!
+                    </p>
+                    <div>
+                        <a href="contact.html"
+                            style="padding: 10px 20px; background-color: #007368; color: white; text-decoration: none; border-radius: 5px; display: inline-block;">Daftar
+                            Sekarang</a>
                     </div>
-
                 </div>
 
-                <div class="col-lg-6" style="position: relative;">
-                    <div class="banner__images">
-                        <img src="public/assets/img/banner/man.png" alt="img" class="main-img" data-aos="fade-right"
-                            data-aos-delay="600">
-
-                        <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme"
-                            data-aos="fade-right" data-aos-delay="1000">
-
+                <div style="position: relative; max-width: 100%; margin: auto;">
+                    <div>
+                        <img src="public/assets/img/banner/man.png" alt="img" style="max-width: 100%; height: auto;">
+                        <img src="public/assets/img/banner/bg_dots.svg" alt="shape"
+                            style="max-width: 100%; height: auto;">
                     </div>
                     <div
-                        style="
-                            position: absolute; 
-                            bottom: 0; 
-                            left: 0; 
-                            right: 0; 
-                            height: 80px; 
-                            background: linear-gradient(to bottom, transparent, white); /* Sesuaikan dengan warna background */
-                            z-index: 1;">
+                        style="position: absolute; bottom: 0; left: 0; right: 0; height: 80px; background: linear-gradient(to bottom, transparent, white); z-index: 1;">
                     </div>
                 </div>
-
-
             </div>
         </div>
-        <img src="public/assets/img/banner/banner_shape01.svg" alt="shape" class="line-shape" data-aos="fade-right"
-            data-aos-delay="1600" style="max-width: 100%; height: auto;">
-
     </section>
+
     <!-- banner-area-end -->
 
 
