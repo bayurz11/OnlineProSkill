@@ -28,7 +28,7 @@
                         <p data-aos="fade-right" data-aos-delay="600">
                             📊 Jadilah ahli dalam visualisasi data dan ambil langkah pertama menuju karier yang lebih cerah!
                             Daftar sekarang, dan wujudkan impianmu menjadi data-driven professional!
-                        </p>
+                        </p><br>
                         <p data-aos="fade-right" data-aos-delay="600">
                             📝 Temukan lebih banyak informasi dan daftar di Proskill Akademia!
                         </p>
