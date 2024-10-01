@@ -60,14 +60,14 @@
         <img src="public/assets/img/banner/banner_shape01.svg" alt="shape" class="line-shape" data-aos="fade-right"
             data-aos-delay="1600" style="max-width: 100%; height: auto;">
 
-        <!-- Overlay div with opacity -->
+
         <div
             style="
                             position: absolute; 
                             bottom: 0; 
                             left: 0; 
                             right: 0; 
-                            height: 300px; 
+                            height: 400px; 
                             background: linear-gradient(transparent, rgba(252, 252, 252, 100)); 
                             z-index: 1;">
         </div>
