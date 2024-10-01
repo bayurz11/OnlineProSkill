@@ -35,7 +35,7 @@
                             📝 Temukan lebih banyak informasi dan daftar di <b>Proskill Akademia!.</b>
                         </p>
                         <div class="banner__btn-wrap" data-aos="fade-right" data-aos-delay="800" style="margin-top: 20px;">
-                            <a href="contact.html" class="btn arrow-btn" style="font-size: 1rem; padding: 10px 20px;">Daftar
+                            <a href="contact.html" class="btn arrow-btn" style="font-size: 1rem; padding: 15px 25px;">Daftar
                                 Sekarang
                                 <img src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"
                                     style="margin-left: 10px;">
