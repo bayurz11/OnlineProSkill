@@ -24,7 +24,7 @@
                                 </svg>
                                 Power BI.
                             </span>
-                            <br>Life <b>Never Stop</b> Teaching
+
                         </h3>
                         <p data-aos="fade-right" data-aos-delay="600">📊 Jadilah ahli dalam visualisasi data dan ambil
                             langkah pertama menuju karier yang lebih cerah! Daftar sekarang , dan wujudkan impianmu menjadi
