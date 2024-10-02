@@ -8,149 +8,153 @@
                 <div class="col-xl-4 col-lg-4">
                     <div class="lesson__content">
                         <h2 class="title">Konten Kursus</h2>
-                        <div class="accordion" id="accordionExample">
-                            @foreach ($kurikulum as $index => $item)
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="heading{{ $index }}">
-                                        <button class="accordion-button {{ $index !== 0 ? 'collapsed' : '' }}"
-                                            type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapse{{ $index }}"
-                                            aria-expanded="{{ $index === 0 ? 'true' : 'false' }}"
-                                            aria-controls="collapse{{ $index }}">
-                                            {{ $item->title }}
-                                            <span>{{ $item->sections->count() }}/{{ $item->sections->count() }}</span>
-                                        </button>
-                                    </h2>
-                                    <div id="collapse{{ $index }}"
-                                        class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}"
-                                        data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <ul class="list-wrap">
-                                                @foreach ($item->sections as $section)
-                                                    <li class="course-item {{ $loop->first ? 'open-item' : '' }}">
-                                                        @php
-                                                            $completed = Auth::user()->hasCompletedSection(
-                                                                $section->id,
-                                                            );
-                                                        @endphp
-                                                        @if ($section->link || $section->file_path)
-                                                            <a href="#"
-                                                                class="course-item-link {{ $loop->first ? 'active' : '' }} {{ !$completed && $loop->first ? 'unlocked' : (!$completed ? 'locked' : '') }}"
-                                                                data-title="{{ $section->title }}"
-                                                                data-link="{{ $section->link ? asset($section->link) : asset($section->file_path) }}"
-                                                                data-type="{{ $section->type }}"
-                                                                data-id="{{ $section->id }}"
-                                                                onclick="changeContent(this, event)">
-                                                                <span class="item-name">{{ $section->title }}</span>
-                                                                @if ($completed)
-                                                                    <div
-                                                                        class="d-flex align-items-center justify-content-center">
-                                                                        <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center"
-                                                                            style="width: 24px; height: 24px;">
-                                                                            <i class="fas fa-check"></i>
-                                                                        </div>
-                                                                    </div>
-                                                                @endif
-                                                                <div class="course-item-meta">
-                                                                    <span
-                                                                        class="item-meta duration">{{ $section->duration }}</span>
-                                                                </div>
-                                                            </a>
-                                                        @else
-                                                            <span class="course-item-link inactive">
-                                                                <span class="item-name">{{ $section->title }}</span>
-                                                                <div class="course-item-meta">
-                                                                    <span
-                                                                        class="item-meta duration">{{ $section->duration }}</span>
-                                                                </div>
-                                                            </span>
-                                                        @endif
-                                                    </li>
-                                                @endforeach
 
-                                            </ul>
+                        <!-- Periksa apakah ada kurikulum -->
+                        @if ($kurikulum->isEmpty())
+                            <p>Data kurikulum belum tersedia.</p>
+                        @else
+                            <div class="accordion" id="accordionExample">
+                                @foreach ($kurikulum as $index => $item)
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="heading{{ $index }}">
+                                            <button class="accordion-button {{ $index !== 0 ? 'collapsed' : '' }}"
+                                                type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapse{{ $index }}"
+                                                aria-expanded="{{ $index === 0 ? 'true' : 'false' }}"
+                                                aria-controls="collapse{{ $index }}">
+                                                {{ $item->title }}
+                                                <span>{{ $item->sections->count() }}/{{ $item->sections->count() }}</span>
+                                            </button>
+                                        </h2>
+                                        <div id="collapse{{ $index }}"
+                                            class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}"
+                                            data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <ul class="list-wrap">
+                                                    @foreach ($item->sections as $section)
+                                                        <li class="course-item {{ $loop->first ? 'open-item' : '' }}">
+                                                            @php
+                                                                $completed = Auth::user()->hasCompletedSection(
+                                                                    $section->id,
+                                                                );
+                                                            @endphp
+                                                            @if ($section->link || $section->file_path)
+                                                                <a href="#"
+                                                                    class="course-item-link {{ $loop->first ? 'active' : '' }} {{ !$completed && $loop->first ? 'unlocked' : (!$completed ? 'locked' : '') }}"
+                                                                    data-title="{{ $section->title }}"
+                                                                    data-link="{{ $section->link ? asset($section->link) : asset($section->file_path) }}"
+                                                                    data-type="{{ $section->type }}"
+                                                                    data-id="{{ $section->id }}"
+                                                                    onclick="changeContent(this, event)">
+                                                                    <span class="item-name">{{ $section->title }}</span>
+                                                                    @if ($completed)
+                                                                        <div
+                                                                            class="d-flex align-items-center justify-content-center">
+                                                                            <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center"
+                                                                                style="width: 24px; height: 24px;">
+                                                                                <i class="fas fa-check"></i>
+                                                                            </div>
+                                                                        </div>
+                                                                    @endif
+                                                                    <div class="course-item-meta">
+                                                                        <span
+                                                                            class="item-meta duration">{{ $section->duration }}</span>
+                                                                    </div>
+                                                                </a>
+                                                            @else
+                                                                <span class="course-item-link inactive">
+                                                                    <span class="item-name">{{ $section->title }}</span>
+                                                                    <div class="course-item-meta">
+                                                                        <span
+                                                                            class="item-meta duration">{{ $section->duration }}</span>
+                                                                    </div>
+                                                                </span>
+                                                            @endif
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endforeach
-                        </div>
+                                @endforeach
+                            </div>
+                        @endif
                     </div>
                 </div>
-                <div class="col-xl-8 col-lg-8">
-                    <div class="lesson__video-wrap">
-                        <div class="lesson__video-wrap-top">
-                            <div class="lesson__video-wrap-top-left">
-                                <a href="{{ route('akses_pembelian') }}"><i class="flaticon-arrow-right"></i></a>
-                                <span id="currentContentTitle">{{ $kurikulum[0]->sections->first()->title }}</span>
+                @if (!$kurikulum->isEmpty())
+                    <div class="col-xl-8 col-lg-8">
+                        <div class="lesson__video-wrap">
+                            <div class="lesson__video-wrap-top">
+                                <div class="lesson__video-wrap-top-left">
+                                    <a href="{{ route('akses_pembelian') }}"><i class="flaticon-arrow-right"></i></a>
+                                    <span id="currentContentTitle">{{ $kurikulum[0]->sections->first()->title }}</span>
+                                </div>
+                                <div class="lesson__video-wrap-top-right">
+                                    <a href="{{ route('/') }}"><i class="fas fa-times"></i></a>
+                                </div>
                             </div>
-                            <div class="lesson__video-wrap-top-right">
-                                <a href="{{ route('/') }}"><i class="fas fa-times"></i></a>
+                            <div class="lesson__video-embed">
+                                <iframe id="lessonContent" width="100%" height="500" src="" frameborder="0"
+                                    allowfullscreen></iframe>
                             </div>
-                        </div>
-                        <div class="lesson__video-embed">
-                            <iframe id="lessonContent" width="100%" height="500" src="" frameborder="0"
-                                allowfullscreen></iframe>
-                        </div>
-                        <div class="lesson__next-prev-button d-flex justify-content-between">
-                            <button class="prev-button" title="Previous Content" onclick="prevContent()"><i
-                                    class="flaticon-arrow-left"></i></button>
-                            <button class="next-button" title="Next Content" onclick="nextContent()"><i
-                                    class="flaticon-arrow-right"></i></button>
-                        </div>
-                        <div class="d-flex justify-content-end mt-3">
-                            <div class="d-flex align-items-center">
-                                <form id="statusForm"
-                                    action="{{ route('sectionstatus', $kurikulum[0]->sections->first()->id) }}"
-                                    method="POST">
-                                    @csrf
-                                    @method('PUT')
-                                    <input type="hidden" id="sectionId" name="sectionId"
-                                        value="{{ $kurikulum[0]->sections->first()->id }}">
-                                    <input type="hidden" name="status" value="true">
-                                    <button type="submit" class="btn btn-primary">Menyelesaikan</button>
-                                </form>
-
-                                @if ($allSectionsCompleted)
-                                    <form id="printForm" action="{{ route('print_certificate', ['id' => $user->id]) }}"
-                                        method="POST" class="ms-3" target="_blank" onsubmit="openInNewTab(event)">
+                            <div class="lesson__next-prev-button d-flex justify-content-between">
+                                <button class="prev-button" title="Previous Content" onclick="prevContent()"><i
+                                        class="flaticon-arrow-left"></i></button>
+                                <button class="next-button" title="Next Content" onclick="nextContent()"><i
+                                        class="flaticon-arrow-right"></i></button>
+                            </div>
+                            <div class="d-flex justify-content-end mt-3">
+                                <div class="d-flex align-items-center">
+                                    <form id="statusForm"
+                                        action="{{ route('sectionstatus', $kurikulum[0]->sections->first()->id) }}"
+                                        method="POST">
                                         @csrf
-                                        <button type="submit" class="btn btn-secondary">Sertifikat Penyelesaian</button>
+                                        @method('PUT')
+                                        <input type="hidden" id="sectionId" name="sectionId"
+                                            value="{{ $kurikulum[0]->sections->first()->id }}">
+                                        <input type="hidden" name="status" value="true">
+                                        <button type="submit" class="btn btn-primary">Menyelesaikan</button>
                                     </form>
 
-                                    <script>
-                                        function openInNewTab(event) {
-                                            event.preventDefault(); // Prevent the form from submitting normally
-                                            const form = event.target;
-                                            const formData = new FormData(form);
-                                            const actionUrl = form.action;
+                                    @if ($allSectionsCompleted)
+                                        <form id="printForm" action="{{ route('print_certificate', ['id' => $user->id]) }}"
+                                            method="POST" class="ms-3" target="_blank" onsubmit="openInNewTab(event)">
+                                            @csrf
+                                            <button type="submit" class="btn btn-secondary">Sertifikat
+                                                Penyelesaian</button>
+                                        </form>
+                                        <script>
+                                            function openInNewTab(event) {
+                                                event.preventDefault();
+                                                const form = event.target;
+                                                const formData = new FormData(form);
+                                                const actionUrl = form.action;
 
-                                            fetch(actionUrl, {
-                                                    method: 'POST',
-                                                    body: formData,
-                                                    headers: {
-                                                        'X-CSRF-TOKEN': form.querySelector('input[name="_token"]').value
-                                                    }
-                                                })
-                                                .then(response => response.blob())
-                                                .then(blob => {
-                                                    const url = window.URL.createObjectURL(blob);
-                                                    const a = document.createElement('a');
-                                                    a.href = url;
-                                                    a.target = '_blank';
-                                                    a.click();
-                                                    window.URL.revokeObjectURL(url);
-                                                })
-                                                .catch(error => console.error('Error:', error));
-                                        }
-                                    </script>
-                                @endif
-
-
+                                                fetch(actionUrl, {
+                                                        method: 'POST',
+                                                        body: formData,
+                                                        headers: {
+                                                            'X-CSRF-TOKEN': form.querySelector('input[name="_token"]').value
+                                                        }
+                                                    })
+                                                    .then(response => response.blob())
+                                                    .then(blob => {
+                                                        const url = window.URL.createObjectURL(blob);
+                                                        const a = document.createElement('a');
+                                                        a.href = url;
+                                                        a.target = '_blank';
+                                                        a.click();
+                                                        window.URL.revokeObjectURL(url);
+                                                    })
+                                                    .catch(error => console.error('Error:', error));
+                                            }
+                                        </script>
+                                    @endif
+                                </div>
                             </div>
                         </div>
-
                     </div>
-                </div>
+                @endif
             </div>
         </div>
     </section>
