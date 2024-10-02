@@ -118,9 +118,9 @@
                     <div class="about__content">
                         <div class="section__title">
                             <span class="sub-title" data-aos="fade-top" data-aos-delay="600">Detail</span>
-                            <h2 class="title">
+                            <h2 class="title" data-aos="fade-top" data-aos-delay="600">
                                 Apa Yang Akan
-                                <span class="position-relative" data-aos="fade-top" data-aos-delay="600">
+                                <span class="position-relative">
                                     <svg x="0px" y="0px" preserveAspectRatio="none" viewBox="0 0 209 59" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
