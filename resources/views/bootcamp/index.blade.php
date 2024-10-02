@@ -147,11 +147,23 @@
                                 <i class="flaticon-angle-right"></i>
                                 <p class="content">Memvalidasi Data</p>
                             </li>
+                            <li class="about__info-list-item">
+                                <i class="flaticon-angle-right"></i>
+                                <p class="content">Memvalidasi Data</p>
+                            </li>
+                            <li class="about__info-list-item">
+                                <i class="flaticon-angle-right"></i>
+                                <p class="content">Memvalidasi Data</p>
+                            </li>
+                            <li class="about__info-list-item">
+                                <i class="flaticon-angle-right"></i>
+                                <p class="content">Memvalidasi Data</p>
+                            </li>
                         </ul>
-                        <div class="tg-button-wrap">
+                        {{-- <div class="tg-button-wrap">
                             <a href="about-us.html" class="btn arrow-btn">Start Free Trial <img
                                     src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
