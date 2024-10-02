@@ -132,8 +132,7 @@
                                 Pelajari
                             </h2>
                         </div>
-                        <p class="desc">Bergabunglah dalam Bootcamp Power BI, program intensif yang dirancang untuk
-                            mengubah Anda menjadi ahli dalam analisis data menggunakan Microsoft Power BI.</p>
+
                         <ul class="about__info-list list-wrap">
                             <li class="about__info-list-item">
                                 <i class="flaticon-angle-right"></i>
@@ -149,15 +148,15 @@
                             </li>
                             <li class="about__info-list-item">
                                 <i class="flaticon-angle-right"></i>
-                                <p class="content">Memvalidasi Data</p>
+                                <p class="content">Menentukan Objek Data</p>
                             </li>
                             <li class="about__info-list-item">
                                 <i class="flaticon-angle-right"></i>
-                                <p class="content">Memvalidasi Data</p>
+                                <p class="content">Menkonstruksi Data</p>
                             </li>
                             <li class="about__info-list-item">
                                 <i class="flaticon-angle-right"></i>
-                                <p class="content">Memvalidasi Data</p>
+                                <p class="content">Membuat Business Intelligence</p>
                             </li>
                         </ul>
                         {{-- <div class="tg-button-wrap">
