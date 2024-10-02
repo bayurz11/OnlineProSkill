@@ -8,7 +8,6 @@
         <div class="container">
             <div class="row">
 
-
                 @if (count($cart) > 0)
                     <div class="col-lg-7">
                         <table class="table cart__table">
@@ -49,8 +48,7 @@
                     </div>
                 @else
                     <div class="col-lg-7">
-                        <p>Keranjang Anda kosong. <a href="{{ route('search') }}">Lihat kelas yang
-                                tersedia.</a></p>
+                        <p>Keranjang Anda kosong. <a href="{{ route('search') }}">Lihat kelas yang tersedia.</a></p>
                     </div>
                 @endif
 
@@ -60,32 +58,13 @@
                             <h2 class="title">Total keranjang</h2>
 
                             @php
-                                // Cek apakah user sudah pernah melakukan order
-                                $biayaPendaftaran = 20000; // Biaya pendaftaran default
-                                if (Auth::check()) {
-                                    // Cari apakah user sudah pernah melakukan order
-                                    $userOrders = \App\Models\Order::where('user_id', Auth::id())
-                                        ->where('status', '!=', 'canceled')
-                                        ->exists();
-
-                                    // Jika user sudah pernah order, set biaya pendaftaran menjadi 0
-                                    if ($userOrders) {
-                                        $biayaPendaftaran = 0;
-                                    }
-                                }
-
                                 $totalPrice = array_sum(array_column($cart, 'price')); // Total harga keranjang
-                                $totalPriceWithPendaftaran = $totalPrice + $biayaPendaftaran; // Total dengan biaya pendaftaran
                             @endphp
 
                             <ul class="list-wrap">
                                 <li>Jumlah Quantity <span>{{ array_sum(array_column($cart, 'quantity')) }}</span></li>
                                 <li>Total Produk <span class="amount">Rp
                                         {{ number_format($totalPrice, 0, ',', ',') }}</span></li>
-                                <li>Biaya Pendaftaran <span class="amount">Rp
-                                        {{ number_format($biayaPendaftaran, 0, ',', ',') }}</span></li>
-                                <li>Total <span class="amount">Rp
-                                        {{ number_format($totalPriceWithPendaftaran, 0, ',', ',') }}</span></li>
                             </ul>
 
                             @auth
@@ -94,8 +73,6 @@
                                     @foreach ($cart as $item)
                                         <input type="hidden" name="cart_items[]" value="{{ $item['id'] }}">
                                     @endforeach
-
-                                    <input type="hidden" name="biaya_pendaftaran" value="{{ $biayaPendaftaran }}">
 
                                     <div class="form-grp">
                                         <label for="name">Nama *</label>
@@ -133,7 +110,6 @@
                 @else
                     <p></p>
                 @endif
-
 
             </div>
 
