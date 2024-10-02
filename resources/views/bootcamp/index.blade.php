@@ -173,7 +173,7 @@
 
 
 
-    <!-- fact-area -->
+    {{-- <!-- fact-area -->
     <section class="fact__area">
         <div class="container">
             <div class="fact__inner-wrap">
@@ -206,7 +206,7 @@
             </div>
         </div>
     </section>
-    <!-- fact-area-end -->
+    <!-- fact-area-end --> --}}
 
     <!-- faq-area -->
     <section class="faq__area">
