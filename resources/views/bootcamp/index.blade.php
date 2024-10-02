@@ -190,21 +190,36 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-6">
-                        <div class="fact__item">
-                            <h2 class="count"><span class="odometer" data-count="89"></span>+</h2>
-                            <p>Faculty Courses</p>
+                        <div class="features__item">
+                            <div class="features__icon">
+                                <img src="public/assets/img/icons/features_icon02.svg" class="injectable" alt="img">
+                            </div>
+                            <div class="features__content">
+                                <h4 class="title">Learn Anything</h4>
+                                <p>Curate anding area share Pluralsight content to reach your</p>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-6">
-                        <div class="fact__item">
-                            <h2 class="count"><span class="odometer" data-count="156"></span>K</h2>
-                            <p>Best Professors</p>
+                        <div class="features__item">
+                            <div class="features__icon">
+                                <img src="public/assets/img/icons/features_icon03.svg" class="injectable" alt="img">
+                            </div>
+                            <div class="features__content">
+                                <h4 class="title">Get Online Certificate</h4>
+                                <p>Curate anding area share Pluralsight content to reach your</p>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-6">
-                        <div class="fact__item">
-                            <h2 class="count"><span class="odometer" data-count="42"></span>K</h2>
-                            <p>Award Achieved</p>
+                        <div class="features__item">
+                            <div class="features__icon">
+                                <img src="public/assets/img/icons/features_icon04.svg" class="injectable" alt="img">
+                            </div>
+                            <div class="features__content">
+                                <h4 class="title">E-mail Marketing</h4>
+                                <p>Curate anding area share Pluralsight content to reach your</p>
+                            </div>
                         </div>
                     </div>
                 </div>
