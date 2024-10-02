@@ -42,21 +42,22 @@
                             </a>
                         </div>
                     </div>
-                    <div class="banner__content" style="padding: 0;" data-aos="fade-top" data-aos-delay="800"
-                        style="margin-top: 40px; display: flex; justify-content: space-between; text-align: center; padding: 20px;">
-                        <div style="flex: 1; color: white;">
+                    <div class="banner__content"
+                        style="padding: 0; margin-top: 40px; display: flex; justify-content: space-between; text-align: center; align-items: center;">
+                        <div style="flex: 1; color: white; padding: 10px;">
                             <p style="margin-bottom: 15px;">Date</p>
                             <p style="font-weight: bold;">Sept 21</p>
                         </div>
-                        <div style="flex: 1; color: white;">
+                        <div style="flex: 1; color: white; padding: 10px;">
                             <p style="margin-bottom: 15px;">Duration</p>
                             <p style="font-weight: bold;">5 Weeks</p>
                         </div>
-                        <div style="flex: 1; color: white;">
+                        <div style="flex: 1; color: white; padding: 10px;">
                             <p style="margin-bottom: 15px;">Time</p>
                             <p style="font-weight: bold;">4 hrs per week</p>
                         </div>
                     </div>
+
                 </div>
 
                 <div class="col-lg-6" style="position: relative;">
