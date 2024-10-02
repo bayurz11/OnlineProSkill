@@ -10,11 +10,11 @@
         style="min-height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center;">
         <div class="container" style="width: 90%; max-width: 1200px; padding-left: 5%; padding-right: 5%; height: auto;">
             <div class="row justify-content-between align-items-start" style="display: flex; flex-wrap: wrap;">
-                <div class="col-xl-6 col-lg-8 col-md-12" style="flex: 1; padding-bottom: 20px;">
+                <div class="col-xl-6 col-lg-8 col-md-12" style="flex: 1; padding-bottom: 20px; padding-left: 0;">
                     <img src="{{ asset('public/assets/img/logo/logo.svg') }}" alt="Logo" data-aos-delay="400">
-                    <div class="banner__content" style="padding: 20px;">
+                    <div class="banner__content" style="padding: 20px 0;">
                         <h3 class="title tg-svg" data-aos="fade-right" data-aos-delay="400"
-                            style="font-size: 2.5rem; line-height: 1.2;">
+                            style="font-size: 2.5rem; line-height: 1.2; margin-left: 0;">
                             <b style="color: #007368">Bootcamp</b>
                             <span class="position-relative" style="display: inline-block;">
                                 <svg x="0px" y="0px" preserveAspectRatio="none" viewBox="0 0 209 59" fill="none"
@@ -43,7 +43,7 @@
                         </div>
                     </div>
                     <div class="info-section" data-aos="fade-top" data-aos-delay="800"
-                        style="margin-top: 40px; display: flex; justify-content: space-between; text-align: center; padding: 20px; ">
+                        style="margin-top: 40px; display: flex; justify-content: space-between; text-align: center; padding: 20px; margin-left: 0;">
                         <div style="flex: 1; color: white;">
                             <p style="margin-bottom: 15px;">Date</p>
                             <p style="font-weight: bold;">Sept 21</p>
@@ -70,13 +70,13 @@
                     </div>
                     <div
                         style="
-                            position: absolute; 
-                            bottom: 0; 
-                            left: 0; 
-                            right: 0; 
-                            height: 80px; 
-                            background: linear-gradient(to bottom, transparent, white); /* Sesuaikan dengan warna background */
-                            z-index: 1;">
+                        position: absolute; 
+                        bottom: 0; 
+                        left: 0; 
+                        right: 0; 
+                        height: 80px; 
+                        background: linear-gradient(to bottom, transparent, white); /* Sesuaikan dengan warna background */
+                        z-index: 1;">
                     </div>
                 </div>
             </div>
@@ -84,6 +84,7 @@
         <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="line-shape" data-aos="fade-right"
             data-aos-delay="1000" style="max-width: 30%; height: auto;">
     </section>
+
     <!-- banner-area-end -->
 
 
