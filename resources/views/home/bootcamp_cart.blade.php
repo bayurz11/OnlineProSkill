@@ -80,8 +80,8 @@
 
                             <ul class="list-wrap">
                                 <li>Jumlah Quantity <span>{{ array_sum(array_column($cart, 'quantity')) }}</span></li>
-                                <li>Total Produk <span class="amount">Rp
-                                        {{ number_format($totalPrice, 0, ',', ',') }}</span></li>
+                                {{-- <li>Total Produk <span class="amount">Rp
+                                        {{ number_format($totalPrice, 0, ',', ',') }}</span></li> --}}
 
                                 <li>Total <span class="amount">Rp
                                         {{ number_format($totalPriceWithPendaftaran, 0, ',', ',') }}</span></li>
