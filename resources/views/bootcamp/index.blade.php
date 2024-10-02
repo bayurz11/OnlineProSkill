@@ -179,16 +179,14 @@
             <div class="fact__inner-wrap">
                 <div class="row">
                     <div class="col-lg-3 col-6">
-                        <div class="fact__item">
-                            <div class="features__item">
-                                <div class="features__icon">
-                                    <img src="public/assets/img/icons/features_icon01.svg" class="injectable"
-                                        alt="img">
-                                </div>
-                                <div class="features__content">
-                                    <h4 class="title">Learn with Experts</h4>
-                                    <p>Curate anding area share Pluralsight content to reach your</p>
-                                </div>
+
+                        <div class="features__item">
+                            <div class="features__icon">
+                                <img src="public/assets/img/icons/features_icon01.svg" class="injectable" alt="img">
+                            </div>
+                            <div class="features__content">
+                                <h4 class="title">Learn with Experts</h4>
+                                <p>Curate anding area share Pluralsight content to reach your</p>
                             </div>
                         </div>
                     </div>
