@@ -52,6 +52,29 @@ class BootcampController extends Controller
         return view('bootcamp.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'categori', 'KelasTatapMuka', 'event', 'blog', 'daftar_siswa', 'sertifikat'));
     }
 
+    public function addToCartceckout($id)
+    {
+        $course = KelasTatapMuka::find($id);
+        $cart = Session::get('cart', []);
+
+        if (!isset($cart[$id])) {
+            $cart[$id] = [
+                "id" => $id,
+                "name" => $course->nama_kursus,
+                "price" => $course->price,
+                "gambar" => $course->gambar,
+                "quantity" => 1,
+            ];
+
+            Session::flash('success', 'Item telah ditambahkan ke keranjang!');
+        } else {
+            Session::flash('info', 'Item sudah ada di keranjang!');
+        }
+
+        Session::put('cart', $cart);
+
+        return redirect()->route('cart.view');
+    }
     public function show()
     {
         $categori = Categories::all();
@@ -73,6 +96,6 @@ class BootcampController extends Controller
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
-        return view('home.cart2', compact('user', 'categori', 'cart', 'profile', 'courses', 'notifikasiCount', 'notifikasi'));
+        return view('home.bootcamp_cart', compact('user', 'categori', 'cart', 'profile', 'courses', 'notifikasiCount', 'notifikasi'));
     }
 }

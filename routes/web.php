@@ -254,4 +254,4 @@ Route::get('/print/{id}', [SertifikatController::class, 'printCertificate'])->na
 //*********Bootcamp*********//
 //landingpage
 Route::get('/bootcamp', [BootcampController::class, 'index'])->name('bootcamp');
-Route::get('/cart_bootcamp/checkout/{id}', [CartController::class, 'addToCartceckout'])->name('cart_bootcamp.checkout');
+Route::get('/cart_bootcamp/checkout/{id}', [BootcampController::class, 'addToCartceckout'])->name('cart_bootcamp.checkout');
