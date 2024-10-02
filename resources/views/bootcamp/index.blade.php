@@ -100,7 +100,7 @@
                     <div class="about__images">
                         <img src="public/assets/img/others/about_img.png" alt="img" class="main-img">
                         <img src="public/assets/img/others/about_shape.svg" alt="img" class="shape alltuchtopdown">
-                        <a href="https://www.youtube.com/watch?v=hxpItadargI" class="popup-video">
+                        <a href="https://www.youtube.com/watch?v=b2Az7_lLh3g" class="popup-video">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="28" viewBox="0 0 22 28"
                                 fill="none">
                                 <path
