@@ -139,4 +139,9 @@
 
         </div>
     </div>
+
+    @include('home.modal.login')
+    @include('home.modal.logincart')
+    @include('home.modal.register')
+    @include('home.modal.registerbootcampcart')
 @endsection
