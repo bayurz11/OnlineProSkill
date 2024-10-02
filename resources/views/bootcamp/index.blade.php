@@ -45,15 +45,15 @@
                     <div class="banner__content"
                         style="padding: 0; margin-top: 40px; display: flex; justify-content: space-between; align-items: center;">
                         <div style="flex: 1; color: white; padding: 8px;">
-                            <p style="margin-bottom: 15px;">Date</p>
+                            <p style="margin-bottom: 10px;">Date</p>
                             <p style="font-weight: bold;">Sept 21</p>
                         </div>
-                        <div style="flex: 1; color: white; padding: 10px;">
-                            <p style="margin-bottom: 15px;">Duration</p>
+                        <div style="flex: 1; color: white; padding: 8px;">
+                            <p style="margin-bottom: 10px;">Duration</p>
                             <p style="font-weight: bold;">5 Weeks</p>
                         </div>
-                        <div style="flex: 1; color: white; padding: 10px;">
-                            <p style="margin-bottom: 15px;">Time</p>
+                        <div style="flex: 1; color: white; padding: 8px;">
+                            <p style="margin-bottom: 10px;">Time</p>
                             <p style="font-weight: bold;">4 hrs per week</p>
                         </div>
                     </div>
