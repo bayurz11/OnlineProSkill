@@ -364,34 +364,63 @@ class AuthController extends Controller
 
         return redirect()->route('cart.view')->with('info', 'Pendaftaran berhasil! Silahkan Gabung Kelas Kami');
     }
-    // public function guestregister(Request $request)
-    // {
-    //     $request->validate([
-    //         'name' => 'required|string|max:255',
-    //         'email' => 'required|string|email|max:255|unique:users',
-    //         'password' => 'required|string|min:3|confirmed',
-    //     ]);
+    public function bootcampregister(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:3|confirmed',
+            'phone_number' => 'string|max:12|unique:user_profile,phone_number',
+            'g-recaptcha-response' => ['required', function (string $attribute, mixed $value, Closure $fail) {
+                $g_response = Http::asForm()->post("https://www.google.com/recaptcha/api/siteverify", [
+                    'secret' => config('services.recaptcha_v3.secret'),
+                    'response' => $value,
+                    'remoteip' => \request()->ip()
+                ]);
 
-    //     $user = User::create([
-    //         'name' => $request->name,
-    //         'email' => $request->email,
-    //         'password' => bcrypt($request->password),
-    //         'last_login' => Carbon::now(),
-    //         'status' => 1,
-    //     ]);
+                $g_response = $g_response->json();
+                if (!$g_response['success']) {
+                    $fail("The {$attribute} is invalid: " . implode(', ', $g_response['error-codes']));
+                }
+            },]
+        ]);
 
-    //     $userRole = new UserRoles();
-    //     $userRole->user_id = $user->id;
-    //     $userRole->role_id = 3;
-    //     $userRole->save();
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput()
+                ->with('error', 'Registrasi gagal! Email atau nomor telepon telah digunakan.');
+        }
 
-    //     $userProfile = new UserProfile();
-    //     $userProfile->user_id = $user->id;
-    //     $userProfile->role_id = 3;
-    //     $userProfile->save();
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'last_login' => Carbon::now(),
+            'status' => 1,
+        ]);
 
-    //     Auth::login($user);
+        $userRole = new UserRoles();
+        $userRole->user_id = $user->id;
+        $userRole->role_id = 3;
+        $userRole->save();
 
-    //     return redirect()->route('checkout');
-    // }
+        $userProfile = new UserProfile();
+        $userProfile->user_id = $user->id;
+        $userProfile->role_id = 3;
+        $userProfile->phone_number = $request->phone_number;
+        $userProfile->save();
+
+        $sertifikat = new Sertifikat();
+        $sertifikat->name = $request->name;
+        $sertifikat->user_id = $user->id;
+        $sertifikat->save(); // Auto-generate id here
+
+        // Update URL link after saving
+        $sertifikat->link = url("/print/{$sertifikat->id}");
+        $sertifikat->save(); // Save again to update the link
+        Auth::login($user);
+
+        return redirect()->route('cart_bootcamp.view')->with('info', 'Pendaftaran berhasil! Silahkan Gabung Kelas Kami');
+    }
 }

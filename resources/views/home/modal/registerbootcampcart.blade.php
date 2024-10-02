@@ -11,7 +11,8 @@
                     <h2 class="title">Buat Akun ProSkill</h2>
                     <p>Silahkan isi form berikut untuk melanjutkan.</p>
 
-                    <form action="{{ route('guestregister') }}" class="account__form" method="POST" id="guestregister">
+                    <form action="{{ route('bootcampregister') }}" class="account__form" method="POST"
+                        id="bootcampregister">
                         @csrf
                         <div class="form-grp">
                             <input type="text" id="name" name="name"
@@ -35,7 +36,7 @@
                             huruf, dan angka</span>
                         <button class="g-recaptcha btn btn-two arrow-btn"
                             data-sitekey="{{ config('services.recaptcha_v3.siteKey') }}"
-                            data-callback="onSubmitguestregister" data-action='submit'>
+                            data-callback="onSubmitbootcampregister" data-action='submit'>
                             Daftar
                             <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                 class="injectable">

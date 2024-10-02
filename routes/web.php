@@ -44,6 +44,7 @@ Route::post('/regisInstruktur', [DashboardInstrukturController::class, 'register
 Route::post('/regisStuden', [AuthController::class, 'register'])->name('regisStuden');
 // Route::post('/guestregister/{id}', [AuthController::class, 'guestregister'])->name('guestregister');
 Route::post('/guestregister', [AuthController::class, 'guestregister'])->name('guestregister');
+Route::post('/bootcampregister', [AuthController::class, 'bootcampregister'])->name('bootcampregister');
 
 Route::get('oauth/google', [OauthController::class, 'redirectToProvider'])->name('oauth.google');
 Route::get('oauth/google/callback', [OauthController::class, 'handleProviderCallback'])->name('oauth.google.callback');
