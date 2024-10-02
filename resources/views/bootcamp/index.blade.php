@@ -43,23 +43,20 @@
                         </div>
                     </div>
                     <div class="banner__content"
-                        style="padding: 0; margin-top: 40px; display: flex; justify-content: space-between; text-align: center; align-items: center;">
-                        <div
-                            style="flex: 1; color: white; padding: 10px; border-right: 1px solid rgba(255, 255, 255, 0.5);">
-                            <p style="margin-bottom: 15px;">Date</p>
+                        style="padding: 0; margin-top: 40px; display: flex; justify-content: space-between; align-items: center;">
+                        <div style="flex: 1; color: white; padding: 8px;">
+                            <p style="margin-bottom: 10px;">Date</p>
                             <p style="font-weight: bold;">Sept 21</p>
                         </div>
-                        <div
-                            style="flex: 1; color: white; padding: 10px; border-right: 1px solid rgba(255, 255, 255, 0.5); border-left: 1px solid rgba(255, 255, 255, 0.5);">
-                            <p style="margin-bottom: 15px;">Duration</p>
+                        <div style="flex: 1; color: white; padding: 8px;">
+                            <p style="margin-bottom: 10px;">Duration</p>
                             <p style="font-weight: bold;">5 Weeks</p>
                         </div>
-                        <div style="flex: 1; color: white; padding: 10px; border-left: 1px solid rgba(255, 255, 255, 0.5);">
-                            <p style="margin-bottom: 15px;">Time</p>
-                            <p style="font-weight: bold;">4 hrs</p>
+                        <div style="flex: 1; color: white; padding: 8px;">
+                            <p style="margin-bottom: 10px;">Time</p>
+                            <p style="font-weight: bold;">4 hrs/week</p>
                         </div>
                     </div>
-
 
                 </div>
 
