@@ -20,12 +20,16 @@
                                         class="menu-item-has-children {{ Request::is('classroom', 'course') ? 'active' : '' }}">
                                         <a href="#">Program</a>
                                         <ul class="sub-menu">
+                                            <li class="{{ Request::is('bootcamp') ? 'active' : '' }}">
+                                                <a href="{{ route('bootcamp') }}">Bootcamp</a>
+                                            </li>
                                             <li class="{{ Request::is('classroom') ? 'active' : '' }}">
                                                 <a href="{{ route('classroom') }}">Kelas Tatap Muka</a>
                                             </li>
                                             <li class="{{ Request::is('course') ? 'active' : '' }}">
                                                 <a href="{{ route('course') }}">Kelas Online</a>
                                             </li>
+
                                         </ul>
                                     </li>
                                     <li class="{{ Request::is('event') ? 'active' : '' }}">
