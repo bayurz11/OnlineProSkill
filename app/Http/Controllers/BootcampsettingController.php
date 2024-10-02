@@ -14,7 +14,7 @@ class BootcampsettingController extends Controller
     {
         $user = Auth::user();
         $categori = Categories::all();
-        $course = KelasTatapMuka::with('user')->where('course_type', 'online')->get();
+        $course = KelasTatapMuka::with('user')->where('course_type', 'bootcamp')->get();
         $count = $course->count();
         if (!$user) {
             return redirect()->route('login_admin');
