@@ -35,8 +35,7 @@
                             📝 Temukan lebih banyak informasi dan daftar di <b>Proskill Akademia!.</b>
                         </p>
                         <div class="banner__btn-wrap" data-aos="fade-right" data-aos-delay="800" style="margin-top: 20px;">
-                            <a href="{{ route('cart_bootcamp.checkout', ['id' => 17]) }}
-" class="btn arrow-btn"
+                            <a href="{{ route('cart_bootcamp.checkout', ['id' => 17]) }}" class="btn arrow-btn"
                                 style="font-size: 1rem; padding: 15px 25px;">Daftar
                                 Sekarang
                                 <img src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"
@@ -98,7 +97,7 @@
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-6 col-md-9">
-                    <div class="about__images">
+                    {{-- <div class="about__images">
                         <img src="public/assets/img/others/about_img.png" alt="img" class="main-img">
                         <img src="public/assets/img/others/about_shape.svg" alt="img" class="shape alltuchtopdown">
                         <a href="https://www.youtube.com/watch?v=hxpItadargI" class="popup-video">
@@ -113,14 +112,14 @@
                             <p class="title"><span>36K+</span> Enrolled Students</p>
                             <img src="public/assets/img/others/student_grp.png" alt="img">
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="col-lg-6">
                     <div class="about__content">
                         <div class="section__title">
-                            <span class="sub-title">Get More About Us</span>
+                            <span class="sub-title">Detail</span>
                             <h2 class="title">
-                                Thousand Of Top
+                                Apa Yang Akan
                                 <span class="position-relative">
                                     <svg x="0px" y="0px" preserveAspectRatio="none" viewBox="0 0 209 59" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -128,9 +127,9 @@
                                             d="M4.74438 7.70565C69.7006 -1.18799 136.097 -2.38304 203.934 4.1205C207.178 4.48495 209.422 7.14626 208.933 10.0534C206.793 23.6481 205.415 36.5704 204.801 48.8204C204.756 51.3291 202.246 53.5582 199.213 53.7955C136.093 59.7623 74.1922 60.5985 13.5091 56.3043C10.5653 56.0924 7.84371 53.7277 7.42158 51.0325C5.20725 38.2627 2.76333 25.6511 0.0898448 13.1978C-0.465589 10.5873 1.61173 8.1379 4.73327 7.70565"
                                             fill="currentcolor" />
                                     </svg>
-                                    Courses
+                                    Anda
                                 </span>
-                                Now in One Place
+                                Pelajari
                             </h2>
                         </div>
                         <p class="desc">Groove’s intuitive shared inbox makes it easy for team members to
