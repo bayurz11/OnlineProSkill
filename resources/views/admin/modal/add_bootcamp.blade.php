@@ -4,7 +4,7 @@
             <form action="{{ route('storeCourse') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Tambah bootcamp</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Tambah Bootcamp</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
                 </div>
                 <div class="modal-body">
@@ -20,16 +20,16 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="nama_bootcamp" class="form-label">Nama bootcamp<span
+                        <label for="nama_kursus" class="form-label">Nama Bootcamp<span
                                 class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="nama_bootcamp" name="nama_bootcamp"
-                            placeholder="Masukkan Nama bootcamp Anda" required>
+                        <input type="text" class="form-control" id="nama_kursus" name="nama_kursus"
+                            placeholder="Masukkan Nama Kursus Anda" required>
                     </div>
                     <div class="mb-3">
-                        <label for="durasi" class="form-label">Durasi bootcamp<span
+                        <label for="durasi" class="form-label">Durasi Bootcamp<span
                                 class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="durasi" name="durasi"
-                            placeholder="durasi bootcamp" required>
+                            placeholder="durasi kursus" required>
                     </div>
                     <div class="mb-3">
                         <label for="sertifikat" class="form-label">Sertifikat<span class="text-danger">*</span></label>
@@ -131,7 +131,7 @@
                             readonly>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label" for="gambar">Gambar bootcamp<span
+                        <label class="form-label" for="gambar">Gambar Bootcamp<span
                                 class="text-danger">*</span></label>
                         <input type="file" accept="image/*" class="form-control" id="gambar" name="gambar"
                             required>
@@ -142,7 +142,7 @@
                     <div class="mb-3">
                         <label for="tag" class="form-label">Tag</label>
                         <input type="text" class="form-control" id="tag" name="tag">
-                        <small class="text-secondary">Note : Isi Dengan Tags bootcamp yang relevan</small>
+                        <small class="text-secondary">Note : Isi Dengan Tags kursus yang relevan</small>
                     </div>
                 </div>
 
