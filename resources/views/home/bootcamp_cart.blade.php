@@ -138,12 +138,12 @@
                                         </div>
                                     </div>
 
-                                    <button type="submit" class="btn">Bayar & gabung kelas</button>
+                                    <button type="submit" class="btn">Bayar</button>
                                 </form>
                             @else
                                 <button type="button" class="btn" data-bs-toggle="modal"
                                     data-bs-target="#exampleModalDaftarcart">
-                                    Bayar & gabung kelas
+                                    Bayar
                                 </button>
                             @endauth
                         </div>
