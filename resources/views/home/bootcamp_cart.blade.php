@@ -124,7 +124,7 @@
                                 </form>
                             @else
                                 <button type="button" class="btn" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModalDaftarcart">
+                                    data-bs-target="#registerbootcampcart">
                                     Bayar
                                 </button>
                             @endauth
