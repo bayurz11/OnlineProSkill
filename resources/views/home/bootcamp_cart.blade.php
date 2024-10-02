@@ -97,14 +97,14 @@
 
                                     <input type="hidden" name="biaya_pendaftaran" value="{{ $biayaPendaftaran }}">
 
-                                    <div class="form-grp" hidden>
+                                    <div class="form-grp">
                                         <label for="name">Nama *</label>
                                         <input type="text" id="name" name="name" value="{{ $user->name }}">
                                     </div>
 
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-grp" hidden>
+                                            <div class="form-grp">
                                                 <label for="phone">Telepon *</label>
                                                 <input type="number" id="phone" name="phone" min="0" required
                                                     value="{{ $profile->phone_number }}" maxlength="12"
@@ -112,7 +112,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="form-grp" hidden>
+                                            <div class="form-grp">
                                                 <label for="email">Alamat Email *</label>
                                                 <input type="email" id="email" name="email"
                                                     value="{{ $user->email }}">
