@@ -42,7 +42,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="banner__content"
+                    <div class="banner__content" data-aos-delay="800"
                         style="padding: 0; margin-top: 40px; display: flex; justify-content: space-between; align-items: center;">
                         <div style="flex: 1; color: white; padding: 8px; ">
                             <p style="margin-bottom: 10px;">Date</p>
