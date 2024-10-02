@@ -45,7 +45,7 @@
                     </div>
                     <div class="banner__content" data-aos-delay="800" data-aos="fade-top"
                         style="padding: 0; margin-top: 40px; display: flex; justify-content: space-between; align-items: center;">
-                        <div style="flex: 6; color: white; padding: 8px; ">
+                        <div style="flex: 8; color: white; padding: 8px; ">
                             <p style="margin-bottom: 10px;">Available <b>online</b> </p>
                             <p style="font-weight: bold;">and <b>In-person</b></p>
                         </div>
