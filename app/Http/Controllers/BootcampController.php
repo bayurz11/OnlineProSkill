@@ -84,7 +84,7 @@ class BootcampController extends Controller
         $courses = KelasTatapMuka::whereIn('id', array_column($cart, 'id'))->get();
 
         if ($courses->isEmpty() && !empty($cart)) {
-            return redirect()->route('cart.view')->with('info', 'Kelas tidak ditemukan.');
+            return redirect()->route('cart_bootcamp.view')->with('info', 'Kelas tidak ditemukan.');
         }
 
         // Ambil notifikasi untuk pengguna yang sedang login
