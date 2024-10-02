@@ -44,7 +44,7 @@
                     </div>
                     <div class="banner__content"
                         style="padding: 0; margin-top: 40px; display: flex; justify-content: space-between; align-items: center;">
-                        <div style="flex: 1; color: white; padding: 10px;">
+                        <div style="flex: 1; color: white; padding: 8px;">
                             <p style="margin-bottom: 15px;">Date</p>
                             <p style="font-weight: bold;">Sept 21</p>
                         </div>
