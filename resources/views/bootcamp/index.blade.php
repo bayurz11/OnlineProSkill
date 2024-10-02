@@ -46,14 +46,14 @@
                     <div class="banner__content" data-aos-delay="800" data-aos="fade-top"
                         style="padding: 0; margin-top: 40px; display: flex; justify-content: space-between; align-items: center;">
                         <div style="flex: 1; color: white; padding: 8px; ">
-                            <p style="margin-bottom: 10px;"><img src="public/assets/img/icons/clock.svg" alt="icon"
-                                    style="width: 28px; height: 28px;">
+                            <p style="margin-bottom: 10px;">
                                 Date</p>
                             <p style="font-weight: bold;">Sept 21</p>
                         </div>
                         <div style="border-left: 2px solid #007368; height: 50px; margin: 0 20px;"></div>
                         <div style="flex: 1; color: white; padding: 8px; ">
-                            <p style="margin-bottom: 10px;">Duration</p>
+                            <p style="margin-bottom: 10px;"><img src="public/assets/img/icons/clock.svg" alt="icon"
+                                    style="width: 28px; height: 28px;">Duration</p>
                             <p style="font-weight: bold;">5 Weeks</p>
                         </div>
                         <div style="border-left: 2px solid #007368; height: 50px; margin: 0 20px;"></div>
