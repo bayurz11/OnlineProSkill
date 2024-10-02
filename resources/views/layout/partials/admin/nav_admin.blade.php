@@ -73,13 +73,13 @@
             </li>
             <li class="nav-item nav-category">Bootcamp SETTING</li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#uiComponents" role="button" aria-expanded="false"
-                    aria-controls="uiComponents">
+                <a class="nav-link" data-bs-toggle="collapse" href="#Bootcamp" role="button" aria-expanded="false"
+                    aria-controls="Bootcamp">
                     <i class="link-icon" data-feather="book-open"></i>
                     <span class="link-title">Kelola Bootcamp</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
-                <div class="collapse" id="uiComponents">
+                <div class="collapse" id="Bootcamp">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
                             <a href="{{ route('classroomsetting') }}" class="nav-link">Daftar Bootcamp</a>
