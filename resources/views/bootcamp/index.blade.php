@@ -179,7 +179,7 @@
             <div class="fact__inner-wrap">
                 <div class="row">
                     <div class="col-lg-3 col-6">
-                        <div class="features__item">
+                        <div class="fact__item">
                             <div class="features__icon">
                                 <img src="public/assets/img/icons/features_icon01.svg" class="injectable" alt="img">
                             </div>
@@ -190,7 +190,7 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-6">
-                        <div class="features__item">
+                        <div class="fact__item">
                             <div class="features__icon">
                                 <img src="public/assets/img/icons/features_icon02.svg" class="injectable" alt="img">
                             </div>
