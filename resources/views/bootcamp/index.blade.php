@@ -132,21 +132,23 @@
                                 Pelajari
                             </h2>
                         </div>
-                        <p class="desc">Groove’s intuitive shared inbox makes it easy for team members to
-                            organize, prioritize and.In this episode of the Smashing Pod we’re talking about Web Platform
-                            Baseline.</p>
+                        <p class="desc">Bergabunglah dalam Bootcamp Power BI, program intensif yang dirancang untuk
+                            mengubah Anda menjadi ahli dalam analisis data menggunakan Microsoft Power BI. Dalam bootcamp
+                            ini, Anda akan belajar bagaimana mengolah, memvisualisasikan, dan menganalisis data dengan Power
+                            BI, mulai dari dasar hingga fitur lanjutan. Kami menyediakan materi yang mudah dipahami bagi
+                            pemula, serta studi kasus praktis yang relevan bagi para profesional.</p>
                         <ul class="about__info-list list-wrap">
                             <li class="about__info-list-item">
                                 <i class="flaticon-angle-right"></i>
-                                <p class="content">The Most World Class Instructors</p>
+                                <p class="content">Mengumpulkan Data</p>
                             </li>
                             <li class="about__info-list-item">
                                 <i class="flaticon-angle-right"></i>
-                                <p class="content">Access Your Class anywhere</p>
+                                <p class="content">Menelaah Data</p>
                             </li>
                             <li class="about__info-list-item">
                                 <i class="flaticon-angle-right"></i>
-                                <p class="content">Flexible Course Plan</p>
+                                <p class="content">Memvalidasi Data</p>
                             </li>
                         </ul>
                         <div class="tg-button-wrap">
