@@ -256,3 +256,4 @@ Route::get('/print/{id}', [SertifikatController::class, 'printCertificate'])->na
 Route::get('/bootcamp', [BootcampController::class, 'index'])->name('bootcamp');
 Route::get('/cart_bootcamp/checkout/{id}', [BootcampController::class, 'addToCartceckout'])->name('cart_bootcamp.checkout');
 Route::get('/cart_bootcamp', [BootcampController::class, 'show'])->name('cart_bootcamp.view');
+Route::post('cart_bootcamp/remove/{id}', [BootcampController::class, 'removeFromCart'])->name('cart_bootcamp.remove');

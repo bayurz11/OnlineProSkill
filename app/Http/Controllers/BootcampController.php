@@ -98,4 +98,17 @@ class BootcampController extends Controller
 
         return view('home.bootcamp_cart', compact('user', 'categori', 'cart', 'profile', 'courses', 'notifikasiCount', 'notifikasi'));
     }
+
+    public function removeFromCart($id)
+    {
+        $cart = Session::get('cart', []);
+
+        if (isset($cart[$id])) {
+            unset($cart[$id]);
+        }
+
+        Session::put('cart', $cart);
+
+        return redirect()->route('cart.view');
+    }
 }

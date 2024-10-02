@@ -35,7 +35,7 @@
                                         <td class="product__price">Rp {{ number_format($item['price'], 0, ',', ',') }}</td>
 
                                         <td class="product__remove">
-                                            <form action="{{ route('cart.remove', $item['id']) }}" method="POST"
+                                            <form action="{{ route('cart_bootcamp.remove', $item['id']) }}" method="POST"
                                                 style="display:inline;">
                                                 @csrf
                                                 <button type="submit" class="btn-remove"
