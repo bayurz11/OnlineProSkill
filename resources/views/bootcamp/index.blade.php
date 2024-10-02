@@ -97,7 +97,7 @@
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-6 col-md-9">
-                    {{-- <div class="about__images">
+                    <div class="about__images">
                         <img src="public/assets/img/others/about_img.png" alt="img" class="main-img">
                         <img src="public/assets/img/others/about_shape.svg" alt="img" class="shape alltuchtopdown">
                         <a href="https://www.youtube.com/watch?v=hxpItadargI" class="popup-video">
@@ -108,11 +108,11 @@
                                     fill="currentcolor" />
                             </svg>
                         </a>
-                        <div class="about__enrolled" data-aos="fade-right" data-aos-delay="200">
+                        {{-- <div class="about__enrolled" data-aos="fade-right" data-aos-delay="200">
                             <p class="title"><span>36K+</span> Enrolled Students</p>
                             <img src="public/assets/img/others/student_grp.png" alt="img">
-                        </div>
-                    </div> --}}
+                        </div> --}}
+                    </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="about__content">
