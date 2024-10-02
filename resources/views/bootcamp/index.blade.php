@@ -133,10 +133,7 @@
                             </h2>
                         </div>
                         <p class="desc">Bergabunglah dalam Bootcamp Power BI, program intensif yang dirancang untuk
-                            mengubah Anda menjadi ahli dalam analisis data menggunakan Microsoft Power BI. Dalam bootcamp
-                            ini, Anda akan belajar bagaimana mengolah, memvisualisasikan, dan menganalisis data dengan Power
-                            BI, mulai dari dasar hingga fitur lanjutan. Kami menyediakan materi yang mudah dipahami bagi
-                            pemula, serta studi kasus praktis yang relevan bagi para profesional.</p>
+                            mengubah Anda menjadi ahli dalam analisis data menggunakan Microsoft Power BI.</p>
                         <ul class="about__info-list list-wrap">
                             <li class="about__info-list-item">
                                 <i class="flaticon-angle-right"></i>
