@@ -173,15 +173,20 @@
 
 
 
-    {{-- <!-- fact-area -->
+    <!-- fact-area -->
     <section class="fact__area">
         <div class="container">
             <div class="fact__inner-wrap">
                 <div class="row">
                     <div class="col-lg-3 col-6">
-                        <div class="fact__item">
-                            <h2 class="count"><span class="odometer" data-count="45"></span>K+</h2>
-                            <p>Active Students</p>
+                        <div class="features__item">
+                            <div class="features__icon">
+                                <img src="public/assets/img/icons/features_icon01.svg" class="injectable" alt="img">
+                            </div>
+                            <div class="features__content">
+                                <h4 class="title">Learn with Experts</h4>
+                                <p>Curate anding area share Pluralsight content to reach your</p>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-6">
@@ -206,7 +211,7 @@
             </div>
         </div>
     </section>
-    <!-- fact-area-end --> --}}
+    <!-- fact-area-end -->
 
     <!-- faq-area -->
     <section class="faq__area">
