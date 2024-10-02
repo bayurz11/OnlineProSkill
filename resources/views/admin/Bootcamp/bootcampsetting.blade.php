@@ -12,7 +12,7 @@
             </ol>
         </nav>
 
-        @include('admin.modal.add_course')
+        @include('admin.modal.add_bootcamp')
         @include('admin.modal.edit_course')
 
         <div class="row">
