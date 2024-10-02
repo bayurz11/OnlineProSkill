@@ -60,6 +60,6 @@ class BootcampsettingController extends Controller
         $course->course_type = $request->course_type;
         $course->save();
 
-        return redirect()->route('CourseMaster')->with('success', 'Kursus berhasil disimpan.');
+        return redirect()->route('bootcampsetting')->with('success', 'Kursus berhasil disimpan.');
     }
 }

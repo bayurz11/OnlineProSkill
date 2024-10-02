@@ -42,7 +42,7 @@
                                     @foreach ($course as $key => $courses)
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
-                                            <td>{{ $courses->nama_Bootcamp }}</td>
+                                            <td>{{ $courses->nama_kursus }}</td>
                                             <td>{{ $courses->user->name }}</td>
                                             <td>
                                                 @if ($courses->free)
