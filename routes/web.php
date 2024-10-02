@@ -27,6 +27,7 @@ use App\Http\Controllers\CourseMasterController;
 use App\Http\Controllers\KategoriBlogController;
 use App\Http\Controllers\SubcategoriesController;
 use App\Http\Controllers\AksesPembelianController;
+use App\Http\Controllers\BootcampsettingController;
 use App\Http\Controllers\KelasTatapMukaController;
 use App\Http\Controllers\NotifikasiUserController;
 use App\Http\Controllers\DashboardStudenController;
@@ -78,6 +79,9 @@ Route::middleware('isAdmin')->group(function () {
     Route::get('/Course/{id}/edit', [CourseMasterController::class, 'edit'])->name('Course.edit');
     Route::put('/Course/{id}', [CourseMasterController::class, 'update'])->name('Course.update');
     // Route::delete('/Course_destroy/{id}', [CourseMasterController::class, 'destroy'])->name('Course.destroy');
+
+    //Bootcamp
+    Route::get('/bootcampsetting', [BootcampsettingController::class, 'index'])->name('bootcampsetting');
 
     //Kelola Event
     Route::get('/kelola_event', [AdminEventController::class, 'index'])->name('kelola_event');

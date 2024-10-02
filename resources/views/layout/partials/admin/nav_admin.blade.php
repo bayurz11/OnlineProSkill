@@ -82,7 +82,7 @@
                 <div class="collapse" id="Bootcamp">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="{{ route('classroomsetting') }}" class="nav-link">Daftar Bootcamp</a>
+                            <a href="{{ route('bootcampsetting') }}" class="nav-link">Daftar Bootcamp</a>
                         </li>
                     </ul>
                 </div>
