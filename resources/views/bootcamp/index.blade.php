@@ -35,7 +35,7 @@
                             📝 Temukan lebih banyak informasi dan daftar di <b>Proskill Akademia!.</b>
                         </p>
                         <div class="banner__btn-wrap" data-aos="fade-right" data-aos-delay="800" style="margin-top: 20px;">
-                            <a href="{{ route('cart.checkout', ['id' => 17]) }}
+                            <a href="{{ route('cart_bootcamp.checkout', ['id' => 17]) }}
 " class="btn arrow-btn"
                                 style="font-size: 1rem; padding: 15px 25px;">Daftar
                                 Sekarang

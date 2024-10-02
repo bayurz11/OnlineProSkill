@@ -51,4 +51,28 @@ class BootcampController extends Controller
 
         return view('bootcamp.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'categori', 'KelasTatapMuka', 'event', 'blog', 'daftar_siswa', 'sertifikat'));
     }
+
+    public function show()
+    {
+        $categori = Categories::all();
+        $user = Auth::user();
+        $cart = Session::get('cart', []);
+        $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
+        $courses = KelasTatapMuka::whereIn('id', array_column($cart, 'id'))->get();
+
+        if ($courses->isEmpty() && !empty($cart)) {
+            return redirect()->route('cart.view')->with('info', 'Kelas tidak ditemukan.');
+        }
+
+        // Ambil notifikasi untuk pengguna yang sedang login
+        $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
+            ->orderBy('created_at', 'desc')
+            ->get()
+            : collect();
+
+        // Hitung jumlah notifikasi dengan status = 1
+        $notifikasiCount = $notifikasi->where('status', 1)->count();
+
+        return view('home.cart2', compact('user', 'categori', 'cart', 'profile', 'courses', 'notifikasiCount', 'notifikasi'));
+    }
 }
