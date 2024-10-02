@@ -73,7 +73,7 @@ class BootcampController extends Controller
 
         Session::put('cart', $cart);
 
-        return redirect()->route('cart.view');
+        return redirect()->route('cart_bootcamp.view');
     }
     public function show()
     {
