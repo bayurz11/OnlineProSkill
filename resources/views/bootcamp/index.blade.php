@@ -54,7 +54,7 @@
                         </div>
                         <div style="flex: 1; color: white; padding: 8px;">
                             <p style="margin-bottom: 10px;">Time</p>
-                            <p style="font-weight: bold;">4 hrs per week</p>
+                            <p style="font-weight: bold;">4 hrs/week</p>
                         </div>
                     </div>
 
