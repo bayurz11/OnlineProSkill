@@ -100,8 +100,15 @@
                     <div class="about__images">
                         <img src="public/assets/img/others/about_img.png" alt="img" class="main-img">
                         <img src="public/assets/img/others/about_shape.svg" alt="img" class="shape alltuchtopdown">
-                        <a href="https://www.youtube.com/watch?v=NwCzzvlDOmo" class="play-btn popup-video"><i
-                                class="fas fa-play"></i> </a>
+                        <a href="https://www.youtube.com/watch?v=hxpItadargI" class="play-btn popup-video">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="28" viewBox="0 0 22 28"
+                                fill="none">
+                                <path
+                                    d="M0.19043 26.3132V1.69421C0.190288 1.40603 0.245303 1.12259 0.350273 0.870694C0.455242 0.6188 0.606687 0.406797 0.79027 0.254768C0.973854 0.10274 1.1835 0.0157243 1.39936 0.00193865C1.61521 -0.011847 1.83014 0.0480663 2.02378 0.176003L20.4856 12.3292C20.6973 12.4694 20.8754 12.6856 20.9999 12.9535C21.1245 13.2214 21.1904 13.5304 21.1904 13.8456C21.1904 14.1608 21.1245 14.4697 20.9999 14.7376C20.8754 15.0055 20.6973 15.2217 20.4856 15.3619L2.02378 27.824C1.83056 27.9517 1.61615 28.0116 1.40076 27.9981C1.18536 27.9847 0.97607 27.8983 0.792638 27.7472C0.609205 27.596 0.457661 27.385 0.352299 27.1342C0.246938 26.8833 0.191236 26.6008 0.19043 26.3132Z"
+                                    fill="currentcolor" />
+                            </svg>
+                        </a>
+
                         {{-- <div class="about__enrolled" data-aos="fade-right" data-aos-delay="200">
                             <p class="title"><span>36K+</span> Enrolled Students</p>
                             <img src="public/assets/img/others/student_grp.png" alt="img">
@@ -470,4 +477,21 @@
         </div>
     </section>
     <!-- blog-area-end -->
+
+    <script>
+        $(document).ready(function() {
+            $('.popup-video').magnificPopup({
+                type: 'iframe',
+                iframe: {
+                    patterns: {
+                        youtube: {
+                            index: 'youtube.com/',
+                            id: 'v=',
+                            src: 'https://www.youtube.com/embed/%id%?autoplay=1'
+                        }
+                    }
+                }
+            });
+        });
+    </script>
 @endsection
