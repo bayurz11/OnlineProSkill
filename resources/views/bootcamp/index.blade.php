@@ -174,12 +174,11 @@
 
 
     <!-- fact-area -->
-    <section class="fact__area">
+    <section class="fact__area" data-aos="fade-top" data-aos-delay="800">
         <div class="container">
             <div class="fact__inner-wrap">
                 <div class="row">
                     <div class="col-lg-3 col-6">
-
                         <div class="features__item">
                             <div class="features__icon">
                                 <img src="public/assets/img/icons/features_icon01.svg" class="injectable" alt="img">
