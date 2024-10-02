@@ -71,11 +71,26 @@
                     </ul>
                 </div>
             </li>
-
+            <li class="nav-item nav-category">Bootcamp SETTING</li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#uiComponents" role="button" aria-expanded="false"
+                    aria-controls="uiComponents">
+                    <i class="link-icon" data-feather="book-open"></i>
+                    <span class="link-title">Kelola Bootcamp</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="uiComponents">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="{{ route('classroomsetting') }}" class="nav-link">Daftar Bootcamp</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
             <li class="nav-item nav-category">Kesiswaan</li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" role="button" aria-expanded="false"
-                    aria-controls="general-pages">
+                <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" role="button"
+                    aria-expanded="false" aria-controls="general-pages">
                     <i class="link-icon" data-feather="users"></i>
                     <span class="link-title">Kelola Siswa</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
