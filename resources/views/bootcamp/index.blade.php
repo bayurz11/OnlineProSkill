@@ -96,7 +96,7 @@
     <section class="about-area tg-motion-effects section-py-120">
         <div class="container">
             <div class="row align-items-center justify-content-center">
-                <div class="col-lg-6 col-md-9">
+                <div class="col-lg-6 col-md-9" data-aos="fade-right" data-aos-delay="600">
                     <div class="about__images">
                         <img src="public/assets/img/others/about_img.png" alt="img" class="main-img">
                         <img src="public/assets/img/others/about_shape.svg" alt="img" class="shape alltuchtopdown">
