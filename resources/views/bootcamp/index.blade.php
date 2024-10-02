@@ -117,10 +117,10 @@
                 <div class="col-lg-6">
                     <div class="about__content">
                         <div class="section__title">
-                            <span class="sub-title">Detail</span>
+                            <span class="sub-title" data-aos="fade-top" data-aos-delay="600">Detail</span>
                             <h2 class="title">
                                 Apa Yang Akan
-                                <span class="position-relative">
+                                <span class="position-relative" data-aos="fade-top" data-aos-delay="600">
                                     <svg x="0px" y="0px" preserveAspectRatio="none" viewBox="0 0 209 59" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -133,7 +133,7 @@
                             </h2>
                         </div>
 
-                        <ul class="about__info-list list-wrap">
+                        <ul class="about__info-list list-wrap" data-aos="fade-top" data-aos-delay="800">
                             <li class="about__info-list-item">
                                 <i class="flaticon-angle-right"></i>
                                 <p class="content">Mengumpulkan Data</p>
