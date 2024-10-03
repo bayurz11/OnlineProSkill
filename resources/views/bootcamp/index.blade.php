@@ -259,12 +259,7 @@
 
                     </div>
                     <div
-                        style="
-                        position: absolute; 
-                        bottom: 0; 
-                        left: 0; 
-                        right: 0; 
-                        height: 90px; 
+                        style=" position: absolute; bottom: 0; left: 0; right: 0; height: 90px; 
                         background: linear-gradient(to bottom, transparent, #F5F4F9);
                         z-index: 1;">
                     </div>
