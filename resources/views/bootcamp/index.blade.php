@@ -272,8 +272,7 @@
                             <span class="sub-title">Tanya Proskill Akademia</span>
                             <h2 class="title">Frequently Asked <br> Questions 😊</h2>
                         </div>
-                        <p>Groove’s intuitive shared inbox makes it easy for team members to organize, prioritize and.In
-                            this episode.</p>
+                        <br>
                         <div class="faq__wrap">
                             <div class="accordion" id="accordionExample">
                                 <div class="accordion-item">
