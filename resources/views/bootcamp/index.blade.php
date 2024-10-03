@@ -46,8 +46,8 @@
                     <div class="banner__content"
                         style="padding: 0; margin-top: 40px; display: flex; justify-content: space-between; align-items: center;">
                         <div style="flex: 8; color: white;  padding: 8px;">
-                            <p style="margin-bottom: 10px;  font-size: 1rem;">Available <b>Online</b> </p>
-                            <p style="font-size: 1rem;">and <b>In-person</b> </p>
+                            <p style="margin-bottom: 10px;  font-size: 1,1rem;">Available <b>Online</b> </p>
+                            <p style="font-size: 1,1rem;">and <b>In-person</b> </p>
                         </div>
 
                         <div style="border-left: 2px solid #007368; height: 50px; margin: 0 20px;"></div>
