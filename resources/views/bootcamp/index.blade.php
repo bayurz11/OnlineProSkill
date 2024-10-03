@@ -49,26 +49,36 @@
                             <p style="margin-bottom: 10px; font-weight: bold;">Available</p>
                             <p style="font-size: 1.2rem;">Online and In-person</p>
                         </div>
+
                         <div style="border-left: 2px solid #007368; height: 50px; margin: 0 20px;"></div>
+
                         <div style="flex: 1; color: white; text-align: center; padding: 8px;">
-                            <p style="margin-bottom: 10px;"><img src="path-to-live-icon.svg" alt="icon"
-                                    style="width: 28px; height: 28px;">Format</p>
+                            <p style="margin-bottom: 10px;">
+                                <img src="path-to-live-icon.svg" alt="icon"
+                                    style="width: 28px; height: 28px; vertical-align: middle; margin-right: 10px;">
+                                Format
+                            </p>
                             <p style="font-weight: bold;">Flexible</p>
                         </div>
+
                         <div style="border-left: 2px solid #007368; height: 50px; margin: 0 20px;"></div>
+
                         <div style="flex: 1; color: white; text-align: center; padding: 8px;">
-                            <p style="margin-bottom: 10px;"><img src="path-to-clock-icon.svg" alt="icon"
-                                    style="width: 28px; height: 28px;">Per Week</p>
+                            <p style="margin-bottom: 10px;">
+                                <img src="path-to-clock-icon.svg" alt="icon"
+                                    style="width: 28px; height: 28px; vertical-align: middle; margin-right: 10px;">
+                                Per Week
+                            </p>
                             <p style="font-weight: bold;">6 - 9 hrs</p>
                         </div>
+
                         <div style="border-left: 2px solid #007368; height: 50px; margin: 0 20px;"></div>
+
                         <div style="flex: 1; color: white; text-align: center; padding: 8px;">
                             <p style="margin-bottom: 10px;">In demand</p>
                             <p style="font-weight: bold;">tools & skills</p>
                         </div>
                     </div>
-
-
 
                 </div>
 
