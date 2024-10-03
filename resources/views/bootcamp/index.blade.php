@@ -63,7 +63,7 @@
 
                         <div style="border-left: 2px solid #007368; height: 50px; margin: 0 20px;"></div>
 
-                        <div style="flex: 1; color: white; text-align: center; padding: 8px;">
+                        <div style="flex: 6; color: white; text-align: center; padding: 8px;">
                             <p style="margin-bottom: 10px;">
                                 <img src="path-to-clock-icon.svg" alt="icon"
                                     style="width: 28px; height: 28px; vertical-align: middle; margin-right: 10px;">
@@ -74,7 +74,7 @@
 
                         <div style="border-left: 2px solid #007368; height: 50px; margin: 0 20px;"></div>
 
-                        <div style="flex: 1; color: white; text-align: center; padding: 8px;">
+                        <div style="flex: 6; color: white; text-align: center; padding: 8px;">
                             <p style="margin-bottom: 10px;">In demand</p>
                             <p style="font-weight: bold;">tools & skills</p>
                         </div>
