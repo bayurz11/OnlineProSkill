@@ -45,14 +45,14 @@
                     </div>
                     <div class="banner__content"
                         style="padding: 0; margin-top: 40px; display: flex; justify-content: space-between; align-items: center;">
-                        <div style="flex: 8; color: white;  padding: 8px;">
+                        <div style="flex: 6; color: white;  padding: 8px;">
                             <p style="margin-bottom: 10px;  font-size: 1rem;">Available <b>Online</b> </p>
                             <p style="font-size: 1rem;">and <b>In-person</b> </p>
                         </div>
 
                         <div style="border-left: 2px solid #007368; height: 50px; margin: 0 20px;"></div>
 
-                        <div style="flex: 8; color: white; text-align: center; padding: 8px;">
+                        <div style="flex: 6; color: white; text-align: center; padding: 8px;">
                             <p style="margin-bottom: 10px;">
                                 <img src="public/assets/img/icons/path-to-live-icon.svg" alt="icon"
                                     style="width: 28px; height: 28px; vertical-align: middle; margin-right: 10px;">
