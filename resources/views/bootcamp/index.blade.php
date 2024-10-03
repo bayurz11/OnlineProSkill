@@ -261,7 +261,7 @@
                     <div
                         style="
                         position: absolute; 
-                        bottom: 1px; 
+                        bottom: -4px; 
                         left: 0; 
                         right: 0; 
                         height: 100px; 
