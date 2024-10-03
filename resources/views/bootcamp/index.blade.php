@@ -52,7 +52,7 @@
 
                         <div style="border-left: 2px solid #007368; height: 50px; margin: 0 20px;"></div>
 
-                        <div style="flex: 1; color: white; text-align: center; padding: 8px;">
+                        <div style="flex: 8; color: white; text-align: center; padding: 8px;">
                             <p style="margin-bottom: 10px;">
                                 <img src="public/assets/img/icons/path-to-live-icon.svg" alt="icon"
                                     style="width: 28px; height: 28px; vertical-align: middle; margin-right: 10px;">
