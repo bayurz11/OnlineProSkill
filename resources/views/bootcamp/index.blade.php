@@ -194,7 +194,7 @@
 
 
     <!-- fact-area -->
-    <section class="fact__area">
+    <section class="fact__area" data-aos="fade-right" data-aos-delay="800">
         <div class="container">
             <div class="fact__inner-wrap">
                 <div class="row">
