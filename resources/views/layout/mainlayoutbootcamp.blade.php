@@ -173,7 +173,7 @@
     <script src="{{ asset('public/assets/js/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('public/assets/js/jquery.marquee.min.js') }}"></script>
     <script src="{{ asset('public/assets/js/tg-cursor.min.js') }}"></script>
-    <script src="{{ asset('public/assets/js/vivus.min.js') }}"></script>
+    {{-- <script src="{{ asset('public/assets/js/vivus.min.js') }}"></script> --}}
     <script src="{{ asset('public/assets/js/ajax-form.js') }}"></script>
     <script src="{{ asset('public/assets/js/svg-inject.min.js') }}"></script>
     <script src="{{ asset('public/assets/js/jquery.circleType.js') }}"></script>
@@ -182,8 +182,6 @@
     <script src="{{ asset('public/assets/js/wow.min.js') }}"></script>
     <script src="{{ asset('public/assets/js/aos.js') }}"></script>
     <script src="{{ asset('public/assets/js/main.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
     <script>
         SVGInject(document.querySelectorAll("img.injectable"));
     </script>
