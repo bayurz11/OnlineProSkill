@@ -280,7 +280,7 @@
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#collapseOne" aria-expanded="true"
                                             aria-controls="collapseOne">
-                                            What’s Skillgrow Want to give you?
+                                            Apakah Seorang Pemula Bisa Mengikuti Bootcamp ini?
                                         </button>
                                     </h2>
                                     <div id="collapseOne" class="accordion-collapse collapse show"
