@@ -261,11 +261,11 @@
                     <div
                         style="
                         position: absolute; 
-                        bottom: -6px; 
+                        bottom: 0; 
                         left: 0; 
                         right: 0; 
-                        height: 100px; 
-                        background: linear-gradient(to bottom, transparent, #f2f1f7); /* Sesuaikan dengan warna background */
+                        height: 90px; 
+                        background: linear-gradient(to bottom, transparent, #f4f3f9); /* Sesuaikan dengan warna background */
                         z-index: 1;">
                     </div>
                 </div>
