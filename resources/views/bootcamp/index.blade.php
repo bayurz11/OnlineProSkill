@@ -250,12 +250,12 @@
     <section class="faq__area">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="600">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-delay="600">
                     <div class="banner__images">
-                        <img src="public/assets/img/banner/man.png" alt="img" class="main-img" data-aos="fade-left"
-                            data-aos-delay="800">
+                        <img src="public/assets/img/banner/man.png" alt="img" class="main-img"
+                            data-aos="fade-right" data-aos-delay="800">
                         <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme"
-                            data-aos="fade-left" data-aos-delay="600">
+                            data-aos="fade-right" data-aos-delay="600">
 
                     </div>
                     <div
