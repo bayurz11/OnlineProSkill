@@ -203,7 +203,7 @@
                             </div>
                             <div class="features__content">
                                 <h4 class="title">Instruktur Berpengalaman</h4>
-                                <p>Curate anding area share Pluralsight content to reach your</p>
+                                <p>Dibimbing Langsung oleh Instruktur Berpengalaman di Bidangnya</p>
                             </div>
                         </div>
                     </div>
@@ -214,7 +214,7 @@
                             </div>
                             <div class="features__content">
                                 <h4 class="title">Materi Video</h4>
-                                <p>Curate anding area share Pluralsight content to reach your</p>
+                                <p>Disediakan Materi Video untuk Peserta Bootccamp</p>
                             </div>
                         </div>
                     </div>
@@ -225,7 +225,7 @@
                             </div>
                             <div class="features__content">
                                 <h4 class="title">Sertifikat Penyelesaian</h4>
-                                <p>Curate anding area share Pluralsight content to reach your</p>
+                                <p>Mendaptakan Sertifikat Setelah Menyelesaikan Bootcamp</p>
                             </div>
                         </div>
                     </div>
@@ -235,8 +235,8 @@
                                 <img src="public/assets/img/icons/features_icon04.svg" class="injectable" alt="img">
                             </div>
                             <div class="features__content">
-                                <h4 class="title">E-mail Marketing</h4>
-                                <p>Curate anding area share Pluralsight content to reach your</p>
+                                <h4 class="title">E-mail Profesional</h4>
+                                <p>Disediakan Email Profesional untuk Peserta Bootcamp</p>
                             </div>
                         </div>
                     </div>
