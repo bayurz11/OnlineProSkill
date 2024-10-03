@@ -214,7 +214,7 @@
                             </div>
                             <div class="features__content">
                                 <h4 class="title">Materi Video</h4>
-                                <p>Disediakan Materi Video untuk Peserta Bootccamp</p>
+                                <p>Disediakan Juga Materi Video untuk Peserta Bootccamp</p>
                             </div>
                         </div>
                     </div>
