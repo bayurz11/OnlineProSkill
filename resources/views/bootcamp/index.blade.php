@@ -6,7 +6,7 @@
 @section('content')
 
     <!-- banner-area -->
-    <section class="banner-area banner-bg tg-motion-effects" data-background="public/assets/img/banner/banner_bg.png"
+    <section class="banner-area banner-bg tg-motion-effects"
         style="min-height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center;">
         <div class="container" style="width: 90%; max-width: 1200px; padding-left: 5%; padding-right: 5%; height: auto;">
             <div class="row justify-content-between align-items-start" style="display: flex; flex-wrap: wrap;">
