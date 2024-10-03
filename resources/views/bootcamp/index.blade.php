@@ -266,7 +266,7 @@
                         left: 0; 
                         right: 0; 
                         height: 90px; 
-                        background: linear-gradient(to bottom, transparent, #F4F3F9); /* Sesuaikan dengan warna background */
+                        background: linear-gradient(to bottom, transparent, #ebeaf0); /* Sesuaikan dengan warna background */
                         z-index: 1;">
                     </div>
                 </div>
