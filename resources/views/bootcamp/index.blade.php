@@ -51,15 +51,7 @@
                                 <p style="margin: 0; font-size: 0.9rem;"><b>5 Weeks</b></p>
                             </div>
                         </div>
-                        <div style="border-left: 2px solid #007368; height: 50px; margin: 0 20px;"></div>
-                        <div style="display: flex; align-items: center;">
-                            <img src="public/assets/img/icons/path-to-live-icon.svg" alt="Format Icon"
-                                style="width: 42px; height: 42px; vertical-align: middle; margin-right: 10px;">
-                            <div>
-                                <p style="margin: 0; font-size: 0.9rem;">Format</p>
-                                <p style="margin: 0; font-weight: bold; font-size: 0.9rem;">Flexible</p>
-                            </div>
-                        </div>
+
                         <div style="border-left: 2px solid #007368; height: 50px; margin: 0 20px;"></div>
                         <div style="display: flex; align-items: center;">
                             <img src="public/assets/img/icons/clock.svg" alt="Clock Icon"
@@ -67,6 +59,15 @@
                             <div>
                                 <p style="margin: 0; font-size: 0.9rem;">Per Week</p>
                                 <p style="margin: 0; font-weight: bold; font-size: 0.9rem;">2 - 4 hrs</p>
+                            </div>
+                        </div>
+                        <div style="border-left: 2px solid #007368; height: 50px; margin: 0 20px;"></div>
+                        <div style="display: flex; align-items: center;">
+                            <img src="public/assets/img/icons/path-to-live-icon.svg" alt="Format Icon"
+                                style="width: 42px; height: 42px; vertical-align: middle; margin-right: 10px;">
+                            <div>
+                                <p style="margin: 0; font-size: 0.9rem;">Format</p>
+                                <p style="margin: 0; font-weight: bold; font-size: 0.9rem;">Flexible</p>
                             </div>
                         </div>
                         <div style="border-left: 2px solid #007368; height: 50px; margin: 0 20px;"></div>
