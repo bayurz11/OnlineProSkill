@@ -54,7 +54,7 @@
                         <div style="border-left: 2px solid #007368; height: 50px; margin: 0 20px;"></div>
                         <div style="display: flex; align-items: center;">
                             <img src="public/assets/img/icons/path-to-live-icon.svg" alt="Format Icon"
-                                style="width: 30px; height: 30px; vertical-align: middle; margin-right: 10px;">
+                                style="width: 38px; height: 38px; vertical-align: middle; margin-right: 10px;">
                             <div>
                                 <p style="margin: 0; font-size: 0.9rem;">Format</p>
                                 <p style="margin: 0; font-weight: bold; font-size: 0.9rem;">Flexible</p>
