@@ -260,7 +260,7 @@
                     </div>
                     <div
                         style=" position: absolute; bottom: 0; left: 0; right: 0; height: 90px; 
-                        background: linear-gradient(to bottom, transparent, #f5f4f9);
+                        background: linear-gradient(to bottom, transparent, #f5f3f9);
                         z-index: 1;">
                     </div>
                 </div>
