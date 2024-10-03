@@ -105,7 +105,7 @@
                 </div>
             </div>
         </div>
-        <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="line-shape" data-aos="fade-right"
+        <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme" data-aos="fade-right"
             data-aos-delay="1000" style="max-width: 20%; height: auto; position: absolute; z-index: -1;">
 
     </section>
