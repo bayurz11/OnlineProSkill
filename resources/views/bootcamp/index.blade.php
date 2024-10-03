@@ -251,19 +251,23 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6" data-aos="fade-right" data-aos-delay="600">
-                    <div class="faq__img-wrap tg-svg">
+                    <div class="banner__images">
+                        <img src="public/assets/img/banner/man.png" alt="img" class="main-img" data-aos="fade-left"
+                            data-aos-delay="800">
 
-                        <div class="faq__img">
-                            <img src="public/assets/img/others/faq_img.png" alt="img">
-                            <div class="shape-one">
-                                <img src="public/assets/img/others/faq_shape01.svg" class="injectable tg-motion-effects4"
-                                    alt="img">
-                            </div>
-                            <div class="shape-two">
-                                <span class="svg-icon" id="faq-svg"
-                                    data-svg-icon="public/assets/img/others/faq_shape02.svg"></span>
-                            </div>
-                        </div>
+                        <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme"
+                            data-aos="fade-left" data-aos-delay="600">
+
+                    </div>
+                    <div
+                        style="
+                        position: absolute; 
+                        bottom: 0; 
+                        left: 0; 
+                        right: 0; 
+                        height: 90px; 
+                        background: linear-gradient(to bottom, transparent, white); /* Sesuaikan dengan warna background */
+                        z-index: 1;">
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left" data-aos-delay="800">
