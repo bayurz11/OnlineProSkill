@@ -47,8 +47,6 @@
 
                         <!-- Section 1: Available Online and In-person -->
                         <div style="display: flex; align-items: center;">
-                            <img src="path-to-live-icon.svg" alt="Live Stream Icon"
-                                style="width: 28px; height: 28px; vertical-align: middle; margin-right: 10px;">
                             <div>
                                 <p style="margin: 0; font-size: 0.9rem;">Available <b>Online</b></p>
                                 <p style="margin: 0; font-size: 0.9rem;">and <b>In-person</b></p>
