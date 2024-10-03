@@ -298,7 +298,7 @@
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
                                             aria-controls="collapseTwo">
-                                            Apa Saja Persyaratan Untuk Mengikuti Bootcamp ini?
+                                            apa Persyaratan Untuk Mengikuti Bootcamp ini?
                                         </button>
                                     </h2>
                                     <div id="collapseTwo" class="accordion-collapse collapse"
