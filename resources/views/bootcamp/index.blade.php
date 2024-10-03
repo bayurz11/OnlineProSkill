@@ -43,44 +43,57 @@
                             </a>
                         </div>
                     </div>
-                    <div class="banner__content"
-                        style="padding: 0; margin-top: 40px; display: flex; justify-content: space-between; align-items: center;">
-                        <div style="flex: 6; color: white;  padding: 8px;">
-                            <p style="margin-bottom: 8px;  font-size: 0.9rem;">Available <b>Online</b> </p>
-                            <p style="font-size: 0.9rem;">and <b>In-person</b> </p>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+
+                        <!-- Section 1: Available Online and In-person -->
+                        <div style="display: flex; align-items: center;">
+                            <img src="path-to-live-icon.svg" alt="Live Stream Icon"
+                                style="width: 28px; height: 28px; vertical-align: middle; margin-right: 10px;">
+                            <div>
+                                <p style="margin: 0; font-size: 0.9rem;">Available <b>Online</b></p>
+                                <p style="margin: 0; font-size: 0.9rem;">and <b>In-person</b></p>
+                            </div>
                         </div>
 
+                        <!-- Divider -->
                         <div style="border-left: 2px solid #007368; height: 50px; margin: 0 20px;"></div>
 
-                        <div style="flex: 6; color: white; text-align: center; padding: 8px;">
-                            <p style="margin-bottom: 10px; font-size: 0.9rem;">
-                                <img src="public/assets/img/icons/path-to-live-icon.svg" alt="icon"
-                                    style="width: 28px; height: 28px; vertical-align: middle; margin-right: 10px;">
-                                Format
-                            </p>
-                            <p style="font-weight: bold; font-size: 0.9rem;">Flexible</p>
+                        <!-- Section 2: Format Flexible -->
+                        <div style="display: flex; align-items: center;">
+                            <img src="path-to-live-icon.svg" alt="Format Icon"
+                                style="width: 28px; height: 28px; vertical-align: middle; margin-right: 10px;">
+                            <div>
+                                <p style="margin: 0; font-size: 0.9rem;">Format</p>
+                                <p style="margin: 0; font-weight: bold; font-size: 0.9rem;">Flexible</p>
+                            </div>
                         </div>
 
+                        <!-- Divider -->
                         <div style="border-left: 2px solid #007368; height: 50px; margin: 0 20px;"></div>
 
-                        <div style="flex: 6; color: white; text-align: center; padding: 8px;">
-                            <p style="margin-bottom: 10px; font-size: 0.9rem;">
-                                <img src="public/assets/img/icons/clock.svg" alt="icon"
-                                    style="width: 28px; height: 28px; vertical-align: middle; margin-right: 10px;">
-                                Per Week
-                            </p>
-                            <p style="font-weight: bold; font-size: 0.9rem;">6 - 9 hrs</p>
+                        <!-- Section 3: Per Week 6 - 9 hrs -->
+                        <div style="display: flex; align-items: center;">
+                            <img src="clock.svg" alt="Clock Icon"
+                                style="width: 28px; height: 28px; vertical-align: middle; margin-right: 10px;">
+                            <div>
+                                <p style="margin: 0; font-size: 0.9rem;">Per Week</p>
+                                <p style="margin: 0; font-weight: bold; font-size: 0.9rem;">6 - 9 hrs</p>
+                            </div>
                         </div>
 
+                        <!-- Divider -->
                         <div style="border-left: 2px solid #007368; height: 50px; margin: 0 20px;"></div>
 
-                        <div style="flex: 6; color: white; text-align: center; padding: 8px;">
-                            <p style="margin-bottom: 10px; font-size: 0.9rem;">In demand</p>
-                            <p style="font-weight: bold; font-size: 0.9rem;">tools & skills<img
-                                    src="public/assets/img/icons/clock.svg" alt="icon"
-                                    style="width: 28px; height: 28px; vertical-align: middle; margin-right: 10px;"></p>
-
+                        <!-- Section 4: In-demand Tools & Skills -->
+                        <div style="display: flex; align-items: center;">
+                            <img src="tools.svg" alt="Tools Icon"
+                                style="width: 28px; height: 28px; vertical-align: middle; margin-right: 10px;">
+                            <div>
+                                <p style="margin: 0; font-size: 0.9rem;">In demand</p>
+                                <p style="margin: 0; font-weight: bold; font-size: 0.9rem;">Tools & Skills</p>
+                            </div>
                         </div>
+
                     </div>
 
                 </div>
