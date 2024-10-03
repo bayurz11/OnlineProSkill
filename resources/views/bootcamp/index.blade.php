@@ -106,7 +106,8 @@
             </div>
         </div>
         <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="line-shape" data-aos="fade-right"
-            data-aos-delay="1000" style="max-width: 25%; height: auto; z-index: 0;">
+            data-aos-delay="1000" style="max-width: 25%; height: auto; position: absolute; z-index: -1;">
+
     </section>
     <!-- banner-area-end -->
 
