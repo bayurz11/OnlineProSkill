@@ -269,8 +269,8 @@
                 <div class="col-lg-6" data-aos="fade-left" data-aos-delay="800">
                     <div class="faq__content">
                         <div class="section__title pb-10">
-                            <span class="sub-title">Faq’s</span>
-                            <h2 class="title">Start Learning From <br> World’s Pro Instructors</h2>
+                            <span class="sub-title">Tanya Proskill Akademia</span>
+                            <h2 class="title">Frequently Asked <br> Questions 😊</h2>
                         </div>
                         <p>Groove’s intuitive shared inbox makes it easy for team members to organize, prioritize and.In
                             this episode.</p>
