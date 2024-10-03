@@ -10,7 +10,7 @@
         style="min-height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center;">
         <div class="container" style="width: 90%; max-width: 1200px; padding-left: 5%; padding-right: 5%; height: auto;">
             <div class="row justify-content-between align-items-start" style="display: flex; flex-wrap: wrap;">
-                <div class="col-xl-8 col-lg-8 col-md-12" style="flex: 1; padding-left: 0;">
+                <div class="col-xl-12 col-lg-12 col-md-12" style="flex: 1; padding-left: 0;">
                     <img src="{{ asset('public/assets/img/logo/logo.svg') }}" alt="Logo" data-aos-delay="400"
                         style="display: block; margin-bottom: 20px;">
                     <div class="banner__content" style="padding: 0;">
