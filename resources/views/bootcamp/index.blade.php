@@ -250,7 +250,7 @@
     <section class="faq__area">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6" data-aos="fade-right" data-aos-delay="600">
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="600">
                     <div class="banner__images">
                         <img src="public/assets/img/banner/man.png" alt="img" class="main-img" data-aos="fade-left"
                             data-aos-delay="800">
@@ -260,7 +260,7 @@
                     </div>
                     <div
                         style=" position: absolute; bottom: 0; left: 0; right: 0; height: 90px; 
-                        background: linear-gradient(to bottom, transparent, #F5F4F9);
+                        background: linear-gradient(to bottom, transparent, #f5f4f9);
                         z-index: 1;">
                     </div>
                 </div>
