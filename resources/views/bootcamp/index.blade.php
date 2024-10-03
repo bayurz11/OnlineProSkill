@@ -224,7 +224,7 @@
                                 <img src="public/assets/img/icons/features_icon03.svg" class="injectable" alt="img">
                             </div>
                             <div class="features__content">
-                                <h4 class="title">Get Online Certificate</h4>
+                                <h4 class="title">Sertifikat Penyelesaian</h4>
                                 <p>Curate anding area share Pluralsight content to reach your</p>
                             </div>
                         </div>
