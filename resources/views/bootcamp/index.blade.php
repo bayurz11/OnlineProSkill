@@ -76,9 +76,10 @@
 
                         <div style="flex: 6; color: white; text-align: center; padding: 8px;">
                             <p style="margin-bottom: 10px; font-size: 0.9rem;">In demand</p>
-                            <p style="font-weight: bold; font-size: 0.9rem;">tools & skills</p>
-                            <img src="public/assets/img/icons/clock.svg" alt="icon"
-                                style="width: 28px; height: 28px; vertical-align: middle; margin-right: 10px;">
+                            <p style="font-weight: bold; font-size: 0.9rem;">tools & skills<img
+                                    src="public/assets/img/icons/clock.svg" alt="icon"
+                                    style="width: 28px; height: 28px; vertical-align: middle; margin-right: 10px;"></p>
+
                         </div>
                     </div>
 
