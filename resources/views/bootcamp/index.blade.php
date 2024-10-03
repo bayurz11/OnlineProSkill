@@ -316,7 +316,7 @@
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#collapseThree"
                                             aria-expanded="false" aria-controls="collapseThree">
-                                            How We Provide Service For you?
+                                            Berapa Lama Waktu Bootcamp ini?
                                         </button>
                                     </h2>
                                     <div id="collapseThree" class="accordion-collapse collapse"
@@ -334,7 +334,7 @@
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#collapseFour"
                                             aria-expanded="false" aria-controls="collapseFour">
-                                            Are you Affordable For Your Course
+                                            Apakah Tersedia Komunitas Belajar?
                                         </button>
                                     </h2>
                                     <div id="collapseFour" class="accordion-collapse collapse"
