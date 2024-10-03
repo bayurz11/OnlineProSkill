@@ -54,7 +54,7 @@
 
                         <div style="flex: 1; color: white; text-align: center; padding: 8px;">
                             <p style="margin-bottom: 10px;">
-                                <img src="path-to-live-icon.svg" alt="icon"
+                                <img src="public/assets/img/icons/path-to-live-icon.svg" alt="icon"
                                     style="width: 28px; height: 28px; vertical-align: middle; margin-right: 10px;">
                                 Format
                             </p>
