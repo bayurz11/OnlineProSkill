@@ -260,7 +260,7 @@
                     </div>
                     <div
                         style=" position: absolute; bottom: 0; left: 0; right: 0; height: 90px; 
-                        background: linear-gradient(to bottom, transparent, #E9E2F9);
+                        background: linear-gradient(to bottom, transparent, #E9E2F9); filter: blur(200px)
                         z-index: 1;">
                     </div>
                 </div>
