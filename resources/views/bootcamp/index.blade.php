@@ -11,7 +11,7 @@
         <div class="container" style="width: 90%; max-width: 1200px; padding-left: 5%; padding-right: 5%; height: auto;">
             <div class="row justify-content-between align-items-start" style="display: flex; flex-wrap: wrap;">
                 <div class="col-xl-12 col-lg-12 col-md-12" style="flex: 1; padding-left: 0;">
-                    <img src="{{ asset('public/assets/img/logo/logo.svg') }}" alt="Logo" data-aos-delay="400"
+                    <img src="{{ asset('public/assets/img/logo/logo.svg') }}" alt="Logo" data-aos-delay="800"
                         style="display: block; margin-bottom: 20px;">
                     <div class="banner__content" style="padding: 0;">
                         <h3 class="title tg-svg" data-aos="fade-right" data-aos-delay="400"
@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center; " data-aos="fade-top"
-                        data-aos-delay="600">
+                        data-aos-delay="800">
                         <div style="display: flex; align-items: center;">
                             <div>
                                 <p style="margin: 0; font-size: 0.9rem;">Available <b>Online</b></p>
