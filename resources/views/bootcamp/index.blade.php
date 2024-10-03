@@ -65,8 +65,8 @@
                             <img src="public/assets/img/icons/clock.svg" alt="Clock Icon"
                                 style="width: 28px; height: 28px; vertical-align: middle; margin-right: 10px;">
                             <div>
-                                <p style="margin: 0; font-size: 0.9rem;">Per Week</p>
-                                <p style="margin: 0; font-weight: bold; font-size: 0.9rem;">2 - 4 hrs</p>
+                                <p style="margin: 0; font-size: 0.9rem;">Duration</p>
+                                <p style="margin: 0; font-weight: bold; font-size: 0.9rem;">5 Weeks</p>
                             </div>
                         </div>
                         <div style="border-left: 2px solid #007368; height: 50px; margin: 0 20px;"></div>
