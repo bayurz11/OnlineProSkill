@@ -112,7 +112,6 @@
     </section>
     <!-- banner-area-end -->
 
-
     <!-- about-area -->
     <section class="about-area tg-motion-effects section-py-120">
         <div class="container">
@@ -203,7 +202,7 @@
                                 <img src="public/assets/img/icons/features_icon01.svg" class="injectable" alt="img">
                             </div>
                             <div class="features__content">
-                                <h4 class="title">Learn with Experts</h4>
+                                <h4 class="title">Instruktur Berpengalaman</h4>
                                 <p>Curate anding area share Pluralsight content to reach your</p>
                             </div>
                         </div>
@@ -214,7 +213,7 @@
                                 <img src="public/assets/img/icons/features_icon02.svg" class="injectable" alt="img">
                             </div>
                             <div class="features__content">
-                                <h4 class="title">Learn Anything</h4>
+                                <h4 class="title">Materi Video</h4>
                                 <p>Curate anding area share Pluralsight content to reach your</p>
                             </div>
                         </div>
