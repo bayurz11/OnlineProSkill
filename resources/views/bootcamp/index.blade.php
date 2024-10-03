@@ -43,25 +43,31 @@
                             </a>
                         </div>
                     </div>
-                    <div class="banner__content" data-aos-delay="800" data-aos="fade-top"
+                    <div class="banner__content"
                         style="padding: 0; margin-top: 40px; display: flex; justify-content: space-between; align-items: center;">
-                        <div style="flex: 1; color: white; padding: 8px; ">
-                            <p style="margin-bottom: 10px;">
-                                Date</p>
-                            <p style="font-weight: bold;">Sept 21</p>
+                        <div style="flex: 1; color: white; text-align: center; padding: 8px;">
+                            <p style="margin-bottom: 10px; font-weight: bold;">Available</p>
+                            <p style="font-size: 1.2rem;">Online and In-person</p>
                         </div>
                         <div style="border-left: 2px solid #007368; height: 50px; margin: 0 20px;"></div>
-                        <div style="flex: 1; color: white; padding: 8px; ">
-                            <p style="margin-bottom: 10px;"><img src="public/assets/img/icons/clock.svg" alt="icon"
-                                    style="width: 28px; height: 28px;">Duration</p>
-                            <p style="font-weight: bold;">5 Weeks</p>
+                        <div style="flex: 1; color: white; text-align: center; padding: 8px;">
+                            <p style="margin-bottom: 10px;"><img src="path-to-live-icon.svg" alt="icon"
+                                    style="width: 28px; height: 28px;">Format</p>
+                            <p style="font-weight: bold;">Flexible</p>
                         </div>
                         <div style="border-left: 2px solid #007368; height: 50px; margin: 0 20px;"></div>
-                        <div style="flex: 1; color: white; padding: 8px; ">
-                            <p style="margin-bottom: 10px;">Time</p>
-                            <p style="font-weight: bold;">4 hrs/week</p>
+                        <div style="flex: 1; color: white; text-align: center; padding: 8px;">
+                            <p style="margin-bottom: 10px;"><img src="path-to-clock-icon.svg" alt="icon"
+                                    style="width: 28px; height: 28px;">Per Week</p>
+                            <p style="font-weight: bold;">6 - 9 hrs</p>
+                        </div>
+                        <div style="border-left: 2px solid #007368; height: 50px; margin: 0 20px;"></div>
+                        <div style="flex: 1; color: white; text-align: center; padding: 8px;">
+                            <p style="margin-bottom: 10px;">In demand</p>
+                            <p style="font-weight: bold;">tools & skills</p>
                         </div>
                     </div>
+
 
 
                 </div>
