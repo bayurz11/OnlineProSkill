@@ -65,7 +65,7 @@
 
                         <div style="flex: 6; color: white; text-align: center; padding: 8px;">
                             <p style="margin-bottom: 10px; font-size: 0.9rem;">
-                                <img src="path-to-clock-icon.svg" alt="icon"
+                                <img src="clock.svg" alt="icon"
                                     style="width: 28px; height: 28px; vertical-align: middle; margin-right: 10px;">
                                 Per Week
                             </p>
