@@ -254,9 +254,8 @@
                     <div class="banner__images">
                         <img src="public/assets/img/banner/man.png" alt="img" class="main-img" data-aos="fade-left"
                             data-aos-delay="800">
-
-                        <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme"
-                            data-aos="fade-left" data-aos-delay="600">
+                        <img src="public/assets/img/banner/banner_shape02.png" alt="shape"
+                            class="shape bg-dots rotateme" data-aos="fade-left" data-aos-delay="600">
 
                     </div>
                     <div
