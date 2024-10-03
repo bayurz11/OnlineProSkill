@@ -53,7 +53,7 @@
                         </div>
                         <div style="border-left: 2px solid #007368; height: 50px; margin: 0 20px;"></div>
                         <div style="display: flex; align-items: center;">
-                            <img src="path-to-live-icon.svg" alt="Format Icon"
+                            <img src="public/assets/img/icons/path-to-live-icon.svg" alt="Format Icon"
                                 style="width: 28px; height: 28px; vertical-align: middle; margin-right: 10px;">
                             <div>
                                 <p style="margin: 0; font-size: 0.9rem;">Format</p>
@@ -62,7 +62,7 @@
                         </div>
                         <div style="border-left: 2px solid #007368; height: 50px; margin: 0 20px;"></div>
                         <div style="display: flex; align-items: center;">
-                            <img src="clock.svg" alt="Clock Icon"
+                            <img src="public/assets/img/icons/clock.svg" alt="Clock Icon"
                                 style="width: 28px; height: 28px; vertical-align: middle; margin-right: 10px;">
                             <div>
                                 <p style="margin: 0; font-size: 0.9rem;">Per Week</p>
@@ -75,7 +75,7 @@
                                 <p style="margin: 0; font-size: 0.9rem;">In demand</p>
                                 <p style="margin: 0; font-weight: bold; font-size: 0.9rem;">Tools & Skills</p>
                             </div>
-                            <img src="tools.svg" alt="Tools Icon"
+                            <img src="public/assets/img/icons/tools.svg" alt="Tools Icon"
                                 style="width: 28px; height: 28px; vertical-align: middle; margin-right: 10px;">
                         </div>
 
