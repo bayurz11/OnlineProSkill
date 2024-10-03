@@ -12,7 +12,7 @@
             <div class="row justify-content-between align-items-start" style="display: flex; flex-wrap: wrap;">
                 <div class="col-xl-12 col-lg-12 col-md-12" style="flex: 1; padding-left: 0;">
                     <img src="{{ asset('public/assets/img/logo/logo.svg') }}" alt="Logo" data-aos-delay="400"
-                        style="display: block; margin-bottom: 20px;  z-index: 20;">
+                        style="display: block; margin-bottom: 20px;  z-index: 50;">
                     <div class="banner__content" style="padding: 0;">
                         <h3 class="title tg-svg" data-aos="fade-right" data-aos-delay="400"
                             style="font-size: 2.5rem; line-height: 1.2; margin-left: 0;">
