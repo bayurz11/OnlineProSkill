@@ -82,7 +82,7 @@
 
                 </div>
 
-                <div class="col-lg-4" style="position: relative;">
+                <div class="col-lg-5" style="position: relative;">
                     <div class="banner__images">
                         <img src="public/assets/img/banner/man.png" alt="img" class="main-img" data-aos="fade-left"
                             data-aos-delay="800">
