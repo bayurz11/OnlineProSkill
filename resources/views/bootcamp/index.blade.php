@@ -75,7 +75,7 @@
                                 <p style="margin: 0; font-size: 0.9rem;">In demand</p>
                                 <p style="margin: 0; font-weight: bold; font-size: 0.9rem;">Tools & Skills</p>
                             </div>
-                            <img src="public/assets/img/icons/tools.svg" alt="Tools Icon"
+                            <img src="public/assets/img/icons/power-bi.png" alt="Tools Icon"
                                 style="width: 28px; height: 28px; vertical-align: middle; margin-right: 10px;">
                         </div>
 
