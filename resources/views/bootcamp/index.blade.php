@@ -191,8 +191,6 @@
     </section>
     <!-- about-area-end -->
 
-
-
     <!-- fact-area -->
     <section class="fact__area">
         <div class="container">
@@ -358,100 +356,6 @@
         </div>
     </section>
     <!-- faq-area-end -->
-
-    <!-- blog-area -->
-    <section class="blog__post-area">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="section__title text-center mb-40">
-                        <span class="sub-title">News & Blogs</span>
-                        <h2 class="title">Our Latest News Feed</h2>
-                        <p>when known printer took a galley of type scrambl edmake</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row gutter-20">
-                <div class="col-xl-3 col-md-6">
-                    <div class="blog__post-item shine__animate-item">
-                        <div class="blog__post-thumb">
-                            <a href="blog-details.html" class="shine__animate-link"><img
-                                    src="public/assets/img/blog/blog_post01.jpg" alt="img"></a>
-                            <a href="blog.html" class="post-tag">Marketing</a>
-                        </div>
-                        <div class="blog__post-content">
-                            <div class="blog__post-meta">
-                                <ul class="list-wrap">
-                                    <li><i class="flaticon-calendar"></i>20 July, 2024</li>
-                                    <li><i class="flaticon-user-1"></i>by <a href="blog-details.html">Admin</a></li>
-                                </ul>
-                            </div>
-                            <h4 class="title"><a href="blog-details.html">How To Become idiculously Self-Aware In 20
-                                    Minutes</a></h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="blog__post-item shine__animate-item">
-                        <div class="blog__post-thumb">
-                            <a href="blog-details.html" class="shine__animate-link"><img
-                                    src="public/assets/img/blog/blog_post02.jpg" alt="img"></a>
-                            <a href="blog.html" class="post-tag">Marketing</a>
-                        </div>
-                        <div class="blog__post-content">
-                            <div class="blog__post-meta">
-                                <ul class="list-wrap">
-                                    <li><i class="flaticon-calendar"></i>20 July, 2024</li>
-                                    <li><i class="flaticon-user-1"></i>by <a href="blog-details.html">Admin</a></li>
-                                </ul>
-                            </div>
-                            <h4 class="title"><a href="blog-details.html">Get Started With UI Design With Tips To
-                                    Speed</a></h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="blog__post-item shine__animate-item">
-                        <div class="blog__post-thumb">
-                            <a href="blog-details.html" class="shine__animate-link"><img
-                                    src="public/assets/img/blog/blog_post03.jpg" alt="img"></a>
-                            <a href="blog.html" class="post-tag">Marketing</a>
-                        </div>
-                        <div class="blog__post-content">
-                            <div class="blog__post-meta">
-                                <ul class="list-wrap">
-                                    <li><i class="flaticon-calendar"></i>20 July, 2024</li>
-                                    <li><i class="flaticon-user-1"></i>by <a href="blog-details.html">Admin</a></li>
-                                </ul>
-                            </div>
-                            <h4 class="title"><a href="blog-details.html">Make Your Own Expanding Contracting
-                                    Content</a></h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="blog__post-item shine__animate-item">
-                        <div class="blog__post-thumb">
-                            <a href="blog-details.html" class="shine__animate-link"><img
-                                    src="public/assets/img/blog/blog_post04.jpg" alt="img"></a>
-                            <a href="blog.html" class="post-tag">Marketing</a>
-                        </div>
-                        <div class="blog__post-content">
-                            <div class="blog__post-meta">
-                                <ul class="list-wrap">
-                                    <li><i class="flaticon-calendar"></i>20 July, 2024</li>
-                                    <li><i class="flaticon-user-1"></i>by <a href="blog-details.html">Admin</a></li>
-                                </ul>
-                            </div>
-                            <h4 class="title"><a href="blog-details.html">What we are capable to usually discovered</a>
-                            </h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- blog-area-end -->
 
     <script>
         $(document).ready(function() {
