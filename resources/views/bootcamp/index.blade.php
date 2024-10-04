@@ -137,8 +137,8 @@
 
     <!-- fact-area -->
     <section class="fact__area">
-        <div class="section__title">
-            <span class="sub-title" data-aos="fade-top" data-aos-delay="600">Detail</span>
+        <div class="section__title text-center">
+
             <h2 class="title" data-aos="fade-top" data-aos-delay="600">
                 Kenapa Harus Ikut
                 <span class="position-relative">
