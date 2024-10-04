@@ -67,7 +67,7 @@
                         data-aos-delay="800">
                         <div style="display: flex; align-items: center;">
                             <div>
-                                <p style="margin: 0; font-size: 0.9rem;">5 X <b>Zoom</b>Online</p>
+                                <p style="margin: 0; font-size: 0.9rem;">5 X <b>Zoom</b> Online</p>
                                 <p style="margin: 0; font-size: 0.9rem;"><b>Setiap Sabtu</b></p>
                             </div>
                         </div>
@@ -77,8 +77,8 @@
                             <img src="public/assets/img/icons/clock.svg" alt="Clock Icon"
                                 style="width: 28px; height: 28px; vertical-align: middle; margin-right: 10px;">
                             <div>
-                                <p style="margin: 0; font-size: 0.9rem;">Per Week</p>
-                                <p style="margin: 0; font-weight: bold; font-size: 0.9rem;">2 - 4 hrs</p>
+                                <p style="margin: 0; font-size: 0.9rem;">25 Video</p>
+                                <p style="margin: 0; font-weight: bold; font-size: 0.9rem;"><b>on demand</b></p>
                             </div>
                         </div>
                         <div style="border-left: 2px solid #007368; height: 50px; margin: 0 20px;"></div>
