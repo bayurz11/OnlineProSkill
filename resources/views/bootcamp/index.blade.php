@@ -46,8 +46,10 @@
                             <br> <b style="color: #007368">Untuk <b>Data Analyst</b> Pemula </b>
                         </h3> <br>
                         <p data-aos="fade-right" data-aos-delay="600" style="font-size: 1rem; margin-bottom: 15px;">
-                            📊 Jadilah ahli dalam <b>visualisasi data</b> dan ambil langkah pertama menuju karier yang lebih
-                            cerah! <b>Daftar sekarang</b>, dan wujudkan impianmu <b>menjadi data-driven professional!.</b>
+                            📊 Siap mengembangkan skill sebagai <b>Data Analyst? </b> Gabung sekarang di <b>Bootcamp Power
+                                BI </b>untuk pemula! Kuasai keterampilan <b>analisis data </b>dari nol dengan panduan
+                            langsung dari <b>mentor berpengalaman.</b>Jangan lewatkan kesempatan ini untuk <b>mengasah
+                                kemampuanmu!</b>
                         </p>
                         <p data-aos="fade-right" data-aos-delay="700" style="font-size: 1rem;">
                             📝 Temukan lebih banyak informasi dan daftar di <b>Proskill Akademia!.</b>
