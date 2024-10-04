@@ -288,6 +288,7 @@
         </div>
     </section>
     <!-- faq-area-end -->
+
     <!-- faq-area -->
     <section class="faq__area">
         <div class="container">
