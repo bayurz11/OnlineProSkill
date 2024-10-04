@@ -67,8 +67,8 @@
                         data-aos-delay="800">
                         <div style="display: flex; align-items: center;">
                             <div>
-                                <p style="margin: 0; font-size: 0.9rem;">Available <b>Online</b>,</p>
-                                <p style="margin: 0; font-size: 0.9rem;"><b>5 Weeks</b></p>
+                                <p style="margin: 0; font-size: 0.9rem;">5 X <b>Zoom</b>Online</p>
+                                <p style="margin: 0; font-size: 0.9rem;"><b>Setiap Sabtu</b></p>
                             </div>
                         </div>
 
