@@ -354,7 +354,7 @@
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
                                             aria-controls="collapseTwo">
-                                            apa Persyaratan Untuk Mengikuti Bootcamp ini?
+                                            Pengenalan Spreadsheet
                                         </button>
                                     </h2>
                                     <div id="collapseTwo" class="accordion-collapse collapse"
@@ -372,7 +372,7 @@
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#collapseThree"
                                             aria-expanded="false" aria-controls="collapseThree">
-                                            Berapa Lama Waktu Bootcamp ini?
+                                            Spreadsheet untuk Data Analis
                                         </button>
                                     </h2>
                                     <div id="collapseThree" class="accordion-collapse collapse"
@@ -390,7 +390,43 @@
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#collapseFour"
                                             aria-expanded="false" aria-controls="collapseFour">
-                                            Apakah Tersedia Komunitas Belajar?
+                                            Pengenalan SQL dan Big Query untuk Analisis Data
+                                        </button>
+                                    </h2>
+                                    <div id="collapseFour" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <p>Groove’s intuitive shared inbox makes it easy for team members organize
+                                                prioritize and.In this episode.urvived not only five centuries.Edhen an
+                                                unknown printer took a galley of type and scrambl
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseFour"
+                                            aria-expanded="false" aria-controls="collapseFour">
+                                            Membangun Dashboard dengan Looker Studio
+                                        </button>
+                                    </h2>
+                                    <div id="collapseFour" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <p>Groove’s intuitive shared inbox makes it easy for team members organize
+                                                prioritize and.In this episode.urvived not only five centuries.Edhen an
+                                                unknown printer took a galley of type and scrambl
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseFour"
+                                            aria-expanded="false" aria-controls="collapseFour">
+                                            Membangun Dashboard dengan Tableau
                                         </button>
                                     </h2>
                                     <div id="collapseFour" class="accordion-collapse collapse"
