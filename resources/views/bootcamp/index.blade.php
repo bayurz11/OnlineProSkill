@@ -271,7 +271,8 @@
 
                             </h2>
                         </div>
-                        <p class="desc">Harapannya, Setelah selesai mengikuti bootcamp ini, peserta akan:</p>
+                        <p class="desc" data-aos="fade-top" data-aos-delay="600">Harapannya, Setelah selesai mengikuti
+                            bootcamp ini, peserta akan:</p>
                         <ul class="about__info-list list-wrap" data-aos="fade-top" data-aos-delay="800">
                             <li class="about__info-list-item">
                                 <i class="flaticon-angle-right"></i>
