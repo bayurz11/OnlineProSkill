@@ -155,20 +155,20 @@
         </div> <br>
         <div class="container">
             <div class="fact__inner-wrap" data-aos="fade-top" data-aos-delay="800"
-                style="background-color: #f5f3f9; display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
-                <div class="row">
-                    <div class="col-lg-3 col-8">
+                style="background-color: #f5f3f9; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                <div class="row" style="display: flex; flex-wrap: wrap;">
+                    <div class="col-lg-4 col-md-6 col-12">
                         <div class="features__item">
                             <div class="features__icon">
                                 <img src="public/assets/img/icons/features_icon06.svg" class="injectable" alt="img">
                             </div>
                             <div class="features__content">
-                                <h4 class="title" style="color: #007368"> 3 Portofolio</h4>
+                                <h4 class="title" style="color: #007368">3 Portofolio</h4>
                                 <p>Mendapatkan 3 Portofolio Projek</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-8">
+                    <div class="col-lg-4 col-md-6 col-12">
                         <div class="features__item">
                             <div class="features__icon">
                                 <img src="public/assets/img/icons/features_icon02.svg" class="injectable" alt="img">
@@ -179,18 +179,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-8">
+                    <div class="col-lg-4 col-md-6 col-12">
                         <div class="features__item">
                             <div class="features__icon">
                                 <img src="public/assets/img/icons/features_icon03.svg" class="injectable" alt="img">
                             </div>
                             <div class="features__content">
                                 <h4 class="title" style="color: #007368">Sertifikat Penyelesaian</h4>
-                                <p>Mendaptakan Sertifikat Setelah Menyelesaikan Bootcamp</p>
+                                <p>Mendapatkan Sertifikat Setelah Menyelesaikan Bootcamp</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-6">
+                    <div class="col-lg-4 col-md-6 col-12">
                         <div class="features__item">
                             <div class="features__icon">
                                 <img src="public/assets/img/icons/features_icon05.svg" class="injectable" alt="img">
@@ -201,7 +201,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-6">
+                    <div class="col-lg-4 col-md-6 col-12">
                         <div class="features__item">
                             <div class="features__icon">
                                 <img src="public/assets/img/icons/features_icon01.svg" class="injectable" alt="img">
@@ -212,7 +212,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-6">
+                    <div class="col-lg-4 col-md-6 col-12">
                         <div class="features__item">
                             <div class="features__icon">
                                 <img src="public/assets/img/icons/features_icon07.svg" class="injectable" alt="img">
@@ -225,9 +225,8 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
+
     </section>
     <!-- fact-area-end -->
 
