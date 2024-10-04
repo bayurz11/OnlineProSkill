@@ -140,7 +140,7 @@
         <div class="section__title text-center">
 
             <h2 class="title" data-aos="fade-top" data-aos-delay="600">
-                Kenapa Harus Ikut
+                <b style="color: #007368"><b>Kenapa Harus Ikut</b></b>
                 <span class="position-relative">
                     <svg x="0px" y="0px" preserveAspectRatio="none" viewBox="0 0 209 59" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -150,7 +150,7 @@
                     </svg>
                     Bootcamp
                 </span>
-                Ini
+                <b style="color: #007368"><b>Ini</b></b>
             </h2>
         </div> <br>
         <div class="container">
