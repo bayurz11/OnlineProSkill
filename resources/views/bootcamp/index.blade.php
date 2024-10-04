@@ -258,7 +258,7 @@
                         <div class="section__title">
                             <span class="sub-title" data-aos="fade-top" data-aos-delay="600">Detail</span>
                             <h2 class="title" data-aos="fade-top" data-aos-delay="600">
-                                Target dan Sasaran Bootcamp
+                                <b style="color: #007368">Target dan Sasaran</b>
                                 <span class="position-relative">
                                     <svg x="0px" y="0px" preserveAspectRatio="none" viewBox="0 0 209 59" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
