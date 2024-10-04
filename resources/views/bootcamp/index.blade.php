@@ -69,7 +69,7 @@
                             <div>
                                 <p style="margin: 0; font-size: 0.9rem;">5X <b><img src="public/assets/img/icons/zoom.svg"
                                             alt="zoom"
-                                            style="width: 20px; height: 20px; vertical-align: middle; margin-right: 10px;"></b>
+                                            style="width: 28px; height: 28px; vertical-align: middle; margin-right: 5px;"></b>
                                     Online</p>
                                 <p style="margin: 0; font-size: 0.9rem;"><b>Setiap Sabtu</b></p>
                             </div>
