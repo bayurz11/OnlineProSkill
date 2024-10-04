@@ -157,7 +157,7 @@
             <div class="fact__inner-wrap" data-aos="fade-top" data-aos-delay="800"
                 style="background-color: #f5f3f9; display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
                 <div class="row">
-                    <div class="col-lg-3 col-6">
+                    <div class="col-lg-3 col-8">
                         <div class="features__item">
                             <div class="features__icon">
                                 <img src="public/assets/img/icons/features_icon06.svg" class="injectable" alt="img">
@@ -168,7 +168,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-6">
+                    <div class="col-lg-3 col-8">
                         <div class="features__item">
                             <div class="features__icon">
                                 <img src="public/assets/img/icons/features_icon02.svg" class="injectable" alt="img">
@@ -179,7 +179,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-6">
+                    <div class="col-lg-3 col-8">
                         <div class="features__item">
                             <div class="features__icon">
                                 <img src="public/assets/img/icons/features_icon03.svg" class="injectable" alt="img">
