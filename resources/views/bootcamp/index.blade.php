@@ -14,21 +14,21 @@
                     <img src="{{ asset('public/assets/img/logo/logo.svg') }}" alt="Logo" data-aos-delay="800"
                         data-aos="fade-top" style="display: block; margin-bottom: 20px;">
                     <div class="banner__content" style="padding: 0;">
-                        <h3 class="title tg-svg" data-aos="fade-right" data-aos-delay="400"
-                            style="font-size: 2.5rem; line-height: 1.2; margin-left: 0;">
-                            <b style="color: #007368">Bootcamp</b>
-                            <span class="position-relative" style="display: inline-block;">
+                        <h3 class="title tg-svg" data-aos="fade-right" data-aos-delay="400">
+                            Bootcamp
+                            <span class="position-relative">
+                                <span class="svg-icon" id="banner-svg"
+                                    data-svg-icon="assets/img/objects/title_shape.svg"></span>
                                 <svg x="0px" y="0px" preserveAspectRatio="none" viewBox="0 0 209 59" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto;">
+                                    xmlns="http://www.w3.org/2000/svg">
                                     <path
                                         d="M4.74438 7.70565C69.7006 -1.18799 136.097 -2.38304 203.934 4.1205C207.178 4.48495 209.422 7.14626 208.933 10.0534C206.793 23.6481 205.415 36.5704 204.801 48.8204C204.756 51.3291 202.246 53.5582 199.213 53.7955C136.093 59.7623 74.1922 60.5985 13.5091 56.3043C10.5653 56.0924 7.84371 53.7277 7.42158 51.0325C5.20725 38.2627 2.76333 25.6511 0.0898448 13.1978C-0.465589 10.5873 1.61173 8.1379 4.73327 7.70565"
                                         fill="currentcolor" />
                                 </svg>
-                                Power BI.
+                                Power BI
                             </span>
-                            <br>
-                            untuk data analyst pemula
-                        </h3> <br>
+                            <br>Untuk<b>Data Analyst</b> Pemula
+                        </h3>
                         <p data-aos="fade-right" data-aos-delay="600" style="font-size: 1rem; margin-bottom: 15px;">
                             📊 Jadilah ahli dalam <b>visualisasi data</b> dan ambil langkah pertama menuju karier yang lebih
                             cerah! <b>Daftar sekarang</b>, dan wujudkan impianmu <b>menjadi data-driven professional!.</b>
