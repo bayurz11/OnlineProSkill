@@ -204,7 +204,7 @@
                     <div class="col-lg-3 col-6">
                         <div class="features__item">
                             <div class="features__icon">
-                                <img src="public/assets/img/icons/features_icon04.svg" class="injectable" alt="img">
+                                <img src="public/assets/img/icons/features_icon01.svg" class="injectable" alt="img">
                             </div>
                             <div class="features__content">
                                 <h4 class="title" style="color: #007368">Group Alumni</h4>
