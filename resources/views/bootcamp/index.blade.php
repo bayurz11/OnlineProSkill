@@ -406,12 +406,12 @@
                                 <div class="accordion-item">
                                     <h2 class="accordion-header">
                                         <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseFour"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseFour2"
                                             aria-expanded="false" aria-controls="collapseFour">
                                             Membangun Dashboard dengan Looker Studio
                                         </button>
                                     </h2>
-                                    <div id="collapseFour" class="accordion-collapse collapse"
+                                    <div id="collapseFour2" class="accordion-collapse collapse"
                                         data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
                                             <p>Groove’s intuitive shared inbox makes it easy for team members organize
