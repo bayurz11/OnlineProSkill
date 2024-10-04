@@ -20,7 +20,7 @@
                                         class="menu-item-has-children {{ Request::is('classroom', 'course') ? 'active' : '' }}">
                                         <a href="#">Program</a>
                                         <ul class="sub-menu">
-                                            <li class="{{ Request::is('bootcamp') ? 'active' : '' }}">
+                                            <li class="{{ Request::is('pbi') ? 'active' : '' }}">
                                                 <a href="{{ route('bootcamp') }}">Bootcamp</a>
                                             </li>
                                             <li class="{{ Request::is('classroom') ? 'active' : '' }}">
