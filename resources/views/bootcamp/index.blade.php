@@ -324,7 +324,8 @@
                     <div class="faq__content">
                         <div class="section__title pb-10">
                             <span class="sub-title">Materi</span>
-                            <h2 class="title" style="color: #FE9900">Daftar Materi <br>Kelas</h2>
+                            <h2 class="title" style="color: #FE9900">Daftar Materi <b style="color: #007368">Kelas</b>
+                            </h2>
                         </div>
                         <br>
                         <div class="faq__wrap">
