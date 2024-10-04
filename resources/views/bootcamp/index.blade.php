@@ -174,8 +174,8 @@
                                 <img src="public/assets/img/icons/features_icon02.svg" class="injectable" alt="img">
                             </div>
                             <div class="features__content">
-                                <h4 class="title">Materi Video</h4>
-                                <p>Disediakan Juga Materi Video untuk Peserta Bootccamp</p>
+                                <h4 class="title" style="color: #007368">Materi & Rekaman Pertemuan</h4>
+                                <p>Disediakan Materi Video untuk Peserta Bootccamp</p>
                             </div>
                         </div>
                     </div>
@@ -185,7 +185,7 @@
                                 <img src="public/assets/img/icons/features_icon03.svg" class="injectable" alt="img">
                             </div>
                             <div class="features__content">
-                                <h4 class="title">Sertifikat Penyelesaian</h4>
+                                <h4 class="title" style="color: #007368">Sertifikat Penyelesaian</h4>
                                 <p>Mendaptakan Sertifikat Setelah Menyelesaikan Bootcamp</p>
                             </div>
                         </div>
@@ -196,8 +196,8 @@
                                 <img src="public/assets/img/icons/features_icon04.svg" class="injectable" alt="img">
                             </div>
                             <div class="features__content">
-                                <h4 class="title">E-mail Profesional</h4>
-                                <p>Disediakan Email Profesional untuk Peserta Bootcamp</p>
+                                <h4 class="title" style="color: #007368">Custom Domain Email</h4>
+                                <p>Disediakan Custom Domain Email untuk Peserta Bootcamp</p>
                             </div>
                         </div>
                     </div>
@@ -207,8 +207,8 @@
                                 <img src="public/assets/img/icons/features_icon04.svg" class="injectable" alt="img">
                             </div>
                             <div class="features__content">
-                                <h4 class="title">E-mail Profesional</h4>
-                                <p>Disediakan Email Profesional untuk Peserta Bootcamp</p>
+                                <h4 class="title" style="color: #007368">Group Alumni</h4>
+                                <p>Disediakan Group Alumni untuk Peserta Bootcamp</p>
                             </div>
                         </div>
                     </div>
@@ -218,8 +218,8 @@
                                 <img src="public/assets/img/icons/features_icon04.svg" class="injectable" alt="img">
                             </div>
                             <div class="features__content">
-                                <h4 class="title">E-mail Profesional</h4>
-                                <p>Disediakan Email Profesional untuk Peserta Bootcamp</p>
+                                <h4 class="title" style="color: #007368">lifetime access</h4>
+                                <p>Tidak Ada Batasan Waktu untuk Mengakses Materi</p>
                             </div>
                         </div>
                     </div>
