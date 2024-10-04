@@ -67,7 +67,7 @@
                         data-aos-delay="800">
                         <div style="display: flex; align-items: center;">
                             <div>
-                                <p style="margin: 0; font-size: 0.9rem;">5 X <b>Zoom</b> Online</p>
+                                <p style="margin: 0; font-size: 0.9rem;">5X <b>Zoom</b> Online</p>
                                 <p style="margin: 0; font-size: 0.9rem;"><b>Setiap Sabtu</b></p>
                             </div>
                         </div>
@@ -86,8 +86,8 @@
                             <img src="public/assets/img/icons/path-to-live-icon.svg" alt="Format Icon"
                                 style="width: 42px; height: 42px; vertical-align: middle; margin-right: 10px;">
                             <div>
-                                <p style="margin: 0; font-size: 0.9rem;">Start :</p>
-                                <p style="margin: 0; font-weight: bold; font-size: 0.9rem;">30 Nov 2024</p>
+                                <p style="margin: 0; font-size: 0.9rem;">Start:</p>
+                                <p style="margin: 0; font-weight: bold; font-size: 0.9rem;">30 Nov</p>
                             </div>
                         </div>
                         <div style="border-left: 2px solid #007368; height: 50px; margin: 0 20px;"></div>
