@@ -276,28 +276,21 @@
                         <ul class="about__info-list list-wrap" data-aos="fade-top" data-aos-delay="800">
                             <li class="about__info-list-item">
                                 <i class="flaticon-angle-right"></i>
-                                <p class="content">Mengumpulkan Data</p>
+                                <p class="content">Paham Dasar Data Analyst</p>
                             </li>
                             <li class="about__info-list-item">
                                 <i class="flaticon-angle-right"></i>
-                                <p class="content">Menelaah Data</p>
+                                <p class="content">Mengetahui Tools Data Analyst</p>
                             </li>
                             <li class="about__info-list-item">
                                 <i class="flaticon-angle-right"></i>
-                                <p class="content">Memvalidasi Data</p>
+                                <p class="content">Bisa Membuat Dashboard Data</p>
                             </li>
                             <li class="about__info-list-item">
                                 <i class="flaticon-angle-right"></i>
-                                <p class="content">Menentukan Objek Data</p>
+                                <p class="content">Memiliki Portfolio Data Analyst</p>
                             </li>
-                            <li class="about__info-list-item">
-                                <i class="flaticon-angle-right"></i>
-                                <p class="content">Menkonstruksi Data</p>
-                            </li>
-                            <li class="about__info-list-item">
-                                <i class="flaticon-angle-right"></i>
-                                <p class="content">Membuat Business Intelligence</p>
-                            </li>
+
                         </ul>
                         {{-- <div class="tg-button-wrap">
                             <a href="about-us.html" class="btn arrow-btn">Start Free Trial <img
