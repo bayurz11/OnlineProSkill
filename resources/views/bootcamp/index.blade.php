@@ -323,8 +323,8 @@
                 <div class="col-lg-6" data-aos="fade-left" data-aos-delay="800">
                     <div class="faq__content">
                         <div class="section__title pb-10">
-                            <span class="sub-title">Tanya Proskill Akademia</span>
-                            <h2 class="title">Frequently Asked <br> Questions 😊</h2>
+                            <span class="sub-title">Materi</span>
+                            <h2 class="title">Daftar Materi <br>Kelas</h2>
                         </div>
                         <br>
                         <div class="faq__wrap">
