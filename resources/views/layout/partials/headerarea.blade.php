@@ -21,7 +21,7 @@
                                         <a href="#">Program</a>
                                         <ul class="sub-menu">
                                             <li class="{{ Request::is('pbi') ? 'active' : '' }}">
-                                                <a href="{{ route('bootcamp') }}">Bootcamp</a>
+                                                <a href="{{ route('pbi') }}">Bootcamp</a>
                                             </li>
                                             <li class="{{ Request::is('classroom') ? 'active' : '' }}">
                                                 <a href="{{ route('classroom') }}">Kelas Tatap Muka</a>
