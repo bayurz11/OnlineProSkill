@@ -87,7 +87,7 @@
                         <div style="border-left: 2px solid #007368; height: 50px; margin: 0 20px;"></div>
                         <div style="display: flex; align-items: center;">
                             <img src="public/assets/img/icons/calender.svg" alt="Format Icon"
-                                style="width: 42px; height: 42px; vertical-align: middle; margin-right: 10px;">
+                                style="width: 28px; height: 28px; vertical-align: middle; margin-right: 10px;">
                             <div>
                                 <p style="margin: 0; font-size: 0.9rem;">Start:</p>
                                 <p style="margin: 0; font-weight: bold; font-size: 0.9rem;">30 Nov</p>
