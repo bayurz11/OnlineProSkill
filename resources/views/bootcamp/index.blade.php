@@ -153,7 +153,7 @@
                 <b style="color: #007368"><b>Ini</b></b>
             </h2>
         </div> <br>
-        <div class="container">
+        <div class="container" style="background-color: #f5f3f9">
             <div class="fact__inner-wrap" data-aos="fade-top" data-aos-delay="800">
                 <div class="row">
                     <div class="col-lg-3 col-6">
