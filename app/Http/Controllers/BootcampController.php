@@ -109,6 +109,6 @@ class BootcampController extends Controller
 
         Session::put('cart', $cart);
 
-        return redirect()->route('bootcamp');
+        return redirect()->route('pbi');
     }
 }
