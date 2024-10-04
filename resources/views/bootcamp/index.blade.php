@@ -155,7 +155,7 @@
         </div> <br>
         <div class="container">
             <div class="fact__inner-wrap" data-aos="fade-top" data-aos-delay="800"
-                style="background-color: #f5f3f9 align-items: center;">
+                style="background-color: #f5f3f9; align-items: center;">
                 <div class="row">
                     <div class="col-lg-3 col-6">
                         <div class="features__item">
