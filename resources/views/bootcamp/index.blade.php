@@ -25,9 +25,9 @@
                                         fill="currentcolor" />
                                 </svg>
                                 Power BI.
-                            </span><br>
+                            </span>
                             <br>
-                            <b style="color: #007368">untuk data analyst pemula</b>
+                            untuk data analyst pemula
                         </h3> <br>
                         <p data-aos="fade-right" data-aos-delay="600" style="font-size: 1rem; margin-bottom: 15px;">
                             📊 Jadilah ahli dalam <b>visualisasi data</b> dan ambil langkah pertama menuju karier yang lebih
