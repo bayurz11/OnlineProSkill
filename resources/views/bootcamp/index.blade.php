@@ -152,7 +152,7 @@
                 </span>
                 Ini
             </h2>
-        </div>
+        </div> <br>
         <div class="container">
             <div class="fact__inner-wrap" data-aos="fade-top" data-aos-delay="800">
                 <div class="row">
