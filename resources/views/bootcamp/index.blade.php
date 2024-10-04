@@ -200,6 +200,28 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-lg-3 col-6">
+                        <div class="features__item">
+                            <div class="features__icon">
+                                <img src="public/assets/img/icons/features_icon04.svg" class="injectable" alt="img">
+                            </div>
+                            <div class="features__content">
+                                <h4 class="title">E-mail Profesional</h4>
+                                <p>Disediakan Email Profesional untuk Peserta Bootcamp</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-6">
+                        <div class="features__item">
+                            <div class="features__icon">
+                                <img src="public/assets/img/icons/features_icon04.svg" class="injectable" alt="img">
+                            </div>
+                            <div class="features__content">
+                                <h4 class="title">E-mail Profesional</h4>
+                                <p>Disediakan Email Profesional untuk Peserta Bootcamp</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
