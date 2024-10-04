@@ -67,7 +67,10 @@
                         data-aos-delay="800">
                         <div style="display: flex; align-items: center;">
                             <div>
-                                <p style="margin: 0; font-size: 0.9rem;">5X <b>Zoom</b> Online</p>
+                                <p style="margin: 0; font-size: 0.9rem;">5X <b><img src="public/assets/img/icons/zoom.svg"
+                                            alt="zoom"
+                                            style="width: 20px; height: 20px; vertical-align: middle; margin-right: 10px;"></b>
+                                    Online</p>
                                 <p style="margin: 0; font-size: 0.9rem;"><b>Setiap Sabtu</b></p>
                             </div>
                         </div>
