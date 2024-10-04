@@ -31,7 +31,7 @@
                         </h3> <br> --}}
 
                         <h3 class="title tg-svg" data-aos="fade-right" data-aos-delay="400">
-                            <b style="color: #007368">Bootcamp</b>
+                            <b style="color: #007368"><b>Bootcamp</b></b>
                             <span class="position-relative">
                                 <span class="svg-icon" id="banner-svg"
                                     data-svg-icon="assets/img/objects/title_shape.svg"></span>
