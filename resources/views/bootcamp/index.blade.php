@@ -47,8 +47,8 @@
                         </h3> <br>
                         <p data-aos="fade-right" data-aos-delay="600" style="font-size: 1rem; margin-bottom: 18px;">
                             📊 Siap Mengembangkan Skill Sebagai <b>Data Analyst? </b> Gabung Sekarang di <b>Bootcamp Power
-                                BI </b>Untuk Pemula! Kuasai keterampilan <b>Analisis Data </b>Dari Nol Dengan Panduan
-                            Langsung dari <b>Mentor Berpengalaman.</b>Jangan Lewatkan Kesempatan ini Untuk <b>Mengasah
+                                BI </b>Untuk Pemula! Kuasai keterampilan <b>Analisis Data </b>Dari nol dengan Panduan
+                            Langsung dari <b>Mentor Berpengalaman.</b> Jangan Lewatkan Kesempatan ini Untuk <b>Mengasah
                                 Kemampuanmu!</b>
                         </p>
                         <p data-aos="fade-right" data-aos-delay="700" style="font-size: 1rem;">
