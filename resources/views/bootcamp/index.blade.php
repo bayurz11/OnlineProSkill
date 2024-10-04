@@ -135,6 +135,61 @@
     </section>
     <!-- banner-area-end -->
 
+    <!-- fact-area -->
+    <section class="fact__area">
+        <div class="container">
+            <div class="fact__inner-wrap" data-aos="fade-top" data-aos-delay="800">
+                <div class="row">
+                    <div class="col-lg-3 col-6">
+                        <div class="features__item">
+                            <div class="features__icon">
+                                <img src="public/assets/img/icons/features_icon01.svg" class="injectable" alt="img">
+                            </div>
+                            <div class="features__content">
+                                <h4 class="title">Instruktur Berpengalaman</h4>
+                                <p>Dibimbing Langsung oleh Instruktur Berpengalaman di Bidangnya</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-6">
+                        <div class="features__item">
+                            <div class="features__icon">
+                                <img src="public/assets/img/icons/features_icon02.svg" class="injectable" alt="img">
+                            </div>
+                            <div class="features__content">
+                                <h4 class="title">Materi Video</h4>
+                                <p>Disediakan Juga Materi Video untuk Peserta Bootccamp</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-6">
+                        <div class="features__item">
+                            <div class="features__icon">
+                                <img src="public/assets/img/icons/features_icon03.svg" class="injectable" alt="img">
+                            </div>
+                            <div class="features__content">
+                                <h4 class="title">Sertifikat Penyelesaian</h4>
+                                <p>Mendaptakan Sertifikat Setelah Menyelesaikan Bootcamp</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-6">
+                        <div class="features__item">
+                            <div class="features__icon">
+                                <img src="public/assets/img/icons/features_icon04.svg" class="injectable" alt="img">
+                            </div>
+                            <div class="features__content">
+                                <h4 class="title">E-mail Profesional</h4>
+                                <p>Disediakan Email Profesional untuk Peserta Bootcamp</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- fact-area-end -->
+
     <!-- about-area -->
     <section class="about-area tg-motion-effects section-py-120">
         <div class="container">
@@ -214,60 +269,7 @@
     </section>
     <!-- about-area-end -->
 
-    <!-- fact-area -->
-    <section class="fact__area">
-        <div class="container">
-            <div class="fact__inner-wrap" data-aos="fade-top" data-aos-delay="800">
-                <div class="row">
-                    <div class="col-lg-3 col-6">
-                        <div class="features__item">
-                            <div class="features__icon">
-                                <img src="public/assets/img/icons/features_icon01.svg" class="injectable" alt="img">
-                            </div>
-                            <div class="features__content">
-                                <h4 class="title">Instruktur Berpengalaman</h4>
-                                <p>Dibimbing Langsung oleh Instruktur Berpengalaman di Bidangnya</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-6">
-                        <div class="features__item">
-                            <div class="features__icon">
-                                <img src="public/assets/img/icons/features_icon02.svg" class="injectable" alt="img">
-                            </div>
-                            <div class="features__content">
-                                <h4 class="title">Materi Video</h4>
-                                <p>Disediakan Juga Materi Video untuk Peserta Bootccamp</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-6">
-                        <div class="features__item">
-                            <div class="features__icon">
-                                <img src="public/assets/img/icons/features_icon03.svg" class="injectable" alt="img">
-                            </div>
-                            <div class="features__content">
-                                <h4 class="title">Sertifikat Penyelesaian</h4>
-                                <p>Mendaptakan Sertifikat Setelah Menyelesaikan Bootcamp</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-6">
-                        <div class="features__item">
-                            <div class="features__icon">
-                                <img src="public/assets/img/icons/features_icon04.svg" class="injectable" alt="img">
-                            </div>
-                            <div class="features__content">
-                                <h4 class="title">E-mail Profesional</h4>
-                                <p>Disediakan Email Profesional untuk Peserta Bootcamp</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- fact-area-end -->
+
 
     <!-- faq-area -->
     <section class="faq__area">
