@@ -45,7 +45,7 @@
                             </span>
                             <br> <b style="color: #007368">Untuk <b>Data Analyst</b> Pemula </b>
                         </h3> <br>
-                        <p data-aos="fade-right" data-aos-delay="600" style="font-size: 1rem; margin-bottom: 15px;">
+                        <p data-aos="fade-right" data-aos-delay="600" style="font-size: 1rem; margin-bottom: 18px;">
                             📊 Siap Mengembangkan Skill Sebagai <b>Data Analyst? </b> Gabung Sekarang di <b>Bootcamp Power
                                 BI </b>Untuk Pemula! Kuasai keterampilan <b>Analisis Data </b>Dari Nol Dengan Panduan
                             Langsung dari <b>Mentor Berpengalaman.</b>Jangan Lewatkan Kesempatan ini Untuk <b>Mengasah
