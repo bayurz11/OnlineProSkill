@@ -163,8 +163,8 @@
                                 <img src="public/assets/img/icons/features_icon01.svg" class="injectable" alt="img">
                             </div>
                             <div class="features__content">
-                                <h4 class="title">Instruktur Berpengalaman</h4>
-                                <p>Dibimbing Langsung oleh Instruktur Berpengalaman di Bidangnya</p>
+                                <h4 class="title" style="color: #007368"> 3 Portofolio</h4>
+                                <p>Mendapatkan 3 Portofolio Projek</p>
                             </div>
                         </div>
                     </div>
