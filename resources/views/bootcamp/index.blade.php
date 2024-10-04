@@ -54,14 +54,14 @@
                         <p data-aos="fade-right" data-aos-delay="700" style="font-size: 1rem;">
                             📝 Pelajari Program <b>Bootcamp Power Bi</b> dari <b>Proskill Akademia!.</b>
                         </p>
-                        <div class="banner__btn-wrap" data-aos="fade-right" data-aos-delay="800" style="margin-top: 20px;">
+                        {{-- <div class="banner__btn-wrap" data-aos="fade-right" data-aos-delay="800" style="margin-top: 20px;">
                             <a href="{{ route('cart_bootcamp.checkout', ['id' => 17]) }}" class="btn arrow-btn"
                                 style="font-size: 1rem; padding: 15px 25px;">Daftar
                                 Sekarang
                                 <img src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"
                                     style="margin-left: 10px;">
                             </a>
-                        </div>
+                        </div> --}}
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center; " data-aos="fade-top"
                         data-aos-delay="800">
