@@ -239,10 +239,10 @@
                         <div class="align-items-center">
                             <!-- Gambar bagian atas card -->
                             <img src="public/assets/img/banner/instruktur2.png" class="card-img-top" alt="User Photo"
-                                style="height: 26rem; width:22rem; object-fit: cover;">
+                                style="height: 25rem; width:20rem; object-fit: cover;">
 
                             <!-- Card Body yang diangkat sedikit ke atas -->
-                            <div class="card text-center" style="width: 22rem; overflow: hidden; margin-top: -30px;">
+                            <div class="card text-center" style="width: 20rem; overflow: hidden; margin-top: -30px;">
                                 <div class="card-body">
                                     <h5 class="card-title">Power BI Expertise</h5>
                                     <p class="card-text" style="color:red; font-weight:bold;">Johnson & Johnson</p>
