@@ -291,7 +291,7 @@
                                     <!-- Ganti teks dengan gambar logo -->
                                     <img src="public/assets/img/banner/johnson-and-johnson-1.png"
                                         alt="Johnson & Johnson Logo" style="height: 45px; margin-bottom: 10px;">
-
+                                    <br>
                                     <!-- Nama menjadi link dengan ikon LinkedIn -->
                                     <a href="https://www.linkedin.com/in/beni-oktopiansah" class="card-text"
                                         style="text-decoration: none;">
