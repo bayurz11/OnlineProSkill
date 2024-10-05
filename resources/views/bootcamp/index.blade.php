@@ -236,7 +236,7 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-6 col-md-9" data-aos="fade-right" data-aos-delay="600">
                     <div class="container mt-5 d-flex justify-content-center align-items-center"
-                        style="height: 60vh; width:60vh;">
+                        style="height: 80vh; width:60vh;">
                         <div class="align-items-center">
                             <!-- Gambar bagian atas card -->
                             <img src="public/assets/img/banner/instruktur2.png" class="card-img-top" alt="User Photo"
