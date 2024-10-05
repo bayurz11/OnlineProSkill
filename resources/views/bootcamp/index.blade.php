@@ -241,7 +241,7 @@
                             style="height: 22rem; width:18rem; object-fit: cover;">
 
                         <!-- Card Body yang diangkat sedikit ke atas -->
-                        <div class="card text-center" style="width: 18rem; overflow: hidden; margin-top: -25px;">
+                        <div class="card text-center" style="width: 22rem; overflow: hidden; margin-top: -30px;">
                             <div class="card-body">
                                 <h5 class="card-title">Power BI Expertise</h5>
                                 <p class="card-text" style="color:red; font-weight:bold;">Johnson & Johnson</p>
