@@ -236,7 +236,7 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-6 col-md-9" data-aos="fade-right" data-aos-delay="600">
                     <img src="public/assets/img/banner/instruktur2.png" alt="Profile Image"
-                        style="width: 150px; height: 150px; object-fit: cover;">
+                        style="width: 150px; height: 180px; object-fit: cover;">
                     <div class="card text-center bg-dark text-white mx-auto mt-5"
                         style="max-width: 300px; border-radius: 10px;">
                         <div class="card-body">
