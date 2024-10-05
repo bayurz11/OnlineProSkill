@@ -239,7 +239,7 @@
                         <div class="align-items-center">
                             <!-- Gambar bagian atas card -->
                             <img src="public/assets/img/banner/instruktur2.png" class="card-img-top" alt="User Photo"
-                                style="height: 22rem; width:18rem; object-fit: cover;">
+                                style="height: 22rem; width:22rem; object-fit: cover;">
 
                             <!-- Card Body yang diangkat sedikit ke atas -->
                             <div class="card text-center" style="width: 22rem; overflow: hidden; margin-top: -30px;">
