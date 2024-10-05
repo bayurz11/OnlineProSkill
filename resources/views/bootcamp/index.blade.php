@@ -519,35 +519,15 @@
                 @foreach ($KelasTatapMuka as $kelas)
                     @if ($kelas->status == 1)
                         <div class="col-12 col-md-6 col-lg-4"> <!-- Menggunakan kelas Bootstrap untuk responsivitas -->
-                            <div class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
-                                <div class="courses__item-thumb courses__item-thumb-two">
-                                    <a href="{{ route('cart_bootcamp.checkout', ['id' => $kelas->id]) }}"
-                                        class="shine__animate-link">
-                                        <img src="{{ asset('public/uploads/' . $kelas->gambar) }}" alt="img"
-                                            class="img-fluid" loading="lazy">
+
+                            <div class="courses__item-bottom">
+                                <div class="button">
+                                    <a href="{{ route('cart_bootcamp.checkout', ['id' => $kelas->id]) }}">
+                                        <span class="text">Daftar Sekarang</span>
+                                        <i class="flaticon-arrow-right"></i>
                                     </a>
                                 </div>
-                                <div
-                                    class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1">
-                                    <ul class="courses__item-meta list-wrap">
-
-                                        <li class="price">Rp {{ number_format($kelas->price, 0, '.', '.') }}</li>
-                                    </ul>
-                                    <h5 class="title course-title flex-grow-1">
-                                        <a
-                                            href="{{ route('cart_bootcamp.checkout', ['id' => $kelas->id]) }}">{{ $kelas->nama_kursus }}</a>
-                                    </h5>
-                                    <div class="courses__item-bottom">
-                                        <div class="button">
-                                            <a href="{{ route('cart_bootcamp.checkout', ['id' => $kelas->id]) }}">
-                                                <span class="text">Daftar Sekarang</span>
-                                                <i class="flaticon-arrow-right"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
-                        </div>
                     @endif
                 @endforeach
             </div>
