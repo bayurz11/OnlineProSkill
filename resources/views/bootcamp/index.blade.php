@@ -459,81 +459,48 @@
     <!-- course-area -->
     <section class="courses-area section-py-120" data-background="public/assets/img/bg/courses_bg.jpg" loading="lazy">
         <div class="container">
-            <div class="swiper-container courses-swiper-active">
-                <div class="swiper-wrapper">
-                    @foreach ($KelasTatapMuka as $kelas)
-                        @if ($kelas->status == 1)
-                            <div class="swiper-slide col-12 col-md-6 col-lg-4">
-                                <!-- Kelas Bootstrap untuk responsivitas -->
-                                <div class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
-                                    <div class="courses__item-thumb courses__item-thumb-two">
-                                        <a href="{{ route('classroomdetail', ['id' => $kelas->id]) }}"
-                                            class="shine__animate-link">
-                                            <img src="{{ asset('public/uploads/' . $kelas->gambar) }}" alt="img"
-                                                class="img-fluid" loading="lazy">
-                                        </a>
-                                    </div>
-                                    <div
-                                        class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1">
-                                        <ul class="courses__item-meta list-wrap">
-                                            <li class="courses__item-tag">
-                                                @if ($kelas->course_type == 'online')
-                                                    <span class="badge bg-primary">Online</span>
-                                                @else
-                                                    <span class="badge bg-secondary">Kelas Tatap Muka</span>
-                                                @endif
-                                            </li>
-                                            <li class="price">Rp {{ number_format($kelas->price, 0, '.', '.') }}</li>
-                                        </ul>
-                                        <h5 class="title course-title flex-grow-1">
-                                            <a
-                                                href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">{{ $kelas->nama_kursus }}</a>
-                                        </h5>
-                                        <div class="courses__item-bottom">
-                                            <div class="button">
-                                                <a href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">
-                                                    <span class="text">Detail Kelas</span>
-                                                    <i class="flaticon-arrow-right"></i>
-                                                </a>
-                                            </div>
+            <div class="row">
+                @foreach ($KelasTatapMuka as $kelas)
+                    @if ($kelas->status == 1)
+                        <div class="col-12 col-md-6 col-lg-4"> <!-- Menggunakan kelas Bootstrap untuk responsivitas -->
+                            <div class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
+                                <div class="courses__item-thumb courses__item-thumb-two">
+                                    <a href="{{ route('classroomdetail', ['id' => $kelas->id]) }}"
+                                        class="shine__animate-link">
+                                        <img src="{{ asset('public/uploads/' . $kelas->gambar) }}" alt="img"
+                                            class="img-fluid" loading="lazy">
+                                    </a>
+                                </div>
+                                <div
+                                    class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1">
+                                    <ul class="courses__item-meta list-wrap">
+                                        <li class="courses__item-tag">
+                                            @if ($kelas->course_type == 'online')
+                                                <span class="badge bg-primary">Online</span>
+                                            @else
+                                                <span class="badge bg-secondary">Kelas Tatap Muka</span>
+                                            @endif
+                                        </li>
+                                        <li class="price">Rp {{ number_format($kelas->price, 0, '.', '.') }}</li>
+                                    </ul>
+                                    <h5 class="title course-title flex-grow-1">
+                                        <a
+                                            href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">{{ $kelas->nama_kursus }}</a>
+                                    </h5>
+                                    <div class="courses__item-bottom">
+                                        <div class="button">
+                                            <a href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">
+                                                <span class="text">Detail Kelas</span>
+                                                <i class="flaticon-arrow-right"></i>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        @endif
-                    @endforeach
-                </div>
-                <!-- Tombol navigasi -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <!-- Pagination -->
-                <div class="swiper-pagination"></div>
+                        </div>
+                    @endif
+                @endforeach
             </div>
-
-            <script>
-                var swiper = new Swiper('.courses-swiper-active', {
-                    slidesPerView: 1, // Atur ini ke 1 untuk menampilkan 1 slide pada layar kecil
-                    spaceBetween: 30, // Jarak antar slide
-                    centeredSlides: true, // Menempatkan slide yang dipilih di tengah
-                    loop: true, // Mengaktifkan loop
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    },
-                    pagination: {
-                        el: '.swiper-pagination',
-                        clickable: true,
-                    },
-                    breakpoints: {
-                        640: {
-                            slidesPerView: 2, // 2 slides untuk layar lebih besar dari 640px
-                        },
-                        768: {
-                            slidesPerView: 3, // 3 slides untuk layar lebih besar dari 768px
-                        },
-                    },
-                });
-            </script>
         </div>
     </section>
 
