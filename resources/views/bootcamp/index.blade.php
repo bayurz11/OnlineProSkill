@@ -459,7 +459,7 @@
     <!-- course-area -->
     <section class="courses-area section-py-120" data-background="public/assets/img/bg/courses_bg.jpg" loading="lazy">
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center"> <!-- Menambahkan justify-content-center untuk memusatkan kolom -->
                 @foreach ($KelasTatapMuka as $kelas)
                     @if ($kelas->status == 1)
                         <div class="col-12 col-md-6 col-lg-4"> <!-- Menggunakan kelas Bootstrap untuk responsivitas -->
