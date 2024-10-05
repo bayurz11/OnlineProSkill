@@ -501,7 +501,7 @@
     <!-- course-area -->
     <section class="courses-area section-py-120" data-background="public/assets/img/bg/courses_bg.jpg" loading="lazy">
         <div class="container">
-            <div class="row justify-content-center" data-aos="fade-right" data-aos-delay="800";>
+            <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800";>
                 @foreach ($KelasTatapMuka as $kelas)
                     @if ($kelas->status == 1)
                         <a href="{{ route('cart_bootcamp.checkout', ['id' => $kelas->id]) }}" class="btn arrow-btn"
