@@ -64,7 +64,7 @@
                         </div> --}}
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center; " data-aos="fade-top"
-                        data-aos-delay="800">
+                        data-aos-delay="600">
                         <div style="display: flex; align-items: center;">
                             <div>
                                 <p style="margin: 0; font-size: 0.9rem;">5X <b><img src="public/assets/img/icons/zoom.svg"
