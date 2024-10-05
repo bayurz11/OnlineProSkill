@@ -316,15 +316,30 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6" data-aos="fade-right" data-aos-delay="400" style="margin-top: -50px;">
-                    <div class="banner__images">
-                        <img src="public/assets/img/banner/man2.png" alt="img" class="main-img"
-                            data-aos="fade-right" data-aos-delay="800">
-                        <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme"
-                            data-aos="fade-right" data-aos-delay="600">
-                    </div>
-                    <div
-                        style="position: absolute; bottom: 0; left: 0; right: 0; height: 90px; 
-                            background: linear-gradient(to bottom, transparent, #f5f3f9); z-index: 1;">
+                    <div class="container mt-5 d-flex justify-content-center align-items-center" style="height: 85vh;">
+                        <div class="align-items-center">
+                            <!-- Gambar bagian atas card -->
+                            <img src="public/assets/img/banner/instruktur2.png" class="card-img-top" alt="User Photo"
+                                style="height: 25rem; width:20rem; object-fit: cover;">
+
+                            <!-- Card Body yang diangkat sedikit ke atas -->
+                            <div class="card text-center" style="width: 20rem; overflow: hidden; margin-top: -30px;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Power BI Expertise</h5>
+
+                                    <!-- Ganti teks dengan gambar logo -->
+                                    <img src="public/assets/img/banner/johnson-and-johnson-1.png"
+                                        alt="Johnson & Johnson Logo" style="height: 45px; margin-bottom: 10px;">
+                                    <br>
+                                    <!-- Nama menjadi link dengan ikon LinkedIn -->
+                                    <a href="https://www.linkedin.com/in/beni-oktopiansah" class="card-text"
+                                        style="text-decoration: none;">
+                                        <i class="fab fa-linkedin" style="color: #0077b5; margin-right: 9px;"></i>Beni
+                                        Oktopiansah
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left" data-aos-delay="800" style="margin-top: -50px;">
