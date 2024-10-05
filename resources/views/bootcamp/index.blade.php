@@ -459,29 +459,6 @@
     <!-- course-area -->
     <section class="courses-area section-py-120" data-background="public/assets/img/bg/courses_bg.jpg" loading="lazy">
         <div class="container">
-            <div class="section__title-wrap">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6 col-lg-8">
-                        <div class="section__title text-center mb-40">
-                            <span class="sub-title">Kelas ProSkill Akademia</span>
-                            <h2 class="title">Kelas Online dan Offline Kami</h2>
-                            <p class="desc">Saatnya Meningkatkan Keterampilan dan Skill Anda</p>
-                        </div>
-                        <div class="courses__nav">
-                            <ul class="nav nav-tabs" id="courseTab" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="all-tab" data-bs-toggle="tab"
-                                        data-bs-target="#all-tab-pane" type="button" role="tab"
-                                        aria-controls="all-tab-pane" aria-selected="true">
-                                        Semua Kelas
-                                    </button>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="swiper courses-swiper-active">
                 <div class="swiper-wrapper">
                     @foreach ($KelasTatapMuka as $kelas)
