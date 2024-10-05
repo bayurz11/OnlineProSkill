@@ -234,27 +234,7 @@
     <section class="faq__area">
         <div class="container">
             <div class="row align-items-center justify-content-center">
-                <div class="col-lg-6 col-md-9" data-aos="fade-right" data-aos-delay="600">
-                    <div class="container mt-5 d-flex justify-content-center align-items-center" style="height: 85vh;">
-                        <div class="align-items-center">
-                            <!-- Gambar bagian atas card -->
-                            <img src="public/assets/img/banner/instruktur2.png" class="card-img-top" alt="User Photo"
-                                style="height: 25rem; width:20rem; object-fit: cover;">
-
-                            <!-- Card Body yang diangkat sedikit ke atas -->
-                            <div class="card text-center" style="width: 20rem; overflow: hidden; margin-top: -30px;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Power BI Expertise</h5>
-                                    <p class="card-text" style="color:red; font-weight:bold;">Johnson & Johnson</p>
-                                    <p class="card-text">Beni. Oktopiansah</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-
+                <!-- Konten Kiri: Target dan Sasaran -->
                 <div class="col-lg-6">
                     <div class="about__content">
                         <div class="section__title">
@@ -270,7 +250,6 @@
                                     </svg>
                                     Bootcamp
                                 </span>
-
                             </h2>
                         </div>
                         <p class="desc" data-aos="fade-top" data-aos-delay="600">Harapannya, Setelah selesai mengikuti
@@ -292,15 +271,31 @@
                                 <i class="flaticon-angle-right"></i>
                                 <p class="content">Memiliki Portfolio Data Analyst</p>
                             </li>
-
                         </ul>
-                        {{-- <div class="tg-button-wrap">
-                            <a href="about-us.html" class="btn arrow-btn">Start Free Trial <img
-                                    src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
-                        </div> --}}
+                    </div>
+                </div>
+
+                <!-- Konten Kanan: Gambar dan Card -->
+                <div class="col-lg-6 col-md-9" data-aos="fade-right" data-aos-delay="600">
+                    <div class="container mt-5 d-flex justify-content-center align-items-center" style="height: 85vh;">
+                        <div class="align-items-center">
+                            <!-- Gambar bagian atas card -->
+                            <img src="public/assets/img/banner/instruktur2.png" class="card-img-top" alt="User Photo"
+                                style="height: 25rem; width:20rem; object-fit: cover;">
+
+                            <!-- Card Body yang diangkat sedikit ke atas -->
+                            <div class="card text-center" style="width: 20rem; overflow: hidden; margin-top: -30px;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Power BI Expertise</h5>
+                                    <p class="card-text" style="color:red; font-weight:bold;">Johnson & Johnson</p>
+                                    <p class="card-text">Beni. Oktopiansah</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
     <!-- faq-area-end -->
