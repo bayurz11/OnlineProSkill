@@ -157,17 +157,7 @@
             <div class="fact__inner-wrap" data-aos="fade-top" data-aos-delay="800"
                 style="background-color: #f5f3f9; display: flex; flex-direction: column; justify-content: center; align-items: center;">
                 <div class="row" style="display: flex; flex-wrap: wrap;">
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="features__item">
-                            <div class="features__icon">
-                                <img src="public/assets/img/icons/features_icon06.svg" class="injectable" alt="img">
-                            </div>
-                            <div class="features__content">
-                                <h4 class="title" style="color: #007368">3 Portofolio</h4>
-                                <p>Mendapatkan 3 Portofolio Projek</p>
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="col-lg-4 col-md-6 col-12">
                         <div class="features__item">
                             <div class="features__icon">
@@ -193,17 +183,6 @@
                     <div class="col-lg-4 col-md-6 col-12">
                         <div class="features__item">
                             <div class="features__icon">
-                                <img src="public/assets/img/icons/features_icon05.svg" class="injectable" alt="img">
-                            </div>
-                            <div class="features__content">
-                                <h4 class="title" style="color: #007368">Custom Domain Email</h4>
-                                <p>Disediakan Custom Domain Email untuk Peserta Bootcamp</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-12">
-                        <div class="features__item">
-                            <div class="features__icon">
                                 <img src="public/assets/img/icons/features_icon01.svg" class="injectable" alt="img">
                             </div>
                             <div class="features__content">
@@ -220,6 +199,30 @@
                             <div class="features__content">
                                 <h4 class="title" style="color: #007368">Lifetime access</h4>
                                 <p>Tidak Ada Batasan Waktu untuk Mengakses Materi</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="features__item">
+                            <div class="features__icon">
+                                <img src="public/assets/img/icons/features_icon05.svg" class="injectable" alt="img">
+                            </div>
+                            <div class="features__content">
+                                <h4 class="title" style="color: #007368">Custom Domain Email</h4>
+                                <p>Disediakan Custom Domain Email untuk Peserta Bootcamp</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="features__item">
+                            <div class="features__icon">
+                                <img src="public/assets/img/icons/features_icon06.svg" class="injectable" alt="img">
+                            </div>
+                            <div class="features__content">
+                                <h4 class="title" style="color: #007368">3 Portofolio</h4>
+                                <p>Mendapatkan 3 Portofolio Projek</p>
                             </div>
                         </div>
                     </div>
