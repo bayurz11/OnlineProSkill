@@ -235,9 +235,9 @@
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-6 col-md-9" data-aos="fade-right" data-aos-delay="600">
-                    <div class="about__images">
+                    {{-- <div class="about__images">
                         <img src="public/assets/img/banner/instruktur.png" alt="img" class="main-img">
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="col-lg-6">
                     <div class="about__content">
