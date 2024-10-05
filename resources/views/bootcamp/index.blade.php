@@ -312,7 +312,7 @@
 
 
     <!-- faq-area -->
-    <section class="faq__area" style="padding-top: 0;">
+    <section class="faq__area" style="padding-top: 10;">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6" data-aos="fade-right" data-aos-delay="600" style="margin-top: -50px;">
