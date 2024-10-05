@@ -343,17 +343,28 @@
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#collapseOne" aria-expanded="true"
                                             aria-controls="collapseOne">
-                                            Fundamental Data Analyst
+                                            Memulai Analisis Data dengan Power BI
                                         </button>
                                     </h2>
                                     <div id="collapseOne" class="accordion-collapse collapse show"
                                         data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
-                                            <p>Mengenal Data dan Data Analyst </p><br>
-                                            <p>Statistik sederhana untuk Data Analyst </p><br>
-                                            <p>Data Analyst Process </p> <br>
-                                            <p>Landscape dunia Data Analyst</p><br>
-                                            <p>Membangun Portfolio Data Analyst yang baik</p><br>
+                                            <p>Kenapa Anda harus menguasai analisis data</p><br>
+                                            <p>Contoh Analisis Data dalam Bisnis</p><br>
+                                            <p>Proses pengolahan Data untuk Dasar Keputusan Strategis</p><br>
+                                            <p>Peran Data Analyst dalam Pengambilan Keputusan</p><br>
+                                            <p>Tantangan dalam Mengelola Data Besar (Big Data)</p><br>
+                                            <p>Siklus Hidup Data: Dari Pengumpulan hingga Visualisasi</p><br>
+                                            <p>Tools dan Software yang Digunakan oleh Data Analysts</p><br>
+                                            <p>Power BI vs. Alat BI Lain: Kelebihan dan Kekurangan</p><br>
+                                            <p>Apa itu Power BI? Sejarah dan Tujuan Pengembangan</p><br>
+                                            <p>Mengapa menggunakan Power BI Penting bagi Analis Data?</p><br>
+                                            <p>Produk Power BI: Desktop, Service, Mobile</p><br>
+                                            <p>Instalasi Power BI Desktop: Persiapan dan Langkah Awal</p><br>
+                                            <p>Antarmuka Power BI Desktop: Navigasi dan Fungsi Utama</p><br>
+                                            <p>Cara Menghubungkan ke Sumber Data (Excel, Database, CSV)</p><br>
+                                            <p>Latihan Praktis: Mengimpor Data dari Excel dan CSV</p><br>
+
                                         </div>
                                     </div>
                                 </div>
@@ -362,16 +373,22 @@
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
                                             aria-controls="collapseTwo">
-                                            Pengenalan Spreadsheet
+                                            Power Query untuk ETL & Data Modelling
                                         </button>
                                     </h2>
                                     <div id="collapseTwo" class="accordion-collapse collapse"
                                         data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
-                                            <p>Groove’s intuitive shared inbox makes it easy for team members organize
-                                                prioritize and.In this episode.urvived not only five centuries.Edhen an
-                                                unknown printer took a galley of type and scrambl
-                                            </p>
+                                            <p>Memahami Pentingnya Pembersihan Data</p>
+                                            <p>Menggunakan Power Query untuk Membersihkan & Transformasi Data</p>
+                                            <p>Teknik Pembersihan Data: Duplikat, Null, dan Kesalahan </p>
+                                            <p>Teknik Transformasi Data</p>
+                                            <p>Latihan Praktis: Membersihkan dan Mengubah Data</p>
+                                            <p>Pengantar Pemodelan Data: Konsep dan Pentingnya </p>
+                                            <p>Membuat Hubungan Antara Tabel: One-to-Many, Many-to-Many</p>
+                                            <p>Mengelola Relasi Tabel di Power BI</p>
+                                            <p>Latihan Praktis: Membuat Model Data yang Terhubung </p>
+
                                         </div>
                                     </div>
                                 </div>
@@ -380,16 +397,25 @@
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#collapseThree"
                                             aria-expanded="false" aria-controls="collapseThree">
-                                            Spreadsheet untuk Data Analis
+                                            Data Analysis Expressions (DAX) & Measurement
                                         </button>
                                     </h2>
                                     <div id="collapseThree" class="accordion-collapse collapse"
                                         data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
-                                            <p>Groove’s intuitive shared inbox makes it easy for team members organize
-                                                prioritize and.In this episode.urvived not only five centuries.Edhen an
-                                                unknown printer took a galley of type and scrambl
-                                            </p>
+                                            <p>Apa Itu DAX? Fungsi dan Kegunaannya</p>
+                                            <p>Sintaks dan Struktur DAX di Power BI</p>
+                                            <p>Fungsi DAX Dasar: SUM, AVERAGE, COUNT </p>
+                                            <p>Latihan Praktis: Menggunakan Fungsi DAX untuk Pengukuran Dasar</p>
+                                            <p>Fungsi DAX Lanjutan: CALCULATE, FILTER, ALL </p>
+                                            <p>Menghitung Nilai MAX, MIN dengan DAX </p>
+                                            <p>Menggunakan DAX untuk Analisis Waktu (Time Intelligence) </p>
+                                            <p>Latihan Praktis: Menerapkan Fungsi DAX Lanjutan </p>
+                                            <p>Menulis Formula DAX yang Efisien </p>
+                                            <p>Teknik Optimasi Kueri DAX untuk Dataset Besar </p>
+                                            <p>Debugging dan Memperbaiki Kesalahan DAX </p>
+                                            <p>Latihan Praktis: Meningkatkan Performa Kueri DAX </p>
+
                                         </div>
                                     </div>
                                 </div>
@@ -398,16 +424,25 @@
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#collapseFour"
                                             aria-expanded="false" aria-controls="collapseFour">
-                                            Pengenalan SQL dan Big Query untuk Analisis Data
+                                            Membuat Dashboard untuk Visualisasi Data Interaktif
                                         </button>
                                     </h2>
                                     <div id="collapseFour" class="accordion-collapse collapse"
                                         data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
-                                            <p>Groove’s intuitive shared inbox makes it easy for team members organize
-                                                prioritize and.In this episode.urvived not only five centuries.Edhen an
-                                                unknown printer took a galley of type and scrambl
-                                            </p>
+                                            <p>Peran Visualisasi dalam Komunikasi Data</p>
+                                            <p>Jenis-Jenis Visual di Power BI: Tabel, Grafik, Peta, dll.</p>
+                                            <p>Kapan Menggunakan Visual yang Tepat?</p>
+                                            <p>Latihan Praktis: Membuat Visualisasi Dasar dengan Data Penjualan</p>
+                                            <p>Mengubah Tampilan Visual: Warna, Font, Gaya</p>
+                                            <p>Menambahkan Label, Judul, dan Tooltip pada Visual</p>
+                                            <p>Membuat Visual Interaktif dengan Fitur Drilldown</p>
+                                            <p>Latihan Praktis: Kustomisasi Visualisasi Penjualan</p>
+                                            <p>Pengenalan Dashboard: Konsep dan Tujuan</p>
+                                            <p>Menambahkan Elemen Dashboard: Visual, Filter, dan Slicer</p>
+                                            <p>Mengelola Dashboard dan Memperbarui Data</p>
+                                            <p>Latihan Praktis: Membangun Dashboard Data Penjualan</p>
+
                                         </div>
                                     </div>
                                 </div>
@@ -416,16 +451,21 @@
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" data-bs-target="#collapseFour2"
                                             aria-expanded="false" aria-controls="collapseFour">
-                                            Membangun Dashboard dengan Looker Studio
+                                            Publikasi & Portofolio Dashboard
                                         </button>
                                     </h2>
                                     <div id="collapseFour2" class="accordion-collapse collapse"
                                         data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
-                                            <p>Groove’s intuitive shared inbox makes it easy for team members organize
-                                                prioritize and.In this episode.urvived not only five centuries.Edhen an
-                                                unknown printer took a galley of type and scrambl
-                                            </p>
+                                            <p>Membuat akun di Power BI Service dengan email custom domain</p>
+                                            <p>Membuat dan mengelola Workspace</p>
+                                            <p>Mempublikasikan Laporan ke Power BI Service</p>
+                                            <p>Pengaturan Hak Akses dan Berbagi Laporan dengan Tim</p>
+                                            <p>Latihan Praktis: Mempublikasikan Dashboard ke Website</p>
+                                            <p>Panduan Visualisasi Data: Warna, Simbol, dan Layout</p>
+                                            <p>Membuat Portfolio Untuk Dashboard Power BI</p>
+                                            <p>Dukungan Komunitas Power BI Developer</p>
+
                                         </div>
                                     </div>
                                 </div>
