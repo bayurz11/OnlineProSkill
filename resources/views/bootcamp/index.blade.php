@@ -241,7 +241,7 @@
                 <div class="col-lg-6">
                     <div class="about__content">
                         <div class="section__title">
-                            <span class="sub-title" data-aos="fade-top" data-aos-delay="600">Detail</span>
+
                             <h2 class="title" data-aos="fade-top" data-aos-delay="600">
                                 <b style="color: #007368">Target dan Sasaran</b>
                                 <span class="position-relative">
