@@ -310,6 +310,43 @@
     </section>
     <!-- faq-area-end -->
 
+
+    <!-- faq-area -->
+    <section class="faq__area" style="padding-top: 0;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-delay="600" style="margin-top: -50px;">
+                    <div class="banner__images">
+                        <img src="public/assets/img/banner/man2.png" alt="img" class="main-img"
+                            data-aos="fade-right" data-aos-delay="800">
+                        <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme"
+                            data-aos="fade-right" data-aos-delay="600">
+                    </div>
+                    <div
+                        style="position: absolute; bottom: 0; left: 0; right: 0; height: 90px; 
+                            background: linear-gradient(to bottom, transparent, #f5f3f9); z-index: 1;">
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="800" style="margin-top: -50px;">
+                    <div class="faq__content">
+                        <div class="section__title pb-10">
+                            <span class="sub-title">Materi</span>
+                            <h2 class="title" style="color: #FE9900">Daftar Materi <b style="color: #007368">Kelas</b>
+                            </h2>
+                        </div>
+                        <br>
+                        <div class="faq__wrap">
+                            <div class="accordion" id="accordionExample">
+                                <!-- Konten accordion -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- faq-area-end -->
+
     <!-- faq-area -->
     <section class="faq__area">
         <div class="container">
