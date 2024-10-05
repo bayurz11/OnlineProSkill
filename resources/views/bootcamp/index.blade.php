@@ -276,7 +276,7 @@
                 </div>
 
                 <!-- Konten Kanan: Gambar dan Card -->
-                <div class="col-lg-6 col-md-9" data-aos="fade-right" data-aos-delay="600">
+                <div class="col-lg-6 col-md-9" data-aos="fade-left" data-aos-delay="600">
                     <div class="container mt-5 d-flex justify-content-center align-items-center" style="height: 85vh;">
                         <div class="align-items-center">
                             <!-- Gambar bagian atas card -->
