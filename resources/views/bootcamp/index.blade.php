@@ -309,7 +309,7 @@
                                 style="height: 20rem; width:15rem; object-fit: cover;">
 
                             <!-- Card Body yang diangkat sedikit ke atas -->
-                            <div class="card text-center" style="width: 15rem; overflow: hidden; margin-top: -30px;">
+                            <div class="card text-center" style="width: 15rem; overflow: hidden; margin-top: -50px;">
                                 <div class="card-body">
                                     <h5 class="card-title">Power BI Expertise</h5>
 
