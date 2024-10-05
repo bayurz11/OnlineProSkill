@@ -340,10 +340,10 @@
                             <div class="accordion" id="accordionExample">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false"
-                                            aria-controls="collapseTwo">
-                                            Power Query untuk ETL & Data Modelling
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne" aria-expanded="false"
+                                            aria-controls="collapseOne">
+                                            Memulai Analisis Data dengan Power BI
                                         </button>
                                     </h2>
                                     <div id="collapseOne" class="accordion-collapse collapse show"
