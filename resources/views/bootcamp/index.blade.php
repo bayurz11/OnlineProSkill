@@ -474,13 +474,7 @@
                                 <div
                                     class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1">
                                     <ul class="courses__item-meta list-wrap">
-                                        <li class="courses__item-tag">
-                                            @if ($kelas->course_type == 'online')
-                                                <span class="badge bg-primary">Online</span>
-                                            @else
-                                                <span class="badge bg-secondary">Kelas Tatap Muka</span>
-                                            @endif
-                                        </li>
+
                                         <li class="price">Rp {{ number_format($kelas->price, 0, '.', '.') }}</li>
                                     </ul>
                                     <h5 class="title course-title flex-grow-1">
