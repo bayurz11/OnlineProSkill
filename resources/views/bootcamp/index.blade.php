@@ -318,7 +318,7 @@
                                     <a href="https://www.linkedin.com/in/beni-oktopiansah" class="card-text"
                                         style="text-decoration: none; font-size: 18px;">
                                         <i class="fab fa-linkedin"
-                                            style="color: #0077b5; margin-right: 16px; font-size: 24px;"></i>Beni
+                                            style="color: #0077b5; margin-right: 16px; font-size: 28px;"></i>Beni
                                         Oktopiansah
                                     </a>
 
