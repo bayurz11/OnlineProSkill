@@ -289,8 +289,8 @@
                                     <h5 class="card-title">Power BI Expertise</h5>
 
                                     <!-- Ganti teks dengan gambar logo -->
-                                    <img src="path-to-johnson-and-johnson-logo.png" alt="Johnson & Johnson Logo"
-                                        style="height: 50px; margin-bottom: 10px;">
+                                    <img src="public/assets/img/banner/johnson-and-johnson-1.png"
+                                        alt="Johnson & Johnson Logo" style="height: 50px; margin-bottom: 10px;">
 
                                     <!-- Nama menjadi link dengan ikon LinkedIn -->
                                     <a href="https://www.linkedin.com/in/beni-oktopiansah" class="card-text"
