@@ -337,7 +337,115 @@
                         <br>
                         <div class="faq__wrap">
                             <div class="accordion" id="accordionExample">
-                                <!-- Konten accordion -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne" aria-expanded="true"
+                                            aria-controls="collapseOne">
+                                            Fundamental Data Analyst
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show"
+                                        data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <p>Mengenal Data dan Data Analyst </p><br>
+                                            <p>Statistik sederhana untuk Data Analyst </p><br>
+                                            <p>Data Analyst Process </p> <br>
+                                            <p>Landscape dunia Data Analyst</p><br>
+                                            <p>Membangun Portfolio Data Analyst yang baik</p><br>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                            aria-controls="collapseTwo">
+                                            Pengenalan Spreadsheet
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <p>Groove’s intuitive shared inbox makes it easy for team members organize
+                                                prioritize and.In this episode.urvived not only five centuries.Edhen an
+                                                unknown printer took a galley of type and scrambl
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                            aria-expanded="false" aria-controls="collapseThree">
+                                            Spreadsheet untuk Data Analis
+                                        </button>
+                                    </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <p>Groove’s intuitive shared inbox makes it easy for team members organize
+                                                prioritize and.In this episode.urvived not only five centuries.Edhen an
+                                                unknown printer took a galley of type and scrambl
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseFour"
+                                            aria-expanded="false" aria-controls="collapseFour">
+                                            Pengenalan SQL dan Big Query untuk Analisis Data
+                                        </button>
+                                    </h2>
+                                    <div id="collapseFour" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <p>Groove’s intuitive shared inbox makes it easy for team members organize
+                                                prioritize and.In this episode.urvived not only five centuries.Edhen an
+                                                unknown printer took a galley of type and scrambl
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseFour2"
+                                            aria-expanded="false" aria-controls="collapseFour">
+                                            Membangun Dashboard dengan Looker Studio
+                                        </button>
+                                    </h2>
+                                    <div id="collapseFour2" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <p>Groove’s intuitive shared inbox makes it easy for team members organize
+                                                prioritize and.In this episode.urvived not only five centuries.Edhen an
+                                                unknown printer took a galley of type and scrambl
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseFour3"
+                                            aria-expanded="false" aria-controls="collapseFour">
+                                            Membangun Dashboard dengan Tableau
+                                        </button>
+                                    </h2>
+                                    <div id="collapseFour3" class="accordion-collapse collapse"
+                                        data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <p>Groove’s intuitive shared inbox makes it easy for team members organize
+                                                prioritize and.In this episode.urvived not only five centuries.Edhen an
+                                                unknown printer took a galley of type and scrambl
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
