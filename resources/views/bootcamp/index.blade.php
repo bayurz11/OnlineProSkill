@@ -516,12 +516,11 @@
     <section class="courses-area section-py-120" data-background="public/assets/img/bg/courses_bg.jpg" loading="lazy">
         <div class="container">
             <div class="row justify-content-center" data-aos="fade-right" data-aos-delay="800";>
-                <!-- Menambahkan justify-content-center untuk memusatkan kolom -->
                 @foreach ($KelasTatapMuka as $kelas)
                     @if ($kelas->status == 1)
                         <a href="{{ route('cart_bootcamp.checkout', ['id' => $kelas->id]) }}" class="btn arrow-btn"
-                            style="font-size: 1rem; padding: 15px 25px;">Daftar
-                            Sekarang
+                            style="font-size: 1rem; padding: 15px 25px; display: flex; justify-content: center; align-items: center; width: 200px;">
+                            Daftar Sekarang
                             <img src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"
                                 style="margin-left: 10px;">
                         </a>
