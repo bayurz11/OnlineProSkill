@@ -518,14 +518,12 @@
             <div class="row justify-content-center" data-aos="fade-right" data-aos-delay="800";>
                 @foreach ($KelasTatapMuka as $kelas)
                     @if ($kelas->status == 1)
-                        <div class="banner__btn-wrap">
-                            <a href="{{ route('cart_bootcamp.checkout', ['id' => $kelas->id]) }}" class="btn arrow-btn"
-                                style="font-size: 1rem; padding: 15px 25px; display: flex; justify-content: center; align-items: center; width: 200px;">
-                                Daftar Sekarang
-                                <img src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"
-                                    style="margin-left: 10px;">
-                            </a>
-                        </div>
+                        <a href="{{ route('cart_bootcamp.checkout', ['id' => $kelas->id]) }}" class="btn arrow-btn"
+                            style="font-size: 1rem; padding: 15px 25px; display: flex; justify-content: center; align-items: center; width: 200px;">
+                            Daftar Sekarang
+                            <img src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"
+                                style="margin-left: 10px;">
+                        </a>
                     @endif
                 @endforeach
             </div>
