@@ -287,12 +287,22 @@
                             <div class="card text-center" style="width: 20rem; overflow: hidden; margin-top: -30px;">
                                 <div class="card-body">
                                     <h5 class="card-title">Power BI Expertise</h5>
-                                    <p class="card-text" style="color:red; font-weight:bold;">Johnson & Johnson</p>
-                                    <p class="card-text">Beni. Oktopiansah</p>
+
+                                    <!-- Ganti teks dengan gambar logo -->
+                                    <img src="path-to-johnson-and-johnson-logo.png" alt="Johnson & Johnson Logo"
+                                        style="height: 50px; margin-bottom: 10px;">
+
+                                    <!-- Nama menjadi link dengan ikon LinkedIn -->
+                                    <a href="https://www.linkedin.com/in/beni-oktopiansah" class="card-text"
+                                        style="text-decoration: none;">
+                                        <i class="fab fa-linkedin" style="color: #0077b5; margin-right: 8px;"></i>Beni
+                                        Oktopiansah
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
 
