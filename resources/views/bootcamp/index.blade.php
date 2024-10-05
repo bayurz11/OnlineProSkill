@@ -298,7 +298,7 @@
     <section class="faq__area" style="padding-top: 10;">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6" data-aos="fade-right" data-aos-delay="400" style="margin-top: -50px;">
+                <div class="col-lg-4" data-aos="fade-right" data-aos-delay="400" style="margin-top: -50px;">
                     <div class="container mt-5 d-flex justify-content-center align-items-center" style="height: 85vh;">
                         <div class="align-items-center">
                             <!-- Gambar bagian atas card -->
@@ -327,7 +327,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="800" style="margin-top: -50px;">
+                <div class="col-lg-8" data-aos="fade-left" data-aos-delay="800" style="margin-top: -50px;">
                     <div class="faq__content">
                         <div class="section__title pb-10">
                             <span class="sub-title">Materi</span>
