@@ -235,19 +235,13 @@
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-6 col-md-9" data-aos="fade-right" data-aos-delay="600">
-                    <img src="public/assets/img/banner/instruktur2.png" alt="Profile Image"
-                        style="width: 150px; height: 180px; object-fit: cover;">
-                    <div class="card text-center bg-dark text-white mx-auto mt-5"
-                        style="max-width: 300px; border-radius: 10px;">
-                        <div class="card-body">
-                            <!-- Judul dan Nama Perusahaan -->
-                            <h5 class="card-title">Power BI Expertise</h5>
-                            <h3 class="card-text" style="font-family: cursive; color: #FF0000;">Johnson & Johnson</h3>
-
-                            <!-- LinkedIn -->
-                            <div class="mt-3">
-                                <i class="bi bi-linkedin" style="font-size: 1.5rem; color: #0077b5;"></i>
-                                <span class="ms-2">Beni.Oktopiansah</span>
+                    <div class="container mt-5">
+                        <div class="card" style="width: 18rem;">
+                            <img src="image.png" class="card-img-top" alt="User Photo">
+                            <div class="card-body">
+                                <h5 class="card-title">Power BI Expertise</h5>
+                                <p class="card-text" style="color:red; font-weight:bold;">Johnson & Johnson</p>
+                                <p class="card-text">Beni. Oktopiansah</p>
                             </div>
                         </div>
                     </div>
