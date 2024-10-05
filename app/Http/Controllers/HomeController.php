@@ -30,8 +30,11 @@ class HomeController extends Controller
         $daftar_siswa = UserProfile::where('role_id', 3)->get();
         $sertifikat = Sertifikat::all();
 
-        // Mengambil KelasTatapMuka dan mengurutkannya berdasarkan kolom created_at
-        $KelasTatapMuka = KelasTatapMuka::orderBy('created_at', 'asc')->get();
+        // Mengambil KelasTatapMuka dengan course_type = 'online' atau 'offline' dan mengurutkannya berdasarkan kolom created_at
+        $KelasTatapMuka = KelasTatapMuka::whereIn('course_type', ['online', 'offline'])
+            ->orderBy('created_at', 'asc')
+            ->get();
+
         $blog = Blog::orderBy('created_at', 'desc')->take(4)->get();
 
         // Mengambil event dan memfilter yang tanggalnya belum lewat, lalu membatasi 3 terbaru
@@ -55,6 +58,7 @@ class HomeController extends Controller
 
         return view('home.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'categori', 'KelasTatapMuka', 'event', 'blog', 'daftar_siswa', 'sertifikat'));
     }
+
 
     public function classroom()
     {
