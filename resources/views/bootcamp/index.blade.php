@@ -482,66 +482,69 @@
                     </div>
                 </div>
             </div>
-            <div class="tab-content" id="courseTabContent">
-                <div class="tab-pane fade show active" id="all-tab-pane" role="tabpanel" aria-labelledby="all-tab"
-                    tabindex="0">
-                    <div class="swiper courses-swiper-active">
-                        <div class="swiper-wrapper">
-                            @foreach ($KelasTatapMuka as $kelas)
-                                @if ($kelas->status == 1)
-                                    <div class="swiper-slide">
-                                        <div
-                                            class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
-                                            <div class="courses__item-thumb courses__item-thumb-two">
-                                                <a href="{{ route('classroomdetail', ['id' => $kelas->id]) }}"
-                                                    class="shine__animate-link">
-                                                    <img src="{{ asset('public/uploads/' . $kelas->gambar) }}"
-                                                        alt="img" class="img-fluid" loading="lazy">
+            <div class="swiper courses-swiper-active">
+                <div class="swiper-wrapper">
+                    @foreach ($KelasTatapMuka as $kelas)
+                        @if ($kelas->status == 1)
+                            <div class="swiper-slide">
+                                <div class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
+                                    <div class="courses__item-thumb courses__item-thumb-two">
+                                        <a href="{{ route('classroomdetail', ['id' => $kelas->id]) }}"
+                                            class="shine__animate-link">
+                                            <img src="{{ asset('public/uploads/' . $kelas->gambar) }}" alt="img"
+                                                class="img-fluid" loading="lazy">
+                                        </a>
+                                    </div>
+                                    <div
+                                        class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1">
+                                        <ul class="courses__item-meta list-wrap">
+                                            <li class="courses__item-tag">
+                                                @if ($kelas->course_type == 'online')
+                                                    <span class="badge bg-primary">Online</span>
+                                                @else
+                                                    <span class="badge bg-secondary">Kelas Tatap Muka</span>
+                                                @endif
+                                            </li>
+                                            <li class="price">Rp {{ number_format($kelas->price, 0, '.', '.') }}
+                                            </li>
+                                        </ul>
+                                        <h5 class="title course-title flex-grow-1">
+                                            <a
+                                                href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">{{ $kelas->nama_kursus }}</a>
+                                        </h5>
+                                        <div class="courses__item-bottom">
+                                            <div class="button">
+                                                <a href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">
+                                                    <span class="text">Detail Kelas</span>
+                                                    <i class="flaticon-arrow-right"></i>
                                                 </a>
-                                            </div>
-                                            <div
-                                                class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1">
-                                                <ul class="courses__item-meta list-wrap">
-                                                    <li class="courses__item-tag">
-                                                        @if ($kelas->course_type == 'online')
-                                                            <span class="badge bg-primary">Online</span>
-                                                        @else
-                                                            <span class="badge bg-secondary">Kelas Tatap Muka</span>
-                                                        @endif
-                                                    </li>
-                                                    <li class="price">Rp {{ number_format($kelas->price, 0, '.', '.') }}
-                                                    </li>
-                                                </ul>
-                                                <h5 class="title course-title flex-grow-1">
-                                                    <a
-                                                        href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">{{ $kelas->nama_kursus }}</a>
-                                                </h5>
-                                                <div class="courses__item-bottom">
-                                                    <div class="button">
-                                                        <a href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">
-                                                            <span class="text">Detail Kelas</span>
-                                                            <i class="flaticon-arrow-right"></i>
-                                                        </a>
-                                                    </div>
-
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                @endif
-                            @endforeach
-                        </div>
-                    </div>
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
                 </div>
             </div>
 
-
-            <div class="all-courses-btn mt-30">
-                <div class="tg-button-wrap justify-content-center">
-                    <a href="{{ route('search') }}" class="btn arrow-btn">Lihat Semua Kelas <img
-                            src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
-                </div>
-            </div>
+            <script>
+                var swiper = new Swiper('.courses-swiper-active', {
+                    slidesPerView: 3, // Jumlah slide yang ingin ditampilkan dalam satu layar
+                    spaceBetween: 30, // Jarak antar slide
+                    centeredSlides: true, // Menempatkan slide yang dipilih di tengah
+                    initialSlide: Math.floor({{ count($KelasTatapMuka) }} / 2), // Mengatur slide awal dari tengah
+                    loop: true, // Mengaktifkan loop jika ingin carousel berputar terus-menerus
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                });
+            </script>
         </div>
     </section>
     <!-- course-area-end -->
