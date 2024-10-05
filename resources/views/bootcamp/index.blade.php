@@ -280,26 +280,9 @@
                     <div class="container mt-5 d-flex justify-content-center align-items-center" style="height: 85vh;">
                         <div class="align-items-center">
                             <!-- Gambar bagian atas card -->
-                            <img src="public/assets/img/banner/instruktur2.png" class="card-img-top" alt="User Photo"
+                            <img src="public/assets/img/banner/bannerhalaman.png" class="card-img-top" alt="User Photo"
                                 style="height: 25rem; width:20rem; object-fit: cover;">
 
-                            <!-- Card Body yang diangkat sedikit ke atas -->
-                            <div class="card text-center" style="width: 20rem; overflow: hidden; margin-top: -30px;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Power BI Expertise</h5>
-
-                                    <!-- Ganti teks dengan gambar logo -->
-                                    <img src="public/assets/img/banner/johnson-and-johnson-1.png"
-                                        alt="Johnson & Johnson Logo" style="height: 45px; margin-bottom: 10px;">
-                                    <br>
-                                    <!-- Nama menjadi link dengan ikon LinkedIn -->
-                                    <a href="https://www.linkedin.com/in/beni-oktopiansah" class="card-text"
-                                        style="text-decoration: none;">
-                                        <i class="fab fa-linkedin" style="color: #0077b5; margin-right: 9px;"></i>Beni
-                                        Oktopiansah
-                                    </a>
-                                </div>
-                            </div>
                         </div>
                     </div>
 
