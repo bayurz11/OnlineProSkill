@@ -316,10 +316,12 @@
                                     <br>
                                     <!-- Nama menjadi link dengan ikon LinkedIn -->
                                     <a href="https://www.linkedin.com/in/beni-oktopiansah" class="card-text"
-                                        style="text-decoration: none;">
-                                        <i class="fab fa-linkedin" style="color: #0077b5; margin-right: 16px;"></i>Beni
+                                        style="text-decoration: none; font-size: 18px;">
+                                        <i class="fab fa-linkedin"
+                                            style="color: #0077b5; margin-right: 16px; font-size: 24px;"></i>Beni
                                         Oktopiansah
                                     </a>
+
                                 </div>
                             </div>
                         </div>
