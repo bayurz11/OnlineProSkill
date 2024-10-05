@@ -484,7 +484,7 @@
                                     <div class="courses__item-bottom">
                                         <div class="button">
                                             <a href="{{ route('cart_bootcamp.checkout', ['id' => $kelas->id]) }}">
-                                                <span class="text">Detail Kelas</span>
+                                                <span class="text">Daftar Sekarang</span>
                                                 <i class="flaticon-arrow-right"></i>
                                             </a>
                                         </div>
