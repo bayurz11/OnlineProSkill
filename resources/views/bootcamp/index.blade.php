@@ -237,7 +237,7 @@
                 <div class="col-lg-6 col-md-9" data-aos="fade-right" data-aos-delay="600">
                     <div class="container mt-5">
                         <img src="public/assets/img/banner/instruktur2.png" class="card-img-top" alt="User Photo"
-                            style="height: 250px; width:286px; object-fit: cover;">
+                            style="height: 250px; width:18rem; object-fit: cover;">
                         <div class="card text-center" style="width: 18rem; overflow: hidden;">
                             <div class="card-body">
                                 <h5 class="card-title">Power BI Expertise</h5>
