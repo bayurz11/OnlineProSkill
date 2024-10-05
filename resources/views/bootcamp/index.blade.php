@@ -239,8 +239,8 @@
                         style="max-width: 300px; border-radius: 10px;">
                         <div class="card-body">
                             <!-- Gambar Profil -->
-                            <img src="your-image-path-here" alt="Profile Image" class="rounded-circle mb-3"
-                                style="width: 150px; height: 150px; object-fit: cover;">
+                            <img src="public/assets/img/banner/instruktur2.png" alt="Profile Image"
+                                class="rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;">
 
                             <!-- Judul dan Nama Perusahaan -->
                             <h5 class="card-title">Power BI Expertise</h5>
