@@ -518,6 +518,15 @@
             <div class="row justify-content-center"> <!-- Menambahkan justify-content-center untuk memusatkan kolom -->
                 @foreach ($KelasTatapMuka as $kelas)
                     @if ($kelas->status == 1)
+                        <div class="banner__btn-wrap" data-aos="fade-right" data-aos-delay="800"
+                            style="margin-top: 20px;">
+                            <a href="{{ route('cart_bootcamp.checkout', ['id' => $kelas->id]) }}" class="btn arrow-btn"
+                                style="font-size: 1rem; padding: 15px 25px;">Daftar
+                                Sekarang
+                                <img src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"
+                                    style="margin-left: 10px;">
+                            </a>
+                        </div>
                         <div class="col-12 col-md-6 col-lg-4"> <!-- Menggunakan kelas Bootstrap untuk responsivitas -->
 
                             <div class="courses__item-bottom">
