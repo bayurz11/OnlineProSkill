@@ -27,7 +27,10 @@ class BootcampController extends Controller
         $sertifikat = Sertifikat::all();
 
         // Mengambil KelasTatapMuka dan mengurutkannya berdasarkan kolom created_at
-        $KelasTatapMuka = KelasTatapMuka::orderBy('created_at', 'asc')->get();
+        $KelasTatapMuka = KelasTatapMuka::where('course_type', 'bootcamp')
+            ->orderBy('created_at', 'asc')
+            ->get();
+
         $blog = Blog::orderBy('created_at', 'desc')->take(4)->get();
 
         // Mengambil event dan memfilter yang tanggalnya belum lewat, lalu membatasi 3 terbaru
