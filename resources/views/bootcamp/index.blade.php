@@ -238,7 +238,7 @@
                     <div class="container mt-5">
                         <!-- Gambar bagian atas card -->
                         <img src="public/assets/img/banner/instruktur2.png" class="card-img-top" alt="User Photo"
-                            style="height: 20rem; width:18rem; object-fit: cover;">
+                            style="height: 22rem; width:18rem; object-fit: cover;">
 
                         <!-- Card Body yang diangkat sedikit ke atas -->
                         <div class="card text-center" style="width: 18rem; overflow: hidden; margin-top: -25px;">
