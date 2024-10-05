@@ -235,9 +235,10 @@
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-6 col-md-9" data-aos="fade-right" data-aos-delay="600">
+
                     <div class="container mt-5">
                         <div class="card" style="width: 18rem;">
-                            <img src="image.png" class="card-img-top" alt="User Photo">
+                            <img src="public/assets/img/banner/instruktur2.png" class="card-img-top" alt="User Photo">
                             <div class="card-body">
                                 <h5 class="card-title">Power BI Expertise</h5>
                                 <p class="card-text" style="color:red; font-weight:bold;">Johnson & Johnson</p>
