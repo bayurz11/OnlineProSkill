@@ -295,7 +295,7 @@
                                     <!-- Nama menjadi link dengan ikon LinkedIn -->
                                     <a href="https://www.linkedin.com/in/beni-oktopiansah" class="card-text"
                                         style="text-decoration: none;">
-                                        <i class="fab fa-linkedin" style="color: #0077b5; margin-right: 8px;"></i>Beni
+                                        <i class="fab fa-linkedin" style="color: #0077b5; margin-right: 9px;"></i>Beni
                                         Oktopiansah
                                     </a>
                                 </div>
