@@ -281,7 +281,7 @@
                         <div class="align-items-center">
                             <!-- Gambar bagian atas card -->
                             <img src="public/assets/img/banner/bannerhalaman.png" class="card-img-top" alt="User Photo"
-                                style="height: 25rem; width:20rem; object-fit: cover;">
+                                style="height: 30rem; width:20rem; object-fit: cover;">
 
                         </div>
                     </div>
