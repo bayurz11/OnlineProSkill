@@ -455,7 +455,7 @@
     </section>
     <!-- faq-area-end -->
 
-    <!-- faq-area -->
+    {{-- <!-- faq-area -->
     <section class="faq__area">
         <div class="container">
             <div class="row align-items-center">
@@ -599,7 +599,7 @@
             </div>
         </div>
     </section>
-    <!-- faq-area-end -->
+    <!-- faq-area-end --> --}}
 
 
 
