@@ -341,7 +341,7 @@
                                 <div class="accordion-item">
                                     <h2 class="accordion-header">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseOne" aria-expanded="true"
+                                            data-bs-target="#collapseOne" aria-expanded="false"
                                             aria-controls="collapseOne">
                                             Memulai Analisis Data dengan Power BI
                                         </button>
@@ -379,15 +379,15 @@
                                     <div id="collapseTwo" class="accordion-collapse collapse"
                                         data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
-                                            <p>Memahami Pentingnya Pembersihan Data</p>
-                                            <p>Menggunakan Power Query untuk Membersihkan & Transformasi Data</p>
-                                            <p>Teknik Pembersihan Data: Duplikat, Null, dan Kesalahan </p>
-                                            <p>Teknik Transformasi Data</p>
-                                            <p>Latihan Praktis: Membersihkan dan Mengubah Data</p>
-                                            <p>Pengantar Pemodelan Data: Konsep dan Pentingnya </p>
-                                            <p>Membuat Hubungan Antara Tabel: One-to-Many, Many-to-Many</p>
-                                            <p>Mengelola Relasi Tabel di Power BI</p>
-                                            <p>Latihan Praktis: Membuat Model Data yang Terhubung </p>
+                                            <p>Memahami Pentingnya Pembersihan Data</p><br>
+                                            <p>Menggunakan Power Query untuk Membersihkan & Transformasi Data</p><br>
+                                            <p>Teknik Pembersihan Data: Duplikat, Null, dan Kesalahan </p><br>
+                                            <p>Teknik Transformasi Data</p><br>
+                                            <p>Latihan Praktis: Membersihkan dan Mengubah Data</p><br>
+                                            <p>Pengantar Pemodelan Data: Konsep dan Pentingnya </p><br>
+                                            <p>Membuat Hubungan Antara Tabel: One-to-Many, Many-to-Many</p><br>
+                                            <p>Mengelola Relasi Tabel di Power BI</p><br>
+                                            <p>Latihan Praktis: Membuat Model Data yang Terhubung </p><br>
 
                                         </div>
                                     </div>
@@ -403,18 +403,18 @@
                                     <div id="collapseThree" class="accordion-collapse collapse"
                                         data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
-                                            <p>Apa Itu DAX? Fungsi dan Kegunaannya</p>
-                                            <p>Sintaks dan Struktur DAX di Power BI</p>
-                                            <p>Fungsi DAX Dasar: SUM, AVERAGE, COUNT </p>
-                                            <p>Latihan Praktis: Menggunakan Fungsi DAX untuk Pengukuran Dasar</p>
-                                            <p>Fungsi DAX Lanjutan: CALCULATE, FILTER, ALL </p>
-                                            <p>Menghitung Nilai MAX, MIN dengan DAX </p>
-                                            <p>Menggunakan DAX untuk Analisis Waktu (Time Intelligence) </p>
-                                            <p>Latihan Praktis: Menerapkan Fungsi DAX Lanjutan </p>
-                                            <p>Menulis Formula DAX yang Efisien </p>
-                                            <p>Teknik Optimasi Kueri DAX untuk Dataset Besar </p>
-                                            <p>Debugging dan Memperbaiki Kesalahan DAX </p>
-                                            <p>Latihan Praktis: Meningkatkan Performa Kueri DAX </p>
+                                            <p>Apa Itu DAX? Fungsi dan Kegunaannya</p><br>
+                                            <p>Sintaks dan Struktur DAX di Power BI</p><br>
+                                            <p>Fungsi DAX Dasar: SUM, AVERAGE, COUNT </p><br>
+                                            <p>Latihan Praktis: Menggunakan Fungsi DAX untuk Pengukuran Dasar</p><br>
+                                            <p>Fungsi DAX Lanjutan: CALCULATE, FILTER, ALL </p><br>
+                                            <p>Menghitung Nilai MAX, MIN dengan DAX </p><br>
+                                            <p>Menggunakan DAX untuk Analisis Waktu (Time Intelligence) </p><br>
+                                            <p>Latihan Praktis: Menerapkan Fungsi DAX Lanjutan </p><br>
+                                            <p>Menulis Formula DAX yang Efisien </p><br>
+                                            <p>Teknik Optimasi Kueri DAX untuk Dataset Besar </p><br>
+                                            <p>Debugging dan Memperbaiki Kesalahan DAX </p><br>
+                                            <p>Latihan Praktis: Meningkatkan Performa Kueri DAX </p><br>
 
                                         </div>
                                     </div>
@@ -430,18 +430,18 @@
                                     <div id="collapseFour" class="accordion-collapse collapse"
                                         data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
-                                            <p>Peran Visualisasi dalam Komunikasi Data</p>
-                                            <p>Jenis-Jenis Visual di Power BI: Tabel, Grafik, Peta, dll.</p>
-                                            <p>Kapan Menggunakan Visual yang Tepat?</p>
-                                            <p>Latihan Praktis: Membuat Visualisasi Dasar dengan Data Penjualan</p>
-                                            <p>Mengubah Tampilan Visual: Warna, Font, Gaya</p>
-                                            <p>Menambahkan Label, Judul, dan Tooltip pada Visual</p>
-                                            <p>Membuat Visual Interaktif dengan Fitur Drilldown</p>
-                                            <p>Latihan Praktis: Kustomisasi Visualisasi Penjualan</p>
-                                            <p>Pengenalan Dashboard: Konsep dan Tujuan</p>
-                                            <p>Menambahkan Elemen Dashboard: Visual, Filter, dan Slicer</p>
-                                            <p>Mengelola Dashboard dan Memperbarui Data</p>
-                                            <p>Latihan Praktis: Membangun Dashboard Data Penjualan</p>
+                                            <p>Peran Visualisasi dalam Komunikasi Data</p><br>
+                                            <p>Jenis-Jenis Visual di Power BI: Tabel, Grafik, Peta, dll.</p><br>
+                                            <p>Kapan Menggunakan Visual yang Tepat?</p><br>
+                                            <p>Latihan Praktis: Membuat Visualisasi Dasar dengan Data Penjualan</p><br>
+                                            <p>Mengubah Tampilan Visual: Warna, Font, Gaya</p><br>
+                                            <p>Menambahkan Label, Judul, dan Tooltip pada Visual</p><br>
+                                            <p>Membuat Visual Interaktif dengan Fitur Drilldown</p><br>
+                                            <p>Latihan Praktis: Kustomisasi Visualisasi Penjualan</p><br>
+                                            <p>Pengenalan Dashboard: Konsep dan Tujuan</p><br>
+                                            <p>Menambahkan Elemen Dashboard: Visual, Filter, dan Slicer</p><br>
+                                            <p>Mengelola Dashboard dan Memperbarui Data</p><br>
+                                            <p>Latihan Praktis: Membangun Dashboard Data Penjualan</p><br>
 
                                         </div>
                                     </div>
@@ -457,14 +457,14 @@
                                     <div id="collapseFour2" class="accordion-collapse collapse"
                                         data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
-                                            <p>Membuat akun di Power BI Service dengan email custom domain</p>
-                                            <p>Membuat dan mengelola Workspace</p>
-                                            <p>Mempublikasikan Laporan ke Power BI Service</p>
-                                            <p>Pengaturan Hak Akses dan Berbagi Laporan dengan Tim</p>
-                                            <p>Latihan Praktis: Mempublikasikan Dashboard ke Website</p>
-                                            <p>Panduan Visualisasi Data: Warna, Simbol, dan Layout</p>
-                                            <p>Membuat Portfolio Untuk Dashboard Power BI</p>
-                                            <p>Dukungan Komunitas Power BI Developer</p>
+                                            <p>Membuat akun di Power BI Service dengan email custom domain</p><br>
+                                            <p>Membuat dan mengelola Workspace</p><br>
+                                            <p>Mempublikasikan Laporan ke Power BI Service</p><br>
+                                            <p>Pengaturan Hak Akses dan Berbagi Laporan dengan Tim</p><br>
+                                            <p>Latihan Praktis: Mempublikasikan Dashboard ke Website</p><br>
+                                            <p>Panduan Visualisasi Data: Warna, Simbol, dan Layout</p><br>
+                                            <p>Membuat Portfolio Untuk Dashboard Power BI</p><br>
+                                            <p>Dukungan Komunitas Power BI Developer</p><br>
 
                                         </div>
                                     </div>
