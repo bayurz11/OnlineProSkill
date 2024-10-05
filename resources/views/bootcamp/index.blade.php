@@ -239,8 +239,6 @@
                         style="width: 150px; height: 150px; object-fit: cover;">
                     <div class="card text-center bg-dark text-white mx-auto mt-5"
                         style="max-width: 300px; border-radius: 10px;">
-                        <!-- Gambar Profil -->
-
                         <div class="card-body">
                             <!-- Judul dan Nama Perusahaan -->
                             <h5 class="card-title">Power BI Expertise</h5>
