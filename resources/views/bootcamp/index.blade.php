@@ -237,11 +237,10 @@
                 <div class="col-lg-6 col-md-9" data-aos="fade-right" data-aos-delay="600">
                     <div class="card text-center bg-dark text-white mx-auto mt-5"
                         style="max-width: 300px; border-radius: 10px;">
+                        <!-- Gambar Profil -->
+                        <img src="public/assets/img/banner/instruktur2.png" alt="Profile Image"
+                            class="rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;">
                         <div class="card-body">
-                            <!-- Gambar Profil -->
-                            <img src="public/assets/img/banner/instruktur2.png" alt="Profile Image"
-                                class="rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;">
-
                             <!-- Judul dan Nama Perusahaan -->
                             <h5 class="card-title">Power BI Expertise</h5>
                             <h3 class="card-text" style="font-family: cursive; color: #FF0000;">Johnson & Johnson</h3>
