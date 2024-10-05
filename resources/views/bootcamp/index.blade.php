@@ -218,7 +218,7 @@
                                 <img src="public/assets/img/icons/features_icon07.svg" class="injectable" alt="img">
                             </div>
                             <div class="features__content">
-                                <h4 class="title" style="color: #007368">lifetime access</h4>
+                                <h4 class="title" style="color: #007368">Lifetime access</h4>
                                 <p>Tidak Ada Batasan Waktu untuk Mengakses Materi</p>
                             </div>
                         </div>
