@@ -173,7 +173,7 @@
                             </div>
                             <div class="features__content">
                                 <h4 class="title" style="color: #007368">Materi & Rekaman Pertemuan</h4>
-                                <p>Disediakan Materi Video untuk Peserta Bootccamp</p>
+                                <p>Dapatkan akses ke pembelajaran praktis yang bisa Anda ikuti kapan saja, di mana saja</p>
                             </div>
                         </div>
                     </div>
@@ -195,7 +195,7 @@
                             </div>
                             <div class="features__content">
                                 <h4 class="title" style="color: #007368">Group Alumni</h4>
-                                <p>Disediakan Group Alumni untuk Peserta Bootcamp</p>
+                                <p>Disediakan Group Alumni untuk Peserta</p>
                             </div>
                         </div>
                     </div>
@@ -217,7 +217,7 @@
                             </div>
                             <div class="features__content">
                                 <h4 class="title" style="color: #007368">Custom Domain Email</h4>
-                                <p>Disediakan Custom Domain Email untuk Peserta Bootcamp</p>
+                                <p>Disediakan Custom Domain Email untuk Peserta </p>
                             </div>
                         </div>
                     </div>
@@ -230,7 +230,7 @@
                             </div>
                             <div class="features__content">
                                 <h4 class="title" style="color: #007368">3 Portofolio</h4>
-                                <p>Mendapatkan 3 Portofolio Projek</p>
+                                <p>Mendapatkan 3 Portofolio Projek </p>
                             </div>
                         </div>
                     </div>
