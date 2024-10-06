@@ -237,7 +237,7 @@
     <!-- fact-area-end -->
 
     <!-- faq-area -->
-    <section class="faq__area" style="padding-top: 0.5;">
+    <section class="faq__area" style="padding-top: 0.2px;">
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <!-- Konten Kiri: Target dan Sasaran -->
