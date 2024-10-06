@@ -25,8 +25,8 @@
                                         fill="currentcolor" />
                                 </svg>
                                 Power BI.
-                            </span>
-                            <br>
+                            </span><br><br>
+
                             <b style="color: #007368">untuk <b>data analyst </b>pemula</b>
                         </h3> <br>
                         <p data-aos="fade-right" data-aos-delay="600" style="font-size: 1rem; margin-bottom: 18px;">
@@ -38,7 +38,6 @@
                         <p data-aos="fade-right" data-aos-delay="700" style="font-size: 1rem;">
                             📝 Pelajari Program <b>Bootcamp Power Bi</b> dari <b>Proskill Akademia!.</b>
                         </p>
-
                     </div>
                     <div class="d-flex justify-content-between align-items-center flex-wrap" data-aos="fade-top"
                         data-aos-delay="400">
