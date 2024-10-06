@@ -217,7 +217,7 @@
             </div>
         </div>
 
-    </section>
+    </section><br>
     <!-- fact-area-end -->
 
     <!-- faq-area -->
