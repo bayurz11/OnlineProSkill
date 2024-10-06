@@ -60,7 +60,7 @@
                         data-aos-delay="400">
                         <div class="d-flex align-items-center mb-3 mb-md-0">
                             <div>
-                                <p class="mb-0" style="font-size: 0.9rem;">5X <b><img
+                                <p class="mb-0" style="font-size: 0.9rem;"><b>5X</b> <b><img
                                             src="public/assets/img/icons/zoom.svg" alt="zoom"
                                             style="width: 36px; height: 30px; vertical-align: middle; margin-right: 5px;"></b>
                                     Online</p>
