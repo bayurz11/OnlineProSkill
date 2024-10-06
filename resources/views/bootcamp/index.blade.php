@@ -15,10 +15,9 @@
                         data-aos="fade-top" style="display: block; margin-bottom: 20px;">
                     <div class="banner__content" style="padding: 0;">
                         <h3 class="title tg-svg" data-aos="fade-right" data-aos-delay="400"
-                            style="font-size: 2.5rem; line-height: 1.2; margin-left: 0;">
+                            style="font-size: 2.5rem; line-height: 1.5; padding-top: 20px; margin-left: 0;">
                             <b style="color: #007368">Bootcamp</b>
                             <span class="position-relative" style="display: inline-block; margin-top: 12px;">
-
                                 <svg x="0px" y="0px" preserveAspectRatio="none" viewBox="0 0 209 59" fill="none"
                                     xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto;">
                                     <path
@@ -26,10 +25,11 @@
                                         fill="currentcolor" />
                                 </svg>
                                 Power BI.
-                            </span><br>
-
+                            </span>
+                            <br>
                             <b style="color: #007368">untuk <b>data analyst </b>pemula</b>
                         </h3>
+
 
                         <p data-aos="fade-right" data-aos-delay="600" style="font-size: 1rem; margin-bottom: 18px;">
                             📊 Siap Mengembangkan Skill Sebagai <b>Data Analyst? </b> Gabung Sekarang di <b>Bootcamp Power
