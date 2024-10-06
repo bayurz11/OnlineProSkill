@@ -360,7 +360,7 @@
                                             Memulai Analisis Data dengan Power BI
                                         </button>
                                     </h2>
-                                    <div id="collapseOne" class="accordion-collapse collapse show"
+                                    <div id="collapseOne" class="accordion-collapse collapse"
                                         data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
                                             <p>Kenapa Anda harus menguasai analisis data</p><br>
