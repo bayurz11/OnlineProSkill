@@ -355,7 +355,7 @@
                                 <div class="accordion-item">
                                     <h2 class="accordion-header">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseOne" aria-expanded="false"
+                                            data-bs-target="#collapseOne" aria-expanded="true"
                                             aria-controls="collapseOne">
                                             Memulai Analisis Data dengan Power BI
                                         </button>
