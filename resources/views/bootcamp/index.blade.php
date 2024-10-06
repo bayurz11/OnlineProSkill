@@ -245,7 +245,7 @@
                         <p class="desc" data-aos="fade-top" data-aos-delay="600">Harapannya, Setelah selesai mengikuti
                             bootcamp ini, peserta akan:</p>
                         <ul class="about__info-list list-wrap" data-aos="fade-top" data-aos-delay="800">
-                            <li class="about__info-list-item">
+                            <li class="about__info-list-item mt-4">
                                 <i class="flaticon-angle-right"></i>
                                 <p class="content">Paham Flow Cara Menganalisis Data Dengan Power Bi
                                 </p>
@@ -269,7 +269,7 @@
                 </div>
 
                 <!-- Konten Kanan: Gambar dan Card -->
-                <div class="col-lg-5 col-md-9" data-aos="fade-left" data-aos-delay="600">
+                <div class="col-lg-5 col-md-9 mt-4 mt-md-0" data-aos="fade-left" data-aos-delay="600">
                     <div class="container mt-5 d-flex justify-content-center align-items-center" style="height: 85vh;">
                         <div class="align-items-center">
                             <!-- Gambar bagian atas card -->
