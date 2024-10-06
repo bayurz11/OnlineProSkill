@@ -27,7 +27,7 @@
                                 Power BI.
                             </span>
                             <br><br>
-                            <b style="color: #007368">untuk <b>data analyst pemula</b></b>
+                            <b style="color: #007368">untuk <b>data analyst </b>pemula</b>
                         </h3> <br>
 
                         {{-- <h3 class="title tg-svg" data-aos="fade-right" data-aos-delay="400">
