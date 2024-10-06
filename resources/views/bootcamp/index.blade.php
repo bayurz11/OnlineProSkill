@@ -88,7 +88,7 @@
                                 style="width: 28px; height: 28px; vertical-align: middle; margin-right: 10px;">
                             <div>
                                 <p class="mb-0" style="font-size: 0.9rem;">Start:</p>
-                                <p class="mb-0 font-weight-bold" style="font-size: 0.9rem;">30 Nov</p>
+                                <p class="mb-0 font-weight-bold" style="font-size: 0.9rem;"><b>30 Nov</b></p>
                             </div>
                         </div>
 
@@ -98,7 +98,7 @@
                         <div class="d-flex align-items-center mb-3 mb-md-0">
                             <div>
                                 <p class="mb-0" style="font-size: 0.9rem;">In demand</p>
-                                <p class="mb-0 font-weight-bold" style="font-size: 0.9rem;">Tools & Skills</p>
+                                <p class="mb-0 font-weight-bold" style="font-size: 0.9rem;"><b>Tools & Skills</b></p>
                             </div>
                             <img src="public/assets/img/icons/power-bi.png" alt="Tools Icon"
                                 style="width: 28px; height: 32px; vertical-align: middle; margin-left: 10px;">
