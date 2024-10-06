@@ -42,7 +42,7 @@
                          <h4 class="footer__widget-title">PROGRAM</h4>
                          <div class="footer__link">
                              <ul class="list-wrap">
-                                 <li><a href="{{ route('pbi') }}">Kelas Tatap Muka</a></li>
+                                 <li><a href="{{ route('pbi') }}">Bootcamp</a></li>
                                  <li><a href="{{ route('classroom') }}">Kelas Tatap Muka</a></li>
                                  <li><a href="{{ route('course') }}">kelas Online</a></li>
                              </ul>
