@@ -54,14 +54,7 @@
                         <p data-aos="fade-right" data-aos-delay="700" style="font-size: 1rem;">
                             📝 Pelajari Program <b>Bootcamp Power Bi</b> dari <b>Proskill Akademia!.</b>
                         </p>
-                        {{-- <div class="banner__btn-wrap" data-aos="fade-right" data-aos-delay="800" style="margin-top: 20px;">
-                            <a href="{{ route('cart_bootcamp.checkout', ['id' => 17]) }}" class="btn arrow-btn"
-                                style="font-size: 1rem; padding: 15px 25px;">Daftar
-                                Sekarang
-                                <img src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"
-                                    style="margin-left: 10px;">
-                            </a>
-                        </div> --}}
+
                     </div>
                     <div class="d-flex justify-content-between align-items-center flex-wrap" data-aos="fade-top"
                         data-aos-delay="400">
@@ -270,22 +263,22 @@
                         <ul class="about__info-list list-wrap" data-aos="fade-top" data-aos-delay="800">
                             <li class="about__info-list-item">
                                 <i class="flaticon-angle-right"></i>
-                                <p class="content">Paham flow cara menganalisis data dengan power bi
+                                <p class="content">Paham Flow Cara Menganalisis Data Dengan Power Bi
                                 </p>
                             </li>
                             <li class="about__info-list-item">
                                 <i class="flaticon-angle-right"></i>
-                                <p class="content">Mengetahui cara membuat Visualisasi Data Interaktif</p>
+                                <p class="content">Mengetahui Cara Membuat Visualisasi Data Interaktif</p>
                             </li>
                             <li class="about__info-list-item">
                                 <i class="flaticon-angle-right"></i>
-                                <p class="content">Memahami cara mempublish Laporan Analisis Data
+                                <p class="content">Memahami Cara Mempublish Laporan Analisis Data
                                 </p>
                             </li>
                             <li class="about__info-list-item">
                                 <i class="flaticon-angle-right"></i>
-                                <p class="content">Membuat portofolio Dashboard dengan Power BI untuk Karir
-                                    Sebagai Data Analyst</p>
+                                <p class="content">Membuat Portofolio Dashboard Dengan Power Bi Untuk Karir Sebagai Data
+                                    Analyst</p>
                             </li>
                         </ul>
                     </div>
