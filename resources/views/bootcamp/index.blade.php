@@ -219,7 +219,8 @@
                             </div>
                             <div class="features__content">
                                 <h4 class="title" style="color: #007368">Custom Domain Email</h4>
-                                <p>Disediakan Custom Domain Email untuk Peserta </p>
+                                <p>Dapatkan kepercayaan lebih dengan Custom Domain Email! Buat identitas profesional untuk
+                                    bisnis atau pribadi dengan alamat email yang unik dan kredibel</p>
                             </div>
                         </div>
                     </div>
