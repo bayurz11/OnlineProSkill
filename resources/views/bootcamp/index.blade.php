@@ -64,7 +64,7 @@
                         </div> --}}
                     </div>
                     <div class="d-flex justify-content-between align-items-center flex-wrap" data-aos="fade-top"
-                        data-aos-delay="600">
+                        data-aos-delay="400">
                         <div class="d-flex align-items-center mb-3 mb-md-0">
                             <div>
                                 <p class="mb-0" style="font-size: 0.9rem;">5X <b><img
