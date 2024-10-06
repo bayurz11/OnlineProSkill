@@ -152,7 +152,7 @@
                 </span>
                 <b style="color: #007368"><b>Ini</b></b>
             </h2>
-        </div> <br>
+        </div> <br><br>
         <div class="container">
             <div class="fact__inner-wrap" data-aos="fade-top" data-aos-delay="800"
                 style="background-color: #f5f3f9; display: flex; flex-direction: column; justify-content: center; align-items: center;">
