@@ -195,7 +195,7 @@
                             </div>
                             <div class="features__content">
                                 <h4 class="title" style="color: #007368">Group Alumni</h4>
-                                <p>Bangun jaringan, berbagi pengalaman, temukan peluang baru, dan Jadikan komunitas ini
+                                <p>Bangun jaringan, temukan peluang baru, dan Jadikan komunitas ini
                                     sebagai wadah inspirasi dan kolaborasi.</p>
 
                             </div>
