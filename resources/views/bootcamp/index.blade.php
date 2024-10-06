@@ -260,19 +260,22 @@
                         <ul class="about__info-list list-wrap" data-aos="fade-top" data-aos-delay="800">
                             <li class="about__info-list-item">
                                 <i class="flaticon-angle-right"></i>
-                                <p class="content">Paham Dasar Data Analyst</p>
+                                <p class="content">Paham flow cara menganalisis data dengan power bi
+                                </p>
                             </li>
                             <li class="about__info-list-item">
                                 <i class="flaticon-angle-right"></i>
-                                <p class="content">Mengetahui Tools Data Analyst</p>
+                                <p class="content">Mengetahui cara membuat Visualisasi Data Interaktif</p>
                             </li>
                             <li class="about__info-list-item">
                                 <i class="flaticon-angle-right"></i>
-                                <p class="content">Bisa Membuat Dashboard Data</p>
+                                <p class="content">Memahami cara mempublish Laporan Analisis Data
+                                </p>
                             </li>
                             <li class="about__info-list-item">
                                 <i class="flaticon-angle-right"></i>
-                                <p class="content">Memiliki Portfolio Data Analyst</p>
+                                <p class="content">Membuat portofolio Dashboard dengan Power BI untuk Karir
+                                    Sebagai Data Analyst</p>
                             </li>
                         </ul>
                     </div>
