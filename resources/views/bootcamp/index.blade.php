@@ -26,7 +26,7 @@
                                 </svg>
                                 Power BI.
                             </span>
-                            <br>
+                            <br><br>
                             untuk data analyst pemula
                         </h3> <br>
 
