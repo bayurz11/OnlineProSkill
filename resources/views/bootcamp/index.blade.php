@@ -14,7 +14,7 @@
                     <img src="{{ asset('public/assets/img/logo/logo.svg') }}" alt="Logo" data-aos-delay="800"
                         data-aos="fade-top" style="display: block; margin-bottom: 20px;">
                     <div class="banner__content" style="padding: 0;">
-                        {{-- <h3 class="title tg-svg" data-aos="fade-right" data-aos-delay="400"
+                        <h3 class="title tg-svg" data-aos="fade-right" data-aos-delay="400"
                             style="font-size: 2.5rem; line-height: 1.2; margin-left: 0;">
                             <b style="color: #007368">Bootcamp</b>
                             <span class="position-relative" style="display: inline-block;">
@@ -28,9 +28,9 @@
                             </span>
                             <br>
                             untuk data analyst pemula
-                        </h3> <br> --}}
+                        </h3> <br>
 
-                        <h3 class="title tg-svg" data-aos="fade-right" data-aos-delay="400">
+                        {{-- <h3 class="title tg-svg" data-aos="fade-right" data-aos-delay="400">
                             <b style="color: #007368"><b>Bootcamp</b></b>
                             <span class="position-relative">
                                 <span class="svg-icon" id="banner-svg"
@@ -44,7 +44,7 @@
                                 Power BI
                             </span>
                             <br> <b style="color: #007368">Untuk <b>Data Analyst</b> Pemula </b>
-                        </h3> <br>
+                        </h3> <br> --}}
                         <p data-aos="fade-right" data-aos-delay="600" style="font-size: 1rem; margin-bottom: 18px;">
                             📊 Siap Mengembangkan Skill Sebagai <b>Data Analyst? </b> Gabung Sekarang di <b>Bootcamp Power
                                 BI </b>Untuk Pemula! Kuasai keterampilan <b>Analisis Data </b>Dari nol dengan Panduan
