@@ -99,10 +99,9 @@
                         <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme"
                             data-aos="fade-left" data-aos-delay="600">
 
-                        <!-- Tambahkan tautan video YouTube dengan ikon Play berwarna merah di tengah -->
+                        <!-- Tautan untuk membuka video di modal popup -->
                         <a href="https://www.youtube.com/watch?v=hxpItadargI" class="popup-video"
-                            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;"
-                            data-aos="fade-left" data-aos-delay="800">
+                            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;">
                             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 22 28"
                                 fill="none">
                                 <path
@@ -116,6 +115,7 @@
                         style="position: absolute; bottom: 0; left: 0; right: 0; height: 90px; background: linear-gradient(to bottom, transparent, white); z-index: 1;">
                     </div>
                 </div>
+
 
             </div>
         </div>
@@ -538,6 +538,23 @@
     <!-- course-area-end -->
 
 
+    <script>
+        $(document).ready(function() {
+            $('.popup-video').magnificPopup({
+                type: 'iframe',
+                iframe: {
+                    patterns: {
+                        youtube: {
+                            index: 'youtube.com/',
+                            id: 'v=',
+                            src: 'https://www.youtube.com/embed/%id%?autoplay=1' // Autoplay parameter
+                        }
+                    },
+                    srcAction: 'iframe_src',
+                }
+            });
+        });
+    </script>
 
 
 
