@@ -124,11 +124,11 @@
                                 sebelumnya</span>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Background Gradient -->
-                    <div
-                        style="position: absolute; bottom: 0; left: 20px; right: 20px; height: 400px; background: linear-gradient(to bottom, transparent, white); z-index: 1; pointer-events: none;">
-                    </div>
+                <!-- Background Gradient -->
+                <div
+                    style="position: absolute; bottom: 0; left: 0; right: 0; height: 400px; background: linear-gradient(to bottom, transparent, white); z-index: 1; pointer-events: none;">
                 </div>
 
 
