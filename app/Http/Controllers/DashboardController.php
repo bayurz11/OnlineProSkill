@@ -16,7 +16,11 @@ class DashboardController extends Controller
         $course = KelasTatapMuka::with('user')->where('course_type', 'offline')->get();
         $onlinecourse = KelasTatapMuka::with('user')->where('course_type', 'online')->get();
         $daftar_siswa = UserProfile::where('role_id', 3)->get();
-        $orders = Order::with('KelasTatapMuka')->orderBy('created_at', 'desc')->get();
+        $orders = Order::with('KelasTatapMuka')
+            ->whereHas('KelasTatapMuka', function ($query) {
+                $query->where('course_type', 'offline', 'online'); // Menggunakan 'course_type'
+            })
+            ->get();
         $bootcamp = Order::with('KelasTatapMuka')
             ->whereHas('KelasTatapMuka', function ($query) {
                 $query->where('course_type', 'bootcamp'); // Menggunakan 'course_type'
