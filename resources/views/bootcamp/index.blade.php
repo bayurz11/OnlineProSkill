@@ -511,7 +511,7 @@
                         <div class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100 justify-content-center align-items-center"
                             style="height: 300px;">
                             <div class="text-center">
-                                <p style="font-size: 1rem; margin-top: 18px;">Investasi</p>
+                                <p style="font-size: 2rem; margin-top: 18px;">Investasi</p>
                             </div>
                             <div class="text-center">
                                 <del>Rp 599.000</del>
