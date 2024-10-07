@@ -21,7 +21,7 @@ class PixelController extends Controller
         $pixelSetting = PixelSetting::first();
 
         // Kirim data ke view
-        return view('pixel.settings', [
+        return view('admin.pixel.settings', [
             'pixelId' => $pixelSetting ? $pixelSetting->pixel_id : '',
             'apiToken' => $pixelSetting ? $pixelSetting->api_token : ''
         ]);
