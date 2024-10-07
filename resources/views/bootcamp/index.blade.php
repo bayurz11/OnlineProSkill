@@ -500,13 +500,15 @@
                     $kelas = $KelasTatapMuka->firstWhere('id', 17);
                 @endphp
                 @if ($kelas && $kelas->status == 1)
-                    <div class="courses__item courses__item-two shine__animate-item d-flex flex-column justify-content-center align-items-center"
-                        style="width: 300px; height: 400px; padding: 20px; margin: 10px;">
-                        <div class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1 justify-content-center align-items-center"
-                            style="padding: 15px;">
-                            <ul class="courses__item-meta list-wrap text-center">
-                                <li class="price">Rp {{ number_format($kelas->price, 0, '.', '.') }}</li>
-                            </ul>
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div
+                            class="courses__item courses__item-two shine__animate-item d-flex flex-column justify-content-center align-items-center">
+                            <div
+                                class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1 justify-content-center align-items-center">
+                                <ul class="courses__item-meta list-wrap text-center">
+                                    <li class="price">Rp {{ number_format($kelas->price, 0, '.', '.') }}</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 
