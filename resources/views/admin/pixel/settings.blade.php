@@ -2,7 +2,6 @@
 <?php $page = 'contact'; ?>
 
 @extends('layout.mainlayout_admin')
-
 @section('content')
     <div class="page-content">
 
@@ -37,7 +36,9 @@
                                 @enderror
                             </div>
                             <button type="submit" class="btn btn-primary mt-3">Simpan</button>
+
                         </form>
+
                     </div>
                 </div>
             </div>
