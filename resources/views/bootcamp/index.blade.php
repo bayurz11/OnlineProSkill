@@ -502,7 +502,7 @@
                         <h2 class="text-danger fw-bold">269k</h2>
                     </div>
                 </div>
-            </div>
+            </div> <br>
             <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
                 @php
                     // Ambil kelas tatap muka dengan id 17
