@@ -140,7 +140,7 @@
                 <div class="collapse" id="fbsetting">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="{{ route('pixel.settings') }}" class="nav-link">Facebook Setting</a>
+                            {{-- <a href="{{ route('pixel.settings') }}" class="nav-link">Facebook Setting</a> --}}
                         </li>
                         {{-- <li class="nav-item">
                             <a href="pages/auth/register.html" class="nav-link">Register</a>
