@@ -500,11 +500,11 @@
                     $kelas = $KelasTatapMuka->firstWhere('id', 17);
                 @endphp
                 @if ($kelas && $kelas->status == 1)
-                    <div>
-                        Investasi
-                    </div>
                     <div
                         class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100 justify-content-center align-items-center">
+                        <div>
+                            Investasi
+                        </div>
                         <div
                             class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1 justify-content-center align-items-center">
                             <ul class="courses__item-meta list-wrap text-center">
