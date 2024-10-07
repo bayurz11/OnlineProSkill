@@ -24,7 +24,7 @@ class PixelController extends Controller
 
         // Jika session pixel_id kosong, ambil dari database
         if (empty($pixelId)) {
-            $pixelSetting = PixelSetting::first(); // Ambil data pertama dari database
+            $pixelSetting = PixelSetting::latest(); // Ambil data pertama dari database
             $pixelId = $pixelSetting ? $pixelSetting->pixel_id : ''; // Isi dari database jika ada
             $apiToken = $pixelSetting ? $pixelSetting->api_token : '';
         } else {
@@ -53,17 +53,5 @@ class PixelController extends Controller
 
         // Redirect dengan pesan sukses
         return redirect()->route('pixel.settings')->with('success', 'Pixel ID dan API Token berhasil disimpan ke database.');
-    }
-
-    public function edit()
-    {
-        // Ambil data Pixel ID dan API Token dari database
-        $pixelSetting = PixelSetting::first(); // Sesuaikan jika ada multiple records
-
-        // Kirim data ke view
-        return view('pixel.edit', [
-            'pixelId' => $pixelSetting ? $pixelSetting->pixel_id : '',
-            'apiToken' => $pixelSetting ? $pixelSetting->api_token : ''
-        ]);
     }
 }
