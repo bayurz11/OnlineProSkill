@@ -101,7 +101,7 @@
 
                         <!-- Tautan untuk membuka video di modal popup -->
                         <a href="https://www.youtube.com/watch?v=hxpItadargI" class="popup-video"
-                            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 50;">
+                            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 100;">
                             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 22 28"
                                 fill="none">
                                 <path
