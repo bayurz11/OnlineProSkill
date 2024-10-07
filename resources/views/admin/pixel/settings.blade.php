@@ -33,7 +33,7 @@
                                 @error('api_token')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
-                                <label for="event_code">Test Event Code (Opsional)</label>
+                                {{-- <label for="event_code">Test Event Code (Opsional)</label>
                                 <input type="text" name="event_code" id="event_code" class="form-control"
                                     value="{{ old('event_code', $pixelId) }}" required>
                                 @error('event_code')
@@ -44,7 +44,7 @@
                                     value="{{ old('fbdomain', $pixelId) }}" required>
                                 @error('fbdomain')
                                     <small class="text-danger">{{ $message }}</small>
-                                @enderror
+                                @enderror --}}
 
                             </div>
                             <button type="submit" class="btn btn-primary mt-3">Simpan</button>
