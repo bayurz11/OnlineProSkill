@@ -40,4 +40,14 @@ class PixelController extends Controller
         // Redirect dengan pesan sukses
         return redirect()->route('pixel.settings')->with('success', 'Pixel ID dan API Token berhasil disimpan ke database.');
     }
+
+    public function edit()
+    {
+        // Ambil pengaturan pixel yang ada (misalnya ambil data terakhir)
+        $pixelSetting = PixelSetting::latest()->first(); // Ambil pengaturan terbaru
+        $pixelId = $pixelSetting ? $pixelSetting->pixel_id : '';
+        $apiToken = $pixelSetting ? $pixelSetting->api_token : '';
+
+        return view('admin.pixel.settings', compact('pixelId', 'apiToken'));
+    }
 }
