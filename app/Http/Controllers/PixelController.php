@@ -26,11 +26,13 @@ class PixelController extends Controller
     {
         // Validasi Pixel ID
         $request->validate([
-            'pixel_id' => 'required|string'
+            'pixel_id' => 'required|string',
+            'api_token' => 'required|string'
         ]);
 
         // Simpan Pixel ID ke session atau ke database
         Session::put('pixel_id', $request->pixel_id);
+        Session::put('api_token', $request->api_token);
 
         // Redirect dengan pesan sukses
         return redirect()->route('admin.pixel.settings')->with('success', 'Pixel ID berhasil disimpan.');
