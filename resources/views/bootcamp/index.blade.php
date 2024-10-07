@@ -500,8 +500,8 @@
                     $kelas = $KelasTatapMuka->firstWhere('id', 17);
                 @endphp
                 @if ($kelas && $kelas->status == 1)
-                    <div class="courses__item courses__item-two shine__animate-item d-flex flex-column justify-content-center align-items-center"
-                        style="transform: scale(1.2);">
+                    <div
+                        class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100 justify-content-center align-items-center">
                         <div
                             class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1 justify-content-center align-items-center">
                             <ul class="courses__item-meta list-wrap text-center">
@@ -509,7 +509,6 @@
                             </ul>
                         </div>
                     </div>
-
                     <a href="{{ route('cart_bootcamp.checkout', ['id' => $kelas->id]) }}" class="btn arrow-btn"
                         style="font-size: 1rem; padding: 15px 25px; display: flex; justify-content: center; align-items: center; width: 200px;">
                         Daftar Sekarang
