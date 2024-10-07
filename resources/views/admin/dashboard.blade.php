@@ -260,7 +260,7 @@
                     </div>
                 </div>
             </div>
-        </div> <!-- row -->
+        </div> <!-- row --> <br>
         <div class="row">
             <div class="col-lg-7 col-xl-12 stretch-card">
                 <div class="card">
