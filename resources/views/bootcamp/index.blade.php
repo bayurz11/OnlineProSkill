@@ -115,6 +115,11 @@
                                     fill="red" />
                             </svg>
                         </a>
+
+                        <span
+                            style="position: absolute; top: 45%; left: 50%; transform: translate(-50%, -100%); z-index: 102; font-size: 18px; color: #000; font-weight: bold;">
+                            Lihat
+                        </span>
                     </div>
 
                     <div
