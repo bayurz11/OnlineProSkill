@@ -496,7 +496,7 @@
         <div class="container">
 
             <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
-                <div class="container mt-5 d-flex justify-content-center">
+                {{-- <div class="container mt-5 d-flex justify-content-center">
                     <div class="card text-center shadow-lg" style="width: 18rem; background-color: #ffffff;">
                         <div class="card-body">
                             <h5 class="card-title text-primary fw-bold">Investasi:</h5>
@@ -504,7 +504,7 @@
                             <h2 class="text-danger fw-bold">269k</h2>
                         </div>
                     </div>
-                </div> <br>
+                </div> <br> --}}
                 @php
                     // Ambil kelas tatap muka dengan id 17
                     $kelas = $KelasTatapMuka->firstWhere('id', 17);
