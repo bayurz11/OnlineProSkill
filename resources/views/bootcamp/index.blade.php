@@ -102,7 +102,10 @@
                         <!-- Decorative Background Dots -->
                         <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme"
                             data-aos="fade-left" data-aos-delay="600">
-
+                        <!-- Background Gradient -->
+                        <div
+                            style="position: absolute; bottom: 0; left: 0; right: 0; height: 400px; background: linear-gradient(to bottom, transparent, white); z-index: 1; pointer-events: none;">
+                        </div>
                         <!-- Wrapper untuk konten tengah (ikon & teks) -->
                         <div
                             style="position: absolute; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 102;">
@@ -126,10 +129,7 @@
                     </div>
                 </div>
 
-                <!-- Background Gradient -->
-                <div
-                    style="position: absolute; bottom: 0; left: 0; right: 0; height: 400px; background: linear-gradient(to bottom, transparent, white); z-index: 1; pointer-events: none;">
-                </div>
+
 
 
             </div>
