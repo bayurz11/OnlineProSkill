@@ -27,6 +27,30 @@
                                 @error('pixel_id')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
+                                <label for="pixel_id">Meta Pixel ID</label>
+                                <input type="text" name="pixel_id" id="pixel_id" class="form-control"
+                                    value="{{ old('pixel_id', $pixelId) }}" required>
+                                @error('pixel_id')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                                <label for="pixel_id">Meta Pixel ID</label>
+                                <input type="text" name="pixel_id" id="pixel_id" class="form-control"
+                                    value="{{ old('pixel_id', $pixelId) }}" required>
+                                @error('pixel_id')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                                <label for="pixel_id">Meta Pixel ID</label>
+                                <input type="text" name="pixel_id" id="pixel_id" class="form-control"
+                                    value="{{ old('pixel_id', $pixelId) }}" required>
+                                @error('pixel_id')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                                <label for="pixel_id">Meta Pixel ID</label>
+                                <input type="text" name="pixel_id" id="pixel_id" class="form-control"
+                                    value="{{ old('pixel_id', $pixelId) }}" required>
+                                @error('pixel_id')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
                             </div>
                             <button type="submit" class="btn btn-primary mt-3">Simpan</button>
                         </form>
