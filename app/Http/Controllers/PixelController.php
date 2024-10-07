@@ -43,7 +43,7 @@ class PixelController extends Controller
 
     public function edit()
     {
-        $pixelSetting = PixelSetting::latest()->first();
+        $pixelSetting = PixelSetting::latest()->first(); // Ambil pengaturan terbaru
         $pixelId = $pixelSetting ? $pixelSetting->pixel_id : '';
         $apiToken = $pixelSetting ? $pixelSetting->api_token : '';
 
