@@ -525,17 +525,18 @@
                 @if ($kelas && $kelas->status == 1)
                     <div class="d-flex flex-column align-items-center" style="width: 300px;">
                         <div class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100 justify-content-center align-items-center"
-                            style="height: 200px;">
+                            style="height: 250px; padding: 20px;">
                             <div class="text-center">
-                                <p style="font-size: 1.5rem; margin-top: 18px;">Investasi</p>
+                                <p style="font-size: 1.8rem; margin-top: 18px;">Investasi</p>
                             </div>
                             <div class="text-center">
-                                <del>Rp 599.000</del>
+                                <del style="font-size: 1.2rem;">Rp 599.000</del>
                             </div>
                             <div
                                 class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1 justify-content-center align-items-center">
                                 <ul class="courses__item-meta list-unstyled text-center">
-                                    <li class="price h4">Rp {{ number_format($kelas->price, 0, '.', '.') }}</li>
+                                    <li class="price h4" style="font-size: 2rem;">Rp
+                                        {{ number_format($kelas->price, 0, '.', '.') }}</li>
                                 </ul>
                             </div>
                         </div>
@@ -551,6 +552,7 @@
             </div>
         </div>
     </section>
+
     <!-- course-area-end -->
 
 
