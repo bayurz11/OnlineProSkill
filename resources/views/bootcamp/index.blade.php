@@ -504,16 +504,20 @@
                 @if ($kelas && $kelas->status == 1)
                     <div
                         class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100 justify-content-center align-items-center">
-                        <div>
+                        <div class="text-center">
                             Investasi
+                        </div>
+                        <div class="text-center">
+                            <del>Rp 599.000</del>
                         </div>
                         <div
                             class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1 justify-content-center align-items-center">
-                            <ul class="courses__item-meta list-wrap text-center">
-                                <li class="price">Rp {{ number_format($kelas->price, 0, '.', '.') }}</li>
+                            <ul class="courses__item-meta list-unstyled text-center">
+                                <li class="price h4">Rp {{ number_format($kelas->price, 0, '.', '.') }}</li>
                             </ul>
                         </div>
                     </div>
+
                     <a href="{{ route('cart_bootcamp.checkout', ['id' => $kelas->id]) }}" class="btn arrow-btn"
                         style="font-size: 1rem; padding: 15px 25px; display: flex; justify-content: center; align-items: center; width: 200px;">
                         Daftar Sekarang
