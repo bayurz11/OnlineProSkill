@@ -124,8 +124,8 @@
                             </a>
 
                             <!-- Teks di bawah tautan video -->
-                            <span style="font-size: 18px; color: #000; font-weight: bold; margin-top: 8px;">sesi bootcamp
-                                sebelumnya</span>
+                            <span style="font-size: 18px; color: #000; font-weight: bold; margin-top: 8px;">Sesi Bootcamp
+                                Sebelumnya</span>
                         </div>
                     </div>
                 </div>
