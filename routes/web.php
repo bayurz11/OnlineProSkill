@@ -135,7 +135,7 @@ Route::middleware('isAdmin')->group(function () {
 
     Route::get('/settings/pixel', [PixelController::class, 'index'])->name('pixel.settings');
     Route::post('/settings/pixel', [PixelController::class, 'store'])->name('pixel.store');
-    Route::get('/settings/pixel', [PixelController::class, 'edit'])->name('pixel.edit');
+    // Route::get('/settings/pixel', [PixelController::class, 'edit'])->name('pixel.edit');
 
     //*******PEMBAYARAN DAN TRANSAKSI*******//
 
