@@ -101,7 +101,8 @@
 
                         <!-- Tambahkan tautan video YouTube dengan ikon Play berwarna merah di tengah -->
                         <a href="https://www.youtube.com/watch?v=b2Az7_lLh3g" class="popup-video"
-                            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;">
+                            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;"
+                            data-aos="fade-left" data-aos-delay="800">
                             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 22 28"
                                 fill="none">
                                 <path
