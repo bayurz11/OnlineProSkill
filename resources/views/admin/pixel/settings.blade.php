@@ -27,16 +27,27 @@
                                 @error('pixel_id')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
-
-                                <label for="api_token">Conversion API Access Token</label>
+                                <label for="api_token">Conversion API Access token</label>
                                 <input type="text" name="api_token" id="api_token" class="form-control"
                                     value="{{ old('api_token', $apiToken) }}" required>
                                 @error('api_token')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror
+                                {{-- <label for="event_code">Test Event Code (Opsional)</label>
+                                <input type="text" name="event_code" id="event_code" class="form-control"
+                                    value="{{ old('event_code', $pixelId) }}" required>
+                                @error('event_code')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                                <label for="fbdomain">Facebook Domain Verivication (meta)</label>
+                                <input type="text" name="fbdomain" id="fbdomain" class="form-control"
+                                    value="{{ old('fbdomain', $pixelId) }}" required>
+                                @error('fbdomain')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror --}}
+
                             </div>
                             <button type="submit" class="btn btn-primary mt-3">Simpan</button>
-
                         </form>
 
                     </div>
@@ -76,7 +87,8 @@
                 }).then(response => {
                     document.getElementById('confirmationModal').remove();
                     if (response.ok) {
-                        console.log('subcategory berhasil dihapus. Mengalihkan ke halaman contact.');
+                        console.log(
+                            'subcategory berhasil dihapus. Mengalihkan ke halaman contact.');
                         window.location.href = '{{ route('settingcontactus') }}';
                     } else {
                         response.text().then(text => {
@@ -94,5 +106,6 @@
             };
         }
     </script>
+
 
 @endsection
