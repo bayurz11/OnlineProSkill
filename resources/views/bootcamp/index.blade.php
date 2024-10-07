@@ -104,17 +104,8 @@
                             data-aos="fade-left" data-aos-delay="600">
                         <!-- Background Gradient -->
                         <div
-                            style="
-        position: absolute;
-        top: 0; /* Atur posisi ke atas */
-        left: -80px; /* Atur posisi ke kiri */
-        right: 0;
-        bottom: 0; /* Pastikan menutupi seluruh gambar */
-        width: 150%; /* Sesuaikan lebar dengan gambar */
-        height: 100%; /* Sesuaikan tinggi dengan gambar */
-        background: linear-gradient(to bottom, transparent, white); 
-        z-index: 1; 
-        pointer-events: none;">
+                            style="  position: absolute; top: 0;  left: -80px; right: 0; bottom: 0; width: 150%; height: 100%;
+                             background: linear-gradient(to bottom, transparent, white); z-index: 1; pointer-events: none;">
                         </div>
                         <!-- Wrapper untuk konten tengah (ikon & teks) -->
                         <div
