@@ -494,16 +494,17 @@
     <!-- course-area -->
     <section class="courses-area section-py-120" data-background="public/assets/img/bg/courses_bg.jpg" loading="lazy">
         <div class="container">
-            <div class="container mt-5 d-flex justify-content-center">
-                <div class="card text-center shadow-lg" style="width: 18rem; background-color: #ffffff;">
-                    <div class="card-body">
-                        <h5 class="card-title text-primary fw-bold">Investasi:</h5>
-                        <h6 class="text-decoration-line-through text-dark">599k</h6>
-                        <h2 class="text-danger fw-bold">269k</h2>
-                    </div>
-                </div>
-            </div> <br>
+
             <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
+                <div class="container mt-5 d-flex justify-content-center">
+                    <div class="card text-center shadow-lg" style="width: 18rem; background-color: #ffffff;">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary fw-bold">Investasi:</h5>
+                            <h6 class="text-decoration-line-through text-dark">599k</h6>
+                            <h2 class="text-danger fw-bold">269k</h2>
+                        </div>
+                    </div>
+                </div> <br>
                 @php
                     // Ambil kelas tatap muka dengan id 17
                     $kelas = $KelasTatapMuka->firstWhere('id', 17);
