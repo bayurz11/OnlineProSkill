@@ -16,59 +16,21 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h6 class="card-title">Hubungi Kami</h6>
-                        <button type="button" class="btn btn-outline-primary position-absolute top-0 end-0 mt-3 me-3"
-                            data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="btn-icon-prepend"
-                                data-feather="plus-circle"></i>
-                            Hubungi Kami
-                        </button>
-                        <p class="text-muted mb-3">Jumlah </p>
-                        {{-- <div class="table-responsive">
-                            <table id="dataTableExample" class="table">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>ID contact</th>
-                                        <th>Nama</th>
-                                        <th>Keterangan</th>
-                                        <th>Kategori</th>
+                        <h6 class="card-title">Facebook Integration Setup</h6>
 
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($contactUs as $key => $contact)
-                                        <tr>
-                                            <td>{{ $key + 1 }}</td>
-                                            <td>{{ $contact->alamat }}</td>
-                                            <td>{{ $contact->telepon }}</td>
-                                            <td>{{ $contact->email }}</td>
+                        <form action="{{ route('pixel.store') }}" method="POST">
+                            @csrf
+                            <div class="form-group">
+                                <label for="pixel_id">Meta Pixel ID</label>
+                                <input type="text" name="pixel_id" id="pixel_id" class="form-control"
+                                    value="{{ old('pixel_id', $pixelId) }}" required>
+                                @error('pixel_id')
+                                    <small class="text-danger">{{ $message }}</small>
+                                @enderror
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">Simpan</button>
+                        </form>
 
-                                            <td>
-
-                                                <button type="button" class="btn btn-primary btn-icon edit-button"
-                                                    title="Edit" data-bs-toggle="modal" data-bs-target="#editcontactModal"
-                                                    data-id="{{ $contact->id }}"
-                                                    onclick="editcontact({{ $contact->id }})">
-                                                    <i data-feather="edit"></i>
-                                                </button>
-
-
-                                                <button onclick="hapus('{{ $contact->id }}')"
-                                                    class="btn btn-danger btn-icon" title="Hapus">
-                                                    <i data-feather="trash-2"></i>
-                                                </button>
-
-
-
-
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-
-                        </div> --}}
                     </div>
                 </div>
             </div>
