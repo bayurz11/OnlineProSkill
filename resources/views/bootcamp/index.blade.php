@@ -495,47 +495,61 @@
     <section class="courses-area section-py-120" data-background="public/assets/img/bg/courses_bg.jpg" loading="lazy">
         <div class="container">
 
-            <!-- Judul Bagian -->
             <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
                 <div class="container mt-5 d-flex justify-content-center">
-
-                    <!-- Kartu Penawaran -->
-                    <div class="card text-center shadow-lg" style="width: 18rem; background-color: #ffffff;"
-                        data-aos="zoom-in">
+                    <div class="card text-center shadow-lg" style="width: 18rem; background-color: #ffffff;">
                         <div class="card-body">
-                            <!-- Judul Kartu -->
                             <h5 class="card-title text-primary fw-bold">Investasi:</h5>
-
-                            <!-- Harga Sebelum Diskon -->
-                            <h6 class="text-decoration-line-through text-dark" data-toggle="tooltip" data-placement="top"
-                                title="Harga Normal">599k</h6>
-
-                            <!-- Harga Setelah Diskon -->
-                            <h2 class="text-danger fw-bold" data-toggle="tooltip" data-placement="bottom"
-                                title="Harga Diskon!">269k</h2>
+                            <h6 class="text-decoration-line-through text-dark">599k</h6>
+                            <h2 class="text-danger fw-bold">269k</h2>
                         </div>
                     </div>
-                </div>
-                <br>
-
+                </div> <br>
                 @php
                     // Ambil kelas tatap muka dengan id 17
                     $kelas = $KelasTatapMuka->firstWhere('id', 17);
                 @endphp
                 @if ($kelas && $kelas->status == 1)
-                    <!-- Tombol Daftar Sekarang -->
+
+                    <div class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
+                        <div class="courses__item-thumb courses__item-thumb-two">
+                            <a href="{{ route('classroomdetail', ['id' => $kelas->id]) }}" class="shine__animate-link">
+                                <img src="{{ asset('public/uploads/' . $kelas->gambar) }}" alt="img"
+                                    class="img-fluid" loading="lazy">
+                            </a>
+                        </div>
+                        <div class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1">
+                            <ul class="courses__item-meta list-wrap">
+                                <li class="courses__item-tag">
+                                    @if ($kelas->course_type == 'online')
+                                        <span class="badge bg-primary">Online</span>
+                                    @else
+                                        <span class="badge bg-secondary">Kelas Tatap Muka</span>
+                                    @endif
+                                </li>
+                                <li class="price">Rp {{ number_format($kelas->price, 0, '.', '.') }}
+                                </li>
+                            </ul>
+                            <h5 class="title course-title flex-grow-1">
+                                <a
+                                    href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">{{ $kelas->nama_kursus }}</a>
+                            </h5>
+                            <div class="courses__item-bottom">
+                                <div class="button">
+                                    <a href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">
+                                        <span class="text">Detail Kelas</span>
+                                        <i class="flaticon-arrow-right"></i>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                     <a href="{{ route('cart_bootcamp.checkout', ['id' => $kelas->id]) }}" class="btn arrow-btn"
-                        style="font-size: 1rem; padding: 15px 25px; display: flex; justify-content: center; align-items: center; width: 200px; position: relative; overflow: hidden;"
-                        onmouseover="this.style.backgroundColor='#00aaff';" onmouseout="this.style.backgroundColor='';"
-                        data-aos="flip-up">
-
-                        <!-- Teks Tombol -->
+                        style="font-size: 1rem; padding: 15px 25px; display: flex; justify-content: center; align-items: center; width: 200px;">
                         Daftar Sekarang
-
-                        <!-- Ikon Panah -->
                         <img src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"
-                            style="margin-left: 10px; transition: margin-left 0.3s;"
-                            onmouseover="this.style.marginLeft='20px';" onmouseout="this.style.marginLeft='10px';">
+                            style="margin-left: 10px;">
                     </a>
                 @endif
             </div>
@@ -547,15 +561,6 @@
 
 
 
-    <script>
-        // Inisialisasi Tooltip
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="tooltip"]'))
-        var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl)
-        });
 
-        // Inisialisasi AOS untuk animasi
-        AOS.init();
-    </script>
 
 @endsection
