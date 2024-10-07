@@ -1,5 +1,5 @@
-@section('title', 'ProSkill Akademia | Order History')
-<?php $page = 'OrderHistory'; ?>
+@section('title', 'ProSkill Akademia | Bootcamp History')
+<?php $page = 'bootcamp'; ?>
 
 @extends('layout.mainlayout_admin')
 @section('content')
