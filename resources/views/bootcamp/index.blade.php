@@ -107,7 +107,7 @@
                             style="
         position: absolute;
         top: 0; /* Atur posisi ke atas */
-        left: -200px; /* Atur posisi ke kiri */
+        left: -80px; /* Atur posisi ke kiri */
         right: 0;
         bottom: 0; /* Pastikan menutupi seluruh gambar */
         width: 100%; /* Sesuaikan lebar dengan gambar */
