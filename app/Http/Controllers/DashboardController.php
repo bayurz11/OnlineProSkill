@@ -18,8 +18,9 @@ class DashboardController extends Controller
         $daftar_siswa = UserProfile::where('role_id', 3)->get();
         $orders = Order::with('KelasTatapMuka')->orderBy('created_at', 'desc')->get();
         $bootcamp = Order::with('KelasTatapMuka')
-            ->where('course_type', 'bootcamp')
-            ->orderBy('created_at', 'desc') // atau kolom lain yang diinginkan untuk diurutkan
+            ->whereHas('KelasTatapMuka', function ($query) {
+                $query->where('course_type', 'bootcamp'); // Menggunakan 'course_type'
+            })
             ->get();
         $count = $course->count();
         if (!$user) {
