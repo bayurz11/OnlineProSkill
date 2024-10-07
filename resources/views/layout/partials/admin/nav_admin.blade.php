@@ -129,6 +129,25 @@
                     </ul>
                 </div>
             </li>
+            <li class="nav-item nav-category">Iklan Setting</li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#fbsetting" role="button"
+                    aria-expanded="false" aria-controls="fbsetting">
+                    <i class="link-icon" data-feather="dollar-sign"></i>
+                    <span class="link-title">Facebook Setting</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="fbsetting">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="{{ route('OrderHistoryManager') }}" class="nav-link">Riwayat Pembelian Kelas</a>
+                        </li>
+                        {{-- <li class="nav-item">
+                            <a href="pages/auth/register.html" class="nav-link">Register</a>
+                        </li> --}}
+                    </ul>
+                </div>
+            </li>
             {{-- 
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#forms" role="button" aria-expanded="false"

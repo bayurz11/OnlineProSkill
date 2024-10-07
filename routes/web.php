@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\OauthController;
+use App\Http\Controllers\PixelController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SectionController;
@@ -27,9 +28,9 @@ use App\Http\Controllers\CourseMasterController;
 use App\Http\Controllers\KategoriBlogController;
 use App\Http\Controllers\SubcategoriesController;
 use App\Http\Controllers\AksesPembelianController;
-use App\Http\Controllers\BootcampsettingController;
 use App\Http\Controllers\KelasTatapMukaController;
 use App\Http\Controllers\NotifikasiUserController;
+use App\Http\Controllers\BootcampsettingController;
 use App\Http\Controllers\DashboardStudenController;
 use App\Http\Controllers\RiwayatTransaksiController;
 use App\Http\Controllers\HubungiKamiSettingController;
@@ -129,6 +130,11 @@ Route::middleware('isAdmin')->group(function () {
     Route::put('/sectionupdate/{id}', [SectionController::class, 'update'])->name('section.update');
     Route::delete('/section_destroy/{id}', [SectionController::class, 'destroy'])->name('class.destroy');
 
+
+    //*******pixel Setting*******//
+
+    Route::get('/settings/pixel', [PixelController::class, 'index'])->name('pixel.settings');
+    Route::post('/settings/pixel', [PixelController::class, 'store'])->name('pixel.store');
 
     //*******PEMBAYARAN DAN TRANSAKSI*******//
 
