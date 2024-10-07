@@ -503,7 +503,7 @@
                 @endphp
                 @if ($kelas && $kelas->status == 1)
                     <div
-                        class="courses__item courses__item-two shine__animate-item d-flex flex-column w-75 h-50 justify-content-center align-items-center">
+                        class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100 justify-content-center align-items-center">
                         <div class="text-center">
                             <p style="font-size: 1rem; margin-top: 18px;">Investasi</p>
                         </div>
@@ -517,7 +517,6 @@
                             </ul>
                         </div>
                     </div>
-
 
                     <a href="{{ route('cart_bootcamp.checkout', ['id' => $kelas->id]) }}" class="btn arrow-btn"
                         style="font-size: 1rem; padding: 15px 25px; display: flex; justify-content: center; align-items: center; width: 200px;">
