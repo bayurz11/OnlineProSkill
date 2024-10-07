@@ -89,7 +89,7 @@ class BootcampsettingController extends Controller
             }
         }
 
-        return view('admin.bootcamp.orderhistory', compact('user', 'categori', 'count', 'orders'));
+        return view('admin.bootcamp.history', compact('user', 'categori', 'count', 'orders'));
     }
     public function cetak($id)
     {
