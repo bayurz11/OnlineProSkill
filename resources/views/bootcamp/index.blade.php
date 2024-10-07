@@ -116,9 +116,10 @@
                             </svg>
                         </a>
 
+                        <!-- Teks di bawah tautan video -->
                         <span
-                            style="position: absolute; top: 45%; left: 50%; transform: translate(-50%, -100%); z-index: 102; font-size: 18px; color: #000; font-weight: bold;">
-                            Sesi Bootcamp Sebelumnya
+                            style="position: absolute; top: 55%; left: 50%; transform: translate(-50%, 0); z-index: 102; font-size: 18px; color: #000; font-weight: bold;">
+                            sesi bootcamp sebelumnya
                         </span>
                     </div>
 
