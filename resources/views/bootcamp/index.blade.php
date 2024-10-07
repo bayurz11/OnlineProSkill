@@ -270,12 +270,24 @@
 
                 <!-- Konten Kanan: Gambar dan Card -->
                 <div class="col-lg-5 col-md-9 mt-4 mt-md-0" data-aos="fade-left" data-aos-delay="600">
-                    <div class="container mt-5 d-flex justify-content-center align-items-center" style="height: 85vh;">
-                        <div class="align-items-center">
-                            <!-- Gambar bagian atas card -->
-                            <img src="public/assets/img/banner/banner1.png" class="card-img-top" alt="User Photo"
-                                style="height: 30rem; width:50rem; object-fit: cover;">
+                    <div class="col-lg-5" style="position: relative;">
+                        <div class="banner__images">
+                            <img src="public/assets/img/banner/banner1.png" alt="img" class="main-img"
+                                data-aos="fade-left" data-aos-delay="800">
 
+                            <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme"
+                                data-aos="fade-left" data-aos-delay="600">
+
+                        </div>
+                        <div
+                            style="
+                            position: absolute; 
+                            bottom: 0; 
+                            left: 0; 
+                            right: 0; 
+                            height: 90px; 
+                            background: linear-gradient(to bottom, transparent, white); /* Sesuaikan dengan warna background */
+                            z-index: 1;">
                         </div>
                     </div>
 
