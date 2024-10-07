@@ -12,13 +12,13 @@ class PixelController extends Controller
     public function index()
     {
         // Menampilkan halaman pengaturan pixel
-        $contactUs = ContactUs::all();
+        // $contactUs = ContactUs::all();
         $user = Auth::user();
         if (!$user) {
             return redirect()->route('/');
         }
         $pixelId = Session::get('pixel_id', ''); // Ambil dari session jika ada
-        return view('admin.pixel.settings', compact('pixelId'));
+        return view('admin.pixel.settings', compact('pixelId', 'user'));
     }
 
     public function store(Request $request)
