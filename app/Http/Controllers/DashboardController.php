@@ -22,6 +22,6 @@ class DashboardController extends Controller
         if (!$user) {
             return redirect()->route('login_admin');
         }
-        return view('admin.dashboard', compact('user', 'course', 'count', 'daftar_siswa', 'onlinecourse', 'orders'));
+        return view('admin.dashboard', compact('user', 'course', 'count', 'daftar_siswa', 'onlinecourse', 'orders', 'bootcamp'));
     }
 }
