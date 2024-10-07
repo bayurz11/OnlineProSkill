@@ -494,29 +494,18 @@
     <!-- course-area -->
     <section class="courses-area section-py-120" data-background="public/assets/img/bg/courses_bg.jpg" loading="lazy">
         <div class="container">
-
             <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
-                {{-- <div class="container mt-5 d-flex justify-content-center">
-                    <div class="card text-center shadow-lg" style="width: 18rem; background-color: #ffffff;">
-                        <div class="card-body">
-                            <h5 class="card-title text-primary fw-bold">Investasi:</h5>
-                            <h6 class="text-decoration-line-through text-dark">599k</h6>
-                            <h2 class="text-danger fw-bold">269k</h2>
-                        </div>
-                    </div>
-                </div> <br> --}}
                 @php
                     // Ambil kelas tatap muka dengan id 17
                     $kelas = $KelasTatapMuka->firstWhere('id', 17);
                 @endphp
                 @if ($kelas && $kelas->status == 1)
-                    <div class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
-
-                        <div class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1">
-                            <ul class="courses__item-meta list-wrap">
-
-                                <li class="price">Rp {{ number_format($kelas->price, 0, '.', '.') }}
-                                </li>
+                    <div
+                        class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100 justify-content-center align-items-center">
+                        <div
+                            class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1 justify-content-center align-items-center">
+                            <ul class="courses__item-meta list-wrap text-center">
+                                <li class="price">Rp {{ number_format($kelas->price, 0, '.', '.') }}</li>
                             </ul>
                         </div>
                     </div>
@@ -530,8 +519,6 @@
             </div>
         </div>
     </section>
-
-
     <!-- course-area-end -->
 
 
