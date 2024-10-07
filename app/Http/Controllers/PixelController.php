@@ -35,6 +35,6 @@ class PixelController extends Controller
         Session::put('api_token', $request->api_token);
 
         // Redirect dengan pesan sukses
-        return redirect()->route('admin.pixel.settings')->with('success', 'Pixel ID berhasil disimpan.');
+        return redirect()->route('pixel.settings')->with('success', 'Pixel ID berhasil disimpan.');
     }
 }
