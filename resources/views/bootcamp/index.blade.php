@@ -495,7 +495,7 @@
     <section class="courses-area section-py-120" data-background="public/assets/img/bg/courses_bg.jpg" loading="lazy">
         <div class="container">
             <div class="container mt-5 d-flex justify-content-center">
-                <div class="card text-center shadow-lg" style="width: 18rem; background-color: #FFD700;">
+                <div class="card text-center shadow-lg" style="width: 18rem; background-color: #ffffff;">
                     <div class="card-body">
                         <h5 class="card-title text-primary fw-bold">Investasi:</h5>
                         <h6 class="text-decoration-line-through text-dark">599k</h6>
