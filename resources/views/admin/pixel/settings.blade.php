@@ -29,7 +29,7 @@
                                 @enderror
                                 <label for="api_token">Conversion API Access token</label>
                                 <input type="text" name="api_token" id="api_token" class="form-control"
-                                    value="{{ old('api_token', $pixelId) }}" required>
+                                    value="{{ old('api_token', $apiToken) }}" required>
                                 @error('api_token')
                                     <small class="text-danger">{{ $message }}</small>
                                 @enderror

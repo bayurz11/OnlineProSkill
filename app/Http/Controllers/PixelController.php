@@ -18,7 +18,8 @@ class PixelController extends Controller
             return redirect()->route('/');
         }
         $pixelId = Session::get('pixel_id', ''); // Ambil dari session jika ada
-        return view('admin.pixel.settings', compact('pixelId', 'user'));
+        $apiToken = Session::get('api_token', ''); // Ambil dari session jika ada
+        return view('admin.pixel.settings', compact('pixelId', 'user', 'apiToken'));
     }
 
     public function store(Request $request)
