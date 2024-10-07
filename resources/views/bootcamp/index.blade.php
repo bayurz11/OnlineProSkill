@@ -273,7 +273,7 @@
                     <div class="container mt-5 d-flex justify-content-center align-items-center" style="height: 85vh;">
                         <div class="align-items-center">
                             <!-- Gambar bagian atas card -->
-                            <img src="public/assets/img/banner/bannerhalaman.png" class="card-img-top" alt="User Photo"
+                            <img src="public/assets/img/banner/banner1.png" class="card-img-top" alt="User Photo"
                                 style="height: 30rem; width:50rem; object-fit: cover;">
 
                         </div>
