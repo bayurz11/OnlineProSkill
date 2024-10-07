@@ -269,29 +269,20 @@
                 </div>
 
                 <!-- Konten Kanan: Gambar dan Card -->
-                <div class="col-lg-5 col-md-9 mt-8 mt-md-0" data-aos="fade-left" data-aos-delay="600">
-                    <div class="banner__images">
-                        <img src="public/assets/img/banner/banner1.png" alt="img" class="main-img"
-                            data-aos="fade-left" data-aos-delay="800">
-
-                        <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme"
-                            data-aos="fade-left" data-aos-delay="600">
-
-                    </div>
-                    <div class="col-lg-5" style="position: relative;">
-                        <div class="banner__images">
+                <div class="col-lg-5 col-md-9 mt-4 mt-md-0" data-aos="fade-left" data-aos-delay="600">
+                    <div class="container mt-5 d-flex justify-content-center align-items-center" style="height: 85vh;">
+                        <<div class="banner__images">
                             <img src="public/assets/img/banner/banner1.png" alt="img" class="main-img"
                                 data-aos="fade-left" data-aos-delay="800">
 
                             <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme"
                                 data-aos="fade-left" data-aos-delay="600">
 
-                        </div>
-
                     </div>
-
                 </div>
+
             </div>
+        </div>
 
         </div>
     </section>
