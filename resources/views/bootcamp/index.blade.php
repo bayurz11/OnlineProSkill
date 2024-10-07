@@ -111,10 +111,12 @@
                         <div
                             style="position: absolute; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 102;">
                             <!-- Teks di atas tautan video -->
-                            <span style="font-size: 18px; color: #000; font-weight: bold; margin-bottom: 8px;">Lihat</span>
+                            <span style="font-size: 18px; color: #000; font-weight: bold; margin-bottom: 8px;"
+                                data-aos="fade-left" data-aos-delay="800">Lihat</span>
 
                             <!-- Tautan untuk membuka video di modal popup -->
-                            <a href="https://www.youtube.com/watch?v=hxpItadargI" class="popup-video">
+                            <a href="https://www.youtube.com/watch?v=hxpItadargI" class="popup-video" data-aos="fade-left"
+                                data-aos-delay="800">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 22 28"
                                     fill="none">
                                     <path
@@ -124,7 +126,8 @@
                             </a>
 
                             <!-- Teks di bawah tautan video -->
-                            <span style="font-size: 18px; color: #000; font-weight: bold; margin-top: 8px;">Sesi Bootcamp
+                            <span style="font-size: 18px; color: #000; font-weight: bold; margin-top: 8px;"
+                                data-aos="fade-left" data-aos-delay="800">Sesi Bootcamp
                                 Sebelumnya</span>
                         </div>
                     </div>
