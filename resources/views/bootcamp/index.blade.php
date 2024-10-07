@@ -221,7 +221,7 @@
     <!-- fact-area-end -->
 
     <!-- faq-area -->
-    <section class="faq__area pt-5" style="padding-top: 6;">
+    <section class="faq__area pt-5">
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <!-- Konten Kiri: Target dan Sasaran -->
@@ -269,7 +269,7 @@
                 </div>
 
                 <!-- Konten Kanan: Gambar dan Card -->
-                <div class="col-lg-5 col-md-9 mt-4 mt-md-0" data-aos="fade-left" data-aos-delay="600">
+                <div class="col-lg-5 col-md-9 mt-8 mt-md-0" data-aos="fade-left" data-aos-delay="600">
                     <div class="col-lg-5" style="position: relative;">
                         <div class="banner__images">
                             <img src="public/assets/img/banner/banner1.png" alt="img" class="main-img"
