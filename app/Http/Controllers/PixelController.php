@@ -24,8 +24,8 @@ class PixelController extends Controller
 
         // Jika session pixel_id kosong, ambil dari database
         if (empty($pixelId)) {
-            $pixelSetting = PixelSetting::latest(); // Ambil data pertama dari database
-            $pixelId = $pixelSetting ? $pixelSetting->pixel_id : ''; // Isi dari database jika ada
+            $pixelSetting = PixelSetting::latest();
+            $pixelId = $pixelSetting ? $pixelSetting->pixel_id : '';
             $apiToken = $pixelSetting ? $pixelSetting->api_token : '';
         } else {
             // Jika session ada, ambil juga api_token dari session
