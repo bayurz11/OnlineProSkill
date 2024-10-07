@@ -147,6 +147,16 @@
                         </li> --}}
                     </ul>
                 </div>
+                <div class="collapse" id="fbsetting">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="{{ route('OrderHistory') }}" class="nav-link">Riwayat Pembayaran Bootcamp</a>
+                        </li>
+                        {{-- <li class="nav-item">
+                            <a href="pages/auth/register.html" class="nav-link">Register</a>
+                        </li> --}}
+                    </ul>
+                </div>
             </li>
             {{-- 
             <li class="nav-item">

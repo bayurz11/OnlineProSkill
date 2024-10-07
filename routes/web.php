@@ -84,6 +84,8 @@ Route::middleware('isAdmin')->group(function () {
 
     //Bootcamp
     Route::get('/bootcampsetting', [BootcampsettingController::class, 'index'])->name('bootcampsetting');
+    Route::get('/OrderHistory', [BootcampsettingController::class, 'history'])->name('OrderHistory');
+    Route::get('/prin/{id}', [BootcampsettingController::class, 'cetak'])->name('prin');
 
     //Kelola Event
     Route::get('/kelola_event', [AdminEventController::class, 'index'])->name('kelola_event');
