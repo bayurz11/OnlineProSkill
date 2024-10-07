@@ -75,8 +75,12 @@ class BootcampsettingController extends Controller
             return redirect()->route('login_admin');
         }
 
-        // Mengambil semua orders tanpa memfilter berdasarkan user_id
-        $orders = Order::with('KelasTatapMuka')->get();
+        // Mengambil semua orders yang memiliki KelasTatapMuka dengan course_type 'bootcamp'
+        $orders = Order::with('KelasTatapMuka')
+            ->whereHas('KelasTatapMuka', function ($query) {
+                $query->where('course_type', 'bootcamp'); // Menggunakan 'course_type'
+            })
+            ->get();
 
         // Debugging data
         foreach ($orders as $order) {
@@ -91,6 +95,7 @@ class BootcampsettingController extends Controller
 
         return view('admin.Bootcamp.history', compact('user', 'categori', 'count', 'orders'));
     }
+
     public function cetak($id)
     {
         $order = Order::with('user')->findOrFail($id);
