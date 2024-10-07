@@ -110,7 +110,7 @@
         left: -80px; /* Atur posisi ke kiri */
         right: 0;
         bottom: 0; /* Pastikan menutupi seluruh gambar */
-        width: 100%; /* Sesuaikan lebar dengan gambar */
+        width: 150%; /* Sesuaikan lebar dengan gambar */
         height: 100%; /* Sesuaikan tinggi dengan gambar */
         background: linear-gradient(to bottom, transparent, white); 
         z-index: 1; 
