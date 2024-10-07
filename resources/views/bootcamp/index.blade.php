@@ -101,7 +101,7 @@
 
                         <!-- Tautan untuk membuka video di modal popup -->
                         <a href="https://www.youtube.com/watch?v=hxpItadargI" class="popup-video"
-                            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 100;">
+                            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 101;">
                             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 22 28"
                                 fill="none">
                                 <path
@@ -112,9 +112,10 @@
                     </div>
 
                     <div
-                        style="position: absolute; bottom: 0; left: 0; right: 0; height: 400px; background: linear-gradient(to bottom, transparent, white); z-index: 0;">
+                        style="position: absolute; bottom: 0; left: 0; right: 0; height: 400px; background: linear-gradient(to bottom, transparent, white); z-index: 1; pointer-events: none;">
                     </div>
                 </div>
+
 
 
             </div>
