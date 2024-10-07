@@ -98,7 +98,7 @@
                             data-aos-delay="800">
                         <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme"
                             data-aos="fade-left" data-aos-delay="600">
-
+                        <p class="text-center">Lihat</p>
                         <!-- Tautan untuk membuka video di modal popup -->
                         <a href="https://www.youtube.com/watch?v=hxpItadargI" class="popup-video"
                             style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 101;">
