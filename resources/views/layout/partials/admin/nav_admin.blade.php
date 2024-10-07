@@ -84,6 +84,9 @@
                         <li class="nav-item">
                             <a href="{{ route('bootcampsetting') }}" class="nav-link">Daftar Bootcamp</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('HistoryOrder') }}" class="nav-link">Riwayat Pembayaran</a>
+                        </li>
                     </ul>
                 </div>
             </li>
@@ -142,9 +145,7 @@
                         <li class="nav-item">
                             <a href="{{ route('pixel.settings') }}" class="nav-link">Facebook Setting</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{ route('HistoryOrder') }}" class="nav-link">Riwayat Pembayaran</a>
-                        </li>
+
                     </ul>
                 </div>
 
