@@ -100,7 +100,7 @@
                             data-aos="fade-left" data-aos-delay="600">
 
                         <!-- Teks di atas tautan video -->
-                        <span
+                        <span class="text-center"
                             style="position: absolute; top: 45%; left: 50%; transform: translate(-50%, -100%); z-index: 102; font-size: 18px; color: #000; font-weight: bold;">
                             Lihat
                         </span>
