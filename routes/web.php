@@ -84,7 +84,7 @@ Route::middleware('isAdmin')->group(function () {
 
     //Bootcamp
     Route::get('/bootcampsetting', [BootcampsettingController::class, 'index'])->name('bootcampsetting');
-    Route::get('/OrderHistory', [BootcampsettingController::class, 'history'])->name('OrderHistory');
+    Route::get('/HistoryOrder', [BootcampsettingController::class, 'history'])->name('HistoryOrder');
     Route::get('/prin/{id}', [BootcampsettingController::class, 'cetak'])->name('prin');
 
     //Kelola Event

@@ -143,7 +143,7 @@
                             <a href="{{ route('pixel.settings') }}" class="nav-link">Facebook Setting</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('OrderHistory') }}" class="nav-link">Riwayat Pembayaran Bootcamp</a>
+                            <a href="{{ route('HistoryOrder') }}" class="nav-link">Riwayat Pembayaran</a>
                         </li>
                     </ul>
                 </div>
