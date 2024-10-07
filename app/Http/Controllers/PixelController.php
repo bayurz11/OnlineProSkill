@@ -18,6 +18,13 @@ class PixelController extends Controller
         if (!$user) {
             return redirect()->route('/');
         }
+        $pixelSetting = PixelSetting::first();
+
+        // Kirim data ke view
+        return view('pixel.settings', [
+            'pixelId' => $pixelSetting ? $pixelSetting->pixel_id : '',
+            'apiToken' => $pixelSetting ? $pixelSetting->api_token : ''
+        ]);
         $pixelId = Session::get('pixel_id', ''); // Ambil dari session jika ada
         $apiToken = Session::get('api_token', ''); // Ambil dari session jika ada
         return view('admin.pixel.settings', compact('pixelId', 'user', 'apiToken'));
@@ -43,10 +50,13 @@ class PixelController extends Controller
 
     public function edit()
     {
-        $pixelSetting = PixelSetting::latest()->first(); // Ambil pengaturan terbaru
-        $pixelId = $pixelSetting ? $pixelSetting->pixel_id : '';
-        $apiToken = $pixelSetting ? $pixelSetting->api_token : '';
+        // Ambil data Pixel ID dan API Token dari database
+        $pixelSetting = PixelSetting::first(); // Sesuaikan jika ada multiple records
 
-        return view('admin.pixel.settings', compact('pixelId', 'apiToken'));
+        // Kirim data ke view
+        return view('pixel.edit', [
+            'pixelId' => $pixelSetting ? $pixelSetting->pixel_id : '',
+            'apiToken' => $pixelSetting ? $pixelSetting->api_token : ''
+        ]);
     }
 }
