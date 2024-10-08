@@ -530,7 +530,7 @@
                             <div class="col-lg-4 col-md-6">
                                 <div class="features__item-two">
                                     <div class="features__content-two">
-                                        <div class="content-top">
+                                        <div class="content-top text-center">
 
                                             <h2 class="title">Investasi</h2>
                                         </div>
