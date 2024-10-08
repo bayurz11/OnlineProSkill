@@ -517,7 +517,8 @@
 
 
     <!-- course-area -->
-    <section class="courses-area section-py-120" data-background="public/assets/img/bg/courses_bg.jpg" loading="lazy">
+    <section class="courses-area section-py-120 mt-1" data-background="public/assets/img/bg/courses_bg.jpg"
+        loading="lazy">
         <div class="container">
             <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
                 @php
