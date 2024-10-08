@@ -545,42 +545,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="features__item-two">
-                                    <div class="features__content-two">
-                                        <div class="content-top">
-                                            <div class="features__icon-two">
-                                                <img src="public/assets/img/icons/h2_features_icon02.svg" alt="img"
-                                                    class="injectable" loading="lazy">
-                                            </div>
-                                            <h2 class="title">Kursus yang Efektif</h2>
-                                        </div>
-                                        <p>Kurikulum Kelas yang Sesuai Dengan Standar Industri.</p>
-                                    </div>
-                                    <div class="features__item-shape">
-                                        <img src="public/assets/img/others/features_item_shape.svg" alt="img"
-                                            class="injectable" loading="lazy">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <div class="features__item-two">
-                                    <div class="features__content-two">
-                                        <div class="content-top">
-                                            <div class="features__icon-two">
-                                                <img src="public/assets/img/icons/h2_features_icon03.svg" alt="img"
-                                                    class="injectable" loading="lazy">
-                                            </div>
-                                            <h2 class="title">Sertifikat Penyelesaian</h2>
-                                        </div>
-                                        <p>Mendapatkan Sertifikat Setelah Menyelesaikan Kelas.</p>
-                                    </div>
-                                    <div class="features__item-shape">
-                                        <img src="public/assets/img/others/features_item_shape.svg" alt="img"
-                                            class="injectable" loading="lazy">
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                     <div class="d-flex flex-column align-items-center" style="width: 300px; margin-top: -60px;">
