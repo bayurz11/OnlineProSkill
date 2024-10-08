@@ -517,8 +517,7 @@
 
 
     <!-- course-area -->
-    <section class="courses-area section-py-120 mt-1" data-background="public/assets/img/bg/courses_bg.jpg"
-        loading="lazy">
+    <section class="courses-area section-py-120 " data-background="public/assets/img/bg/courses_bg.jpg" loading="lazy">
         <div class="container">
             <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
                 @php
@@ -526,7 +525,7 @@
                     $kelas = $KelasTatapMuka->firstWhere('id', 17);
                 @endphp
                 @if ($kelas && $kelas->status == 1)
-                    <div class="d-flex flex-column align-items-center" style="width: 300px;">
+                    <div class="d-flex flex-column align-items-center mt-1" style="width: 300px;">
                         <div class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100 justify-content-center align-items-center"
                             style="height: 300px; padding: 5px;">
                             <div class="text-center">
