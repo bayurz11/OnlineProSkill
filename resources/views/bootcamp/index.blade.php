@@ -545,6 +545,13 @@
                                             </ul>
                                         </div>
                                     </div>
+                                    <a href="{{ route('cart_bootcamp.checkout', ['id' => $kelas->id]) }}"
+                                        class="btn arrow-btn"
+                                        style="font-size: 1rem; padding: 15px 25px; display: flex; justify-content: center; align-items: center; width: 200px; margin-top: 20px;">
+                                        Daftar Sekarang
+                                        <img src="public/assets/img/icons/right_arrow.svg" alt="img"
+                                            class="injectable" style="margin-left: 10px;">
+                                    </a>
                                     <div class="features__item-shape">
                                         <img src="public/assets/img/others/features_item_shape.svg" alt="img"
                                             class="injectable" loading="lazy">
@@ -553,12 +560,7 @@
                             </div>
 
                         </div>
-                        <a href="{{ route('cart_bootcamp.checkout', ['id' => $kelas->id]) }}" class="btn arrow-btn"
-                            style="font-size: 1rem; padding: 15px 25px; display: flex; justify-content: center; align-items: center; width: 200px; margin-top: 20px;">
-                            Daftar Sekarang
-                            <img src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"
-                                style="margin-left: 10px;">
-                        </a>
+
                     </div>
                     {{-- <div class="d-flex flex-column align-items-center" style="width: 300px; margin-top: -60px;">
                         <div class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100 justify-content-center align-items-center"
