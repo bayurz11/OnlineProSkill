@@ -531,13 +531,22 @@
                                 <div class="features__item-two">
                                     <div class="features__content-two">
                                         <div class="content-top">
-                                            <div class="features__icon-two">
-                                                <img src="public/assets/img/icons/h2_features_icon01.svg" alt="img"
-                                                    class="injectable" loading="lazy">
-                                            </div>
-                                            <h2 class="title">Tutor/Instruktur Ahli</h2>
+
+                                            <h2 class="title">Investasi</h2>
                                         </div>
-                                        <p>Belajar Langsung Dari Tutor Yang Ahli di Bidangnya.</p>
+                                        {{-- <div class="text-center">
+                                            <p style="font-size: 1.8rem; margin-top: 18px;">Investasi</p>
+                                        </div> --}}
+                                        <div class="text-center">
+                                            <del style="font-size: 1.2rem;">Rp 599.000</del>
+                                        </div>
+                                        <div
+                                            class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1 justify-content-center align-items-center">
+                                            <ul class="courses__item-meta list-unstyled text-center">
+                                                <li class="price h4" style="font-size: 2rem;">Rp
+                                                    {{ number_format($kelas->price, 0, '.', '.') }}</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                     <div class="features__item-shape">
                                         <img src="public/assets/img/others/features_item_shape.svg" alt="img"
