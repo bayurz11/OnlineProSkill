@@ -12,33 +12,34 @@ class PixelController extends Controller
 {
     public function index()
     {
+        // Ambil user yang sedang login
         $user = Auth::user();
 
-        // Redirect jika user belum login
+        // Redirect ke halaman login jika user belum login
         if (!$user) {
             return redirect()->route('/');
         }
 
         // Coba ambil Pixel ID dan API Token dari session
-        $pixelId = Session::get('pixel_id', '');
-        $apiToken = Session::get('api_token', '');
+        $pixelId = Session::get('pixel_id', null);
+        $apiToken = Session::get('api_token', null);
 
         // Jika session kosong, ambil dari database
-        if (empty($pixelId)) {
+        if (is_null($pixelId)) {
             $pixelSetting = PixelSetting::latest()->first();
             if ($pixelSetting) {
                 $pixelId = $pixelSetting->pixel_id;
                 $apiToken = $pixelSetting->api_token;
+
                 // Simpan ke session
                 Session::put('pixel_id', $pixelId);
                 Session::put('api_token', $apiToken);
             }
         }
 
-        // Kirim data ke view
+        // Kirim data ke view, termasuk user yang sedang login
         return view('admin.pixel.settings', compact('pixelId', 'user', 'apiToken'));
     }
-
 
 
     public function store(Request $request)
@@ -58,8 +59,6 @@ class PixelController extends Controller
             'pixel_id' => $request->pixel_id,
             'api_token' => $request->api_token,
         ]);
-
-
 
         // Redirect dengan pesan sukses
         return redirect()->route('pixel.settings')->with('success', 'Pixel ID dan API Token berhasil disimpan ke database.');
