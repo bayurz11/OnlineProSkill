@@ -544,7 +544,7 @@
                                             </ul>
                                         </div>
                                         <!-- Membungkus tombol dengan div berkelas text-center -->
-                                        <div class="text-center">
+                                        <div class="d-flex justify-content-center">
                                             <a href="{{ route('cart_bootcamp.checkout', ['id' => $kelas->id]) }}"
                                                 class="btn arrow-btn"
                                                 style="font-size: 1rem; padding: 15px 25px; display: flex; justify-content: center; align-items: center; width: 200px; margin-top: 20px;">
