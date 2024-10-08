@@ -348,7 +348,7 @@
                 <div class="col-lg-7" data-aos="fade-left" data-aos-delay="800" style="margin-top: -50px;">
                     <div class="faq__content">
                         <div class="section__title pb-10">
-                            <span class="sub-title">Materi</span>
+                            <span class="title">Materi</span>
                             <h2 class="title" style="color: #FE9900">Daftar Materi <b
                                     style="color: #007368">Bootcamp</b>
                             </h2>
@@ -531,7 +531,8 @@
                                 <div class="features__item-two">
                                     <div class="features__content-two">
                                         <div class="text-center">
-                                            <p style="font-size: 1.8rem; margin-top: 18px;">Investasi</p>
+                                            <p style="font-size: 1.8rem; margin-top: 18px; font-weight: bold;">Investasi
+                                            </p>
                                         </div>
                                         <div class="text-center">
                                             <del style="font-size: 1.2rem;">Rp 599.000</del>
