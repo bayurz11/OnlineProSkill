@@ -49,7 +49,8 @@
             ! function(f, b, e, v, n, t, s) {
                 if (f.fbq) return;
                 n = f.fbq = function() {
-                    n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                    n.callMethod ?
+                        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
                 };
                 if (!f._fbq) f._fbq = n;
                 n.push = n;
@@ -61,7 +62,8 @@
                 t.src = v;
                 s = b.getElementsByTagName(e)[0];
                 s.parentNode.insertBefore(t, s)
-            }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+            }(window, document, 'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
             fbq('init', '{{ $pixelId }}');
             fbq('track', 'PageView');
         </script>
@@ -70,7 +72,10 @@
                 src="https://www.facebook.com/tr?id={{ $pixelId }}&ev=PageView&noscript=1" />
         </noscript>
         <!-- End Meta Pixel Code -->
+    @else
+        <p>Pixel ID tidak tersedia. Pastikan Pixel ID disimpan dengan benar.</p>
     @endif
+
 
     <script>
         function onSubmitRegisStuden(token) {

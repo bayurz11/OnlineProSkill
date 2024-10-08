@@ -7,6 +7,7 @@ use App\Models\AdminEvent;
 use App\Models\Categories;
 use App\Models\Sertifikat;
 use App\Models\UserProfile;
+use App\Models\PixelSetting;
 use Illuminate\Http\Request;
 use App\Models\KelasTatapMuka;
 use App\Models\NotifikasiUser;
@@ -26,6 +27,22 @@ class BootcampController extends Controller
         $daftar_siswa = UserProfile::where('role_id', 3)->get();
         $sertifikat = Sertifikat::all();
 
+        // Coba ambil Pixel ID dan API Token dari session
+        $pixelId = Session::get('pixel_id', null);
+        $apiToken = Session::get('api_token', null);
+
+        // Jika session kosong, ambil dari database
+        if (is_null($pixelId)) {
+            $pixelSetting = PixelSetting::latest()->first();
+            if ($pixelSetting) {
+                $pixelId = $pixelSetting->pixel_id;
+                $apiToken = $pixelSetting->api_token;
+
+                // Simpan ke session
+                Session::put('pixel_id', $pixelId);
+                Session::put('api_token', $apiToken);
+            }
+        }
         // Mengambil KelasTatapMuka dan mengurutkannya berdasarkan kolom created_at
         $KelasTatapMuka = KelasTatapMuka::where('course_type', 'bootcamp')
             ->orderBy('created_at', 'asc')
@@ -52,7 +69,7 @@ class BootcampController extends Controller
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
-        return view('bootcamp.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'categori', 'KelasTatapMuka', 'event', 'blog', 'daftar_siswa', 'sertifikat'));
+        return view('bootcamp.index', compact('pixelId', 'user', 'apiToken', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'categori', 'KelasTatapMuka', 'event', 'blog', 'daftar_siswa', 'sertifikat'));
     }
 
     public function addToCartceckout($id)
