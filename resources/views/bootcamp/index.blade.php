@@ -525,7 +525,7 @@
                     $kelas = $KelasTatapMuka->firstWhere('id', 17);
                 @endphp
                 @if ($kelas && $kelas->status == 1)
-                    <div class="features__item-wrap">
+                    <div class="features__item-wrap" style=" margin-top: -60px;">
                         <div class="row justify-content-center">
                             <div class="col-lg-4 col-md-6">
                                 <div class="features__item-two">
