@@ -554,7 +554,7 @@
 
                         </div>
                     </div>
-                    <div class="d-flex flex-column align-items-center" style="width: 300px; margin-top: -60px;">
+                    {{-- <div class="d-flex flex-column align-items-center" style="width: 300px; margin-top: -60px;">
                         <div class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100 justify-content-center align-items-center"
                             style="height: 300px; padding: 5px;">
 
@@ -585,7 +585,7 @@
                             <img src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"
                                 style="margin-left: 10px;">
                         </a>
-                    </div>
+                    </div> --}}
                 @endif
             </div>
         </div>
