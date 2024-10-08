@@ -49,15 +49,17 @@ class PixelController extends Controller
             'api_token' => 'required|string'
         ]);
 
+        // Simpan ke session
+        Session::put('pixel_id', $request->pixel_id);
+        Session::put('api_token', $request->api_token);
+
         // Simpan ke database
         PixelSetting::create([
             'pixel_id' => $request->pixel_id,
             'api_token' => $request->api_token,
         ]);
 
-        // Simpan ke session
-        Session::put('pixel_id', $request->pixel_id);
-        Session::put('api_token', $request->api_token);
+
 
         // Redirect dengan pesan sukses
         return redirect()->route('pixel.settings')->with('success', 'Pixel ID dan API Token berhasil disimpan ke database.');
