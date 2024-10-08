@@ -525,6 +525,64 @@
                     $kelas = $KelasTatapMuka->firstWhere('id', 17);
                 @endphp
                 @if ($kelas && $kelas->status == 1)
+                    <div class="features__item-wrap">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-4 col-md-6">
+                                <div class="features__item-two">
+                                    <div class="features__content-two">
+                                        <div class="content-top">
+                                            <div class="features__icon-two">
+                                                <img src="public/assets/img/icons/h2_features_icon01.svg" alt="img"
+                                                    class="injectable" loading="lazy">
+                                            </div>
+                                            <h2 class="title">Tutor/Instruktur Ahli</h2>
+                                        </div>
+                                        <p>Belajar Langsung Dari Tutor Yang Ahli di Bidangnya.</p>
+                                    </div>
+                                    <div class="features__item-shape">
+                                        <img src="public/assets/img/others/features_item_shape.svg" alt="img"
+                                            class="injectable" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="features__item-two">
+                                    <div class="features__content-two">
+                                        <div class="content-top">
+                                            <div class="features__icon-two">
+                                                <img src="public/assets/img/icons/h2_features_icon02.svg" alt="img"
+                                                    class="injectable" loading="lazy">
+                                            </div>
+                                            <h2 class="title">Kursus yang Efektif</h2>
+                                        </div>
+                                        <p>Kurikulum Kelas yang Sesuai Dengan Standar Industri.</p>
+                                    </div>
+                                    <div class="features__item-shape">
+                                        <img src="public/assets/img/others/features_item_shape.svg" alt="img"
+                                            class="injectable" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="features__item-two">
+                                    <div class="features__content-two">
+                                        <div class="content-top">
+                                            <div class="features__icon-two">
+                                                <img src="public/assets/img/icons/h2_features_icon03.svg" alt="img"
+                                                    class="injectable" loading="lazy">
+                                            </div>
+                                            <h2 class="title">Sertifikat Penyelesaian</h2>
+                                        </div>
+                                        <p>Mendapatkan Sertifikat Setelah Menyelesaikan Kelas.</p>
+                                    </div>
+                                    <div class="features__item-shape">
+                                        <img src="public/assets/img/others/features_item_shape.svg" alt="img"
+                                            class="injectable" loading="lazy">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="d-flex flex-column align-items-center" style="width: 300px; margin-top: -60px;">
                         <div class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100 justify-content-center align-items-center"
                             style="height: 300px; padding: 5px;">
