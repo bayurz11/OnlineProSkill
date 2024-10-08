@@ -530,13 +530,10 @@
                             <div class="col-lg-4 col-md-6">
                                 <div class="features__item-two">
                                     <div class="features__content-two">
-                                        <div class="content-top text-center">
 
-                                            <h2 class="title">Investasi</h2>
-                                        </div>
-                                        {{-- <div class="text-center">
+                                        <div class="text-center">
                                             <p style="font-size: 1.8rem; margin-top: 18px;">Investasi</p>
-                                        </div> --}}
+                                        </div>
                                         <div class="text-center">
                                             <del style="font-size: 1.2rem;">Rp 599.000</del>
                                         </div>
