@@ -544,13 +544,15 @@
                                                     {{ number_format($kelas->price, 0, '.', '.') }}</li>
                                             </ul>
                                         </div>
-                                        <a href="{{ route('cart_bootcamp.checkout', ['id' => $kelas->id]) }}"
-                                            class="btn arrow-btn"
-                                            style="font-size: 1rem; padding: 15px 25px; display: flex; justify-content: center; align-items: center; width: 200px; margin-top: 20px;">
-                                            Daftar Sekarang
-                                            <img src="public/assets/img/icons/right_arrow.svg" alt="img"
-                                                class="injectable" style="margin-left: 10px;">
-                                        </a>
+                                        <div class="text-center">
+                                            <a href="{{ route('cart_bootcamp.checkout', ['id' => $kelas->id]) }}"
+                                                class="btn arrow-btn"
+                                                style="font-size: 1rem; padding: 15px 25px; display: flex; justify-content: center; align-items: center; width: 200px; margin-top: 20px;">
+                                                Daftar Sekarang
+                                                <img src="public/assets/img/icons/right_arrow.svg" alt="img"
+                                                    class="injectable" style="margin-left: 10px;">
+                                            </a>
+                                        </div>
                                     </div>
                                     <div class="features__item-shape">
                                         <img src="public/assets/img/others/features_item_shape.svg" alt="img"
