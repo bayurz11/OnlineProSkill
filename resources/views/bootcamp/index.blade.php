@@ -348,7 +348,9 @@
                 <div class="col-lg-7" data-aos="fade-left" data-aos-delay="800" style="margin-top: -50px;">
                     <div class="faq__content">
                         <div class="section__title pb-10">
-                            <span class="sub-title"><b style="color: #007368">Materi</b></span>
+                            <span class="sub-title">
+                                <h2 style="color: #007368">Materi</h2>
+                            </span>
                             <h2 class="title" style="color: #FE9900">Daftar Materi <b
                                     style="color: #007368">Bootcamp</b>
                             </h2>
