@@ -393,7 +393,7 @@
                     </div>
 
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="600">
                     <div class="about__content">
                         <div class="section__title">
 
@@ -411,7 +411,7 @@
                                 untuk data analyst pemula
                             </h2>
                         </div>
-                        <p class="desc">!
+                        <p class="desc">
 
                             📝 Pelajari Program <b>Bootcamp Power Bi</b> dari <b>Proskill Akademia!.</b>
 
