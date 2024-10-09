@@ -188,7 +188,7 @@ Route::middleware('isStuden')->group(function () {
     //payment
     Route::post('/payment', [PaymentController::class, 'payment'])->name('payment');
     Route::get('/success/{uuid}', [PaymentController::class, 'success'])->name('success');
-    Route::post('/webhook-xendit', [PaymentController::class, 'handleWebhook']);
+
 
     //Akses Pembelian
     Route::get('/akses_pembelian', [AksesPembelianController::class, 'index'])->name('akses_pembelian');
@@ -217,6 +217,7 @@ Route::get('/dashboard_instruktur', [DashboardInstrukturController::class, 'inde
 
 //*********FRONTEND*********//
 Route::get('/', [HomeController::class, 'index'])->name('/');
+Route::post('/webhook-xendit', [PaymentController::class, 'handleWebhook']);
 
 //Classroom
 Route::get('/classroom', [HomeController::class, 'classroom'])->name('classroom');
