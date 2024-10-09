@@ -187,6 +187,7 @@
                             @endforeach
                         </div>
                     </div>
+
                 </div>
             </div>
 
@@ -786,32 +787,19 @@
     </script>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var swiper = new Swiper(".testimonial-active-five", {
-                slidesPerView: 3,
-                spaceBetween: 60,
-                loop: true,
-                autoplay: {
-                    delay: 1000, // Set delay to 2000ms (2 seconds)
-                    disableOnInteraction: false,
-                },
-                speed: 2000, // Adjust the speed to control how fast the marquee scrolls
-                breakpoints: {
-                    320: {
-                        slidesPerView: 1,
-                    },
-                    768: {
-                        slidesPerView: 2,
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                    },
-                },
-                navigation: {
-                    nextEl: ".testimonial-button-next",
-                    prevEl: ".testimonial-button-prev",
-                },
-            });
+        var swiper = new Swiper('.courses-swiper-active', {
+            slidesPerView: 2.5, // Ubah sesuai kebutuhan (kurang dari 4)
+            spaceBetween: 30, // Jarak antar slide
+            centeredSlides: true, // Mulai dari tengah
+            loop: true, // Untuk mengulang slide
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
         });
     </script>
 
