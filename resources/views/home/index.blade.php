@@ -357,11 +357,11 @@
                         style="position: relative; display: flex; justify-content: center; align-items: center;">
                         <!-- Background Image -->
                         <img src="public/assets/img/banner/banner1.png" alt="img" class="main-img"
-                            data-aos="fade-left" data-aos-delay="800">
+                            data-aos="fade-right" data-aos-delay="800">
 
                         <!-- Decorative Background Dots -->
                         <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme"
-                            data-aos="fade-left" data-aos-delay="600">
+                            data-aos="fade-right" data-aos-delay="600">
                         <!-- Background Gradient -->
                         <div
                             style="  position: absolute; top: 0;  left: -80px; right: 0; bottom: 0; width: 100%; height: 100%;
@@ -372,11 +372,11 @@
                             style="position: absolute; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 102;">
                             <!-- Teks di atas tautan video -->
                             <span style="font-size: 18px; color: #000; font-weight: bold; margin-bottom: 8px;"
-                                data-aos="fade-left" data-aos-delay="800">Lihat</span>
+                                data-aos="fade-right" data-aos-delay="800">Lihat</span>
 
                             <!-- Tautan untuk membuka video di modal popup -->
                             <a href="https://www.youtube.com/watch?v=hxpItadargI" class="popup-video"
-                                data-aos="fade-left" data-aos-delay="800">
+                                data-aos="fade-right" data-aos-delay="800">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
                                     viewBox="0 0 22 28" fill="none">
                                     <path
@@ -387,7 +387,7 @@
 
                             <!-- Teks di bawah tautan video -->
                             <span style="font-size: 18px; color: #000; font-weight: bold; margin-top: 8px;"
-                                data-aos="fade-left" data-aos-delay="800">Sesi Bootcamp
+                                data-aos="fade-right" data-aos-delay="800">Sesi Bootcamp
                                 Sebelumnya</span>
                         </div>
                     </div>
