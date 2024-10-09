@@ -271,8 +271,8 @@
     </section>
     <!-- about-area-end --> --}}
 
-    @guest
-        {{-- <!-- features-area -->
+    {{-- @guest
+        <!-- features-area -->
         <section class="features__area-two section-pt-120 section-pb-90">
             <div class="container">
                 <div class="row justify-content-center">
@@ -344,9 +344,70 @@
                 </div>
             </div>
         </section>
-        <!-- features-area-end --> --}}
+        <!-- features-area-end -->
+    @endguest --}}
 
-    @endguest
+    @if ($KelasTatapMuka->count() > 0)
+        <section class="event__area section-pt-120 section-pb-90">
+            <div class="container">
+                <div class="event__inner-wrap">
+                    <div class="row">
+                        <div class="col-30">
+                            <div class="event__content">
+                                <div class="section__title mb-20">
+                                    <span class="sub-title">Acara Mendatang</span>
+                                    <h2 class="title">Bergabunglah dengan Komunitas Kami dan Jadikan Lebih Besar</h2>
+                                </div>
+
+                                <div class="tg-button-wrap">
+                                    <a href="{{ route('event') }}" class="btn arrow-btn">Lihat Semua Acara <img
+                                            src="public/assets/img/icons/right_arrow.svg" alt="img"
+                                            class="injectable"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-70">
+                            <div class="event__item-wrap">
+                                <div class="row justify-content-center">
+                                    @foreach ($KelasTatapMuka as $event)
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="event__item shine__animate-item">
+                                                <div class="event__item-thumb">
+                                                    <a href="{{ route('event_detail', ['id' => $event->id]) }}"
+                                                        class="shine__animate-link">
+                                                        <img src="{{ asset('public/uploads/events/' . $event->gambar) }}"
+                                                            alt="img" loading="lazy">
+                                                    </a>
+                                                </div>
+                                                <div class="event__item-content">
+                                                    <span
+                                                        class="date">{{ Carbon::parse($event->tgl)->format('d - F - Y') }}</span>
+                                                    <h2 class="title event-name">
+                                                        <a
+                                                            href="{{ route('event_detail', ['id' => $event->id]) }}">{{ $event->name }}</a>
+                                                    </h2>
+                                                    <a href="{{ $event->link_maps }}" class="location" target="_blank">
+                                                        <i class="flaticon-map"></i>{{ $event->lokasi }}
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="event__shape">
+                <img src="public/assets/img/events/event_shape.png" alt="img" class="alltuchtopdown"
+                    loading="lazy">
+            </div>
+        </section>
+        <!-- event-area-end -->
+    @endif
 
     <!-- testimonial-area -->
     <section class="testimonial__area-six section-py-140 testimonial__bg-three"
