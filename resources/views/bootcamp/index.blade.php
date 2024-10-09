@@ -519,7 +519,23 @@
 
 
     <!-- course-area -->
-    <section class="courses-area section-py-120 " data-background="public/assets/img/bg/courses_bg.jpg" loading="lazy">
+    <section class="faq__area" style="padding-top: 100px;">
+        <div class="section__title text-center">
+
+            <h2 class="title" data-aos="fade-top" data-aos-delay="600">
+                <b style="color: #007368"><b>Contoh</b></b>
+                <span class="position-relative">
+                    <svg x="0px" y="0px" preserveAspectRatio="none" viewBox="0 0 209 59" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M4.74438 7.70565C69.7006 -1.18799 136.097 -2.38304 203.934 4.1205C207.178 4.48495 209.422 7.14626 208.933 10.0534C206.793 23.6481 205.415 36.5704 204.801 48.8204C204.756 51.3291 202.246 53.5582 199.213 53.7955C136.093 59.7623 74.1922 60.5985 13.5091 56.3043C10.5653 56.0924 7.84371 53.7277 7.42158 51.0325C5.20725 38.2627 2.76333 25.6511 0.0898448 13.1978C-0.465589 10.5873 1.61173 8.1379 4.73327 7.70565"
+                            fill="currentcolor" />
+                    </svg>
+                    Dashboard
+                </span>
+                <b style="color: #007368"><b>hasil Bootcamp sebelumnya</b></b>
+            </h2>
+        </div> <br><br>
         <div class="container">
             <div style="display: flex; justify-content: center;">
                 <iframe width="80%" height="500"
@@ -528,15 +544,16 @@
                     style="border-radius: 15px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
                 </iframe>
             </div>
+
             <br><br><br>
-            <br><br><br>
-            <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
+
+            <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="600">
                 @php
 
                     $kelas = $KelasTatapMuka->firstWhere('id', 17);
                 @endphp
                 @if ($kelas && $kelas->status == 1)
-                    <div class="features__item-wrap align-items-center" style="margin-top: -100px;">
+                    <div class="features__item-wrap align-items-center">
                         <div class="row justify-content-center">
                             <div class="col-lg-4 col-md-6">
                                 <div class="features__item-two">
