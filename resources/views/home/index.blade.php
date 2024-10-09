@@ -396,7 +396,7 @@
                 <div class="col-lg-6">
                     <div class="about__content">
                         <div class="section__title">
-                            <span class="sub-title">Get More About Us</span>
+
                             <h2 class="title">
                                 Bootcamp
                                 <span class="position-relative">
@@ -411,7 +411,11 @@
                                 untuk data analyst pemula
                             </h2>
                         </div>
-                        <p class="desc">Pelajari Program Bootcamp Power Bi dari Proskill Akademia!.</p>
+                        <p class="desc">!
+
+                            📝 Pelajari Program <b>Bootcamp Power Bi</b> dari <b>Proskill Akademia!.</b>
+
+                        </p>
 
                         <div class="tg-button-wrap">
                             <a href="{{ route('pbi') }}" class="btn arrow-btn">Detail Bootcamp<img
