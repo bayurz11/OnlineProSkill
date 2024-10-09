@@ -94,7 +94,7 @@
 
                 <div class="col-lg-5" style="position: relative;">
                     <div class="banner__student" data-aos="fade-left" data-aos-delay="200"
-                        style="z-index: 100; margin-top: 20px;"> <!-- Menambahkan margin-top -->
+                        style="z-index: 100; margin-top: 50px;"> <!-- Menambahkan margin-top -->
                         <div class="icon">
                             <img src="{{ asset('public/assets/img/banner/h2_banner_icon.svg') }}" alt="img"
                                 class="injectable">
