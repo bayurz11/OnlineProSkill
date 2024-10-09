@@ -364,10 +364,10 @@
                                 <img src="public/assets/img/banner/bg_dots.svg" alt="shape"
                                     class="shape bg-dots rotateme" data-aos="fade-left" data-aos-delay="600">
                                 <!-- Background Gradient -->
-                                {{-- <div
+                                <div
                                     style="  position: absolute; top: 0;  left: -80px; right: 0; bottom: 0; width: 150%; height: 100%;
                                      background: linear-gradient(to bottom, transparent, white); z-index: 1; pointer-events: none;">
-                                </div> --}}
+                                </div>
                                 <!-- Wrapper untuk konten tengah (ikon & teks) -->
                                 <div
                                     style="position: absolute; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 102;">
