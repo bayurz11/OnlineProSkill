@@ -219,39 +219,45 @@ class PaymentController extends Controller
 
         try {
             $data = $request->all();
+            \Log::info('Received data: ', $data);
 
-            // Cek apakah event yang diterima adalah pembayaran yang berhasil
-            if (isset($data['event']) && $data['event'] === 'payment.succeeded') {
-                $externalId = $data['data']['payment_request_id']; // Ubah jika perlu
-                $status = $data['data']['status']; // Gunakan status 'SUCCEEDED'
+            if (isset($data['event'])) {
+                switch ($data['event']) {
+                    case 'payment.succeeded':
+                        $externalId = $data['data']['payment_request_id'];
+                        $status = $data['data']['status'];
 
-                // Cari semua pesanan berdasarkan external_id
-                $orders = Order::where('external_id', $externalId)->get();
+                        \Log::info('Processing payment succeeded for external_id: ' . $externalId);
 
-                if ($orders->isEmpty()) {
-                    return response()->json(['status' => 'no orders found'], 404);
+                        $orders = Order::where('external_id', $externalId)->get();
+
+                        if ($orders->isEmpty()) {
+                            \Log::info('No orders found for external_id: ' . $externalId);
+                            return response()->json(['status' => 'no orders found'], 404);
+                        }
+
+                        foreach ($orders as $order) {
+                            $order->status = $status;
+                            $order->save();
+
+                            NotifikasiUser::create([
+                                'user_id' => $order->user_id,
+                                'status' => 1,
+                                'message' => 'Pembayaran berhasil untuk pesanan ' . $order->nomor_invoice,
+                            ]);
+                        }
+
+                        return response()->json(['status' => 'success'], 200);
+
+                    case 'payment.failed':
+                        \Log::info('Processing payment failed');
+                        // Tambahkan logika pemrosesan untuk pembayaran gagal...
+                        break;
+
+                    default:
+                        \Log::info('Event not recognized: ' . $data['event']);
+                        return response()->json(['status' => 'event not recognized'], 400);
                 }
-
-                foreach ($orders as $order) {
-                    // Update status pesanan
-                    $order->status = $status; // SUCCEEDED
-                    $order->save();
-
-                    // Jika pembayaran berhasil, buat notifikasi untuk user
-                    NotifikasiUser::create([
-                        'user_id' => $order->user_id,
-                        'status' => 1,
-                        'message' => 'Pembayaran berhasil untuk pesanan ' . $order->nomor_invoice,
-                    ]);
-                }
-
-                // Balas Xendit dengan status 200 OK
-                return response()->json(['status' => 'success'], 200);
-            } elseif (isset($data['event']) && $data['event'] === 'payment.failed') {
-                // Proses pembayaran gagal
-                // Logika pemrosesan untuk event gagal...
-            } else {
-                return response()->json(['status' => 'event not recognized'], 400);
             }
 
             return response()->json(['status' => 'success'], 200);
