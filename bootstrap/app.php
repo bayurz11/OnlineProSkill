@@ -22,7 +22,7 @@ return Application::configure(basePath: dirname(__DIR__))
     })
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->validateCsrfTokens(except: [
-            'https://testonline.proskill.sch.id/webhook-xendit' // <-- exclude this route
+            '/webhook-xendit' // <-- exclude this route
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
