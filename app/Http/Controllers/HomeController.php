@@ -35,6 +35,15 @@ class HomeController extends Controller
             ->orderBy('created_at', 'asc')
             ->get();
 
+        // Ubah koleksi Eloquent menjadi array
+        $KelasTatapMukaArray = $KelasTatapMuka->toArray();
+
+        // Duplikasi array menggunakan array_merge()
+        $KelasTatapMukaArray = array_merge($KelasTatapMukaArray, $KelasTatapMukaArray, $KelasTatapMukaArray); // 3 kali duplikasi
+
+        // Jika ingin kembali ke koleksi Eloquent, gunakan collect()
+        $KelasTatapMuka = collect($KelasTatapMukaArray);
+
         $blog = Blog::orderBy('created_at', 'desc')->take(4)->get();
 
         // Mengambil event dan memfilter yang tanggalnya belum lewat, lalu membatasi 3 terbaru
@@ -58,6 +67,7 @@ class HomeController extends Controller
 
         return view('home.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'categori', 'KelasTatapMuka', 'event', 'blog', 'daftar_siswa', 'sertifikat'));
     }
+
 
 
     public function classroom()
