@@ -215,47 +215,49 @@ class PaymentController extends Controller
 
     public function handleWebhook(Request $request)
     {
+        \Log::info('Webhook received', $request->all());
 
-        Log::info('Webhook received', $request->all());
-        // Validasi dan ambil data dari webhook
-        $data = $request->all();
+        try {
+            $data = $request->all();
 
-        // Pastikan event yang diterima adalah pembayaran
-        if (isset($data['event']) && $data['event'] === 'payment_success') {
-            $externalId = $data['data']['external_id'];
-            $status = $data['data']['status'];
+            // Cek apakah event yang diterima adalah pembayaran yang berhasil
+            if (isset($data['event']) && $data['event'] === 'payment.succeeded') {
+                $externalId = $data['data']['payment_request_id']; // Ubah jika perlu
+                $status = $data['data']['status']; // Gunakan status 'SUCCEEDED'
 
-            // Cari semua pesanan berdasarkan external_id
-            $orders = Order::where('external_id', $externalId)->get();
+                // Cari semua pesanan berdasarkan external_id
+                $orders = Order::where('external_id', $externalId)->get();
 
-            // Periksa jika ada pesanan yang ditemukan
-            if ($orders->isEmpty()) {
-                return response()->json(['status' => 'no orders found'], 404);
+                if ($orders->isEmpty()) {
+                    return response()->json(['status' => 'no orders found'], 404);
+                }
+
+                foreach ($orders as $order) {
+                    // Update status pesanan
+                    $order->status = $status; // SUCCEEDED
+                    $order->save();
+
+                    // Jika pembayaran berhasil, buat notifikasi untuk user
+                    NotifikasiUser::create([
+                        'user_id' => $order->user_id,
+                        'status' => 1,
+                        'message' => 'Pembayaran berhasil untuk pesanan ' . $order->nomor_invoice,
+                    ]);
+                }
+
+                // Balas Xendit dengan status 200 OK
+                return response()->json(['status' => 'success'], 200);
+            } elseif (isset($data['event']) && $data['event'] === 'payment.failed') {
+                // Proses pembayaran gagal
+                // Logika pemrosesan untuk event gagal...
+            } else {
+                return response()->json(['status' => 'event not recognized'], 400);
             }
 
-            foreach ($orders as $order) {
-                // Update status pesanan
-                $order->status = $status; // SETTLED
-                $order->save();
-
-                // Jika pembayaran berhasil, buat notifikasi untuk user
-                NotifikasiUser::create([
-                    'user_id' => $order->user_id,
-                    'status' => 1,
-                    'message' => 'Pembayaran berhasil untuk pesanan ' . $order->nomor_invoice,
-                ]);
-            }
-
-            // Balas Xendit dengan status 200 OK
             return response()->json(['status' => 'success'], 200);
+        } catch (\Exception $e) {
+            \Log::error('Error processing webhook: ' . $e->getMessage());
+            return response()->json(['status' => 'error', 'message' => $e->getMessage()], 500);
         }
-
-        // Jika event adalah pembayaran gagal
-        if (isset($data['event']) && $data['event'] === 'payment_failed') {
-            // ... logika yang sama untuk pembayaran gagal
-        }
-
-        // Jika tidak ada event yang dikenali
-        return response()->json(['status' => 'event not recognized'], 400);
     }
 }
