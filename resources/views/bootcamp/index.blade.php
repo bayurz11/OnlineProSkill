@@ -140,7 +140,7 @@
                         </div>
                         <div class="content">
                             <span>Peserta Bootcamp</span>
-                            <h4 class="title">{{ $bootcamp->count() }} Siswa</h4>
+                            <h4 class="title">{{ $bootcamp->count() }}</h4>
                         </div>
                     </div>
                 </div>
