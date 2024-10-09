@@ -525,7 +525,7 @@
                 <iframe width="100%" height="600"
                     src="https://app.powerbi.com/view?r=eyJrIjoiNGJhOTI5OWMtOTgzOC00YWY2LWJkZjgtMWFhNWRlMzk3NTIxIiwidCI6Ijc1MzY1ODcyLWU5Y2QtNDk4My04YTdlLWZiZDc2MzU0N2I1MCIsImMiOjEwfQ%3D%3D&pageName=ReportSection85228c1842b89f43dae5"
                     frameborder="0" allowFullScreen="true"></iframe>
-            </div>
+            </div> <br>
             <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
                 @php
 
