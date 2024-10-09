@@ -369,7 +369,7 @@
                         <div class="col-70">
                             <div class="event__item-wrap">
                                 <div class="row justify-content-center">
-                                    @foreach ($KelasTatapMuka as $event)
+                                    {{-- @foreach ($KelasTatapMuka as $event)
                                         <div class="col-lg-4 col-md-6">
                                             <div class="event__item shine__animate-item">
                                                 <div class="event__item-thumb">
@@ -392,7 +392,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    @endforeach
+                                    @endforeach --}}
 
                                 </div>
                             </div>
