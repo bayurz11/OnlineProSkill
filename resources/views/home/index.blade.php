@@ -356,11 +356,11 @@
                             <div class="event__content">
                                 <div class="section__title mb-20">
                                     <span class="sub-title">Acara Mendatang</span>
-                                    <h2 class="title">Bergabunglah dengan Komunitas Kami dan Jadikan Lebih Besar</h2>
+                                    <h2 class="title">Bootcamp Power BI Untuk Pemula</h2>
                                 </div>
 
                                 <div class="tg-button-wrap">
-                                    <a href="{{ route('event') }}" class="btn arrow-btn">Lihat Semua Acara <img
+                                    <a href="{{ route('pbi') }}" class="btn arrow-btn">Detail Bootcamp<img
                                             src="public/assets/img/icons/right_arrow.svg" alt="img"
                                             class="injectable"></a>
                                 </div>
