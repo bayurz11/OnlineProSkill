@@ -407,7 +407,7 @@
                                             fill="currentcolor" />
                                     </svg>
                                     Power BI
-                                </span>
+                                </span><br>
                                 untuk data analyst pemula
                             </h2>
                         </div>
