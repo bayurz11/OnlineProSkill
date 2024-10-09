@@ -521,9 +521,14 @@
     <!-- course-area -->
     <section class="courses-area section-py-120 " data-background="public/assets/img/bg/courses_bg.jpg" loading="lazy">
         <div class="container">
+            <div class="row justify-content-center mb-5" data-aos="fade-up" data-aos-delay="600">
+                <iframe width="100%" height="600"
+                    src="https://app.powerbi.com/view?r=eyJrIjoiNGJhOTI5OWMtOTgzOC00YWY2LWJkZjgtMWFhNWRlMzk3NTIxIiwidCI6Ijc1MzY1ODcyLWU5Y2QtNDk4My04YTdlLWZiZDc2MzU0N2I1MCIsImMiOjEwfQ%3D%3D&pageName=ReportSection85228c1842b89f43dae5"
+                    frameborder="0" allowFullScreen="true"></iframe>
+            </div>
             <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
                 @php
-                    // Ambil kelas tatap muka dengan id 17
+
                     $kelas = $KelasTatapMuka->firstWhere('id', 17);
                 @endphp
                 @if ($kelas && $kelas->status == 1)
@@ -565,45 +570,10 @@
                             </div>
                         </div>
                     </div>
-
-                    {{-- <div class="d-flex flex-column align-items-center" style="width: 300px; margin-top: -60px;">
-                        <div class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100 justify-content-center align-items-center"
-                            style="height: 300px; padding: 5px;">
-
-                            <!-- Tambahkan gambar kelas di sini -->
-                            <div class="text-center">
-                                <img src="{{ asset('public/uploads/' . $kelas->gambar) }}" alt="img"
-                                    class="img-fluid" loading="lazy" style="width: 100%; height: auto;">
-                            </div>
-
-                            <div class="text-center">
-                                <p style="font-size: 1.8rem; margin-top: 18px;">Investasi</p>
-                            </div>
-                            <div class="text-center">
-                                <del style="font-size: 1.2rem;">Rp 599.000</del>
-                            </div>
-                            <div
-                                class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1 justify-content-center align-items-center">
-                                <ul class="courses__item-meta list-unstyled text-center">
-                                    <li class="price h4" style="font-size: 2rem;">Rp
-                                        {{ number_format($kelas->price, 0, '.', '.') }}</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <a href="{{ route('cart_bootcamp.checkout', ['id' => $kelas->id]) }}" class="btn arrow-btn"
-                            style="font-size: 1rem; padding: 15px 25px; display: flex; justify-content: center; align-items: center; width: 200px; margin-top: 20px;">
-                            Daftar Sekarang
-                            <img src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"
-                                style="margin-left: 10px;">
-                        </a>
-                    </div> --}}
                 @endif
             </div>
         </div>
     </section>
-
-
     <!-- course-area-end -->
 
 

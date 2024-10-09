@@ -396,7 +396,7 @@
                 <div class="col-lg-6" data-aos="fade-left" data-aos-delay="600">
                     <div class="about__content">
                         <div class="section__title">
-
+                            <span class="sub-title">Acara Mendatang</span>
                             <h2 class="title">
                                 Bootcamp
                                 <span class="position-relative">
