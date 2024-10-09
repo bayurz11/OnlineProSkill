@@ -787,11 +787,12 @@
     </script>
 
     <script>
-        var swiper = new Swiper('.courses-swiper-active', {
-            slidesPerView: 2.5, // Ubah sesuai kebutuhan (kurang dari 4)
-            spaceBetween: 30, // Jarak antar slide
-            centeredSlides: true, // Mulai dari tengah
-            loop: true, // Untuk mengulang slide
+        var totalSlides = document.querySelectorAll('.swiper-slide').length;
+        var swiperOptions = {
+            slidesPerView: 2.5,
+            spaceBetween: 30,
+            centeredSlides: true,
+            loop: totalSlides > 2, // Hanya aktifkan loop jika slide lebih dari 2
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
@@ -800,7 +801,9 @@
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
             },
-        });
+        };
+
+        var swiper = new Swiper('.courses-swiper-active', swiperOptions);
     </script>
 
 
