@@ -788,10 +788,10 @@
 
     <script>
         var swiper = new Swiper('.courses-swiper-active', {
-            slidesPerView: 2, // Ubah sesuai kebutuhan (kurang dari 4)
-            spaceBetween: 30, // Jarak antar slide
-            centeredSlides: true, // Mulai dari tengah
-            loop: true, // Untuk mengulang slide
+            slidesPerView: 1.5, // Default
+            spaceBetween: 30,
+            centeredSlides: true,
+            loop: true,
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true,
@@ -800,6 +800,18 @@
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
             },
+            breakpoints: {
+                // Atur untuk ukuran layar lebih kecil
+                768: {
+                    slidesPerView: 1.5, // Misal untuk tablet
+                },
+                1200: {
+                    slidesPerView: 2, // Misal untuk ukuran di bawah 1200px
+                },
+                1600: {
+                    slidesPerView: 2.5, // Misal untuk ukuran layar besar
+                }
+            }
         });
     </script>
 
