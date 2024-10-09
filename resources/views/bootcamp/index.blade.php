@@ -93,7 +93,8 @@
                 </div>
 
                 <div class="col-lg-5" style="position: relative;">
-                    <div class="banner__student" data-aos="fade-left" data-aos-delay="200" style="z-index: 100;">
+                    <div class="banner__student" data-aos="fade-left" data-aos-delay="200"
+                        style="z-index: 100; margin-top: 20px;"> <!-- Menambahkan margin-top -->
                         <div class="icon">
                             <img src="{{ asset('public/assets/img/banner/h2_banner_icon.svg') }}" alt="img"
                                 class="injectable">
@@ -106,7 +107,6 @@
 
                     <div class="banner__images"
                         style="position: relative; display: flex; justify-content: center; align-items: center;">
-
                         <!-- Background Image -->
                         <img src="public/assets/img/banner/banner2.jpg" alt="img" class="main-img" data-aos="fade-left"
                             data-aos-delay="800" style="width: 150%; height: auto; border-radius: 10px;">
@@ -116,8 +116,7 @@
                             data-aos="fade-left" data-aos-delay="600">
                         <!-- Background Gradient -->
                         <div
-                            style="  position: absolute; top: 0;  left: -80px; right: 0; bottom: 0; width: 150%; height: 100%;
-                             background: linear-gradient(to bottom, transparent, white); z-index: 1; pointer-events: none;">
+                            style="position: absolute; top: 0; left: -80px; right: 0; bottom: 0; width: 150%; height: 100%; background: linear-gradient(to bottom, transparent, white); z-index: 1; pointer-events: none;">
                         </div>
                         <!-- Wrapper untuk konten tengah (ikon & teks) -->
                         <div
@@ -139,11 +138,11 @@
 
                             <!-- Teks di bawah tautan video -->
                             <span style="font-size: 18px; color: #000; font-weight: bold; margin-top: 8px;"
-                                data-aos="fade-left" data-aos-delay="800">Sesi Bootcamp
-                                Sebelumnya</span>
+                                data-aos="fade-left" data-aos-delay="800">Sesi Bootcamp Sebelumnya</span>
                         </div>
                     </div>
                 </div>
+
 
 
 
