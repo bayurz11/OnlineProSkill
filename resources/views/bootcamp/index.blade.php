@@ -13,7 +13,7 @@
                 <div class="col-xl-12 col-lg-12 col-md-12" style="flex: 1; padding-left: 0;">
                     <img src="{{ asset('public/assets/img/logo/logo.svg') }}" alt="Logo" data-aos-delay="800"
                         data-aos="fade-top" style="display: block; margin-bottom: 20px;">
-                    <div class="col-xl-6 col-lg-6 col-md-12 banner__content" style="padding: 0;">
+                    <div class="banner__content" style="padding: 0;">
                         <h3 class="title tg-svg" data-aos="fade-right" data-aos-delay="400"
                             style="font-size: 2.5rem; line-height: 1.5; padding-top: 20px; margin-left: 0;">
                             <b style="color: #007368"><b>Bootcamp</b></b>
@@ -92,7 +92,7 @@
 
                 </div>
 
-                <div class="col-xl-6 col-lg-6 col-md-12 d-flex justify-content-center" style="position: relative;">
+                <div class="col-lg-5" style="position: relative;">
                     <div class="banner__student" data-aos="fade-left" data-aos-delay="200"
                         style="z-index: 100; margin-top: 500px;"> <!-- Menambahkan margin-top -->
                         <div class="icon">
