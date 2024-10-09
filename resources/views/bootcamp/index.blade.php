@@ -107,9 +107,9 @@
                     <div class="banner__images"
                         style="position: relative; display: flex; justify-content: center; align-items: center;">
 
-                        <img src="public/assets/img/banner/banner2.jpg" alt="img" class="main-img img-fluid"
-                            data-aos="fade-left" data-aos-delay="800">
-
+                        <!-- Background Image -->
+                        <img src="public/assets/img/banner/banner2.jpg" alt="img" class="main-img" data-aos="fade-left"
+                            data-aos-delay="800" style="width: 100%; height: auto;">
 
                         <!-- Decorative Background Dots -->
                         <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme"
