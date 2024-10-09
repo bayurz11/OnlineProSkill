@@ -59,8 +59,8 @@
                                         class="injectable">
                                 </div>
                                 <div class="content">
-                                    <span>peserta Bootcamp</span>
-                                    <h4 class="title">{{ $bootcamp->count() }} Siswa</h4>
+                                    <span>Siswa Terdaftar</span>
+                                    <h4 class="title">{{ $daftar_siswa->count() }} Siswa</h4>
                                 </div>
                             </div>
                         </div>
