@@ -109,7 +109,7 @@
 
                         <!-- Background Image -->
                         <img src="public/assets/img/banner/banner2.jpg" alt="img" class="main-img" data-aos="fade-left"
-                            data-aos-delay="800" style="width: 100%; height: auto;">
+                            data-aos-delay="800" style="width: 150%; height: auto;">
 
                         <!-- Decorative Background Dots -->
                         <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme"
