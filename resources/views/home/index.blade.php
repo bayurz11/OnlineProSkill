@@ -143,7 +143,7 @@
                     <div class="swiper courses-swiper-active">
                         <div class="swiper-wrapper">
                             @foreach ($KelasTatapMuka as $kelas)
-                                @if ($kelas->status == 1)
+                                @if ($kelas['status'] == 1)
                                     <div class="swiper-slide">
                                         <div
                                             class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
