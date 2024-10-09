@@ -272,7 +272,7 @@
     <!-- about-area-end --> --}}
 
     @guest
-        <!-- features-area -->
+        {{-- <!-- features-area -->
         <section class="features__area-two section-pt-120 section-pb-90">
             <div class="container">
                 <div class="row justify-content-center">
@@ -344,8 +344,10 @@
                 </div>
             </div>
         </section>
-        <!-- features-area-end -->
+        <!-- features-area-end --> --}}
+
     @endguest
+
     <!-- testimonial-area -->
     <section class="testimonial__area-six section-py-140 testimonial__bg-three"
         data-background="public/assets/img/bg/h8_testimonial_bg.jpg">
