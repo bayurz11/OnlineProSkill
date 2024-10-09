@@ -15,6 +15,7 @@ use Illuminate\Support\Carbon;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use App\Models\Order;
 
 class BootcampController extends Controller
 {
@@ -26,7 +27,9 @@ class BootcampController extends Controller
         $cart = Session::get('cart', []);
         $daftar_siswa = UserProfile::where('role_id', 3)->get();
         $sertifikat = Sertifikat::all();
-
+        $bootcamp = Order::where('product_id', 17)
+            ->whereIn('status', ['PAID', 'SETTLED'])
+            ->get();
         // Coba ambil Pixel ID dan API Token dari session
         $pixelId = Session::get('pixel_id', null);
         $apiToken = Session::get('api_token', null);
@@ -69,7 +72,7 @@ class BootcampController extends Controller
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
-        return view('bootcamp.index', compact('pixelId', 'user', 'apiToken', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'categori', 'KelasTatapMuka', 'event', 'blog', 'daftar_siswa', 'sertifikat'));
+        return view('bootcamp.index', compact('pixelId', 'user', 'bootcamp', 'apiToken', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'categori', 'KelasTatapMuka', 'event', 'blog', 'daftar_siswa', 'sertifikat'));
     }
 
     public function addToCartceckout($id)
