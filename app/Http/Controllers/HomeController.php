@@ -28,10 +28,10 @@ class HomeController extends Controller
         $profile = null;
         $cart = Session::get('cart', []);
         // $daftar_siswa = UserProfile::where('role_id', 3)->get();
-        $bootcamp = Order::where('role_id', 3)
-            ->where('product_id', 17)
+        $bootcamp = Order::where('product_id', 17)
             ->whereIn('status', ['PAID', 'SETTLED'])
             ->get();
+
 
         $sertifikat = Sertifikat::all();
 
