@@ -522,7 +522,7 @@
     <section class="courses-area section-py-120 " data-background="public/assets/img/bg/courses_bg.jpg" loading="lazy">
         <div class="container">
             <div class="row justify-content-center mb-5" data-aos="fade-up" data-aos-delay="600">
-                <iframe width="100%" height="100%"
+                <iframe width="90%" height="600"
                     src="https://app.powerbi.com/view?r=eyJrIjoiNGJhOTI5OWMtOTgzOC00YWY2LWJkZjgtMWFhNWRlMzk3NTIxIiwidCI6Ijc1MzY1ODcyLWU5Y2QtNDk4My04YTdlLWZiZDc2MzU0N2I1MCIsImMiOjEwfQ%3D%3D&pageName=ReportSection85228c1842b89f43dae5"
                     frameborder="0" allowFullScreen="true"></iframe>
             </div> <br><br>
