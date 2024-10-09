@@ -144,6 +144,8 @@ Route::middleware('isAdmin')->group(function () {
     //Riwayat Pembelian Kursus
     Route::get('/OrderHistoryManager', [OrderHistoryManagerController::class, 'index'])->name('OrderHistoryManager');
     Route::get('/prin/{id}', [OrderHistoryManagerController::class, 'cetak'])->name('prin');
+    Route::post('/webhook-xendit', [PaymentController::class, 'handleWebhook']);
+
 
     //*******KESISWAAN*******//
     Route::get('/daftar_siswa', [DaftarSiswaController::class, 'index'])->name('daftar_siswa');

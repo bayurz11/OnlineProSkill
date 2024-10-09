@@ -211,4 +211,70 @@ class PaymentController extends Controller
 
         return redirect()->route('akses_pembelian')->with('success', 'Pembayaran Berhasil');
     }
+
+    public function handleWebhook(Request $request)
+    {
+        // Validasi dan ambil data dari webhook
+        $data = $request->all();
+
+        // Pastikan event yang diterima adalah pembayaran
+        if (isset($data['event']) && $data['event'] === 'payment_success') {
+            $externalId = $data['data']['external_id'];
+            $status = $data['data']['status'];
+
+            // Cari semua pesanan berdasarkan external_id
+            $orders = Order::where('external_id', $externalId)->get();
+
+            // Periksa jika ada pesanan yang ditemukan
+            if ($orders->isEmpty()) {
+                return response()->json(['status' => 'no orders found'], 404);
+            }
+
+            foreach ($orders as $order) {
+                // Update status pesanan
+                $order->status = $status; // SETTLED
+                $order->save();
+
+                // Jika pembayaran berhasil, buat notifikasi untuk user
+                NotifikasiUser::create([
+                    'user_id' => $order->user_id,
+                    'status' => 1,
+                    'message' => 'Pembayaran berhasil untuk pesanan ' . $order->nomor_invoice,
+                ]);
+
+                // Lakukan tindakan tambahan jika diperlukan, misalnya mengupdate inventaris atau memberikan akses ke produk
+                // ... (tambahkan logika sesuai kebutuhan)
+            }
+
+            // Balas Xendit dengan status 200 OK
+            return response()->json(['status' => 'success'], 200);
+        }
+
+        // Jika event adalah pembayaran gagal
+        if (isset($data['event']) && $data['event'] === 'payment_failed') {
+            $externalId = $data['data']['external_id'];
+            $status = $data['data']['status'];
+
+            // Cari semua pesanan berdasarkan external_id
+            $orders = Order::where('external_id', $externalId)->get();
+
+            foreach ($orders as $order) {
+                // Update status pesanan
+                $order->status = $status; // FAILED
+                $order->save();
+
+                // Buat notifikasi untuk user
+                NotifikasiUser::create([
+                    'user_id' => $order->user_id,
+                    'status' => 0,
+                    'message' => 'Pembayaran gagal untuk pesanan ' . $order->nomor_invoice,
+                ]);
+            }
+
+            return response()->json(['status' => 'success'], 200);
+        }
+
+        // Jika tidak ada event yang dikenali
+        return response()->json(['status' => 'event not recognized'], 400);
+    }
 }
