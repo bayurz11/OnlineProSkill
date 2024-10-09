@@ -415,7 +415,7 @@
 
                         <div class="tg-button-wrap">
                             <a href="{{ route('pbi') }}" class="btn arrow-btn">Detail Bootcamp<img
-                                    src="assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
+                                    src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
                         </div>
                     </div>
                 </div>
