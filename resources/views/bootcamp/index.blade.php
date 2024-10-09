@@ -94,7 +94,7 @@
 
                 <div class="col-lg-5" style="position: relative;">
                     <div class="banner__student" data-aos="fade-left" data-aos-delay="200"
-                        style="z-index: 100; margin-top: 500px;"> <!-- Menambahkan margin-top -->
+                        style="z-index: 100; margin-top: 50px;"> <!-- Mengurangi margin-top agar posisinya lebih turun -->
                         <div class="icon">
                             <img src="{{ asset('public/assets/img/banner/h2_banner_icon.svg') }}" alt="img"
                                 class="injectable">
@@ -106,7 +106,7 @@
                     </div>
 
                     <div class="banner__images"
-                        style="position: relative; display: flex; justify-content: center; align-items: center;">
+                        style="position: relative; display: flex; justify-content: center; align-items: center; margin-top: 150px; margin-left: 50px;">
                         <!-- Background Image -->
                         <img src="public/assets/img/banner/banner2.jpg" alt="img" class="main-img" data-aos="fade-left"
                             data-aos-delay="800" style="width: 150%; height: auto; border-radius: 10px;">
@@ -114,10 +114,12 @@
                         <!-- Decorative Background Dots -->
                         <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme"
                             data-aos="fade-left" data-aos-delay="600">
+
                         <!-- Background Gradient -->
                         <div
                             style="position: absolute; top: 0; left: -80px; right: 0; bottom: 0; width: 150%; height: 100%; background: linear-gradient(to bottom, transparent, white); z-index: 1; pointer-events: none;">
                         </div>
+
                         <!-- Wrapper untuk konten tengah (ikon & teks) -->
                         <div
                             style="position: absolute; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 102;">
@@ -142,9 +144,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
 
 
             </div>
