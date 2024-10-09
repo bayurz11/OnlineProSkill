@@ -93,17 +93,6 @@
                 </div>
 
                 <div class="col-lg-5" style="position: relative;">
-                    <div class="banner__student" data-aos="fade-left" data-aos-delay="200"
-                        style="z-index: 100; margin-top: 50px;"> <!-- Mengurangi margin-top agar posisinya lebih turun -->
-                        <div class="icon">
-                            <img src="{{ asset('public/assets/img/banner/h2_banner_icon.svg') }}" alt="img"
-                                class="injectable">
-                        </div>
-                        <div class="content">
-                            <span>Peserta Bootcamp</span>
-                            <h4 class="title">{{ $bootcamp->count() }} Siswa</h4>
-                        </div>
-                    </div>
 
                     <div class="banner__images"
                         style="position: relative; display: flex; justify-content: center; align-items: center; margin-top: 150px; margin-left: 50px;">
@@ -128,8 +117,8 @@
                                 data-aos="fade-left" data-aos-delay="800">Lihat</span>
 
                             <!-- Tautan untuk membuka video di modal popup -->
-                            <a href="https://www.youtube.com/watch?v=hxpItadargI" class="popup-video"
-                                data-aos="fade-left" data-aos-delay="800">
+                            <a href="https://www.youtube.com/watch?v=hxpItadargI" class="popup-video" data-aos="fade-left"
+                                data-aos-delay="800">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
                                     viewBox="0 0 22 28" fill="none">
                                     <path
@@ -141,6 +130,17 @@
                             <!-- Teks di bawah tautan video -->
                             <span style="font-size: 18px; color: #000; font-weight: bold; margin-top: 8px;"
                                 data-aos="fade-left" data-aos-delay="800">Sesi Bootcamp Sebelumnya</span>
+                        </div>
+                    </div>
+                    <div class="banner__student" data-aos="fade-left" data-aos-delay="200"
+                        style="z-index: 100; margin-top: 50px;"> <!-- Mengurangi margin-top agar posisinya lebih turun -->
+                        <div class="icon">
+                            <img src="{{ asset('public/assets/img/banner/h2_banner_icon.svg') }}" alt="img"
+                                class="injectable">
+                        </div>
+                        <div class="content">
+                            <span>Peserta Bootcamp</span>
+                            <h4 class="title">{{ $bootcamp->count() }} Siswa</h4>
                         </div>
                     </div>
                 </div>
