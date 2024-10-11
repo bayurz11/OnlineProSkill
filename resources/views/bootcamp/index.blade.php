@@ -110,9 +110,10 @@
 
                         <!-- Wrapper untuk konten tengah (ikon & teks) -->
                         <div
-                            class="position-absolute d-flex flex-column justify-content-center align-items-center z-index-102">
+                            style="position: absolute; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 102;">
                             <!-- Teks di atas tautan video -->
-                            <span class="fs-5 text-dark fw-bold mb-2" data-aos="fade-left" data-aos-delay="800">Lihat</span>
+                            <span class="h6 text-dark font-weight-bold mb-2" data-aos="fade-left"
+                                data-aos-delay="800">Lihat</span>
 
                             <!-- Tautan untuk membuka video di modal popup -->
                             <a href="https://www.youtube.com/watch?v=hxpItadargI" class="popup-video" data-aos="fade-left"
@@ -126,8 +127,8 @@
                             </a>
 
                             <!-- Teks di bawah tautan video -->
-                            <span class="fs-5 text-dark fw-bold mt-2" data-aos="fade-left" data-aos-delay="800">Sesi
-                                Bootcamp Sebelumnya</span>
+                            <span class="h6 text-dark font-weight-bold mt-2" data-aos="fade-left"
+                                data-aos-delay="800">Sesi Bootcamp Sebelumnya</span>
                         </div>
 
                     </div>
