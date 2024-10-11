@@ -92,10 +92,10 @@
 
                 </div>
 
+                <div class="col-lg-5" style="position: relative;">
 
-                <div class="col-lg-5 col-12" style="position: relative;">
                     <div class="banner__images"
-                        style="position: relative; display: flex; justify-content: center; align-items: center; margin-top: 150px;">
+                        style="position: relative; display: flex; justify-content: center; align-items: center; margin-top: 150px; margin-left: 50px;">
                         <!-- Background Image -->
                         <img src="public/assets/img/banner/banner2.jpg" alt="img" class="main-img" data-aos="fade-left"
                             data-aos-delay="800" style="width: 150%; height: auto; border-radius: 10px;">
@@ -132,11 +132,8 @@
                                 data-aos="fade-left" data-aos-delay="800">Sesi Bootcamp Sebelumnya</span>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-12 col-md-6 mt-4 mt-md-0">
                     <div class="banner__student" data-aos="fade-left" data-aos-delay="200"
-                        style="z-index: 100; margin-top: 10px;">
+                        style="z-index: 100; margin-top: 10px;"> <!-- Mengurangi margin-top agar posisinya lebih turun -->
                         <div class="icon">
                             <img src="{{ asset('public/assets/img/banner/h2_banner_icon.svg') }}" alt="img"
                                 class="injectable">
@@ -147,7 +144,6 @@
                         </div>
                     </div>
                 </div>
-
 
 
             </div>
