@@ -550,7 +550,7 @@
         </div> <br><br>
         <div class="container">
             <div style="display: flex; justify-content: center; width: 100%; height: auto;">
-                <iframe width="100%" height="100%"
+                <iframe class="mx-2" width="100%" height="100%"
                     src="https://app.powerbi.com/view?r=eyJrIjoiNGJhOTI5OWMtOTgzOC00YWY2LWJkZjgtMWFhNWRlMzk3NTIxIiwidCI6Ijc1MzY1ODcyLWU5Y2QtNDk4My04YTdlLWZiZDc2MzU0N2I1MCIsImMiOjEwfQ%3D%3D&pageName=ReportSection85228c1842b89f43dae5"
                     frameborder="0" allowFullScreen="true"
                     style="border-radius: 15px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); aspect-ratio: 16 / 9; margin: 0 100px;">
