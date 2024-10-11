@@ -257,7 +257,7 @@
     <!-- fact-area-end -->
 
     <!-- faq-area -->
-    <section class="faq__area pt-5">
+    <section class="faq__area pt-5 mt-3">
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <!-- Konten Kiri: Target dan Sasaran -->
