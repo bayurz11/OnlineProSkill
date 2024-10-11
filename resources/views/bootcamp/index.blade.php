@@ -133,7 +133,7 @@
                         </div>
                     </div>
                     <div class="banner__student" data-aos="fade-left" data-aos-delay="200"
-                        style="z-index: 100; margin-top: 50px;"> <!-- Mengurangi margin-top agar posisinya lebih turun -->
+                        style="z-index: 100; margin-top: 10px;"> <!-- Mengurangi margin-top agar posisinya lebih turun -->
                         <div class="icon">
                             <img src="{{ asset('public/assets/img/banner/h2_banner_icon.svg') }}" alt="img"
                                 class="injectable">
