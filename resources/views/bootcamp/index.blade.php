@@ -92,7 +92,7 @@
 
                 </div>
 
-                <div class="col-lg-5" style="position: relative;">
+                <div class="col-lg-4" style="position: relative;">
                     <div class="banner__images"
                         style="position: relative; display: flex; justify-content: center; align-items: center; margin-top: 150px; margin-left: 50px;">
                         <!-- Background Image -->
@@ -134,7 +134,7 @@
                     </div>
 
                     <!-- Menggunakan kelas Bootstrap untuk responsif -->
-                    <div class="banner__student mt-7 mt-md-6" data-aos="fade-left" data-aos-delay="200"
+                    <div class="banner__student mt-8 mt-md-6" data-aos="fade-left" data-aos-delay="200"
                         style="z-index: 100;">
                         <div class="icon">
                             <img src="{{ asset('public/assets/img/banner/h2_banner_icon.svg') }}" alt="img"
