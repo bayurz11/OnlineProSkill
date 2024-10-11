@@ -132,10 +132,9 @@
                                 data-aos="fade-left" data-aos-delay="800">Sesi Bootcamp Sebelumnya</span>
                         </div>
                     </div>
-                    <div class="col-12 col-md-6" style="margin-top: 50px;">
+                    <div class="col-12 col-md-6 mt-4 mt-md-0">
                         <div class="banner__student" data-aos="fade-left" data-aos-delay="200"
                             style="z-index: 100; margin-top: 10px;">
-                            <!-- Mengurangi margin-top agar posisinya lebih turun -->
                             <div class="icon">
                                 <img src="{{ asset('public/assets/img/banner/h2_banner_icon.svg') }}" alt="img"
                                     class="injectable">
@@ -146,6 +145,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
 
 
