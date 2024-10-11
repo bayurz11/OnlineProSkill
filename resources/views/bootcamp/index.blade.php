@@ -94,7 +94,7 @@
 
                 <div class="col-lg-5" style="position: relative;">
                     <div class="banner__images"
-                        style="position: relative; display: flex; justify-content: center; align-items: center; margin-top: 160px; margin-left: 60px;">
+                        style="position: relative; display: flex; justify-content: center; align-items: center; margin-top: 150px; margin-left: 50px;">
                         <!-- Background Image -->
                         <img src="public/assets/img/banner/banner2.jpg" alt="img" class="main-img" data-aos="fade-left"
                             data-aos-delay="800" style="width: 150%; height: auto; border-radius: 10px;">
@@ -133,7 +133,7 @@
                     </div>
 
                     <!-- Menggunakan kelas Bootstrap untuk responsif -->
-                    <div class="banner__student mt-6 mt-md-5" data-aos="fade-left" data-aos-delay="200"
+                    <div class="banner__student mt-3 mt-md-5" data-aos="fade-left" data-aos-delay="200"
                         style="z-index: 100;">
                         <div class="icon">
                             <img src="{{ asset('public/assets/img/banner/h2_banner_icon.svg') }}" alt="img"
