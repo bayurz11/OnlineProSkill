@@ -93,7 +93,6 @@
                 </div>
 
                 <div class="col-lg-5" style="position: relative;">
-
                     <div class="banner__images"
                         style="position: relative; display: flex; justify-content: center; align-items: center; margin-top: 150px; margin-left: 50px;">
                         <!-- Background Image -->
@@ -132,8 +131,10 @@
                                 data-aos="fade-left" data-aos-delay="800">Sesi Bootcamp Sebelumnya</span>
                         </div>
                     </div>
-                    <div class="banner__student" data-aos="fade-left" data-aos-delay="200"
-                        style="z-index: 100; margin-top: 30px;"> <!-- Mengurangi margin-top agar posisinya lebih turun -->
+
+                    <!-- Menggunakan kelas Bootstrap untuk responsif -->
+                    <div class="banner__student mt-3 mt-md-5" data-aos="fade-left" data-aos-delay="200"
+                        style="z-index: 100;">
                         <div class="icon">
                             <img src="{{ asset('public/assets/img/banner/h2_banner_icon.svg') }}" alt="img"
                                 class="injectable">
