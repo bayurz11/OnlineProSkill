@@ -133,7 +133,7 @@
                     </div>
 
                     <!-- Menggunakan kelas Bootstrap untuk responsif -->
-                    <div class="banner__student mt-12 mt-md-5" data-aos="fade-left" data-aos-delay="200"
+                    <div class="banner__student mt-12 mt-md-6" data-aos="fade-left" data-aos-delay="200"
                         style="z-index: 100;">
                         <div class="icon">
                             <img src="{{ asset('public/assets/img/banner/h2_banner_icon.svg') }}" alt="img"
