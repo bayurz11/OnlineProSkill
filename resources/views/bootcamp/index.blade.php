@@ -357,7 +357,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-7" data-aos="fade-left" data-aos-delay="800" style="margin-top: -50px;">
+                <div class="col-lg-7 mb-3" data-aos="fade-left" data-aos-delay="800" style="margin-top: -50px; ">
                     <div class="faq__content">
                         <div class="section__title pb-10">
                             <span class="sub-title">
@@ -526,7 +526,7 @@
                 </div>
             </div>
         </div>
-    </section> <br>
+    </section>
     <!-- faq-area-end -->
 
 
