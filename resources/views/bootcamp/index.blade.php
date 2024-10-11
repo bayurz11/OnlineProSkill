@@ -328,16 +328,15 @@
     <section class="faq__area" style="padding-top: 0;">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-5 col-md-12" data-aos="fade-right" data-aos-delay="600" style="margin-top: -50px;">
-                    <div class="container mt-5 d-flex justify-content-center align-items-center" style="height: auto;">
-                        <div class="align-items-center text-center">
+                <div class="col-lg-5" data-aos="fade-right" data-aos-delay="600" style="margin-top: -50px;">
+                    <div class="container mt-5 d-flex justify-content-center align-items-center" style="height: 85vh;">
+                        <div class="align-items-center">
                             <!-- Gambar bagian atas card -->
                             <img src="public/assets/img/banner/instruktur2.png" class="card-img-top" alt="User Photo"
-                                style="height: auto; width: 100%; max-width: 15rem; object-fit: cover;">
+                                style="height: 20rem; width:15rem; object-fit: cover;">
 
                             <!-- Card Body yang diangkat sedikit ke atas -->
-                            <div class="card text-center"
-                                style="width: 100%; max-width: 15rem; overflow: hidden; margin-top: -50px;">
+                            <div class="card text-center" style="width: 15rem; overflow: hidden; margin-top: -50px;">
                                 <div class="card-body">
                                     <h5 class="card-title">Power BI Expertise</h5>
 
@@ -352,12 +351,13 @@
                                             style="color: #0077b5; margin-right: 16px; font-size: 28px;"></i>Beni
                                         Oktopiansah
                                     </a>
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-7 col-md-12" data-aos="fade-left" data-aos-delay="800" style="margin-top: -50px;">
+                <div class="col-lg-7" data-aos="fade-left" data-aos-delay="800" style="margin-top: -50px;">
                     <div class="faq__content">
                         <div class="section__title pb-10">
                             <span class="sub-title">
@@ -370,16 +370,15 @@
                         <br>
                         <div class="faq__wrap">
                             <div class="accordion" id="accordionExample">
-                                <!-- Accordion Items -->
                                 <div class="accordion-item">
                                     <h2 class="accordion-header">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseOne" aria-expanded="true"
+                                            data-bs-target="#collapseOne" aria-expanded="false"
                                             aria-controls="collapseOne">
                                             Memulai Analisis Data dengan Power BI
                                         </button>
                                     </h2>
-                                    <div id="collapseOne" class="accordion-collapse collapse show"
+                                    <div id="collapseOne" class="accordion-collapse collapse"
                                         data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
                                             <p>Kenapa Anda harus menguasai analisis data</p><br>
@@ -527,7 +526,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> <br>
     <!-- faq-area-end -->
 
 
