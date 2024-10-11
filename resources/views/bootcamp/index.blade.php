@@ -92,58 +92,50 @@
 
                 </div>
 
-                <div class="col-lg-5" style="position: relative;">
+                <div class="container">
+                    <div class="row justify-content-center mt-5">
+                        <!-- Kolom Gambar dan Media Player -->
+                        <div class="col-lg-6 col-md-8 col-sm-10 position-relative">
+                            <!-- Gambar Background -->
+                            <img src="public/assets/img/banner/banner2.jpg" alt="img" class="img-fluid rounded">
 
-                    <div class="banner__images"
-                        style="position: relative; display: flex; justify-content: center; align-items: center; margin-top: 150px; margin-left: 50px;">
-                        <!-- Background Image -->
-                        <img src="public/assets/img/banner/banner2.jpg" alt="img" class="main-img" data-aos="fade-left"
-                            data-aos-delay="800" style="width: 150%; height: auto; border-radius: 10px;">
+                            <!-- Background Gradient -->
+                            <div class="position-absolute top-0 start-0 end-0 bottom-0"
+                                style="background: linear-gradient(to bottom, transparent, white); pointer-events: none;">
+                            </div>
 
-                        <!-- Decorative Background Dots -->
-                        <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme"
-                            data-aos="fade-left" data-aos-delay="600">
-
-                        <!-- Background Gradient -->
-                        <div
-                            style="position: absolute; top: 0; left: -80px; right: 0; bottom: 0; width: 150%; height: 100%; background: linear-gradient(to bottom, transparent, white); z-index: 1; pointer-events: none;">
+                            <!-- Konten Tengah (Ikon dan Teks) -->
+                            <div
+                                class="d-flex flex-column justify-content-center align-items-center position-absolute top-50 start-50 translate-middle">
+                                <span class="fw-bold" style="font-size: 18px;">Lihat</span>
+                                <a href="https://www.youtube.com/watch?v=hxpItadargI" class="popup-video">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+                                        viewBox="0 0 22 28" fill="none">
+                                        <path
+                                            d="M0.19043 26.3132V1.69421C0.190288 1.40603 0.245303 1.12259 0.350273 0.870694C0.455242 0.6188 0.606687 0.406797 0.79027 0.254768C0.973854 0.10274 1.1835 0.0157243 1.39936 0.00193865C1.61521 -0.011847 1.83014 0.0480663 2.02378 0.176003L20.4856 12.3292C20.6973 12.4694 20.8754 12.6856 20.9999 12.9535C21.1245 13.2214 21.1904 13.5304 21.1904 13.8456C21.1904 14.1608 21.1245 14.4697 20.9999 14.7376C20.8754 15.0055 20.6973 15.2217 20.4856 15.3619L2.02378 27.824C1.83056 27.9517 1.61615 28.0116 1.40076 27.9981C1.18536 27.9847 0.97607 27.8983 0.792638 27.7472C0.609205 27.596 0.457661 27.385 0.352299 27.1342C0.246938 26.8833 0.191236 26.6008 0.19043 26.3132Z"
+                                            fill="red" />
+                                    </svg>
+                                </a>
+                                <span class="fw-bold" style="font-size: 18px;">Sesi Bootcamp Sebelumnya</span>
+                            </div>
                         </div>
 
-                        <!-- Wrapper untuk konten tengah (ikon & teks) -->
-                        <div
-                            style="position: absolute; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 102;">
-                            <!-- Teks di atas tautan video -->
-                            <span style="font-size: 18px; color: #000; font-weight: bold; margin-bottom: 8px;"
-                                data-aos="fade-left" data-aos-delay="800">Lihat</span>
-
-                            <!-- Tautan untuk membuka video di modal popup -->
-                            <a href="https://www.youtube.com/watch?v=hxpItadargI" class="popup-video" data-aos="fade-left"
-                                data-aos-delay="800">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
-                                    viewBox="0 0 22 28" fill="none">
-                                    <path
-                                        d="M0.19043 26.3132V1.69421C0.190288 1.40603 0.245303 1.12259 0.350273 0.870694C0.455242 0.6188 0.606687 0.406797 0.79027 0.254768C0.973854 0.10274 1.1835 0.0157243 1.39936 0.00193865C1.61521 -0.011847 1.83014 0.0480663 2.02378 0.176003L20.4856 12.3292C20.6973 12.4694 20.8754 12.6856 20.9999 12.9535C21.1245 13.2214 21.1904 13.5304 21.1904 13.8456C21.1904 14.1608 21.1245 14.4697 20.9999 14.7376C20.8754 15.0055 20.6973 15.2217 20.4856 15.3619L2.02378 27.824C1.83056 27.9517 1.61615 28.0116 1.40076 27.9981C1.18536 27.9847 0.97607 27.8983 0.792638 27.7472C0.609205 27.596 0.457661 27.385 0.352299 27.1342C0.246938 26.8833 0.191236 26.6008 0.19043 26.3132Z"
-                                        fill="red" />
-                                </svg>
-                            </a>
-
-                            <!-- Teks di bawah tautan video -->
-                            <span style="font-size: 18px; color: #000; font-weight: bold; margin-top: 8px;"
-                                data-aos="fade-left" data-aos-delay="800">Sesi Bootcamp Sebelumnya</span>
-                        </div>
-                    </div>
-                    <div class="banner__student" data-aos="fade-left" data-aos-delay="200"
-                        style="z-index: 100; margin-top: 50px;"> <!-- Mengurangi margin-top agar posisinya lebih turun -->
-                        <div class="icon">
-                            <img src="{{ asset('public/assets/img/banner/h2_banner_icon.svg') }}" alt="img"
-                                class="injectable">
-                        </div>
-                        <div class="content">
-                            <span>Peserta Bootcamp</span>
-                            <h4 class="title">{{ $bootcamp->count() }}</h4>
+                        <!-- Kolom Peserta Bootcamp -->
+                        <div class="col-lg-3 col-md-4 col-sm-10 mt-4">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-center align-items-center mb-3">
+                                        <img src="{{ asset('public/assets/img/banner/h2_banner_icon.svg') }}"
+                                            alt="img" class="img-fluid" style="width: 40px;">
+                                    </div>
+                                    <span>Peserta Bootcamp</span>
+                                    <h4 class="fw-bold">{{ $bootcamp->count() }}</h4>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
 
 
             </div>
