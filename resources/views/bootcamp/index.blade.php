@@ -94,7 +94,7 @@
 
                 <div class="col-lg-5" style="position: relative;">
                     <div class="banner__images"
-                        style="position: relative; display: flex; justify-content: center; align-items: center; margin-top: 155px; margin-left: 50px;">
+                        style="position: relative; display: flex; justify-content: center; align-items: center; margin-top: 160px; margin-left: 50px;">
                         <!-- Background Image -->
                         <img src="public/assets/img/banner/banner2.jpg" alt="img" class="main-img" data-aos="fade-left"
                             data-aos-delay="800" style="width: 150%; height: auto; border-radius: 10px;">
