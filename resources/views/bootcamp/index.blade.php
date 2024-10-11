@@ -132,7 +132,7 @@
                                 data-aos="fade-left" data-aos-delay="800">Sesi Bootcamp Sebelumnya</span>
                         </div>
                     </div>
-                    <div class="col-12 col-md-6 mt-4 mt-md-0">
+                    <div class="col-12 col-md-6 mt-8 mt-md-0">
                         <div class="banner__student" data-aos="fade-left" data-aos-delay="200"
                             style="z-index: 100; margin-top: 10px;">
                             <div class="icon">
