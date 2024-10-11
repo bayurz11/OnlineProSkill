@@ -261,7 +261,7 @@
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <!-- Konten Kiri: Target dan Sasaran -->
-                <div class="col-lg-7 mt-4 mt-md-0">
+                <div class="col-lg-7 mt-6 mt-md-0">
                     <div class="about__content">
                         <div class="section__title">
 
