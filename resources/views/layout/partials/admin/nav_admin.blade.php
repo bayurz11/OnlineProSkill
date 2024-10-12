@@ -104,7 +104,7 @@
                             <a href="{{ route('daftar_siswa') }}" class="nav-link">Daftar Siswa</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('input_jumlah') }}" class="nav-link">Input jumlah siswa</a>
+                            <a href="" class="nav-link">Input jumlah siswa</a>
                         </li>
 
                     </ul>
