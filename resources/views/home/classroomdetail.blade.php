@@ -50,7 +50,6 @@
                         <img src="{{ asset('public/uploads/' . $courses->gambar) }}" alt="img">
                     </div>
                     <div class="courses__details-content">
-
                         <h2 class="title">{{ $courses->nama_kursus }}</h2>
                         <div class="courses__details-meta">
                             <ul class="list-wrap">
@@ -59,10 +58,7 @@
                                         alt="img">
                                     <a href="#">{{ $courses->user->name }}</a>
                                 </li>
-
-
                                 <li><i class="flaticon-mortarboard"></i>{{ $sertifikatCount }} Lulusan</li>
-
                             </ul>
                         </div>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -83,7 +79,6 @@
                                         aria-controls="jadwal-tab-pane" aria-selected="false">Jadwal Kelas</button>
                                 </li>
                             @endif
-
                         </ul>
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="overview-tab-pane" role="tabpanel"
@@ -108,8 +103,7 @@
                                         @endforeach
                                     </ul>
                                     <h3 class="title">Deskripsi Kelas</h3>
-                                    <p> {!! $courses->content !!}</p>
-
+                                    <p>{!! $courses->content !!}</p>
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="curriculum-tab-pane" role="tabpanel"
@@ -142,10 +136,6 @@
                                                                         <div class="course-item-meta">
                                                                             <span
                                                                                 class="item-meta duration">{{ $sectionItem->duration }}</span>
-                                                                            {{-- <span class="item-meta course-item-status">
-                                                                                <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
-                                                                                    alt="icon">
-                                                                            </span> --}}
                                                                         </div>
                                                                     </a>
                                                                 </li>
@@ -155,9 +145,7 @@
                                                 </div>
                                             </div>
                                         @endforeach
-
                                     </div>
-
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="jadwal-tab-pane" role="tabpanel" aria-labelledby="jadwal-tab"
@@ -165,7 +153,6 @@
                                 @if ($courses->nama_kursus === 'Mahir Aplikasi Office Tingkat Advance')
                                     <div class="courses__curriculum-wrap">
                                         <h3 class="title">Senin dan Rabu</h3>
-
                                         <ul class="about__info-list list-wrap">
                                             <li class="about__info-list-item">
                                                 <i class="flaticon-angle-right"></i>
@@ -185,7 +172,6 @@
                                 @if ($courses->nama_kursus === 'Fundamental Computer Skill')
                                     <div class="courses__curriculum-wrap">
                                         <h3 class="title">Selasa dan Kamis</h3>
-
                                         <ul class="about__info-list list-wrap">
                                             <li class="about__info-list-item">
                                                 <i class="flaticon-angle-right"></i>
@@ -204,8 +190,7 @@
                                 @endif
                                 @if ($courses->nama_kursus === 'Digital Design Menggunakan Canva dan Figma')
                                     <div class="courses__curriculum-wrap">
-                                        <h3 class="title">Jumat dan Sabut</h3>
-
+                                        <h3 class="title">Jumat dan Sabtu</h3>
                                         <ul class="about__info-list list-wrap">
                                             <li class="about__info-list-item">
                                                 <i class="flaticon-angle-right"></i>
@@ -215,15 +200,12 @@
                                                 <i class="flaticon-angle-right"></i>
                                                 <p class="content">Siang : 13.30 - 15.00</p>
                                             </li>
-
                                         </ul>
                                     </div>
                                 @endif
                             </div>
-
                         </div>
                     </div>
-
                 </div>
 
                 <div class="col-xl-3 col-lg-4">
@@ -234,85 +216,25 @@
                         </div>
                         <div class="courses__information-wrap">
                             <h5 class="title">Keterangan:</h5>
-                            <ul class="list-wrap">
-                                <li>
-                                    <img src="{{ asset('public/assets/img/icons/course_icon01.svg') }}" alt="img"
-                                        class="injectable">
-                                    Tingkat
-                                    <span>{{ $courses->tingkat }}</span>
-                                </li>
-                                <li>
-                                    <img src="{{ asset('public/assets/img/icons/course_icon02.svg') }}" alt="img"
-                                        class="injectable">
-                                    Durasi
-                                    <span>{{ $courses->durasi }}</span>
-                                </li>
-                                <li>
-                                    <img src="{{ asset('public/assets/img/icons/course_icon05.svg') }}" alt="img"
-                                        class="injectable">
-                                    Sertifikat
-                                    <span>{{ $courses->sertifikat }}</span>
-                                </li>
-                                @if ($courses->course_type !== 'online')
-                                    <li>
-                                        <img src="{{ asset('public/assets/img/icons/course_icon06.svg') }}"
-                                            alt="img" class="injectable">
-                                        Kuota Kelas
-                                        <span>{{ $jumlahPendaftaran }}/{{ $courses->kuota }}</span>
-                                    </li>
-                                @endif
+                            <p>{!! $courses->keterangan !!}</p>
+                            <ul class="courses__details-meta list-wrap">
+                                <li><i class="flaticon-user"></i>{{ $courses->capacity }} Kapasitas</li>
+                                <li><i class="flaticon-clock"></i>{{ $courses->course_duration }}</li>
+                                <li><i class="flaticon-star"></i>Rating: {{ $courses->rating }}</li>
                             </ul>
                         </div>
-
-                        @if (in_array($courses->id, $joinedCourses))
-                            <div class="courses__details-enroll">
-                                <div class="tg-button-wrap">
-                                    <a href="{{ route('lesson', ['id' => $courses->id]) }}"
-                                        class="btn btn-two arrow-btn">Lanjut Belajar</a>
-                                </div>
-                            </div>
-                        @elseif ($jumlahPendaftaran < $courses->kuota)
-                            <div class="courses__details-enroll">
-                                <div class="tg-button-wrap">
-                                    <a href="{{ route('cart.checkout', ['id' => $courses->id]) }}"
-                                        class="btn btn-two arrow-btn">
-                                        Checkout
-                                        <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
-                                            class="injectable">
-                                    </a>
-                                </div>
-                                <br>
-                                <div class="tg-button-wrap">
-                                    <a href="{{ route('cart.adddetail', ['id' => $courses->id]) }}"
-                                        class="btn">Masukkan keranjang
-                                        <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
-                                            class="injectable">
-                                    </a>
-                                </div>
-                            </div>
-                        @else
-                            <div class="courses__details-enroll">
-                                <div class="tg-button-wrap">
-                                    <a href="#" class="btn btn-secondary disabled">Pendaftaran Penuh</a>
-                                </div>
-                            </div>
-                        @endif
+                        <div class="courses__apply-wrap">
+                            <a href="#" class="btn">Daftar Sekarang</a>
+                        </div>
+                        <div class="video__section">
+                            <h5 class="title">Video Penjelasan:</h5>
+                            <iframe width="100%" height="200" src="{{ $courses->video_url }}" frameborder="0"
+                                allowfullscreen></iframe>
+                        </div>
                     </div>
                 </div>
-
-                <div class="col-md-6 col-lg-4 d-flex justify-content-end align-items-start mt-5">
-                    <!-- Tambahkan justify-content-end di sini -->
-                    <div class="courses__details-video w-100"> <!-- Tambahkan kelas w-100 untuk lebar penuh -->
-                        <img src="{{ asset('public/assets/img/courses/course_thumb02.jpg') }}" alt="img"
-                            class="img-fluid"> <!-- Gunakan img-fluid untuk responsif -->
-                        <a href="https://www.youtube.com/watch?v=J8s5kuaTiqo" class="popup-video">
-                            <i class="fas fa-play"></i>
-                        </a>
-                    </div>
-                </div>
-
-
             </div>
+
         </div>
     </section>
     <!-- courses-details-area-end -->
