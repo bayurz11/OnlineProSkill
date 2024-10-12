@@ -297,7 +297,7 @@
                                 </div>
                             </div>
                         @endif
-                        <div class="video__section mt-6">
+                        <div class="video__section mt-5">
                             <h5 class="title">Video Penjelasan:</h5>
                             <div class="courses__details-video w-100"> <!-- Tambahkan kelas w-100 untuk lebar penuh -->
                                 <img src="{{ asset('public/assets/img/courses/course_thumb02.jpg') }}" alt="img"
