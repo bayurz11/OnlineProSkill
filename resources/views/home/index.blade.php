@@ -417,6 +417,7 @@
                             Langsung dari <b>Mentor Berpengalaman.</b> Jangan Lewatkan Kesempatan ini Untuk <b>Mengasah
                                 Kemampuanmu!</b>
                             <br>
+                            <br>
                             📝 Pelajari Program <b>Bootcamp Power Bi</b> dari <b>Proskill Akademia!.</b>
 
                         </p>
