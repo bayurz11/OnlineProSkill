@@ -228,7 +228,7 @@
                     <div class="courses__details-sidebar">
                         <div class="courses__details-video">
                             <img src="{{ asset('public/assets/img/courses/course_thumb02.jpg') }}" alt="img">
-                            <a href="https://www.youtube.com/watch?v=YwrHGratByU" class="popup-video"><i
+                            <a href="https://www.youtube.com/watch?v=J8s5kuaTiqo" class="popup-video"><i
                                     class="fas fa-play"></i></a>
                         </div>
                         <div class="courses__cost-wrap">
