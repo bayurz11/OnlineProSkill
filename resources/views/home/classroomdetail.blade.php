@@ -298,7 +298,7 @@
                             </div>
                         @endif
                         <div class="video__section mt-5">
-                            <h5 class="title">Video Penjelasan:</h5>
+                            <h5 class="title">Kegiatan Kelas:</h5>
                             <div class="courses__details-video w-100">
                                 <iframe class="img-fluid" width="100%" height="315"
                                     src="https://www.youtube.com/embed/J8s5kuaTiqo" title="Video Penjelasan"
