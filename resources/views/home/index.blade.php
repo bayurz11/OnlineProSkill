@@ -412,14 +412,62 @@
                             </h2>
                         </div>
                         <p class="desc">
-                            📊 Siap Mengembangkan Skill Sebagai Data Analyst? Gabung Sekarang di Bootcamp Power BI Untuk
-                            Pemula! Kuasai keterampilan Analisis Data Dari nol dengan Panduan Langsung dari Mentor
-                            Berpengalaman. Jangan Lewatkan Kesempatan ini Untuk Mengasah Kemampuanmu!
+                            📊 Siap Mengembangkan Skill Sebagai <b>Data Analyst? </b> Gabung Sekarang di <b>Bootcamp Power
+                                BI </b>Untuk Pemula! Kuasai keterampilan <b>Analisis Data </b>Dari nol dengan Panduan
+                            Langsung dari <b>Mentor Berpengalaman.</b> Jangan Lewatkan Kesempatan ini Untuk <b>Mengasah
+                                Kemampuanmu!</b>
                             <br>
                             📝 Pelajari Program <b>Bootcamp Power Bi</b> dari <b>Proskill Akademia!.</b>
 
                         </p>
+                        <div class="d-flex justify-content-between align-items-center flex-wrap" data-aos="fade-top"
+                            data-aos-delay="600">
+                            <div class="d-flex align-items-center mb-3 mb-md-0">
+                                <div>
+                                    <p class="mb-0" style="font-size: 0.9rem;"><b>5X</b> <b><img
+                                                src="public/assets/img/icons/zoom.svg" alt="zoom"
+                                                style="width: 36px; height: 30px; vertical-align: middle; margin-right: 5px;"></b>
+                                        Online</p>
+                                    <p class="mb-0" style="font-size: 0.9rem;"><b>Setiap Sabtu</b></p>
+                                </div>
+                            </div>
 
+                            <div class="d-none d-md-block border-left"
+                                style="border-left: 2px solid #007368; height: 50px; margin: 0 20px;"></div>
+
+                            <div class="d-flex align-items-center mb-3 mb-md-0">
+                                <img src="public/assets/img/icons/Video.svg" alt="Clock Icon"
+                                    style="width: 28px; height: 28px; vertical-align: middle; margin-right: 10px;">
+                                <div>
+                                    <p class="mb-0" style="font-size: 0.9rem;">50+ Video</p>
+                                    <p class="mb-0 font-weight-bold" style="font-size: 0.9rem;"><b>on demand</b></p>
+                                </div>
+                            </div>
+
+                            <div class="d-none d-md-block border-left"
+                                style="border-left: 2px solid #007368; height: 50px; margin: 0 20px;"></div>
+
+                            <div class="d-flex align-items-center mb-3 mb-md-0">
+                                <img src="public/assets/img/icons/calender.svg" alt="Format Icon"
+                                    style="width: 28px; height: 28px; vertical-align: middle; margin-right: 10px;">
+                                <div>
+                                    <p class="mb-0" style="font-size: 0.9rem;">Start:</p>
+                                    <p class="mb-0 font-weight-bold" style="font-size: 0.9rem;"><b>30 Nov</b></p>
+                                </div>
+                            </div>
+
+                            <div class="d-none d-md-block border-left"
+                                style="border-left: 2px solid #007368; height: 50px; margin: 0 20px;"></div>
+
+                            <div class="d-flex align-items-center mb-3 mb-md-0">
+                                <div>
+                                    <p class="mb-0" style="font-size: 0.9rem;">In demand</p>
+                                    <p class="mb-0 font-weight-bold" style="font-size: 0.9rem;"><b>Tools & Skills</b></p>
+                                </div>
+                                <img src="public/assets/img/icons/power-bi.png" alt="Tools Icon"
+                                    style="width: 28px; height: 32px; vertical-align: middle; margin-left: 10px;">
+                            </div>
+                        </div>
                         <div class="tg-button-wrap">
                             <a href="{{ route('pbi') }}" class="btn arrow-btn">Detail Bootcamp<img
                                     src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
