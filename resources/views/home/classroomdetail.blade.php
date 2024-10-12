@@ -300,7 +300,8 @@
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-4 d-flex align-items-start mt-5"> <!-- Tambahkan mt-5 di sini -->
+                <div class="col-md-6 col-lg-4 d-flex justify-content-end align-items-start mt-5">
+                    <!-- Tambahkan justify-content-end di sini -->
                     <div class="courses__details-video w-100"> <!-- Tambahkan kelas w-100 untuk lebar penuh -->
                         <img src="{{ asset('public/assets/img/courses/course_thumb02.jpg') }}" alt="img"
                             class="img-fluid"> <!-- Gunakan img-fluid untuk responsif -->
@@ -309,6 +310,7 @@
                         </a>
                     </div>
                 </div>
+
 
             </div>
         </div>
