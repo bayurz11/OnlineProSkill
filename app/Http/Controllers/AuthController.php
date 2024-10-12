@@ -309,7 +309,7 @@ class AuthController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'string|email|max:255|unique:users',
             'password' => 'required|string|min:3|confirmed',
             'phone_number' => 'string|max:12|unique:user_profile,phone_number',
             'g-recaptcha-response' => ['required', function (string $attribute, mixed $value, Closure $fail) {
@@ -368,7 +368,7 @@ class AuthController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'string|email|max:255|unique:users',
             'password' => 'required|string|min:3|confirmed',
             'phone_number' => 'string|max:12|unique:user_profile,phone_number',
             'g-recaptcha-response' => ['required', function (string $attribute, mixed $value, Closure $fail) {
