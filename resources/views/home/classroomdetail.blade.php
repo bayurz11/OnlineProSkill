@@ -302,7 +302,7 @@
                             </div>
                         @endif
 
-                    </div>
+                    </div> <br>
                     <div class="col-xl-3 col-lg-4 d-flex align-items-start">
                         <div class="courses__details-video">
                             <img src="{{ asset('public/assets/img/courses/course_thumb02.jpg') }}" alt="img">
