@@ -302,8 +302,8 @@
                             </div>
                         @endif
 
-                    </div> <br>
-                    <div class="col-xl-3 col-lg-4 d-flex align-items-start">
+                    </div>
+                    <div class="col-xl-3 col-lg-4 d-flex align-items-start mt-4"> <!-- Tambahkan mt-4 di sini -->
                         <div class="courses__details-video">
                             <img src="{{ asset('public/assets/img/courses/course_thumb02.jpg') }}" alt="img">
                             <a href="https://www.youtube.com/watch?v=J8s5kuaTiqo" class="popup-video">
@@ -311,6 +311,7 @@
                             </a>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
