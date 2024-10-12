@@ -27,8 +27,7 @@ class HomeController extends Controller
         $user = Auth::user();
         $profile = null;
         $cart = Session::get('cart', []);
-        // $daftar_siswa = Sertifikat::groupBy('name')->get();
-        $jumlah_siswa = Sertifikat::groupBy('name')->count();
+        $jumlah_siswa = Sertifikat::distinct('name')->count('name');
 
         $sertifikat = Sertifikat::all();
 
