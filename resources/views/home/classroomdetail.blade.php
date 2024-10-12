@@ -300,8 +300,10 @@
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-4 d-flex align-items-start mt-5"> <!-- Tambahkan mt-5 di sini -->
-                    <div class="courses__details-video w-100"> <!-- Tambahkan kelas w-100 untuk lebar penuh -->
+                <div class="col-md-6 col-lg-4 d-flex align-items-start mt-5 position-relative">
+                    <!-- Tambahkan position-relative di sini -->
+                    <div class="courses__details-video w-100 position-absolute" style="top: -20px; left: 0; z-index: 10;">
+                        <!-- Tambahkan position-absolute dan atur gaya -->
                         <img src="{{ asset('public/assets/img/courses/course_thumb02.jpg') }}" alt="img"
                             class="img-fluid"> <!-- Gunakan img-fluid untuk responsif -->
                         <a href="https://www.youtube.com/watch?v=J8s5kuaTiqo" class="popup-video">
@@ -309,6 +311,7 @@
                         </a>
                     </div>
                 </div>
+
 
 
             </div>
