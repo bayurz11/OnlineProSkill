@@ -412,7 +412,10 @@
                             </h2>
                         </div>
                         <p class="desc">
-
+                            📊 Siap Mengembangkan Skill Sebagai Data Analyst? Gabung Sekarang di Bootcamp Power BI Untuk
+                            Pemula! Kuasai keterampilan Analisis Data Dari nol dengan Panduan Langsung dari Mentor
+                            Berpengalaman. Jangan Lewatkan Kesempatan ini Untuk Mengasah Kemampuanmu!
+                            <br>
                             📝 Pelajari Program <b>Bootcamp Power Bi</b> dari <b>Proskill Akademia!.</b>
 
                         </p>
