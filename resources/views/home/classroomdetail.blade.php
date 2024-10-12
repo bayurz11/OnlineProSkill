@@ -85,154 +85,140 @@
                             @endif
 
                         </ul>
-                        <div class="d-flex justify-content-between">
-                            <div class="courses-content" style="flex: 2;">
-                                <div class="tab-content" id="myTabContent">
-                                    <div class="tab-pane fade show active" id="overview-tab-pane" role="tabpanel"
-                                        aria-labelledby="overview-tab" tabindex="0">
-                                        <div class="courses__overview-wrap">
-                                            <h3 class="title">Apa yang akan Anda pelajari</h3>
-                                            <ul class="about__info-list list-wrap">
-                                                @foreach ($courseList as $course)
-                                                    <li class="about__info-list-item">
-                                                        <i class="flaticon-angle-right"></i>
-                                                        <p class="content">{{ $course }}</p>
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                            <h3 class="title">Persyaratan</h3>
-                                            <ul class="about__info-list list-wrap">
-                                                @foreach ($perstaratan as $perstaratan)
-                                                    <li class="about__info-list-item">
-                                                        <i class="flaticon-angle-right"></i>
-                                                        <p class="content">{{ $perstaratan }}</p>
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                            <h3 class="title">Deskripsi Kelas</h3>
-                                            <p> {!! $courses->content !!}</p>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="overview-tab-pane" role="tabpanel"
+                                aria-labelledby="overview-tab" tabindex="0">
+                                <div class="courses__overview-wrap">
+                                    <h3 class="title">Apa yang akan Anda pelajari</h3>
+                                    <ul class="about__info-list list-wrap">
+                                        @foreach ($courseList as $course)
+                                            <li class="about__info-list-item">
+                                                <i class="flaticon-angle-right"></i>
+                                                <p class="content">{{ $course }}</p>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                    <h3 class="title">Persyaratan</h3>
+                                    <ul class="about__info-list list-wrap">
+                                        @foreach ($perstaratan as $perstaratan)
+                                            <li class="about__info-list-item">
+                                                <i class="flaticon-angle-right"></i>
+                                                <p class="content">{{ $perstaratan }}</p>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                    <h3 class="title">Deskripsi Kelas</h3>
+                                    <p> {!! $courses->content !!}</p>
 
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="curriculum-tab-pane" role="tabpanel"
-                                        aria-labelledby="curriculum-tab" tabindex="0">
-                                        <div class="courses__curriculum-wrap">
-                                            <h3 class="title">Kurikulum Kelas</h3>
-                                            <p>Apa saja yang akan dipelajari di kelas ini</p>
-                                            <div class="accordion" id="accordionExample">
-                                                @foreach ($kurikulum as $index => $kurikulumItem)
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="heading{{ $index }}">
-                                                            <button
-                                                                class="accordion-button {{ $index != 0 ? 'collapsed' : '' }}"
-                                                                type="button" data-bs-toggle="collapse"
-                                                                data-bs-target="#collapse{{ $index }}"
-                                                                aria-expanded="{{ $index == 0 ? 'true' : 'false' }}"
-                                                                aria-controls="collapse{{ $index }}">
-                                                                {{ $kurikulumItem->title }}
-                                                            </button>
-                                                        </h2>
-                                                        <div id="collapse{{ $index }}"
-                                                            class="accordion-collapse collapse {{ $index == 0 ? 'show' : '' }}"
-                                                            aria-labelledby="heading{{ $index }}"
-                                                            data-bs-parent="#accordionExample">
-                                                            <div class="accordion-body">
-                                                                <ul class="list-wrap">
-                                                                    @foreach ($section[$kurikulumItem->id] ?? [] as $sectionItem)
-                                                                        <li class="course-item">
-                                                                            <a href="#" class="course-item-link">
-                                                                                {{ $sectionItem->title }}
-                                                                                <div class="course-item-meta">
-                                                                                    <span
-                                                                                        class="item-meta duration">{{ $sectionItem->duration }}</span>
-                                                                                    {{-- <span class="item-meta course-item-status">
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="curriculum-tab-pane" role="tabpanel"
+                                aria-labelledby="curriculum-tab" tabindex="0">
+                                <div class="courses__curriculum-wrap">
+                                    <h3 class="title">Kurikulum Kelas</h3>
+                                    <p>Apa saja yang akan dipelajari di kelas ini</p>
+                                    <div class="accordion" id="accordionExample">
+                                        @foreach ($kurikulum as $index => $kurikulumItem)
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading{{ $index }}">
+                                                    <button class="accordion-button {{ $index != 0 ? 'collapsed' : '' }}"
+                                                        type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#collapse{{ $index }}"
+                                                        aria-expanded="{{ $index == 0 ? 'true' : 'false' }}"
+                                                        aria-controls="collapse{{ $index }}">
+                                                        {{ $kurikulumItem->title }}
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse{{ $index }}"
+                                                    class="accordion-collapse collapse {{ $index == 0 ? 'show' : '' }}"
+                                                    aria-labelledby="heading{{ $index }}"
+                                                    data-bs-parent="#accordionExample">
+                                                    <div class="accordion-body">
+                                                        <ul class="list-wrap">
+                                                            @foreach ($section[$kurikulumItem->id] ?? [] as $sectionItem)
+                                                                <li class="course-item">
+                                                                    <a href="#" class="course-item-link">
+                                                                        {{ $sectionItem->title }}
+                                                                        <div class="course-item-meta">
+                                                                            <span
+                                                                                class="item-meta duration">{{ $sectionItem->duration }}</span>
+                                                                            {{-- <span class="item-meta course-item-status">
                                                                                 <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
                                                                                     alt="icon">
                                                                             </span> --}}
-                                                                                </div>
-                                                                            </a>
-                                                                        </li>
-                                                                    @endforeach
-                                                                </ul>
-                                                            </div>
-                                                        </div>
+                                                                        </div>
+                                                                    </a>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
                                                     </div>
-                                                @endforeach
-
+                                                </div>
                                             </div>
+                                        @endforeach
 
-                                        </div>
                                     </div>
-                                    <div class="tab-pane fade" id="jadwal-tab-pane" role="tabpanel"
-                                        aria-labelledby="jadwal-tab" tabindex="0">
-                                        @if ($courses->nama_kursus === 'Mahir Aplikasi Office Tingkat Advance')
-                                            <div class="courses__curriculum-wrap">
-                                                <h3 class="title">Senin dan Rabu</h3>
 
-                                                <ul class="about__info-list list-wrap">
-                                                    <li class="about__info-list-item">
-                                                        <i class="flaticon-angle-right"></i>
-                                                        <p class="content">Pagi : 10.00 - 11.30</p>
-                                                    </li>
-                                                    <li class="about__info-list-item">
-                                                        <i class="flaticon-angle-right"></i>
-                                                        <p class="content">Siang : 14.30 - 16.00</p>
-                                                    </li>
-                                                    <li class="about__info-list-item">
-                                                        <i class="flaticon-angle-right"></i>
-                                                        <p class="content">Malam : 19.00 - 20.30</p>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        @endif
-                                        @if ($courses->nama_kursus === 'Fundamental Computer Skill')
-                                            <div class="courses__curriculum-wrap">
-                                                <h3 class="title">Selasa dan Kamis</h3>
-
-                                                <ul class="about__info-list list-wrap">
-                                                    <li class="about__info-list-item">
-                                                        <i class="flaticon-angle-right"></i>
-                                                        <p class="content">Pagi : 10.00 - 11.30</p>
-                                                    </li>
-                                                    <li class="about__info-list-item">
-                                                        <i class="flaticon-angle-right"></i>
-                                                        <p class="content">Siang : 14.30 - 16.00</p>
-                                                    </li>
-                                                    <li class="about__info-list-item">
-                                                        <i class="flaticon-angle-right"></i>
-                                                        <p class="content">Malam : 19.00 - 20.30</p>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        @endif
-                                        @if ($courses->nama_kursus === 'Digital Design Menggunakan Canva dan Figma')
-                                            <div class="courses__curriculum-wrap">
-                                                <h3 class="title">Jumat dan Sabut</h3>
-
-                                                <ul class="about__info-list list-wrap">
-                                                    <li class="about__info-list-item">
-                                                        <i class="flaticon-angle-right"></i>
-                                                        <p class="content">Pagi : 09.30 - 11.00</p>
-                                                    </li>
-                                                    <li class="about__info-list-item">
-                                                        <i class="flaticon-angle-right"></i>
-                                                        <p class="content">Siang : 13.30 - 15.00</p>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-                                        @endif
-                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="media-content" style="flex: 1; margin-left: 20px;">
-                            <h3 class="title">Media Player</h3>
-                            <div class="media-player">
-                                <video width="100%" controls>
-                                    <source src="path_to_video_file.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
+                            <div class="tab-pane fade" id="jadwal-tab-pane" role="tabpanel" aria-labelledby="jadwal-tab"
+                                tabindex="0">
+                                @if ($courses->nama_kursus === 'Mahir Aplikasi Office Tingkat Advance')
+                                    <div class="courses__curriculum-wrap">
+                                        <h3 class="title">Senin dan Rabu</h3>
+
+                                        <ul class="about__info-list list-wrap">
+                                            <li class="about__info-list-item">
+                                                <i class="flaticon-angle-right"></i>
+                                                <p class="content">Pagi : 10.00 - 11.30</p>
+                                            </li>
+                                            <li class="about__info-list-item">
+                                                <i class="flaticon-angle-right"></i>
+                                                <p class="content">Siang : 14.30 - 16.00</p>
+                                            </li>
+                                            <li class="about__info-list-item">
+                                                <i class="flaticon-angle-right"></i>
+                                                <p class="content">Malam : 19.00 - 20.30</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                @endif
+                                @if ($courses->nama_kursus === 'Fundamental Computer Skill')
+                                    <div class="courses__curriculum-wrap">
+                                        <h3 class="title">Selasa dan Kamis</h3>
+
+                                        <ul class="about__info-list list-wrap">
+                                            <li class="about__info-list-item">
+                                                <i class="flaticon-angle-right"></i>
+                                                <p class="content">Pagi : 10.00 - 11.30</p>
+                                            </li>
+                                            <li class="about__info-list-item">
+                                                <i class="flaticon-angle-right"></i>
+                                                <p class="content">Siang : 14.30 - 16.00</p>
+                                            </li>
+                                            <li class="about__info-list-item">
+                                                <i class="flaticon-angle-right"></i>
+                                                <p class="content">Malam : 19.00 - 20.30</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                @endif
+                                @if ($courses->nama_kursus === 'Digital Design Menggunakan Canva dan Figma')
+                                    <div class="courses__curriculum-wrap">
+                                        <h3 class="title">Jumat dan Sabut</h3>
+
+                                        <ul class="about__info-list list-wrap">
+                                            <li class="about__info-list-item">
+                                                <i class="flaticon-angle-right"></i>
+                                                <p class="content">Pagi : 09.30 - 11.00</p>
+                                            </li>
+                                            <li class="about__info-list-item">
+                                                <i class="flaticon-angle-right"></i>
+                                                <p class="content">Siang : 13.30 - 15.00</p>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -240,7 +226,11 @@
                 </div>
                 <div class="col-xl-3 col-lg-4">
                     <div class="courses__details-sidebar">
-
+                        <div class="courses__details-video">
+                            <img src="assets/img/courses/course_thumb02.jpg" alt="img">
+                            <a href="https://www.youtube.com/watch?v=YwrHGratByU" class="popup-video"><i
+                                    class="fas fa-play"></i></a>
+                        </div>
                         <div class="courses__cost-wrap">
                             <span>Kursus Fee:</span>
                             <h2 class="title">Rp. {{ number_format($courses->price, 0, ',', '.') }}</h2>
