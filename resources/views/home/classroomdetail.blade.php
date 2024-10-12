@@ -299,14 +299,16 @@
                         @endif
                         <div class="video__section mt-5">
                             <h5 class="title">Video Penjelasan:</h5>
-                            <div class="courses__details-video w-100"> <!-- Tambahkan kelas w-100 untuk lebar penuh -->
-                                <img src="{{ asset('public/assets/img/courses/course_thumb02.jpg') }}" alt="img"
-                                    class="img-fluid"> <!-- Gunakan img-fluid untuk responsif -->
-                                <a href="https://www.youtube.com/watch?v=J8s5kuaTiqo" class="popup-video">
-                                    <i class="fas fa-play"></i>
-                                </a>
+                            <div class="courses__details-video w-100">
+                                <iframe class="img-fluid" width="100%" height="315"
+                                    src="https://www.youtube.com/embed/J8s5kuaTiqo" title="Video Penjelasan"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                                </iframe>
                             </div>
                         </div>
+
                     </div>
                 </div>
 
