@@ -297,7 +297,7 @@
                                 </div>
                             </div>
                         @endif
-                        <div class="video__section">
+                        <div class="video__section mt-5">
                             <h5 class="title">Video Penjelasan:</h5>
                             <iframe width="100%" height="200" src="{{ $courses->video_url }}" frameborder="0"
                                 allowfullscreen></iframe>
