@@ -297,34 +297,15 @@
                                 </div>
                             </div>
                         @endif
-                        <!-- Video Section -->
                         <div class="video__section mt-5">
                             <h5 class="title">Video Penjelasan:</h5>
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#videoModal">
-                                Putar Video
-                            </button>
-                        </div>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="videoModalLabel">Video Penjelasan</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span>&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <iframe class="img-fluid" width="100%" height="315"
-                                            src="https://www.youtube.com/embed/J8s5kuaTiqo" title="Video Penjelasan"
-                                            frameborder="0"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            allowfullscreen>
-                                        </iframe>
-                                    </div>
-                                </div>
+                            <div class="courses__details-video w-100">
+                                <iframe class="img-fluid" width="100%" height="315"
+                                    src="https://www.youtube.com/embed/J8s5kuaTiqo" title="Video Penjelasan"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                                </iframe>
                             </div>
                         </div>
 
