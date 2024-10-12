@@ -153,6 +153,10 @@ Route::middleware('isAdmin')->group(function () {
     Route::get('/siswa/{id}/edit', [DaftarSiswaController::class, 'edit'])->name('siswa.edit');
     Route::put('/siswa/{id}', [DaftarSiswaController::class, 'update'])->name('siswa.update');
 
+
+    //Jumlah Siswa
+    Route::get('/jumlah_siswa', [DaftarSiswaController::class, 'jumlah_siswa'])->name('jumlah_siswa');
+
     //*******PENGATURAN UMUM*******//
     Route::get('/herosection', [HeroSectionController::class, 'index'])->name('herosection');
 

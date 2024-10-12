@@ -22,6 +22,17 @@ class DaftarSiswaController extends Controller
 
         return view('admin.kesiswaan.daftar_siswa', compact('user', 'daftar_siswa'));
     }
+    public function jumlah_siswa()
+    {
+        $user = Auth::user();
+        if (!$user) {
+            return redirect()->route('login_admin');
+        }
+
+        $daftar_siswa = UserProfile::where('role_id', 3)->get();
+
+        return view('admin.kesiswaan.jumlah_siswa', compact('user', 'daftar_siswa'));
+    }
 
     public function updateStatus($id, Request $request)
     {

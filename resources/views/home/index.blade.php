@@ -60,7 +60,7 @@
                                 </div>
                                 <div class="content">
                                     <span>Siswa Terdaftar</span>
-                                    <h4 class="title">{{ $daftar_siswa->count() }} Siswa</h4>
+                                    <h4 class="title">{{ $jumlah_siswa }} Siswa</h4>
                                 </div>
                             </div>
                         </div>
