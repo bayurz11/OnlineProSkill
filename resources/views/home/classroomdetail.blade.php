@@ -226,7 +226,7 @@
 
                 </div>
 
-                <div class="col-xl-3 col-lg-4 mt-8">
+                <div class="col-xl-3 col-lg-4 mt-5">
                     <div class="courses__details-sidebar">
                         <div class="courses__cost-wrap">
                             <span>Kursus Fee:</span>
