@@ -425,11 +425,11 @@
                             data-aos-delay="600">
                             <div class="d-flex align-items-center mb-3 mb-md-0">
                                 <div>
-                                    <p class="mb-0" style="font-size: 0.9rem;"><b>5X</b> <b><img
+                                    <p class="mb-0" style="font-size: 0.4rem;"><b>5X</b> <b><img
                                                 src="public/assets/img/icons/zoom.svg" alt="zoom"
-                                                style="width: 36px; height: 30px; vertical-align: middle; margin-right: 5px;"></b>
+                                                style="width: 30px; height: 26px; vertical-align: middle; margin-right: 3px;"></b>
                                         Online</p>
-                                    <p class="mb-0" style="font-size: 0.9rem;"><b>Setiap Sabtu</b></p>
+                                    <p class="mb-0" style="font-size: 0.4rem;"><b>Setiap Sabtu</b></p>
                                 </div>
                             </div>
 
