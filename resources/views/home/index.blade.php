@@ -434,7 +434,7 @@
                             </div>
 
                             <div class="d-none d-md-block border-left"
-                                style="border-left: 2px solid #007368; height: 50px; margin: 0 20px;"></div>
+                                style="border-left: 2px solid #007368; height: 35px; margin: 0 10px;"></div>
 
                             <div class="d-flex align-items-center mb-3 mb-md-0">
                                 <img src="public/assets/img/icons/Video.svg" alt="Clock Icon"
