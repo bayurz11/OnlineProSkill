@@ -227,7 +227,7 @@
                 <div class="col-xl-3 col-lg-4">
                     <div class="courses__details-sidebar">
                         <div class="courses__details-video">
-                            <img src="assets/img/courses/course_thumb02.jpg" alt="img">
+                            <img src="public/assets/img/courses/course_thumb02.jpg" alt="img">
                             <a href="https://www.youtube.com/watch?v=YwrHGratByU" class="popup-video"><i
                                     class="fas fa-play"></i></a>
                         </div>
