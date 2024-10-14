@@ -314,20 +314,19 @@
 
             </div> <br>
 
-            <h3 class="title mt-5">Apa yang akan Anda pelajari</h3>
+            <h3 class="title mt-4">Apa yang akan Anda pelajari</h3>
 
             <div class="col-md-12 col-lg-12 d-flex justify-content-end align-items-start mt-5">
-
-                <!-- Tambahkan justify-content-end di sini -->
-                <div class="courses__details-video w-100 h-100"> <!-- Tambahkan kelas w-100 untuk lebar penuh -->
-                    <!-- Ganti img dengan iframe untuk menyematkan video YouTube -->
-                    <iframe class="img-fluid w-100" src="https://www.youtube.com/embed/J8s5kuaTiqo"
+                <div class="courses__details-video w-100 h-auto rounded">
+                    <!-- Kelas w-100 untuk lebar, h-auto untuk tinggi fleksibel, dan rounded untuk sudut melengkung -->
+                    <iframe class="img-fluid w-100 rounded" src="https://www.youtube.com/embed/J8s5kuaTiqo"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen>
                     </iframe>
                 </div>
             </div>
+
         </div>
     </section>
     <!-- courses-details-area-end -->
