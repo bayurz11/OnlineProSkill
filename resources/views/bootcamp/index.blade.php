@@ -92,7 +92,7 @@
 
                 </div>
 
-                <div class="col-lg-5" style="position: relative;">
+                <div class="col-lg-5 mt-1" style="position: relative;">
                     <div class="banner__images"
                         style="position: relative; display: flex; justify-content: center; align-items: center; margin-top: 160px; margin-left: 50px;">
                         <!-- Background Image -->
