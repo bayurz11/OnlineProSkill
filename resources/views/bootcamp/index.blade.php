@@ -38,7 +38,7 @@
                         <p data-aos="fade-right" data-aos-delay="700" style="font-size: 1rem;">
                             📝 Pelajari Program <b>Bootcamp Power Bi</b> dari <b>Proskill Akademia!.</b>
                         </p>
-
+                        <br>
                         <div class="d-flex justify-content-between align-items-center flex-wrap" data-aos="fade-top"
                             data-aos-delay="600">
                             <div class="d-flex align-items-center mb-3 mb-md-0">
