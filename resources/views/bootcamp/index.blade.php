@@ -157,7 +157,7 @@
     <!-- banner-area-end -->
 
     <!-- fact-area -->
-    <section class="fact__area mt-1">
+    <section class="fact__area pt-5">
         <div class="section__title text-center ">
 
             <h2 class="title" data-aos="fade-top" data-aos-delay="600">
