@@ -316,13 +316,15 @@
                     <h3 class="title">Apa yang akan Anda pelajari</h3>
                     <!-- Tambahkan justify-content-end di sini -->
                     <div class="courses__details-video w-100"> <!-- Tambahkan kelas w-100 untuk lebar penuh -->
-                        <img src="{{ asset('public/assets/img/courses/course_thumb02.jpg') }}" alt="img"
-                            class="img-fluid"> <!-- Gunakan img-fluid untuk responsif -->
-                        <a href="https://www.youtube.com/watch?v=J8s5kuaTiqo" class="popup-video">
-                            <i class="fas fa-play"></i>
-                        </a>
+                        <!-- Ganti img dengan iframe untuk menyematkan video YouTube -->
+                        <iframe class="img-fluid w-100" src="https://www.youtube.com/embed/J8s5kuaTiqo"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
                     </div>
                 </div>
+
 
 
             </div>
