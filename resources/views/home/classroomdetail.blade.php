@@ -311,25 +311,23 @@
 
                     </div>
                 </div>
-                <div class="margin-top=50;">
-                    <h3 class="title">Apa yang akan Anda pelajari</h3>
+
+            </div>
+            <div class="margin-top=50;">
+                <h3 class="title">Apa yang akan Anda pelajari</h3>
+            </div>
+
+            <div class="col-md-6 col-lg-4 d-flex justify-content-end align-items-start mt-5">
+
+                <!-- Tambahkan justify-content-end di sini -->
+                <div class="courses__details-video w-100"> <!-- Tambahkan kelas w-100 untuk lebar penuh -->
+                    <!-- Ganti img dengan iframe untuk menyematkan video YouTube -->
+                    <iframe class="img-fluid w-100" src="https://www.youtube.com/embed/J8s5kuaTiqo"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
                 </div>
-
-                <div class="col-md-6 col-lg-4 d-flex justify-content-end align-items-start mt-5">
-
-                    <!-- Tambahkan justify-content-end di sini -->
-                    <div class="courses__details-video w-100"> <!-- Tambahkan kelas w-100 untuk lebar penuh -->
-                        <!-- Ganti img dengan iframe untuk menyematkan video YouTube -->
-                        <iframe class="img-fluid w-100" src="https://www.youtube.com/embed/J8s5kuaTiqo"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-
-
-
             </div>
         </div>
     </section>
