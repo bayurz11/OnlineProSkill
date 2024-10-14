@@ -11,8 +11,8 @@
         <div class="container" style="width: 90%; max-width: 1200px; padding-left: 5%; padding-right: 5%; height: auto;">
             <div class="row justify-content-between align-items-start" style="display: flex; flex-wrap: wrap;">
                 <div class="col-xl-12 col-lg-12 col-md-12" style="flex: 1; padding-left: 0;">
-                    <img src="{{ asset('public/assets/img/logo/logo.svg') }}" alt="Logo" data-aos-delay="800"
-                        data-aos="fade-top" style="display: block; margin-bottom: 20px;">
+                    {{-- <img src="{{ asset('public/assets/img/logo/logo.svg') }}" alt="Logo" data-aos-delay="800"
+                        data-aos="fade-top" style="display: block; margin-bottom: 20px;"> --}}
                     <div class="banner__content" style="padding: 0;">
                         <h3 class="title tg-svg" data-aos="fade-right" data-aos-delay="400"
                             style="font-size: 2.5rem; line-height: 1.5; padding-top: 20px; margin-left: 0;">
@@ -118,8 +118,8 @@
                             <!-- Tautan untuk membuka video di modal popup -->
                             <a href="https://www.youtube.com/watch?v=1umLD1G-Ljo" class="popup-video" data-aos="fade-left"
                                 data-aos-delay="800">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
-                                    viewBox="0 0 22 28" fill="none">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 22 28"
+                                    fill="none">
                                     <path
                                         d="M0.19043 26.3132V1.69421C0.190288 1.40603 0.245303 1.12259 0.350273 0.870694C0.455242 0.6188 0.606687 0.406797 0.79027 0.254768C0.973854 0.10274 1.1835 0.0157243 1.39936 0.00193865C1.61521 -0.011847 1.83014 0.0480663 2.02378 0.176003L20.4856 12.3292C20.6973 12.4694 20.8754 12.6856 20.9999 12.9535C21.1245 13.2214 21.1904 13.5304 21.1904 13.8456C21.1904 14.1608 21.1245 14.4697 20.9999 14.7376C20.8754 15.0055 20.6973 15.2217 20.4856 15.3619L2.02378 27.824C1.83056 27.9517 1.61615 28.0116 1.40076 27.9981C1.18536 27.9847 0.97607 27.8983 0.792638 27.7472C0.609205 27.596 0.457661 27.385 0.352299 27.1342C0.246938 26.8833 0.191236 26.6008 0.19043 26.3132Z"
                                         fill="red" />
