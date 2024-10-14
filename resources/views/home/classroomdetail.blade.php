@@ -314,7 +314,7 @@
 
             </div> <br>
 
-            <h3 class="title">Apa yang akan Anda pelajari</h3>
+            <h3 class="title mt-5">Apa yang akan Anda pelajari</h3>
 
 
             <div class="col-md-12 col-lg-12 d-flex justify-content-end align-items-start mt-5">
