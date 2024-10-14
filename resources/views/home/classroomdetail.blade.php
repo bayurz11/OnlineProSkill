@@ -311,9 +311,9 @@
 
                     </div>
                 </div>
-
+                <h3 class="title">Apa yang akan Anda pelajari</h3>
                 <div class="col-md-6 col-lg-4 d-flex justify-content-end align-items-start mt-5">
-                    <h3 class="title">Apa yang akan Anda pelajari</h3>
+
                     <!-- Tambahkan justify-content-end di sini -->
                     <div class="courses__details-video w-100"> <!-- Tambahkan kelas w-100 untuk lebar penuh -->
                         <!-- Ganti img dengan iframe untuk menyematkan video YouTube -->
