@@ -313,7 +313,7 @@
                 </div>
 
             </div>
-            <div class="margin-top:50;">
+            <div class="margin-top:500;">
                 <h3 class="title">Apa yang akan Anda pelajari</h3>
             </div>
 
