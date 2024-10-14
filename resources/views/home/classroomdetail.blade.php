@@ -297,7 +297,7 @@
                                 </div>
                             </div>
                         @endif
-                        <div class="video__section mt-5">
+                        {{-- <div class="video__section mt-5">
                             <h5 class="title">Kegiatan Kelas:</h5>
                             <div class="courses__details-video w-100">
                                 <iframe class="img-fluid" width="100%" height="315"
@@ -307,12 +307,12 @@
                                     allowfullscreen>
                                 </iframe>
                             </div>
-                        </div>
+                        </div> --}}
 
                     </div>
                 </div>
 
-                {{-- <div class="col-md-6 col-lg-4 d-flex justify-content-end align-items-start mt-5">
+                <div class="col-md-6 col-lg-4 d-flex justify-content-end align-items-start mt-5">
                     <!-- Tambahkan justify-content-end di sini -->
                     <div class="courses__details-video w-100"> <!-- Tambahkan kelas w-100 untuk lebar penuh -->
                         <img src="{{ asset('public/assets/img/courses/course_thumb02.jpg') }}" alt="img"
@@ -321,7 +321,7 @@
                             <i class="fas fa-play"></i>
                         </a>
                     </div>
-                </div> --}}
+                </div>
 
 
             </div>
