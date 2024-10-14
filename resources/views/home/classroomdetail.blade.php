@@ -111,6 +111,20 @@
                                     <p> {!! $courses->content !!}</p>
 
                                 </div>
+                                <h3 class="title mt-4">Kegiatan Kelas</h3>
+
+                                <div class="col-md-12 col-lg-12 d-flex justify-content-end align-items-start mt-5">
+                                    <div class="courses__details-video w-100" style="height: 400px;">
+                                        <!-- Ganti height sesuai kebutuhan -->
+                                        <iframe class="w-100 rounded" style="height: 120%;"
+                                            src="https://www.youtube.com/embed/J8s5kuaTiqo" title="YouTube video player"
+                                            frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen>
+                                        </iframe>
+                                    </div>
+                                </div>
+
                             </div>
                             <div class="tab-pane fade" id="curriculum-tab-pane" role="tabpanel"
                                 aria-labelledby="curriculum-tab" tabindex="0">
@@ -309,18 +323,6 @@
                             </div>
                         </div> --}}
 
-                    </div>
-                </div>
-                <h3 class="title mt-4">Kegiatan Kelas</h3>
-
-                <div class="col-md-12 col-lg-12 d-flex justify-content-end align-items-start mt-5">
-                    <div class="courses__details-video w-100" style="height: 400px;">
-                        <!-- Ganti height sesuai kebutuhan -->
-                        <iframe class="w-100 rounded" style="height: 120%;"
-                            src="https://www.youtube.com/embed/J8s5kuaTiqo" title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                        </iframe>
                     </div>
                 </div>
 
