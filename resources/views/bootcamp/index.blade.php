@@ -158,7 +158,7 @@
 
     <!-- fact-area -->
     <section class="fact__area">
-        <div class="section__title text-center mr-1">
+        <div class="section__title text-center mt-1">
 
             <h2 class="title" data-aos="fade-top" data-aos-delay="600">
                 <b style="color: #007368"><b>Temukan 1 dari 6 Alasan Kenapa
