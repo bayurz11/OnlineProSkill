@@ -316,11 +316,10 @@
 
             <h3 class="title mt-5">Apa yang akan Anda pelajari</h3>
 
-
             <div class="col-md-12 col-lg-12 d-flex justify-content-end align-items-start mt-5">
 
                 <!-- Tambahkan justify-content-end di sini -->
-                <div class="courses__details-video w-100"> <!-- Tambahkan kelas w-100 untuk lebar penuh -->
+                <div class="courses__details-video w-100 h-100"> <!-- Tambahkan kelas w-100 untuk lebar penuh -->
                     <!-- Ganti img dengan iframe untuk menyematkan video YouTube -->
                     <iframe class="img-fluid w-100" src="https://www.youtube.com/embed/J8s5kuaTiqo"
                         title="YouTube video player" frameborder="0"
