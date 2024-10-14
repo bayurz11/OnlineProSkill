@@ -8,7 +8,7 @@
     <!-- banner-area -->
     <section class="banner-area banner-bg tg-motion-effects"
         style=" width: 100%; display: flex; align-items: center; justify-content: center;">
-        <div class="container" style="width: 100%; max-width: 1200px; padding-left: 5%; padding-right: 5%; height: auto;">
+        <div class="container" style="width: 85%; max-width: 1200px; padding-left: 5%; padding-right: 5%; height: auto;">
             <div class="row justify-content-between align-items-start" style="display: flex; flex-wrap: wrap;">
                 <div class="col-xl-12 col-lg-12 col-md-12" style="flex: 1; padding-left: 0;">
                     {{-- <img src="{{ asset('public/assets/img/logo/logo.svg') }}" alt="Logo" data-aos-delay="800"
