@@ -17,7 +17,7 @@
                                         <a href="{{ route('/') }}"> Beranda</a>
                                     </li>
                                     <li
-                                        class="menu-item-has-children {{ Request::is('classroom', 'course') ? 'active' : '' }}">
+                                        class="menu-item-has-children {{ Request::is('classroom', 'course', 'pbi') ? 'active' : '' }}">
                                         <a href="#">Program</a>
                                         <ul class="sub-menu">
                                             <li class="{{ Request::is('pbi') ? 'active' : '' }}">
