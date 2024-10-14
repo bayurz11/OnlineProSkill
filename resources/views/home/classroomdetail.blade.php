@@ -310,7 +310,7 @@
                         </div> --}}
 
                     </div>
-                </div>
+                </div> <br>
                 <h3 class="title">Apa yang akan Anda pelajari</h3>
                 <div class="col-md-6 col-lg-4 d-flex justify-content-end align-items-start mt-5">
 
