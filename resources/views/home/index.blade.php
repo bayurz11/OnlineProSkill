@@ -58,10 +58,10 @@
                                     <img src="{{ asset('public/assets/img/banner/h2_banner_icon.svg') }}" alt="img"
                                         class="injectable">
                                 </div>
-                                
+
                                 <div class="content">
                                     <span>Total Siswa</span>
-                                    <h4 class="title"> {{$daftar_siswa->count()}} Siswa</h4>
+                                    <h4 class="title"> {{ $daftar_siswa->count() }} Siswa</h4>
                                 </div>
                             </div>
                         </div>
@@ -202,7 +202,7 @@
         </div>
     </section>
     <!-- course-area-end -->
-    
+
     <!-- about-area -->
     <section class="about-area tg-motion-effects section-py-120">
         <div class="container">
@@ -249,7 +249,7 @@
                     </div>
 
                 </div>
-                 <div class="col-lg-6" data-aos="fade-left" data-aos-delay="600">
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="600">
                     <div class="about__content">
                         <div class="section__title">
                             <span class="sub-title">Acara Mendatang</span>
@@ -485,7 +485,7 @@
     </section>
     <!-- testimonial-area-end -->
 
-   
+
 
     <!-- event-area -->
     @if ($event->count() > 0)
