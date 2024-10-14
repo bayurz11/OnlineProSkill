@@ -103,9 +103,6 @@
                         <li class="nav-item">
                             <a href="{{ route('daftar_siswa') }}" class="nav-link">Daftar Siswa</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link">Input jumlah siswa</a>
-                        </li>
 
                     </ul>
                 </div>

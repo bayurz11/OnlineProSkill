@@ -20,11 +20,6 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
         // $middleware->append(AdminMiddleware::class);
     })
-    ->withMiddleware(function (Middleware $middleware) {
-        $middleware->validateCsrfTokens(except: [
-            '/webhook-xendit' // <-- exclude this route
-        ]);
-    })
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })->create();

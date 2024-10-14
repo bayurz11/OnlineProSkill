@@ -145,17 +145,11 @@ Route::middleware('isAdmin')->group(function () {
     Route::get('/OrderHistoryManager', [OrderHistoryManagerController::class, 'index'])->name('OrderHistoryManager');
     Route::get('/prin/{id}', [OrderHistoryManagerController::class, 'cetak'])->name('prin');
 
-
-
     //*******KESISWAAN*******//
     Route::get('/daftar_siswa', [DaftarSiswaController::class, 'index'])->name('daftar_siswa');
     Route::post('/update-daftar_siswa/{id}', [DaftarSiswaController::class, 'updateStatus']);
     Route::get('/siswa/{id}/edit', [DaftarSiswaController::class, 'edit'])->name('siswa.edit');
     Route::put('/siswa/{id}', [DaftarSiswaController::class, 'update'])->name('siswa.update');
-
-
-    //Jumlah Siswa
-    Route::get('/jumlah_siswa', [DaftarSiswaController::class, 'jumlah_siswa'])->name('jumlah_siswa');
 
     //*******PENGATURAN UMUM*******//
     Route::get('/herosection', [HeroSectionController::class, 'index'])->name('herosection');
@@ -193,7 +187,6 @@ Route::middleware('isStuden')->group(function () {
     Route::post('/payment', [PaymentController::class, 'payment'])->name('payment');
     Route::get('/success/{uuid}', [PaymentController::class, 'success'])->name('success');
 
-
     //Akses Pembelian
     Route::get('/akses_pembelian', [AksesPembelianController::class, 'index'])->name('akses_pembelian');
 
@@ -221,7 +214,6 @@ Route::get('/dashboard_instruktur', [DashboardInstrukturController::class, 'inde
 
 //*********FRONTEND*********//
 Route::get('/', [HomeController::class, 'index'])->name('/');
-Route::post('/webhook-xendit', [PaymentController::class, 'handleWebhook']);
 
 //Classroom
 Route::get('/classroom', [HomeController::class, 'classroom'])->name('classroom');

@@ -27,12 +27,12 @@ class HomeController extends Controller
         $user = Auth::user();
         $profile = null;
         $cart = Session::get('cart', []);
-        $jumlah_siswa = Sertifikat::whereIn('kategori_id', [13, 14])
-            ->distinct('name')
-            ->count('name');
+    //   $jumlah_siswa = Sertifikat::whereIn('kategori_id', [13, 14])
+    //         ->distinct('name')
+    //         ->count('name');
+   $daftar_siswa = UserProfile::where('role_id', 3)->get();
+       $sertifikat = Sertifikat::whereIn('kategori_id', [13, 14])->get();
 
-
-        $sertifikat = Sertifikat::all();
 
         // Mengambil KelasTatapMuka dengan course_type = 'online' atau 'offline' dan mengurutkannya berdasarkan kolom created_at
         $KelasTatapMuka = KelasTatapMuka::whereIn('course_type', ['online', 'offline'])
@@ -69,9 +69,8 @@ class HomeController extends Controller
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
-        return view('home.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'categori', 'KelasTatapMuka', 'event', 'blog', 'jumlah_siswa', 'sertifikat'));
+        return view('home.index', compact('user', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'categori', 'KelasTatapMuka', 'event', 'blog', 'daftar_siswa', 'sertifikat'));
     }
-
 
 
     public function classroom()

@@ -58,9 +58,10 @@
                                     <img src="{{ asset('public/assets/img/banner/h2_banner_icon.svg') }}" alt="img"
                                         class="injectable">
                                 </div>
+                                
                                 <div class="content">
-                                    <span>Siswa Terdaftar</span>
-                                    <h4 class="title">{{ $jumlah_siswa }} Siswa</h4>
+                                    <span>Total Siswa</span>
+                                    <h4 class="title"> {{$daftar_siswa->count()}} Siswa</h4>
                                 </div>
                             </div>
                         </div>
@@ -201,152 +202,7 @@
         </div>
     </section>
     <!-- course-area-end -->
-    {{-- <!-- about-area -->
-    <section class="about-area-two tg-motion-effects section-pb-120">
-        <div class="container">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-lg-6">
-                    <div class="faq__img-wrap tg-svg">
-                        <div class="faq__round-text">
-                            <div class="curved-circle">
-                                * Education * System * can * Make * Change *
-                            </div>
-                        </div>
-                        <div class="faq__img faq__img-two">
-                            <img src="public/assets/img/others/faq_img.png" alt="img">
-                            <div class="shape-one">
-                                <img src="public/assets/img/others/faq_shape01.svg" class="injectable tg-motion-effects4"
-                                    alt="img">
-                            </div>
-                            <div class="shape-two">
-                                <span class="svg-icon" id="faq-two-svg"
-                                    data-svg-icon="public/assets/img/others/faq_shape02.svg"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="about__content">
-                        <div class="section__title">
-                            <span class="sub-title">Get More About Us</span>
-                            <h2 class="title">
-                                Thousand Of Top
-                                <span class="position-relative">
-                                    <svg x="0px" y="0px" preserveAspectRatio="none" viewBox="0 0 209 59" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M4.74438 7.70565C69.7006 -1.18799 136.097 -2.38304 203.934 4.1205C207.178 4.48495 209.422 7.14626 208.933 10.0534C206.793 23.6481 205.415 36.5704 204.801 48.8204C204.756 51.3291 202.246 53.5582 199.213 53.7955C136.093 59.7623 74.1922 60.5985 13.5091 56.3043C10.5653 56.0924 7.84371 53.7277 7.42158 51.0325C5.20725 38.2627 2.76333 25.6511 0.0898448 13.1978C-0.465589 10.5873 1.61173 8.1379 4.73327 7.70565"
-                                            fill="currentcolor" />
-                                    </svg>
-                                    Courses
-                                </span>
-                                Now in One Place
-                            </h2>
-                        </div>
-                        <p class="desc">Groove’s intuitive shared inbox makes it easy for team members to
-                            organize, prioritize and.In this episode of the Smashing Pod we’re talking about Web
-                            Platform Baseline.</p>
-                        <ul class="about__info-list list-wrap">
-                            <li class="about__info-list-item">
-                                <i class="flaticon-angle-right"></i>
-                                <p class="content">The Most World Class Instructors</p>
-                            </li>
-                            <li class="about__info-list-item">
-                                <i class="flaticon-angle-right"></i>
-                                <p class="content">Access Your Class anywhere</p>
-                            </li>
-                            <li class="about__info-list-item">
-                                <i class="flaticon-angle-right"></i>
-                                <p class="content">Flexible Course Plan</p>
-                            </li>
-                        </ul>
-                        <div class="tg-button-wrap">
-                            <a href="about-us.html" class="btn arrow-btn">Start Free Trial <img
-                                    src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- about-area-end --> --}}
-
-    {{-- @guest
-        <!-- features-area -->
-        <section class="features__area-two section-pt-120 section-pb-90">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-6 col-lg-8">
-                        <div class="section__title text-center mb-40">
-                            <span class="sub-title">Mengapa Memilih ProSkill</span>
-                            <h2 class="title">Raih Tujuan Anda Bersama ProSkill Akademia</h2>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="features__item-wrap">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-4 col-md-6">
-                            <div class="features__item-two">
-                                <div class="features__content-two">
-                                    <div class="content-top">
-                                        <div class="features__icon-two">
-                                            <img src="public/assets/img/icons/h2_features_icon01.svg" alt="img"
-                                                class="injectable" loading="lazy">
-                                        </div>
-                                        <h2 class="title">Tutor/Instruktur Ahli</h2>
-                                    </div>
-                                    <p>Belajar Langsung Dari Tutor Yang Ahli di Bidangnya.</p>
-                                </div>
-                                <div class="features__item-shape">
-                                    <img src="public/assets/img/others/features_item_shape.svg" alt="img"
-                                        class="injectable" loading="lazy">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="features__item-two">
-                                <div class="features__content-two">
-                                    <div class="content-top">
-                                        <div class="features__icon-two">
-                                            <img src="public/assets/img/icons/h2_features_icon02.svg" alt="img"
-                                                class="injectable" loading="lazy">
-                                        </div>
-                                        <h2 class="title">Kursus yang Efektif</h2>
-                                    </div>
-                                    <p>Kurikulum Kelas yang Sesuai Dengan Standar Industri.</p>
-                                </div>
-                                <div class="features__item-shape">
-                                    <img src="public/assets/img/others/features_item_shape.svg" alt="img"
-                                        class="injectable" loading="lazy">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="features__item-two">
-                                <div class="features__content-two">
-                                    <div class="content-top">
-                                        <div class="features__icon-two">
-                                            <img src="public/assets/img/icons/h2_features_icon03.svg" alt="img"
-                                                class="injectable" loading="lazy">
-                                        </div>
-                                        <h2 class="title">Sertifikat Penyelesaian</h2>
-                                    </div>
-                                    <p>Mendapatkan Sertifikat Setelah Menyelesaikan Kelas.</p>
-                                </div>
-                                <div class="features__item-shape">
-                                    <img src="public/assets/img/others/features_item_shape.svg" alt="img"
-                                        class="injectable" loading="lazy">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- features-area-end -->
-    @endguest --}}
-
+    
     <!-- about-area -->
     <section class="about-area tg-motion-effects section-py-120">
         <div class="container">
@@ -375,7 +231,7 @@
                                 data-aos="fade-right" data-aos-delay="800">Lihat</span>
 
                             <!-- Tautan untuk membuka video di modal popup -->
-                            <a href="https://www.youtube.com/watch?v=hxpItadargI" class="popup-video"
+                            <a href="https://www.youtube.com/watch?v=1umLD1G-Ljo" class="popup-video"
                                 data-aos="fade-right" data-aos-delay="800">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
                                     viewBox="0 0 22 28" fill="none">
@@ -393,7 +249,7 @@
                     </div>
 
                 </div>
-                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="600">
+                 <div class="col-lg-6" data-aos="fade-left" data-aos-delay="600">
                     <div class="about__content">
                         <div class="section__title">
                             <span class="sub-title">Acara Mendatang</span>
@@ -629,120 +485,7 @@
     </section>
     <!-- testimonial-area-end -->
 
-    {{-- <!-- faq-area -->
-    <section class="faq__area">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="faq__img-wrap tg-svg">
-                        <div class="faq__round-text">
-                            <div class="curved-circle">
-                                * Education * System * can * Make * Change *
-                            </div>
-                        </div>
-                        <div class="faq__img">
-                            <img src="assets/img/others/faq_img.png" alt="img">
-                            <div class="shape-one">
-                                <img src="assets/img/others/faq_shape01.svg" class="injectable tg-motion-effects4"
-                                    alt="img">
-                            </div>
-                            <div class="shape-two">
-                                <span class="svg-icon" id="faq-svg"
-                                    data-svg-icon="assets/img/others/faq_shape02.svg"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="faq__content">
-                        <div class="section__title pb-10">
-                            <span class="sub-title">Faq’s</span>
-                            <h2 class="title">Start Learning From <br> World’s Pro Instructors</h2>
-                        </div>
-                        <p>Groove’s intuitive shared inbox makes it easy for team members to organize, prioritize and.In
-                            this episode.</p>
-                        <div class="faq__wrap">
-                            <div class="accordion" id="accordionExample">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseOne" aria-expanded="true"
-                                            aria-controls="collapseOne">
-                                            What’s Skillgrow Want to give you?
-                                        </button>
-                                    </h2>
-                                    <div id="collapseOne" class="accordion-collapse collapse show"
-                                        data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <p>Groove’s intuitive shared inbox makes it easy for team members organize
-                                                prioritize and.In this episode.urvived not only five centuries.Edhen an
-                                                unknown printer took a galley of type and scrambl
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
-                                            aria-controls="collapseTwo">
-                                            Why choose us for your education?
-                                        </button>
-                                    </h2>
-                                    <div id="collapseTwo" class="accordion-collapse collapse"
-                                        data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <p>Groove’s intuitive shared inbox makes it easy for team members organize
-                                                prioritize and.In this episode.urvived not only five centuries.Edhen an
-                                                unknown printer took a galley of type and scrambl
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseThree"
-                                            aria-expanded="false" aria-controls="collapseThree">
-                                            How We Provide Service For you?
-                                        </button>
-                                    </h2>
-                                    <div id="collapseThree" class="accordion-collapse collapse"
-                                        data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <p>Groove’s intuitive shared inbox makes it easy for team members organize
-                                                prioritize and.In this episode.urvived not only five centuries.Edhen an
-                                                unknown printer took a galley of type and scrambl
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#collapseFour"
-                                            aria-expanded="false" aria-controls="collapseFour">
-                                            Are you Affordable For Your Course
-                                        </button>
-                                    </h2>
-                                    <div id="collapseFour" class="accordion-collapse collapse"
-                                        data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <p>Groove’s intuitive shared inbox makes it easy for team members organize
-                                                prioritize and.In this episode.urvived not only five centuries.Edhen an
-                                                unknown printer took a galley of type and scrambl
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- faq-area-end --> --}}
+   
 
     <!-- event-area -->
     @if ($event->count() > 0)
