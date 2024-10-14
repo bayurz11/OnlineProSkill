@@ -74,6 +74,61 @@ class BootcampController extends Controller
 
         return view('bootcamp.index', compact('pixelId', 'user', 'bootcamp', 'apiToken', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'categori', 'KelasTatapMuka', 'event', 'blog', 'daftar_siswa', 'sertifikat'));
     }
+    public function indexexcel()
+    {
+        $categori = Categories::all();
+        $user = Auth::user();
+        $profile = null;
+        $cart = Session::get('cart', []);
+        $daftar_siswa = UserProfile::where('role_id', 3)->get();
+        $sertifikat = Sertifikat::all();
+        $bootcamp = Order::where('product_id', 17)
+            ->whereIn('status', ['PAID', 'SETTLED'])
+            ->get();
+        // Coba ambil Pixel ID dan API Token dari session
+        $pixelId = Session::get('pixel_id', null);
+        $apiToken = Session::get('api_token', null);
+
+        // Jika session kosong, ambil dari database
+        if (is_null($pixelId)) {
+            $pixelSetting = PixelSetting::latest()->first();
+            if ($pixelSetting) {
+                $pixelId = $pixelSetting->pixel_id;
+                $apiToken = $pixelSetting->api_token;
+
+                // Simpan ke session
+                Session::put('pixel_id', $pixelId);
+                Session::put('api_token', $apiToken);
+            }
+        }
+        // Mengambil KelasTatapMuka dan mengurutkannya berdasarkan kolom created_at
+        $KelasTatapMuka = KelasTatapMuka::where('course_type', 'bootcamp')
+            ->orderBy('created_at', 'asc')
+            ->get();
+
+        $blog = Blog::orderBy('created_at', 'desc')->take(4)->get();
+
+        // Mengambil event dan memfilter yang tanggalnya belum lewat, lalu membatasi 3 terbaru
+        $event = AdminEvent::where('tgl', '>=', Carbon::now())
+            ->orderBy('created_at', 'desc')
+            ->take(3)
+            ->get();
+
+        if ($user) {
+            $profile = UserProfile::where('user_id', $user->id)->first();
+        }
+
+        // Ambil notifikasi untuk pengguna yang sedang login
+        $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
+            ->orderBy('created_at', 'desc')
+            ->get()
+            : collect(); // Menggunakan collect() untuk membuat koleksi kosong jika pengguna belum login
+
+        // Hitung jumlah notifikasi dengan status = 1
+        $notifikasiCount = $notifikasi->where('status', 1)->count();
+
+        return view('bootcamp.excel', compact('pixelId', 'user', 'bootcamp', 'apiToken', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'categori', 'KelasTatapMuka', 'event', 'blog', 'daftar_siswa', 'sertifikat'));
+    }
 
     public function addToCartceckout($id)
     {
