@@ -317,15 +317,15 @@
             <h3 class="title mt-4">Apa yang akan Anda pelajari</h3>
 
             <div class="col-md-12 col-lg-12 d-flex justify-content-end align-items-start mt-5">
-                <div class="courses__details-video w-100 h-auto rounded">
-                    <!-- Kelas w-100 untuk lebar, h-auto untuk tinggi fleksibel, dan rounded untuk sudut melengkung -->
-                    <iframe class="img-fluid w-100 h-500 rounded" src="https://www.youtube.com/embed/J8s5kuaTiqo"
+                <div class="courses__details-video w-100" style="height: 400px;"> <!-- Ganti height sesuai kebutuhan -->
+                    <iframe class="img-fluid w-100 rounded" src="https://www.youtube.com/embed/J8s5kuaTiqo"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen>
                     </iframe>
                 </div>
             </div>
+
 
         </div>
     </section>
