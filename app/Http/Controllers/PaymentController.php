@@ -173,14 +173,6 @@ class PaymentController extends Controller
 
     public function handleXenditWebhook(Request $request)
     {
-        $secretKey = config('xendit.webhook_secret');
-        $xSignature = $request->header('X-CALLBACK-TOKEN');
-
-        // Validasi tanda tangan
-        if ($xSignature !== $secretKey) {
-            return response()->json(['message' => 'Invalid signature'], 403);
-        }
-
         // Ambil data dari webhook
         $data = $request->all();
 
@@ -232,6 +224,7 @@ class PaymentController extends Controller
 
         return response()->json(['message' => 'Order not found'], 404);
     }
+
 
 
     public function success($uuid)
