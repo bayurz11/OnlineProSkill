@@ -14,6 +14,7 @@ use Xendit\Invoice\InvoiceApi;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Xendit\Invoice\CreateInvoiceRequest;
+use Xendit\Invoice\InvoiceCallback;
 
 class PaymentController extends Controller
 {
