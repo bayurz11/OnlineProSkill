@@ -20,7 +20,8 @@ class PaymentController extends Controller
 
     public function __construct()
     {
-
+        $xenditApiKey = env('XENDIT_API_KEY');
+        Configuration::setXenditKey($xenditApiKey);
         // Configuration::setXenditKey("");
     }
 
