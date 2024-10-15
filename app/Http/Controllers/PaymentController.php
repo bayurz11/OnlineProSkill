@@ -172,8 +172,8 @@ class PaymentController extends Controller
 
     public function handleXenditWebhook(Request $request)
     {
-        // Validasi tanda tangan webhook (optional, jika diaktifkan pada Xendit)
-        $secretKey = config('xendit.webhook_secret'); // Pastikan secret key webhook disimpan di .env atau config
+
+        $secretKey = config('xendit.webhook_secret');
         $xSignature = $request->header('X-CALLBACK-TOKEN');
 
         if ($xSignature !== $secretKey) {
