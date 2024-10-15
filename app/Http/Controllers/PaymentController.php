@@ -169,13 +169,67 @@ class PaymentController extends Controller
         }
     }
 
+    public function handleXenditWebhook(Request $request)
+    {
+        // Validasi tanda tangan webhook (optional, jika diaktifkan pada Xendit)
+        $secretKey = config('xendit.webhook_secret'); // Pastikan secret key webhook disimpan di .env atau config
+        $xSignature = $request->header('X-CALLBACK-TOKEN');
 
+        if ($xSignature !== $secretKey) {
+            return response()->json(['message' => 'Invalid signature'], 403);
+        }
+
+        // Ambil data dari webhook
+        $data = $request->all();
+
+        // Periksa tipe event, harus 'invoice.updated'
+        if ($data['event'] === 'invoice.updated') {
+            $externalId = $data['external_id'];
+            $status = $data['status'];
+            $invoiceUrl = $data['invoice_url'] ?? null;
+
+            // Cari order berdasarkan external_id
+            $order = Order::where('external_id', $externalId)->first();
+
+            if ($order) {
+                // Update status order berdasarkan status invoice
+                switch ($status) {
+                    case 'PAID':
+                        $order->status = 'paid';
+                        // Tambahkan logika jika ada langkah yang harus dilakukan setelah pembayaran diterima, seperti mengirim email atau notifikasi
+                        break;
+                    case 'EXPIRED':
+                        $order->status = 'expired';
+                        break;
+                    case 'FAILED':
+                        $order->status = 'failed';
+                        break;
+                    case 'SETTLED':
+                        $order->status = 'settled'; // Jika invoice sudah settle
+                        break;
+                    case 'CANCELED':
+                        $order->status = 'canceled';
+                        break;
+                    default:
+                        $order->status = 'pending';
+                        break;
+                }
+
+                $order->checkout_link = $invoiceUrl; // Perbarui link invoice jika perlu
+                $order->save();
+
+                return response()->json(['message' => 'Order updated successfully']);
+            }
+
+            return response()->json(['message' => 'Order not found'], 404);
+        }
+
+        return response()->json(['message' => 'Invalid event'], 400);
+    }
 
     public function success($uuid)
     {
-        $apiInstance = new InvoiceApi();
-        $result = $apiInstance->getInvoices(null, $uuid);
-
+        // Cek apakah status sudah diperbarui oleh webhook
         $orders = Order::where('external_id', $uuid)->get();
 
         if ($orders->isEmpty()) {
@@ -183,21 +237,37 @@ class PaymentController extends Controller
         }
 
         foreach ($orders as $order) {
-
-            $order->status = $result[0]['status'];
-            $order->save();
-
-            if ($order->status == 'SETTLED') {
-
+            if ($order->status == 'settled' || $order->status == 'paid') {
+                // Jika status sudah settled atau paid, proses sukses
                 session()->forget('cart');
 
                 Notifikasiuser::create([
                     'user_id' => $order->user_id,
                     'status' => 1,
-                    'message' => 'Pembayaran berhasil di proses'
+                    'message' => 'Pembayaran berhasil diproses'
                 ]);
 
-                return redirect()->route('akses_pembelian')->with('success', 'Pembayaran berhasil di proses');
+                return redirect()->route('akses_pembelian')->with('success', 'Pembayaran berhasil diproses');
+            } elseif ($order->status == 'pending') {
+                // Jika status masih pending, lakukan pengecekan manual ke API Xendit
+                $apiInstance = new InvoiceApi();
+                $result = $apiInstance->getInvoices(null, $uuid);
+
+                // Update status dari API jika perlu
+                $order->status = $result[0]['status'];
+                $order->save();
+
+                if ($order->status == 'settled') {
+                    session()->forget('cart');
+
+                    Notifikasiuser::create([
+                        'user_id' => $order->user_id,
+                        'status' => 1,
+                        'message' => 'Pembayaran berhasil diproses'
+                    ]);
+
+                    return redirect()->route('akses_pembelian')->with('success', 'Pembayaran berhasil diproses');
+                }
             }
         }
 
@@ -206,9 +276,51 @@ class PaymentController extends Controller
         NotifikasiUser::create([
             'user_id' => $orders->first()->user_id,
             'status' => 1,
-            'message' => 'Pembayaran Berhasil'
+            'message' => 'Pembayaran berhasil'
         ]);
 
-        return redirect()->route('akses_pembelian')->with('success', 'Pembayaran Berhasil');
+        return redirect()->route('akses_pembelian')->with('success', 'Pembayaran berhasil');
     }
+
+
+    // public function success($uuid)
+    // {
+    //     $apiInstance = new InvoiceApi();
+    //     $result = $apiInstance->getInvoices(null, $uuid);
+
+    //     $orders = Order::where('external_id', $uuid)->get();
+
+    //     if ($orders->isEmpty()) {
+    //         return redirect()->route('cart.view')->with('error', 'Pesanan tidak ditemukan.');
+    //     }
+
+    //     foreach ($orders as $order) {
+
+    //         $order->status = $result[0]['status'];
+    //         $order->save();
+
+    //         if ($order->status == 'SETTLED') {
+
+    //             session()->forget('cart');
+
+    //             Notifikasiuser::create([
+    //                 'user_id' => $order->user_id,
+    //                 'status' => 1,
+    //                 'message' => 'Pembayaran berhasil di proses'
+    //             ]);
+
+    //             return redirect()->route('akses_pembelian')->with('success', 'Pembayaran berhasil di proses');
+    //         }
+    //     }
+
+    //     session()->forget('cart');
+
+    //     NotifikasiUser::create([
+    //         'user_id' => $orders->first()->user_id,
+    //         'status' => 1,
+    //         'message' => 'Pembayaran Berhasil'
+    //     ]);
+
+    //     return redirect()->route('akses_pembelian')->with('success', 'Pembayaran Berhasil');
+    // }
 }
