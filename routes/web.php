@@ -185,8 +185,7 @@ Route::middleware('isStuden')->group(function () {
 
     //payment
     Route::post('/payment', [PaymentController::class, 'payment'])->name('payment');
-    Route::match(['get', 'post'], '/webhook/xendit', [PaymentController::class, 'handleXenditWebhook']);
-    Route::get('/success/{uuid}', [PaymentController::class, 'success'])->name('success');
+
 
     //Akses Pembelian
     Route::get('/akses_pembelian', [AksesPembelianController::class, 'index'])->name('akses_pembelian');
@@ -205,7 +204,8 @@ Route::middleware('isStuden')->group(function () {
 
 
 
-
+Route::match(['get', 'post'], '/webhook/xendit', [PaymentController::class, 'handleXenditWebhook']);
+Route::get('/success/{uuid}', [PaymentController::class, 'success'])->name('success');
 
 //*********INSTRUKTUR*********//
 // Auth Instruktur
