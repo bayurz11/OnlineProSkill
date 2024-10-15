@@ -173,10 +173,10 @@ class PaymentController extends Controller
 
     public function handleXenditWebhook(Request $request)
     {
-
         $secretKey = config('xendit.webhook_secret');
         $xSignature = $request->header('X-CALLBACK-TOKEN');
 
+        // Validasi tanda tangan
         if ($xSignature !== $secretKey) {
             return response()->json(['message' => 'Invalid signature'], 403);
         }
@@ -184,50 +184,55 @@ class PaymentController extends Controller
         // Ambil data dari webhook
         $data = $request->all();
 
-        // Periksa tipe event, harus 'invoice.updated'
-        if ($data['event'] === 'invoice.updated') {
-            $externalId = $data['external_id'];
-            $status = $data['status'];
-            $invoiceUrl = $data['invoice_url'] ?? null;
-
-            // Cari order berdasarkan external_id
-            $order = Order::where('external_id', $externalId)->first();
-
-            if ($order) {
-                // Update status order berdasarkan status invoice
-                switch ($status) {
-                    case 'PAID':
-                        $order->status = 'paid';
-                        // Tambahkan logika jika ada langkah yang harus dilakukan setelah pembayaran diterima, seperti mengirim email atau notifikasi
-                        break;
-                    case 'EXPIRED':
-                        $order->status = 'expired';
-                        break;
-                    case 'FAILED':
-                        $order->status = 'failed';
-                        break;
-                    case 'SETTLED':
-                        $order->status = 'settled'; // Jika invoice sudah settle
-                        break;
-                    case 'CANCELED':
-                        $order->status = 'canceled';
-                        break;
-                    default:
-                        $order->status = 'pending';
-                        break;
-                }
-
-                $order->checkout_link = $invoiceUrl; // Perbarui link invoice jika perlu
-                $order->save();
-
-                return response()->json(['message' => 'Order updated successfully']);
-            }
-
-            return response()->json(['message' => 'Order not found'], 404);
+        // Periksa apakah 'external_id' ada dalam data yang diterima
+        if (!isset($data['external_id'])) {
+            return response()->json(['message' => 'Invalid data'], 400);
         }
 
-        return response()->json(['message' => 'Invalid event'], 400);
+        $externalId = $data['external_id'];
+        $status = $data['status'] ?? 'pending'; // Gunakan status default jika tidak ada
+        $invoiceUrl = $data['invoice_url'] ?? null;
+
+        // Cari order berdasarkan external_id
+        $order = Order::where('external_id', $externalId)->first();
+
+        if ($order) {
+            // Update status order berdasarkan status invoice
+            switch ($status) {
+                case 'PAID':
+                    $order->status = 'paid';
+                    // Tambahkan langkah setelah pembayaran diterima, jika diperlukan
+                    break;
+                case 'EXPIRED':
+                    $order->status = 'expired';
+                    break;
+                case 'FAILED':
+                    $order->status = 'failed';
+                    break;
+                case 'SETTLED':
+                    $order->status = 'settled'; // Status ketika invoice sudah settle
+                    break;
+                case 'CANCELED':
+                    $order->status = 'canceled';
+                    break;
+                default:
+                    $order->status = 'pending';
+                    break;
+            }
+
+            // Perbarui link invoice jika tersedia
+            if ($invoiceUrl) {
+                $order->checkout_link = $invoiceUrl;
+            }
+
+            $order->save();
+
+            return response()->json(['message' => 'Order updated successfully']);
+        }
+
+        return response()->json(['message' => 'Order not found'], 404);
     }
+
 
     public function success($uuid)
     {
