@@ -21,7 +21,7 @@ class PaymentController extends Controller
     public function __construct()
     {
 
-        Configuration::setXenditKey("xnd_production_EuK99gzOVOQLSjnvynUhxsYqtSBU0Vs2VM6oy2qsFmendQcz15rAwCwLCFUTE0z");
+        // Configuration::setXenditKey("");
     }
 
     public function payment(Request $request)
