@@ -93,8 +93,8 @@
                                             <i class="icon-sm text-white" data-feather="bell"></i>
                                         </div>
                                         <div class="flex-grow-1 me-2">
-                                            <p>${notification.product_name}</p>
-                                            <p class="tx-12 text-muted">${notification.status} - ${notification.updated_at}</p>
+                                            <p>Product ID: ${notification.product_id}</p>
+                                            <p class="tx-12 text-muted">Status: ${notification.status} - ${new Date(notification.updated_at).toLocaleString()}</p>
                                         </div>
                                     </a>`;
                         notificationList.insertAdjacentHTML('beforeend', listItem);
@@ -109,7 +109,13 @@
     // Tandai notifikasi sebagai telah dibaca setelah dropdown dibuka
     document.getElementById('notificationDropdown').addEventListener('show.bs.dropdown', function() {
         fetch('/mark-notifications-read', {
-            method: 'POST'
-        });
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute(
+                    'content')
+            }
+        }).then(() => {
+            document.getElementById('notificationCount').innerText = '0'; // Reset jumlah notifikasi
+        }).catch(error => console.error('Error marking notifications as read:', error));
     });
 </script>

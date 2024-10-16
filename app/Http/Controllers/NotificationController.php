@@ -21,7 +21,8 @@ class NotificationController extends Controller
     public function getNotifications()
     {
         // Ambil semua notifikasi pesanan yang belum dibaca
-        $notifications = Order::whereIn('status', ['paid', 'settled', 'pending'])
+        $notifications = Order::select('id', 'product_id', 'status', 'updated_at') // Pilih field yang dibutuhkan
+            ->whereIn('status', ['paid', 'settled', 'pending'])
             ->where('user_id', Auth::id())
             ->where('notification_read', false) // Ambil notifikasi yang belum dibaca
             ->orderBy('updated_at', 'desc')
