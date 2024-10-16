@@ -36,13 +36,17 @@ class SearchController extends Controller
         $course_type = is_array($course_type) ? array_filter($course_type) : explode(',', $course_type);
 
         // Ambil data tingkat untuk filter
-        $tingkatLevels = KelasTatapMuka::distinct()->pluck('tingkat');
+        $tingkatLevels = KelasTatapMuka::where('status', 1) // Menambahkan kondisi status = 1
+            ->distinct()
+            ->pluck('tingkat');
 
         // Hitung jumlah kursus per tingkat
         $tingkatCounts = KelasTatapMuka::whereIn('course_type', $course_type)
+            ->where('status', 1) // Menambahkan kondisi status = 1
             ->groupBy('tingkat')
             ->select('tingkat', DB::raw('count(*) as total'))
             ->pluck('total', 'tingkat');
+
 
         // Mencari berdasarkan kategori, tingkat, dan term pencarian dengan pagination
         $results = KelasTatapMuka::query()
