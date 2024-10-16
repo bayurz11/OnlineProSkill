@@ -26,6 +26,7 @@ use App\Http\Controllers\HubungiKamiController;
 use App\Http\Controllers\TentangKamiController;
 use App\Http\Controllers\CourseMasterController;
 use App\Http\Controllers\KategoriBlogController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\SubcategoriesController;
 use App\Http\Controllers\AksesPembelianController;
 use App\Http\Controllers\KelasTatapMukaController;
@@ -55,6 +56,7 @@ Route::middleware('isAdmin')->group(function () {
 
     //******** Admin *********//
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/get-notifications', [NotificationController::class, 'getNotifications'])->name('notifications');
 
     //*******ADMIN ONLINE COURSE SETTING*******//
     //Kategori

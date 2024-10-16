@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Events\OrderStatusChanged;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Order extends Model
 {
@@ -21,8 +22,15 @@ class Order extends Model
         return $this->belongsTo(User::class);
     }
 
-    // public function KelasTatapMuka()
-    // {
-    //     return $this->belongsTo(KelasTatapMuka::class);
-    // }
+    public static function boot()
+    {
+        parent::boot();
+
+        // Trigger event jika status berubah
+        static::updated(function ($order) {
+            if ($order->isDirty('status')) {
+                event(new OrderStatusChanged($order));
+            }
+        });
+    }
 }
