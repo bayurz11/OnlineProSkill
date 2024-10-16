@@ -105,4 +105,11 @@
             })
             .catch(error => console.error('Error fetching notifications:', error));
     }
+
+    // Tandai notifikasi sebagai telah dibaca setelah dropdown dibuka
+    document.getElementById('notificationDropdown').addEventListener('show.bs.dropdown', function() {
+        fetch('/mark-notifications-read', {
+            method: 'POST'
+        });
+    });
 </script>

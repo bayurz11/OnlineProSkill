@@ -171,6 +171,59 @@ class PaymentController extends Controller
         }
     }
 
+    // public function handleXenditWebhook(Request $request)
+    // {
+    //     // Ambil data dari webhook
+    //     $data = $request->all();
+
+    //     // Periksa apakah 'external_id' ada dalam data yang diterima
+    //     if (!isset($data['external_id'])) {
+    //         return response()->json(['message' => 'Invalid data'], 400);
+    //     }
+
+    //     $externalId = $data['external_id'];
+    //     $status = $data['status'] ?? 'pending'; // Gunakan status default jika tidak ada
+    //     $invoiceUrl = $data['invoice_url'] ?? null;
+
+    //     // Cari order berdasarkan external_id
+    //     $order = Order::where('external_id', $externalId)->first();
+
+    //     if ($order) {
+    //         // Update status order berdasarkan status invoice
+    //         switch ($status) {
+    //             case 'PAID':
+    //                 $order->status = 'paid';
+    //                 // Tambahkan langkah setelah pembayaran diterima, jika diperlukan
+    //                 break;
+    //             case 'EXPIRED':
+    //                 $order->status = 'expired';
+    //                 break;
+    //             case 'FAILED':
+    //                 $order->status = 'failed';
+    //                 break;
+    //             case 'SETTLED':
+    //                 $order->status = 'settled'; // Status ketika invoice sudah settle
+    //                 break;
+    //             case 'CANCELED':
+    //                 $order->status = 'canceled';
+    //                 break;
+    //             default:
+    //                 $order->status = 'pending';
+    //                 break;
+    //         }
+
+    //         // Perbarui link invoice jika tersedia
+    //         if ($invoiceUrl) {
+    //             $order->checkout_link = $invoiceUrl;
+    //         }
+
+    //         $order->save();
+
+    //         return response()->json(['message' => 'Order updated successfully']);
+    //     }
+
+    //     return response()->json(['message' => 'Order not found'], 404);
+    // }
     public function handleXenditWebhook(Request $request)
     {
         // Ambil data dari webhook
@@ -193,22 +246,27 @@ class PaymentController extends Controller
             switch ($status) {
                 case 'PAID':
                     $order->status = 'paid';
-                    // Tambahkan langkah setelah pembayaran diterima, jika diperlukan
+                    $notificationMessage = "Order {$order->id} has been paid.";
                     break;
                 case 'EXPIRED':
                     $order->status = 'expired';
+                    $notificationMessage = "Order {$order->id} has expired.";
                     break;
                 case 'FAILED':
                     $order->status = 'failed';
+                    $notificationMessage = "Order {$order->id} payment failed.";
                     break;
                 case 'SETTLED':
                     $order->status = 'settled'; // Status ketika invoice sudah settle
+                    $notificationMessage = "Order {$order->id} is settled.";
                     break;
                 case 'CANCELED':
                     $order->status = 'canceled';
+                    $notificationMessage = "Order {$order->id} has been canceled.";
                     break;
                 default:
                     $order->status = 'pending';
+                    $notificationMessage = "Order {$order->id} is pending.";
                     break;
             }
 
@@ -217,13 +275,19 @@ class PaymentController extends Controller
                 $order->checkout_link = $invoiceUrl;
             }
 
+            // Tandai order untuk user terkait bahwa notifikasi baru tersedia
+            $order->notification_read = false; // Misal kolom ini ada untuk menandai notifikasi baru
             $order->save();
 
-            return response()->json(['message' => 'Order updated successfully']);
+            // Kamu juga bisa menyimpan notifikasi dalam tabel terpisah jika diinginkan
+            // Notification::create([...]);
+
+            return response()->json(['message' => 'Order updated and notification created successfully']);
         }
 
         return response()->json(['message' => 'Order not found'], 404);
     }
+
 
 
 

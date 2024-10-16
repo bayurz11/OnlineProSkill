@@ -9,18 +9,21 @@ use Illuminate\Support\Facades\Auth;
 
 class NotificationController extends Controller
 {
-    // public function getNotifications()
-    // {
-    //     // Ambil notifikasi untuk user yang sedang login
-    //     $notifications = Notification::where('user_id', Auth::id())->get();
+    public function markNotificationsRead()
+    {
+        // Tandai semua notifikasi sebagai telah dibaca
+        Order::where('user_id', Auth::id())
+            ->where('notification_read', false)
+            ->update(['notification_read' => true]);
 
-    //     return view('notifications.index', compact('notifications'));
-    // }
+        return response()->json(['message' => 'Notifications marked as read']);
+    }
     public function getNotifications()
     {
-        // Ambil semua notifikasi pesanan berdasarkan perubahan status
+        // Ambil semua notifikasi pesanan yang belum dibaca
         $notifications = Order::whereIn('status', ['paid', 'settled', 'pending'])
-            ->where('user_id', Auth::id()) // Hanya untuk user yang sedang login
+            ->where('user_id', Auth::id())
+            ->where('notification_read', false) // Ambil notifikasi yang belum dibaca
             ->orderBy('updated_at', 'desc')
             ->limit(6) // Batasi jumlah notifikasi
             ->get();

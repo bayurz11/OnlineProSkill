@@ -57,6 +57,7 @@ Route::middleware('isAdmin')->group(function () {
     //******** Admin *********//
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/get-notifications', [NotificationController::class, 'getNotifications'])->name('notifications');
+    Route::post('/mark-notifications-read', [NotificationController::class, 'markNotificationsRead']);
 
     //*******ADMIN ONLINE COURSE SETTING*******//
     //Kategori
