@@ -36,6 +36,7 @@
                 </div>
             </li>
 
+
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -72,6 +73,53 @@
         </ul>
     </div>
 </nav>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        fetchNotifications(); // Panggil ketika halaman selesai dimuat
+    });
+
+    function fetchNotifications() {
+        fetch('/get-notifications') // Pastikan route untuk controller benar
+            .then(response => response.json())
+            .then(data => {
+                let notificationList = document.getElementById('notificationList');
+                let notificationCount = document.getElementById('notificationCount');
+
+                notificationList.innerHTML = ''; // Kosongkan list notifikasi
+                if (data.length > 0) {
+                    notificationCount.innerText = data.length; // Update jumlah notifikasi
+                    data.forEach(notification => {
+                        let listItem = `<a href="javascript:;" class="dropdown-item d-flex align-items-center py-2">
+                                        <div class="wd-30 ht-30 d-flex align-items-center justify-content-center bg-primary rounded-circle me-3">
+                                            <i class="icon-sm text-white" data-feather="bell"></i>
+                                        </div>
+                                        <div class="flex-grow-1 me-2">
+                                            <p>Product ID: ${notification.product_id}</p>
+                                            <p class="tx-12 text-muted">Status: ${notification.status} - ${new Date(notification.updated_at).toLocaleString()}</p>
+                                        </div>
+                                    </a>`;
+                        notificationList.insertAdjacentHTML('beforeend', listItem);
+                    });
+                } else {
+                    notificationList.innerHTML = '<p class="text-center py-2">No new notifications</p>';
+                }
+            })
+            .catch(error => console.error('Error fetching notifications:', error));
+    }
+
+    // Tandai notifikasi sebagai telah dibaca setelah dropdown dibuka
+    document.getElementById('notificationDropdown').addEventListener('show.bs.dropdown', function() {
+        fetch('/mark-notifications-read', {
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute(
+                    'content')
+            }
+        }).then(() => {
+            document.getElementById('notificationCount').innerText = '0'; // Reset jumlah notifikasi
+        }).catch(error => console.error('Error marking notifications as read:', error));
+    });
+</script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         fetchNotifications();
