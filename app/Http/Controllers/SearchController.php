@@ -118,8 +118,10 @@ class SearchController extends Controller
         // Menghitung jumlah kursus per tingkat
         $tingkatCounts = KelasTatapMuka::select('tingkat', DB::raw('count(*) as total'))
             ->where('status', 1)
+            ->where('course_type', '!=', 'bootcamp') // Menambahkan kondisi untuk course_type
             ->groupBy('tingkat')
             ->pluck('total', 'tingkat');
+
 
         // Pastikan category_ids adalah array
         if (!is_array($category_ids)) {
