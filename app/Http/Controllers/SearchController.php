@@ -107,12 +107,7 @@ class SearchController extends Controller
     {
         $user = Auth::user();
         $cart = Session::get('cart', []);
-
-        // Menggunakan eager loading untuk memuat relasi kelastatapmuka
-        $categori = Categories::with(['kelastatapmuka' => function ($query) {
-            $query->where('course_type', '!=', 'bootcamp'); // Mengecualikan course_type bootcamp
-        }])->get();
-
+        $categori = Categories::all();
         $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
         $category_ids = $request->input('categories', []);
         $tingkatLevels = KelasTatapMuka::distinct()->pluck('tingkat');
@@ -139,17 +134,9 @@ class SearchController extends Controller
         }
         $selectedTingkat = array_filter($selectedTingkat); // Hapus elemen kosong
 
-        // Dapatkan course_type dari request
-        $courseType = $request->input('course_type', []); // Ambil 'offline' atau 'online'
-        if (!is_array($courseType)) {
-            $courseType = explode(',', $courseType);
-        }
-        $courseType = array_filter($courseType); // Hapus elemen kosong
-
-        // Mencari berdasarkan kategori, tingkat, course_type, dan term pencarian dengan pagination
+        // Mencari berdasarkan kategori, tingkat, dan term pencarian dengan pagination
         $results = KelasTatapMuka::query()
             ->where('status', 1)
-            ->whereNotIn('course_type', ['bootcamp']) // Mengecualikan 'bootcamp'
             ->when(!empty($category_ids), function ($query) use ($category_ids) {
                 return $query->whereIn('kategori_id', $category_ids);
             })
@@ -158,9 +145,6 @@ class SearchController extends Controller
             })
             ->when(!empty($selectedTingkat), function ($query) use ($selectedTingkat) {
                 return $query->whereIn('tingkat', $selectedTingkat);
-            })
-            ->when(!empty($courseType), function ($query) use ($courseType) {
-                return $query->whereIn('course_type', $courseType);
             })
             ->when($orderby, function ($query, $orderby) {
                 if ($orderby == 'latest') {
@@ -173,7 +157,7 @@ class SearchController extends Controller
                     return $query->orderBy('price', 'asc');
                 }
             })
-            ->paginate(6); // Gunakan pagination, 6 item per halaman
+            ->paginate(6); // Change this line to use pagination, set 10 items per page
 
         // Ambil notifikasi untuk pengguna yang sedang login
         $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
@@ -183,11 +167,9 @@ class SearchController extends Controller
 
         $course = KelasTatapMuka::with('user')
             ->where('status', 1)
-            ->whereIn('course_type', ['offline', 'online']) // Menampilkan 'offline' dan 'online' saja
-            ->whereNotIn('course_type', ['bootcamp']) // Mengecualikan 'bootcamp'
+            ->where('course_type', 'offline')
             ->get();
         $count = $course->count();
-
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
@@ -204,20 +186,6 @@ class SearchController extends Controller
             ->where('status', 1)
             ->groupBy('kategori_id')
             ->pluck('total', 'kategori_id');
-
-        // Akses data course_type dari relasi KelasTatapMuka melalui Categories tanpa course_type 'bootcamp'
-        foreach ($categori as $category) {
-            // Pastikan kelastatapmuka bukan null
-            if ($category->kelastatapmuka) {
-                foreach ($category->kelastatapmuka as $kelas) {
-                    // Mengecualikan kategori yang memiliki course_type 'bootcamp'
-                    if ($kelas->course_type !== 'bootcamp') {
-                        // Anda bisa melakukan sesuatu dengan $kelas->course_type
-                        echo $kelas->course_type;
-                    }
-                }
-            }
-        }
 
         return view('search_results', compact('results', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'course', 'categoryCounts', 'category_ids', 'tingkatLevels', 'tingkatCounts', 'categori'))->with('paginationView', 'vendor.custom');
     }
