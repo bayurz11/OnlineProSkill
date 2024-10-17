@@ -107,6 +107,7 @@ class SearchController extends Controller
     {
         $user = Auth::user();
         $cart = Session::get('cart', []);
+
         // Menggunakan eager loading untuk memuat relasi kelastatapmuka
         $categori = Categories::with(['kelastatapmuka' => function ($query) {
             $query->where('course_type', '!=', 'bootcamp'); // Mengecualikan course_type bootcamp
@@ -209,8 +210,11 @@ class SearchController extends Controller
             // Pastikan kelastatapmuka bukan null
             if ($category->kelastatapmuka) {
                 foreach ($category->kelastatapmuka as $kelas) {
-                    // Anda bisa melakukan sesuatu dengan $kelas->course_type
-                    echo $kelas->course_type;
+                    // Mengecualikan kategori yang memiliki course_type 'bootcamp'
+                    if ($kelas->course_type !== 'bootcamp') {
+                        // Anda bisa melakukan sesuatu dengan $kelas->course_type
+                        echo $kelas->course_type;
+                    }
                 }
             }
         }
