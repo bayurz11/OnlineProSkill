@@ -472,8 +472,37 @@
             var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
                 return new bootstrap.Tooltip(tooltipTriggerEl);
             });
+
+            // Cek dan centang checkbox berdasarkan parameter URL
+            const urlParams = new URLSearchParams(window.location.search);
+
+            // Centang checkbox kategori
+            if (urlParams.has('categories')) {
+                const categories = urlParams.get('categories').split(',');
+                checkboxes.forEach(checkbox => {
+                    if (categories.includes(checkbox.value)) {
+                        checkbox.checked = true;
+                    }
+                });
+            }
+
+            // Centang checkbox tingkat
+            if (urlParams.has('tingkat')) {
+                const tingkat = urlParams.get('tingkat').split(',');
+                tingkatCheckboxes.forEach(checkbox => {
+                    if (tingkat.includes(checkbox.value)) {
+                        checkbox.checked = true;
+                    }
+                });
+            }
+
+            // Centang dropdown sort by
+            if (urlParams.has('orderby')) {
+                sortBySelect.value = urlParams.get('orderby');
+            }
         });
     </script>
+
 
 
 
