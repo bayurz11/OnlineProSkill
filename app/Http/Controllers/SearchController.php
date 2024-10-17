@@ -50,7 +50,7 @@ class SearchController extends Controller
 
         // Mencari berdasarkan kategori, tingkat, dan term pencarian dengan pagination
         $results = KelasTatapMuka::query()
-            ->whereIn('course_type', $course_type)
+            // ->whereIn('course_type', $course_type)
             ->where('status', 1)
             ->when(!empty($category_ids), function ($query) use ($category_ids) {
                 return $query->whereIn('kategori_id', $category_ids);
