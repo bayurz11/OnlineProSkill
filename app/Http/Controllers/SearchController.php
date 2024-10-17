@@ -133,6 +133,7 @@ class SearchController extends Controller
         $orderby = $request->input('orderby', 'latest'); // Default ke 'latest' jika tidak ada input
         $selectedTingkat = $request->input('tingkat', []);
 
+
         // Pastikan selectedTingkat adalah array
         if (!is_array($selectedTingkat)) {
             $selectedTingkat = explode(',', $selectedTingkat);
