@@ -23,4 +23,8 @@ class Categories extends Model
     {
         return $this->hasMany(Sertifikat::class);
     }
+    public function kelastatapmuka()
+    {
+        return $this->belongsTo(KelasTatapMuka::class);
+    }
 }
