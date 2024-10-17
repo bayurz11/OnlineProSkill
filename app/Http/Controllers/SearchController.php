@@ -107,7 +107,11 @@ class SearchController extends Controller
     {
         $user = Auth::user();
         $cart = Session::get('cart', []);
-        $categori = Categories::all();
+        // Menggunakan eager loading untuk memuat relasi kelastatapmuka
+        $categori = Categories::with(['kelastatapmuka' => function ($query) {
+            $query->where('course_type', '!=', 'bootcamp'); // Mengecualikan course_type bootcamp
+        }])->get();
+
         $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
         $category_ids = $request->input('categories', []);
         $tingkatLevels = KelasTatapMuka::distinct()->pluck('tingkat');
@@ -199,6 +203,14 @@ class SearchController extends Controller
             ->where('status', 1)
             ->groupBy('kategori_id')
             ->pluck('total', 'kategori_id');
+
+        // Akses data course_type dari relasi KelasTatapMuka melalui Categories tanpa course_type 'bootcamp'
+        foreach ($categori as $category) {
+            foreach ($category->kelastatapmuka as $kelas) {
+                // Anda bisa melakukan sesuatu dengan $kelas->course_type
+                echo $kelas->course_type;
+            }
+        }
 
         return view('search_results', compact('results', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'course', 'categoryCounts', 'category_ids', 'tingkatLevels', 'tingkatCounts', 'categori'))->with('paginationView', 'vendor.custom');
     }
