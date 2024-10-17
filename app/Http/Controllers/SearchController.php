@@ -107,11 +107,7 @@ class SearchController extends Controller
     {
         $user = Auth::user();
         $cart = Session::get('cart', []);
-        $categori = KelasTatapMuka::select('kategori_id')
-            ->where('course_type', '!=', 'bootcamp')
-            ->distinct()
-            ->get();
-
+        $categori = KelasTatapMuka::distinct()->pluck('kategori_id');
         $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
         $category_ids = $request->input('categories', []);
         $tingkatLevels = KelasTatapMuka::distinct()->pluck('tingkat');
