@@ -144,6 +144,7 @@ class SearchController extends Controller
         // Mencari berdasarkan kategori, tingkat, course_type, dan term pencarian dengan pagination
         $results = KelasTatapMuka::query()
             ->where('status', 1)
+            ->whereNotIn('course_type', ['bootcamp']) // Mengecualikan 'bootcamp'
             ->when(!empty($category_ids), function ($query) use ($category_ids) {
                 return $query->whereIn('kategori_id', $category_ids);
             })
@@ -177,9 +178,11 @@ class SearchController extends Controller
 
         $course = KelasTatapMuka::with('user')
             ->where('status', 1)
-            ->whereIn('course_type', ['offline', 'online'])
+            ->whereIn('course_type', ['offline', 'online']) // Menampilkan 'offline' dan 'online' saja
+            ->whereNotIn('course_type', ['bootcamp']) // Mengecualikan 'bootcamp'
             ->get();
         $count = $course->count();
+
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
