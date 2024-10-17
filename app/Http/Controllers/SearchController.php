@@ -110,10 +110,7 @@ class SearchController extends Controller
         $categori = Categories::all();
         $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
         $category_ids = $request->input('categories', []);
-        $tingkatLevels = KelasTatapMuka::where('course_type', '<>', 'bootcamp')
-            ->distinct()
-            ->pluck('tingkat');
-
+        $tingkatLevels = KelasTatapMuka::distinct()->pluck('tingkat');
 
         // Menghitung jumlah kursus per tingkat
         $tingkatCounts = KelasTatapMuka::select('tingkat', DB::raw('count(*) as total'))
@@ -137,9 +134,17 @@ class SearchController extends Controller
         }
         $selectedTingkat = array_filter($selectedTingkat); // Hapus elemen kosong
 
-        // Mencari berdasarkan kategori, tingkat, dan term pencarian dengan pagination
+        // Dapatkan course_type dari request
+        $courseType = $request->input('course_type', []); // Ambil 'offline' atau 'online'
+        if (!is_array($courseType)) {
+            $courseType = explode(',', $courseType);
+        }
+        $courseType = array_filter($courseType); // Hapus elemen kosong
+
+        // Mencari berdasarkan kategori, tingkat, course_type, dan term pencarian dengan pagination
         $results = KelasTatapMuka::query()
             ->where('status', 1)
+            ->whereNotIn('course_type', ['bootcamp']) // Mengecualikan 'bootcamp'
             ->when(!empty($category_ids), function ($query) use ($category_ids) {
                 return $query->whereIn('kategori_id', $category_ids);
             })
@@ -148,6 +153,9 @@ class SearchController extends Controller
             })
             ->when(!empty($selectedTingkat), function ($query) use ($selectedTingkat) {
                 return $query->whereIn('tingkat', $selectedTingkat);
+            })
+            ->when(!empty($courseType), function ($query) use ($courseType) {
+                return $query->whereIn('course_type', $courseType);
             })
             ->when($orderby, function ($query, $orderby) {
                 if ($orderby == 'latest') {
@@ -160,7 +168,7 @@ class SearchController extends Controller
                     return $query->orderBy('price', 'asc');
                 }
             })
-            ->paginate(6); // Change this line to use pagination, set 10 items per page
+            ->paginate(6); // Gunakan pagination, 6 item per halaman
 
         // Ambil notifikasi untuk pengguna yang sedang login
         $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
@@ -170,9 +178,11 @@ class SearchController extends Controller
 
         $course = KelasTatapMuka::with('user')
             ->where('status', 1)
-            ->where('course_type', 'offline')
+            ->whereIn('course_type', ['offline', 'online']) // Menampilkan 'offline' dan 'online' saja
+            ->whereNotIn('course_type', ['bootcamp']) // Mengecualikan 'bootcamp'
             ->get();
         $count = $course->count();
+
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
