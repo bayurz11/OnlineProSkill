@@ -107,7 +107,7 @@ class SearchController extends Controller
     {
         $user = Auth::user();
         $cart = Session::get('cart', []);
-        $categori = KelasTatapMuka::distinct()->pluck('kategori_id');
+        $categori = Categories::all();
         $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
         $category_ids = $request->input('categories', []);
         $tingkatLevels = KelasTatapMuka::distinct()->pluck('tingkat');

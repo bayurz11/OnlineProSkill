@@ -59,18 +59,20 @@
                                         </div>
                                     </li>
                                     @foreach ($categori as $index => $category)
-                                        <li class="category-item {{ $index >= 4 ? 'hidden' : '' }}">
-                                            <div class="form-check">
-                                                <input class="form-check-input category-checkbox" type="checkbox"
-                                                    value="{{ $category->id }}" data-category-id="{{ $category->id }}"
-                                                    id="cat_{{ $category->id }}"
-                                                    {{ in_array($category->id, $category_ids) ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="cat_{{ $category->id }}">
-                                                    {{ $category->name_category }}
-                                                    ({{ $categoryCounts[$category->id] ?? 0 }})
-                                                </label>
-                                            </div>
-                                        </li>
+                                        @if ($category->status == 1 && ($categoryCounts[$category->id] ?? 0) > 0)
+                                            <li class="category-item {{ $index >= 4 ? 'hidden' : '' }}">
+                                                <div class="form-check">
+                                                    <input class="form-check-input category-checkbox" type="checkbox"
+                                                        value="{{ $category->id }}" data-category-id="{{ $category->id }}"
+                                                        id="cat_{{ $category->id }}"
+                                                        {{ in_array($category->id, $category_ids) ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="cat_{{ $category->id }}">
+                                                        {{ $category->name_category }}
+                                                        ({{ $categoryCounts[$category->id] ?? 0 }})
+                                                    </label>
+                                                </div>
+                                            </li>
+                                        @endif
                                     @endforeach
                                 </ul>
                                 <div class="show-more">
