@@ -406,9 +406,14 @@
             // Event listener untuk checkbox tingkat
             tingkatCheckboxes.forEach(checkbox => {
                 checkbox.addEventListener('change', function() {
-                    if (this.checked) {
-                        difficultyAllCheckbox.checked = false;
+                    // Jika "Semua Level" dicentang, hapus centang dari semua checkbox tingkat lainnya
+                    if (this.checked && this === difficultyAllCheckbox) {
+                        tingkatCheckboxes.forEach(cb => {
+                            if (cb !== this) cb.checked = false; // Uncheck others
+                        });
                     }
+
+                    // Update URL berdasarkan tingkat yang dipilih
                     updateLevels();
                 });
             });
@@ -424,7 +429,39 @@
             }
 
             // Fungsi untuk menampilkan atau menyembunyikan lebih banyak kategori
-            // (logika tetap sama, tidak ada perubahan yang diperlukan)
+            if (showMoreButton) {
+                const categoryItems = document.querySelectorAll('.list-wrap .category-item');
+                const showMoreCategoriesStatus = localStorage.getItem('showMoreCategories') === 'true';
+
+                if (categoryItems.length <= 4) {
+                    showMoreButton.style.display = 'none';
+                } else {
+                    for (let i = 4; i < categoryItems.length; i++) {
+                        categoryItems[i].classList.toggle('hidden', !showMoreCategoriesStatus);
+                    }
+                    showMoreButton.innerText = showMoreCategoriesStatus ? 'Tampilkan Lebih Sedikit -' :
+                        'Tampilkan Lebih Banyak +';
+                }
+
+                showMoreButton.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const hiddenCategories = document.querySelectorAll('.category-item.hidden');
+
+                    if (hiddenCategories.length > 0) {
+                        hiddenCategories.forEach(category => category.classList.remove('hidden'));
+                        showMoreButton.innerText = 'Tampilkan Lebih Sedikit -';
+                        localStorage.setItem('showMoreCategories', 'true');
+                    } else {
+                        categoryItems.forEach((category, index) => {
+                            if (index >= 4) {
+                                category.classList.add('hidden');
+                            }
+                        });
+                        showMoreButton.innerText = 'Tampilkan Lebih Banyak +';
+                        localStorage.setItem('showMoreCategories', 'false');
+                    }
+                });
+            }
 
             // Hapus elemen kategori bootcamp dari tampilan jika ada
             const bootcampCategories = document.querySelectorAll('.category-item[data-type="bootcamp"]');
@@ -437,6 +474,7 @@
             });
         });
     </script>
+
 
 
 
