@@ -23,35 +23,33 @@ class SearchController extends Controller
         $cart = Session::get('cart', []);
         $categori = Categories::all();
         $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
-
-        // Ambil data input dari request
         $category_ids = $request->input('categories', []);
-        $search_term = $request->input('search_term');
-        $orderby = $request->input('orderby', 'latest');
-        $selectedTingkat = $request->input('tingkat', []);
-        $course_type = $request->input('course_type', ['online', 'offline']); // Default untuk online dan offline
+        $tingkatLevels = KelasTatapMuka::distinct()->pluck('tingkat');
 
-        // Ubah menjadi array jika bukan array
-        $category_ids = is_array($category_ids) ? array_filter($category_ids) : explode(',', $category_ids);
-        $selectedTingkat = is_array($selectedTingkat) ? array_filter($selectedTingkat) : explode(',', $selectedTingkat);
-        $course_type = is_array($course_type) ? array_filter($course_type) : explode(',', $course_type);
-
-        // Ambil data tingkat untuk filter
-        $tingkatLevels = KelasTatapMuka::where('status', 1) // Menambahkan kondisi status = 1
-            ->distinct()
-            ->pluck('tingkat');
-
-        // Hitung jumlah kursus per tingkat
-        $tingkatCounts = KelasTatapMuka::whereIn('course_type', $course_type)
-            ->where('status', 1) // Menambahkan kondisi status = 1
+        // Menghitung jumlah kursus per tingkat
+        $tingkatCounts = KelasTatapMuka::select('tingkat', DB::raw('count(*) as total'))
+            ->where('status', 1)
             ->groupBy('tingkat')
-            ->select('tingkat', DB::raw('count(*) as total'))
             ->pluck('total', 'tingkat');
 
+        // Pastikan category_ids adalah array
+        if (!is_array($category_ids)) {
+            $category_ids = explode(',', $category_ids);
+        }
+        $category_ids = array_filter($category_ids); // Hapus elemen kosong
+
+        $search_term = $request->input('search_term');
+        $orderby = $request->input('orderby', 'latest'); // Default ke 'latest' jika tidak ada input
+        $selectedTingkat = $request->input('tingkat', []);
+
+        // Pastikan selectedTingkat adalah array
+        if (!is_array($selectedTingkat)) {
+            $selectedTingkat = explode(',', $selectedTingkat);
+        }
+        $selectedTingkat = array_filter($selectedTingkat); // Hapus elemen kosong
 
         // Mencari berdasarkan kategori, tingkat, dan term pencarian dengan pagination
         $results = KelasTatapMuka::query()
-            ->whereIn('course_type', $course_type)
             ->where('status', 1)
             ->when(!empty($category_ids), function ($query) use ($category_ids) {
                 return $query->whereIn('kategori_id', $category_ids);
@@ -63,50 +61,47 @@ class SearchController extends Controller
                 return $query->whereIn('tingkat', $selectedTingkat);
             })
             ->when($orderby, function ($query, $orderby) {
-                switch ($orderby) {
-                    case 'latest':
-                        return $query->orderBy('created_at', 'desc');
-                    case 'oldest':
-                        return $query->orderBy('created_at', 'asc');
-                    case 'highest_price':
-                        return $query->orderBy('price', 'desc');
-                    case 'lowest_price':
-                        return $query->orderBy('price', 'asc');
+                if ($orderby == 'latest') {
+                    return $query->orderBy('created_at', 'desc');
+                } elseif ($orderby == 'oldest') {
+                    return $query->orderBy('created_at', 'asc');
+                } elseif ($orderby == 'highest_price') {
+                    return $query->orderBy('price', 'desc');
+                } elseif ($orderby == 'lowest_price') {
+                    return $query->orderBy('price', 'asc');
                 }
             })
-            ->paginate(10);
+            ->paginate(6); // Change this line to use pagination, set 10 items per page
 
         // Ambil notifikasi untuk pengguna yang sedang login
         $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
             ->orderBy('created_at', 'desc')
-            ->get() : collect();
+            ->get()
+            : collect();
 
-        // Hitung jumlah notifikasi yang belum dibaca
+        $course = KelasTatapMuka::with('user')
+            ->where('status', 1)
+            ->where('course_type', 'offline')
+            ->get();
+        $count = $course->count();
+        // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
+
+        // Ambil jumlah pendaftaran untuk setiap kursus
+        $jumlahPendaftaran = Order::select('product_id', DB::raw('count(*) as total'))
+            ->groupBy('product_id')
+            ->pluck('total', 'product_id');
 
         // Ambil ID kursus yang telah diikuti oleh user
         $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
 
         // Hitung jumlah kursus per kategori
         $categoryCounts = KelasTatapMuka::select('kategori_id', DB::raw('count(*) as total'))
-            ->whereIn('course_type', $course_type)
+            ->where('status', 1)
             ->groupBy('kategori_id')
             ->pluck('total', 'kategori_id');
 
-        return view('search_results', compact(
-            'results',
-            'cart',
-            'notifikasi',
-            'notifikasiCount',
-            'user',
-            'profile',
-            'joinedCourses',
-            'categoryCounts',
-            'category_ids',
-            'tingkatLevels',
-            'tingkatCounts',
-            'categori'
-        ))->with('paginationView', 'vendor.custom');
+        return view('search_results', compact('results', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'course', 'categoryCounts', 'category_ids', 'tingkatLevels', 'tingkatCounts', 'categori'))->with('paginationView', 'vendor.custom');
     }
     // public function search(Request $request)
     // {
