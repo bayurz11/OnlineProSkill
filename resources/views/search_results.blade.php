@@ -387,7 +387,7 @@
             function toggleAllLevels(source) {
                 if (source.checked) {
                     tingkatCheckboxes.forEach(checkbox => checkbox.checked =
-                        false); // Uncheck all "tingkat" checkboxes
+                    false); // Uncheck all "tingkat" checkboxes
                     updateUrl(Array.from(checkboxes)
                         .filter(checkbox => checkbox.checked)
                         .map(checkbox => checkbox.value),
@@ -434,7 +434,7 @@
                 checkbox.addEventListener('change', function() {
                     if (this.checked) {
                         difficultyAllCheckbox.checked =
-                            false; // Uncheck "difficulty_all" if any specific "tingkat" is checked
+                        false; // Uncheck "difficulty_all" if any specific "tingkat" is checked
                     }
 
                     const selectedTingkat = Array.from(tingkatCheckboxes)
@@ -452,7 +452,7 @@
             difficultyAllCheckbox.addEventListener('change', function() {
                 if (this.checked) {
                     tingkatCheckboxes.forEach(checkbox => checkbox.checked =
-                        false); // Uncheck all "tingkat" checkboxes
+                    false); // Uncheck all "tingkat" checkboxes
                     updateUrl(Array.from(checkboxes)
                         .filter(checkbox => checkbox.checked)
                         .map(checkbox => checkbox.value),
@@ -495,6 +495,11 @@
                     localStorage.setItem('showMoreCategories', 'false');
                 }
             });
+
+            // Hapus elemen kategori bootcamp dari tampilan
+            const bootcampCategories = document.querySelectorAll('.category-item[data-type="bootcamp"]');
+            bootcampCategories.forEach(category => category.style.display = 'none');
+
         });
 
         // Aktifkan semua tooltip di halaman
@@ -503,5 +508,6 @@
             return new bootstrap.Tooltip(tooltipTriggerEl);
         });
     </script>
+
 
 @endsection
