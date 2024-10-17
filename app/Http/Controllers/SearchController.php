@@ -204,6 +204,7 @@ class SearchController extends Controller
         $categoryCounts = KelasTatapMuka::select('kategori_id', DB::raw('count(*) as total'))
             ->where('status', 1)
             ->groupBy('kategori_id')
+            ->where('course_type', '!=', 'bootcamp')
             ->pluck('total', 'kategori_id');
 
         return view('search_results', compact('results', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'course', 'categoryCounts', 'category_ids', 'tingkatLevels', 'tingkatCounts', 'categori'))->with('paginationView', 'vendor.custom');
