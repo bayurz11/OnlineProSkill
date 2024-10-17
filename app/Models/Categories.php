@@ -25,6 +25,6 @@ class Categories extends Model
     }
     public function kelastatapmuka()
     {
-        return $this->belongsTo(KelasTatapMuka::class);
+        return $this->hasMany(KelasTatapMuka::class);
     }
 }

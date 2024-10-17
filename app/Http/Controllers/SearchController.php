@@ -206,9 +206,12 @@ class SearchController extends Controller
 
         // Akses data course_type dari relasi KelasTatapMuka melalui Categories tanpa course_type 'bootcamp'
         foreach ($categori as $category) {
-            foreach ($category->kelastatapmuka as $kelas) {
-                // Anda bisa melakukan sesuatu dengan $kelas->course_type
-                echo $kelas->course_type;
+            // Pastikan kelastatapmuka bukan null
+            if ($category->kelastatapmuka) {
+                foreach ($category->kelastatapmuka as $kelas) {
+                    // Anda bisa melakukan sesuatu dengan $kelas->course_type
+                    echo $kelas->course_type;
+                }
             }
         }
 
