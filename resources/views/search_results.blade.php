@@ -404,21 +404,13 @@
             }
 
             // Event listener untuk checkbox tingkat
-            if (difficultyAllCheckbox) {
-                difficultyAllCheckbox.addEventListener('change', function() {
-                    if (this.checked) {
-                        tingkatCheckboxes.forEach(checkbox => checkbox.checked = false);
-                    }
-                    // Selalu update URL ketika "Semua Level" diubah
-                    updateLevels();
-                });
-            }
-
             tingkatCheckboxes.forEach(checkbox => {
                 checkbox.addEventListener('change', function() {
-                    // Jika checkbox tingkat dicentang, hapus centang dari "Semua Level"
-                    if (this.checked) {
-                        difficultyAllCheckbox.checked = false; // Uncheck "Semua Level"
+                    // Jika "Semua Level" dicentang, hapus centang dari semua checkbox tingkat lainnya
+                    if (this.checked && this === difficultyAllCheckbox) {
+                        tingkatCheckboxes.forEach(cb => {
+                            if (cb !== this) cb.checked = false; // Uncheck others
+                        });
                     }
 
                     // Update URL berdasarkan tingkat yang dipilih
@@ -426,6 +418,15 @@
                 });
             });
 
+            // Event listener untuk checkbox "All Levels"
+            if (difficultyAllCheckbox) {
+                difficultyAllCheckbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        tingkatCheckboxes.forEach(checkbox => checkbox.checked = false);
+                        updateLevels();
+                    }
+                });
+            }
 
             // Fungsi untuk menampilkan atau menyembunyikan lebih banyak kategori
             if (showMoreButton) {
