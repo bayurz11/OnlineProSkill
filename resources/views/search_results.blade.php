@@ -83,37 +83,6 @@
                         </div>
 
 
-                        {{-- <div class="courses-widget">
-                            <h4 class="widget-title">Harga</h4>
-                            <div class="courses-cat-list">
-                                <ul class="list-wrap">
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="price_filter[]"
-                                                value="all" id="price_1">
-                                            <label class="form-check-label" for="price_1">All Price</label>
-                                        </div>
-                                    </li>
-
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="price_filter[]"
-                                                value="free" id="price_2">
-                                            <label class="form-check-label" for="price_2">Free</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="price_filter[]"
-                                                value="paid" id="price_3">
-                                            <label class="form-check-label" for="price_3">Paid</label>
-                                        </div>
-                                    </li>
-
-                                </ul>
-                            </div>
-                        </div> --}}
-
                         <div class="courses-widget">
                             <h4 class="widget-title">Level</h4>
                             <div class="courses-cat-list">
@@ -360,6 +329,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Inisialisasi elemen-elemen yang digunakan
             const checkboxes = document.querySelectorAll('.category-checkbox');
             const allCategoriesCheckbox = document.getElementById('all_categories');
             const sortBySelect = document.querySelector('select[name="orderby"]');
@@ -378,7 +348,7 @@
             function toggleAllCategories(source) {
                 if (source.checked) {
                     checkboxes.forEach(checkbox => checkbox.checked = false);
-                    updateUrl([], sortBySelect.value, Array.from(tingkatCheckboxes)
+                    updateUrl([], sortBySelect?.value || '', Array.from(tingkatCheckboxes)
                         .filter(checkbox => checkbox.checked)
                         .map(checkbox => checkbox.value));
                 }
@@ -386,57 +356,62 @@
 
             function toggleAllLevels(source) {
                 if (source.checked) {
-                    tingkatCheckboxes.forEach(checkbox => checkbox.checked =
-                    false); // Uncheck all "tingkat" checkboxes
+                    tingkatCheckboxes.forEach(checkbox => checkbox.checked = false);
                     updateUrl(Array.from(checkboxes)
                         .filter(checkbox => checkbox.checked)
                         .map(checkbox => checkbox.value),
-                        sortBySelect.value,
-                        []); // Empty tingkat array in URL when "difficulty_all" is checked
+                        sortBySelect?.value || '',
+                        []);
                 }
             }
 
+            // Tambahkan event listener untuk setiap checkbox kategori
             checkboxes.forEach(checkbox => {
                 checkbox.addEventListener('change', function() {
                     if (this.checked) {
                         allCategoriesCheckbox.checked = false;
                     }
-
                     const selectedCategories = Array.from(checkboxes)
                         .filter(checkbox => checkbox.checked)
                         .map(checkbox => checkbox.value);
 
-                    updateUrl(selectedCategories, sortBySelect.value, Array.from(tingkatCheckboxes)
+                    updateUrl(selectedCategories, sortBySelect?.value || '', Array.from(
+                            tingkatCheckboxes)
                         .filter(checkbox => checkbox.checked)
                         .map(checkbox => checkbox.value));
                 });
             });
 
-            allCategoriesCheckbox.addEventListener('change', function() {
-                if (this.checked) {
-                    checkboxes.forEach(checkbox => checkbox.checked = false);
-                    updateUrl([], sortBySelect.value, Array.from(tingkatCheckboxes)
+            // Event listener untuk checkbox "Semua Kategori"
+            if (allCategoriesCheckbox) {
+                allCategoriesCheckbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        checkboxes.forEach(checkbox => checkbox.checked = false);
+                        updateUrl([], sortBySelect?.value || '', Array.from(tingkatCheckboxes)
+                            .filter(checkbox => checkbox.checked)
+                            .map(checkbox => checkbox.value));
+                    }
+                });
+            }
+
+            // Event listener untuk pengurutan (sort by)
+            if (sortBySelect) {
+                sortBySelect.addEventListener('change', function() {
+                    const selectedCategories = Array.from(checkboxes)
+                        .filter(checkbox => checkbox.checked)
+                        .map(checkbox => checkbox.value);
+                    updateUrl(selectedCategories, this.value, Array.from(tingkatCheckboxes)
                         .filter(checkbox => checkbox.checked)
                         .map(checkbox => checkbox.value));
-                }
-            });
+                });
+            }
 
-            sortBySelect.addEventListener('change', function() {
-                const selectedCategories = Array.from(checkboxes)
-                    .filter(checkbox => checkbox.checked)
-                    .map(checkbox => checkbox.value);
-                updateUrl(selectedCategories, this.value, Array.from(tingkatCheckboxes)
-                    .filter(checkbox => checkbox.checked)
-                    .map(checkbox => checkbox.value));
-            });
-
+            // Event listener untuk checkbox tingkat
             tingkatCheckboxes.forEach(checkbox => {
                 checkbox.addEventListener('change', function() {
                     if (this.checked) {
-                        difficultyAllCheckbox.checked =
-                        false; // Uncheck "difficulty_all" if any specific "tingkat" is checked
+                        difficultyAllCheckbox.checked = false;
                     }
-
                     const selectedTingkat = Array.from(tingkatCheckboxes)
                         .filter(checkbox => checkbox.checked)
                         .map(checkbox => checkbox.value);
@@ -444,68 +419,69 @@
                     updateUrl(Array.from(checkboxes)
                         .filter(checkbox => checkbox.checked)
                         .map(checkbox => checkbox.value),
-                        sortBySelect.value,
+                        sortBySelect?.value || '',
                         selectedTingkat);
                 });
             });
 
-            difficultyAllCheckbox.addEventListener('change', function() {
-                if (this.checked) {
-                    tingkatCheckboxes.forEach(checkbox => checkbox.checked =
-                    false); // Uncheck all "tingkat" checkboxes
-                    updateUrl(Array.from(checkboxes)
-                        .filter(checkbox => checkbox.checked)
-                        .map(checkbox => checkbox.value),
-                        sortBySelect.value,
-                        []); // Empty tingkat array in URL when "difficulty_all" is checked
-                }
-            });
-
-            // Initial display of categories
-            const categoryItems = document.querySelectorAll('.list-wrap .category-item');
-            const showMoreCategoriesStatus = localStorage.getItem('showMoreCategories') === 'true';
-
-            // Jika kategori kurang dari 4, sembunyikan tombol "Tampilkan Lebih Banyak +"
-            if (categoryItems.length <= 4) {
-                showMoreButton.style.display = 'none';
-            } else {
-                for (let i = 4; i < categoryItems.length; i++) {
-                    categoryItems[i].classList.toggle('hidden', !showMoreCategoriesStatus);
-                }
-                showMoreButton.innerText = showMoreCategoriesStatus ? 'Tampilkan Lebih Sedikit -' :
-                    'Tampilkan Lebih Banyak +';
+            // Event listener untuk checkbox "All Levels"
+            if (difficultyAllCheckbox) {
+                difficultyAllCheckbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        tingkatCheckboxes.forEach(checkbox => checkbox.checked = false);
+                        updateUrl(Array.from(checkboxes)
+                            .filter(checkbox => checkbox.checked)
+                            .map(checkbox => checkbox.value),
+                            sortBySelect?.value || '',
+                            []);
+                    }
+                });
             }
 
-            // Show more categories function
-            showMoreButton.addEventListener('click', function(event) {
-                event.preventDefault();
-                const hiddenCategories = document.querySelectorAll('.category-item.hidden');
+            // Fungsi untuk menampilkan atau menyembunyikan lebih banyak kategori
+            if (showMoreButton) {
+                const categoryItems = document.querySelectorAll('.list-wrap .category-item');
+                const showMoreCategoriesStatus = localStorage.getItem('showMoreCategories') === 'true';
 
-                if (hiddenCategories.length > 0) {
-                    hiddenCategories.forEach(category => category.classList.remove('hidden'));
-                    showMoreButton.innerText = 'Tampilkan Lebih Sedikit -';
-                    localStorage.setItem('showMoreCategories', 'true');
+                if (categoryItems.length <= 4) {
+                    showMoreButton.style.display = 'none';
                 } else {
-                    categoryItems.forEach((category, index) => {
-                        if (index >= 4) {
-                            category.classList.add('hidden');
-                        }
-                    });
-                    showMoreButton.innerText = 'Tampilkan Lebih Banyak +';
-                    localStorage.setItem('showMoreCategories', 'false');
+                    for (let i = 4; i < categoryItems.length; i++) {
+                        categoryItems[i].classList.toggle('hidden', !showMoreCategoriesStatus);
+                    }
+                    showMoreButton.innerText = showMoreCategoriesStatus ? 'Tampilkan Lebih Sedikit -' :
+                        'Tampilkan Lebih Banyak +';
                 }
-            });
 
-            // Hapus elemen kategori bootcamp dari tampilan
+                showMoreButton.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const hiddenCategories = document.querySelectorAll('.category-item.hidden');
+
+                    if (hiddenCategories.length > 0) {
+                        hiddenCategories.forEach(category => category.classList.remove('hidden'));
+                        showMoreButton.innerText = 'Tampilkan Lebih Sedikit -';
+                        localStorage.setItem('showMoreCategories', 'true');
+                    } else {
+                        categoryItems.forEach((category, index) => {
+                            if (index >= 4) {
+                                category.classList.add('hidden');
+                            }
+                        });
+                        showMoreButton.innerText = 'Tampilkan Lebih Banyak +';
+                        localStorage.setItem('showMoreCategories', 'false');
+                    }
+                });
+            }
+
+            // Hapus elemen kategori bootcamp dari tampilan jika ada
             const bootcampCategories = document.querySelectorAll('.category-item[data-type="bootcamp"]');
             bootcampCategories.forEach(category => category.style.display = 'none');
 
-        });
-
-        // Aktifkan semua tooltip di halaman
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-        var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl);
+            // Aktifkan semua tooltip di halaman
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
         });
     </script>
 
