@@ -25,6 +25,6 @@ class Categories extends Model
     }
     public function kelastatapmuka()
     {
-        return $this->hasMany(KelasTatapMuka::class);
+        return $this->hasMany(KelasTatapMuka::class, 'kategori_id');
     }
 }
