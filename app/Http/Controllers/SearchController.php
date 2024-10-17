@@ -11,6 +11,7 @@ use App\Models\NotifikasiUser;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Session;
 
 class SearchController extends Controller
@@ -107,89 +108,143 @@ class SearchController extends Controller
     //         'categori'
     //     ))->with('paginationView', 'vendor.custom');
     // }
+    // public function search(Request $request)
+    // {
+    //     $user = Auth::user();
+    //     $cart = Session::get('cart', []);
+    //     $categori = Categories::all();
+    //     $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
+
+    //     // Ambil data input dari request
+    //     $category_ids = $request->input('categories', []);
+    //     $search_term = $request->input('search_term');
+    //     $orderby = $request->input('orderby', 'latest');
+    //     $selectedTingkat = $request->input('tingkat', []);
+
+    //     // Ubah menjadi array jika bukan array
+    //     $category_ids = is_array($category_ids) ? array_filter($category_ids) : explode(',', $category_ids);
+    //     $selectedTingkat = is_array($selectedTingkat) ? array_filter($selectedTingkat) : explode(',', $selectedTingkat);
+
+    //     // Ambil data tingkat untuk filter
+    //     $tingkatLevels = KelasTatapMuka::where('status', 1) // Menambahkan kondisi status = 1
+    //         ->distinct()
+    //         ->pluck('tingkat');
+
+    //     // Hitung jumlah kursus per tingkat
+    //     $tingkatCounts = KelasTatapMuka::where('status', 1) // Menambahkan kondisi status = 1
+    //         ->groupBy('tingkat')
+    //         ->select('tingkat', DB::raw('count(*) as total'))
+    //         ->pluck('total', 'tingkat');
+
+    //     // Mencari berdasarkan kategori, tingkat, dan term pencarian dengan pagination
+    //     $results = KelasTatapMuka::query()
+    //         ->where('status', 1)
+    //         ->when(!empty($category_ids), function ($query) use ($category_ids) {
+    //             return $query->whereIn('kategori_id', $category_ids);
+    //         })
+    //         ->when($search_term, function ($query, $search_term) {
+    //             return $query->where('nama_kursus', 'like', '%' . $search_term . '%');
+    //         })
+    //         ->when(!empty($selectedTingkat), function ($query) use ($selectedTingkat) {
+    //             return $query->whereIn('tingkat', $selectedTingkat);
+    //         })
+    //         ->when($orderby, function ($query, $orderby) {
+    //             switch ($orderby) {
+    //                 case 'latest':
+    //                     return $query->orderBy('created_at', 'desc');
+    //                 case 'oldest':
+    //                     return $query->orderBy('created_at', 'asc');
+    //                 case 'highest_price':
+    //                     return $query->orderBy('price', 'desc');
+    //                 case 'lowest_price':
+    //                     return $query->orderBy('price', 'asc');
+    //             }
+    //         })
+    //         ->paginate(10);
+
+    //     // Ambil notifikasi untuk pengguna yang sedang login
+    //     $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
+    //         ->orderBy('created_at', 'desc')
+    //         ->get() : collect();
+
+    //     // Hitung jumlah notifikasi yang belum dibaca
+    //     $notifikasiCount = $notifikasi->where('status', 1)->count();
+
+    //     // Ambil ID kursus yang telah diikuti oleh user
+    //     $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
+
+    //     // Hitung jumlah kursus per kategori
+    //     $categoryCounts = KelasTatapMuka::select('kategori_id', DB::raw('count(*) as total'))
+    //         ->groupBy('kategori_id')
+    //         ->pluck('total', 'kategori_id');
+
+    //     return view('search_results', compact(
+    //         'results',
+    //         'cart',
+    //         'notifikasi',
+    //         'notifikasiCount',
+    //         'user',
+    //         'profile',
+    //         'joinedCourses',
+    //         'categoryCounts',
+    //         'category_ids',
+    //         'tingkatLevels',
+    //         'tingkatCounts',
+    //         'categori'
+    //     ))->with('paginationView', 'vendor.custom');
+    // }
     public function search(Request $request)
     {
         $user = Auth::user();
         $cart = Session::get('cart', []);
-        $categori = Categories::all();
         $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
 
-        // Ambil data input dari request
-        $category_ids = $request->input('categories', []);
-        $search_term = $request->input('search_term');
-        $orderby = $request->input('orderby', 'latest');
-        $selectedTingkat = $request->input('tingkat', []);
+        // Caching untuk kategori dan tingkat yang jarang berubah
+        $categori = Cache::remember('categories', 60 * 60, function () {
+            return Categories::all();
+        });
 
-        // Ubah menjadi array jika bukan array
-        $category_ids = is_array($category_ids) ? array_filter($category_ids) : explode(',', $category_ids);
-        $selectedTingkat = is_array($selectedTingkat) ? array_filter($selectedTingkat) : explode(',', $selectedTingkat);
+        $tingkatLevels = Cache::remember('tingkatLevels', 60 * 60, function () {
+            return KelasTatapMuka::where('status', 1)->distinct()->pluck('tingkat');
+        });
 
-        // Ambil data tingkat untuk filter
-        $tingkatLevels = KelasTatapMuka::where('status', 1) // Menambahkan kondisi status = 1
-            ->distinct()
-            ->pluck('tingkat');
+        $tingkatCounts = Cache::remember('tingkatCounts', 60 * 60, function () {
+            return KelasTatapMuka::where('status', 1)
+                ->groupBy('tingkat')
+                ->select('tingkat', DB::raw('count(*) as total'))
+                ->pluck('total', 'tingkat');
+        });
 
-        // Hitung jumlah kursus per tingkat
-        $tingkatCounts = KelasTatapMuka::where('status', 1) // Menambahkan kondisi status = 1
-            ->groupBy('tingkat')
-            ->select('tingkat', DB::raw('count(*) as total'))
-            ->pluck('total', 'tingkat');
+        // Handle pencarian berdasarkan input
+        $category_ids = is_array($request->input('categories', [])) ? array_filter($request->input('categories')) : explode(',', $request->input('categories', ''));
+        $selectedTingkat = is_array($request->input('tingkat', [])) ? array_filter($request->input('tingkat')) : explode(',', $request->input('tingkat', ''));
 
-        // Mencari berdasarkan kategori, tingkat, dan term pencarian dengan pagination
         $results = KelasTatapMuka::query()
             ->where('status', 1)
-            ->when(!empty($category_ids), function ($query) use ($category_ids) {
-                return $query->whereIn('kategori_id', $category_ids);
-            })
-            ->when($search_term, function ($query, $search_term) {
-                return $query->where('nama_kursus', 'like', '%' . $search_term . '%');
-            })
-            ->when(!empty($selectedTingkat), function ($query) use ($selectedTingkat) {
-                return $query->whereIn('tingkat', $selectedTingkat);
-            })
-            ->when($orderby, function ($query, $orderby) {
+            ->when($category_ids, fn($query) => $query->whereIn('kategori_id', $category_ids))
+            ->when($request->input('search_term'), fn($query, $search_term) => $query->where('nama_kursus', 'like', '%' . $search_term . '%'))
+            ->when($selectedTingkat, fn($query) => $query->whereIn('tingkat', $selectedTingkat))
+            ->when($request->input('orderby', 'latest'), function ($query, $orderby) {
                 switch ($orderby) {
-                    case 'latest':
-                        return $query->orderBy('created_at', 'desc');
                     case 'oldest':
                         return $query->orderBy('created_at', 'asc');
                     case 'highest_price':
                         return $query->orderBy('price', 'desc');
                     case 'lowest_price':
                         return $query->orderBy('price', 'asc');
+                    default:
+                        return $query->orderBy('created_at', 'desc');
                 }
             })
             ->paginate(10);
 
-        // Ambil notifikasi untuk pengguna yang sedang login
-        $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
-            ->orderBy('created_at', 'desc')
-            ->get() : collect();
-
-        // Hitung jumlah notifikasi yang belum dibaca
-        $notifikasiCount = $notifikasi->where('status', 1)->count();
-
-        // Ambil ID kursus yang telah diikuti oleh user
-        $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
-
-        // Hitung jumlah kursus per kategori
-        $categoryCounts = KelasTatapMuka::select('kategori_id', DB::raw('count(*) as total'))
-            ->groupBy('kategori_id')
-            ->pluck('total', 'kategori_id');
-
         return view('search_results', compact(
             'results',
             'cart',
-            'notifikasi',
-            'notifikasiCount',
-            'user',
             'profile',
-            'joinedCourses',
-            'categoryCounts',
-            'category_ids',
+            'categori',
             'tingkatLevels',
-            'tingkatCounts',
-            'categori'
-        ))->with('paginationView', 'vendor.custom');
+            'tingkatCounts'
+        ));
     }
 }

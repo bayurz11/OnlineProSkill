@@ -367,14 +367,25 @@
             const difficultyAllCheckbox = document.getElementById('difficulty_all');
             const showMoreButton = document.getElementById('toggleButton');
 
+            // Debounce helper function
+            function debounce(func, wait = 300) {
+                let timeout;
+                return function(...args) {
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => func.apply(this, args), wait);
+                };
+            }
+
+            // Update URL without page reload using pushState
             function updateUrl(selectedCategories, orderby, selectedTingkat) {
                 const url = new URL(window.location.href);
                 url.searchParams.set('categories', selectedCategories.join(','));
                 url.searchParams.set('orderby', orderby);
                 url.searchParams.set('tingkat', selectedTingkat.join(','));
-                window.location.href = url.toString();
+                history.pushState({}, '', url.toString()); // Use pushState to avoid page reload
             }
 
+            // Toggle all categories checkbox
             function toggleAllCategories(source) {
                 if (source.checked) {
                     checkboxes.forEach(checkbox => checkbox.checked = false);
@@ -384,58 +395,46 @@
                 }
             }
 
+            // Toggle all difficulty levels checkbox
             function toggleAllLevels(source) {
                 if (source.checked) {
-                    tingkatCheckboxes.forEach(checkbox => checkbox.checked =
-                    false); // Uncheck all "tingkat" checkboxes
+                    tingkatCheckboxes.forEach(checkbox => checkbox.checked = false);
                     updateUrl(Array.from(checkboxes)
                         .filter(checkbox => checkbox.checked)
                         .map(checkbox => checkbox.value),
-                        sortBySelect.value,
-                        []); // Empty tingkat array in URL when "difficulty_all" is checked
+                        sortBySelect.value, []);
                 }
             }
 
+            // Add event listeners with debounce to avoid frequent URL updates
             checkboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', function() {
-                    if (this.checked) {
-                        allCategoriesCheckbox.checked = false;
-                    }
+                checkbox.addEventListener('change', debounce(function() {
+                    if (this.checked) allCategoriesCheckbox.checked = false;
 
                     const selectedCategories = Array.from(checkboxes)
                         .filter(checkbox => checkbox.checked)
                         .map(checkbox => checkbox.value);
 
-                    updateUrl(selectedCategories, sortBySelect.value, Array.from(tingkatCheckboxes)
+                    updateUrl(selectedCategories, sortBySelect.value, Array.from(
+                            tingkatCheckboxes)
                         .filter(checkbox => checkbox.checked)
                         .map(checkbox => checkbox.value));
-                });
+                }));
             });
 
-            allCategoriesCheckbox.addEventListener('change', function() {
-                if (this.checked) {
-                    checkboxes.forEach(checkbox => checkbox.checked = false);
-                    updateUrl([], sortBySelect.value, Array.from(tingkatCheckboxes)
-                        .filter(checkbox => checkbox.checked)
-                        .map(checkbox => checkbox.value));
-                }
-            });
-
-            sortBySelect.addEventListener('change', function() {
+            sortBySelect.addEventListener('change', debounce(function() {
                 const selectedCategories = Array.from(checkboxes)
                     .filter(checkbox => checkbox.checked)
                     .map(checkbox => checkbox.value);
+
                 updateUrl(selectedCategories, this.value, Array.from(tingkatCheckboxes)
                     .filter(checkbox => checkbox.checked)
                     .map(checkbox => checkbox.value));
-            });
+            }));
 
             tingkatCheckboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', function() {
-                    if (this.checked) {
-                        difficultyAllCheckbox.checked =
-                        false; // Uncheck "difficulty_all" if any specific "tingkat" is checked
-                    }
+                checkbox.addEventListener('change', debounce(function() {
+                    if (this.checked) difficultyAllCheckbox.checked = false;
 
                     const selectedTingkat = Array.from(tingkatCheckboxes)
                         .filter(checkbox => checkbox.checked)
@@ -444,28 +443,24 @@
                     updateUrl(Array.from(checkboxes)
                         .filter(checkbox => checkbox.checked)
                         .map(checkbox => checkbox.value),
-                        sortBySelect.value,
-                        selectedTingkat);
-                });
+                        sortBySelect.value, selectedTingkat);
+                }));
             });
 
-            difficultyAllCheckbox.addEventListener('change', function() {
+            difficultyAllCheckbox.addEventListener('change', debounce(function() {
                 if (this.checked) {
-                    tingkatCheckboxes.forEach(checkbox => checkbox.checked =
-                    false); // Uncheck all "tingkat" checkboxes
+                    tingkatCheckboxes.forEach(checkbox => checkbox.checked = false);
                     updateUrl(Array.from(checkboxes)
                         .filter(checkbox => checkbox.checked)
                         .map(checkbox => checkbox.value),
-                        sortBySelect.value,
-                        []); // Empty tingkat array in URL when "difficulty_all" is checked
+                        sortBySelect.value, []);
                 }
-            });
+            }));
 
-            // Initial display of categories
+            // Show more/less categories toggle
             const categoryItems = document.querySelectorAll('.list-wrap .category-item');
             const showMoreCategoriesStatus = localStorage.getItem('showMoreCategories') === 'true';
 
-            // Jika kategori kurang dari 4, sembunyikan tombol "Tampilkan Lebih Banyak +"
             if (categoryItems.length <= 4) {
                 showMoreButton.style.display = 'none';
             } else {
@@ -476,7 +471,6 @@
                     'Tampilkan Lebih Banyak +';
             }
 
-            // Show more categories function
             showMoreButton.addEventListener('click', function(event) {
                 event.preventDefault();
                 const hiddenCategories = document.querySelectorAll('.category-item.hidden');
@@ -487,20 +481,18 @@
                     localStorage.setItem('showMoreCategories', 'true');
                 } else {
                     categoryItems.forEach((category, index) => {
-                        if (index >= 4) {
-                            category.classList.add('hidden');
-                        }
+                        if (index >= 4) category.classList.add('hidden');
                     });
                     showMoreButton.innerText = 'Tampilkan Lebih Banyak +';
                     localStorage.setItem('showMoreCategories', 'false');
                 }
             });
-        });
 
-        // Aktifkan semua tooltip di halaman
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-        var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl);
+            // Enable Bootstrap tooltips
+            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            tooltipTriggerList.map(function(tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
         });
     </script>
 
