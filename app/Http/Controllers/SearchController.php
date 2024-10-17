@@ -110,7 +110,10 @@ class SearchController extends Controller
         $categori = Categories::all();
         $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
         $category_ids = $request->input('categories', []);
-        $tingkatLevels = KelasTatapMuka::distinct()->pluck('tingkat');
+        $tingkatLevels = KelasTatapMuka::where('course_type', '<>', 'bootcamp')
+            ->distinct()
+            ->pluck('tingkat');
+
 
         // Menghitung jumlah kursus per tingkat
         $tingkatCounts = KelasTatapMuka::select('tingkat', DB::raw('count(*) as total'))
