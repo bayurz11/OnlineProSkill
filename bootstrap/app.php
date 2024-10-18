@@ -15,6 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'isAdmin' => \App\Http\Middleware\AdminMiddleware::class,
             'isStuden' => \App\Http\Middleware\StudenMiddleware::class,
+            'isInstruktur' => \App\Http\Middleware\InstrukturMiddleware::class,
             \Illuminate\Session\Middleware\AuthenticateSession::class,
 
         ]);

@@ -210,9 +210,10 @@ Route::match(['get', 'post'], '/webhook/xendit', [PaymentController::class, 'han
 Route::get('/success/{uuid}', [PaymentController::class, 'success'])->name('success');
 
 //*********INSTRUKTUR*********//
-// Auth Instruktur
-Route::get('/dashboard_instruktur', [DashboardInstrukturController::class, 'index'])->name('dashboard_instruktur');
-
+Route::middleware('isInstruktur')->group(function () {
+    // Auth Instruktur
+    Route::get('/dashboard_instruktur', [DashboardInstrukturController::class, 'index'])->name('dashboard_instruktur');
+});
 
 
 //*********FRONTEND*********//
