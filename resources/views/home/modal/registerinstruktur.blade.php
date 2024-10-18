@@ -10,7 +10,8 @@
                     <h2 class="title">Buat Akun Instruktur ProSkill</h2>
                     <p>Silahkan isi form berikut untuk melanjutkan, akun akan aktif setelah di refiew oleh admin</p>
 
-                    <form action="{{ route('regisStuden') }}" class="account__form" method="POST" id="regisStuden">
+                    <form action="{{ route('regisInstruktur') }}" class="account__form" method="POST"
+                        id="regisInstruktur">
                         @csrf
                         <div class="form-grp">
                             <input type="text" id="name" name="name"
@@ -34,7 +35,7 @@
                             huruf, dan angka</span>
                         <button class="g-recaptcha btn btn-two arrow-btn"
                             data-sitekey="{{ config('services.recaptcha_v3.siteKey') }}"
-                            data-callback="onSubmitRegisStuden" data-action='submit'>Daftar
+                            data-callback="onSubmitregisInstruktur" data-action='submit'>Daftar
                             <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                 class="injectable">
                         </button>
