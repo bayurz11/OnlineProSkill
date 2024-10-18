@@ -56,6 +56,11 @@ class AuthController extends Controller
 
         // Memeriksa apakah user ditemukan dan password cocok
         if ($user && Hash::check($request->input('password'), $user->password)) {
+            // Memeriksa status pengguna
+            if ($user->status != 1) {
+                return redirect()->back()->with('error', 'Akun Anda belum diaktifkan. Silakan hubungi admin.');
+            }
+
             Auth::login($user);
             $user->last_login = now()->setTimezone('Asia/Jakarta')->toDateTimeString();
             $user->save();
@@ -64,27 +69,19 @@ class AuthController extends Controller
             if (!$userRole) {
                 return redirect()->back()->with('error', 'Pengguna tidak memiliki peran yang ditetapkan!');
             }
-
             $roleName = $userRole->role->role_name;
             $userName = $user->name;
             switch ($roleName) {
                 case 'Administrator':
                     return redirect()->route('dashboard')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                 case 'Instruktur':
-                    // Tambahan pengecekan status untuk Instruktur
-                    if ($user->status == 0) {
-                        return redirect()->back()->with('error', 'Akun Anda dalam masa review oleh admin.');
-                    } elseif ($user->status != 1) {
-                        return redirect()->back()->with('error', 'Akun Anda belum diaktifkan. Silakan hubungi admin.');
-                    }
-
                     return redirect()->route('dashboard_instruktur')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                 case 'Studen':
                     $profile = $user->userProfile;
                     if (!$profile || !$profile->gambar || !$profile->date_of_birth || !$profile->phone_number) {
-                        return redirect()->route('profil')->with('info', 'Harap lengkapi profil Anda untuk melanjutkan pembelian kelas.');
+                        return redirect()->route('profil')->with('info', 'Harap lengkapi profil Anda untuk melanjutkan Transaksi.');
                     } else {
-                        return redirect()->route('cart.view')->with('success', "Selamat datang, $userName! Silahkan Gabung Kelas Kami.");
+                        return redirect()->route('akses_pembelian')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                     }
                 default:
                     return redirect()->route('/')->with('error', 'Peran pengguna tidak dikenali.');
@@ -124,6 +121,11 @@ class AuthController extends Controller
 
         // Memeriksa apakah user ditemukan dan password cocok
         if ($user && Hash::check($request->input('password'), $user->password)) {
+            // Memeriksa status pengguna
+            if ($user->status != 1) {
+                return redirect()->back()->with('error', 'Akun Anda belum diaktifkan. Silakan hubungi admin.');
+            }
+
             Auth::login($user);
             $user->last_login = now()->setTimezone('Asia/Jakarta')->toDateTimeString();
             $user->save();
@@ -139,13 +141,6 @@ class AuthController extends Controller
                 case 'Administrator':
                     return redirect()->route('dashboard')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                 case 'Instruktur':
-                    // Tambahan pengecekan status untuk Instruktur
-                    if ($user->status == 0) {
-                        return redirect()->back()->with('error', 'Akun Anda dalam masa review oleh admin.');
-                    } elseif ($user->status != 1) {
-                        return redirect()->back()->with('error', 'Akun Anda belum diaktifkan. Silakan hubungi admin.');
-                    }
-
                     return redirect()->route('dashboard_instruktur')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                 case 'Studen':
                     $profile = $user->userProfile;
@@ -161,7 +156,6 @@ class AuthController extends Controller
             return redirect()->back()->with('error', 'Email, nomor telepon, atau password salah.');
         }
     }
-
 
 
 
@@ -204,6 +198,51 @@ class AuthController extends Controller
     }
 
 
+    // public function register(Request $request)
+    // {
+
+    //     $request->validate([
+    //         'name' => 'required|string|max:255',
+    //         'email' => 'required|string|email|max:255|unique:users',
+    //         'password' => 'required|string|min:3|confirmed',
+    //         'phone_number' => 'string|max:12|unique:user_profiles,phone_number',
+    //         'g-recaptcha-response' => ['required', function (string $attribute, mixed $value, Closure $fail) {
+    //             $g_response = Http::asForm()->post("https://www.google.com/recaptcha/api/siteverify", [
+    //                 'secret' => config('services.recaptcha_v3.secret'),
+    //                 'response' => $value,
+    //                 'remoteip' => \request()->ip()
+    //             ]);
+
+    //             $g_response = $g_response->json();
+    //             if (!$g_response['success']) {
+    //                 $fail("The {$attribute} is invalid: " . implode(', ', $g_response['error-codes']));
+    //             }
+    //         },]
+    //     ]);
+
+    //     $user = User::create([
+    //         'name' => $request->name,
+    //         'email' => $request->email,
+    //         'password' => bcrypt($request->password),
+    //         'last_login' => Carbon::now(),
+    //         'status' => 1,
+    //     ]);
+
+    //     $userRole = new UserRoles();
+    //     $userRole->user_id = $user->id;
+    //     $userRole->role_id = 3;
+    //     $userRole->save();
+
+    //     $userProfile = new UserProfile();
+    //     $userProfile->user_id = $user->id;
+    //     $userProfile->role_id = 3;
+    //     $userProfile->phone_number = $request->phone_number;
+    //     $userProfile->save();
+
+    //     Auth::login($user);
+
+    //     return redirect()->route('profil')->with('info', 'Pendaftaran berhasil! Harap lengkapi profil Anda');
+    // } 170724
 
     public function register(Request $request)
     {
