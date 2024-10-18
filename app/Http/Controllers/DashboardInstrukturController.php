@@ -18,11 +18,11 @@ class DashboardInstrukturController extends Controller
     public function index()
     {
         $user = Auth::user();
-
+        $profile = UserProfile::where('user_id', $user->id)->first();
         if (!$user) {
             return redirect()->route('login_admin');
         }
-        return view('instruktur.dashboard');
+        return view('instruktur.dashboard', compact('user',  'profile'));
     }
     public function showregister()
     {
