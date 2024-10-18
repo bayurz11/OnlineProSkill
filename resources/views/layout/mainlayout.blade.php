@@ -34,7 +34,7 @@
 
 
     <script>
-        function onSubmitregisInstrukturForm(token) {
+        function onSubmitregisInstruktur(token) {
             document.getElementById("regisInstruktur").submit();
         }
 
