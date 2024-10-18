@@ -56,11 +56,6 @@ class AuthController extends Controller
 
         // Memeriksa apakah user ditemukan dan password cocok
         if ($user && Hash::check($request->input('password'), $user->password)) {
-            // Memeriksa status pengguna
-            if ($user->status != 1) {
-                return redirect()->back()->with('error', 'Akun Anda belum diaktifkan. Silakan hubungi admin.');
-            }
-
             Auth::login($user);
             $user->last_login = now()->setTimezone('Asia/Jakarta')->toDateTimeString();
             $user->save();
@@ -69,19 +64,27 @@ class AuthController extends Controller
             if (!$userRole) {
                 return redirect()->back()->with('error', 'Pengguna tidak memiliki peran yang ditetapkan!');
             }
+
             $roleName = $userRole->role->role_name;
             $userName = $user->name;
             switch ($roleName) {
                 case 'Administrator':
                     return redirect()->route('dashboard')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                 case 'Instruktur':
+                    // Tambahan pengecekan status untuk Instruktur
+                    if ($user->status == 0) {
+                        return redirect()->back()->with('error', 'Akun Anda dalam masa review oleh admin.');
+                    } elseif ($user->status != 1) {
+                        return redirect()->back()->with('error', 'Akun Anda belum diaktifkan. Silakan hubungi admin.');
+                    }
+
                     return redirect()->route('dashboard_instruktur')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                 case 'Studen':
                     $profile = $user->userProfile;
                     if (!$profile || !$profile->gambar || !$profile->date_of_birth || !$profile->phone_number) {
-                        return redirect()->route('profil')->with('info', 'Harap lengkapi profil Anda untuk melanjutkan Transaksi.');
+                        return redirect()->route('profil')->with('info', 'Harap lengkapi profil Anda untuk melanjutkan pembelian kelas.');
                     } else {
-                        return redirect()->route('akses_pembelian')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
+                        return redirect()->route('cart.view')->with('success', "Selamat datang, $userName! Silahkan Gabung Kelas Kami.");
                     }
                 default:
                     return redirect()->route('/')->with('error', 'Peran pengguna tidak dikenali.');
@@ -121,11 +124,6 @@ class AuthController extends Controller
 
         // Memeriksa apakah user ditemukan dan password cocok
         if ($user && Hash::check($request->input('password'), $user->password)) {
-            // Memeriksa status pengguna
-            if ($user->status != 1) {
-                return redirect()->back()->with('error', 'Akun Anda belum diaktifkan. Silakan hubungi admin.');
-            }
-
             Auth::login($user);
             $user->last_login = now()->setTimezone('Asia/Jakarta')->toDateTimeString();
             $user->save();
@@ -141,6 +139,13 @@ class AuthController extends Controller
                 case 'Administrator':
                     return redirect()->route('dashboard')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                 case 'Instruktur':
+                    // Tambahan pengecekan status untuk Instruktur
+                    if ($user->status == 0) {
+                        return redirect()->back()->with('error', 'Akun Anda dalam masa review oleh admin.');
+                    } elseif ($user->status != 1) {
+                        return redirect()->back()->with('error', 'Akun Anda belum diaktifkan. Silakan hubungi admin.');
+                    }
+
                     return redirect()->route('dashboard_instruktur')->with('success', "Selamat datang, $userName! Anda berhasil masuk.");
                 case 'Studen':
                     $profile = $user->userProfile;
@@ -156,6 +161,7 @@ class AuthController extends Controller
             return redirect()->back()->with('error', 'Email, nomor telepon, atau password salah.');
         }
     }
+
 
 
 

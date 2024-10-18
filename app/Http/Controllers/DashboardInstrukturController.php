@@ -62,7 +62,7 @@ class DashboardInstrukturController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'last_login' => Carbon::now(),
-            'status' => 0,
+            'status' => 0, // Status default 0
         ]);
 
         $userRole = new UserRoles();
@@ -76,8 +76,13 @@ class DashboardInstrukturController extends Controller
         $userProfile->phone_number = $request->phone_number;
         $userProfile->save();
 
-        Auth::login($user);
+        // Cek status sebelum login
+        if ($user->status == 0) {
+            return redirect('/')->with('message', 'Akun Anda sedang dalam review oleh admin.');
+        }
 
+        // Jika status = 1, maka bisa login
+        Auth::login($user);
 
         return redirect()->route('dashboard_instruktur')->with('success', 'Pendaftaran berhasil!');
     }
