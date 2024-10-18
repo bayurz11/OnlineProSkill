@@ -7,7 +7,7 @@
             </div>
             <div class="modal-body">
                 <div class="singUp-wrap">
-                    <h2 class="title">Buat Akun ProSkill</h2>
+                    <h2 class="title">Buat Akun Instruktur</h2>
                     <p>Silahkan isi form berikut untuk melanjutkan.</p>
 
                     <form action="{{ route('regisInstruktur') }}" class="account__form" method="POST" id="regisStuden">
