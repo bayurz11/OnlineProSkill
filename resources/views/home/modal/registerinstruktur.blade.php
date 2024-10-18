@@ -7,8 +7,8 @@
             </div>
             <div class="modal-body">
                 <div class="singUp-wrap">
-                    <h2 class="title">Buat Akun ProSkill</h2>
-                    <p>Silahkan isi form berikut untuk melanjutkan.</p>
+                    <h2 class="title">Buat Akun Instruktur ProSkill</h2>
+                    <p>Silahkan isi form berikut untuk melanjutkan, akun akan aktif setelah di refiew oleh admin</p>
 
                     <form action="{{ route('regisStuden') }}" class="account__form" method="POST" id="regisStuden">
                         @csrf
