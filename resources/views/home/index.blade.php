@@ -595,6 +595,43 @@
         </div>
     </section>
     <!-- blog-area-end -->
+
+    <!-- instructor-area-two -->
+    <section class="instructor__area-four">
+        <div class="container">
+            <div class="instructor__item-wrap-two">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="instructor__item-two tg-svg">
+                            <div class="instructor__thumb-two">
+                                <img src="public/assets/img/instructor/instructor_two01.png" alt="img">
+                                <div class="shape-one">
+                                    <img src="public/assets/img/instructor/instructor_shape01.svg" alt="img"
+                                        class="injectable">
+                                </div>
+                                <div class="shape-two">
+                                    <span class="svg-icon" id="instructor-svg"
+                                        data-svg-icon="public/assets/img/instructor/instructor_shape02.svg"></span>
+                                </div>
+                            </div>
+                            <div class="instructor__content-two">
+                                <h3 class="title"><a href="contact.html">Become a Instructor</a></h3>
+                                <p>To take a trivial example, which of us undertakes physical exercise yes is this happen
+                                    here.</p>
+                                <div class="tg-button-wrap">
+                                    <a href="contact.html" class="btn arrow-btn">Apply Now <img
+                                            src="public/assets/img/icons/right_arrow.svg" alt="img"
+                                            class="injectable"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- instructor-area-two-end -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Mengatur tinggi untuk elemen course-title
