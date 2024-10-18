@@ -4,25 +4,44 @@ namespace App\Http\Controllers;
 
 use Closure;
 use App\Models\User;
+use App\Models\Order;
 use App\Models\UserRoles;
+use App\Models\Categories;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
+use App\Models\NotifikasiUser;
 use Illuminate\Support\Carbon;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 
 class DashboardInstrukturController extends Controller
 {
     public function index()
     {
+        $categori = Categories::all();
+        $cart = Session::get('cart', []);
         $user = Auth::user();
-        $profile = UserProfile::where('user_id', $user->id)->first();
         if (!$user) {
-            return redirect()->route('login_admin');
+            return redirect()->route('/');
         }
-        return view('instruktur.dashboard', compact('user',  'profile'));
+        // Mengambil profil pengguna yang sedang login
+        $profile = UserProfile::where('user_id', $user->id)->first();
+        // Ambil notifikasi untuk pengguna yang sedang login
+        $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
+            ->orderBy('created_at', 'desc')
+            ->get()
+            : collect();
+
+        // Hitung jumlah notifikasi dengan status = 1
+        $notifikasiCount = $notifikasi->where('status', 1)->count();
+        $orders = Order::where('user_id', $user->id)
+            ->whereIn('status', ['PAID', 'SETTLED'])
+            ->with('KelasTatapMuka')
+            ->get();
+        return view('instruktur.dashboard', compact('user', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders'));
     }
     public function showregister()
     {
