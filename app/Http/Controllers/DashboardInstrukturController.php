@@ -35,7 +35,7 @@ class DashboardInstrukturController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:3|confirmed',
-            // 'phone_number' => 'string|max:12|unique:user_profile,phone_number',
+            'phone_number' => 'string|max:12|unique:user_profile,phone_number',
             'g-recaptcha-response' => ['required', function (string $attribute, mixed $value, Closure $fail) {
                 $g_response = Http::asForm()->post("https://www.google.com/recaptcha/api/siteverify", [
                     'secret' => config('services.recaptcha_v3.secret'),
@@ -62,7 +62,7 @@ class DashboardInstrukturController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'last_login' => Carbon::now(),
-            'status' => false,
+            'status' => 0,
         ]);
 
         $userRole = new UserRoles();
@@ -73,7 +73,9 @@ class DashboardInstrukturController extends Controller
         $userProfile = new UserProfile();
         $userProfile->user_id = $user->id;
         $userProfile->role_id = 2;
+        $userProfile->phone_number = $request->phone_number;
         $userProfile->save();
+
 
         return redirect()->route('/')->with('success', 'Pendaftaran berhasil!');
     }
