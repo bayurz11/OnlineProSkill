@@ -1,4 +1,4 @@
-<div class="modal fade" id="ModalDaftar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModalDaftar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -7,8 +7,8 @@
             </div>
             <div class="modal-body">
                 <div class="singUp-wrap">
-                    <h2 class="title">Buat Akun Instruktur ProSkill</h2>
-                    <p>Silahkan isi form berikut untuk melanjutkan, akun akan aktif setelah di refiew oleh admin</p>
+                    <h2 class="title">Buat Akun ProSkill</h2>
+                    <p>Silahkan isi form berikut untuk melanjutkan.</p>
 
                     <form action="{{ route('regisInstruktur') }}" class="account__form" method="POST" id="regisStuden">
                         @csrf
