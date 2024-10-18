@@ -67,7 +67,7 @@ class DashboardInstrukturController extends Controller
 
         $userRole = new UserRoles();
         $userRole->user_id = $user->id;
-        $userRole->role_id = 3;
+        $userRole->role_id = 2;
         $userRole->save();
 
         $userProfile = new UserProfile();
