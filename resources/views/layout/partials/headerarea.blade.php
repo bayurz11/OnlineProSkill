@@ -308,5 +308,6 @@
 @include('home.modal.login')
 @include('home.modal.logincart')
 @include('home.modal.register')
+@include('home.modal.registerinstruktur')
 @include('home.modal.registercart')
 <!-- header-area-end -->

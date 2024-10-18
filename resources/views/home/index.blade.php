@@ -619,9 +619,9 @@
                                 <p>To take a trivial example, which of us undertakes physical exercise yes is this happen
                                     here.</p>
                                 <div class="tg-button-wrap">
-                                    <a href="contact.html" class="btn arrow-btn">Apply Now <img
-                                            src="public/assets/img/icons/right_arrow.svg" alt="img"
-                                            class="injectable"></a>
+                                    <a href="#"data-bs-toggle="modal" data-bs-target="#ModalDaftar"
+                                        class="btn arrow-btn">Apply Now <img src="public/assets/img/icons/right_arrow.svg"
+                                            alt="img" class="injectable"></a>
                                 </div>
                             </div>
                         </div>
@@ -729,5 +729,5 @@
         });
     </script>
 
-
+    @include('home.modal.registerinstruktur')
 @endsection
