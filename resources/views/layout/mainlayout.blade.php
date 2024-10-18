@@ -31,15 +31,13 @@
     <link rel="stylesheet" href="{{ asset('public/assets/css/tg-cursor.css') }}">
     <link rel="stylesheet" href="{{ asset('public/assets/css/main.css') }}">
     <script src="https://www.google.com/recaptcha/api.js"></script>
-    {{-- <script>
-        function onSubmit(token) {
-            document.getElementById("regisStuden").submit();
-        }
-    </script> --}}
-
 
 
     <script>
+        function regisInstrukturForm(token) {
+            document.getElementById("regisInstruktur").submit();
+        }
+
         function onSubmitRegisStuden(token) {
             document.getElementById("regisStuden").submit();
         }
