@@ -77,6 +77,6 @@ class DashboardInstrukturController extends Controller
         $userProfile->save();
 
 
-        return redirect()->route('/')->with('success', 'Pendaftaran berhasil!');
+        return redirect()->route('dashboard_instruktur')->with('success', 'Pendaftaran berhasil!');
     }
 }
