@@ -619,7 +619,7 @@
                                 <p>To take a trivial example, which of us undertakes physical exercise yes is this happen
                                     here.</p>
                                 <div class="tg-button-wrap">
-                                    <a href="#"data-bs-toggle="modal" data-bs-target="#ModalDaftarInstruktur"
+                                    <a href="#"data-bs-toggle="modal" data-bs-target="#ModalDaftar"
                                         class="btn arrow-btn">Apply Now <img src="public/assets/img/icons/right_arrow.svg"
                                             alt="img" class="injectable"></a>
                                 </div>
