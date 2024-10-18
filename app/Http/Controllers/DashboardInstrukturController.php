@@ -62,12 +62,12 @@ class DashboardInstrukturController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'last_login' => Carbon::now(),
-            'status' => 0,
+            'status' => 1,
         ]);
 
         $userRole = new UserRoles();
         $userRole->user_id = $user->id;
-        $userRole->role_id = 2;
+        $userRole->role_id = 3;
         $userRole->save();
 
         $userProfile = new UserProfile();
@@ -75,6 +75,10 @@ class DashboardInstrukturController extends Controller
         $userProfile->role_id = 2;
         $userProfile->phone_number = $request->phone_number;
         $userProfile->save();
+
+
+
+        Auth::login($user);
 
 
         return redirect()->route('dashboard_instruktur')->with('success', 'Pendaftaran berhasil!');
