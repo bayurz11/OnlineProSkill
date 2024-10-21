@@ -49,7 +49,8 @@ class InstrukturKurikulumController extends Controller
             'cart',
             'notifikasi',
             'notifikasiCount',
-            'orders'
+            'orders',
+            'kurikulum'
         ));
     }
 }
