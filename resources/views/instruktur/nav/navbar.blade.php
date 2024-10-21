@@ -5,13 +5,13 @@
         </div>
         <nav class="dashboard__sidebar-menu">
             <ul class="list-wrap">
-                <li class="active">
+                <li class="{{ Request::is('dashboard_instruktur') ? 'active' : '' }}">
                     <a href="{{ route('dashboard_instruktur') }}">
                         <i class="fas fa-home"></i>
                         Dashboard
                     </a>
                 </li>
-                <li>
+                <li class="{{ Request::is('instruktur_profile') ? 'active' : '' }}">
                     <a href="{{ route('instruktur_profile') }}">
                         <i class="skillgro-avatar"></i>
                         My Profile
@@ -54,7 +54,7 @@
         </div>
         <nav class="dashboard__sidebar-menu">
             <ul class="list-wrap">
-                <li>
+                <li class="{{ Request::is('instruktur_courses') ? 'active' : '' }}">
                     <a href="{{ route('instruktur_courses') }}">
                         <i class="skillgro-video-tutorial"></i>
                         My Courses
