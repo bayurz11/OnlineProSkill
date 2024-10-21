@@ -66,11 +66,9 @@
                                 <div class="profile__content-wrap">
                                     <ul class="list-wrap">
                                         <li><span>Registration Date</span> February 28, 2026 8:01 am</li>
-                                        <li><span>First Name</span> John</li>
-                                        <li><span>Last Name</span> Doe</li>
-                                        <li><span>Username</span> instructor</li>
-                                        <li><span>Email</span> example@gmail.com</li>
-                                        <li><span>Phone Number</span> +1-202-555-0174</li>
+                                        <li><span>Username</span> {{ $user->name }}</li>
+                                        <li><span>Email</span> {{ $user->email }}</li>
+                                        <li><span>Phone Number</span> {{ $user->phone }}</li>
                                         <li><span>Skill/Occupation</span> Application Developer</li>
                                         <li><span>Biography</span> I'm the Front-End Developer for #ThemeGenix in New York,
                                             OR. I have a serious passion for UI effects, animations, and
