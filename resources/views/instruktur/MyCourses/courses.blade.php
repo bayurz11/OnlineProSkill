@@ -127,7 +127,7 @@
                                                                     </li>
                                                                 </ul>
                                                                 <h5 class="title"><a
-                                                                        href="course-details.html">{{ $kelas->title }}</a>
+                                                                        href="course-details.html">{{ $kelas->nama_kursus }}</a>
                                                                 </h5>
                                                                 <div class="courses__item-content-bottom">
                                                                     <div class="author-two">
