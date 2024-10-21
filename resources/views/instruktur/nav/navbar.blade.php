@@ -17,7 +17,7 @@
                         My Profile
                     </a>
                 </li>
-                <li>
+                {{-- <li>
                     <a href="instructor-enrolled-courses.html">
                         <i class="skillgro-book"></i>
                         Enrolled Courses
@@ -46,7 +46,7 @@
                         <i class="skillgro-satchel"></i>
                         Order History
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </nav>
         <div class="dashboard__sidebar-title mt-40 mb-20">
