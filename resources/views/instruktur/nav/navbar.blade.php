@@ -60,19 +60,19 @@
                         My Courses
                     </a>
                 </li>
-                <li>
+                <li class="{{ Request::is('#') ? 'active' : '' }}">
                     <a href="instructor-announcement.html">
                         <i class="skillgro-marketing"></i>
                         Announcements
                     </a>
                 </li>
-                <li>
+                <li class="{{ Request::is('#') ? 'active' : '' }}">
                     <a href="instructor-quiz.html">
                         <i class="skillgro-chat"></i>
                         Quiz Attempts
                     </a>
                 </li>
-                <li>
+                <li class="{{ Request::is('#') ? 'active' : '' }}">
                     <a href="instructor-assignment.html">
                         <i class="skillgro-list"></i>
                         Assignments
@@ -85,13 +85,13 @@
         </div>
         <nav class="dashboard__sidebar-menu">
             <ul class="list-wrap">
-                <li>
+                <li class="{{ Request::is('#') ? 'active' : '' }}">
                     <a href="instructor-setting.html">
                         <i class="skillgro-settings"></i>
                         Settings
                     </a>
                 </li>
-                <li>
+                <li class="{{ Request::is('#') ? 'active' : '' }}">
                     <a href="index.html">
                         <i class="skillgro-logout"></i>
                         Logout
