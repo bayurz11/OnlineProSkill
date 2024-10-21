@@ -139,11 +139,11 @@
 
                                                                 </ul>
                                                                 <h5 class="title"><a
-                                                                        href="course-details.html">{{ $kelas->nama_kursus }}</a>
+                                                                        href="{{ route('instruktur.kurikulum', ['id' => $kelas->id]) }}">{{ $kelas->nama_kursus }}</a>
                                                                 </h5>
                                                                 <div class="courses__item-content-bottom">
                                                                     <div class="author-two">
-                                                                        <a href="instructor-details.html"><img
+                                                                        <a href="#"><img
                                                                                 src="{{ $profile && $profile->gambar ? (strpos($profile->gambar, 'googleusercontent') !== false ? $profile->gambar : asset('public/uploads/' . $profile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"style="object-fit: cover;"
                                                                                 alt="img">{{ $kelas->user->name }}</a>
                                                                     </div>
