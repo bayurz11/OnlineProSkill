@@ -12,7 +12,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="instructor-profile.html">
+                    <a href="{{ route('instruktur_profile') }}">
                         <i class="skillgro-avatar"></i>
                         My Profile
                     </a>

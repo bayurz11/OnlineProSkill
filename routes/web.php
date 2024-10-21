@@ -214,7 +214,7 @@ Route::get('/success/{uuid}', [PaymentController::class, 'success'])->name('succ
 Route::middleware('isInstruktur')->group(function () {
     // Auth Instruktur
     Route::get('/dashboard_instruktur', [DashboardInstrukturController::class, 'index'])->name('dashboard_instruktur');
-    Route::get('/profile', [DashboardInstrukturController::class, 'profile'])->name('profile');
+    Route::get('/instruktur_profile', [DashboardInstrukturController::class, 'profile'])->name('instruktur_profile');
 });
 
 
