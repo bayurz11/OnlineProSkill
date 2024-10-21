@@ -33,9 +33,12 @@
     document.addEventListener('DOMContentLoaded', function() {
         const kurikulumModal = document.getElementById('kurikulumModal');
         kurikulumModal.addEventListener('show.bs.modal', function(event) {
-            const courseId = localStorage.getItem('selectedCourseId');
+            // Mendapatkan tombol yang memicu modal
+            const button = event.relatedTarget;
+            // Mengambil nilai dari atribut data-id
+            const courseId = button.getAttribute('data-id');
             if (courseId) {
-                console.log('Course ID ditemukan di localStorage:', courseId);
+                console.log('Course ID ditemukan dari data-id:', courseId);
                 document.getElementById('course_id').value = courseId;
             }
         });
