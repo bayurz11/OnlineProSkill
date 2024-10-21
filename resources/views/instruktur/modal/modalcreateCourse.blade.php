@@ -10,7 +10,7 @@
                 <form action="{{ route('courses.store') }}" method="POST" enctype="multipart/form-data"
                     id="createCourseForm">
                     @csrf
-                    <div class="mb-3" hidden>
+                    <div class="mb-3">
                         <div class="form-check form-check-inline">
                             <input type="radio" class="form-check-input" name="course_type" id="online"
                                 value="online" checked>
