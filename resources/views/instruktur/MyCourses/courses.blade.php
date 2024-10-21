@@ -102,54 +102,65 @@
 
                                     <div class="tab-pane fade" id="itemThree-tab-pane" role="tabpanel"
                                         aria-labelledby="itemThree-tab" tabindex="0">
-
                                         <div class="row">
-                                            <div class="alert alert-warning" role="alert">
-                                                Anda Belum Menambahkan kelas Apapun
-                                            </div>
-                                            @foreach ($KelasTatapMuka->where('status', 1)->take(3) as $kelas)
-                                                <div class="col-xl-4 col-md-6">
-
-                                                    <div class="courses__item courses__item-two shine__animate-item">
-                                                        <div class="courses__item-thumb courses__item-thumb-two">
-                                                            <a href="course-details.html" class="shine__animate-link">
-                                                                <img src="assets/img/courses/course_thumb02.jpg"
-                                                                    alt="img">
-                                                            </a>
-                                                        </div>
-                                                        <div class="courses__item-content courses__item-content-two">
-                                                            <ul class="courses__item-meta list-wrap">
-                                                                <li class="courses__item-tag">
-                                                                    <a href="course.html">Design</a>
-                                                                </li>
-                                                                <li class="price"><del>$20.00</del>$10.00</li>
-                                                            </ul>
-                                                            <h5 class="title"><a href="course-details.html">The
-                                                                    Complete
-                                                                    Graphic Design for Beginners</a></h5>
-                                                            <div class="courses__item-content-bottom">
-                                                                <div class="author-two">
-                                                                    <a href="instructor-details.html"><img
-                                                                            src="assets/img/courses/course_author002.png"
-                                                                            alt="img">Wilson</a>
-                                                                </div>
-                                                                <div class="avg-rating">
-                                                                    <i class="fas fa-star"></i> (4.5 Reviews)
+                                            @if ($KelasTatapMuka->isEmpty())
+                                                <div class="alert alert-warning" role="alert">
+                                                    Anda Belum Menambahkan kelas Apapun
+                                                </div>
+                                            @else
+                                                @foreach ($KelasTatapMuka->where('status', 1)->take(3) as $kelas)
+                                                    <div class="col-xl-4 col-md-6">
+                                                        <div class="courses__item courses__item-two shine__animate-item">
+                                                            <div class="courses__item-thumb courses__item-thumb-two">
+                                                                <a href="course-details.html" class="shine__animate-link">
+                                                                    <img src="assets/img/courses/course_thumb02.jpg"
+                                                                        alt="img">
+                                                                </a>
+                                                            </div>
+                                                            <div class="courses__item-content courses__item-content-two">
+                                                                <ul class="courses__item-meta list-wrap">
+                                                                    <li class="courses__item-tag">
+                                                                        <a href="course.html">{{ $kelas->category }}</a>
+                                                                    </li>
+                                                                    <li class="price">
+                                                                        <del>${{ $kelas->original_price }}</del>${{ $kelas->discounted_price }}
+                                                                    </li>
+                                                                </ul>
+                                                                <h5 class="title"><a
+                                                                        href="course-details.html">{{ $kelas->title }}</a>
+                                                                </h5>
+                                                                <div class="courses__item-content-bottom">
+                                                                    <div class="author-two">
+                                                                        <a href="instructor-details.html"><img
+                                                                                src="assets/img/courses/course_author002.png"
+                                                                                alt="img">{{ $kelas->instructor_name }}</a>
+                                                                    </div>
+                                                                    <div class="avg-rating">
+                                                                        <i class="fas fa-star"></i> ({{ $kelas->rating }}
+                                                                        Reviews)
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="courses__item-bottom-two">
-                                                            <ul class="list-wrap">
-                                                                <li><i class="flaticon-book"></i>60</li>
-                                                                <li><i class="flaticon-clock"></i>70h 45m</li>
-                                                                <li><i class="flaticon-mortarboard"></i>202</li>
-                                                            </ul>
+                                                            <div class="courses__item-bottom-two">
+                                                                <ul class="list-wrap">
+                                                                    <li><i
+                                                                            class="flaticon-book"></i>{{ $kelas->lesson_count }}
+                                                                    </li>
+                                                                    <li><i
+                                                                            class="flaticon-clock"></i>{{ $kelas->duration }}
+                                                                    </li>
+                                                                    <li><i
+                                                                            class="flaticon-mortarboard"></i>{{ $kelas->student_count }}
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            @endforeach
+                                                @endforeach
+                                            @endif
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
