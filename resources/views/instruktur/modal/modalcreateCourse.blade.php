@@ -50,7 +50,8 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="subcategory" class="form-label">Subkategori</label>
+                        <label for="subcategory" class="form-label">Subkategori<span
+                                class="text-danger">*</span></label>
                         <select id="subcategory" class="form-control" name="subkategori_id" disabled>
                             <option value="">Pilih Subkategori</option>
                         </select>
@@ -67,7 +68,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="content" class="form-label">Deskripsi<span class="text-danger">*</span></label>
-                        <textarea id="content" name="content" style="height: 100px; width: 100%; font-size: 18px;"></textarea>
+                        <textarea id="content" name="content" style="height: 400px; width: 100%; font-size: 18px;"></textarea>
                         <input type="hidden" id="content_input" name="content" required>
                         <script>
                             ClassicEditor.create(document.querySelector('#content'))
@@ -103,8 +104,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="price" class="form-label">Harga (Rp)<span class="text-danger">*</span></label>
-                        <input type="number" class="form-control" id="price" name="price" required
-                            min="0">
+                        <input type="number" class="form-control" id="price" name="price" required>
                     </div>
                     <div class="mb-3">
                         <label for="discount" class="form-label">Diskon %</label>
@@ -127,7 +127,7 @@
                     <div class="mb-3">
                         <label for="tag" class="form-label">Tag</label>
                         <input type="text" class="form-control" id="tag" name="tag">
-                        <small class="text-secondary">Note : Isi Dengan Tags kursus yang relevan</small>
+                        <small class="text-secondary">Note: Isi Dengan Tags kursus yang relevan</small>
                     </div>
                 </form>
             </div>
@@ -140,7 +140,7 @@
 </div>
 
 <script>
-    // Add dynamic fields
+    // Add dynamic fields for include and requirements
     document.getElementById('add-include').addEventListener('click', function() {
         let container = document.getElementById('include-container');
         let newInput = document.createElement('div');
@@ -164,10 +164,25 @@
     // Calculate discounted price
     function calculateDiscountedPrice() {
         let price = parseFloat(document.getElementById('price').value) || 0;
-        let discount = parseFloat(document.getElementById('discount').value) || 0;
-        let discountedPrice = price - (price * (discount / 100));
-        document.getElementById('discountedPrice').value = discountedPrice.toFixed(2);
+        let discountInput = document.getElementById('discount');
+        let discount = parseFloat(discountInput.value) || 0;
+        let discountedPriceInput = document.getElementById('discountedPrice');
+
+        // Enable or disable discounted price input based on discount input
+        if (discountInput.value.trim() === '') {
+            discountedPriceInput.value = '';
+            discountedPriceInput.setAttribute('readonly', true);
+        } else {
+            discountedPriceInput.removeAttribute('readonly');
+            let discountedPrice = price - (price * (discount / 100));
+            discountedPriceInput.value = discountedPrice.toFixed(2);
+        }
     }
+
+    // Initial setup to make sure discounted price is readonly
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('discountedPrice').setAttribute('readonly', true);
+    });
 
     // Image preview
     document.getElementById('gambar').addEventListener('change', function() {
