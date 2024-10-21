@@ -7,7 +7,7 @@
             <nav class="dashboard__sidebar-menu">
                 <ul class="list-wrap">
                     <li class="active">
-                        <a href="instructor-dashboard.html">
+                        <a href="{{ route('dashboard_instruktur') }}">
                             <i class="fas fa-home"></i>
                             Dashboard
                         </a>
