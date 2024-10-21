@@ -120,7 +120,7 @@
                                                             <div class="courses__item-content courses__item-content-two">
                                                                 <ul class="courses__item-meta list-wrap">
                                                                     <li class="courses__item-tag">
-                                                                        <a href="course.html">{{ $kelas->category }}</a>
+                                                                        <a href="course.html">{{ $kelas->tag }}</a>
                                                                     </li>
                                                                     <li class="price">
                                                                         <del>${{ $kelas->original_price }}</del>${{ $kelas->discounted_price }}
