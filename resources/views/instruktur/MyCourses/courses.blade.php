@@ -37,18 +37,18 @@
                             <div class="col-12">
                                 <div class="dashboard__nav-wrap">
                                     <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                        <li class="nav-item" role="presentation">
-                                            <button class="nav-link" id="itemThree-tab" data-bs-toggle="tab"
-                                                data-bs-target="#itemThree-tab-pane" type="button" role="tab"
-                                                aria-controls="itemThree-tab-pane" aria-selected="false">Draft</button>
-                                        </li>
+
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link active" id="itemOne-tab" data-bs-toggle="tab"
                                                 data-bs-target="#itemOne-tab-pane" type="button" role="tab"
                                                 aria-controls="itemOne-tab-pane" aria-selected="true">Publish</button>
                                         </li>
 
-
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="itemThree-tab" data-bs-toggle="tab"
+                                                data-bs-target="#itemThree-tab-pane" type="button" role="tab"
+                                                aria-controls="itemThree-tab-pane" aria-selected="false">Draft</button>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="tab-content" id="myTabContent">
