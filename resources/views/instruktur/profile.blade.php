@@ -69,10 +69,10 @@
                                         <li><span>Username</span> {{ $user->name }}</li>
                                         <li><span>Email</span> {{ $user->email }}</li>
                                         <li><span>Phone Number</span> {{ $profile->phone_number }}</li>
-                                        <li><span>Skill/Occupation</span> Application Developer</li>
+                                        {{-- <li><span>Skill/Occupation</span> Application Developer</li>
                                         <li><span>Biography</span> I'm the Front-End Developer for #ThemeGenix in New York,
                                             OR. I have a serious passion for UI effects, animations, and
-                                            creating intuitive, dynamic user experiences.</li>
+                                            creating intuitive, dynamic user experiences.</li> --}}
                                     </ul>
                                 </div>
                             </div>
