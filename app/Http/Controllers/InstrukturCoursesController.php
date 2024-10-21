@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\Categories;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
+use App\Models\KelasTatapMuka;
 use App\Models\NotifikasiUser;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -36,5 +37,49 @@ class InstrukturCoursesController extends Controller
             ->with('KelasTatapMuka')
             ->get();
         return view('instruktur.MyCourses.courses', compact('user', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders'));
+    }
+
+    public function store(Request $request)
+    {
+        // Mendapatkan ID pengguna yang sedang masuk
+        $userId = Auth::id();
+
+        // Proses unggahan gambar
+        $gambarName = null;
+        if ($request->hasFile('gambar')) {
+            $gambarName = time() . '.' . $request->gambar->extension();
+            $request->gambar->move(public_path('uploads'), $gambarName);
+        }
+
+        // Hitung harga setelah diskon jika ada
+        $hargaSetelahDiskon = null;
+        if ($request->filled('price') && $request->filled('discount')) {
+            $hargaSetelahDiskon = $request->price - ($request->price * ($request->discount / 100));
+        }
+
+        // Buat entitas kursus baru
+        $course = new KelasTatapMuka();
+        $course->nama_kursus = $request->nama_kursus;
+        $course->kategori_id = $request->kategori_id;
+        $course->subkategori_id = $request->subkategori_id;
+        $course->content = $request->content;
+        $course->tingkat = $request->tingkat;
+        $course->include = json_encode($request->include);
+        $course->perstaratan = json_encode($request->perstaratan);
+        $course->price = $request->filled('price') ? $request->price : null;
+        $course->discount = $request->filled('discount') ? $request->discount : null;
+        $course->discountedPrice = $hargaSetelahDiskon; // Simpan harga setelah diskon
+        $course->gambar = $gambarName;
+        $course->tag = $request->tag;
+        $course->durasi = $request->durasi;
+        $course->sertifikat = $request->sertifikat;
+        $course->kuota = $request->kuota;
+        $course->user_id = $userId;
+        $course->course_type = $request->course_type;
+
+        // Simpan data kursus ke database
+        $course->save();
+
+        return redirect()->route('instruktur_courses')->with('success', 'Kursus berhasil disimpan.');
     }
 }
