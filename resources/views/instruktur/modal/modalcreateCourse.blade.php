@@ -7,7 +7,9 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="createCourseForm">
+                <form action="{{ route('storeCourse') }}" method="POST" enctype="multipart/form-data"
+                    id="createCourseForm">
+                    @csrf
                     <div class="mb-3" hidden>
                         <div class="form-check form-check-inline">
                             <input type="radio" class="form-check-input" name="course_type" id="online"
