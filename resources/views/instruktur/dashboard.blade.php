@@ -20,13 +20,13 @@
                 data-aos-delay="400">
         </div>
     </div>
-    <!-- breadcrumb-area-end -->
 
     <!-- dashboard-area -->
     <section class="dashboard__area section-pb-120">
         <div class="container">
             <div class="dashboard__top-wrap">
-                <div class="dashboard__top-bg" data-background="{{ asset('public/assets/img/bg/student_bg.jpg') }}"></div>
+                <div class="dashboard__top-bg" data-background="{{ asset('public/assets/img/bg/student_bg.jpg') }}">
+                </div>
                 <div class="dashboard__instructor-info">
                     <div class="dashboard__instructor-info-left">
                         <div class="thumb">
@@ -35,174 +35,302 @@
                         </div>
                         <div class="content">
                             <h4 class="title">{{ $user->name }}</h4>
-                            <ul class="list-wrap">
-                                <li>
-                                    <img src="{{ asset('public/assets/img/icons/course_icon03.svg') }}" alt="img"
-                                        class="injectable">
-                                    {{ $orders->count() }} Kelas
-                                </li>
-
-                            </ul>
+                            <div class="review__wrap review__wrap-two">
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <span>(15 Reviews)</span>
+                            </div>
                         </div>
                     </div>
-
+                    <div class="dashboard__instructor-info-right">
+                        <a href="#" class="btn btn-two arrow-btn">Create a New Course <img
+                                src="assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
+                    </div>
                 </div>
             </div>
             <div class="row">
-
-                @include('studen.nav.nav')
-
+                <div class="col-lg-3">
+                    <div class="dashboard__sidebar-wrap">
+                        <div class="dashboard__sidebar-title mb-20">
+                            <h6 class="title">Welcome, Jone Due</h6>
+                        </div>
+                        <nav class="dashboard__sidebar-menu">
+                            <ul class="list-wrap">
+                                <li class="active">
+                                    <a href="instructor-dashboard.html">
+                                        <i class="fas fa-home"></i>
+                                        Dashboard
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="instructor-profile.html">
+                                        <i class="skillgro-avatar"></i>
+                                        My Profile
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="instructor-enrolled-courses.html">
+                                        <i class="skillgro-book"></i>
+                                        Enrolled Courses
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="instructor-wishlist.html">
+                                        <i class="skillgro-label"></i>
+                                        Wishlist
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="instructor-review.html">
+                                        <i class="skillgro-book-2"></i>
+                                        Reviews
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="instructor-attempts.html">
+                                        <i class="skillgro-question"></i>
+                                        My Quiz Attempts
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="instructor-history.html">
+                                        <i class="skillgro-satchel"></i>
+                                        Order History
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="dashboard__sidebar-title mt-40 mb-20">
+                            <h6 class="title">INSTRUCTOR</h6>
+                        </div>
+                        <nav class="dashboard__sidebar-menu">
+                            <ul class="list-wrap">
+                                <li>
+                                    <a href="instructor-courses.html">
+                                        <i class="skillgro-video-tutorial"></i>
+                                        My Courses
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="instructor-announcement.html">
+                                        <i class="skillgro-marketing"></i>
+                                        Announcements
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="instructor-quiz.html">
+                                        <i class="skillgro-chat"></i>
+                                        Quiz Attempts
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="instructor-assignment.html">
+                                        <i class="skillgro-list"></i>
+                                        Assignments
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="dashboard__sidebar-title mt-30 mb-20">
+                            <h6 class="title">User</h6>
+                        </div>
+                        <nav class="dashboard__sidebar-menu">
+                            <ul class="list-wrap">
+                                <li>
+                                    <a href="instructor-setting.html">
+                                        <i class="skillgro-settings"></i>
+                                        Settings
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="index.html">
+                                        <i class="skillgro-logout"></i>
+                                        Logout
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
                 <div class="col-lg-9">
-                    <div class="dashboard__content-wrap">
+                    <div class="dashboard__content-wrap dashboard__content-wrap-two mb-60">
                         <div class="dashboard__content-title">
-                            <h4 class="title">Profil Saya</h4>
-                            <p class="text">Informasi mengenai profil dan preferensi kamu di seluruh layanan ProSkill.</p>
+                            <h4 class="title">Dashboard</h4>
                         </div>
                         <div class="row">
-                            <div class="col-lg-12">
-                                <div class="dashboard__nav-wrap">
-                                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                        <li class="nav-item" role="presentation">
-                                            <button class="nav-link active" id="itemOne-tab" data-bs-toggle="tab"
-                                                data-bs-target="#itemOne-tab-pane" type="button" role="tab"
-                                                aria-controls="itemOne-tab-pane" aria-selected="true">Profil</button>
-                                        </li>
-                                        <li class="nav-item" role="presentation">
-                                            <button class="nav-link" id="itemTwo-tab" data-bs-toggle="tab"
-                                                data-bs-target="#itemTwo-tab-pane" type="button" role="tab"
-                                                aria-controls="itemTwo-tab-pane" aria-selected="false">Kata Sandi</button>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="tab-content" id="myTabContent">
-                                    <div class="tab-pane fade show active" id="itemOne-tab-pane" role="tabpanel"
-                                        aria-labelledby="itemOne-tab" tabindex="0">
-                                        <form action="{{ route('updateProfile', ['id' => $profile->id]) }}"
-                                            class="instructor__profile-form" method="POST" enctype="multipart/form-data">
-                                            @csrf
-
-                                            <div class="instructor__cover-bg">
-                                                <div class="instructor__cover-info">
-                                                    <div class="instructor__cover-info-left"
-                                                        onclick="document.getElementById('foto').click();">
-                                                        <div class="thumb">
-                                                            <img id="profileImage"
-                                                                src="{{ $profile && $profile->gambar ? (strpos($profile->gambar, 'googleusercontent') !== false ? $profile->gambar : asset('public/uploads/' . $profile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
-                                                                alt="img" width="120" height="120"
-                                                                style="object-fit: cover;">
-                                                            <p align="center">Max 2 Mb<span style="color: red">*</span></p>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="instructor__cover-info-right">
-                                                        <input type="file" id="foto" name="foto"
-                                                            style="display: none;" accept="image/*">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="instructor__profile-form-wrap">
-
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="form-grp">
-                                                            <label for="name">Nama Lengkap</label>
-                                                            <input id="name" name="name" type="text"
-                                                                value="{{ $user->name }}">
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-grp">
-                                                            <label for="dateofBirth">Tanggal Lahir<span
-                                                                    style="color: red">*</span></label>
-                                                            <input id="dateofBirth" name="dateofBirth" type="date"
-                                                                value="{{ $profile->date_of_birth }}">
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div class="col-md-6">
-                                                        <div class="form-grp select-grp">
-                                                            <label for="gender">Gender<span
-                                                                    style="color: red">*</span></label>
-                                                            <select id="gender" name="gender">
-                                                                <option>Pilih Gender</option>
-                                                                <option value="Laki-Laki"
-                                                                    {{ $profile->gender == 'Laki-Laki' ? 'selected' : '' }}>
-                                                                    Laki-Laki</option>
-                                                                <option value="Perempuan"
-                                                                    {{ $profile->gender == 'Perempuan' ? 'selected' : '' }}>
-                                                                    Perempuan</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-6">
-                                                        <div class="form-grp">
-                                                            <label for="phonenumber">No.HP<span
-                                                                    style="color: red">*</span></label>
-                                                            <input id="phonenumber" type="tel" name="phonenumber"
-                                                                maxlength="12" value="{{ $profile->phone_number }}"
-                                                                placeholder="08**********">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-6">
-                                                        <div class="form-grp">
-                                                            <label for="alamat">Alamat <span
-                                                                    style="color: red">*</span></label>
-                                                            <input id="alamat" name="alamat" type="text"
-                                                                value="{{ $profile->address }}"
-                                                                placeholder="Masukkan alamat">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                {{-- <div class="form-grp">
-                                                    <label for="bio">Bio</label>
-                                                    <textarea id="bio" name="bio">{{ $profile->bio }}</textarea>
-                                                </div> --}}
-                                                <div class="submit-btn mt-25">
-                                                    <button type="submit" class="btn">Perbahrui Informasi</button>
-                                                </div>
-
-                                            </div>
-                                        </form>
+                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                <div class="dashboard__counter-item">
+                                    <div class="icon">
+                                        <i class="skillgro-book"></i>
                                     </div>
-
-                                    <div class="tab-pane fade" id="itemTwo-tab-pane" role="tabpanel"
-                                        aria-labelledby="itemTwo-tab" tabindex="0">
-                                        <div class="instructor__profile-form-wrap">
-                                            <form action="{{ route('updatePassword', ['id' => $user->id]) }}"
-                                                method="POST" enctype="multipart/form-data"
-                                                class="instructor__profile-form">
-                                                @csrf
-                                                <div class="form-grp">
-                                                    <label for="email">Email</label>
-                                                    <input id="email" type="email" name="email"
-                                                        value="{{ $user->email }}">
-                                                </div>
-                                                <div class="form-grp">
-                                                    <label for="password">Kata Sandi Baru</label>
-                                                    <input id="password" type="password" name="password"
-                                                        placeholder="kata sandi baru">
-                                                </div>
-                                                <div class="form-grp">
-                                                    <label for="password_confirmation">Ketik Ulang Kata Sandi Baru</label>
-                                                    <input id="password_confirmation" name="password_confirmation"
-                                                        type="password" placeholder="Ketik Ulang Kata Sandi Baru">
-                                                </div>
-                                                <div class="submit-btn mt-25">
-                                                    <button type="submit" class="btn">Perbahrui Kata Sandi</button>
-                                                </div>
-                                            </form>
-                                        </div>
+                                    <div class="content">
+                                        <span class="count odometer" data-count="30"></span>
+                                        <p>ENROLLED COURSES</p>
                                     </div>
-
                                 </div>
-
                             </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                <div class="dashboard__counter-item">
+                                    <div class="icon">
+                                        <i class="skillgro-tutorial"></i>
+                                    </div>
+                                    <div class="content">
+                                        <span class="count odometer" data-count="10"></span>
+                                        <p>ACTIVE COURSES</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                <div class="dashboard__counter-item">
+                                    <div class="icon">
+                                        <i class="skillgro-diploma-1"></i>
+                                    </div>
+                                    <div class="content">
+                                        <span class="count odometer" data-count="7"></span>
+                                        <p>COMPLETED COURSES</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                <div class="dashboard__counter-item">
+                                    <div class="icon">
+                                        <i class="skillgro-group"></i>
+                                    </div>
+                                    <div class="content">
+                                        <span class="count odometer" data-count="160"></span>
+                                        <p>TOTAL STUDENTS</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                <div class="dashboard__counter-item">
+                                    <div class="icon">
+                                        <i class="skillgro-notepad"></i>
+                                    </div>
+                                    <div class="content">
+                                        <span class="count odometer" data-count="30"></span>
+                                        <p>TOTAL COURSES</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                <div class="dashboard__counter-item">
+                                    <div class="icon">
+                                        <i class="skillgro-dollar-currency-symbol"></i>
+                                    </div>
+                                    <div class="content">
+                                        <span class="count odometer" data-count="29000"></span>
+                                        <p>TOTAL EARNINGS</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dashboard__content-wrap">
+                        <div class="dashboard__content-title">
+                            <h4 class="title">My Courses</h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="dashboard__review-table">
+                                    <table class="table table-borderless">
+                                        <thead>
+                                            <tr>
+                                                <th>Course Name</th>
+                                                <th>Enrolled</th>
+                                                <th>Rating</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <a href="course-details.html">Accounting</a>
+                                                </td>
+                                                <td>
+                                                    <p class="color-black">50</p>
+                                                </td>
+                                                <td>
+                                                    <div class="review__wrap">
+                                                        <div class="rating">
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="course-details.html">Marketing</a>
+                                                </td>
+                                                <td>
+                                                    <p class="color-black">43</p>
+                                                </td>
+                                                <td>
+                                                    <div class="review__wrap">
+                                                        <div class="rating">
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="course-details.html">Web Design</a>
+                                                </td>
+                                                <td>
+                                                    <p class="color-black">36</p>
+                                                </td>
+                                                <td>
+                                                    <div class="review__wrap">
+                                                        <div class="rating">
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a href="course-details.html">Graphic</a>
+                                                </td>
+                                                <td>
+                                                    <p class="color-black">22</p>
+                                                </td>
+                                                <td>
+                                                    <div class="review__wrap">
+                                                        <div class="rating">
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="load-more-btn text-center mt-20">
+                            <a href="#" class="link-btn">Browse All Course <img
+                                    src="assets/img/icons/right_arrow.svg" alt="" class="injectable"></a>
                         </div>
                     </div>
                 </div>
@@ -211,34 +339,4 @@
     </section>
     <!-- dashboard-area-end -->
 
-    <script>
-        document.getElementById('foto').addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const img = document.getElementById('profileImage');
-                    img.src = e.target.result;
-                    img.onload = function() {
-                        // Set width and height attributes to 120x120
-                        img.style.width = '120px';
-                        img.style.height = '120px';
-                        img.style.objectFit = 'cover'; // Optional: ensure the image covers the area
-                    };
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-        document.addEventListener("DOMContentLoaded", function() {
-            const dateInput = document.getElementById('dateofBirth');
-            const today = new Date();
-            const minDate = new Date(today.getFullYear() - 100, today.getMonth(), today.getDate()).toISOString()
-                .split('T')[0]; // Set minimum date to 100 years ago
-            const maxDate = new Date(today.getFullYear() - 5, today.getMonth(), today.getDate()).toISOString()
-                .split('T')[0]; // Set maximum date to 5 years ago
-
-            dateInput.setAttribute('min', minDate);
-            dateInput.setAttribute('max', maxDate);
-        });
-    </script>
 @endsection
