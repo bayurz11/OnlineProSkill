@@ -162,13 +162,16 @@
                                                                 <span style="font-size: 14px; color: #b2b2b2;">{{ Str::limit($user->email, 10) }}</span>
                                                             </a>
                                                         </li> --}}
-                                                        <li class="{{ Request::is('akses_pembelian') ? 'active' : '' }}">
-                                                            <a href="{{ route('akses_pembelian') }}">Akses Pembelian</a>
-                                                        </li>
-                                                        <li class="{{ Request::is('profil') ? 'active' : '' }}">
-                                                            <a href="{{ route('profil') }}">Profil</a>
-                                                        </li>
-
+                                                        @if (auth()->user() && auth()->user()->userRole->role_id == 3)
+                                                            <li
+                                                                class="{{ Request::is('akses_pembelian') ? 'active' : '' }}">
+                                                                <a href="{{ route('akses_pembelian') }}">Akses
+                                                                    Pembelian</a>
+                                                            </li>
+                                                            <li class="{{ Request::is('profil') ? 'active' : '' }}">
+                                                                <a href="{{ route('profil') }}">Profil</a>
+                                                            </li>
+                                                        @endif
                                                         {{-- Tambahkan item menu jika role = 2 --}}
                                                         @if (auth()->user() && auth()->user()->userRole->role_id == 2)
                                                             <li
