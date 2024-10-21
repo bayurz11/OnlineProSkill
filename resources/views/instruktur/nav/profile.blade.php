@@ -22,8 +22,9 @@
             </div>
         </div>
         <div class="dashboard__instructor-info-right">
-            <a href="#" class="btn btn-two arrow-btn">Create a New Course <img
-                    src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#CoursesModal" class="btn btn-two arrow-btn">Create
+                a New Course <img src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
         </div>
     </div>
 </div>
+@include('instruktur.modal.modalcreateCourse')
