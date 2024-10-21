@@ -313,4 +313,5 @@
 @include('home.modal.register')
 @include('home.modal.registerinstruktur')
 @include('home.modal.registercart')
+@include('instruktur.modal.modalcreateCourse')
 <!-- header-area-end -->

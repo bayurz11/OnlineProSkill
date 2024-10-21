@@ -27,4 +27,3 @@
         </div>
     </div>
 </div>
-@include('instruktur.modal.modalcreateCourse')
