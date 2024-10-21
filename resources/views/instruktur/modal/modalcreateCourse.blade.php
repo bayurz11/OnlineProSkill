@@ -50,8 +50,7 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="subcategory" class="form-label">Subkategori<span
-                                class="text-danger">*</span></label>
+                        <label for="subcategory" class="form-label">Subkategori</label>
                         <select id="subcategory" class="form-control" name="subkategori_id" disabled>
                             <option value="">Pilih Subkategori</option>
                         </select>
