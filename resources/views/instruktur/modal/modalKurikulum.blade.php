@@ -12,8 +12,7 @@
                     @csrf
 
                     <!-- Hidden field for course_id -->
-                    <input type="hidden" name="course_id" value="{{ $course->id }}">
-
+                    <input type="hidden" name="course_id" id="course_id">
                     <div class="mb-3">
                         <label for="title" class="form-label">Judul<span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="title" name="title"
