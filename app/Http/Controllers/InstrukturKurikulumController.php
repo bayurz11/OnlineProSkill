@@ -40,7 +40,7 @@ class InstrukturKurikulumController extends Controller
             ->with('KelasTatapMuka')
             ->get();
 
-        return view('instruktur.MyCourses.courses', compact(
+        return view('instruktur.kurikulum.index', compact(
             'user',
             'KelasTatapMuka',
             'categori',
