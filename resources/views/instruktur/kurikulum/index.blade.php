@@ -34,10 +34,72 @@
                             <h4 class="title">Kurikulum</h4>
                         </div>
                         <div class="row">
-                            Masukkan Kurikulum
+                            <div class="card-body">
+                                <h6 class="card-title">Kurikulum</h6>
+                                <div class="d-flex justify-content-end">
+                                    <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal"
+                                        data-bs-target="#kurikulumModal" data-id="new">
+                                        <i class="btn-icon-prepend" data-feather="plus-circle"></i> Kurikulum
+                                    </button>
+                                </div>
+                                <br>
+                                <p class="text-muted mb-3">Jumlah Pertemuan: {{ $kurikulum->count() }}</p>
+                                <div class="table-responsive">
+                                    @foreach ($kurikulum as $kuri)
+                                        <div class="col-md-12 grid-margin stretch-card">
+                                            <div class="card">
+                                                <div class="card-body d-flex justify-content-between align-items-center">
+                                                    <div>
+                                                        Bagian {{ $kuri->no_urut }}. {{ $kuri->title }}
+                                                    </div>
+                                                    <div class="d-flex gap-2">
+                                                        <button type="button" class="btn btn-outline-primary"
+                                                            data-bs-toggle="modal" data-bs-target="#exampleModalEdit"
+                                                            title="Edit Kurikulum" data-id="{{ $kuri->id }}">
+                                                            <i class="btn-icon-prepend" data-feather="edit"></i>
+                                                        </button>
+                                                        <button onclick="hapus('{{ $kuri->id }}')"
+                                                            class="btn btn-outline-danger btn-icon" title="Hapus">
+                                                            <i data-feather="trash-2"></i>
+                                                        </button>
+                                                        <button type="button" class="btn btn-outline-primary"
+                                                            data-bs-toggle="modal" data-id="{{ $kuri->id }}"
+                                                            data-bs-target="#materiModal">
+                                                            <i class="btn-icon-prepend" data-feather="plus-circle"></i>
+                                                            Tambah Materi
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                @foreach ($kuri->sections as $section)
+                                                    <div class="card">
+                                                        <div
+                                                            class="card-body d-flex justify-content-between align-items-center">
+                                                            Pelajaran {{ $section->no_urut }}. {{ $section->title }}
+                                                            <div class="d-flex gap-2">
+                                                                <button type="button" class="btn btn-outline-primary"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#sectionModalEdit" title="Edit Section"
+                                                                    data-id="{{ $section->id }}">
+                                                                    <i class="btn-icon-prepend" data-feather="edit"></i>
+                                                                </button>
+                                                                <button onclick="hapus1('{{ $section->id }}')"
+                                                                    class="btn btn-outline-danger btn-icon" title="Hapus">
+                                                                    <i data-feather="trash-2"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
 
         </div>
