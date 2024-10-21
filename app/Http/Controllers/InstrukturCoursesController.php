@@ -18,6 +18,7 @@ class InstrukturCoursesController extends Controller
     {
         $categori = Categories::all();
         $cart = Session::get('cart', []);
+        $KelasTatapMuka = KelasTatapMuka::all();
         $user = Auth::user();
         if (!$user) {
             return redirect()->route('/');
