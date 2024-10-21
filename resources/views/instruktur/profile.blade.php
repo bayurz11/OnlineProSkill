@@ -38,7 +38,8 @@
                             <div class="col-lg-12">
                                 <div class="profile__content-wrap">
                                     <ul class="list-wrap">
-                                        <li><span>Registration Date</span> February 28, 2026 8:01 am</li>
+                                        <li><span>Registration Date</span> {{ $user->create_at }}February 28, 2026 8:01 am
+                                        </li>
                                         <li><span>Username</span> {{ $user->name }}</li>
                                         <li><span>Email</span> {{ $user->email }}</li>
                                         <li><span>Phone Number</span> {{ $profile->phone_number }}</li>
