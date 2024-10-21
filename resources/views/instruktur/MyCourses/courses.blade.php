@@ -112,7 +112,8 @@
                                                     <div class="col-xl-4 col-md-6">
                                                         <div class="courses__item courses__item-two shine__animate-item">
                                                             <div class="courses__item-thumb courses__item-thumb-two">
-                                                                <a href="course-details.html" class="shine__animate-link">
+                                                                <a href="{{ route('kurikulum', ['id' => $kelas->id]) }}"
+                                                                    class="shine__animate-link">
                                                                     <img src="{{ asset('public/uploads/' . $kelas->gambar) }}"
                                                                         alt="img" class="img-fluid"
                                                                         style="width: 100%; height: auto; object-fit: cover;">
@@ -143,28 +144,28 @@
                                                                     <div class="author-two">
                                                                         <a href="instructor-details.html"><img
                                                                                 src="{{ $profile && $profile->gambar ? (strpos($profile->gambar, 'googleusercontent') !== false ? $profile->gambar : asset('public/uploads/' . $profile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}" " style="object-fit: cover;"
-                                                                                        alt="img">{{ $kelas->instructor_name }}</a>
-                                                                            </div>
-                                                                            <div class="avg-rating">
-                                                                                <i class="fas fa-star"></i> ({{ $kelas->rating }}
-                                                                                Reviews)
+                                                                                            alt="img">{{ $kelas->instructor_name }}</a>
+                                                                                </div>
+                                                                                <div class="avg-rating">
+                                                                                    <i class="fas fa-star"></i> ({{ $kelas->rating }}
+                                                                                    Reviews)
+                                                                                </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="courses__item-bottom-two">
-                                                                        <ul class="list-wrap">
-                                                                            <li><i
-                                                                                    class="flaticon-book"></i>{{ $kelas->lesson_count }}
-                                                                            </li>
-                                                                            <li><i class="flaticon-clock"></i>{{ $kelas->durasi }}
-                                                                            </li>
-                                                                            <li><i
-                                                                                    class="flaticon-mortarboard"></i>{{ $kelas->student_count }}
-                                                                            </li>
-                                                                        </ul>
+                                                                        <div class="courses__item-bottom-two">
+                                                                            <ul class="list-wrap">
+                                                                                <li><i
+                                                                                        class="flaticon-book"></i>{{ $kelas->lesson_count }}
+                                                                                </li>
+                                                                                <li><i class="flaticon-clock"></i>{{ $kelas->durasi }}
+                                                                                </li>
+                                                                                <li><i
+                                                                                        class="flaticon-mortarboard"></i>{{ $kelas->student_count }}
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
      @endforeach
                                                 @endif
                                         </div>
