@@ -29,3 +29,20 @@
         </div>
     </div>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const kurikulumModal = document.getElementById('kurikulumModal');
+        kurikulumModal.addEventListener('show.bs.modal', function(event) {
+            const courseId = localStorage.getItem('selectedCourseId');
+            if (courseId) {
+                console.log('Course ID found in localStorage:', courseId);
+                document.getElementById('course_id').value = courseId;
+            }
+        });
+
+        kurikulumModal.addEventListener('hide.bs.modal', function(event) {
+            console.log('Modal closed, resetting form.');
+            document.getElementById('kurikulumForm').reset();
+        });
+    });
+</script>
