@@ -49,7 +49,7 @@
                     </div>
                     <div class="dashboard__instructor-info-right">
                         <a href="#" class="btn btn-two arrow-btn">Create a New Course <img
-                                src="assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
+                                src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
                     </div>
                 </div>
             </div>
@@ -57,7 +57,7 @@
                 <div class="col-lg-3">
                     <div class="dashboard__sidebar-wrap">
                         <div class="dashboard__sidebar-title mb-20">
-                            <h6 class="title">Welcome, Jone Due</h6>
+                            <h6 class="title">Welcome, {{ $user->name }}</h6>
                         </div>
                         <nav class="dashboard__sidebar-menu">
                             <ul class="list-wrap">
