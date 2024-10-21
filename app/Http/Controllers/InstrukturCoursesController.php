@@ -8,6 +8,7 @@ use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use App\Models\KelasTatapMuka;
 use App\Models\NotifikasiUser;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -35,6 +36,10 @@ class InstrukturCoursesController extends Controller
         // Ambil KelasTatapMuka berdasarkan user_id pengguna yang sedang login
         $KelasTatapMuka = KelasTatapMuka::where('user_id', $user->id)->get();
 
+        $jumlahPendaftaran = Order::select('product_id', DB::raw('count(*) as total'))
+            ->groupBy('product_id')
+            ->pluck('total', 'product_id');
+
         $orders = Order::where('user_id', $user->id)
             ->whereIn('status', ['PAID', 'SETTLED'])
             ->with('KelasTatapMuka')
@@ -48,7 +53,8 @@ class InstrukturCoursesController extends Controller
             'cart',
             'notifikasi',
             'notifikasiCount',
-            'orders'
+            'orders',
+            'jumlahPendaftaran'
         ));
     }
 

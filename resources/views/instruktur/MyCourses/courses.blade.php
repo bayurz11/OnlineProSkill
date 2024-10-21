@@ -160,7 +160,7 @@
                                                                     <li><i class="flaticon-clock"></i>{{ $kelas->durasi }}
                                                                     </li>
                                                                     <li><i
-                                                                            class="flaticon-mortarboard"></i>{{ $kelas->student_count }}
+                                                                            class="flaticon-mortarboard"></i>{{ $jumlahPendaftaran->get($cours->id, 0) }}
                                                                     </li>
                                                                 </ul>
                                                             </div>
