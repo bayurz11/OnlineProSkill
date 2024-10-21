@@ -1,4 +1,5 @@
-<div class="modal fade" id="CoursesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="CoursesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    style="z-index: 1055;">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
