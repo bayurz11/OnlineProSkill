@@ -39,7 +39,7 @@
                                 <div class="profile__content-wrap">
                                     <ul class="list-wrap">
                                         <li><span>Registration Date</span>
-                                            {{ \Carbon\Carbon::parse($user->created_at)->format('d F, Y h:i a') }}</li>
+                                            {{ \Carbon\Carbon::parse($user->created_at)->format('d F Y h:i a') }}</li>
 
                                         <li><span>Username</span> {{ $user->name }}</li>
                                         <li><span>Email</span> {{ $user->email }}</li>
