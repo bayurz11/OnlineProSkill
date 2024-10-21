@@ -209,10 +209,12 @@ Route::middleware('isStuden')->group(function () {
 Route::match(['get', 'post'], '/webhook/xendit', [PaymentController::class, 'handleXenditWebhook']);
 Route::get('/success/{uuid}', [PaymentController::class, 'success'])->name('success');
 
+
 //*********INSTRUKTUR*********//
 Route::middleware('isInstruktur')->group(function () {
     // Auth Instruktur
     Route::get('/dashboard_instruktur', [DashboardInstrukturController::class, 'index'])->name('dashboard_instruktur');
+    Route::get('/profile', [DashboardInstrukturController::class, 'profile'])->name('profile');
 });
 
 
