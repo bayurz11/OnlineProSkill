@@ -38,10 +38,10 @@
                             <div class="col-lg-12">
                                 <div class="profile__content-wrap">
                                     <ul class="list-wrap">
-                                        <li><span>Registration Date</span>
+                                        <li><span>Tanggal Bergabung</span>
                                             {{ \Carbon\Carbon::parse($user->created_at)->format('d F Y h:i a') }}</li>
 
-                                        <li><span>Username</span> {{ $user->name }}</li>
+                                        <li><span>Nama</span> {{ $user->name }}</li>
                                         <li><span>Email</span> {{ $user->email }}</li>
                                         <li><span>Phone Number</span> {{ $profile->phone_number }}</li>
                                         {{-- <li><span>Skill/Occupation</span> Application Developer</li>
