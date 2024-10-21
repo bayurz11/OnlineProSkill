@@ -150,19 +150,16 @@
                                             <ul class="navigation">
                                                 <li class="menu-item-has-children">
                                                     <a href="#">
-
                                                         <img src="{{ $profile && $profile->gambar ? (strpos($profile->gambar, 'googleusercontent') !== false ? $profile->gambar : asset('public/uploads/' . $profile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
                                                             alt="img" width="50" height="50"
                                                             style="border-radius: 50%; object-fit: cover;">
-
                                                     </a>
                                                     <ul class="sub-menu" style="left: 15; right: 20;">
                                                         {{-- <li>
                                                             <a class="dropdown-item">
                                                                 <b>{{ Str::limit($user->name, 10) }}</b>
                                                                 <br>
-                                                                <span
-                                                                    style="font-size: 14px; color: #b2b2b2;">{{ Str::limit($user->email, 10) }}</span>
+                                                                <span style="font-size: 14px; color: #b2b2b2;">{{ Str::limit($user->email, 10) }}</span>
                                                             </a>
                                                         </li> --}}
                                                         <li class="{{ Request::is('akses_pembelian') ? 'active' : '' }}">
@@ -171,6 +168,18 @@
                                                         <li class="{{ Request::is('profil') ? 'active' : '' }}">
                                                             <a href="{{ route('profil') }}">Profil</a>
                                                         </li>
+
+                                                        {{-- Tambahkan item menu jika role = 2 --}}
+                                                        @if (auth()->user() && auth()->user()->userRole->role_id == 2)
+                                                            <li class="{{ Request::is('my-profile') ? 'active' : '' }}">
+                                                                <a href="{{ route('my-profile') }}">My Profile</a>
+                                                            </li>
+                                                            <li
+                                                                class="{{ Request::is('my-course-quiz') ? 'active' : '' }}">
+                                                                <a href="{{ route('my-course-quiz') }}">My Course Quiz</a>
+                                                            </li>
+                                                        @endif
+
                                                         <li>
                                                             <form id="logout-form" action="{{ route('logout') }}"
                                                                 method="POST" style="display: none;">
@@ -185,6 +194,7 @@
                                                 </li>
                                             </ul>
                                         </div>
+
 
                                     @endauth
                                     @guest
