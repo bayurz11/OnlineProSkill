@@ -123,8 +123,14 @@
                                                                         <a href="course.html">{{ $kelas->tag }}</a>
                                                                     </li>
                                                                     <li class="price">
-                                                                        <del>${{ $kelas->original_price }}</del>${{ $kelas->discounted_price }}
+                                                                        @if (!empty($kelas->discountedPrice))
+                                                                            <del>${{ $kelas->price }}</del>
+                                                                            ${{ $kelas->discountedPrice }}
+                                                                        @else
+                                                                            ${{ $kelas->price }}
+                                                                        @endif
                                                                     </li>
+
                                                                 </ul>
                                                                 <h5 class="title"><a
                                                                         href="course-details.html">{{ $kelas->nama_kursus }}</a>
