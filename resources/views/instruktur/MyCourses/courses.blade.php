@@ -123,13 +123,14 @@
                                                                         <a href="course.html">{{ $kelas->tag }}</a>
                                                                     </li>
                                                                     <li class="price">
-                                                                        @if (!empty($kelas->discountedPrice))
-                                                                            <del>${{ $kelas->price }}</del>
-                                                                            Rp.{{ $kelas->discountedPrice }}
+                                                                        @if (!empty($kelas->discounted_price))
+                                                                            <del>Rp{{ number_format($kelas->original_price, 0, ',', '.') }}</del>
+                                                                            Rp{{ number_format($kelas->discounted_price, 0, ',', '.') }}
                                                                         @else
-                                                                            Rp. {{ $kelas->price }}
+                                                                            Rp{{ number_format($kelas->original_price, 0, ',', '.') }}
                                                                         @endif
                                                                     </li>
+
 
                                                                 </ul>
                                                                 <h5 class="title"><a
