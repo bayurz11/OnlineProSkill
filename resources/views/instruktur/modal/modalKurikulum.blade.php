@@ -11,11 +11,13 @@
                     id="createCourseForm">
                     @csrf
 
+                    <!-- Hidden field for course_id -->
+                    <input type="hidden" name="course_id" value="{{ $course->id }}">
 
                     <div class="mb-3">
-                        <label for="nama_kursus" class="form-label">Judul<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="nama_kursus" name="nama_kursus"
-                            placeholder="Masukkan Nama Kursus Anda" required>
+                        <label for="title" class="form-label">Judul<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="title" name="title"
+                            placeholder="Masukkan Judul Kurikulum Anda" required>
                     </div>
 
                 </form>

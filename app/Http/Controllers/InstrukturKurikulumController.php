@@ -53,4 +53,26 @@ class InstrukturKurikulumController extends Controller
             'kurikulum'
         ));
     }
+
+    public function store(Request $request)
+    {
+        // Validasi data
+        $validatedData = $request->validate([
+            'course_id' => 'required|integer',
+            'title' => 'required|string|max:255',
+        ]);
+
+        // Hitung jumlah entri yang ada untuk mendapatkan no_urut baru
+        $noUrut = Kurikulum::where('course_id', $validatedData['course_id'])->count() + 1;
+
+        // Buat entitas Kurikulum baru
+        $kurikulum = new Kurikulum;
+        $kurikulum->course_id = $validatedData['course_id'];
+        $kurikulum->title = $validatedData['title'];
+        $kurikulum->no_urut = $noUrut;
+        $kurikulum->save();
+
+        // Redirect ke halaman sebelumnya dengan pesan sukses
+        return redirect()->back()->with('success', 'Kurikulum berhasil ditambahkan.');
+    }
 }
