@@ -11,12 +11,19 @@
                     id="createCourseForm">
                     @csrf
                     <div class="mb-3">
+                        <label class="form-label">Tipe Kursus<span class="text-danger">*</span></label>
                         <div class="form-check form-check-inline">
                             <input type="radio" class="form-check-input" name="course_type" id="online"
                                 value="online" checked>
                             <label class="form-check-label" for="online">Online Course</label>
                         </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" name="course_type" id="offline"
+                                value="offline">
+                            <label class="form-check-label" for="offline">Offline Class</label>
+                        </div>
                     </div>
+
 
                     <div class="mb-3">
                         <label for="nama_kursus" class="form-label">Nama Kursus<span
