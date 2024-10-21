@@ -146,8 +146,7 @@
                                                                     <li><i
                                                                             class="flaticon-book"></i>{{ $kelas->lesson_count }}
                                                                     </li>
-                                                                    <li><i
-                                                                            class="flaticon-clock"></i>{{ $kelas->duration }}
+                                                                    <li><i class="flaticon-clock"></i>{{ $kelas->durasi }}
                                                                     </li>
                                                                     <li><i
                                                                             class="flaticon-mortarboard"></i>{{ $kelas->student_count }}
