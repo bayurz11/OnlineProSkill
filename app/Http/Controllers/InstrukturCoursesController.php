@@ -37,7 +37,7 @@ class InstrukturCoursesController extends Controller
             ->whereIn('status', ['PAID', 'SETTLED'])
             ->with('KelasTatapMuka')
             ->get();
-        return view('instruktur.MyCourses.courses', compact('user', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders'));
+        return view('instruktur.MyCourses.courses', compact('user', 'KelasTatapMuka', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders'));
     }
 
     public function store(Request $request)
