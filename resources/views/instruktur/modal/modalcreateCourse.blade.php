@@ -1,53 +1,47 @@
-<div class="modal fade" id="CoursesModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
-    style="z-index: 1055;">
+<!-- Modal -->
+<div class="modal fade" id="CoursesModal" tabindex="-1" aria-labelledby="CoursesModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <h5 class="modal-title" id="CoursesModalLabel">Create a New Course</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="singUp-wrap">
-                    <h2 class="title">Masuk Ke ProSkill</h2>
-                    <p>Silahkan masukkan informasi akun kamu.</p>
-
-                    <form action="{{ route('login') }}" class="account__form" method="POST" id="login">
-                        @csrf
-                        <div class="form-grp">
-                            <input id="email_or_phone" type="text" placeholder="Email atau Nomor Telepon"
-                                name="email_or_phone" autofocus>
-                        </div>
-                        <div class="form-grp">
-                            <input id="password" type="password" placeholder="Password" name="password">
-                        </div>
-                        <div class="account__check">
-                            <div class="account__check-remember">
-                                <input type="checkbox" class="form-check-input" value="" id="terms-check">
-                                <label for="terms-check" class="form-check-label">Ingat saya</label>
-                            </div>
-                            {{-- <div class="account__check-forgot">
-                                <a href="registration.html">Lupa Password?</a>
-                            </div> --}}
-                        </div>
-                        <button class="g-recaptcha btn btn-two arrow-btn"
-                            data-sitekey="{{ config('services.recaptcha_v3.siteKey') }}" data-callback="onSubmitLogin"
-                            data-action='submit'>Masuk
-                            <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
-                                class="injectable">
-                        </button>
-                    </form><br>
-
-                    <div class="account__social">
-                        <a href="{{ route('oauth.google') }}" class="account__social-btn">
-                            <img src="{{ asset('public/assets/img/icons/google.svg') }}" alt="img">
-                            Masuk Dengan Google
-                        </a>
+                <form id="createCourseForm">
+                    <div class="mb-3">
+                        <label for="courseTitle" class="form-label">Course Title</label>
+                        <input type="text" class="form-control" id="courseTitle" name="courseTitle"
+                            placeholder="Enter course title" required>
                     </div>
-                    <div class="account__switch">
-                        <p>Belum punya akun?<a href="#" data-bs-toggle="modal"
-                                data-bs-target="#exampleModalDaftar">Daftar</a></p>
+                    <div class="mb-3">
+                        <label for="courseDescription" class="form-label">Course Description</label>
+                        <textarea class="form-control" id="courseDescription" name="courseDescription" rows="4"
+                            placeholder="Enter course description" required></textarea>
                     </div>
-                </div>
+                    <div class="mb-3">
+                        <label for="courseImage" class="form-label">Course Image</label>
+                        <input type="file" class="form-control" id="courseImage" name="courseImage" accept="image/*">
+                    </div>
+                    <div class="mb-3">
+                        <label for="courseCategory" class="form-label">Category</label>
+                        <select class="form-select" id="courseCategory" name="courseCategory" required>
+                            <option selected disabled>Select category</option>
+                            <option value="Technology">Technology</option>
+                            <option value="Business">Business</option>
+                            <option value="Design">Design</option>
+                            <option value="Health">Health</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="coursePrice" class="form-label">Course Price</label>
+                        <input type="number" class="form-control" id="coursePrice" name="coursePrice"
+                            placeholder="Enter course price" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" form="createCourseForm">Create Course</button>
             </div>
         </div>
     </div>
