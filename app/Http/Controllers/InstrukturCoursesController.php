@@ -18,7 +18,6 @@ class InstrukturCoursesController extends Controller
     {
         $categori = Categories::all();
         $cart = Session::get('cart', []);
-        $KelasTatapMuka = KelasTatapMuka::all();
         $user = Auth::user();
         if (!$user) {
             return redirect()->route('/');
@@ -26,19 +25,33 @@ class InstrukturCoursesController extends Controller
         // Mengambil profil pengguna yang sedang login
         $profile = UserProfile::where('user_id', $user->id)->first();
         // Ambil notifikasi untuk pengguna yang sedang login
-        $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
+        $notifikasi = NotifikasiUser::where('user_id', $user->id)
             ->orderBy('created_at', 'desc')
-            ->get()
-            : collect();
+            ->get();
 
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
+
+        // Ambil KelasTatapMuka berdasarkan user_id pengguna yang sedang login
+        $KelasTatapMuka = KelasTatapMuka::where('user_id', $user->id)->get();
+
         $orders = Order::where('user_id', $user->id)
             ->whereIn('status', ['PAID', 'SETTLED'])
             ->with('KelasTatapMuka')
             ->get();
-        return view('instruktur.MyCourses.courses', compact('user', 'KelasTatapMuka', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders'));
+
+        return view('instruktur.MyCourses.courses', compact(
+            'user',
+            'KelasTatapMuka',
+            'categori',
+            'profile',
+            'cart',
+            'notifikasi',
+            'notifikasiCount',
+            'orders'
+        ));
     }
+
 
     public function store(Request $request)
     {
