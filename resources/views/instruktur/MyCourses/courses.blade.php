@@ -141,7 +141,7 @@
                                                                 <div class="courses__item-content-bottom">
                                                                     <div class="author-two">
                                                                         <a href="instructor-details.html"><img
-                                                                                src="assets/img/courses/course_author002.png"
+                                                                                src="public/assets/img/courses/course_author002.png"
                                                                                 alt="img">{{ $kelas->instructor_name }}</a>
                                                                     </div>
                                                                     <div class="avg-rating">
