@@ -35,7 +35,7 @@
                         </div>
                         <div class="row">
 
-                            <div class="col-lg-4 col-md-4 col-sm-6">
+                            <div class="col-lg-6 col-md-6 col-sm-8">
                                 <div class="dashboard__counter-item">
                                     <div class="icon">
                                         <i class="skillgro-group"></i>
@@ -46,7 +46,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-sm-6">
+                            <div class="col-lg-6 col-md-6 col-sm-8">
                                 <div class="dashboard__counter-item">
                                     <div class="icon">
                                         <i class="skillgro-notepad"></i>
@@ -57,7 +57,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-sm-6">
+                            {{-- <div class="col-lg-4 col-md-4 col-sm-6">
                                 <div class="dashboard__counter-item">
                                     <div class="icon">
                                         <i class="skillgro-dollar-currency-symbol"></i>
@@ -67,7 +67,7 @@
                                         <p>TOTAL EARNINGS</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="dashboard__content-wrap">
