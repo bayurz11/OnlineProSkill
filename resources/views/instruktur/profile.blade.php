@@ -68,7 +68,7 @@
                                         <li><span>Registration Date</span> February 28, 2026 8:01 am</li>
                                         <li><span>Username</span> {{ $user->name }}</li>
                                         <li><span>Email</span> {{ $user->email }}</li>
-                                        <li><span>Phone Number</span> {{ $user->phone }}</li>
+                                        <li><span>Phone Number</span> {{ $profile->phone_number }}</li>
                                         <li><span>Skill/Occupation</span> Application Developer</li>
                                         <li><span>Biography</span> I'm the Front-End Developer for #ThemeGenix in New York,
                                             OR. I have a serious passion for UI effects, animations, and
