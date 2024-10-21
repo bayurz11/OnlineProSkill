@@ -125,9 +125,9 @@
                                                                     <li class="price">
                                                                         @if (!empty($kelas->discountedPrice))
                                                                             <del>${{ $kelas->price }}</del>
-                                                                            ${{ $kelas->discountedPrice }}
+                                                                            Rp.{{ $kelas->discountedPrice }}
                                                                         @else
-                                                                            ${{ $kelas->price }}
+                                                                            Rp. {{ $kelas->price }}
                                                                         @endif
                                                                     </li>
 
