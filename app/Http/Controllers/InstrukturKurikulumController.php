@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Kurikulum;
 use App\Models\Categories;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Session;
 
 class InstrukturKurikulumController extends Controller
 {
-    public function index()
+    public function index($id)
     {
         $categori = Categories::all();
         $cart = Session::get('cart', []);
@@ -34,7 +35,7 @@ class InstrukturKurikulumController extends Controller
 
         // Ambil KelasTatapMuka berdasarkan user_id pengguna yang sedang login
         $KelasTatapMuka = KelasTatapMuka::where('user_id', $user->id)->get();
-
+        $kurikulum = Kurikulum::with('user')->where('course_id', $id)->get();
         $orders = Order::where('user_id', $user->id)
             ->whereIn('status', ['PAID', 'SETTLED'])
             ->with('KelasTatapMuka')
