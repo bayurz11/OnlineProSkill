@@ -36,6 +36,7 @@ use App\Http\Controllers\DashboardStudenController;
 use App\Http\Controllers\RiwayatTransaksiController;
 use App\Http\Controllers\HubungiKamiSettingController;
 use App\Http\Controllers\DashboardInstrukturController;
+use App\Http\Controllers\InstrukturCoursesController;
 use App\Http\Controllers\OrderHistoryManagerController;
 
 //Authentikasi
@@ -215,6 +216,7 @@ Route::middleware('isInstruktur')->group(function () {
     // Auth Instruktur
     Route::get('/dashboard_instruktur', [DashboardInstrukturController::class, 'index'])->name('dashboard_instruktur');
     Route::get('/instruktur_profile', [DashboardInstrukturController::class, 'profile'])->name('instruktur_profile');
+    Route::get('/instruktur_courses', [InstrukturCoursesController::class, 'index'])->name('instruktur_courses');
 });
 
 

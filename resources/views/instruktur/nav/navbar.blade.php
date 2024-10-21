@@ -55,7 +55,7 @@
         <nav class="dashboard__sidebar-menu">
             <ul class="list-wrap">
                 <li>
-                    <a href="instructor-courses.html">
+                    <a href="{{ route('instruktur_courses') }}">
                         <i class="skillgro-video-tutorial"></i>
                         My Courses
                     </a>
