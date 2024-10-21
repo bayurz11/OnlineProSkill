@@ -219,7 +219,7 @@ Route::middleware('isInstruktur')->group(function () {
 
     //Courses
     Route::get('/instruktur_courses', [InstrukturCoursesController::class, 'index'])->name('instruktur_courses');
-    Route::get('/courses/store', [InstrukturCoursesController::class, 'store'])->name('courses.store');
+    Route::post('/courses/store', [InstrukturCoursesController::class, 'store'])->name('courses.store');
 });
 
 
