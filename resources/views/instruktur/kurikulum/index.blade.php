@@ -32,12 +32,12 @@
                     <div class="dashboard__content-wrap">
                         <div class="dashboard__content-title">
                             <h4 class="title">Kurikulum</h4>
-                        </div>
-                        <div class="d-flex justify-content-end">
-                            <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal"
-                                data-bs-target="#kurikulumModal" data-id="new">
-                                <i class="btn-icon-prepend" data-feather="plus-circle"></i> Kurikulum
-                            </button>
+                            <div class="d-flex justify-content-end">
+                                <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal"
+                                    data-bs-target="#kurikulumModal" data-id="new">
+                                    <i class="btn-icon-prepend" data-feather="plus-circle"></i> Kurikulum
+                                </button>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="card-body">
