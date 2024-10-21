@@ -171,12 +171,13 @@
 
                                                         {{-- Tambahkan item menu jika role = 2 --}}
                                                         @if (auth()->user() && auth()->user()->userRole->role_id == 2)
-                                                            <li class="{{ Request::is('my-profile') ? 'active' : '' }}">
-                                                                <a href="{{ route('my-profile') }}">My Profile</a>
+                                                            <li
+                                                                class="{{ Request::is('instruktur_profile') ? 'active' : '' }}">
+                                                                <a href="{{ route('instruktur_profile') }}">My Profile</a>
                                                             </li>
                                                             <li
-                                                                class="{{ Request::is('my-course-quiz') ? 'active' : '' }}">
-                                                                <a href="{{ route('my-course-quiz') }}">My Course Quiz</a>
+                                                                class="{{ Request::is('instruktur_courses') ? 'active' : '' }}">
+                                                                <a href="{{ route('instruktur_courses') }}">Courses</a>
                                                             </li>
                                                         @endif
 
