@@ -47,19 +47,21 @@
     document.addEventListener('DOMContentLoaded', function() {
         const materiModal = document.getElementById('materiModal');
         materiModal.addEventListener('show.bs.modal', function(event) {
-            const button = event.relatedTarget;
-            const courseId = button.getAttribute('data-id');
+            const button = event.relatedTarget; // Mendapatkan button yang memicu modal
+            const courseId = button.getAttribute('data-id'); // Mendapatkan ID dari data-id
             if (courseId) {
                 console.log('Course ID ditemukan dari data-id:', courseId);
-                document.getElementById('course_id').value = courseId;
+                document.getElementById('course_id').value = courseId; // Mengatur nilai course_id
             }
         });
 
         materiModal.addEventListener('hide.bs.modal', function(event) {
             console.log('Modal ditutup, mengatur ulang formulir.');
-            document.getElementById('createKurikulumForm').reset();
+            document.getElementById('createKurikulumForm')
+        .reset(); // Mengatur ulang formulir saat modal ditutup
         });
     });
+
 
     document.getElementById('duration').addEventListener('input', function(e) {
         let value = e.target.value.replace(/[^0-9:]/g, '');
