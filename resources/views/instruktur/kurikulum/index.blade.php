@@ -45,7 +45,7 @@
                                 <p class="text-muted mb-3">Jumlah Pertemuan: {{ $kurikulum->count() }}</p>
                                 <div class="table-responsive">
                                     @foreach ($kurikulum as $kuri)
-                                        <div class="col-md-12 grid-margin stretch-card">
+                                        <div class="col-md-12 grid-margin stretch-card mb-2">
                                             <div class="card">
                                                 <div class="card-body d-flex justify-content-between align-items-center">
                                                     <div>
@@ -66,7 +66,7 @@
                                                             <i class="skillgro-plus-circle">+ Materi Baru</i>
                                                         </a>
                                                     </div>
-                                                </div> <br>
+                                                </div>
 
                                                 @foreach ($kuri->sections as $section)
                                                     <div class="card">
