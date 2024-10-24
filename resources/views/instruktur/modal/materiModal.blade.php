@@ -55,8 +55,10 @@
                 const courseId = button.getAttribute('data-id'); // Mendapatkan nilai data-id
 
                 if (courseId) {
-                    console.log('Course ID ditemukan dari data-id:', courseId);
+                    console.log('Course ID ditemukan dari data-id:', courseId); // Debugging
                     courseIdInput.value = courseId; // Set nilai input tersembunyi
+                } else {
+                    console.warn('Course ID tidak ditemukan!'); // Debug jika ID tidak ditemukan
                 }
             });
 
@@ -64,23 +66,6 @@
             materiModal.addEventListener('hide.bs.modal', function() {
                 console.log('Modal ditutup, mengatur ulang formulir.');
                 document.getElementById('createKurikulumForm').reset(); // Mengatur ulang formulir
-            });
-
-            // Validasi input durasi
-            document.getElementById('duration').addEventListener('input', function(e) {
-                let value = e.target.value.replace(/[^0-9:]/g, '');
-                let parts = value.split(':').map(Number);
-
-                if (parts.length === 1 && parts[0] > 59) {
-                    parts[1] = parts[0] % 60;
-                    parts[0] = Math.floor(parts[0] / 60);
-                } else if (parts.length === 2 && parts[1] > 59) {
-                    parts[2] = parts[1] % 60;
-                    parts[1] = Math.floor(parts[1] / 60);
-                }
-
-                value = parts.map(part => part.toString().padStart(2, '0')).join(':');
-                e.target.value = value;
             });
         }
     });
