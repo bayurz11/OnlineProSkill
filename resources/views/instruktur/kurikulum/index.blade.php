@@ -104,5 +104,23 @@
         </div>
     </section>
     <!-- dashboard-area-end -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const kurikulumModal = document.getElementById('kurikulumModal');
+
+            kurikulumModal.addEventListener('show.bs.modal', function(event) {
+                const button = event.relatedTarget;
+                const courseId = button.getAttribute('data-id');
+
+                if (courseId) {
+                    document.getElementById('course_id').value = courseId;
+                }
+            });
+
+            kurikulumModal.addEventListener('hide.bs.modal', function() {
+                document.getElementById('createKurikulumForm').reset();
+            });
+        });
+    </script>
 
 @endsection
