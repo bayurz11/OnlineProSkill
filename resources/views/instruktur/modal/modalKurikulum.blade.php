@@ -1,4 +1,3 @@
-<!-- Modal -->
 <div class="modal fade" id="kurikulumModal" tabindex="-1" aria-labelledby="kurikulumModalModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -8,9 +7,7 @@
             </div>
             <div class="modal-body">
                 <form action="{{ route('kurikulum.store') }}" method="POST" id="createKurikulumForm">
-
                     @csrf
-
                     <!-- Hidden field for course_id -->
                     <input type="hidden" name="course_id" id="course_id">
                     <div class="mb-3">
@@ -18,7 +15,6 @@
                         <input type="text" class="form-control" id="title" name="title"
                             placeholder="Masukkan Judul Kurikulum Anda" required>
                     </div>
-
                 </form>
             </div>
             <div class="modal-footer">
