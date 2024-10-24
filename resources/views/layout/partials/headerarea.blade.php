@@ -327,6 +327,7 @@
 @include('home.modal.register')
 @include('home.modal.registerinstruktur')
 @include('home.modal.registercart')
+<!-- Model instruktur -->
 @include('instruktur.modal.modalcreateCourse')
 @include('instruktur.modal.modalKurikulum')
 @include('instruktur.modal.materiModal')
