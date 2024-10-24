@@ -9,8 +9,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
                 </div>
                 <div class="modal-body">
-                    <!-- Hidden field for course_id -->
-                    <input type="hidden" name="course_id" id="course_id">
+                    <!-- Hidden field for kurikulum_id -->
+                    <input type="hidden" name="kurikulum_id" id="kurikulum_id">
 
                     <div class="mb-3">
                         <label for="title" class="form-label">Judul <span class="text-danger">*</span></label>
@@ -46,7 +46,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const materiModal = document.getElementById('materiModal');
-        const courseIdInput = document.getElementById('course_id');
+        const courseIdInput = document.getElementById('kurikulum_id');
 
         if (materiModal && courseIdInput) {
             // Saat modal ditampilkan
