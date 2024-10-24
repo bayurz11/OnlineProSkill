@@ -114,7 +114,8 @@
                                                             <div class="courses__item-thumb courses__item-thumb-two">
                                                                 <a href="{{ route('instruktur.kurikulum', ['id' => $kelas->id]) }}"
                                                                     data-id="{{ $kelas->id }}"
-                                                                    class="shine__animate-link ">
+                                                                    class="shine__animate-link">
+
                                                                     <img src="{{ asset('public/uploads/' . $kelas->gambar) }}"
                                                                         alt="img" class="img-fluid"
                                                                         style="width: 100%; height: auto; object-fit: cover;">
