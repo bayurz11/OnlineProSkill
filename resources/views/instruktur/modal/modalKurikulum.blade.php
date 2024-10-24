@@ -7,7 +7,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('kurikulum.store') }}" method="POST" id="createCourseForm">
+                <form action="{{ route('kurikulum.store') }}" method="POST" id="createKurikulumForm">
 
                     @csrf
 
@@ -23,7 +23,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
-                <button type="submit" class="btn btn-primary" form="createCourseForm">Simpan</button>
+                <button type="submit" class="btn btn-primary" form="createKurikulumForm">Simpan</button>
             </div>
         </div>
     </div>
@@ -45,7 +45,7 @@
 
         kurikulumModal.addEventListener('hide.bs.modal', function(event) {
             console.log('Modal ditutup, mengatur ulang formulir.');
-            document.getElementById('createCourseForm').reset();
+            document.getElementById('createKurikulumForm').reset();
         });
     });
 </script>
