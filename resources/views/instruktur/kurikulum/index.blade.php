@@ -72,7 +72,7 @@
                                                     <div class="card mt-2">
                                                         <!-- Tambahkan margin-top untuk memberi jarak antar card -->
                                                         <div
-                                                            class="card-body d-flex justify-content-between align-items-center px-4">
+                                                            class="card-body d-flex justify-content-between align-items-center px-6">
                                                             <!-- Tambahkan padding px-4 untuk menambah jarak kiri dan kanan -->
                                                             Pelajaran {{ $section->no_urut }}. {{ $section->title }}
                                                             <div class="dashboard__review-action">
