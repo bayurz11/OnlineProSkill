@@ -71,7 +71,7 @@
                                                 @foreach ($kuri->sections as $section)
                                                     <div class="card">
                                                         <div
-                                                            class="card-body d-flex justify-content-between align-items-center">
+                                                            class="card-body d-flex justify-content-between align-items-center px-3">
                                                             Pelajaran {{ $section->no_urut }}. {{ $section->title }}
                                                             <div class="dashboard__review-action">
                                                                 <a href="#" title="Edit" data-bs-toggle="modal"
@@ -87,6 +87,7 @@
                                                         </div>
                                                     </div>
                                                 @endforeach
+
                                             </div>
                                         </div>
                                     @endforeach
