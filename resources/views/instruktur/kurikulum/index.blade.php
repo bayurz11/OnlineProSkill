@@ -51,22 +51,20 @@
                                                     <div>
                                                         Bagian {{ $kuri->no_urut }}. {{ $kuri->title }}
                                                     </div>
-                                                    <div class="d-flex gap-2">
-                                                        <button type="button" class="btn btn-outline-primary"
-                                                            data-bs-toggle="modal" data-bs-target="#exampleModalEdit"
-                                                            title="Edit Kurikulum" data-id="{{ $kuri->id }}">
-                                                            <i class="btn-icon-prepend" data-feather="edit"></i>
-                                                        </button>
-                                                        <button onclick="hapus('{{ $kuri->id }}')"
-                                                            class="btn btn-outline-danger btn-icon" title="Hapus">
-                                                            <i data-feather="trash-2"></i>
-                                                        </button>
-                                                        <button type="button" class="btn btn-outline-primary"
-                                                            data-bs-toggle="modal" data-id="{{ $kuri->id }}"
-                                                            data-bs-target="#materiModal">
-                                                            <i class="btn-icon-prepend" data-feather="plus-circle"></i>
-                                                            Tambah Materi
-                                                        </button>
+                                                    <div class="dashboard__review-action">
+                                                        <a href="#" title="Edit" data-bs-toggle="modal"
+                                                            data-bs-target="#exampleModalEdit"
+                                                            data-id="{{ $kuri->id }}">
+                                                            <i class="skillgro-edit"></i>
+                                                        </a>
+                                                        <a href="#" title="Delete"
+                                                            onclick="hapus('{{ $kuri->id }}')">
+                                                            <i class="skillgro-bin"></i>
+                                                        </a>
+                                                        <a href="#" title="Tambah Materi" data-bs-toggle="modal"
+                                                            data-id="{{ $kuri->id }}" data-bs-target="#materiModal">
+                                                            <i class="skillgro-plus-circle"></i>
+                                                        </a>
                                                     </div>
                                                 </div>
 
@@ -75,17 +73,16 @@
                                                         <div
                                                             class="card-body d-flex justify-content-between align-items-center">
                                                             Pelajaran {{ $section->no_urut }}. {{ $section->title }}
-                                                            <div class="d-flex gap-2">
-                                                                <button type="button" class="btn btn-outline-primary"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#sectionModalEdit" title="Edit Section"
+                                                            <div class="dashboard__review-action">
+                                                                <a href="#" title="Edit" data-bs-toggle="modal"
+                                                                    data-bs-target="#sectionModalEdit"
                                                                     data-id="{{ $section->id }}">
-                                                                    <i class="btn-icon-prepend" data-feather="edit"></i>
-                                                                </button>
-                                                                <button onclick="hapus1('{{ $section->id }}')"
-                                                                    class="btn btn-outline-danger btn-icon" title="Hapus">
-                                                                    <i data-feather="trash-2"></i>
-                                                                </button>
+                                                                    <i class="skillgro-edit"></i>
+                                                                </a>
+                                                                <a href="#" title="Delete"
+                                                                    onclick="hapus1('{{ $section->id }}')">
+                                                                    <i class="skillgro-bin"></i>
+                                                                </a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -93,6 +90,7 @@
                                             </div>
                                         </div>
                                     @endforeach
+
                                 </div>
                             </div>
                         </div>
