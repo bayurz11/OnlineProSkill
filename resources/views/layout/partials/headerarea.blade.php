@@ -329,4 +329,5 @@
 @include('home.modal.registercart')
 @include('instruktur.modal.modalcreateCourse')
 @include('instruktur.modal.modalKurikulum')
+@include('instruktur.modal.materiModal')
 <!-- header-area-end -->
