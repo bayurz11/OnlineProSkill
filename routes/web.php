@@ -38,6 +38,7 @@ use App\Http\Controllers\HubungiKamiSettingController;
 use App\Http\Controllers\DashboardInstrukturController;
 use App\Http\Controllers\InstrukturCoursesController;
 use App\Http\Controllers\InstrukturKurikulumController;
+use App\Http\Controllers\InstrukturSectionController;
 use App\Http\Controllers\OrderHistoryManagerController;
 
 //Authentikasi
@@ -225,6 +226,8 @@ Route::middleware('isInstruktur')->group(function () {
     //kurikulum
     Route::get('/instruktur/kurikulum/{id}', [InstrukturKurikulumController::class, 'index'])->name('instruktur.kurikulum');
     Route::post('/instruktur_kurikulum/store', [InstrukturKurikulumController::class, 'store'])->name('instruktur_kurikulum.store');
+
+    Route::post('/instruktur_section/store', [InstrukturSectionController::class, 'store'])->name('instruktur_section.store');
 });
 
 

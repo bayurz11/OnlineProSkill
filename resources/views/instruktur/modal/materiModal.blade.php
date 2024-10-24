@@ -1,7 +1,7 @@
 <div class="modal fade" id="materiModal" tabindex="-1" aria-labelledby="materiModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form id="createKurikulumForm" action="{{ route('instruktur_kurikulum.store') }}" method="POST"
+            <form id="createKurikulumForm" action="{{ route('instruktur_section.store') }}" method="POST"
                 enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
