@@ -46,36 +46,42 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const materiModal = document.getElementById('materiModal');
-        materiModal.addEventListener('show.bs.modal', function(event) {
-            const button = event.relatedTarget; // Mendapatkan button yang memicu modal
-            const courseId = button.getAttribute('data-id'); // Mendapatkan ID dari data-id
-            if (courseId) {
-                console.log('Course ID ditemukan dari data-id:', courseId);
-                document.getElementById('course_id').value = courseId; // Mengatur nilai course_id
-            }
-        });
+        const courseIdInput = document.getElementById('course_id');
 
-        materiModal.addEventListener('hide.bs.modal', function(event) {
-            console.log('Modal ditutup, mengatur ulang formulir.');
-            document.getElementById('createKurikulumForm')
-        .reset(); // Mengatur ulang formulir saat modal ditutup
-        });
-    });
+        if (materiModal && courseIdInput) {
+            // Saat modal ditampilkan
+            materiModal.addEventListener('show.bs.modal', function(event) {
+                const button = event.relatedTarget; // Mendapatkan tombol yang memicu modal
+                const courseId = button.getAttribute('data-id'); // Mendapatkan nilai data-id
 
+                if (courseId) {
+                    console.log('Course ID ditemukan dari data-id:', courseId);
+                    courseIdInput.value = courseId; // Set nilai input tersembunyi
+                }
+            });
 
-    document.getElementById('duration').addEventListener('input', function(e) {
-        let value = e.target.value.replace(/[^0-9:]/g, '');
-        let parts = value.split(':').map(Number);
+            // Saat modal ditutup
+            materiModal.addEventListener('hide.bs.modal', function() {
+                console.log('Modal ditutup, mengatur ulang formulir.');
+                document.getElementById('createKurikulumForm').reset(); // Mengatur ulang formulir
+            });
 
-        if (parts.length === 1 && parts[0] > 59) {
-            parts[1] = parts[0] % 60;
-            parts[0] = Math.floor(parts[0] / 60);
-        } else if (parts.length === 2 && parts[1] > 59) {
-            parts[2] = parts[1] % 60;
-            parts[1] = Math.floor(parts[1] / 60);
+            // Validasi input durasi
+            document.getElementById('duration').addEventListener('input', function(e) {
+                let value = e.target.value.replace(/[^0-9:]/g, '');
+                let parts = value.split(':').map(Number);
+
+                if (parts.length === 1 && parts[0] > 59) {
+                    parts[1] = parts[0] % 60;
+                    parts[0] = Math.floor(parts[0] / 60);
+                } else if (parts.length === 2 && parts[1] > 59) {
+                    parts[2] = parts[1] % 60;
+                    parts[1] = Math.floor(parts[1] / 60);
+                }
+
+                value = parts.map(part => part.toString().padStart(2, '0')).join(':');
+                e.target.value = value;
+            });
         }
-
-        value = parts.map(part => part.toString().padStart(2, '0')).join(':');
-        e.target.value = value;
     });
 </script>
