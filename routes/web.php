@@ -227,6 +227,7 @@ Route::middleware('isInstruktur')->group(function () {
     Route::get('/instruktur/kurikulum/{id}', [InstrukturKurikulumController::class, 'index'])->name('instruktur.kurikulum');
     Route::post('/instruktur_kurikulum/store', [InstrukturKurikulumController::class, 'store'])->name('instruktur_kurikulum.store');
 
+    Route::get('/section-content/{id}', [InstrukturSectionController::class, 'getContent']);
     Route::post('/instruktur_section/store', [InstrukturSectionController::class, 'store'])->name('instruktur_section.store');
 });
 
