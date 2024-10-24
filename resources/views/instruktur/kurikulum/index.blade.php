@@ -63,7 +63,7 @@
                                                         </a>
                                                         <a href="#" title="Tambah Materi" data-bs-toggle="modal"
                                                             data-id="{{ $kuri->id }}" data-bs-target="#materiModal">
-                                                            <i class="skillgro-plus-circle"></i>
+                                                            <i class="skillgro-plus-circle">+ Materi Baru</i>
                                                         </a>
                                                     </div>
                                                 </div>
