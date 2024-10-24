@@ -66,7 +66,7 @@
                                                             <i class="skillgro-plus-circle">+ Materi Baru</i>
                                                         </a>
                                                     </div>
-                                                </div>
+                                                </div> <br>
 
                                                 @foreach ($kuri->sections as $section)
                                                     <div class="card">
