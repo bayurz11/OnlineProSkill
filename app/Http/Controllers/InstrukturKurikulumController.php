@@ -32,7 +32,7 @@ class InstrukturKurikulumController extends Controller
 
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
-
+        $kelas = KelasTatapMuka::find($id);
         // Ambil KelasTatapMuka berdasarkan user_id pengguna yang sedang login
         $KelasTatapMuka = KelasTatapMuka::where('user_id', $user->id)->get();
         $kurikulum = Kurikulum::with('user')->where('course_id', $id)->get();
@@ -50,7 +50,8 @@ class InstrukturKurikulumController extends Controller
             'notifikasi',
             'notifikasiCount',
             'orders',
-            'kurikulum'
+            'kurikulum',
+            'kelas'
         ));
     }
 

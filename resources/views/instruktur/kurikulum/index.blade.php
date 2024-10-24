@@ -34,7 +34,7 @@
                             <h4 class="title">Kurikulum</h4>
                             <div class="d-flex justify-content-end">
                                 <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal"
-                                    data-bs-target="#kurikulumModal" data-id="{{ $kurikulum->course_id }}">
+                                    data-bs-target="#kurikulumModal" data-id="{{ $kelas->id }}">
                                     <i class="btn-icon-prepend" data-feather="plus-circle"></i> + Kurikulum Baru
                                 </button>
                             </div>
@@ -104,23 +104,5 @@
         </div>
     </section>
     <!-- dashboard-area-end -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const kurikulumModal = document.getElementById('kurikulumModal');
-
-            kurikulumModal.addEventListener('show.bs.modal', function(event) {
-                const button = event.relatedTarget;
-                const courseId = button.getAttribute('data-id');
-
-                if (courseId) {
-                    document.getElementById('course_id').value = courseId;
-                }
-            });
-
-            kurikulumModal.addEventListener('hide.bs.modal', function() {
-                document.getElementById('createKurikulumForm').reset();
-            });
-        });
-    </script>
 
 @endsection
