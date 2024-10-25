@@ -1,10 +1,55 @@
-@section('title', 'ProSkill Akademia | Profil Saya')
-<?php $page = 'index'; ?>
+@section('title', 'ProSkill Akademia | Detail Kelas Tatap Muka')
+<?php $page = 'classroom'; ?>
 
 @extends('layout.mainlayout')
 
 @section('content')
 
+    <!-- breadcrumb-area -->
+    <div class="breadcrumb__area breadcrumb__bg breadcrumb__bg-two"
+        data-background="{{ asset('public/assets/img/bg/breadcrumb_bg.jpg') }}">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb__content">
+                        <nav class="breadcrumb">
+                            <span property="itemListElement" typeof="ListItem">
+                                <a href="{{ route('/') }}">Beranda</a>
+                            </span>
+                            <span class="breadcrumb-separator"><i class="fas fa-angle-right"></i></span>
+                            <span property="itemListElement" typeof="ListItem">
+                                <a href="{{ route('classroom') }}">Kelas Tatap Muka</a>
+                            </span>
+                            <span class="breadcrumb-separator"><i class="fas fa-angle-right"></i></span>
+                            <span property="itemListElement" typeof="ListItem">{{ $courses->nama_kursus }}</span>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="breadcrumb__shape-wrap">
+            <img src="{{ asset('public/assets/img/others/breadcrumb_shape01.svg') }}" alt="img" class="alltuchtopdown">
+            <img src="{{ asset('public/assets/img/others/breadcrumb_shape02.svg') }}" alt="img" data-aos="fade-right"
+                data-aos-delay="300">
+            <img src="{{ asset('public/assets/img/others/breadcrumb_shape03.svg') }}" alt="img" data-aos="fade-up"
+                data-aos-delay="400">
+            <img src="{{ asset('public/assets/img/others/breadcrumb_shape04.svg') }}" alt="img"
+                data-aos="fade-down-left" data-aos-delay="400">
+            <img src="{{ asset('public/assets/img/others/breadcrumb_shape05.svg') }}" alt="img" data-aos="fade-left"
+                data-aos-delay="400">
+        </div>
+    </div>
+    <!-- breadcrumb-area-end -->
 
+    <!-- courses-details-area -->
+    <section class="courses__details-area section-py-120">
+        <div class="container">
+            <div class="row">
+
+            </div>
+
+        </div>
+    </section>
+    <!-- courses-details-area-end -->
 
 @endsection
