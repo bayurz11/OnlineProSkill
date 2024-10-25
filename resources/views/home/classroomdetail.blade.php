@@ -275,7 +275,7 @@
                             <span>Kursus Fee:</span>
                             <h6 class="title">
                                 @if (!empty($courses->discountedPrice))
-                                    <del style="font-size: 0.8em;">Rp
+                                    <del style="font-size: 5px;">Rp
                                         {{ number_format($courses->price, 0, ',', '.') }}</del>
                                     Rp {{ number_format($courses->discountedPrice, 0, ',', '.') }}
                                 @else
