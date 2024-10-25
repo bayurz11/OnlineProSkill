@@ -39,10 +39,8 @@
     <!-- breadcrumb-area-end -->
 
     <!-- dashboard-area -->
-    <section class="dashboard__area section-pb-120">
+    <section class="courses__details-area section-py-120">
         <div class="container">
-
-
             <div class="row">
                 <div class="col-lg-3">
                     <div class="dashboard__sidebar-wrap">
