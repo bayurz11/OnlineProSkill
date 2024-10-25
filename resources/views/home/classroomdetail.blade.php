@@ -274,16 +274,14 @@
                         <div class="courses__cost-wrap">
                             <span>Kursus Fee:</span>
                             <h2 class="title">
-                                @if (!empty($courses->Price))
-                                    <del>Rp
-                                        {{ number_format($courses->discountedPrice, 0, ',', '.') }}</del>
-                                    Rp
-                                    {{ number_format($courses->Price, 0, ',', '.') }}
+                                @if (!empty($courses->discountedPrice))
+                                    <del>Rp {{ number_format($courses->price, 0, ',', '.') }}</del>
+                                    Rp {{ number_format($courses->discountedPrice, 0, ',', '.') }}
                                 @else
-                                    Rp
-                                    {{ number_format($courses->discountedPrice, 0, ',', '.') }}
+                                    Rp {{ number_format($courses->price, 0, ',', '.') }}
                                 @endif
                             </h2>
+
                         </div>
                         <div class="courses__information-wrap">
                             <h5 class="title">Keterangan:</h5>
