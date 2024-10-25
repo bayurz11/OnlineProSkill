@@ -166,6 +166,12 @@
                                                             <span class="badge bg-secondary">Kelas Tatap Muka</span>
                                                         @endif
                                                     </li>
+                                                    @php
+                                                        $hargaKelas = [
+                                                            'original' => $kelas->price,
+                                                            'discounted' => $kelas->discountedPrice,
+                                                        ];
+                                                    @endphp
                                                     <li class="price">
                                                         @if (!empty($hargaKelas['discounted']))
                                                             <del>Rp
