@@ -279,7 +279,7 @@
                                             Rp {{ number_format($courses->price, 0, ',', '.') }}
                                         </span>
                                         <br>
-                                        <span style="font-size: 24px; font-weight: bold;">
+                                        <span style="font-size: 30px; font-weight: bold;">
                                             Rp {{ number_format($courses->discountedPrice, 0, ',', '.') }}
                                         </span>
                                     </div>
