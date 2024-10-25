@@ -178,6 +178,9 @@
                                                                     Rp {{ number_format($item['price'], 0, ',', '.') }}
                                                                 @endif
                                                             </li>
+                                                            @if (in_array($cours->id, $joinedCourses))
+                                                                <span class="badge bg-success">Joined</span>
+                                                            @endif
                                                         </ul>
                                                         <h5 class="title course-title flex-grow-1">
                                                             <a
