@@ -273,15 +273,18 @@
                     <div class="courses__details-sidebar">
                         <div class="courses__cost-wrap">
                             <span>Kursus Fee:</span>
-                            <h6 class="title">
+                            <h2 class="title">
                                 @if (!empty($courses->discountedPrice))
-                                    <del style="font-size: 15px;">Rp
-                                        {{ number_format($courses->price, 0, ',', '.') }}</del> <br>
+                                    <span style="font-size: 15px;">
+                                        <del>Rp {{ number_format($courses->price, 0, ',', '.') }}</del>
+                                    </span>
+                                    <br> <!-- Menambahkan baris baru -->
                                     Rp {{ number_format($courses->discountedPrice, 0, ',', '.') }}
                                 @else
                                     Rp {{ number_format($courses->price, 0, ',', '.') }}
                                 @endif
-                            </h6>
+                            </h2>
+
 
                         </div>
                         <div class="courses__information-wrap">
