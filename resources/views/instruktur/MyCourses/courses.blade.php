@@ -233,22 +233,23 @@
     <!-- dashboard-area-end -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Mengatur tinggi untuk elemen title
-            var courseTitles = document.querySelectorAll('h5.title');
+            // Mengatur tinggi untuk elemen h5.title dalam konteks courses__item-thumb
+            var courseTitles = document.querySelectorAll('.courses__item-thumb h5.title');
             var maxCourseTitleHeight = 0;
 
-            // Temukan tinggi maksimum untuk course-title
+            // Temukan tinggi maksimum untuk h5.title
             courseTitles.forEach(function(title) {
                 if (title.offsetHeight > maxCourseTitleHeight) {
                     maxCourseTitleHeight = title.offsetHeight;
                 }
             });
 
-            // Tetapkan tinggi maksimum ke semua elemen title
+            // Tetapkan tinggi maksimum ke semua elemen h5.title
             courseTitles.forEach(function(title) {
                 title.style.height = maxCourseTitleHeight + 'px';
             });
         });
     </script>
+
 
 @endsection
