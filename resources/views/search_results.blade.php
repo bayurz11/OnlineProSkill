@@ -269,7 +269,15 @@
                                                 <div class="courses__item-content">
                                                     <ul class="courses__item-meta list-wrap">
                                                         <li class="price">
-                                                            Rp. {{ number_format($cours->price, 0, ',', '.') }}
+                                                            @if (!empty($cours->discountedPrice))
+                                                                <del>Rp
+                                                                    {{ number_format($cours->price, 0, ',', '.') }}</del>
+                                                                Rp
+                                                                {{ number_format($cours->discountedPrice, 0, ',', '.') }}
+                                                            @else
+                                                                Rp
+                                                                {{ number_format($cours->price, 0, ',', '.') }}
+                                                            @endif
                                                         </li>
                                                         @if ($cours->course_type == 'online')
                                                             <span class="badge bg-primary">Online</span>
