@@ -199,8 +199,8 @@
                                                             href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
                                                     </h5>
                                                     <p class="author">By <a
-                                                            href="#">{{ $cours->user->name }}</a>&nbsp;&nbsp; <img
-                                                            src="{{ asset('public/assets/img/icons/course_icon06.svg') }}"
+                                                            href="{{ route('profile_instruktur', ['id' => $cours->user->id]) }}">{{ $cours->user->name }}</a>&nbsp;&nbsp;
+                                                        <img src="{{ asset('public/assets/img/icons/course_icon06.svg') }}"
                                                             alt="img" class="injectable">
                                                         Kuota Kelas
                                                         <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}/{{ $cours->kuota }}</span>
