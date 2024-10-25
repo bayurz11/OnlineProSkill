@@ -1,6 +1,6 @@
 @extends('layout.mainlayout')
 
-@section('title', 'ProSkill Akademia | Cart2')
+@section('title', 'ProSkill Akademia | Cart')
 <?php $page = 'Cart'; ?>
 
 @section('content')
@@ -50,7 +50,8 @@
                                         <td class="product__name">
                                             <a href="{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}</a>
                                         </td>
-                                        <td class="product__price">Rp {{ number_format($item['price'], 0, ',', ',') }}</td>
+                                        <td class="product__price">Rp
+                                            {{ number_format($item['discountedPrice'], 0, ',', ',') }}</td>
 
                                         <td class="product__remove">
                                             <form action="{{ route('cart.remove', $item['id']) }}" method="POST"
@@ -92,7 +93,7 @@
                                     }
                                 }
 
-                                $totalPrice = array_sum(array_column($cart, 'price')); // Total harga keranjang
+                                $totalPrice = array_sum(array_column($cart, 'discountedPrice')); // Total harga keranjang
                                 $totalPriceWithPendaftaran = $totalPrice + $biayaPendaftaran; // Total dengan biaya pendaftaran
                             @endphp
 
