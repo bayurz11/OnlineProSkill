@@ -50,11 +50,9 @@
                                         <td class="product__name">
                                             <a href="{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}</a>
                                         </td>
-                                        <td class="product__price">Rp
-                                            {{ number_format(isset($item['discountedPrice']) ? $item['discountedPrice'] : 0, 0, ',', '.') }}
+                                        <td class="product__price">
+                                            Rp {{ number_format($item['discountedPrice'] ?? $item['price'], 0, ',', ',') }}
                                         </td>
-
-
                                         <td class="product__remove">
                                             <form action="{{ route('cart.remove', $item['id']) }}" method="POST"
                                                 style="display:inline;">
@@ -81,22 +79,20 @@
                             <h2 class="title">Total keranjang</h2>
 
                             @php
-                                // Cek apakah user sudah pernah melakukan order
-                                $biayaPendaftaran = 20000; // Biaya pendaftaran default
+                                $biayaPendaftaran = 20000;
                                 if (Auth::check()) {
-                                    // Cari apakah user sudah pernah melakukan order
                                     $userOrders = \App\Models\Order::where('user_id', Auth::id())
                                         ->where('status', '!=', 'canceled')
                                         ->exists();
-
-                                    // Jika user sudah pernah order, set biaya pendaftaran menjadi 0
                                     if ($userOrders) {
                                         $biayaPendaftaran = 0;
                                     }
                                 }
 
-                                $totalPrice = array_sum(array_column($cart, 'discountedPrice')); // Total harga keranjang
-                                $totalPriceWithPendaftaran = $totalPrice + $biayaPendaftaran; // Total dengan biaya pendaftaran
+                                $totalPrice =
+                                    array_sum(array_column($cart, 'discountedPrice')) ??
+                                    array_sum(array_column($cart, 'price'));
+                                $totalPriceWithPendaftaran = $totalPrice + $biayaPendaftaran;
                             @endphp
 
                             <ul class="list-wrap">
@@ -118,29 +114,6 @@
 
                                     <input type="hidden" name="biaya_pendaftaran" value="{{ $biayaPendaftaran }}">
 
-                                    <div class="form-grp" hidden>
-                                        <label for="name">Nama *</label>
-                                        <input type="text" id="name" name="name" value="{{ $user->name }}">
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-grp" hidden>
-                                                <label for="phone">Telepon *</label>
-                                                <input type="number" id="phone" name="phone" min="0" required
-                                                    value="{{ $profile->phone_number }}" maxlength="12"
-                                                    placeholder="08**********">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-grp" hidden>
-                                                <label for="email">Alamat Email *</label>
-                                                <input type="email" id="email" name="email"
-                                                    value="{{ $user->email }}">
-                                            </div>
-                                        </div>
-                                    </div>
-
                                     <button type="submit" class="btn">Bayar & gabung kelas</button>
                                 </form>
                             @else
@@ -154,10 +127,7 @@
                 @else
                     <p></p>
                 @endif
-
-
             </div>
-
         </div>
     </div>
 @endsection
