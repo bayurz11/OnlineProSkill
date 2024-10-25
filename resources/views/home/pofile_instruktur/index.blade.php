@@ -48,6 +48,13 @@
                             <h4 class="title">Profil Instruktur</h4>
                         </div>
                         <div class="row">
+                            <div class="col-lg-3">
+                                <li><span>Tanggal Bergabung</span>
+                                    {{ \Carbon\Carbon::parse($instructorProfile->created_at)->format('d F Y h:i a') }}
+                                </li>
+                                <li><span>Nama</span> {{ $instructorProfile->user->name }}</li>
+                                </ul>
+                            </div>
                             <div class="col-lg-12">
                                 <div class="profile__content-wrap">
                                     <ul class="list-wrap">
