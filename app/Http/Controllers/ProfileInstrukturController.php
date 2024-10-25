@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\ContactUs;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
+use App\Models\KelasTatapMuka;
 use App\Models\NotifikasiUser;
 use App\Http\Controllers\Controller;
-use App\Models\KelasTatapMuka;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -51,7 +52,7 @@ class ProfileInstrukturController extends Controller
         if ($instructorProfile) {
             $kelas = KelasTatapMuka::where('user_id', $instructorProfile->user_id)->get();
         }
-
-        return view('home.pofile_instruktur.index', compact('user', 'emailList', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'contactUs', 'teleponList', 'instructorProfile', 'kelas'));
+        $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
+        return view('home.pofile_instruktur.index', compact('user', 'joinedCourses', 'emailList', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'contactUs', 'teleponList', 'instructorProfile', 'kelas'));
     }
 }
