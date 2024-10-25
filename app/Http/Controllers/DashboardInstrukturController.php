@@ -48,7 +48,8 @@ class DashboardInstrukturController extends Controller
                     ->from('kurikulum');
             })
             ->get();
-        return view('instruktur.dashboard', compact('user', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kelastatapmuka'));
+        $kelastatapmukaCount = $kelastatapmuka->count();
+        return view('instruktur.dashboard', compact('user', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kelastatapmuka', 'kelastatapmukaCount'));
     }
     public function profile()
     {
