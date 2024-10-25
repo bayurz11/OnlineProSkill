@@ -51,7 +51,8 @@
                                             <a href="{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}</a>
                                         </td>
                                         <td class="product__price">
-                                            Rp {{ number_format($item['discountedPrice'] ?? $item['price'], 0, ',', ',') }}
+                                            Rp
+                                            {{ number_format($item['discountedPrice'] ?? $item['discountedPrice'], 0, ',', ',') }}
                                         </td>
                                         <td class="product__remove">
                                             <form action="{{ route('cart.remove', $item['id']) }}" method="POST"
