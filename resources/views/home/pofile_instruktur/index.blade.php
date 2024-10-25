@@ -66,7 +66,7 @@
                         </div>
                     </aside>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-xl-3 col-lg-4 order-2 order-lg-0">
                     <div class="dashboard__sidebar-wrap"
                         style="background-color: #f9fafb; padding: 20px; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); display: flex; align-items: center;">
                         <div style="margin-right: 15px;">
