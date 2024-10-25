@@ -196,9 +196,7 @@
                                                                     </li>
                                                                     <li><i class="flaticon-clock"></i>{{ $order->durasi }}
                                                                     </li>
-                                                                    <li><i
-                                                                            class="flaticon-mortarboard"></i>{{ $jumlahPendaftaran->get($order->id, 0) }}
-                                                                    </li>
+                                                                    <li><i {{-- class="flaticon-mortarboard"></i>{{ $jumlahPendaftaran->get($order->id, 0) }} --}} </li>
                                                                 </ul>
                                                             </div>
                                                         </div>
