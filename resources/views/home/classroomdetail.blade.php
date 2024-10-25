@@ -279,6 +279,7 @@
                                         <del>Rp {{ number_format($courses->price, 0, ',', '.') }}</del>
                                     </span>
                                     <br> <!-- Menambahkan baris baru -->
+                                    <br> <!-- Menambahkan baris baru -->
                                     Rp {{ number_format($courses->discountedPrice, 0, ',', '.') }}
                                 @else
                                     Rp {{ number_format($courses->price, 0, ',', '.') }}
