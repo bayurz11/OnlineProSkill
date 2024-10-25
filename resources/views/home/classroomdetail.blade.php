@@ -274,15 +274,19 @@
                         <div class="courses__cost-wrap">
                             <span>Kursus Fee:</span>
                             <h2 class="title">
-
                                 @if (!empty($courses->discountedPrice))
-                                    <br>
-                                    <span style="font-size: 15px;">
-                                        <del>Rp {{ number_format($courses->price, 0, ',', '.') }}</del>
-                                    </span>
-                                    <span>
-                                        Rp {{ number_format($courses->discountedPrice, 0, ',', '.') }}
-                                    </span>
+                                    <div
+                                        style="background-color: #009688; color: #fff; padding: 15px; border-radius: 8px; text-align: center; display: inline-block;">
+                                        <span style="font-size: 15px; text-decoration: line-through; opacity: 0.8;">
+                                            Rp {{ number_format($courses->price, 0, ',', '.') }}
+                                        </span>
+                                        <br>
+                                        <span style="font-size: 24px; font-weight: bold;">
+                                            Rp {{ number_format($courses->discountedPrice, 0, ',', '.') }}
+                                        </span>
+                                    </div>
+                                @else
+                                    <span>Rp {{ number_format($courses->price, 0, ',', '.') }}</span>
                                 @endif
                             </h2>
 
