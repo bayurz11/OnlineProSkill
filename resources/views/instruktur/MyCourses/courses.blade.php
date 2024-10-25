@@ -144,70 +144,95 @@
                                                     Anda Belum Menambahkan kelas Apapun
                                                 </div>
                                             @else
+                                                @php
+                                                    $kelasTersedia = false; // Flag untuk mengecek apakah ada kelas yang sesuai
+                                                @endphp
                                                 @foreach ($KelasTatapMuka->where('status', 1)->take(3) as $kelas)
-                                                    <div class="col-xl-4 col-md-6">
-                                                        <div class="courses__item courses__item-two shine__animate-item">
-                                                            <div class="courses__item-thumb courses__item-thumb-two">
-                                                                <a href="{{ route('instruktur.kurikulum', ['id' => $kelas->id]) }}"
-                                                                    data-id="{{ $kelas->id }}"
-                                                                    class="shine__animate-link">
-
-                                                                    <img src="{{ asset('public/uploads/' . $kelas->gambar) }}"
-                                                                        alt="img" class="img-fluid"
-                                                                        style="width: 100%; height: auto; object-fit: cover;">
-                                                                </a>
-                                                            </div>
-                                                            <div class="courses__item-content courses__item-content-two">
-                                                                <ul class="courses__item-meta list-wrap">
-                                                                    <li class="courses__item-tag">
-                                                                        <a href="course.html">{{ $kelas->tag }}</a>
-                                                                    </li>
-                                                                    <li class="price">
-                                                                        @if (!empty($kelas->discountedPrice))
-                                                                            <del>Rp
-                                                                                {{ number_format($kelas->price, 0, ',', '.') }}</del>
-                                                                            Rp
-                                                                            {{ number_format($kelas->discountedPrice, 0, ',', '.') }}
-                                                                        @else
-                                                                            Rp
-                                                                            {{ number_format($kelas->price, 0, ',', '.') }}
-                                                                        @endif
-                                                                    </li>
-
-                                                                </ul>
-                                                                <h5 class="title"><a
-                                                                        href="{{ route('instruktur.kurikulum', ['id' => $kelas->id]) }}">{{ $kelas->nama_kursus }}</a>
-                                                                </h5>
-                                                                <div class="courses__item-content-bottom">
-                                                                    <div class="author-two">
-                                                                        <a href="#"><img
-                                                                                src="{{ $profile && $profile->gambar ? (strpos($profile->gambar, 'googleusercontent') !== false ? $profile->gambar : asset('public/uploads/' . $profile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"style="object-fit: cover;"
-                                                                                alt="img">{{ $kelas->user->name }}</a>
-                                                                    </div>
-                                                                    <div class="avg-rating">
-                                                                        <i class="fas fa-star"></i> (4.5 Reviews)
+                                                    @php
+                                                        // Mengecek apakah course_id ada di model Kurikulum
+                                                        $kurikulumExists = \App\Models\Kurikulum::where(
+                                                            'course_id',
+                                                            $kelas->id,
+                                                        )->exists();
+                                                    @endphp
+                                                    @if ($kurikulumExists)
+                                                        @php
+                                                            $kelasTersedia = true; // Set flag menjadi true jika ada kelas
+                                                        @endphp
+                                                        <div class="col-xl-4 col-md-6">
+                                                            <div
+                                                                class="courses__item courses__item-two shine__animate-item">
+                                                                <div class="courses__item-thumb courses__item-thumb-two">
+                                                                    <a href="{{ route('instruktur.kurikulum', ['id' => $kelas->id]) }}"
+                                                                        data-id="{{ $kelas->id }}"
+                                                                        class="shine__animate-link">
+                                                                        <img src="{{ asset('public/uploads/' . $kelas->gambar) }}"
+                                                                            alt="img" class="img-fluid"
+                                                                            style="width: 100%; height: auto; object-fit: cover;">
+                                                                    </a>
+                                                                </div>
+                                                                <div
+                                                                    class="courses__item-content courses__item-content-two">
+                                                                    <ul class="courses__item-meta list-wrap">
+                                                                        <li class="courses__item-tag">
+                                                                            <a href="course.html">{{ $kelas->tag }}</a>
+                                                                        </li>
+                                                                        <li class="price">
+                                                                            @if (!empty($kelas->discountedPrice))
+                                                                                <del>Rp
+                                                                                    {{ number_format($kelas->price, 0, ',', '.') }}</del>
+                                                                                Rp
+                                                                                {{ number_format($kelas->discountedPrice, 0, ',', '.') }}
+                                                                            @else
+                                                                                Rp
+                                                                                {{ number_format($kelas->price, 0, ',', '.') }}
+                                                                            @endif
+                                                                        </li>
+                                                                    </ul>
+                                                                    <h5 class="title">
+                                                                        <a
+                                                                            href="{{ route('instruktur.kurikulum', ['id' => $kelas->id]) }}">{{ $kelas->nama_kursus }}</a>
+                                                                    </h5>
+                                                                    <div class="courses__item-content-bottom">
+                                                                        <div class="author-two">
+                                                                            <a href="#"><img
+                                                                                    src="{{ $profile && $profile->gambar ? (strpos($profile->gambar, 'googleusercontent') !== false ? $profile->gambar : asset('public/uploads/' . $profile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
+                                                                                    style="object-fit: cover;"
+                                                                                    alt="img">
+                                                                                {{ $kelas->user->name }}</a>
+                                                                        </div>
+                                                                        <div class="avg-rating">
+                                                                            <i class="fas fa-star"></i> (4.5 Reviews)
+                                                                        </div>
                                                                     </div>
                                                                 </div>
+                                                                <div class="courses__item-bottom-two">
+                                                                    <ul class="list-wrap">
+                                                                        <li><i
+                                                                                class="flaticon-book"></i>{{ $kelas->lesson_count }}
+                                                                        </li>
+                                                                        <li><i
+                                                                                class="flaticon-clock"></i>{{ $kelas->durasi }}
+                                                                        </li>
+                                                                        <li><i
+                                                                                class="flaticon-mortarboard"></i>{{ $jumlahPendaftaran->get($kelas->id, 0) }}
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
                                                             </div>
-                                                            <div class="courses__item-bottom-two">
-                                                                <ul class="list-wrap">
-                                                                    <li><i
-                                                                            class="flaticon-book"></i>{{ $kelas->lesson_count }}
-                                                                    </li>
-                                                                    <li><i class="flaticon-clock"></i>{{ $kelas->durasi }}
-                                                                    </li>
-                                                                    <li><i
-                                                                            class="flaticon-mortarboard"></i>{{ $jumlahPendaftaran->get($kelas->id, 0) }}
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-
                                                         </div>
-                                                    </div>
+                                                    @endif
                                                 @endforeach
+
+                                                @if (!$kelasTersedia)
+                                                    <div class="alert alert-warning" role="alert">
+                                                        Anda Belum Menambahkan kelas Apapun
+                                                    </div>
+                                                @endif
                                             @endif
                                         </div>
                                     </div>
+
 
                                 </div>
                             </div>
