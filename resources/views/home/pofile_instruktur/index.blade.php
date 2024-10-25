@@ -46,7 +46,7 @@
                     <div class="dashboard__sidebar-wrap"
                         style="background-color: #f9fafb; padding: 20px; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); display: flex; align-items: center;">
                         <div style="margin-right: 15px;">
-                            <img src="{{ $instructorProfile->profile_image ? asset('storage/' . $instructorProfile->profile_image) : 'default_image_path' }}"
+                            <img src="{{ $profile && $profile->gambar ? (strpos($profile->gambar, 'googleusercontent') !== false ? $profile->gambar : asset('public/uploads/' . $profile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
                                 alt="Profile Image" style="border-radius: 50%; width: 60px; height: 60px;">
                         </div>
                         <div>
