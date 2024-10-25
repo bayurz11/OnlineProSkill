@@ -298,10 +298,8 @@
                                                     <p class="author">By <a
                                                             href="#">{{ $cours->user->name }}</a>&nbsp;&nbsp;
                                                         @if (in_array($cours->id, $joinedCourses))
-                                                            <span class="badge bg-success" data-bs-toggle="tooltip"
-                                                                title="Anda sudah bergabung dengan cours ini">
-                                                                <i class="fas fa-check"></i>
-                                                            </span>
+                                                            <i class="fas fa-check-circle fa-lg"
+                                                                style="color: green;"></i>
                                                         @endif
                                                     </p>
                                                     <p class="info">{!! $cours->content !!}</p>

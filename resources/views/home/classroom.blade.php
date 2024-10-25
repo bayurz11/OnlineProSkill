@@ -143,7 +143,8 @@
                                                             </a>
                                                         </div>
                                                         @if (in_array($cours->id, $joinedCourses))
-                                                            <span class="badge bg-success">Joined</span>
+                                                            <i class="fas fa-check-circle fa-lg"
+                                                                style="color: green;"></i>
                                                         @endif
                                                         <h5 class="price">
                                                             @if (!empty($cours->discountedPrice))
@@ -205,10 +206,8 @@
                                                         Kuota Kelas
                                                         <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}/{{ $cours->kuota }}</span>
                                                         @if (in_array($cours->id, $joinedCourses))
-                                                            <span
-                                                                style="color: green; font-weight: bold; padding: 2px 6px; border: 1px solid green; border-radius: 10rem; background-color: #e0f7e9;">
-                                                                Joined
-                                                            </span>
+                                                            <i class="fas fa-check-circle fa-lg"
+                                                                style="color: green;"></i>
                                                         @endif
                                                     </p>
                                                     <p class="info">{!! $cours->content !!}</p>

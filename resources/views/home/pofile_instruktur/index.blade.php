@@ -179,7 +179,8 @@
                                                                 @endif
                                                             </li>
                                                             @if (in_array($item->id, $joinedCourses))
-                                                                <span class="badge bg-success">Joined</span>
+                                                                <i class="fas fa-check-circle fa-lg"
+                                                                    style="color: green;"></i>
                                                             @endif
                                                         </ul>
                                                         <h5 class="title course-title flex-grow-1">
