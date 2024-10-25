@@ -90,7 +90,7 @@
                                                     @foreach ($KelasTatapMuka->where('status', 1)->take(3) as $kelas)
                                                         <div class="col mb-4">
                                                             <div
-                                                                class="courses__item courses__item-two shine__animate-item">
+                                                                class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
                                                                 <div class="courses__item-thumb courses__item-thumb-two">
                                                                     <a href="{{ route('classroomdetail', ['id' => $kelas->id]) }}"
                                                                         class="shine__animate-link">
@@ -100,7 +100,7 @@
                                                                     </a>
                                                                 </div>
                                                                 <div
-                                                                    class="courses__item-content courses__item-content-two">
+                                                                    class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1">
                                                                     <ul class="courses__item-meta list-wrap">
                                                                         <li class="courses__item-tag">
                                                                             @if ($kelas->course_type == 'online')
@@ -114,32 +114,20 @@
                                                                             {{ number_format($kelas->price, 0, '.', '.') }}
                                                                         </li>
                                                                     </ul>
-                                                                    <h5 class="title"><a
+                                                                    <h5 class="title course-title flex-grow-1">
+                                                                        <a
                                                                             href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">{{ $kelas->nama_kursus }}</a>
                                                                     </h5>
-                                                                    <div class="courses__item-content-bottom">
-                                                                        <div class="author-two">
-                                                                            <a href="#">
-                                                                                <img src="{{ asset('public/assets/img/courses/course_author001.png') }}"
-                                                                                    alt="img" class="rounded-circle"
-                                                                                    style="width: 30px; height: 30px;">
-                                                                                {{ $kelas->user->name }}
+                                                                    <div class="courses__item-bottom">
+                                                                        <div class="button">
+                                                                            <a
+                                                                                href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">
+                                                                                <span class="text">Detail Kelas</span>
+                                                                                <i class="flaticon-arrow-right"></i>
                                                                             </a>
                                                                         </div>
+
                                                                     </div>
-                                                                </div>
-                                                                <div class="courses__item-bottom-two">
-                                                                    <ul class="list-wrap">
-                                                                        <li><i
-                                                                                class="flaticon-book"></i>{{ $kelas->lesson_count }}
-                                                                        </li>
-                                                                        <li><i
-                                                                                class="flaticon-clock"></i>{{ $kelas->durasi }}
-                                                                        </li>
-                                                                        <li><i
-                                                                                class="flaticon-mortarboard"></i>{{ $jumlahPendaftaran->get($kelas->id, 0) }}
-                                                                        </li>
-                                                                    </ul>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -158,7 +146,9 @@
                                                 class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
                                                 @foreach ($orders as $order)
                                                     <div class="col mb-4">
-                                                        <div class="courses__item courses__item-two shine__animate-item">
+                                                        <div
+                                                            class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
+                                                            <!-- Thumbnail Gambar -->
                                                             <div class="courses__item-thumb courses__item-thumb-two">
                                                                 <a href="{{ route('lesson', ['id' => $order->product_id]) }}"
                                                                     class="shine__animate-link">
@@ -167,8 +157,10 @@
                                                                         style="height: 200px; object-fit: cover;">
                                                                 </a>
                                                             </div>
-                                                            <div class="courses__item-content courses__item-content-two">
-                                                                <h5 class="title">
+                                                            <!-- Konten Kartu -->
+                                                            <div
+                                                                class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1">
+                                                                <h5 class="title flex-grow-1">
                                                                     <a
                                                                         href="{{ route('lesson', ['id' => $order->product_id]) }}">{{ $order->KelasTatapMuka->nama_kursus ?? 'Nama kelas tidak tersedia' }}</a>
                                                                 </h5>
@@ -191,10 +183,10 @@
                                                     </div>
                                                 @endforeach
                                             </div>
+
                                         @endif
                                     </div>
                                 </div>
-
 
                                 <div class="tab-pane fade" id="business-tab-pane" role="tabpanel"
                                     aria-labelledby="business-tab" tabindex="0">
