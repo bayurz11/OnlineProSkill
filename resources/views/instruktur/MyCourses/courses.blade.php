@@ -157,7 +157,7 @@
                                                     @endphp
                                                     @if ($kurikulumExists)
                                                         @php
-                                                            $kelasTersedia = true; // Set flag menjadi true jika ada kelas
+                                                            $kelasTersedia = false; // Set flag menjadi true jika ada kelas
                                                         @endphp
                                                         <div class="col-xl-4 col-md-6">
                                                             <div
