@@ -38,52 +38,43 @@
     </div>
     <!-- breadcrumb-area-end -->
 
-    <!-- courses-details-area -->
-    <section class="courses__details-area section-py-120">
+    <!-- dashboard-area -->
+    <section class="dashboard__area section-pb-120">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-9">
-                    <div class="dashboard__content-wrap">
-                        <div class="dashboard__content-title">
-                            <h4 class="title">Profil Instruktur</h4>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <div class="profile__content-wrap">
-                                    <ul class="list-wrap">
-                                        <li>
-                                            <span>Tanggal Bergabung</span>
-                                            {{ \Carbon\Carbon::parse($instructorProfile->created_at)->format('d F Y h:i a') }}
-                                        </li>
-                                        <li>
-                                            <span>Nama</span> {{ $instructorProfile->user->name }}
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-lg-9">
-                                <div class="profile__content-wrap">
-                                    <ul class="list-wrap">
-                                        <li>
-                                            <span>Tanggal Bergabung</span>
-                                            {{ \Carbon\Carbon::parse($instructorProfile->created_at)->format('d F Y h:i a') }}
-                                        </li>
-                                        <li>
-                                            <span>Nama</span> {{ $instructorProfile->user->name }}
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
 
+
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="dashboard__sidebar-wrap">
                     </div>
                 </div>
 
-
+                <div class="col-lg-9">
+                    <div class="dashboard__content-wrap">
+                        <div class="dashboard__content-title">
+                            <h4 class="title">Profil Saya</h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="profile__content-wrap">
+                                    <ul class="list-wrap">
+                                        <li>
+                                            <span>Tanggal Bergabung</span>
+                                            {{ \Carbon\Carbon::parse($instructorProfile->created_at)->format('d F Y h:i a') }}
+                                        </li>
+                                        <li>
+                                            <span>Nama</span> {{ $instructorProfile->user->name }}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
     </section>
-    <!-- courses-details-area-end -->
+    <!-- dashboard-area-end -->
 
 @endsection
