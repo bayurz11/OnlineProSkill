@@ -231,5 +231,24 @@
         </div>
     </section>
     <!-- dashboard-area-end -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mengatur tinggi untuk elemen title
+            var courseTitles = document.querySelectorAll('h5.title');
+            var maxCourseTitleHeight = 0;
+
+            // Temukan tinggi maksimum untuk course-title
+            courseTitles.forEach(function(title) {
+                if (title.offsetHeight > maxCourseTitleHeight) {
+                    maxCourseTitleHeight = title.offsetHeight;
+                }
+            });
+
+            // Tetapkan tinggi maksimum ke semua elemen title
+            courseTitles.forEach(function(title) {
+                title.style.height = maxCourseTitleHeight + 'px';
+            });
+        });
+    </script>
 
 @endsection
