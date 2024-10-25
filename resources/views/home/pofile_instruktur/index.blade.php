@@ -65,7 +65,8 @@
                 </div>
 
                 <div class="col-xl-9 col-lg-8">
-                    <div class="dashboard__content-wrap">
+                    <div class="tab-content" id="myTabContent">
+                        {{-- <div class="dashboard__content-wrap">
                         <div class="dashboard__content-title">
                             <h4 class="title">Kelas Yang dibuat</h4>
                         </div>
@@ -138,11 +139,11 @@
                                 </div>
                             </div>
                         </div>
+                    </div> --}}
                     </div>
                 </div>
-            </div>
 
-        </div>
+            </div>
     </section>
     <!-- dashboard-area-end -->
 
