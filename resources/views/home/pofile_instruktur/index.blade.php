@@ -21,7 +21,7 @@
                                 <a href="{{ route('classroom') }}">Kelas Tatap Muka</a>
                             </span>
                             <span class="breadcrumb-separator"><i class="fas fa-angle-right"></i></span>
-                            <span property="itemListElement" typeof="ListItem">{{ $courses->nama_kursus }}</span>
+                            <span property="itemListElement" typeof="ListItem"></span>
                         </nav>
                     </div>
                 </div>
