@@ -66,7 +66,7 @@
                     </aside>
                 </div>
                 <!-- Courses Grid -->
-                <div class="col-xl-9 col-lg-8">
+                {{-- <div class="col-xl-9 col-lg-8">
                     @if ($results->isEmpty())
                         <p style="text-align: center;">Tidak ada hasil yang ditemukan.</p>
                     @else
@@ -195,21 +195,22 @@
                                                                 class="injectable" alt="img">
                                                         </a>
                                                     </div> --}}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endforeach
+            </div>
+        </div>
+        </div>
+        </div>
+        @endforeach
 
-                                </div>
-                            </div>
-                            <nav class="pagination__wrap mt-30">
-                                {{ $results->links($paginationView) }}
-                            </nav>
-                        </div>
-                </div>
+        </div>
+        </div>
+        <nav class="pagination__wrap mt-30">
+            {{ $results->links($paginationView) }}
+        </nav>
+        </div>
+        </div> --}}
     </section>
-    <!-- dashboard-area -->
+
+    {{-- <!-- dashboard-area -->
     <section class="courses__details-area section-py-120">
         <div class="container">
             <div class="row">
@@ -318,6 +319,6 @@
 
         </div>
     </section>
-    <!-- dashboard-area-end -->
+    <!-- dashboard-area-end --> --}}
 
 @endsection
