@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\ContactUs;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
@@ -14,32 +15,26 @@ class ProfileInstrukturController extends Controller
 {
     public function index($id)
     {
-
-        $user = Auth::user();
-        $profile = null;
+        // Ambil pengguna berdasarkan ID dari URL
+        $user = User::findOrFail($id); // Menggunakan findOrFail untuk mendapatkan pengguna atau menampilkan 404 jika tidak ditemukan
+        $profile = UserProfile::where('user_id', $user->id)->first(); // Ambil profil pengguna berdasarkan user_id
         $cart = Session::get('cart', []);
         $contactUs = ContactUs::first();
 
         $teleponList = json_decode($contactUs->telepon, true);
-
         if (!is_array($teleponList)) {
             $teleponList = [];
         }
-        $emailList = json_decode($contactUs->email, true);
 
+        $emailList = json_decode($contactUs->email, true);
         if (!is_array($emailList)) {
             $emailList = [];
         }
 
-        if ($user) {
-            $profile = UserProfile::where('user_id', $user->id)->first();
-        }
-
         // Ambil notifikasi untuk pengguna yang sedang login
-        $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
+        $notifikasi = Auth::check() ? NotifikasiUser::where('user_id', Auth::id())
             ->orderBy('created_at', 'desc')
-            ->get()
-            : collect(); // Menggunakan collect() untuk membuat koleksi kosong jika pengguna belum login
+            ->get() : collect(); // Menggunakan collect() untuk membuat koleksi kosong jika pengguna belum login
 
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
