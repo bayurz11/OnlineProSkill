@@ -60,7 +60,7 @@ class PaymentController extends Controller
             // Jika belum, tambahkan ke daftar item
             $kelas = KelasTatapMuka::find($itemId);
             if ($kelas) {
-                $totalAmount += $kelas->price;
+                $totalAmount += $kelas->discountedPrice;
                 $items[] = $kelas;
                 $classNames[] = $kelas->nama_kursus; // Asumsikan bahwa nama kelas ada di properti 'nama_kursus'
             }
