@@ -42,7 +42,31 @@
     <section class="courses__details-area section-py-120">
         <div class="container">
             <div class="row">
+                <div class="col-lg-9">
+                    <div class="dashboard__content-wrap">
+                        <div class="dashboard__content-title">
+                            <h4 class="title">Profil Saya</h4>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="profile__content-wrap">
+                                    <ul class="list-wrap">
+                                        <li><span>Tanggal Bergabung</span>
+                                            {{ \Carbon\Carbon::parse($user->created_at)->format('d F Y h:i a') }}</li>
 
+                                        <li><span>Nama</span> {{ $user->name }}</li>
+                                        <li><span>Email</span> {{ $user->email }}</li>
+                                        <li><span>Phone Number</span> {{ $profile->phone_number }}</li>
+                                        {{-- <li><span>Skill/Occupation</span> Application Developer</li>
+                                        <li><span>Biography</span> I'm the Front-End Developer for #ThemeGenix in New York,
+                                            OR. I have a serious passion for UI effects, animations, and
+                                            creating intuitive, dynamic user experiences.</li> --}}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
