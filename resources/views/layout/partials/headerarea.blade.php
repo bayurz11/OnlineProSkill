@@ -329,7 +329,7 @@
 @include('home.modal.registercart')
 <!-- Model instruktur -->
 @php
-    $roleId = auth()->user()->role_id; // Ambil role_id pengguna saat ini
+    $roleId = auth()->check() ? auth()->user()->role_id : null; // Periksa apakah pengguna sudah login
 @endphp
 
 @if ($roleId == 2)
