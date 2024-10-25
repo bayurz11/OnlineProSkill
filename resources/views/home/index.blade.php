@@ -176,11 +176,9 @@
                                                             Rp {{ number_format($kelas['price'], 0, ',', '.') }}
                                                         @endif
                                                     </li>
-                                                    $kelas = (object) $kelas;
-                                                    if (in_array($kelas->id, $joinedCourses)) {
-                                                    echo '<span class="badge bg-success">Joined</span>';
-                                                    }
-
+                                                    @if (in_array($kelas->id, ['joinedCourses']))
+                                                        <span class="badge bg-success">Joined</span>
+                                                    @endif
                                                 </ul>
                                                 <h5 class="title course-title flex-grow-1">
                                                     <a
