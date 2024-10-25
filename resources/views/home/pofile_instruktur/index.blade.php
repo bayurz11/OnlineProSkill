@@ -79,7 +79,7 @@
                                         @if ($kelas->isNotEmpty())
                                             @foreach ($kelas as $item)
                                                 <div>
-                                                    <h3>{{ $item->nama_kelas }}</h3>
+                                                    <h3>{{ $item->nama_kursus }}</h3>
                                                     <p>{{ $item->deskripsi_kelas }}</p>
                                                     <!-- tampilkan data lainnya sesuai kebutuhan -->
                                                 </div>
