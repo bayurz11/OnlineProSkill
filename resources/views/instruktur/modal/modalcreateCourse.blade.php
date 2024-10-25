@@ -117,8 +117,9 @@
                     </div>
                     <div class="mb-3">
                         <label for="discount" class="form-label">Diskon %</label>
-                        <input type="text" class="form-control" id="discount" name="discount"
-                            oninput="calculateDiscountedPrice()">
+                        <input type="number" class="form-control" id="discount" name="discount" min="0"
+                            value="0" oninput="calculateDiscountedPrice()">
+                        <small class="text-secondary">Note: Isi Dengan 0 jika tidak memiliki diskon</small>
                     </div>
                     <div class="mb-3">
                         <label for="discountedPrice" class="form-label">Harga Setelah Diskon (Rp)</label>
