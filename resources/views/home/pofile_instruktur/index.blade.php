@@ -74,8 +74,10 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="profile__content-wrap">
-                                    <ul class="list-wrap">
+                                <div class="tab-pane fade show active" id="grid" role="tabpanel"
+                                    aria-labelledby="grid-tab">
+                                    <div
+                                        class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
                                         @if ($kelas->isNotEmpty())
                                             @foreach ($kelas as $item)
                                                 @if ($item->status == 1)
@@ -132,7 +134,8 @@
                                             <p>Tidak ada kelas yang ditemukan untuk instruktur ini.</p>
                                         @endif
 
-                                    </ul>
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
