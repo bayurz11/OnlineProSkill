@@ -57,7 +57,7 @@
                                 <li class="author-two">
                                     <img src="{{ asset('public/assets/img/courses/course_author001.png') }}"
                                         alt="img">
-                                    <a href="#">{{ $courses->user->name }}</a>
+                                    <a href="{{ $courses->user->id }}">{{ $courses->user->name }}</a>
                                 </li>
 
 

@@ -40,6 +40,7 @@ use App\Http\Controllers\InstrukturCoursesController;
 use App\Http\Controllers\InstrukturKurikulumController;
 use App\Http\Controllers\InstrukturSectionController;
 use App\Http\Controllers\OrderHistoryManagerController;
+use App\Http\Controllers\ProfileInstrukturController;
 
 //Authentikasi
 Route::post('/login', [AuthController::class, 'login'])->name('login');
@@ -275,6 +276,9 @@ Route::get('/hubungikami', [HubungiKamiController::class, 'index'])->name('hubun
 
 //Tentang Kami
 Route::get('/tentangkami', [TentangKamiController::class, 'index'])->name('tentangkami');
+
+//Profile Instruktur
+Route::get('/profile_instruktur/{id}', [ProfileInstrukturController::class, 'index'])->name('tentangkami');
 
 //sertifikat
 Route::get('/cetak_sertifikat/{id}', [SertifikatController::class, 'cetakSertifikat'])->name('cetak_sertifikat');
