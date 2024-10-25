@@ -205,56 +205,50 @@
                                     @foreach ($results as $cours)
                                         @if ($cours->status == 1)
                                             <div class="col mb-4">
-                                                <div class="courses__item shine__animate-item"
-                                                    style="display: flex; flex-direction: column; height: 100%;">
-                                                    <div class="courses__item-thumb">
-                                                        <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}"
+                                                <div
+                                                    class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
+                                                    <div class="courses__item-thumb courses__item-thumb-two">
+                                                        <a href="{{ route('classroomdetail', ['id' => $cours['id']]) }}"
                                                             class="shine__animate-link">
-                                                            <img src="{{ asset('public/uploads/' . $cours->gambar) }}"
-                                                                alt="Banner" style="width: 100%; height: auto;">
+                                                            <img src="{{ asset('public/uploads/' . $cours['gambar']) }}"
+                                                                alt="img" class="img-fluid" loading="lazy">
                                                         </a>
                                                     </div>
-                                                    <div class="courses__item-content"
-                                                        style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
-                                                        <h5 class="title">
-                                                            <a
-                                                                href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
-                                                        </h5>
-                                                        <p class="author">
-                                                            @if (in_array($cours->id, $joinedCourses))
-                                                                <span class="badge bg-success" data-bs-toggle="tooltip"
-                                                                    title="Anda sudah bergabung dengan kelas ini">
-                                                                    <i class="fas fa-check"></i>
-                                                                </span>
-                                                            @endif &nbsp;&nbsp;
-                                                            @if ($cours->course_type == 'online')
-                                                                <span class="badge bg-primary">Online</span>
-                                                            @else
-                                                                <span class="badge bg-secondary">Kelas Tatap Muka</span>
-                                                            @endif
-                                                        </p>
-
-                                                        <div class="courses__item-bottom">
-                                                            <h5 class="price">
-                                                                @if (!empty($cours->discountedPrice))
-                                                                    <del>Rp
-                                                                        {{ number_format($cours->price, 0, ',', '.') }}</del>
-                                                                    Rp
-                                                                    {{ number_format($cours->discountedPrice, 0, ',', '.') }}
+                                                    <div
+                                                        class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1">
+                                                        <ul class="courses__item-meta list-wrap">
+                                                            <li class="courses__item-tag">
+                                                                @if ($cours['course_type'] == 'online')
+                                                                    <span class="badge bg-primary">Online</span>
                                                                 @else
-                                                                    Rp
-                                                                    {{ number_format($cours->price, 0, ',', '.') }}
+                                                                    <span class="badge bg-secondary">cours Tatap
+                                                                        Muka</span>
                                                                 @endif
-                                                            </h5>
+                                                            </li>
+
+                                                            <li class="price">
+                                                                @if (!empty($cours['discountedPrice']))
+                                                                    <del>Rp
+                                                                        {{ number_format($cours['price'], 0, ',', '.') }}</del>
+                                                                    Rp
+                                                                    {{ number_format($cours['discountedPrice'], 0, ',', '.') }}
+                                                                @else
+                                                                    Rp {{ number_format($cours['price'], 0, ',', '.') }}
+                                                                @endif
+                                                            </li>
+                                                        </ul>
+                                                        <h5 class="title course-title flex-grow-1">
+                                                            <a
+                                                                href="{{ route('classroomdetail', ['id' => $cours['id']]) }}">{{ $cours['nama_kursus'] }}</a>
+                                                        </h5>
+                                                        <div class="courses__item-bottom">
                                                             <div class="button">
                                                                 <a
-                                                                    href="{{ route('classroomdetail', ['id' => $cours->id]) }}">
-                                                                    <span class="text">Detail</span>
+                                                                    href="{{ route('classroomdetail', ['id' => $cours['id']]) }}">
+                                                                    <span class="text">Detail cours</span>
                                                                     <i class="flaticon-arrow-right"></i>
                                                                 </a>
                                                             </div>
-
-
                                                         </div>
                                                     </div>
                                                 </div>
@@ -293,7 +287,7 @@
                                                         @if ($cours->course_type == 'online')
                                                             <span class="badge bg-primary">Online</span>
                                                         @else
-                                                            <span class="badge bg-secondary">Kelas Tatap Muka</span>
+                                                            <span class="badge bg-secondary">cours Tatap Muka</span>
                                                         @endif
                                                     </ul>
                                                     <h5 class="title">
@@ -305,7 +299,7 @@
                                                             href="#">{{ $cours->user->name }}</a>&nbsp;&nbsp;
                                                         @if (in_array($cours->id, $joinedCourses))
                                                             <span class="badge bg-success" data-bs-toggle="tooltip"
-                                                                title="Anda sudah bergabung dengan kelas ini">
+                                                                title="Anda sudah bergabung dengan cours ini">
                                                                 <i class="fas fa-check"></i>
                                                             </span>
                                                         @endif
