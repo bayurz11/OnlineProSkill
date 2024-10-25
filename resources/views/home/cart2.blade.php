@@ -51,8 +51,8 @@
                                             <a href="{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}</a>
                                         </td>
                                         <td class="product__price">Rp
-                                            {{ number_format($item['discountedPrice'], 0, ',', ',') }}</td>
-
+                                            {{ number_format(isset($item['discountedPrice']) ? $item['discountedPrice'] : 0, 0, ',', ',') }}
+                                        </td>
                                         <td class="product__remove">
                                             <form action="{{ route('cart.remove', $item['id']) }}" method="POST"
                                                 style="display:inline;">
@@ -68,8 +68,7 @@
                     </div>
                 @else
                     <div class="col-lg-7">
-                        <p>Keranjang Anda kosong. <a href="{{ route('search') }}">Lihat kelas yang
-                                tersedia.</a></p>
+                        <p>Keranjang Anda kosong. <a href="{{ route('search') }}">Lihat kelas yang tersedia.</a></p>
                     </div>
                 @endif
 
@@ -93,7 +92,12 @@
                                     }
                                 }
 
-                                $totalPrice = array_sum(array_column($cart, 'discountedPrice')); // Total harga keranjang
+                                // Menghitung total harga keranjang dengan pengecekan discountedPrice
+                                $totalPrice = array_sum(
+                                    array_map(function ($item) {
+                                        return isset($item['discountedPrice']) ? $item['discountedPrice'] : 0;
+                                    }, $cart),
+                                ); // Total harga keranjang
                                 $totalPriceWithPendaftaran = $totalPrice + $biayaPendaftaran; // Total dengan biaya pendaftaran
                             @endphp
 
@@ -116,29 +120,6 @@
 
                                     <input type="hidden" name="biaya_pendaftaran" value="{{ $biayaPendaftaran }}">
 
-                                    <div class="form-grp" hidden>
-                                        <label for="name">Nama *</label>
-                                        <input type="text" id="name" name="name" value="{{ $user->name }}">
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-grp" hidden>
-                                                <label for="phone">Telepon *</label>
-                                                <input type="number" id="phone" name="phone" min="0" required
-                                                    value="{{ $profile->phone_number }}" maxlength="12"
-                                                    placeholder="08**********">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-grp" hidden>
-                                                <label for="email">Alamat Email *</label>
-                                                <input type="email" id="email" name="email"
-                                                    value="{{ $user->email }}">
-                                            </div>
-                                        </div>
-                                    </div>
-
                                     <button type="submit" class="btn">Bayar & gabung kelas</button>
                                 </form>
                             @else
@@ -152,10 +133,7 @@
                 @else
                     <p></p>
                 @endif
-
-
             </div>
-
         </div>
     </div>
 @endsection
