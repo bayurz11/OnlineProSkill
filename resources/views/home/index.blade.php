@@ -176,7 +176,7 @@
                                                             Rp {{ number_format($kelas['price'], 0, ',', '.') }}
                                                         @endif
                                                     </li>
-                                                    @if (in_array($item->id, $joinedCourses))
+                                                    @if (in_array($kelas->id, $joinedCourses))
                                                         <span class="badge bg-success">Joined</span>
                                                     @endif
                                                 </ul>
