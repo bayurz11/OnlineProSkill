@@ -278,7 +278,7 @@ Route::get('/hubungikami', [HubungiKamiController::class, 'index'])->name('hubun
 Route::get('/tentangkami', [TentangKamiController::class, 'index'])->name('tentangkami');
 
 //Profile Instruktur
-Route::get('/profile_instruktur/{id}', [ProfileInstrukturController::class, 'index'])->name('tentangkami');
+Route::get('/profile_instruktur/{id}', [ProfileInstrukturController::class, 'index'])->name('profile_instruktur');
 
 //sertifikat
 Route::get('/cetak_sertifikat/{id}', [SertifikatController::class, 'cetakSertifikat'])->name('cetak_sertifikat');
