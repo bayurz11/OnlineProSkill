@@ -145,8 +145,17 @@
                                                         @if (in_array($cours->id, $joinedCourses))
                                                             <span class="badge bg-success">Joined</span>
                                                         @endif
-                                                        <h5 class="price">Rp
-                                                            {{ number_format($cours->price, 0, ',', ',') }}</h5>
+                                                        <h5 class="price">
+                                                            @if (!empty($cours->discountedPrice))
+                                                                <del>Rp
+                                                                    {{ number_format($cours->price, 0, ',', '.') }}</del>
+                                                                Rp
+                                                                {{ number_format($cours->discountedPrice, 0, ',', '.') }}
+                                                            @else
+                                                                Rp
+                                                                {{ number_format($cours->price, 0, ',', '.') }}
+                                                            @endif
+                                                        </h5>
                                                     </div>
                                                 </div>
                                             </div>
