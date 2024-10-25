@@ -166,8 +166,17 @@
                                                             <span class="badge bg-secondary">Kelas Tatap Muka</span>
                                                         @endif
                                                     </li>
-                                                    <li class="price">Rp
-                                                        {{ number_format($kelas['price'], 0, '.', '.') }}</li>
+                                                    <li class="price">
+                                                        @if (!empty($kelas->discountedPrice))
+                                                            <del>Rp
+                                                                {{ number_format($kelas->price, 0, ',', '.') }}</del>
+                                                            Rp
+                                                            {{ number_format($kelas->discountedPrice, 0, ',', '.') }}
+                                                        @else
+                                                            Rp
+                                                            {{ number_format($kelas->price, 0, ',', '.') }}
+                                                        @endif
+                                                    </li>
                                                 </ul>
                                                 <h5 class="title course-title flex-grow-1">
                                                     <a
