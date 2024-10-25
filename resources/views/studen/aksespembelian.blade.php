@@ -149,10 +149,10 @@
 
                                                         <div class="courses__item courses__item-two shine__animate-item">
                                                             <div class="courses__item-thumb courses__item-thumb-two">
-                                                                <a href="{{ route('instruktur.kurikulum', ['id' => $order->id]) }}"
+                                                                <a href="{{ route('lesson', ['id' => $order->product_id]) }}"
                                                                     data-id="{{ $order->id }}"
                                                                     class="shine__animate-link">
-                                                                    <img src="{{ asset('public/uploads/' . $order->gambar) }}"
+                                                                    <img src="{{ $order->KelasTatapMuka->gambar ? asset('public/uploads/' . $order->KelasTatapMuka->gambar) : asset('public/assets/img/courses/course_thumb01.jpg') }}"
                                                                         alt="img" class="img-fluid"
                                                                         style="width: 100%; height: auto; object-fit: cover;">
                                                                 </a>
@@ -175,7 +175,7 @@
                                                                     </li>
                                                                 </ul>
                                                                 <h5 class="title"><a
-                                                                        href="{{ route('instruktur.kurikulum', ['id' => $order->id]) }}">{{ $order->nama_kursus }}</a>
+                                                                        href="{{ route('lesson', ['id' => $order->product_id]) }}">{{ $order->nama_kursus }}</a>
                                                                 </h5>
                                                                 <div class="courses__item-content-bottom">
                                                                     <div class="author-two">
@@ -196,7 +196,8 @@
                                                                     </li>
                                                                     <li><i class="flaticon-clock"></i>{{ $order->durasi }}
                                                                     </li>
-                                                                    <li><i {{-- class="flaticon-mortarboard"></i>{{ $jumlahPendaftaran->get($order->id, 0) }} --}} </li>
+                                                                    <li><i class="flaticon-mortarboard"></i>
+                                                                    </li>
                                                                 </ul>
                                                             </div>
                                                         </div>
