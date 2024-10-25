@@ -76,6 +76,17 @@
                             <div class="col-lg-12">
                                 <div class="profile__content-wrap">
                                     <ul class="list-wrap">
+                                        @if ($kelas->isNotEmpty())
+                                            @foreach ($kelas as $item)
+                                                <div>
+                                                    <h3>{{ $item->nama_kelas }}</h3>
+                                                    <p>{{ $item->deskripsi_kelas }}</p>
+                                                    <!-- tampilkan data lainnya sesuai kebutuhan -->
+                                                </div>
+                                            @endforeach
+                                        @else
+                                            <p>Tidak ada kelas yang ditemukan untuk instruktur ini.</p>
+                                        @endif
 
                                     </ul>
                                 </div>
