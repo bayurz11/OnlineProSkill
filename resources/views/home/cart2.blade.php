@@ -22,8 +22,6 @@
                                 </form>
                             </div>
                         </div>
-                    @else
-                        <p></p>
                     @endif
                 @endauth
 
@@ -51,8 +49,7 @@
                                             <a href="{{ route('classroomdetail', $item['id']) }}">{{ $item['name'] }}</a>
                                         </td>
                                         <td class="product__price">
-                                            Rp
-                                            {{ number_format($item['discountedPrice'] ?? $item['discountedPrice'], 0, ',', ',') }}
+                                            Rp {{ number_format($item['discountedPrice'] ?? $item['price'], 0, ',', ',') }}
                                         </td>
                                         <td class="product__remove">
                                             <form action="{{ route('cart.remove', $item['id']) }}" method="POST"
@@ -69,8 +66,7 @@
                     </div>
                 @else
                     <div class="col-lg-7">
-                        <p>Keranjang Anda kosong. <a href="{{ route('search') }}">Lihat kelas yang
-                                tersedia.</a></p>
+                        <p>Keranjang Anda kosong. <a href="{{ route('search') }}">Lihat kelas yang tersedia.</a></p>
                     </div>
                 @endif
 
@@ -90,7 +86,12 @@
                                     }
                                 }
 
-                                $totalPrice = array_sum(array_column($cart, 'discountedPrice'));
+                                // Menghitung total harga dengan menggunakan discountedPrice jika tersedia
+                                $totalPrice = array_sum(
+                                    array_map(function ($item) {
+                                        return $item['discountedPrice'] ?? $item['price'];
+                                    }, $cart),
+                                );
                                 $totalPriceWithPendaftaran = $totalPrice + $biayaPendaftaran;
                             @endphp
 
@@ -123,8 +124,6 @@
                             @endauth
                         </div>
                     </div>
-                @else
-                    <p></p>
                 @endif
             </div>
         </div>

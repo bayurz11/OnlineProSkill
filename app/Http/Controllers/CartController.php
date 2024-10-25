@@ -47,6 +47,7 @@ class CartController extends Controller
     }
 
 
+
     public function updateQuantity(Request $request, $id)
     {
         $cart = Session::get('cart', []);
