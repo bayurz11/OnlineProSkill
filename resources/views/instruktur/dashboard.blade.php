@@ -52,7 +52,7 @@
                                         <i class="skillgro-notepad"></i>
                                     </div>
                                     <div class="content">
-                                        <span class="count odometer" data-count="30"></span>
+                                        <span class="count odometer" data-count="{{ $kelastatapmuka->count }}"></span>
                                         <p>TOTAL COURSES</p>
                                     </div>
                                 </div>

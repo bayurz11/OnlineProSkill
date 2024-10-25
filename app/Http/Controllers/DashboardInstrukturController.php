@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Models\NotifikasiUser;
 use Illuminate\Support\Carbon;
 use App\Http\Controllers\Controller;
+use App\Models\KelasTatapMuka;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
@@ -41,7 +42,13 @@ class DashboardInstrukturController extends Controller
             ->whereIn('status', ['PAID', 'SETTLED'])
             ->with('KelasTatapMuka')
             ->get();
-        return view('instruktur.dashboard', compact('user', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders'));
+        $kelastatapmuka = KelasTatapMuka::where('user_id', $user->id)
+            ->whereIn('id', function ($query) {
+                $query->select('course_id')
+                    ->from('kurikulum');
+            })
+            ->get();
+        return view('instruktur.dashboard', compact('user', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kelastatapmuka'));
     }
     public function profile()
     {
