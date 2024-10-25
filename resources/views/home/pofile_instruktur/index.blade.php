@@ -66,80 +66,7 @@
 
                 <div class="col-xl-9 col-lg-8">
                     <div class="tab-content" id="myTabContent">
-                        {{-- <div class="dashboard__content-wrap">
-                        <div class="dashboard__content-title">
-                            <h4 class="title">Kelas Yang dibuat</h4>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="tab-pane fade show active" id="grid" role="tabpanel"
-                                    aria-labelledby="grid-tab">
-                                    <div class="courses__grid-wrap row row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1"
-                                        style="gap: 15px;">
-                                        @if ($kelas->isNotEmpty())
-                                            @foreach ($kelas as $item)
-                                                @if ($item->status == 1)
-                                                    <div class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100"
-                                                        style="margin-bottom: 20px;">
-                                                        <div class="courses__item-thumb courses__item-thumb-two"
-                                                            style="margin-bottom: 15px;">
-                                                            <a href="{{ route('classroomdetail', ['id' => $item['id']]) }}"
-                                                                class="shine__animate-link">
-                                                                <img src="{{ asset('public/uploads/' . $item['gambar']) }}"
-                                                                    alt="img" class="img-fluid" loading="lazy"
-                                                                    style="max-width: 100%; height: auto;">
-                                                            </a>
-                                                        </div>
-                                                        <div class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1"
-                                                            style="gap: 10px;">
-                                                            <ul class="courses__item-meta list-wrap"
-                                                                style="margin-bottom: 10px;">
-                                                                <li class="courses__item-tag">
-                                                                    @if ($item['course_type'] == 'online')
-                                                                        <span class="badge bg-primary">Online</span>
-                                                                    @else
-                                                                        <span class="badge bg-secondary">Cours Tatap
-                                                                            Muka</span>
-                                                                    @endif
-                                                                </li>
 
-                                                                <li class="price">
-                                                                    @if (!empty($item['discountedPrice']))
-                                                                        <del>Rp
-                                                                            {{ number_format($item['price'], 0, ',', '.') }}</del>
-                                                                        Rp
-                                                                        {{ number_format($item['discountedPrice'], 0, ',', '.') }}
-                                                                    @else
-                                                                        Rp {{ number_format($item['price'], 0, ',', '.') }}
-                                                                    @endif
-                                                                </li>
-                                                            </ul>
-                                                            <h5 class="title course-title flex-grow-1">
-                                                                <a
-                                                                    href="{{ route('classroomdetail', ['id' => $item['id']]) }}">{{ $item['nama_kursus'] }}</a>
-                                                            </h5>
-                                                            <div class="courses__item-bottom" style="margin-top: auto;">
-                                                                <div class="button">
-                                                                    <a
-                                                                        href="{{ route('classroomdetail', ['id' => $item['id']]) }}">
-                                                                        <span class="text">Detail cours</span>
-                                                                        <i class="flaticon-arrow-right"></i>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                @endif
-                                            @endforeach
-                                        @else
-                                            <p>Tidak ada kelas yang ditemukan untuk instruktur ini.</p>
-                                        @endif
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
                         <div class="tab-pane fade show active" id="grid" role="tabpanel" aria-labelledby="grid-tab">
                             <div
                                 class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
@@ -163,7 +90,7 @@
                                                                 @if ($item['course_type'] == 'online')
                                                                     <span class="badge bg-primary">Online</span>
                                                                 @else
-                                                                    <span class="badge bg-secondary">cours Tatap
+                                                                    <span class="badge bg-secondary">Kelas Tatap
                                                                         Muka</span>
                                                                 @endif
                                                             </li>
