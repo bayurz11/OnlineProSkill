@@ -144,15 +144,14 @@
                                                     Anda Belum Menambahkan kelas Apapun
                                                 </div>
                                             @else
-                                                @foreach ($KelasTatapMuka->where('status', 1)->take(3)->whereDoesntHave('kurikulum', function ($query) {
-                $query->where('course_id', '!=', null);
-            }) as $kelas)
+                                                @foreach ($KelasTatapMuka->where('status', 1)->take(3) as $kelas)
                                                     <div class="col-xl-4 col-md-6">
                                                         <div class="courses__item courses__item-two shine__animate-item">
                                                             <div class="courses__item-thumb courses__item-thumb-two">
                                                                 <a href="{{ route('instruktur.kurikulum', ['id' => $kelas->id]) }}"
                                                                     data-id="{{ $kelas->id }}"
                                                                     class="shine__animate-link">
+
                                                                     <img src="{{ asset('public/uploads/' . $kelas->gambar) }}"
                                                                         alt="img" class="img-fluid"
                                                                         style="width: 100%; height: auto; object-fit: cover;">
@@ -174,6 +173,7 @@
                                                                             {{ number_format($kelas->price, 0, ',', '.') }}
                                                                         @endif
                                                                     </li>
+
                                                                 </ul>
                                                                 <h5 class="title"><a
                                                                         href="{{ route('instruktur.kurikulum', ['id' => $kelas->id]) }}">{{ $kelas->nama_kursus }}</a>
@@ -181,8 +181,7 @@
                                                                 <div class="courses__item-content-bottom">
                                                                     <div class="author-two">
                                                                         <a href="#"><img
-                                                                                src="{{ $profile && $profile->gambar ? (strpos($profile->gambar, 'googleusercontent') !== false ? $profile->gambar : asset('public/uploads/' . $profile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
-                                                                                style="object-fit: cover;"
+                                                                                src="{{ $profile && $profile->gambar ? (strpos($profile->gambar, 'googleusercontent') !== false ? $profile->gambar : asset('public/uploads/' . $profile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"style="object-fit: cover;"
                                                                                 alt="img">{{ $kelas->user->name }}</a>
                                                                     </div>
                                                                     <div class="avg-rating">
@@ -202,13 +201,13 @@
                                                                     </li>
                                                                 </ul>
                                                             </div>
+
                                                         </div>
                                                     </div>
                                                 @endforeach
                                             @endif
                                         </div>
                                     </div>
-
 
                                 </div>
                             </div>
