@@ -89,9 +89,7 @@
                                     }
                                 }
 
-                                $totalPrice =
-                                    array_sum(array_column($cart, 'discountedPrice')) ??
-                                    array_sum(array_column($cart, 'price'));
+                                $totalPrice = array_sum(array_column($cart, 'discountedPrice'));
                                 $totalPriceWithPendaftaran = $totalPrice + $biayaPendaftaran;
                             @endphp
 
