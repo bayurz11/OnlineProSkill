@@ -147,60 +147,7 @@
                                                 @foreach ($orders as $order)
                                                     <div class="col mb-4">
 
-                                                        <div class="courses__item courses__item-two shine__animate-item">
-                                                            <div class="courses__item-thumb courses__item-thumb-two">
-                                                                <a href="{{ route('lesson', ['id' => $order->product_id]) }}"
-                                                                    data-id="{{ $order->id }}"
-                                                                    class="shine__animate-link">
-                                                                    <img src="{{ $order->KelasTatapMuka->gambar ? asset('public/uploads/' . $order->KelasTatapMuka->gambar) : asset('public/assets/img/courses/course_thumb01.jpg') }}"
-                                                                        alt="img" class="img-fluid"
-                                                                        style="width: 100%; height: auto; object-fit: cover;">
-                                                                </a>
-                                                            </div>
-                                                            <div class="courses__item-content courses__item-content-two">
-                                                                <ul class="courses__item-meta list-wrap">
-                                                                    <li class="courses__item-tag">
-                                                                        <a href="">{{ $order->tag }}</a>
-                                                                    </li>
-                                                                    <li class="price">
-                                                                        @if (!empty($order->discountedPrice))
-                                                                            <del>Rp
-                                                                                {{ number_format($order->price, 0, ',', '.') }}</del>
-                                                                            Rp
-                                                                            {{ number_format($order->discountedPrice, 0, ',', '.') }}
-                                                                        @else
-                                                                            Rp
-                                                                            {{ number_format($order->price, 0, ',', '.') }}
-                                                                        @endif
-                                                                    </li>
-                                                                </ul>
-                                                                <h5 class="title"><a
-                                                                        href="{{ route('lesson', ['id' => $order->product_id]) }}">{{ $order->nama_kursus }}</a>
-                                                                </h5>
-                                                                <div class="courses__item-content-bottom">
-                                                                    <div class="author-two">
-                                                                        <a href="#"><img
-                                                                                src="{{ asset('public/assets/img/courses/course_author001.png') }}"
-                                                                                style="object-fit: cover;"
-                                                                                alt="img">{{ $order->KelasTatapMuka->user->name }}</a>
-                                                                    </div>
-                                                                    <div class="avg-rating">
-                                                                        <i class="fas fa-star"></i> (4.5 Reviews)
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="courses__item-bottom-two">
-                                                                <ul class="list-wrap">
-                                                                    <li><i
-                                                                            class="flaticon-book"></i>{{ $order->lesson_count }}
-                                                                    </li>
-                                                                    <li><i class="flaticon-clock"></i>{{ $order->durasi }}
-                                                                    </li>
-                                                                    <li><i class="flaticon-mortarboard"></i>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
+
                                                         <div
                                                             class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
                                                             <!-- Thumbnail Gambar -->
