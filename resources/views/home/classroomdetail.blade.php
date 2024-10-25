@@ -276,7 +276,7 @@
                             <h2 class="title">
                                 @if (!empty($courses->discountedPrice))
                                     <div
-                                        style="background-color: #009688; color: #fff; padding: 15px; border-radius: 8px; text-align: center; display: inline-block;">
+                                        style=" color: #fff; padding: 15px; border-radius: 8px; text-align: center; display: inline-block;">
                                         <span style="font-size: 15px; text-decoration: line-through; opacity: 0.8;">
                                             Rp {{ number_format($courses->price, 0, ',', '.') }}
                                         </span>
