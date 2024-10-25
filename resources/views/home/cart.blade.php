@@ -135,8 +135,9 @@
                                     </li>
                                 @endforeach
                                 <li>Jumlah Quantity <span>{{ array_sum(array_column($cart, 'quantity')) }}</span></li>
-                                <li>Subtotal <span>Rp.{{ array_sum(array_column($cart, 'price')) }}</span></li>
-                                <li>Total <span class="amount">Rp.{{ array_sum(array_column($cart, 'price')) }}</span>
+                                <li>Subtotal <span>Rp.{{ array_sum(array_column($cart, 'discountedPrice')) }}</span></li>
+                                <li>Total <span
+                                        class="amount">Rp.{{ array_sum(array_column($cart, 'discountedPrice')) }}</span>
                                 </li>
                             </ul>
                         @else
