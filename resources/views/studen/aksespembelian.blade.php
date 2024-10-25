@@ -179,10 +179,14 @@
                                                                 </h5>
                                                                 <div class="courses__item-content-bottom">
                                                                     <div class="author-two">
-                                                                        <a href="#"><img
-                                                                                src="{{ $profile && $profile->gambar ? (strpos($profile->gambar, 'googleusercontent') !== false ? $profile->gambar : asset('public/uploads/' . $profile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
+                                                                        <a href="#">
+                                                                            <img src="{{ $profile && $profile->gambar ? (strpos($profile->gambar, 'googleusercontent') !== false ? $profile->gambar : asset('public/uploads/' . $profile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
                                                                                 style="object-fit: cover;"
-                                                                                alt="img">{{ $order->KelasTatapMuka->user->name }}</a>
+                                                                                alt="{{ $order->KelasTatapMuka->user->name }}"
+                                                                                title="{{ $order->KelasTatapMuka->user->name }}" />
+                                                                            {{ $order->KelasTatapMuka->user->name }}
+                                                                        </a>
+
                                                                     </div>
                                                                     <div class="avg-rating">
                                                                         <i class="fas fa-star"></i> (4.5 Reviews)
