@@ -177,9 +177,7 @@
                                                         @endif
                                                     </li>
                                                     @if (in_array($kelas['id'], $joinedCourses))
-                                                        <span class="badge bg-success">
-                                                            <i class="fas fa-check-circle"></i>
-                                                        </span>
+                                                        <i class="fas fa-check-circle"></i>
                                                     @endif
 
                                                 </ul>
