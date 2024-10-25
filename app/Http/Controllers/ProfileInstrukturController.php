@@ -7,6 +7,7 @@ use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use App\Models\NotifikasiUser;
 use App\Http\Controllers\Controller;
+use App\Models\KelasTatapMuka;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -40,11 +41,17 @@ class ProfileInstrukturController extends Controller
         $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
             ->orderBy('created_at', 'desc')
             ->get()
-            : collect(); // Menggunakan collect() untuk membuat koleksi kosong jika pengguna belum login
+            : collect();
 
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
-        return view('home.pofile_instruktur.index', compact('user', 'emailList', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'contactUs', 'teleponList', 'instructorProfile'));
+        // Ambil data kelas berdasarkan instructor_id dari instructorProfile
+        $kelas = [];
+        if ($instructorProfile) {
+            $kelas = KelasTatapMuka::where('instructor_id', $instructorProfile->user_id)->get();
+        }
+
+        return view('home.pofile_instruktur.index', compact('user', 'emailList', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'contactUs', 'teleponList', 'instructorProfile', 'kelas'));
     }
 }
