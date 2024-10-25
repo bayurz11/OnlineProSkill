@@ -287,7 +287,7 @@
                                                         @if ($cours->course_type == 'online')
                                                             <span class="badge bg-primary">Online</span>
                                                         @else
-                                                            <span class="badge bg-secondary">cours Tatap Muka</span>
+                                                            <span class="badge bg-secondary">Kelas Tatap Muka</span>
                                                         @endif
                                                     </ul>
                                                     <h5 class="title">
