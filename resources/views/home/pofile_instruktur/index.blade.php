@@ -55,7 +55,7 @@
                                 <li><span>Nama</span> {{ $instructorProfile->user->name }}</li>
                                 </ul>
                             </div>
-                            <div class="col-lg-12">
+                            <div class="col-lg-9">
                                 <div class="profile__content-wrap">
                                     <ul class="list-wrap">
                                         <li><span>Tanggal Bergabung</span>
