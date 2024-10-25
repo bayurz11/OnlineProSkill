@@ -140,6 +140,65 @@
                             </div>
                         </div>
                     </div> --}}
+                        <div class="tab-pane fade show active" id="grid" role="tabpanel" aria-labelledby="grid-tab">
+                            <div
+                                class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
+                                @foreach ($results as $item)
+                                    @if ($item->status == 1)
+                                        <div class="col mb-4">
+                                            <div
+                                                class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
+                                                <div class="courses__item-thumb courses__item-thumb-two">
+                                                    <a href="{{ route('classroomdetail', ['id' => $item['id']]) }}"
+                                                        class="shine__animate-link">
+                                                        <img src="{{ asset('public/uploads/' . $item['gambar']) }}"
+                                                            alt="img" class="img-fluid" loading="lazy">
+                                                    </a>
+                                                </div>
+                                                <div
+                                                    class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1">
+                                                    <ul class="courses__item-meta list-wrap">
+                                                        <li class="courses__item-tag">
+                                                            @if ($item['course_type'] == 'online')
+                                                                <span class="badge bg-primary">Online</span>
+                                                            @else
+                                                                <span class="badge bg-secondary">cours Tatap
+                                                                    Muka</span>
+                                                            @endif
+                                                        </li>
+
+                                                        <li class="price">
+                                                            @if (!empty($item['discountedPrice']))
+                                                                <del>Rp
+                                                                    {{ number_format($item['price'], 0, ',', '.') }}</del>
+                                                                Rp
+                                                                {{ number_format($item['discountedPrice'], 0, ',', '.') }}
+                                                            @else
+                                                                Rp {{ number_format($item['price'], 0, ',', '.') }}
+                                                            @endif
+                                                        </li>
+                                                    </ul>
+                                                    <h5 class="title course-title flex-grow-1">
+                                                        <a
+                                                            href="{{ route('classroomdetail', ['id' => $item['id']]) }}">{{ $item['nama_kursus'] }}</a>
+                                                    </h5>
+                                                    <div class="courses__item-bottom">
+                                                        <div class="button">
+                                                            <a
+                                                                href="{{ route('classroomdetail', ['id' => $item['id']]) }}">
+                                                                <span class="text">Detail cours</span>
+                                                                <i class="flaticon-arrow-right"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
+
+                        </div>
                     </div>
                 </div>
 
