@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Session;
 
 class ProfileInstrukturController extends Controller
 {
-    public function index()
+    public function index($id)
     {
 
         $user = Auth::user();
