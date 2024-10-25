@@ -14,22 +14,23 @@ class ProfileInstrukturController extends Controller
 {
     public function index($id)
     {
-
         $user = Auth::user();
         $profile = null;
         $cart = Session::get('cart', []);
         $contactUs = ContactUs::first();
 
         $teleponList = json_decode($contactUs->telepon, true);
-
         if (!is_array($teleponList)) {
             $teleponList = [];
         }
-        $emailList = json_decode($contactUs->email, true);
 
+        $emailList = json_decode($contactUs->email, true);
         if (!is_array($emailList)) {
             $emailList = [];
         }
+
+        // Ambil profil instruktur berdasarkan ID dari URL
+        $instructorProfile = UserProfile::where('user_id', $id)->first();
 
         if ($user) {
             $profile = UserProfile::where('user_id', $user->id)->first();
@@ -44,6 +45,6 @@ class ProfileInstrukturController extends Controller
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
-        return view('home.pofile_instruktur.index', compact('user', 'emailList', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'contactUs', 'teleponList'));
+        return view('home.pofile_instruktur.index', compact('user', 'emailList', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'contactUs', 'teleponList', 'instructorProfile'));
     }
 }

@@ -52,16 +52,18 @@
                                 <div class="profile__content-wrap">
                                     <ul class="list-wrap">
                                         <li><span>Tanggal Bergabung</span>
-                                            {{ \Carbon\Carbon::parse($user->created_at)->format('d F Y h:i a') }}</li>
-                                        <li><span>Nama</span> {{ $user->name }}</li>
-                                        <li><span>Email</span> {{ $user->email }}</li>
-                                        <li><span>Phone Number</span> {{ $profile->phone_number }}</li>
+                                            {{ \Carbon\Carbon::parse($instructorProfile->created_at)->format('d F Y h:i a') }}
+                                        </li>
+                                        <li><span>Nama</span> {{ $instructorProfile->user->name }}</li>
+                                        <li><span>Email</span> {{ $instructorProfile->user->email }}</li>
+                                        <li><span>Phone Number</span> {{ $instructorProfile->phone_number }}</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
 
             </div>
 
