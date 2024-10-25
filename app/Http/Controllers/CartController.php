@@ -70,7 +70,7 @@ class CartController extends Controller
             $cart[$id] = [
                 "id" => $id,
                 "name" => $course->nama_kursus,
-                "discountedPrice" => $course->discountedPrice,
+                "price" => $course->discountedPrice,
                 "gambar" => $course->gambar,
                 "quantity" => 1,
             ];
@@ -94,7 +94,7 @@ class CartController extends Controller
             $cart[$id] = [
                 "id" => $id,
                 "name" => $course->nama_kursus,
-                "discountedPrice" => $course->discountedPrice,
+                "price" => $course->discountedPrice,
                 "gambar" => $course->gambar,
                 "quantity" => 1,
             ];
@@ -120,7 +120,7 @@ class CartController extends Controller
             $cart[$id] = [
                 "id" => $id,
                 "name" => $course->nama_kursus,
-                "price" => $course->price,
+                "price" => $course->discountedPrice,
                 "gambar" => $course->gambar,
                 "quantity" => 1,
             ];
