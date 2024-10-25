@@ -77,7 +77,7 @@
                                 <div class="tab-pane fade show active" id="grid" role="tabpanel"
                                     aria-labelledby="grid-tab">
                                     <div class="courses__grid-wrap row row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1"
-                                        style="gap: 20px;">
+                                        style="gap: 15px;">
                                         @if ($kelas->isNotEmpty())
                                             @foreach ($kelas as $item)
                                                 @if ($item->status == 1)
