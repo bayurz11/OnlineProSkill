@@ -49,7 +49,7 @@ class ProfileInstrukturController extends Controller
         // Ambil data kelas berdasarkan instructor_id dari instructorProfile
         $kelas = [];
         if ($instructorProfile) {
-            $kelas = KelasTatapMuka::where('instructor_id', $instructorProfile->user_id)->get();
+            $kelas = KelasTatapMuka::where('user_id', $instructorProfile->user_id)->get();
         }
 
         return view('home.pofile_instruktur.index', compact('user', 'emailList', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'contactUs', 'teleponList', 'instructorProfile', 'kelas'));
