@@ -27,11 +27,11 @@ class HomeController extends Controller
         $user = Auth::user();
         $profile = null;
         $cart = Session::get('cart', []);
-    //   $jumlah_siswa = Sertifikat::whereIn('kategori_id', [13, 14])
-    //         ->distinct('name')
-    //         ->count('name');
-   $daftar_siswa = UserProfile::where('role_id', 3)->get();
-       $sertifikat = Sertifikat::whereIn('kategori_id', [13, 14])->get();
+        //   $jumlah_siswa = Sertifikat::whereIn('kategori_id', [13, 14])
+        //         ->distinct('name')
+        //         ->count('name');
+        $daftar_siswa = UserProfile::where('role_id', 3)->get();
+        $sertifikat = Sertifikat::whereIn('kategori_id', [13, 14])->get();
 
 
         // Mengambil KelasTatapMuka dengan course_type = 'online' atau 'offline' dan mengurutkannya berdasarkan kolom created_at
@@ -157,7 +157,13 @@ class HomeController extends Controller
         // Ambil section yang relevan dengan kurikulum
         $section = Section::whereIn('kurikulum_id', $kurikulum->pluck('id'))->get()->groupBy('kurikulum_id');
 
-        $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
+        $joinedCourses = $user
+            ? Order::where('user_id', $user->id)
+            ->whereIn('status', ['paid', 'settled']) // Memeriksa status
+            ->pluck('product_id')
+            ->toArray()
+            : [];
+
 
         // Ambil sertifikat dan hitung jumlah kategori_id sesuai dengan id dari product_id
         $orderProductIds = Order::where('product_id', $id)->pluck('product_id');
