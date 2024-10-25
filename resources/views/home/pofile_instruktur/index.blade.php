@@ -44,6 +44,15 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="dashboard__sidebar-wrap">
+                        <ul class="list-wrap">
+                            <li>
+                                <span>Tanggal Bergabung</span>
+                                {{ \Carbon\Carbon::parse($instructorProfile->created_at)->format('d F Y h:i a') }}
+                            </li>
+                            <li>
+                                <span>Nama</span> {{ $instructorProfile->user->name }}
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
