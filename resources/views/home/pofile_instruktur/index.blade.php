@@ -24,10 +24,10 @@
     <!-- dashboard-area -->
     <section class="dashboard__area section-pb-120">
         <div class="container">
-            @include('instruktur.nav.profile')
+            {{-- @include('instruktur.nav.profile') --}}
 
             <div class="row">
-                @include('instruktur.nav.navbar')
+                {{-- @include('instruktur.nav.navbar') --}}
 
                 <div class="col-lg-9">
                     <div class="dashboard__content-wrap">
