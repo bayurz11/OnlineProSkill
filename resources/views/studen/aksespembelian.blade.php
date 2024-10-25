@@ -165,6 +165,10 @@
                                                                         href="{{ route('lesson', ['id' => $order->product_id]) }}">{{ $order->KelasTatapMuka->nama_kursus ?? 'Nama kelas tidak tersedia' }}</a>
                                                                 </h5>
                                                                 <div class="courses__item-content-bottom mt-auto">
+                                                                    <span
+                                                                        class="badge {{ $order->KelasTatapMuka->course_type == 'online' ? 'bg-primary' : 'bg-secondary' }} ms-auto">
+                                                                        {{ ucfirst($order->KelasTatapMuka->course_type) }}
+                                                                    </span>
                                                                     <div class="author-two d-flex align-items-center">
                                                                         <a href="#">
                                                                             <img src="{{ asset('public/assets/img/courses/course_author001.png') }}"
@@ -172,10 +176,7 @@
                                                                                 style="width: 30px; height: 30px;">
                                                                             {{ $order->KelasTatapMuka->user->name }}
                                                                         </a>
-                                                                        <span
-                                                                            class="badge {{ $order->KelasTatapMuka->course_type == 'online' ? 'bg-primary' : 'bg-secondary' }} ms-auto">
-                                                                            {{ ucfirst($order->KelasTatapMuka->course_type) }}
-                                                                        </span>
+
                                                                     </div>
                                                                 </div>
                                                             </div>
