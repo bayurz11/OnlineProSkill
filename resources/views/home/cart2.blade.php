@@ -93,7 +93,7 @@
                                     }
                                 }
 
-                                $totalPrice = array_sum(array_column($cart, 'discountedPrice')); // Total harga keranjang
+                                $totalPrice = array_sum(array_column($cart, 'price')); // Total harga keranjang
                                 $totalPriceWithPendaftaran = $totalPrice + $biayaPendaftaran; // Total dengan biaya pendaftaran
                             @endphp
 
