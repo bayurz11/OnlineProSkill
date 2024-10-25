@@ -42,6 +42,30 @@
     <section class="courses__details-area section-py-120">
         <div class="container">
             <div class="row">
+                <div class="col-xl-3 col-lg-4 order-2 order-lg-0">
+                    <aside class="courses__sidebar">
+                        <div class="courses-widget">
+
+                            <div style="margin-right: 15px;">
+                                <img src="{{ $instructorProfile && $instructorProfile->gambar ? (strpos($instructorProfile->gambar, 'googleusercontent') !== false ? $instructorProfile->gambar : asset('public/uploads/' . $instructorProfile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
+                                    alt="Profile Image" style="border-radius: 50%; width: 60px; height: 60px;">
+                            </div>
+                            <div>
+                                <ul class="list-wrap" style="list-style-type: none; padding: 0; margin: 0;">
+                                    <li>
+                                        <span
+                                            style="font-size: 18px; color: #333; font-weight: bold;">{{ $instructorProfile->user->name }}</span>
+                                    </li>
+                                    <li>
+                                        <span style="font-size: 14px; color: #666;">Mentor sejak
+                                            {{ \Carbon\Carbon::parse($instructorProfile->created_at)->format('d M Y') }}</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </aside>
+                </div>
                 <div class="col-lg-3">
                     <div class="dashboard__sidebar-wrap"
                         style="background-color: #f9fafb; padding: 20px; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); display: flex; align-items: center;">
