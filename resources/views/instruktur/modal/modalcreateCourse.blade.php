@@ -113,7 +113,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="price" class="form-label">Harga (Rp)<span class="text-danger">*</span></label>
-                        <input type="number" class="form-control" id="price" name="price" required>
+                        <input type="number" class="form-control" id="price" name="price" min="0"
+                            required>
                     </div>
                     <div class="mb-3">
                         <label for="discount" class="form-label">Diskon %</label>
