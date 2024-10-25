@@ -328,7 +328,14 @@
 @include('home.modal.registerinstruktur')
 @include('home.modal.registercart')
 <!-- Model instruktur -->
-@include('instruktur.modal.modalcreateCourse')
-@include('instruktur.modal.modalKurikulum')
-@include('instruktur.modal.materiModal')
+@php
+    $roleId = auth()->user()->role_id; // Ambil role_id pengguna saat ini
+@endphp
+
+@if ($roleId == 2)
+    @include('instruktur.modal.modalcreateCourse')
+    @include('instruktur.modal.modalKurikulum')
+    @include('instruktur.modal.materiModal')
+@endif
+
 <!-- header-area-end -->
