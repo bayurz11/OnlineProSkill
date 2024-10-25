@@ -45,7 +45,7 @@
                 <div class="col-lg-9">
                     <div class="dashboard__content-wrap">
                         <div class="dashboard__content-title">
-                            <h4 class="title">Profil Saya</h4>
+                            <h4 class="title">Profil Instruktur</h4>
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
@@ -55,8 +55,6 @@
                                             {{ \Carbon\Carbon::parse($instructorProfile->created_at)->format('d F Y h:i a') }}
                                         </li>
                                         <li><span>Nama</span> {{ $instructorProfile->user->name }}</li>
-                                        <li><span>Email</span> {{ $instructorProfile->user->email }}</li>
-                                        <li><span>Phone Number</span> {{ $instructorProfile->phone_number }}</li>
                                     </ul>
                                 </div>
                             </div>
