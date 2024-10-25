@@ -274,9 +274,7 @@
                         <div class="courses__cost-wrap">
                             <span>Kursus Fee:</span>
                             <h2 class="title">
-                                <span style="font-size: 15px;">
-                                    Rp {{ number_format($courses->price, 0, ',', '.') }}
-                                </span>
+
                                 @if (!empty($courses->discountedPrice))
                                     <br>
                                     <span style="font-size: 15px;">
