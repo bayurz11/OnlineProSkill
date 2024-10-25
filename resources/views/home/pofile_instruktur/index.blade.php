@@ -43,18 +43,26 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
-                    <div class="dashboard__sidebar-wrap">
-                        <ul class="list-wrap">
-                            <li>
-                                <span>Tanggal Bergabung</span>
-                                {{ \Carbon\Carbon::parse($instructorProfile->created_at)->format('d F Y h:i a') }}
-                            </li>
-                            <li>
-                                <span>Nama</span> {{ $instructorProfile->user->name }}
-                            </li>
-                        </ul>
+                    <div class="dashboard__sidebar-wrap"
+                        style="background-color: #f9fafb; padding: 20px; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); display: flex; align-items: center;">
+                        <div style="margin-right: 15px;">
+                            <img src="path_to_image" alt="image" style="border-radius: 50%; width: 60px; height: 60px;">
+                        </div>
+                        <div>
+                            <ul class="list-wrap" style="list-style-type: none; padding: 0; margin: 0;">
+                                <li>
+                                    <span
+                                        style="font-size: 18px; color: #333; font-weight: bold;">{{ $instructorProfile->user->name }}</span>
+                                </li>
+                                <li>
+                                    <span style="font-size: 14px; color: #666;">Mentor sejak
+                                        {{ \Carbon\Carbon::parse($instructorProfile->created_at)->format('d M Y') }}</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
+
 
                 <div class="col-lg-9">
                     <div class="dashboard__content-wrap">
