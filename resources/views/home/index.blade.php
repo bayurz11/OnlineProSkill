@@ -166,19 +166,14 @@
                                                             <span class="badge bg-secondary">Kelas Tatap Muka</span>
                                                         @endif
                                                     </li>
-                                                    @php
-                                                        $hargaKelas = [
-                                                            'original' => $kelas->price,
-                                                            'discounted' => $kelas->discountedPrice,
-                                                        ];
-                                                    @endphp
+
                                                     <li class="price">
-                                                        @if (!empty($hargaKelas['discounted']))
+                                                        @if (!empty($kelas['discounted']))
                                                             <del>Rp
-                                                                {{ number_format($hargaKelas['original'], 0, ',', '.') }}</del>
-                                                            Rp {{ number_format($hargaKelas['discounted'], 0, ',', '.') }}
+                                                                {{ number_format($kelas['original'], 0, ',', '.') }}</del>
+                                                            Rp {{ number_format($kelas['discounted'], 0, ',', '.') }}
                                                         @else
-                                                            Rp {{ number_format($hargaKelas['original'], 0, ',', '.') }}
+                                                            Rp {{ number_format($kelas['original'], 0, ',', '.') }}
                                                         @endif
                                                     </li>
                                                 </ul>
