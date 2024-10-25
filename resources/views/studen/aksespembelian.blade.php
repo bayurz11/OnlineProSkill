@@ -175,7 +175,7 @@
                                                                     </li>
                                                                 </ul>
                                                                 <h5 class="title"><a
-                                                                        href="{{ route('instruktur.kurikulum', ['id' => $order->id]) }}">{{ $kelas->nama_kursus }}</a>
+                                                                        href="{{ route('instruktur.kurikulum', ['id' => $order->id]) }}">{{ $order->nama_kursus }}</a>
                                                                 </h5>
                                                                 <div class="courses__item-content-bottom">
                                                                     <div class="author-two">
