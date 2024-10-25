@@ -49,7 +49,10 @@ class DashboardInstrukturController extends Controller
             })
             ->get();
         $kelastatapmukaCount = $kelastatapmuka->count();
-        return view('instruktur.dashboard', compact('user', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kelastatapmuka', 'kelastatapmukaCount'));
+        $jumlahSiswa = Order::whereIn('product_id', $kelastatapmuka->pluck('id'))
+            ->distinct('user_id') // Menghitung hanya siswa unik
+            ->count('user_id');
+        return view('instruktur.dashboard', compact('user', 'jumlahSiswa', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kelastatapmuka', 'kelastatapmukaCount'));
     }
     public function profile()
     {

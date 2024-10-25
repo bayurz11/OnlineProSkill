@@ -41,7 +41,7 @@
                                         <i class="skillgro-group"></i>
                                     </div>
                                     <div class="content">
-                                        <span class="count odometer" data-count="160"></span>
+                                        <span class="count odometer" data-count="{{ $jumlahSiswa }}"></span>
                                         <p>TOTAL STUDENTS</p>
                                     </div>
                                 </div>
