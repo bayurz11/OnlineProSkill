@@ -42,7 +42,6 @@
     <section class="courses__details-area section-py-120">
         <div class="container">
             <div class="row">
-
                 <div class="col-xl-3 col-lg-4 order-2 order-lg-0">
                     <div class="dashboard__sidebar-wrap"
                         style="background-color: #f9fafb; padding: 20px; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); display: flex; align-items: center;">
@@ -65,10 +64,7 @@
                     </div>
                 </div>
 
-
-
-
-                <div class="col-lg-9">
+                <div class="col-xl-9 col-lg-8">
                     <div class="dashboard__content-wrap">
                         <div class="dashboard__content-title">
                             <h4 class="title">Kelas Yang dibuat</h4>
