@@ -233,18 +233,19 @@
                                                                 <span class="badge bg-secondary">Kelas Tatap Muka</span>
                                                             @endif
                                                         </p>
-                                                        <h5 class="price">
-                                                            @if (!empty($cours->discountedPrice))
-                                                                <del>Rp
-                                                                    {{ number_format($cours->price, 0, ',', '.') }}</del>
-                                                                Rp
-                                                                {{ number_format($cours->discountedPrice, 0, ',', '.') }}
-                                                            @else
-                                                                Rp
-                                                                {{ number_format($cours->price, 0, ',', '.') }}
-                                                            @endif
-                                                        </h5>
+
                                                         <div class="courses__item-bottom">
+                                                            <h5 class="price">
+                                                                @if (!empty($cours->discountedPrice))
+                                                                    <del>Rp
+                                                                        {{ number_format($cours->price, 0, ',', '.') }}</del>
+                                                                    Rp
+                                                                    {{ number_format($cours->discountedPrice, 0, ',', '.') }}
+                                                                @else
+                                                                    Rp
+                                                                    {{ number_format($cours->price, 0, ',', '.') }}
+                                                                @endif
+                                                            </h5>
                                                             <div class="button">
                                                                 <a
                                                                     href="{{ route('classroomdetail', ['id' => $cours->id]) }}">
