@@ -164,11 +164,14 @@
                                                                     <a
                                                                         href="{{ route('lesson', ['id' => $order->product_id]) }}">{{ $order->KelasTatapMuka->nama_kursus ?? 'Nama kelas tidak tersedia' }}</a>
                                                                 </h5>
-                                                                <div class="courses__item-content-bottom mt-auto">
+                                                                <div>
                                                                     <span
                                                                         class="badge {{ $order->KelasTatapMuka->course_type == 'online' ? 'bg-primary' : 'bg-secondary' }} ms-auto">
                                                                         {{ ucfirst($order->KelasTatapMuka->course_type) }}
                                                                     </span>
+                                                                </div>
+                                                                <div class="courses__item-content-bottom mt-auto">
+
                                                                     <div class="author-two d-flex align-items-center">
                                                                         <a href="#">
                                                                             <img src="{{ asset('public/assets/img/courses/course_author001.png') }}"
