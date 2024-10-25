@@ -85,8 +85,8 @@
         </div>
         <nav class="dashboard__sidebar-menu">
             <ul class="list-wrap">
-                <li class="{{ Request::is('#') ? 'active' : '' }}">
-                    <a href="instructor-setting.html">
+                <li class="{{ Request::is('instruktur_setting') ? 'active' : '' }}">
+                    <a href="{{ route('instruktur_setting') }}">
                         <i class="skillgro-settings"></i>
                         Settings
                     </a>
