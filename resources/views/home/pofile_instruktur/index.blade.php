@@ -176,16 +176,21 @@
                                                                 </li>
                                                                 <li class="avg-rating"><i class="fas fa-star"></i> (4.3
                                                                     Reviews)</li>
-                                                                <li class="price" style="color: green;">
+                                                                <li class="price">
                                                                     @if (!empty($item['discountedPrice']))
-                                                                        <del>Rp
-                                                                            {{ number_format($item['price'], 0, ',', '.') }}</del>
-                                                                        Rp
-                                                                        {{ number_format($item['discountedPrice'], 0, ',', '.') }}
+                                                                        <del style="color: red;">Rp
+                                                                            {{ number_format($item['price'], 0, ',', '.') }}
+                                                                        </del>
+                                                                        <span style="color: #007F73;">Rp
+                                                                            {{ number_format($item['discountedPrice'], 0, ',', '.') }}
+                                                                        </span>
                                                                     @else
-                                                                        Rp {{ number_format($item['price'], 0, ',', '.') }}
+                                                                        <span style="color: red;">Rp
+                                                                            {{ number_format($item['price'], 0, ',', '.') }}
+                                                                        </span>
                                                                     @endif
                                                                 </li>
+
                                                                 @if (in_array($item->id, $joinedCourses))
                                                                     <i class="fas fa-check-circle fa-lg"
                                                                         style="color: green;"></i>
