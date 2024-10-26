@@ -349,7 +349,6 @@
             } else if (formattedPhone.startsWith('62')) {
                 // Sudah dalam format internasional, tidak perlu diubah
             } else {
-                // Jika format tidak dikenali, tambahkan logika tambahan jika diperlukan
                 console.error("Nomor telepon tidak valid.");
                 return;
             }
