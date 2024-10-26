@@ -158,9 +158,10 @@
                                                 <div class="swiper-slide">
                                                     <div class="courses__item shine__animate-item">
                                                         <div class="courses__item-thumb">
-                                                            <a href="course-details.html" class="shine__animate-link">
-                                                                <img src="assets/img/courses/course_thumb03.jpg"
-                                                                    alt="img">
+                                                            <a href="{{ route('classroomdetail', ['id' => $item['id']]) }}"
+                                                                class="shine__animate-link">
+                                                                <img src="{{ asset('public/uploads/' . $item['gambar']) }}"
+                                                                    alt="img" class="img-fluid" loading="lazy">
                                                             </a>
                                                         </div>
                                                         <div class="courses__item-content">
