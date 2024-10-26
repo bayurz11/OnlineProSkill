@@ -193,8 +193,7 @@
                                                                             </li>
                                                                             <li><i class="flaticon-clock"></i>
                                                                             </li>
-                                                                            <li><i
-                                                                                    class="flaticon-mortarboard"></i>{{ $jumlahPendaftaran->get($kelas->id, 0) }}
+                                                                            <li><i class="flaticon-mortarboard"></i>
                                                                             </li>
                                                                         </ul>
                                                                     </div>
