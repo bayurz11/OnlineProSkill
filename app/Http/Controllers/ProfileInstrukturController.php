@@ -52,7 +52,9 @@ class ProfileInstrukturController extends Controller
         // Ambil data kelas berdasarkan instructor_id dari instructorProfile
         $kelas = [];
         if ($instructorProfile) {
-            $kelas = KelasTatapMuka::where('user_id', $instructorProfile->user_id)->get();
+            $kelas = KelasTatapMuka::where('user_id', $instructorProfile->user_id)
+                ->whereIn('course_type', ['offline', 'online'])
+                ->get();
         }
         $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
         return view('home.pofile_instruktur.index', compact('user', 'categori', 'joinedCourses', 'emailList', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'contactUs', 'teleponList', 'instructorProfile', 'kelas'));
