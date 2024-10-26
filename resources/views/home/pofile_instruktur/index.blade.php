@@ -204,16 +204,7 @@
                                                                         <i class="flaticon-arrow-right"></i>
                                                                     </a>
                                                                 </div>
-                                                                <h5 class="price">
-                                                                    @if (!empty($item['discountedPrice']))
-                                                                        <del>Rp
-                                                                            {{ number_format($item['price'], 0, ',', '.') }}</del>
-                                                                        Rp
-                                                                        {{ number_format($item['discountedPrice'], 0, ',', '.') }}
-                                                                    @else
-                                                                        Rp {{ number_format($item['price'], 0, ',', '.') }}
-                                                                    @endif
-                                                                </h5>
+
                                                             </div>
                                                         </div>
                                                     </div>
