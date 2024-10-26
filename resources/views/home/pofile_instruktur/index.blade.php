@@ -254,8 +254,9 @@
                             </div>
                             <div class="form-grp">
                                 <input type="text" id="phone" placeholder="Phone" pattern="^[0-9]{1,12}$"
-                                    required title="Please enter a number with a maximum of 12 digits.">
+                                    required title="Please enter a number with a maximum of 12 digits." maxlength="12">
                             </div>
+
                             <div class="form-grp">
                                 <textarea id="message" placeholder="Type Message" required></textarea>
                             </div>
@@ -289,6 +290,13 @@
                     }
                 });
             });
+        });
+
+        document.getElementById('phone').addEventListener('input', function(event) {
+            // Menghapus karakter jika lebih dari 12
+            if (this.value.length > 12) {
+                this.value = this.value.slice(0, 12);
+            }
         });
         //wa
         function sendWhatsAppMessage(event) {
