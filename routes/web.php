@@ -222,7 +222,7 @@ Route::middleware('isInstruktur')->group(function () {
     Route::get('/instruktur_profile', [DashboardInstrukturController::class, 'profile'])->name('instruktur_profile');
 
     Route::get('/instruktur_setting', [SettingProfileInstrukturController::class, 'profilesetting'])->name('instruktur_setting');
-    Route::post('/updateProfile/{id}', [SettingProfileInstrukturController::class, 'updateprofil'])->name('updateProfile');
+    Route::post('/updateProfileinstruktur/{id}', [SettingProfileInstrukturController::class, 'updateprofil'])->name('updateProfileinstruktur');
     Route::post('/updatePassword/{id}', [SettingProfileInstrukturController::class, 'updatePassword'])->name('updatePassword');
 
     //Courses
