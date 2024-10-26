@@ -58,7 +58,7 @@
                                             class="instructor__profile-form" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <div class="instructor__cover-bg"
-                                                data-background="public/assets/img/bg/instructor_dashboard_bg.jpg"
+                                                data-background="{{ $profile && $profile->cover ? (strpos($profile->cover, 'googleusercontent') !== false ? $profile->cover : asset('public/uploads/' . $profile->cover)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
                                                 id="coverBackground">
                                                 <div class="instructor__cover-info">
                                                     <div class="instructor__cover-info-left">
