@@ -55,15 +55,22 @@ class SettingController extends Controller
             'gender' => 'required|string',
             'phonenumber' => 'required|string|max:15',
             'alamat' => 'required|string|max:255',
-            'bio' => 'nullable|string',
-            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10000'
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
+            'cover' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10000'
         ]);
 
-        // Menangani upload gambar
+        // Menangani upload gambar profil
         if ($request->hasFile('foto')) {
             $fotoName = time() . '.' . $request->foto->extension();
             $request->foto->move(public_path('uploads'), $fotoName);
             $profile->gambar = $fotoName;
+        }
+
+        // Menangani upload cover
+        if ($request->hasFile('cover')) {
+            $coverName = time() . '_cover.' . $request->cover->extension();
+            $request->cover->move(public_path('uploads'), $coverName);
+            $profile->cover = $coverName;
         }
 
         // Perbarui data profil
@@ -71,10 +78,9 @@ class SettingController extends Controller
         $profile->gender = $request->input('gender');
         $profile->phone_number = $request->input('phonenumber');
         $profile->address = $request->input('alamat');
-        $profile->bio = $request->input('bio');
         $profile->save();
 
-        // Perbarui data pengguna
+        // Pastikan user dapat diperbarui menggunakan Query Builder jika metode update tidak ditemukan
         User::where('id', $user->id)->update([
             'name' => $request->name,
         ]);
