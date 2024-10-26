@@ -235,12 +235,10 @@
 
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                         @if (auth()->user() && auth()->user()->userRole->role_id == 2)
-                                            <li
-                                                class="dropdown-item {{ Request::is('instruktur_profile') ? 'active' : '' }}">
+                                            <li class="dropdown-item ">
                                                 <a href="{{ route('instruktur_profile') }}">My Profile</a>
                                             </li>
-                                            <li
-                                                class="dropdown-item {{ Request::is('instruktur_courses') ? 'active' : '' }}">
+                                            <li class="dropdown-item ">
                                                 <a href="{{ route('instruktur_courses') }}">Courses</a>
                                             </li>
                                         @endif
