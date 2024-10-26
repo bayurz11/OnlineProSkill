@@ -110,6 +110,6 @@ class SettingProfileInstrukturController extends Controller
             'password' => $request->password ? Hash::make($request->password) : $user->password,
         ]);
 
-        return redirect()->route('profil')->with('success', 'Kata Sandi Berhasil Dirubah');
+        return redirect()->route('instruktur_setting')->with('success', 'Kata Sandi Berhasil Dirubah');
     }
 }
