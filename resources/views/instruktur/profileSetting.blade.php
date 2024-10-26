@@ -55,7 +55,8 @@
                                     <div class="tab-pane fade show active" id="itemOne-tab-pane" role="tabpanel"
                                         aria-labelledby="itemOne-tab" tabindex="0">
                                         <div class="instructor__cover-bg"
-                                            data-background="public/assets/img/bg/instructor_dashboard_bg.jpg">
+                                            data-background="public/assets/img/bg/instructor_dashboard_bg.jpg"
+                                            id="coverBackground">
                                             <div class="instructor__cover-info">
                                                 <div class="instructor__cover-info-left">
                                                     <div class="thumb">
@@ -68,29 +69,24 @@
                                                         onclick="document.getElementById('uploadPhotoInput').click();">
                                                         <i class="fas fa-camera"></i>
                                                     </button>
-                                                    <!-- Input File Tersembunyi -->
+                                                    <!-- Input File Tersembunyi untuk Foto Profil -->
                                                     <input type="file" id="uploadPhotoInput" style="display: none;"
                                                         accept="image/*" onchange="previewImage(event)">
                                                 </div>
                                                 <div class="instructor__cover-info-right">
-                                                    <a href="#" class="btn btn-two arrow-btn">Edit Cover Photo</a>
+                                                    <!-- Tombol Edit Cover Photo -->
+                                                    <button title="Edit Cover Photo"
+                                                        onclick="document.getElementById('uploadCoverInput').click();"
+                                                        class="btn btn-two arrow-btn">
+                                                        Edit Cover Photo
+                                                    </button>
+                                                    <!-- Input File Tersembunyi untuk Cover Photo -->
+                                                    <input type="file" id="uploadCoverInput" style="display: none;"
+                                                        accept="image/*" onchange="previewCover(event)">
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <script>
-                                            function previewImage(event) {
-                                                const image = document.getElementById('profileImage');
-                                                const file = event.target.files[0];
-                                                if (file) {
-                                                    const reader = new FileReader();
-                                                    reader.onload = function(e) {
-                                                        image.src = e.target.result;
-                                                    };
-                                                    reader.readAsDataURL(file);
-                                                }
-                                            }
-                                        </script>
 
                                         <div class="instructor__profile-form-wrap">
                                             <form action="{{ route('updateProfile', ['id' => $profile->id]) }}"
@@ -194,4 +190,31 @@
     </section>
     <!-- dashboard-area-end -->
 
+    <script>
+        // Preview dan Update Foto Profil
+        function previewImage(event) {
+            const image = document.getElementById('profileImage');
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    image.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Preview dan Update Cover Photo
+        function previewCover(event) {
+            const cover = document.getElementById('coverBackground');
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    cover.style.backgroundImage = `url(${e.target.result})`;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
 @endsection
