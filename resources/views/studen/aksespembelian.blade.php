@@ -181,7 +181,7 @@
                                                                                 style="width: 30px; height: 30px;">
                                                                             {{ $order->KelasTatapMuka->user->name }}
                                                                         </a>
-                                                                        <img src="{{ $KelasTatapMuka->user->userprofile && $KelasTatapMuka->user->userprofile->gambar ? (strpos($KelasTatapMuka->user->userprofile->gambar, 'googleusercontent') !== false ? $KelasTatapMuka->user->userprofile->gambar : asset('public/uploads/' . $KelasTatapMuka->user->userprofile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
+                                                                        <img src="{{ $order->$KelasTatapMuka->user->userprofile && $order->$KelasTatapMuka->user->userprofile->gambar ? (strpos($order->$KelasTatapMuka->user->userprofile->gambar, 'googleusercontent') !== false ? $order->$KelasTatapMuka->user->userprofile->gambar : asset('public/uploads/' . $order->$KelasTatapMuka->user->userprofile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
                                                                             alt="Profile Image" class="rounded-circle"
                                                                             style="border-radius: 50%; width: 30px; height: 30px; object-fit: cover;">
                                                                     </div>
