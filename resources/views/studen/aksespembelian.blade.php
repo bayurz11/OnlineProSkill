@@ -176,14 +176,12 @@
 
                                                                     <div class="author-two d-flex align-items-center">
                                                                         <a href="#">
-                                                                            <img src="{{ asset('public/assets/img/courses/course_author001.png') }}"
-                                                                                alt="img" class="rounded-circle"
-                                                                                style="width: 30px; height: 30px;">
+                                                                            <img src="{{ $order->$KelasTatapMuka->user->userprofile && $order->$KelasTatapMuka->user->userprofile->gambar ? (strpos($order->$KelasTatapMuka->user->userprofile->gambar, 'googleusercontent') !== false ? $order->$KelasTatapMuka->user->userprofile->gambar : asset('public/uploads/' . $order->$KelasTatapMuka->user->userprofile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
+                                                                                alt="Profile Image" class="rounded-circle"
+                                                                                style="border-radius: 50%; width: 30px; height: 30px; object-fit: cover;">
                                                                             {{ $order->KelasTatapMuka->user->name }}
                                                                         </a>
-                                                                        <img src="{{ $order->$KelasTatapMuka->user->userprofile && $order->$KelasTatapMuka->user->userprofile->gambar ? (strpos($order->$KelasTatapMuka->user->userprofile->gambar, 'googleusercontent') !== false ? $order->$KelasTatapMuka->user->userprofile->gambar : asset('public/uploads/' . $order->$KelasTatapMuka->user->userprofile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
-                                                                            alt="Profile Image" class="rounded-circle"
-                                                                            style="border-radius: 50%; width: 30px; height: 30px; object-fit: cover;">
+
                                                                     </div>
                                                                 </div>
                                                             </div>
