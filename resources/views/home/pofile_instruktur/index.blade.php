@@ -181,14 +181,28 @@
                                                                     href="{{ route('classroomdetail', ['id' => $item['id']]) }}">{{ $item['nama_kursus'] }}
                                                             </h5>
                                                             <p class="author">By <a href="#">David Millar</a></p>
+                                                            @if (in_array($item->id, $joinedCourses))
+                                                                <i class="fas fa-check-circle fa-lg"
+                                                                    style="color: green;"></i>
+                                                            @endif
                                                             <div class="courses__item-bottom">
                                                                 <div class="button">
-                                                                    <a href="course-details.html">
-                                                                        <span class="text">Enroll Now</span>
+                                                                    <a
+                                                                        href="{{ route('classroomdetail', ['id' => $item['id']]) }}">
+                                                                        <span class="text">Detail Kelas</span>
                                                                         <i class="flaticon-arrow-right"></i>
                                                                     </a>
                                                                 </div>
-                                                                <h5 class="price">$24.00</h5>
+                                                                <h5 class="price">
+                                                                    @if (!empty($item['discountedPrice']))
+                                                                        <del>Rp
+                                                                            {{ number_format($item['price'], 0, ',', '.') }}</del>
+                                                                        Rp
+                                                                        {{ number_format($item['discountedPrice'], 0, ',', '.') }}
+                                                                    @else
+                                                                        Rp {{ number_format($item['price'], 0, ',', '.') }}
+                                                                    @endif
+                                                                </h5>
                                                             </div>
                                                         </div>
                                                     </div>
