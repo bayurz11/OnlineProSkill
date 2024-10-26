@@ -75,8 +75,11 @@
                                             <a href="#"><i class="fab fa-instagram"></i></a>
                                         </li>
                                         <li>
-                                            <a href="#"><i class="fab fa-whatsapp"></i></a>
+                                            <a href="https://wa.me/{{ $instructorProfile->phone_number }}" target="_blank">
+                                                <i class="fab fa-whatsapp"></i>
+                                            </a>
                                         </li>
+
                                         <li>
                                             <a href="#"><i class="fab fa-youtube"></i></a>
                                         </li>
