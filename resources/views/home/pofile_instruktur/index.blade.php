@@ -197,7 +197,8 @@
                                 <textarea name="message" placeholder="Type Message"></textarea>
                             </div>
                             <button type="submit" class="btn arrow-btn">Send Message <img
-                                    src="assets/img/icons/right_arrow.svg" alt="img" class="injectable"></button>
+                                    src="public/assets/img/icons/right_arrow.svg" alt="img"
+                                    class="injectable"></button>
                         </form>
                     </div>
                 </div>
