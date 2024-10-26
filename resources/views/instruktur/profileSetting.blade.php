@@ -55,7 +55,7 @@
                                     <div class="tab-pane fade show active" id="itemOne-tab-pane" role="tabpanel"
                                         aria-labelledby="itemOne-tab" tabindex="0">
                                         <form action="{{ route('updateProfileinstruktur', ['id' => $profile->id]) }}"
-                                            class="instructor__profile-form"method="POST" enctype="multipart/form-data">
+                                            class="instructor__profile-form" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <div class="instructor__cover-bg"
                                                 data-background="public/assets/img/bg/instructor_dashboard_bg.jpg"
@@ -67,38 +67,34 @@
                                                                 alt="img" width="120" height="120"
                                                                 style="object-fit: cover;" id="profileImage">
                                                         </div>
-                                                        <!-- Tombol Upload Photo -->
-                                                        <button title="Upload Photo"
+                                                        <button type="button" title="Upload Photo"
                                                             onclick="document.getElementById('uploadPhotoInput').click();">
                                                             <i class="fas fa-camera"></i>
                                                         </button>
-                                                        <!-- Input File Tersembunyi untuk Foto Profil -->
-                                                        <input type="file" id="uploadPhotoInput" style="display: none;"
-                                                            accept="image/*" onchange="previewImage(event)">
+                                                        <input type="file" id="uploadPhotoInput" name="profile_photo"
+                                                            style="display: none;" accept="image/*"
+                                                            onchange="previewImage(event)">
                                                     </div>
                                                     <div class="instructor__cover-info-right">
-                                                        <!-- Tombol Edit Cover Photo -->
-                                                        <button title="Edit Cover Photo"
+                                                        <button type="button" title="Edit Cover Photo"
                                                             onclick="document.getElementById('uploadCoverInput').click();"
                                                             class="btn btn-two arrow-btn">
                                                             Edit Cover Photo
                                                         </button>
-                                                        <!-- Input File Tersembunyi untuk Cover Photo -->
-                                                        <input type="file" id="uploadCoverInput" style="display: none;"
-                                                            accept="image/*" onchange="previewCover(event)">
+                                                        <input type="file" id="uploadCoverInput" name="cover_photo"
+                                                            style="display: none;" accept="image/*"
+                                                            onchange="previewCover(event)">
                                                     </div>
                                                 </div>
                                             </div>
 
-
                                             <div class="instructor__profile-form-wrap">
-
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="form-grp">
                                                             <label for="name">Nama Lengkap</label>
-                                                            <input id="name" type="text"
-                                                                value="{{ $user->name }}">
+                                                            <input id="name" name="name" type="text"
+                                                                value="{{ $user->name }}" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -106,14 +102,14 @@
                                                             <label for="dateofBirth">Tanggal Lahir<span
                                                                     style="color: red">*</span></label>
                                                             <input id="dateofBirth" name="dateofBirth" type="date"
-                                                                value="{{ $profile->date_of_birth }}">
+                                                                value="{{ $profile->date_of_birth }}" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-grp select-grp">
                                                             <label for="gender">Gender<span
                                                                     style="color: red">*</span></label>
-                                                            <select id="gender" name="gender">
+                                                            <select id="gender" name="gender" required>
                                                                 <option>Pilih Gender</option>
                                                                 <option value="Laki-Laki"
                                                                     {{ $profile->gender == 'Laki-Laki' ? 'selected' : '' }}>
@@ -124,24 +120,22 @@
                                                             </select>
                                                         </div>
                                                     </div>
-
                                                     <div class="col-md-6">
                                                         <div class="form-grp">
                                                             <label for="phonenumber">No.HP<span
                                                                     style="color: red">*</span></label>
                                                             <input id="phonenumber" type="tel" name="phonenumber"
                                                                 maxlength="12" value="{{ $profile->phone_number }}"
-                                                                placeholder="08**********">
+                                                                placeholder="08**********" required>
                                                         </div>
                                                     </div>
-
                                                     <div class="col-md-6">
                                                         <div class="form-grp">
                                                             <label for="alamat">Alamat <span
                                                                     style="color: red">*</span></label>
                                                             <input id="alamat" name="alamat" type="text"
                                                                 value="{{ $profile->address }}"
-                                                                placeholder="Masukkan alamat">
+                                                                placeholder="Masukkan alamat" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -150,6 +144,9 @@
                                                 </div>
                                             </div>
                                         </form>
+
+
+
                                     </div>
                                     <div class="tab-pane fade" id="itemTwo-tab-pane" role="tabpanel"
                                         aria-labelledby="itemTwo-tab" tabindex="0">
@@ -192,30 +189,22 @@
     <!-- dashboard-area-end -->
 
     <script>
-        // Preview dan Update Foto Profil
         function previewImage(event) {
-            const image = document.getElementById('profileImage');
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    image.src = e.target.result;
-                };
-                reader.readAsDataURL(file);
-            }
+            const reader = new FileReader();
+            reader.onload = function() {
+                const output = document.getElementById('profileImage');
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
         }
 
-        // Preview dan Update Cover Photo
         function previewCover(event) {
-            const cover = document.getElementById('coverBackground');
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    cover.style.backgroundImage = `url(${e.target.result})`;
-                };
-                reader.readAsDataURL(file);
-            }
+            const reader = new FileReader();
+            reader.onload = function() {
+                const output = document.getElementById('coverBackground');
+                output.style.backgroundImage = `url(${reader.result})`;
+            };
+            reader.readAsDataURL(event.target.files[0]);
         }
     </script>
 @endsection
