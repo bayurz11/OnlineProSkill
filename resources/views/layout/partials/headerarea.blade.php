@@ -234,16 +234,21 @@
                                     </a>
 
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        {{-- <li>
-                                            <a class="dropdown-item">
-                                                <b>{{ $user->name }}</b>
-                                                <br>
-                                                <span style="font-size: 14px; color: #b2b2b2;">{{ $user->email }}</span>
-                                            </a>
-                                        </li> --}}
-                                        <li><a class="dropdown-item" href="{{ route('akses_pembelian') }}">Akses
-                                                Pembelian</a></li>
-                                        <li><a class="dropdown-item" href="{{ route('profil') }}">Profil</a></li>
+                                        @if (auth()->user() && auth()->user()->userRole->role_id == 2)
+                                            <li
+                                                class="dropdown-item {{ Request::is('instruktur_profile') ? 'active' : '' }}">
+                                                <a href="{{ route('instruktur_profile') }}">My Profile</a>
+                                            </li>
+                                            <li
+                                                class="dropdown-item {{ Request::is('instruktur_courses') ? 'active' : '' }}">
+                                                <a href="{{ route('instruktur_courses') }}">Courses</a>
+                                            </li>
+                                        @endif
+                                        @if (auth()->user() && auth()->user()->userRole->role_id == 3)
+                                            <li><a class="dropdown-item" href="{{ route('akses_pembelian') }}">Akses
+                                                    Pembelian</a></li>
+                                            <li><a class="dropdown-item" href="{{ route('profil') }}">Profil</a></li>
+                                        @endif
                                         <li><a class="dropdown-item"
                                                 href="{{ route('logout') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST"
