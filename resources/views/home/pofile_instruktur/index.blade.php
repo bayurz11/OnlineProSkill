@@ -253,10 +253,11 @@
                                 <input type="text" id="topic" placeholder="Topic" required>
                             </div>
                             <div class="form-grp">
-                                <input type="text" id="phone" placeholder="Phone" pattern="^[0-9]{1,12}$"
-                                    required title="Please enter a number with a maximum of 12 digits." maxlength="12">
+                                <input type="text" id="phone" placeholder="Phone" maxlength="12" required
+                                    title="Please enter a number with a maximum of 12 digits.">
+                                <small id="error-message" style="color: red; display: none;">Masukkan nomor telepon
+                                    anda</small>
                             </div>
-
                             <div class="form-grp">
                                 <textarea id="message" placeholder="Type Message" required></textarea>
                             </div>
@@ -291,11 +292,34 @@
                 });
             });
         });
+        //phone
+        const phoneInput = document.getElementById('phone');
+        const errorMessage = document.getElementById('error-message');
 
-        document.getElementById('phone').addEventListener('input', function(event) {
-            // Menghapus karakter jika lebih dari 12
+        phoneInput.addEventListener('input', function() {
+            // Menghapus karakter non-digit
+            this.value = this.value.replace(/[^0-9]/g, '');
+
+            // Menampilkan pesan kesalahan jika input tidak valid
             if (this.value.length > 12) {
                 this.value = this.value.slice(0, 12);
+            }
+
+            // Cek jika input kosong atau bukan angka
+            if (this.value === '') {
+                errorMessage.style.display = 'none'; // Sembunyikan pesan jika tidak ada input
+            } else if (isNaN(this.value)) {
+                errorMessage.style.display = 'block'; // Tampilkan pesan jika input bukan angka
+            } else {
+                errorMessage.style.display = 'none'; // Sembunyikan pesan jika input valid
+            }
+        });
+
+        // Validasi saat form disubmit
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            if (phoneInput.value === '') {
+                errorMessage.style.display = 'block'; // Tampilkan pesan jika input kosong saat submit
+                event.preventDefault(); // Mencegah form submit
             }
         });
         //wa
