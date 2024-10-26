@@ -47,7 +47,8 @@
                         style="background-color: #f9fafb; padding: 20px; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); display: flex; align-items: center;">
                         <div style="margin-right: 15px;">
                             <img src="{{ $instructorProfile && $instructorProfile->gambar ? (strpos($instructorProfile->gambar, 'googleusercontent') !== false ? $instructorProfile->gambar : asset('public/uploads/' . $instructorProfile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
-                                alt="Profile Image" style="border-radius: 50%; width: 60px; height: 60px;">
+                                alt="Profile Image"
+                                style="border-radius: 50%; width: 60px; height: 60px; object-fit: cover;">
                         </div>
                         <div>
                             <ul class="list-wrap" style="list-style-type: none; padding: 0; margin: 0;">
@@ -80,8 +81,7 @@
                                                         <a href="{{ route('classroomdetail', ['id' => $item['id']]) }}"
                                                             class="shine__animate-link">
                                                             <img src="{{ asset('public/uploads/' . $item['gambar']) }}"
-                                                                alt="img" class="img-fluid" loading="lazy"
-                                                                style="object-fit: cover;">
+                                                                alt="img" class="img-fluid" loading="lazy">
                                                         </a>
                                                     </div>
                                                     <div
