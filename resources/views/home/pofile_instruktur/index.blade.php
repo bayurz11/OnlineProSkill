@@ -62,9 +62,7 @@
                                     <li><i class="fas fa-phone-alt"></i><a
                                             href="tel:0123456789">{{ $instructorProfile->phone_number }}</a></li>
                                 </ul>
-                                <p>Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesity bulum
-                                    a nec odio aea the dumm ipsumm ipsum that dolocons sus suada and farit consectetur elit.
-                                </p>
+
                                 <div class="instructor__details-social">
                                     <ul class="list-wrap">
                                         <li>
