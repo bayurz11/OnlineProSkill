@@ -54,7 +54,7 @@
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active" id="itemOne-tab-pane" role="tabpanel"
                                         aria-labelledby="itemOne-tab" tabindex="0">
-                                        <form action="{{ route('updateProfile', ['id' => $profile->id]) }}"
+                                        <form action="{{ route('updateProfileinstruktur', ['id' => $profile->id]) }}"
                                             class="instructor__profile-form"method="POST" enctype="multipart/form-data">
                                             @csrf
                                             <div class="instructor__cover-bg"

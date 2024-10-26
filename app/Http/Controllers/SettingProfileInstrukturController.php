@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
-class SettingController extends Controller
+class SettingProfileInstrukturController extends Controller
 {
-    public function index()
+    public function profilesetting()
     {
         $categori = Categories::all();
         $cart = Session::get('cart', []);
@@ -37,9 +37,8 @@ class SettingController extends Controller
             ->whereIn('status', ['PAID', 'SETTLED'])
             ->with('KelasTatapMuka')
             ->get();
-        return view('studen.setting', compact('user', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders'));
+        return view('instruktur.profileSetting', compact('user', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders'));
     }
-
 
     public function updateprofil(Request $request, $id)
     {
@@ -80,8 +79,8 @@ class SettingController extends Controller
         $profile->address = $request->input('alamat');
         $profile->save();
 
-        // Pastikan user dapat diperbarui menggunakan Query Builder jika metode update tidak ditemukan
-        User::where('id', $user->id)->update([
+        // Perbarui data pengguna
+        $user->update([
             'name' => $request->name,
         ]);
 

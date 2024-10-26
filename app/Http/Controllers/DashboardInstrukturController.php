@@ -78,30 +78,7 @@ class DashboardInstrukturController extends Controller
             ->get();
         return view('instruktur.profile', compact('user', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders'));
     }
-    public function profilesetting()
-    {
-        $categori = Categories::all();
-        $cart = Session::get('cart', []);
-        $user = Auth::user();
-        if (!$user) {
-            return redirect()->route('/');
-        }
-        // Mengambil profil pengguna yang sedang login
-        $profile = UserProfile::where('user_id', $user->id)->first();
-        // Ambil notifikasi untuk pengguna yang sedang login
-        $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
-            ->orderBy('created_at', 'desc')
-            ->get()
-            : collect();
 
-        // Hitung jumlah notifikasi dengan status = 1
-        $notifikasiCount = $notifikasi->where('status', 1)->count();
-        $orders = Order::where('user_id', $user->id)
-            ->whereIn('status', ['PAID', 'SETTLED'])
-            ->with('KelasTatapMuka')
-            ->get();
-        return view('instruktur.profileSetting', compact('user', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders'));
-    }
     public function showregister()
     {
         return view('instruktur.auth.register');

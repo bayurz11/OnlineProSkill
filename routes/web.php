@@ -41,6 +41,7 @@ use App\Http\Controllers\InstrukturKurikulumController;
 use App\Http\Controllers\InstrukturSectionController;
 use App\Http\Controllers\OrderHistoryManagerController;
 use App\Http\Controllers\ProfileInstrukturController;
+use App\Http\Controllers\SettingProfileInstrukturController;
 
 //Authentikasi
 Route::post('/login', [AuthController::class, 'login'])->name('login');
@@ -219,7 +220,10 @@ Route::middleware('isInstruktur')->group(function () {
     // Auth Instruktur
     Route::get('/dashboard_instruktur', [DashboardInstrukturController::class, 'index'])->name('dashboard_instruktur');
     Route::get('/instruktur_profile', [DashboardInstrukturController::class, 'profile'])->name('instruktur_profile');
-    Route::get('/instruktur_setting', [DashboardInstrukturController::class, 'profilesetting'])->name('instruktur_setting');
+
+    Route::get('/instruktur_setting', [SettingProfileInstrukturController::class, 'profilesetting'])->name('instruktur_setting');
+    Route::post('/updateProfile/{id}', [SettingProfileInstrukturController::class, 'updateprofil'])->name('updateProfile');
+    Route::post('/updatePassword/{id}', [SettingProfileInstrukturController::class, 'updatePassword'])->name('updatePassword');
 
     //Courses
     Route::get('/instruktur_courses', [InstrukturCoursesController::class, 'index'])->name('instruktur_courses');
