@@ -43,6 +43,7 @@
     <section class="all-courses-area section-py-120">
         <div class="container">
             <div class="row">
+
                 <div class="col-xl-12 col-lg-8">
                     <div class="courses-top-wrap courses-top-wrap">
                         <div class="row align-items-center">
@@ -103,52 +104,65 @@
                         <div class="tab-pane fade show active" id="grid" role="tabpanel" aria-labelledby="grid-tab">
                             <div
                                 class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
-                                @forelse ($course as $cours)
-                                    @if ($cours->status == 1)
+                                @foreach ($course as $cours)
+                                    @if ($cours->status == 1 && $jumlahPendaftaran->get($cours->id, 0) < 8)
                                         <div class="col">
                                             <div class="courses__item shine__animate-item">
                                                 <div class="courses__item-thumb">
-                                                    <a href="{{ route('coursedetail', ['id' => $cours->id]) }}"
+
+                                                    <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}"
                                                         class="shine__animate-link">
                                                         <img src="{{ asset('public/uploads/' . $cours->gambar) }}"
                                                             alt="Banner" class="wd-100 wd-sm-150 me-3">
                                                     </a>
+
                                                 </div>
                                                 <div class="courses__item-content">
+
                                                     <h5 class="title">
                                                         <a
-                                                            href="{{ route('coursedetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
+                                                            href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
                                                     </h5>
                                                     <p class="author">By <a
-                                                            href="#">{{ $cours->user->name }}</a>&nbsp;&nbsp;
+                                                            href="{{ route('profile_instruktur', ['id' => $cours->user->id]) }}">{{ $cours->user->name }}</a>&nbsp;&nbsp;
                                                         <img src="{{ asset('public/assets/img/icons/course_icon06.svg') }}"
                                                             alt="img" class="injectable">
-                                                        Siswa <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}</span>
+                                                        Kuota Kelas
+                                                        <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}/{{ $cours->kuota }}</span>
+
+
                                                     </p>
+
 
                                                     <div class="courses__item-bottom">
                                                         <div class="button">
-                                                            <a href="{{ route('coursedetail', ['id' => $cours->id]) }}">
+                                                            <a
+                                                                href="{{ route('classroomdetail', ['id' => $cours->id]) }}">
                                                                 <span class="text">Detail</span>
                                                                 <i class="flaticon-arrow-right"></i>
                                                             </a>
                                                         </div>
                                                         @if (in_array($cours->id, $joinedCourses))
-                                                            <span class="badge bg-success">Joined</span>
+                                                            <i class="fas fa-check-circle fa-lg"
+                                                                style="color: green;"></i>
                                                         @endif
-                                                        <h5 class="price">Rp
-                                                            {{ number_format($cours->price, 0, ',', ',') }}</h5>
+                                                        <h5 class="price">
+                                                            @if (!empty($cours->discountedPrice))
+                                                                <del>Rp
+                                                                    {{ number_format($cours->price, 0, ',', '.') }}</del>
+                                                                Rp
+                                                                {{ number_format($cours->discountedPrice, 0, ',', '.') }}
+                                                            @else
+                                                                Rp
+                                                                {{ number_format($cours->price, 0, ',', '.') }}
+                                                            @endif
+                                                        </h5>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     @endif
-                                @empty
-                                    <div class="d-flex justify-content-center align-items-center" style="height: 200px;">
-                                        <p class="text-center">Belum Ada Kelas yang Ditambahkan</p>
-                                    </div>
-                                @endforelse
-
+                                @endforeach
 
                             </div>
                         </div>
@@ -156,12 +170,12 @@
 
                         <div class="tab-pane fade" id="list" role="tabpanel" aria-labelledby="list-tab">
                             <div class="row courses__list-wrap row-cols-1">
-                                @forelse ($course as $cours)
-                                    @if ($cours->status == 1)
+                                @foreach ($course as $cours)
+                                    @if ($cours->status == 1 && $jumlahPendaftaran->get($cours->id, 0) < 8)
                                         <div class="col">
                                             <div class="courses__item courses__item-three shine__animate-item">
                                                 <div class="courses__item-thumb">
-                                                    <a href="{{ route('coursedetail', ['id' => $cours->id]) }}"
+                                                    <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}"
                                                         class="shine__animate-link">
                                                         <img src="{{ asset('public/uploads/' . $cours->gambar) }}"
                                                             alt="Banner" class="wd-100 wd-sm-150 me-3">
@@ -171,29 +185,36 @@
                                                     <ul class="courses__item-meta list-wrap">
 
                                                         <li class="price">
-                                                            Rp. {{ number_format($cours->price, 0, ',', '.') }}
+                                                            @if (!empty($cours->discountedPrice))
+                                                                <del>Rp
+                                                                    {{ number_format($cours->price, 0, ',', '.') }}</del>
+                                                                Rp
+                                                                {{ number_format($cours->discountedPrice, 0, ',', '.') }}
+                                                            @else
+                                                                Rp
+                                                                {{ number_format($cours->price, 0, ',', '.') }}
+                                                            @endif
                                                         </li>
                                                     </ul>
                                                     <h5 class="title"><a
-                                                            href="{{ route('coursedetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
+                                                            href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
                                                     </h5>
                                                     <p class="author">By <a
-                                                            href="#">{{ $cours->user->name }}</a>&nbsp;&nbsp; <img
-                                                            src="{{ asset('public/assets/img/icons/course_icon06.svg') }}"
+                                                            href="{{ route('profile_instruktur', ['id' => $cours->user->id]) }}">{{ $cours->user->name }}</a>&nbsp;&nbsp;
+                                                        <img src="{{ asset('public/assets/img/icons/course_icon06.svg') }}"
                                                             alt="img" class="injectable">
-                                                        Siswa
-                                                        <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}</span>
+                                                        Kuota Kelas
+                                                        <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}/{{ $cours->kuota }}</span>
                                                         @if (in_array($cours->id, $joinedCourses))
-                                                            <span
-                                                                style="color: green; font-weight: bold; padding: 2px 6px; border: 1px solid green; border-radius: 4px; background-color: #e0f7e9;">
-                                                                Joined
-                                                            </span>
+                                                            <i class="fas fa-check-circle fa-lg"
+                                                                style="color: green;"></i>
                                                         @endif
                                                     </p>
                                                     <p class="info">{!! $cours->content !!}</p>
                                                     <div class="courses__item-bottom">
                                                         <div class="button">
-                                                            <a href="{{ route('coursedetail', ['id' => $cours->id]) }}">
+                                                            <a
+                                                                href="{{ route('classroomdetail', ['id' => $cours->id]) }}">
                                                                 <span class="text">Detail</span>
                                                                 <i class="flaticon-arrow-right"></i>
                                                             </a>
@@ -211,11 +232,7 @@
                                             </div>
                                         </div>
                                     @endif
-                                @empty
-                                    <div class="d-flex justify-content-center align-items-center" style="height: 200px;">
-                                        <p class="text-center">Belum Ada Kelas yang Ditambahkan</p>
-                                    </div>
-                                @endforelse
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -234,6 +251,126 @@
                 }
                 parent.removeChild(p);
             });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkboxes = document.querySelectorAll('.category-checkbox');
+            const allCategoriesCheckbox = document.getElementById('all_categories');
+            const sortBySelect = document.querySelector('select[name="orderby"]');
+            const tingkatCheckboxes = document.querySelectorAll('.tingkat-checkbox');
+            const difficultyAllCheckbox = document.getElementById('difficulty_all');
+
+            function updateUrl(selectedCategories, orderby, selectedTingkat) {
+                const url = new URL(window.location.href);
+                url.searchParams.set('categories', selectedCategories.join(','));
+                url.searchParams.set('orderby', orderby);
+                url.searchParams.set('tingkat', selectedTingkat.join(','));
+                window.location.href = url.toString();
+            }
+
+            function toggleAllCategories(source) {
+                if (source.checked) {
+                    checkboxes.forEach(checkbox => checkbox.checked = false);
+                    updateUrl([], sortBySelect.value, Array.from(tingkatCheckboxes)
+                        .filter(checkbox => checkbox.checked)
+                        .map(checkbox => checkbox.value));
+                }
+            }
+
+            function toggleAllLevels(source) {
+                if (source.checked) {
+                    tingkatCheckboxes.forEach(checkbox => checkbox.checked = false);
+                    updateUrl(Array.from(checkboxes)
+                        .filter(checkbox => checkbox.checked)
+                        .map(checkbox => checkbox.value),
+                        sortBySelect.value,
+                        []);
+                }
+            }
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        allCategoriesCheckbox.checked = false;
+                    }
+
+                    const selectedCategories = Array.from(checkboxes)
+                        .filter(checkbox => checkbox.checked)
+                        .map(checkbox => checkbox.value);
+
+                    updateUrl(selectedCategories, sortBySelect.value, Array.from(tingkatCheckboxes)
+                        .filter(checkbox => checkbox.checked)
+                        .map(checkbox => checkbox.value));
+                });
+            });
+
+            allCategoriesCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    checkboxes.forEach(checkbox => checkbox.checked = false);
+                    updateUrl([], sortBySelect.value, Array.from(tingkatCheckboxes)
+                        .filter(checkbox => checkbox.checked)
+                        .map(checkbox => checkbox.value));
+                }
+            });
+
+            sortBySelect.addEventListener('change', function() {
+                const selectedCategories = Array.from(checkboxes)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value);
+                updateUrl(selectedCategories, this.value, Array.from(tingkatCheckboxes)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value));
+            });
+
+            tingkatCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        difficultyAllCheckbox.checked = false;
+                    }
+
+                    const selectedTingkat = Array.from(tingkatCheckboxes)
+                        .filter(checkbox => checkbox.checked)
+                        .map(checkbox => checkbox.value);
+
+                    updateUrl(Array.from(checkboxes)
+                        .filter(checkbox => checkbox.checked)
+                        .map(checkbox => checkbox.value),
+                        sortBySelect.value,
+                        selectedTingkat);
+                });
+            });
+
+            difficultyAllCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    tingkatCheckboxes.forEach(checkbox => checkbox.checked = false);
+                    updateUrl(Array.from(checkboxes)
+                        .filter(checkbox => checkbox.checked)
+                        .map(checkbox => checkbox.value),
+                        sortBySelect.value,
+                        []);
+                }
+            });
+
+            // Initial display of categories
+            var categoryItems = document.querySelectorAll('.list-wrap .category-item');
+            const showMoreCategoriesStatus = localStorage.getItem('showMoreCategories') === 'true';
+
+            for (var i = 4; i < categoryItems.length; i++) {
+                categoryItems[i].style.display = showMoreCategoriesStatus ? 'block' : 'none';
+            }
+
+            // Show more categories function
+            window.showMoreCategories = function(event) {
+                event.preventDefault();
+                var categoryItems = document.querySelectorAll('.list-wrap .category-item');
+                for (var i = 4; i < categoryItems.length; i++) {
+                    categoryItems[i].style.display = 'block';
+                }
+                event.target.style.display = 'none';
+                localStorage.setItem('showMoreCategories', 'true');
+            }
         });
     </script>
 @endsection
