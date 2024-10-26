@@ -229,7 +229,8 @@
                                     <a href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
                                         aria-expanded="false">
                                         <img src="{{ $profile && $profile->gambar ? (strpos($profile->gambar, 'googleusercontent') !== false ? $profile->gambar : asset('public/uploads/' . $profile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
-                                            alt="img" style="border-radius: 50%; width: 40px; height: 40px;">
+                                            alt="img"
+                                            style="border-radius: 50%; width: 40px; height: 40px; object-fit: cover;">
 
                                     </a>
 
