@@ -74,13 +74,11 @@
                                         <li>
                                             <a href="#"><i class="fab fa-instagram"></i></a>
                                         </li>
-
                                         <li>
-                                            <a href="#" id="whatsappLink">
+                                            <a href="#" id="whatsappLink" target="_blank">
                                                 <i class="fab fa-whatsapp"></i>
                                             </a>
                                         </li>
-
                                         <li>
                                             <a href="#"><i class="fab fa-youtube"></i></a>
                                         </li>
@@ -327,23 +325,26 @@
             }
         });
 
-        // Nomor telepon tujuan dari variabel PHP
-        const instructorPhone = "{{ $instructorProfile->phone_number }}";
+        document.addEventListener("DOMContentLoaded", function() {
+            // Nomor telepon tujuan dari variabel PHP
+            const instructorPhone = "{{ $instructorProfile->phone_number }}";
 
-        // Konversi nomor telepon ke format internasional jika perlu
-        let formattedPhone = instructorPhone;
-        if (formattedPhone.startsWith('0')) {
-            formattedPhone = '62' + formattedPhone.substring(1); // Mengganti 0 di awal dengan 62
-        } else if (!formattedPhone.startsWith('62')) {
-            console.error("Nomor telepon tidak valid.");
-            return;
-        }
+            // Konversi nomor telepon ke format internasional jika perlu
+            let formattedPhone = instructorPhone;
+            if (formattedPhone.startsWith('0')) {
+                formattedPhone = '62' + formattedPhone.substring(1); // Mengganti 0 di awal dengan 62
+            } else if (!formattedPhone.startsWith('62')) {
+                console.error("Nomor telepon tidak valid.");
+                return;
+            }
 
-        // Menyusun URL WhatsApp
-        const whatsappURL = `https://wa.me/${formattedPhone}`;
+            // Menyusun URL WhatsApp
+            const whatsappURL = `https://wa.me/${formattedPhone}`;
 
-        // Menetapkan tautan ke elemen anchor
-        document.getElementById('whatsappLink').href = whatsappURL;
+            // Menetapkan tautan ke elemen anchor
+            document.getElementById('whatsappLink').href = whatsappURL;
+        });
+
         //wa
         function sendWhatsAppMessage(event) {
             event.preventDefault(); // Mencegah form submit default
