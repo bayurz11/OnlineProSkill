@@ -258,7 +258,13 @@ class HomeController extends Controller
         // Ambil section yang relevan dengan kurikulum
         $section = Section::whereIn('kurikulum_id', $kurikulum->pluck('id'))->get()->groupBy('kurikulum_id');
 
-        $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
+        $joinedCourses = $user
+            ? Order::where('user_id', $user->id)
+            ->whereIn('status', ['paid', 'settled']) // Memeriksa status
+            ->pluck('product_id')
+            ->toArray()
+            : [];
+
 
         // Ambil sertifikat dan hitung jumlah kategori_id sesuai dengan id dari product_id
         $orderProductIds = Order::where('product_id', $id)->pluck('product_id');
@@ -266,6 +272,7 @@ class HomeController extends Controller
 
         return view('home.coursedetail', compact('user', 'categori', 'jumlahPendaftaran', 'courses', 'kurikulum', 'courseList', 'perstaratan', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'section', 'joinedCourses', 'sertifikatCount'));
     }
+
 
     public function checkout(Request $request, $id)
     {
