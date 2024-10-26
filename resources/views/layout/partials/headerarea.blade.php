@@ -336,10 +336,11 @@
     $roleId = auth()->check() ? auth()->user()->role_id : null; // Periksa apakah pengguna sudah login
 @endphp
 
-@if ($roleId == 2)
+@if ($roleId === 2)
     @include('instruktur.modal.modalcreateCourse')
     @include('instruktur.modal.modalKurikulum')
     @include('instruktur.modal.materiModal')
 @endif
+
 
 <!-- header-area-end -->
