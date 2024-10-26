@@ -48,7 +48,7 @@
                             <div class="instructor__details-thumb">
                                 <img src="{{ $instructorProfile && $instructorProfile->gambar ? (strpos($instructorProfile->gambar, 'googleusercontent') !== false ? $instructorProfile->gambar : asset('public/uploads/' . $instructorProfile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
                                     alt="img"
-                                    style="border-radius: 50%; width: 100px; height: 100px; object-fit: cover;">
+                                    style="border-radius: 50%; width: 250px; height: 250px; object-fit: cover;">
                             </div>
                             <div class="instructor__details-content">
                                 <h2 class="title">Robert Fox</h2>
