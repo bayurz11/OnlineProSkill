@@ -197,7 +197,7 @@
                                 <textarea name="message" placeholder="Type Message"></textarea>
                             </div>
                             <button type="submit" class="btn arrow-btn">Send Message <img
-                                    src="{{ assets('public/assets/img/icons/right_arrow.svg') }}" alt="img"
+                                    src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                     class="injectable"></button>
                         </form>
                     </div>
