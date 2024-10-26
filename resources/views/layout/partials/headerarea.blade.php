@@ -332,7 +332,7 @@
 @include('home.modal.registerinstruktur')
 @include('home.modal.registercart')
 <!-- Model instruktur -->
-@if (Auth::user()->user_role == 2)
+@if (Auth::check() && Auth::user()->userRole->role_id == 2)
     @include('instruktur.modal.modalcreateCourse')
     @include('instruktur.modal.modalKurikulum')
     @include('instruktur.modal.materiModal')
