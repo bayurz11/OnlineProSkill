@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\ContactUs;
+use App\Models\Categories;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use App\Models\KelasTatapMuka;
@@ -20,6 +21,7 @@ class ProfileInstrukturController extends Controller
         $profile = null;
         $cart = Session::get('cart', []);
         $contactUs = ContactUs::first();
+        $categori = Categories::all();
 
         $teleponList = json_decode($contactUs->telepon, true);
         if (!is_array($teleponList)) {
@@ -53,6 +55,6 @@ class ProfileInstrukturController extends Controller
             $kelas = KelasTatapMuka::where('user_id', $instructorProfile->user_id)->get();
         }
         $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
-        return view('home.pofile_instruktur.index', compact('user', 'joinedCourses', 'emailList', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'contactUs', 'teleponList', 'instructorProfile', 'kelas'));
+        return view('home.pofile_instruktur.index', compact('user', 'categori', 'joinedCourses', 'emailList', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'contactUs', 'teleponList', 'instructorProfile', 'kelas'));
     }
 }
