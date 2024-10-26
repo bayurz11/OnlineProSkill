@@ -145,7 +145,6 @@
                                                             <h5 class="title"><a
                                                                     href="{{ route('classroomdetail', ['id' => $item['id']]) }}">{{ $item['nama_kursus'] }}
                                                             </h5>
-                                                            <p class="author">By <a href="#">David Millar</a></p>
 
                                                             <div class="courses__item-bottom">
                                                                 <div class="button">
