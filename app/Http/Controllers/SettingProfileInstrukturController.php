@@ -69,7 +69,7 @@ class SettingProfileInstrukturController extends Controller
         if ($request->hasFile('cover')) {
             $coverName = time() . '_cover.' . $request->cover->extension();
             $request->cover->move(public_path('uploads'), $coverName);
-            $profile->cover_image = $coverName;
+            $profile->cover = $coverName;
         }
 
         // Perbarui data profil
