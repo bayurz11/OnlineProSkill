@@ -176,7 +176,7 @@
                     </div>
                 </div>
 
-                <div class="col-xl-3">
+                {{-- <div class="col-xl-3">
                     <div class="instructor__sidebar">
                         <h4 class="title">Quick Contact</h4>
                         <p>Feel free to contact us through Twitter or Facebook if you prefer!</p>
@@ -201,7 +201,7 @@
                                     class="injectable"></button>
                         </form>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
