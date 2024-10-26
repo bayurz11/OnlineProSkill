@@ -79,13 +79,14 @@ class SettingProfileInstrukturController extends Controller
         $profile->address = $request->input('alamat');
         $profile->save();
 
-        // Perbarui data pengguna
-        $user->update([
+        // Pastikan user dapat diperbarui menggunakan Query Builder jika metode update tidak ditemukan
+        User::where('id', $user->id)->update([
             'name' => $request->name,
         ]);
 
-        return redirect()->route('profil')->with('success', 'Profil berhasil diperbarui.');
+        return redirect()->route('instruktur_setting')->with('success', 'Profil berhasil diperbarui.');
     }
+
 
 
     public function updatePassword(Request $request, $id)
