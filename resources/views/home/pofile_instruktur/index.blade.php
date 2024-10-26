@@ -176,7 +176,7 @@
                                                                 </li>
                                                                 <li class="avg-rating"><i class="fas fa-star"></i> (4.3
                                                                     Reviews)</li>
-                                                                <li class="price">
+                                                                <li class="price" style="color: green;">
                                                                     @if (!empty($item['discountedPrice']))
                                                                         <del>Rp
                                                                             {{ number_format($item['price'], 0, ',', '.') }}</del>
