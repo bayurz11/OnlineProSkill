@@ -56,7 +56,8 @@
                                     {{ \Carbon\Carbon::parse($instructorProfile->created_at)->format('d M Y') }}</span>
                                 <ul class="list-wrap">
                                     <li class="avg-rating"><i class="fas fa-star"></i>(4.8 Reviews)</li>
-                                    <li><i class="far fa-envelope"></i><a href="mailto:info@gmail.com">info@gmail.com</a>
+                                    <li><i class="far fa-envelope"></i><a
+                                            href="mailto:{{ $instructorProfile->user->email }}">{{ $instructorProfile->user->email }}</a>
                                     </li>
                                     <li><i class="fas fa-phone-alt"></i><a href="tel:0123456789">+123 9500 600</a></li>
                                 </ul>
