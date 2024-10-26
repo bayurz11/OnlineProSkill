@@ -181,7 +181,8 @@
                                                                         <del style="color: red;">Rp
                                                                             {{ number_format($item['price'], 0, ',', '.') }}
                                                                         </del>
-                                                                        <span style="color: #007F73;">Rp
+                                                                        <span
+                                                                            style="color: #007F73; font-weight: bold; font-size: 1.2em;">Rp
                                                                             {{ number_format($item['discountedPrice'], 0, ',', '.') }}
                                                                         </span>
                                                                     @else
