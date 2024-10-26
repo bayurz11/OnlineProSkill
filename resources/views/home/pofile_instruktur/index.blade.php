@@ -188,31 +188,40 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3">
-                    <div class="instructor__sidebar">
-                        <h4 class="title">Quick Contact</h4>
-                        <p>Feel free to contact us through Twitter or Facebook if you prefer!</p>
-                        <form action="#">
-                            <div class="form-grp">
-                                <input type="text" placeholder="Name">
+                @if ($kelas->isNotEmpty())
+                    @foreach ($kelas as $item)
+                        @if ($item->status == 1)
+                            <div class="col-xl-3">
+                                <div class="instructor__sidebar">
+                                    <h4 class="title">Quick Contact</h4>
+                                    <p>Feel free to contact us through Twitter or Facebook if you prefer!</p>
+                                    <form action="#">
+                                        <div class="form-grp">
+                                            <input type="text" placeholder="Name">
+                                        </div>
+                                        <div class="form-grp">
+                                            <input type="email" placeholder="E-mail">
+                                        </div>
+                                        <div class="form-grp">
+                                            <input type="text" placeholder="Topic">
+                                        </div>
+                                        <div class="form-grp">
+                                            <input type="number" placeholder="Phone">
+                                        </div>
+                                        <div class="form-grp">
+                                            <textarea name="message" placeholder="Type Message"></textarea>
+                                        </div>
+                                        <button type="submit" class="btn arrow-btn">Send Message <img
+                                                src="assets/img/icons/right_arrow.svg" alt="img"
+                                                class="injectable"></button>
+                                    </form>
+                                </div>
                             </div>
-                            <div class="form-grp">
-                                <input type="email" placeholder="E-mail">
-                            </div>
-                            <div class="form-grp">
-                                <input type="text" placeholder="Topic">
-                            </div>
-                            <div class="form-grp">
-                                <input type="number" placeholder="Phone">
-                            </div>
-                            <div class="form-grp">
-                                <textarea name="message" placeholder="Type Message"></textarea>
-                            </div>
-                            <button type="submit" class="btn arrow-btn">Send Message <img
-                                    src="assets/img/icons/right_arrow.svg" alt="img" class="injectable"></button>
-                        </form>
-                    </div>
-                </div>
+                        @endif
+                    @endforeach
+                @else
+                    <p>Tidak ada kelas yang ditemukan untuk instruktur ini.</p>
+                @endif
             </div>
         </div>
     </section>
