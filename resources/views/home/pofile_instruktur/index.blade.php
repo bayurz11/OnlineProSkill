@@ -152,76 +152,77 @@
                             </div>
                             <div class="swiper courses-swiper-active-two">
                                 <div class="swiper-wrapper">
-
-                                    <div class="swiper-slide">
-                                        <div class="courses__item shine__animate-item">
-                                            <div class="courses__item-thumb">
-                                                <a href="course-details.html" class="shine__animate-link">
-                                                    <img src="assets/img/courses/course_thumb03.jpg" alt="img">
-                                                </a>
-                                            </div>
-                                            <div class="courses__item-content">
-                                                <ul class="courses__item-meta list-wrap">
-                                                    <li class="courses__item-tag">
-                                                        <a href="course.html">Marketing</a>
-                                                    </li>
-                                                    <li class="avg-rating"><i class="fas fa-star"></i> (4.3 Reviews)</li>
-                                                </ul>
-                                                <h5 class="title"><a href="course-details.html">Learning Digital
-                                                        Marketing on Facebook</a></h5>
-                                                <p class="author">By <a href="#">David Millar</a></p>
-                                                <div class="courses__item-bottom">
-                                                    <div class="button">
-                                                        <a href="course-details.html">
-                                                            <span class="text">Enroll Now</span>
-                                                            <i class="flaticon-arrow-right"></i>
-                                                        </a>
+                                    @if ($kelas->isNotEmpty())
+                                        @foreach ($kelas as $item)
+                                            @if ($item->status == 1)
+                                                <div class="swiper-slide">
+                                                    <div class="courses__item shine__animate-item">
+                                                        <div class="courses__item-thumb">
+                                                            <a href="course-details.html" class="shine__animate-link">
+                                                                <img src="assets/img/courses/course_thumb03.jpg"
+                                                                    alt="img">
+                                                            </a>
+                                                        </div>
+                                                        <div class="courses__item-content">
+                                                            <ul class="courses__item-meta list-wrap">
+                                                                <li class="courses__item-tag">
+                                                                    <a href="course.html">Marketing</a>
+                                                                </li>
+                                                                <li class="avg-rating"><i class="fas fa-star"></i> (4.3
+                                                                    Reviews)</li>
+                                                            </ul>
+                                                            <h5 class="title"><a href="course-details.html">Learning
+                                                                    Digital
+                                                                    Marketing on Facebook</a></h5>
+                                                            <p class="author">By <a href="#">David Millar</a></p>
+                                                            <div class="courses__item-bottom">
+                                                                <div class="button">
+                                                                    <a href="course-details.html">
+                                                                        <span class="text">Enroll Now</span>
+                                                                        <i class="flaticon-arrow-right"></i>
+                                                                    </a>
+                                                                </div>
+                                                                <h5 class="price">$24.00</h5>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <h5 class="price">$24.00</h5>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                            @endif
+                                        @endforeach
+                                    @else
+                                        <p>Tidak ada kelas yang ditemukan untuk instruktur ini.</p>
+                                    @endif
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                @if ($kelas->isNotEmpty())
-                    @foreach ($kelas as $item)
-                        @if ($item->status == 1)
-                            <div class="col-xl-3">
-                                <div class="instructor__sidebar">
-                                    <h4 class="title">Quick Contact</h4>
-                                    <p>Feel free to contact us through Twitter or Facebook if you prefer!</p>
-                                    <form action="#">
-                                        <div class="form-grp">
-                                            <input type="text" placeholder="Name">
-                                        </div>
-                                        <div class="form-grp">
-                                            <input type="email" placeholder="E-mail">
-                                        </div>
-                                        <div class="form-grp">
-                                            <input type="text" placeholder="Topic">
-                                        </div>
-                                        <div class="form-grp">
-                                            <input type="number" placeholder="Phone">
-                                        </div>
-                                        <div class="form-grp">
-                                            <textarea name="message" placeholder="Type Message"></textarea>
-                                        </div>
-                                        <button type="submit" class="btn arrow-btn">Send Message <img
-                                                src="assets/img/icons/right_arrow.svg" alt="img"
-                                                class="injectable"></button>
-                                    </form>
-                                </div>
+
+                <div class="col-xl-3">
+                    <div class="instructor__sidebar">
+                        <h4 class="title">Quick Contact</h4>
+                        <p>Feel free to contact us through Twitter or Facebook if you prefer!</p>
+                        <form action="#">
+                            <div class="form-grp">
+                                <input type="text" placeholder="Name">
                             </div>
-                        @endif
-                    @endforeach
-                @else
-                    <p>Tidak ada kelas yang ditemukan untuk instruktur ini.</p>
-                @endif
+                            <div class="form-grp">
+                                <input type="email" placeholder="E-mail">
+                            </div>
+                            <div class="form-grp">
+                                <input type="text" placeholder="Topic">
+                            </div>
+                            <div class="form-grp">
+                                <input type="number" placeholder="Phone">
+                            </div>
+                            <div class="form-grp">
+                                <textarea name="message" placeholder="Type Message"></textarea>
+                            </div>
+                            <button type="submit" class="btn arrow-btn">Send Message <img
+                                    src="assets/img/icons/right_arrow.svg" alt="img" class="injectable"></button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
