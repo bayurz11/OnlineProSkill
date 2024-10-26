@@ -26,7 +26,9 @@
     <section class="dashboard__area section-pb-120">
         <div class="container">
             <div class="dashboard__top-wrap">
-                <div class="dashboard__top-bg" data-background="{{ asset('public/assets/img/bg/student_bg.jpg') }}"></div>
+                <div class="dashboard__top-bg"
+                    data-background="{{ $profile && $profile->cover ? asset('public/uploads/' . $profile->cover) : asset('public/assets/img/bg/instructor_dashboard_bg.jpg') }}">
+                </div>
                 <div class="dashboard__instructor-info">
                     <div class="dashboard__instructor-info-left">
                         <div class="thumb">
