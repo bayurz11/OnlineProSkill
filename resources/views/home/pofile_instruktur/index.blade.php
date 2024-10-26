@@ -42,7 +42,7 @@
     <section class="instructor__details-area section-pt-120 section-pb-90">
         <div class="container">
             <div class="row">
-                <div class="col-xl-9">
+                <div class="col-xl-12">
                     <div class="instructor__details-wrap">
                         <div class="instructor__details-info">
                             <div class="instructor__details-thumb">
