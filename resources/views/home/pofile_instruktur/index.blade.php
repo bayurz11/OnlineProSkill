@@ -81,62 +81,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="instructor__details-biography">
-                            <h4 class="title">Biography​</h4>
-                            <p>Dorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                                labore et dolore magna aliqua Quis ipsum suspendisse ultrices gravida. Risus commodo viverra
-                                maecenas accumsan lacus vel facilisis.dolor sit amet, consectetur adipiscing elited do
-                                eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <p>Dorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                utte labore et dolore magna aliquauis ipsum suspendisse ultrices gravida. Risus commodo
-                                viverra maecenas accumsan.</p>
-                        </div>
-                        <div class="instructor__details-Skill">
-                            <h4 class="title">Skills</h4>
-                            <p>Dorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                                labore et dolore magna aliqua Quis ipsum suspendisse ultrices gravida. Risus commodo viverra
-                                maecenas accumsa.</p>
-                            <div class="instructor__progress-wrap">
-                                <ul class="list-wrap">
-                                    <li>
-                                        <div class="progress-item">
-                                            <h6 class="title">PHP <span>88%</span></h6>
-                                            <div class="progress" role="progressbar" aria-label="Example with label"
-                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                                                <div class="progress-bar" style="width: 88%"></div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="progress-item">
-                                            <h6 class="title">React <span>65%</span></h6>
-                                            <div class="progress" role="progressbar" aria-label="Example with label"
-                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                                                <div class="progress-bar" style="width: 65%"></div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="progress-item">
-                                            <h6 class="title">Java <span>55%</span></h6>
-                                            <div class="progress" role="progressbar" aria-label="Example with label"
-                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                                                <div class="progress-bar" style="width: 55%"></div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="progress-item">
-                                            <h6 class="title">Angular <span>40%</span></h6>
-                                            <div class="progress" role="progressbar" aria-label="Example with label"
-                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                                                <div class="progress-bar" style="width: 40%"></div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+
                         <div class="instructor__details-courses">
                             <div class="row align-items-center mb-30">
                                 <div class="col-md-8">
