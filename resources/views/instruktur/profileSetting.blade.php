@@ -151,7 +151,7 @@
                                     <div class="tab-pane fade" id="itemTwo-tab-pane" role="tabpanel"
                                         aria-labelledby="itemTwo-tab" tabindex="0">
                                         <div class="instructor__profile-form-wrap">
-                                            <form action="{{ route('updatePassword', ['id' => $user->id]) }}"
+                                            <form action="{{ route('updatePasswordInstruktur', ['id' => $user->id]) }}"
                                                 method="POST" enctype="multipart/form-data"
                                                 class="instructor__profile-form">
                                                 @csrf
