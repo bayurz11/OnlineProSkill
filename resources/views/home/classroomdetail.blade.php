@@ -56,7 +56,7 @@
                             <ul class="list-wrap">
                                 <li class="author-two">
                                     <img src="{{ $profile && $profile->gambar ? (strpos($profile->gambar, 'googleusercontent') !== false ? $profile->gambar : asset('public/uploads/' . $profile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
-                                        alt="img">
+                                        alt="img" width="120" height="120" style="object-fit: cover;">
                                     <a
                                         href="{{ route('profile_instruktur', ['id' => $courses->user->id]) }}">{{ $courses->user->name }}</a>
                                 </li>
