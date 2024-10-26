@@ -48,7 +48,7 @@
                         <div style="margin-right: 15px;">
                             <img src="{{ $instructorProfile && $instructorProfile->gambar ? (strpos($instructorProfile->gambar, 'googleusercontent') !== false ? $instructorProfile->gambar : asset('public/uploads/' . $instructorProfile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
                                 alt="Profile Image"
-                                style="border-radius: 50%; width: 60px; height: 60px; object-fit: cover;">
+                                style="border-radius: 50%; width: 80px; height: 80px; object-fit: cover;">
                         </div>
                         <div>
                             <ul class="list-wrap" style="list-style-type: none; padding: 0; margin: 0;">
