@@ -46,7 +46,8 @@
                     <div class="instructor__details-wrap">
                         <div class="instructor__details-info">
                             <div class="instructor__details-thumb">
-                                <img src="assets/img/instructor/instructor_details_thumb.png" alt="img">
+                                <img src="{{ $instructorProfile && $instructorProfile->gambar ? (strpos($instructorProfile->gambar, 'googleusercontent') !== false ? $instructorProfile->gambar : asset('public/uploads/' . $instructorProfile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
+                                    alt="img">
                             </div>
                             <div class="instructor__details-content">
                                 <h2 class="title">Robert Fox</h2>
