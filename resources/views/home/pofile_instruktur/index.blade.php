@@ -253,8 +253,8 @@
                                 <input type="text" id="topic" placeholder="Topic" required>
                             </div>
                             <div class="form-grp">
-                                <input type="number" id="phone" placeholder="Phone" max="12" min="0"
-                                    required>
+                                <input type="text" id="phone" placeholder="Phone" pattern="^[0-9]{1,12}$"
+                                    required title="Please enter a number with a maximum of 12 digits.">
                             </div>
                             <div class="form-grp">
                                 <textarea id="message" placeholder="Type Message" required></textarea>
