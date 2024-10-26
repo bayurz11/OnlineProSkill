@@ -88,8 +88,8 @@
                         <div class="instructor__details-courses">
                             <div class="row align-items-center mb-30">
                                 <div class="col-md-8">
-                                    <h2 class="main-title">My Courses</h2>
-                                    <p>when known printer took a galley of type scrambl edmake</p>
+                                    <h2 class="main-title">Kelas Saya</h2>
+                                    <p>Kelas kelas yang telah saya tayang</p>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="instructor__details-nav">
