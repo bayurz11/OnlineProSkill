@@ -176,15 +176,26 @@
                                                                 </li>
                                                                 <li class="avg-rating"><i class="fas fa-star"></i> (4.3
                                                                     Reviews)</li>
+                                                                <li class="price">
+                                                                    @if (!empty($item['discountedPrice']))
+                                                                        <del>Rp
+                                                                            {{ number_format($item['price'], 0, ',', '.') }}</del>
+                                                                        Rp
+                                                                        {{ number_format($item['discountedPrice'], 0, ',', '.') }}
+                                                                    @else
+                                                                        Rp {{ number_format($item['price'], 0, ',', '.') }}
+                                                                    @endif
+                                                                </li>
+                                                                @if (in_array($item->id, $joinedCourses))
+                                                                    <i class="fas fa-check-circle fa-lg"
+                                                                        style="color: green;"></i>
+                                                                @endif
                                                             </ul>
                                                             <h5 class="title"><a
                                                                     href="{{ route('classroomdetail', ['id' => $item['id']]) }}">{{ $item['nama_kursus'] }}
                                                             </h5>
                                                             <p class="author">By <a href="#">David Millar</a></p>
-                                                            @if (in_array($item->id, $joinedCourses))
-                                                                <i class="fas fa-check-circle fa-lg"
-                                                                    style="color: green;"></i>
-                                                            @endif
+
                                                             <div class="courses__item-bottom">
                                                                 <div class="button">
                                                                     <a
