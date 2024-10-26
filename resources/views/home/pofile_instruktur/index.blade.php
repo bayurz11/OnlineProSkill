@@ -51,8 +51,8 @@
                                     style="border-radius: 50%; width: 250px; height: 250px; object-fit: cover;">
                             </div>
                             <div class="instructor__details-content">
-                                <h2 class="title">Robert Fox</h2>
-                                <span class="designation">Expert Laravel Pro</span>
+                                <h2 class="title">{{ $instructorProfile->user->name }}</h2>
+
                                 <ul class="list-wrap">
                                     <li class="avg-rating"><i class="fas fa-star"></i>(4.8 Reviews)</li>
                                     <li><i class="far fa-envelope"></i><a href="mailto:info@gmail.com">info@gmail.com</a>
