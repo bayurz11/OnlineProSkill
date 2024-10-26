@@ -187,7 +187,19 @@
                                                                             {{ $order->KelasTatapMuka->user->name }}
                                                                         </a>
                                                                     </div>
-
+                                                                    <div class="courses__item-bottom-two">
+                                                                        <ul class="list-wrap">
+                                                                            <li><i
+                                                                                    class="flaticon-book"></i>{{ $kelas->lesson_count }}
+                                                                            </li>
+                                                                            <li><i
+                                                                                    class="flaticon-clock"></i>{{ $kelas->durasi }}
+                                                                            </li>
+                                                                            <li><i
+                                                                                    class="flaticon-mortarboard"></i>{{ $jumlahPendaftaran->get($kelas->id, 0) }}
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
