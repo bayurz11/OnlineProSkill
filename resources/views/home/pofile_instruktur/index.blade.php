@@ -242,21 +242,21 @@
                     <div class="instructor__sidebar">
                         <h4 class="title">Quick Contact</h4>
                         <p>Feel free to contact us through Twitter or Facebook if you prefer!</p>
-                        <form action="#">
+                        <form id="contactForm" onsubmit="sendWhatsAppMessage(event)">
                             <div class="form-grp">
-                                <input type="text" placeholder="Name">
+                                <input type="text" id="name" placeholder="Name" required>
                             </div>
                             <div class="form-grp">
-                                <input type="email" placeholder="E-mail">
+                                <input type="email" id="email" placeholder="E-mail" required>
                             </div>
                             <div class="form-grp">
-                                <input type="text" placeholder="Topic">
+                                <input type="text" id="topic" placeholder="Topic" required>
                             </div>
                             <div class="form-grp">
-                                <input type="number" placeholder="Phone">
+                                <input type="number" id="phone" placeholder="Phone" required>
                             </div>
                             <div class="form-grp">
-                                <textarea name="message" placeholder="Type Message"></textarea>
+                                <textarea id="message" placeholder="Type Message" required></textarea>
                             </div>
                             <button type="submit" class="btn arrow-btn">Send Message <img
                                     src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
@@ -264,6 +264,8 @@
                         </form>
                     </div>
                 </div>
+
+
             </div>
         </div>
     </section>
@@ -287,5 +289,26 @@
                 });
             });
         });
+        //wa
+        function sendWhatsAppMessage(event) {
+            event.preventDefault(); // Mencegah form submit default
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const topic = document.getElementById('topic').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+
+            // Nomor telepon tujuan dari variabel PHP
+            const instructorPhone = "{{ $instructorProfile->phone_number }}";
+
+            // Membuat pesan WhatsApp
+            const whatsappMessage =
+                `Halo, saya ${name}.%0AEmail: ${email}%0ATopik: ${topic}%0ANomor Telepon: ${phone}%0APesan: ${message}`;
+
+            // Mengarahkan ke URL WhatsApp
+            const whatsappURL = `https://wa.me/${instructorPhone}?text=${whatsappMessage}`;
+
+            window.open(whatsappURL, '_blank');
+        }
     </script>
 @endsection
