@@ -167,14 +167,19 @@
                                                         <div class="courses__item-content">
                                                             <ul class="courses__item-meta list-wrap">
                                                                 <li class="courses__item-tag">
-                                                                    <a href="course.html">Marketing</a>
+                                                                    @if ($item['course_type'] == 'online')
+                                                                        <span class="badge bg-primary">Online</span>
+                                                                    @else
+                                                                        <span class="badge bg-secondary">Kelas Tatap
+                                                                            Muka</span>
+                                                                    @endif
                                                                 </li>
                                                                 <li class="avg-rating"><i class="fas fa-star"></i> (4.3
                                                                     Reviews)</li>
                                                             </ul>
-                                                            <h5 class="title"><a href="course-details.html">Learning
-                                                                    Digital
-                                                                    Marketing on Facebook</a></h5>
+                                                            <h5 class="title"><a
+                                                                    href="{{ route('classroomdetail', ['id' => $item['id']]) }}">{{ $item['nama_kursus'] }}
+                                                            </h5>
                                                             <p class="author">By <a href="#">David Millar</a></p>
                                                             <div class="courses__item-bottom">
                                                                 <div class="button">
