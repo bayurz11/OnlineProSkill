@@ -54,44 +54,45 @@
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active" id="itemOne-tab-pane" role="tabpanel"
                                         aria-labelledby="itemOne-tab" tabindex="0">
-                                        <div class="instructor__cover-bg"
-                                            data-background="public/assets/img/bg/instructor_dashboard_bg.jpg"
-                                            id="coverBackground">
-                                            <div class="instructor__cover-info">
-                                                <div class="instructor__cover-info-left">
-                                                    <div class="thumb">
-                                                        <img src="{{ $profile && $profile->gambar ? (strpos($profile->gambar, 'googleusercontent') !== false ? $profile->gambar : asset('public/uploads/' . $profile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
-                                                            alt="img" width="120" height="120"
-                                                            style="object-fit: cover;" id="profileImage">
+                                        <form action="{{ route('updateProfile', ['id' => $profile->id]) }}"
+                                            class="instructor__profile-form"method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="instructor__cover-bg"
+                                                data-background="public/assets/img/bg/instructor_dashboard_bg.jpg"
+                                                id="coverBackground">
+                                                <div class="instructor__cover-info">
+                                                    <div class="instructor__cover-info-left">
+                                                        <div class="thumb">
+                                                            <img src="{{ $profile && $profile->gambar ? (strpos($profile->gambar, 'googleusercontent') !== false ? $profile->gambar : asset('public/uploads/' . $profile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
+                                                                alt="img" width="120" height="120"
+                                                                style="object-fit: cover;" id="profileImage">
+                                                        </div>
+                                                        <!-- Tombol Upload Photo -->
+                                                        <button title="Upload Photo"
+                                                            onclick="document.getElementById('uploadPhotoInput').click();">
+                                                            <i class="fas fa-camera"></i>
+                                                        </button>
+                                                        <!-- Input File Tersembunyi untuk Foto Profil -->
+                                                        <input type="file" id="uploadPhotoInput" style="display: none;"
+                                                            accept="image/*" onchange="previewImage(event)">
                                                     </div>
-                                                    <!-- Tombol Upload Photo -->
-                                                    <button title="Upload Photo"
-                                                        onclick="document.getElementById('uploadPhotoInput').click();">
-                                                        <i class="fas fa-camera"></i>
-                                                    </button>
-                                                    <!-- Input File Tersembunyi untuk Foto Profil -->
-                                                    <input type="file" id="uploadPhotoInput" style="display: none;"
-                                                        accept="image/*" onchange="previewImage(event)">
-                                                </div>
-                                                <div class="instructor__cover-info-right">
-                                                    <!-- Tombol Edit Cover Photo -->
-                                                    <button title="Edit Cover Photo"
-                                                        onclick="document.getElementById('uploadCoverInput').click();"
-                                                        class="btn btn-two arrow-btn">
-                                                        Edit Cover Photo
-                                                    </button>
-                                                    <!-- Input File Tersembunyi untuk Cover Photo -->
-                                                    <input type="file" id="uploadCoverInput" style="display: none;"
-                                                        accept="image/*" onchange="previewCover(event)">
+                                                    <div class="instructor__cover-info-right">
+                                                        <!-- Tombol Edit Cover Photo -->
+                                                        <button title="Edit Cover Photo"
+                                                            onclick="document.getElementById('uploadCoverInput').click();"
+                                                            class="btn btn-two arrow-btn">
+                                                            Edit Cover Photo
+                                                        </button>
+                                                        <!-- Input File Tersembunyi untuk Cover Photo -->
+                                                        <input type="file" id="uploadCoverInput" style="display: none;"
+                                                            accept="image/*" onchange="previewCover(event)">
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
 
 
-                                        <div class="instructor__profile-form-wrap">
-                                            <form action="{{ route('updateProfile', ['id' => $profile->id]) }}"
-                                                class="instructor__profile-form"method="POST" enctype="multipart/form-data">
-                                                @csrf
+                                            <div class="instructor__profile-form-wrap">
+
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="form-grp">
@@ -147,8 +148,8 @@
                                                 <div class="submit-btn mt-25">
                                                     <button type="submit" class="btn">Update Info</button>
                                                 </div>
-                                            </form>
-                                        </div>
+                                            </div>
+                                        </form>
                                     </div>
                                     <div class="tab-pane fade" id="itemTwo-tab-pane" role="tabpanel"
                                         aria-labelledby="itemTwo-tab" tabindex="0">
