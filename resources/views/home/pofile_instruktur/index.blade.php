@@ -89,7 +89,8 @@
                             <div class="row align-items-center mb-30">
                                 <div class="col-md-8">
                                     <h2 class="main-title">Kelas Saya</h2>
-                                    <p>Kelas kelas yang telah saya tayang</p>
+                                    <p>Temukan berbagai kelas yang telah saya buat untuk mendukung perjalanan belajar Anda.
+                                        Pilih kelas yang sesuai dan mulai tingkatkan keterampilan Anda sekarang!</p>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="instructor__details-nav">
