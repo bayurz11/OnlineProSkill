@@ -68,20 +68,20 @@
                                                                 style="object-fit: cover;" id="profileImage">
                                                         </div>
                                                         <button type="button" title="Upload Photo"
-                                                            onclick="document.getElementById('uploadPhotoInput').click();">
+                                                            onclick="document.getElementById('foto').click();">
                                                             <i class="fas fa-camera"></i>
                                                         </button>
-                                                        <input type="file" id="uploadPhotoInput" name="profile_photo"
+                                                        <input type="file" id="foto" name="foto"
                                                             style="display: none;" accept="image/*"
                                                             onchange="previewImage(event)">
                                                     </div>
                                                     <div class="instructor__cover-info-right">
                                                         <button type="button" title="Edit Cover Photo"
-                                                            onclick="document.getElementById('uploadCoverInput').click();"
+                                                            onclick="document.getElementById('cover').click();"
                                                             class="btn btn-two arrow-btn">
                                                             Edit Cover Photo
                                                         </button>
-                                                        <input type="file" id="uploadCoverInput" name="cover_photo"
+                                                        <input type="file" id="cover" name="cover"
                                                             style="display: none;" accept="image/*"
                                                             onchange="previewCover(event)">
                                                     </div>
