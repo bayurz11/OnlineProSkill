@@ -253,7 +253,8 @@
                                 <input type="text" id="topic" placeholder="Topic" required>
                             </div>
                             <div class="form-grp">
-                                <input type="number" id="phone" placeholder="Phone" required>
+                                <input type="number" id="phone" placeholder="Phone" max="12" min="0"
+                                    required>
                             </div>
                             <div class="form-grp">
                                 <textarea id="message" placeholder="Type Message" required></textarea>
