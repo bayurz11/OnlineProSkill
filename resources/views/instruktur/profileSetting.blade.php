@@ -139,62 +139,32 @@
                                     <div class="tab-pane fade" id="itemTwo-tab-pane" role="tabpanel"
                                         aria-labelledby="itemTwo-tab" tabindex="0">
                                         <div class="instructor__profile-form-wrap">
-                                            <form action="#" class="instructor__profile-form">
+                                            <form action="{{ route('updatePassword', ['id' => $user->id]) }}"
+                                                method="POST" enctype="multipart/form-data"
+                                                class="instructor__profile-form">
+                                                @csrf
                                                 <div class="form-grp">
-                                                    <label for="currentpassword">Current Password</label>
-                                                    <input id="currentpassword" type="password"
-                                                        placeholder="Current Password">
+                                                    <label for="email">Email</label>
+                                                    <input id="email" type="email" name="email"
+                                                        value="{{ $user->email }}">
                                                 </div>
                                                 <div class="form-grp">
-                                                    <label for="newpassword">New Password</label>
-                                                    <input id="newpassword" type="password" placeholder="New Password">
+                                                    <label for="password">Kata Sandi Baru</label>
+                                                    <input id="password" type="password" name="password"
+                                                        placeholder="kata sandi baru">
                                                 </div>
                                                 <div class="form-grp">
-                                                    <label for="repassword">Re-Type New Password</label>
-                                                    <input id="repassword" type="password"
-                                                        placeholder="Re-Type New Password">
+                                                    <label for="password_confirmation">Ketik Ulang Kata Sandi Baru</label>
+                                                    <input id="password_confirmation" name="password_confirmation"
+                                                        type="password" placeholder="Ketik Ulang Kata Sandi Baru">
                                                 </div>
                                                 <div class="submit-btn mt-25">
-                                                    <button type="submit" class="btn">Update Password</button>
+                                                    <button type="submit" class="btn">Perbahrui Kata Sandi</button>
                                                 </div>
                                             </form>
                                         </div>
                                     </div>
-                                    <div class="tab-pane fade" id="itemThree-tab-pane" role="tabpanel"
-                                        aria-labelledby="itemThree-tab" tabindex="0">
-                                        <div class="instructor__profile-form-wrap">
-                                            <form action="#" class="instructor__profile-form">
-                                                <div class="form-grp">
-                                                    <label for="facebook">Facebook</label>
-                                                    <input id="facebook" type="url"
-                                                        placeholder="https://facebook.com/">
-                                                </div>
-                                                <div class="form-grp">
-                                                    <label for="twitter">Twitter</label>
-                                                    <input id="twitter" type="url"
-                                                        placeholder="https://twitter.com/">
-                                                </div>
-                                                <div class="form-grp">
-                                                    <label for="linkedin">Linkedin</label>
-                                                    <input id="linkedin" type="url"
-                                                        placeholder="https://linkedin.com/">
-                                                </div>
-                                                <div class="form-grp">
-                                                    <label for="website">Website</label>
-                                                    <input id="website" type="url"
-                                                        placeholder="https://website.com/">
-                                                </div>
-                                                <div class="form-grp">
-                                                    <label for="github">Github</label>
-                                                    <input id="github" type="url"
-                                                        placeholder="https://github.com/">
-                                                </div>
-                                                <div class="submit-btn mt-25">
-                                                    <button type="submit" class="btn">Update Profile</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
