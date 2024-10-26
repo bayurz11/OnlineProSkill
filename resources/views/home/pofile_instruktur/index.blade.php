@@ -178,7 +178,7 @@
                                                                     Reviews)</li>
                                                                 <li class="price">
                                                                     @if (!empty($item['discountedPrice']))
-                                                                        <del style="color: red;">Rp
+                                                                        <del style="color: red; margin-right: 8px;">Rp
                                                                             {{ number_format($item['price'], 0, ',', '.') }}
                                                                         </del>
                                                                         <span
