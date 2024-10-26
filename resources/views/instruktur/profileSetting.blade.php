@@ -48,12 +48,7 @@
                                                 data-bs-target="#itemTwo-tab-pane" type="button" role="tab"
                                                 aria-controls="itemTwo-tab-pane" aria-selected="false">Password</button>
                                         </li>
-                                        <li class="nav-item" role="presentation">
-                                            <button class="nav-link" id="itemThree-tab" data-bs-toggle="tab"
-                                                data-bs-target="#itemThree-tab-pane" type="button" role="tab"
-                                                aria-controls="itemThree-tab-pane" aria-selected="false">Social
-                                                Share</button>
-                                        </li>
+
                                     </ul>
                                 </div>
                                 <div class="tab-content" id="myTabContent">
@@ -65,15 +60,37 @@
                                                 <div class="instructor__cover-info-left">
                                                     <div class="thumb">
                                                         <img src="public/assets/img/courses/details_instructors01.jpg"
-                                                            alt="img">
+                                                            alt="img" id="profileImage">
                                                     </div>
-                                                    <button title="Upload Photo"><i class="fas fa-camera"></i></button>
+                                                    <!-- Tombol Upload Photo -->
+                                                    <button title="Upload Photo"
+                                                        onclick="document.getElementById('uploadPhotoInput').click();">
+                                                        <i class="fas fa-camera"></i>
+                                                    </button>
+                                                    <!-- Input File Tersembunyi -->
+                                                    <input type="file" id="uploadPhotoInput" style="display: none;"
+                                                        accept="image/*" onchange="previewImage(event)">
                                                 </div>
                                                 <div class="instructor__cover-info-right">
                                                     <a href="#" class="btn btn-two arrow-btn">Edit Cover Photo</a>
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <script>
+                                            function previewImage(event) {
+                                                const image = document.getElementById('profileImage');
+                                                const file = event.target.files[0];
+                                                if (file) {
+                                                    const reader = new FileReader();
+                                                    reader.onload = function(e) {
+                                                        image.src = e.target.result;
+                                                    };
+                                                    reader.readAsDataURL(file);
+                                                }
+                                            }
+                                        </script>
+
                                         <div class="instructor__profile-form-wrap">
                                             <form action="{{ route('updateProfile', ['id' => $profile->id]) }}"
                                                 class="instructor__profile-form"method="POST" enctype="multipart/form-data">
