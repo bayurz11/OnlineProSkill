@@ -189,7 +189,7 @@ class HomeController extends Controller
         // Tambahkan kondisi untuk filter course_type = offline
         $course = KelasTatapMuka::with('user')
             ->where('status', 1)
-            ->where('course_type', 'offline')
+            ->where('course_type', 'online')
             ->get();
         $count = $course->count();
 
