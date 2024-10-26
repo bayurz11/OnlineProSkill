@@ -302,12 +302,24 @@
             // Nomor telepon tujuan dari variabel PHP
             const instructorPhone = "{{ $instructorProfile->phone_number }}";
 
+            // Konversi nomor telepon ke format internasional jika perlu
+            let formattedPhone = instructorPhone;
+            if (formattedPhone.startsWith('0')) {
+                formattedPhone = '62' + formattedPhone.substring(1); // Mengganti 0 di awal dengan 62
+            } else if (formattedPhone.startsWith('62')) {
+                // Sudah dalam format internasional, tidak perlu diubah
+            } else {
+                // Jika format tidak dikenali, tambahkan logika tambahan jika diperlukan
+                console.error("Nomor telepon tidak valid.");
+                return;
+            }
+
             // Membuat pesan WhatsApp
             const whatsappMessage =
                 `Halo, saya ${name}.%0AEmail: ${email}%0ATopik: ${topic}%0ANomor Telepon: ${phone}%0APesan: ${message}`;
 
             // Mengarahkan ke URL WhatsApp
-            const whatsappURL = `https://wa.me/${instructorPhone}?text=${whatsappMessage}`;
+            const whatsappURL = `https://wa.me/${formattedPhone}?text=${whatsappMessage}`;
 
             window.open(whatsappURL, '_blank');
         }
