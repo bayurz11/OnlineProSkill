@@ -81,22 +81,33 @@
                                             class="instructor__profile-form" method="POST" enctype="multipart/form-data">
                                             @csrf
 
-                                            <div class="instructor__cover-bg">
+                                            <div class="instructor__cover-bg"
+                                                data-background="{{ $profile && $profile->cover ? asset('public/uploads/' . $profile->cover) : asset('public/assets/img/bg/instructor_dashboard_bg.jpg') }}"
+                                                id="coverBackground">
                                                 <div class="instructor__cover-info">
-                                                    <div class="instructor__cover-info-left"
-                                                        onclick="document.getElementById('foto').click();">
+                                                    <div class="instructor__cover-info-left">
                                                         <div class="thumb">
-                                                            <img id="profileImage"
-                                                                src="{{ $profile && $profile->gambar ? (strpos($profile->gambar, 'googleusercontent') !== false ? $profile->gambar : asset('public/uploads/' . $profile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
+                                                            <img src="{{ $profile && $profile->gambar ? (strpos($profile->gambar, 'googleusercontent') !== false ? $profile->gambar : asset('public/uploads/' . $profile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
                                                                 alt="img" width="120" height="120"
-                                                                style="object-fit: cover;">
-                                                            <p align="center">Max 2 Mb<span style="color: red">*</span></p>
+                                                                style="object-fit: cover;" id="profileImage">
                                                         </div>
-                                                    </div>
-
-                                                    <div class="instructor__cover-info-right">
+                                                        <button type="button" title="Upload Photo"
+                                                            onclick="document.getElementById('foto').click();">
+                                                            <i class="fas fa-camera"></i>
+                                                        </button>
                                                         <input type="file" id="foto" name="foto"
-                                                            style="display: none;" accept="image/*">
+                                                            style="display: none;" accept="image/*"
+                                                            onchange="previewImage(event)">
+                                                    </div>
+                                                    <div class="instructor__cover-info-right">
+                                                        <button type="button" title="Edit Cover Photo"
+                                                            onclick="document.getElementById('cover').click();"
+                                                            class="btn btn-two arrow-btn">
+                                                            Edit Cover Photo
+                                                        </button>
+                                                        <input type="file" id="cover" name="cover"
+                                                            style="display: none;" accept="image/*"
+                                                            onchange="previewCover(event)">
                                                     </div>
                                                 </div>
                                             </div>
@@ -212,23 +223,24 @@
     <!-- dashboard-area-end -->
 
     <script>
-        document.getElementById('foto').addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const img = document.getElementById('profileImage');
-                    img.src = e.target.result;
-                    img.onload = function() {
-                        // Set width and height attributes to 120x120
-                        img.style.width = '120px';
-                        img.style.height = '120px';
-                        img.style.objectFit = 'cover'; // Optional: ensure the image covers the area
-                    };
-                };
-                reader.readAsDataURL(file);
-            }
-        });
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function() {
+                const output = document.getElementById('profileImage');
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
+        function previewCover(event) {
+            const reader = new FileReader();
+            reader.onload = function() {
+                const output = document.getElementById('coverBackground');
+                output.style.backgroundImage = `url(${reader.result})`;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
         document.addEventListener("DOMContentLoaded", function() {
             const dateInput = document.getElementById('dateofBirth');
             const today = new Date();
