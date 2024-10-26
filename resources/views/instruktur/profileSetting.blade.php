@@ -75,56 +75,60 @@
                                             </div>
                                         </div>
                                         <div class="instructor__profile-form-wrap">
-                                            <form action="#" class="instructor__profile-form">
+                                            <form action="{{ route('updateProfile', ['id' => $profile->id]) }}"
+                                                class="instructor__profile-form"method="POST" enctype="multipart/form-data">
+                                                @csrf
                                                 <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-12">
                                                         <div class="form-grp">
-                                                            <label for="firstname">First Name</label>
-                                                            <input id="firstname" type="text" value="John">
+                                                            <label for="name">Nama Lengkap</label>
+                                                            <input id="name" type="text"
+                                                                value="{{ $user->name }}">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-grp">
-                                                            <label for="lastname">Last Name</label>
-                                                            <input id="lastname" type="text" value="Due">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-grp">
-                                                            <label for="username">User Name</label>
-                                                            <input id="username" type="text" value="johndue">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-grp">
-                                                            <label for="phonenumber">Phone Number</label>
-                                                            <input id="phonenumber" type="tel"
-                                                                value="+1-202-555-0174">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-grp">
-                                                            <label for="skill">Skill/Occupation</label>
-                                                            <input id="skill" type="text"
-                                                                value="Full Stack Developer">
+                                                            <label for="dateofBirth">Tanggal Lahir<span
+                                                                    style="color: red">*</span></label>
+                                                            <input id="dateofBirth" name="dateofBirth" type="date"
+                                                                value="{{ $profile->date_of_birth }}">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-grp select-grp">
-                                                            <label for="displayname">Display Name Publicly As</label>
-                                                            <select id="displayname" name="displayname">
-                                                                <option value="Emily Hannah">Emily Hannah</option>
-                                                                <option value="John">John</option>
-                                                                <option value="Due">Due</option>
-                                                                <option value="Due John">Due John</option>
-                                                                <option value="johndue">johndue</option>
+                                                            <label for="gender">Gender<span
+                                                                    style="color: red">*</span></label>
+                                                            <select id="gender" name="gender">
+                                                                <option>Pilih Gender</option>
+                                                                <option value="Laki-Laki"
+                                                                    {{ $profile->gender == 'Laki-Laki' ? 'selected' : '' }}>
+                                                                    Laki-Laki</option>
+                                                                <option value="Perempuan"
+                                                                    {{ $profile->gender == 'Perempuan' ? 'selected' : '' }}>
+                                                                    Perempuan</option>
                                                             </select>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="form-grp">
-                                                    <label for="bio">Bio</label>
-                                                    <textarea id="bio">I'm the Front-End Developer for #ThemeGenix in New York, OR. I am passionate about UI effects, animations, and creating intuitive, dynamic user experiences.</textarea>
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-grp">
+                                                            <label for="phonenumber">No.HP<span
+                                                                    style="color: red">*</span></label>
+                                                            <input id="phonenumber" type="tel" name="phonenumber"
+                                                                maxlength="12" value="{{ $profile->phone_number }}"
+                                                                placeholder="08**********">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6">
+                                                        <div class="form-grp">
+                                                            <label for="alamat">Alamat <span
+                                                                    style="color: red">*</span></label>
+                                                            <input id="alamat" name="alamat" type="text"
+                                                                value="{{ $profile->address }}"
+                                                                placeholder="Masukkan alamat">
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="submit-btn mt-25">
                                                     <button type="submit" class="btn">Update Info</button>
