@@ -176,13 +176,18 @@
 
                                                                     <div class="author-two d-flex align-items-center">
                                                                         <a href="#">
-                                                                            <img src="{{ $order->$KelasTatapMuka->user->userprofile && $order->$KelasTatapMuka->user->userprofile->gambar ? (strpos($order->$KelasTatapMuka->user->userprofile->gambar, 'googleusercontent') !== false ? $order->$KelasTatapMuka->user->userprofile->gambar : asset('public/uploads/' . $order->$KelasTatapMuka->user->userprofile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
+                                                                            <?php
+                                                                            // Cek apakah $order, $KelasTatapMuka, dan user profile ada
+                                                                            $userProfile = $order->$KelasTatapMuka->user->userprofile ?? null;
+                                                                            $imageSrc = $userProfile && $userProfile->gambar ? (strpos($userProfile->gambar, 'googleusercontent') !== false ? $userProfile->gambar : asset('public/uploads/' . $userProfile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg');
+                                                                            ?>
+                                                                            <img src="{{ $imageSrc }}"
                                                                                 alt="Profile Image" class="rounded-circle"
                                                                                 style="border-radius: 50%; width: 30px; height: 30px; object-fit: cover;">
-                                                                            {{ $order->KelasTatapMuka->user->name }}
+                                                                            {{ $order->KelasTatapMuka->user->name ?? 'Nama Tidak Diketahui' }}
                                                                         </a>
-
                                                                     </div>
+
                                                                 </div>
                                                             </div>
                                                         </div>
