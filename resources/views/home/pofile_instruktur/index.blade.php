@@ -145,7 +145,9 @@
                                                             <h5 class="title"><a
                                                                     href="{{ route('classroomdetail', ['id' => $item['id']]) }}">{{ $item['nama_kursus'] }}
                                                             </h5>
-                                                            <p class="author">By <a href="#">David Millar</a></p>
+                                                            <p class="author">By <a
+                                                                    href="{{ route('profile_instruktur', ['id' => $instructorProfile->user->id]) }}">{{ $instructorProfile->user->name }}</a>
+                                                            </p>
 
                                                             <div class="courses__item-bottom">
                                                                 <div class="button">
