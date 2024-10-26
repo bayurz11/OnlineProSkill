@@ -55,8 +55,9 @@
                         <div class="courses__details-meta">
                             <ul class="list-wrap">
                                 <li class="author-two">
-                                    <img
-                                        src="{{ $courses->user->userprofile && $courses->user->userprofile->gambar ? (strpos($courses->user->userprofile->gambar, 'googleusercontent') !== false ? $courses->user->userprofile->gambar : asset('public/uploads/' . $courses->user->userprofile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}">
+                                    <img src="{{ $courses->user->userprofile && $courses->user->userprofile->gambar ? (strpos($courses->user->userprofile->gambar, 'googleusercontent') !== false ? $courses->user->userprofile->gambar : asset('public/uploads/' . $courses->user->userprofile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
+                                        alt="Profile Image"
+                                        style="border-radius: 50%; width: 50px; height: 50px; object-fit: cover;">
                                     <a
                                         href="{{ route('profile_instruktur', ['id' => $courses->user->id]) }}">{{ $courses->user->name }}</a>
                                 </li>
