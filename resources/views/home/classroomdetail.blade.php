@@ -113,8 +113,9 @@
                                     <p> {!! $courses->content !!}</p>
 
                                 </div>
-
-                                <h3 class="title mt-4">Kegiatan Kelas</h3>
+                                @if ($courses->course_type !== 'online')
+                                    <h3 class="title mt-4">Kegiatan Kelas</h3>
+                                @endif
                                 @if ($courses->nama_kursus === 'Mahir Aplikasi Office Tingkat Advance')
                                     <div class="col-md-12 col-lg-12 d-flex justify-content-end align-items-start mt-5">
                                         <div class="courses__details-video w-100" style="height: 400px;">
