@@ -80,7 +80,8 @@
                                                         <a href="{{ route('classroomdetail', ['id' => $item['id']]) }}"
                                                             class="shine__animate-link">
                                                             <img src="{{ asset('public/uploads/' . $item['gambar']) }}"
-                                                                alt="img" class="img-fluid" loading="lazy">
+                                                                alt="img" class="img-fluid" loading="lazy"
+                                                                style="object-fit: cover;">
                                                         </a>
                                                     </div>
                                                     <div
