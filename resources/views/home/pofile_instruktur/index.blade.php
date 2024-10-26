@@ -208,5 +208,23 @@
     </section>
     <!-- instructor-details-area-end -->
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ambil semua elemen dengan class 'swiper-slide'
+            var slides = document.querySelectorAll('.swiper-slide');
 
+            // Tambahkan event listener untuk setiap slide
+            slides.forEach(function(slide) {
+                slide.addEventListener('click', function() {
+                    // Cari elemen <a> di dalam slide yang diklik
+                    var link = slide.querySelector('a');
+
+                    // Jika elemen <a> ditemukan, lakukan redirect ke href-nya
+                    if (link) {
+                        window.location.href = link.getAttribute('href');
+                    }
+                });
+            });
+        });
+    </script>
 @endsection
