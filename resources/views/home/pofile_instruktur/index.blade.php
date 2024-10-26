@@ -194,7 +194,7 @@
 
                                                                 @if (in_array($item->id, $joinedCourses))
                                                                     <i class="fas fa-check-circle fa-lg"
-                                                                        style="color: green;"></i>
+                                                                        style="color: #007F73;"></i>
                                                                 @endif
                                                             </ul>
                                                             <h5 class="title"><a
