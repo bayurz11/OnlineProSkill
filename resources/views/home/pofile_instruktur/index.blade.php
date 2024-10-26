@@ -259,7 +259,7 @@
                             <div class="form-grp">
                                 <textarea id="message" placeholder="Type Message" required></textarea>
                             </div>
-                            <button type="submit" class="btn arrow-btn">Send Message <img
+                            <button type="submit" class="btn arrow-btn">Kirim Pesan <img
                                     src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                     class="injectable"></button>
                         </form>
