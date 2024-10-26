@@ -325,11 +325,19 @@
         //wa
         function sendWhatsAppMessage(event) {
             event.preventDefault(); // Mencegah form submit default
+
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const topic = document.getElementById('topic').value;
             const phone = document.getElementById('phone').value;
             const message = document.getElementById('message').value;
+
+            // Logging untuk memeriksa nilai yang diambil
+            console.log("Name:", name);
+            console.log("Email:", email);
+            console.log("Topic:", topic);
+            console.log("Phone:", phone);
+            console.log("Message:", message);
 
             // Nomor telepon tujuan dari variabel PHP
             const instructorPhone = "{{ $instructorProfile->phone_number }}";
@@ -350,8 +358,12 @@
             const whatsappMessage =
                 `Halo, saya ${name}.%0AEmail: ${email}%0ATopik: ${topic}%0ANomor Telepon: ${phone}%0APesan: ${message}`;
 
+            // Logging untuk memeriksa isi pesan dan URL
+            console.log("WhatsApp Message:", whatsappMessage);
+
             // Mengarahkan ke URL WhatsApp
             const whatsappURL = `https://wa.me/${formattedPhone}?text=${whatsappMessage}`;
+            console.log("WhatsApp URL:", whatsappURL); // Cek URL yang dibentuk
 
             window.open(whatsappURL, '_blank');
         }
