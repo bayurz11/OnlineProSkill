@@ -195,9 +195,7 @@
                                                     </h5>
                                                     <p class="author">By <a
                                                             href="{{ route('profile_instruktur', ['id' => $cours->user->id]) }}">{{ $cours->user->name }}</a>&nbsp;&nbsp;
-                                                        <img src="{{ asset('public/assets/img/icons/course_icon06.svg') }}"
-                                                            alt="img" class="injectable">
-                                                        Kuota Kelas
+
                                                         @if ($cours->course_type === 'online')
                                                             <i class="fas fa-users"></i>
                                                             Member
