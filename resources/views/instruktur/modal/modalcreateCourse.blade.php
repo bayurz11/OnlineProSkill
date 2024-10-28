@@ -14,7 +14,7 @@
                         <label class="form-label">Tipe Kursus<span class="text-danger">*</span></label>
                         <div class="form-check form-check-inline">
                             <input type="radio" class="form-check-input" name="course_type" id="online"
-                                value="online" checked>
+                                value="online">
                             <label class="form-check-label" for="online">Online Course</label>
                         </div>
                         <div class="form-check form-check-inline">
@@ -204,5 +204,27 @@
             preview.style.display = 'block';
         }
         reader.readAsDataURL(this.files[0]);
+    });
+
+    // Show/Hide 'Durasi Kursus' field based on course type selection
+    document.addEventListener('DOMContentLoaded', function() {
+        const durasiField = document.getElementById('durasi').closest('.mb-3');
+        const onlineRadio = document.getElementById('online');
+        const offlineRadio = document.getElementById('offline');
+
+        function toggleDurasiField() {
+            if (onlineRadio.checked) {
+                durasiField.style.display = 'none';
+            } else {
+                durasiField.style.display = 'block';
+            }
+        }
+
+        // Initialize field display on page load
+        toggleDurasiField();
+
+        // Add event listeners to the radio buttons
+        onlineRadio.addEventListener('change', toggleDurasiField);
+        offlineRadio.addEventListener('change', toggleDurasiField);
     });
 </script>
