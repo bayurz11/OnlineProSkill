@@ -306,12 +306,14 @@
                                     Tingkat
                                     <span>{{ $courses->tingkat }}</span>
                                 </li>
-                                <li>
-                                    <img src="{{ asset('public/assets/img/icons/course_icon02.svg') }}" alt="img"
-                                        class="injectable">
-                                    Durasi
-                                    <span>{{ $courses->durasi }}</span>
-                                </li>
+                                @if ($courses->course_type !== 'online')
+                                    <li>
+                                        <img src="{{ asset('public/assets/img/icons/course_icon02.svg') }}"
+                                            alt="img" class="injectable">
+                                        Durasi
+                                        <span>{{ $courses->durasi }}</span>
+                                    </li>
+                                @endif
                                 <li>
                                     <img src="{{ asset('public/assets/img/icons/course_icon05.svg') }}" alt="img"
                                         class="injectable">
