@@ -228,32 +228,34 @@
                                         class="btn btn-two arrow-btn">Lanjut Belajar</a>
                                 </div>
                             </div>
-                        @elseif ($jumlahPendaftaran < $courses->kuota)
-                            <div class="courses__details-enroll">
-                                <div class="tg-button-wrap">
-                                    <a href="{{ route('cart.checkout', ['id' => $courses->id]) }}"
-                                        class="btn btn-two arrow-btn">
-                                        Checkout
-                                        <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
-                                            class="injectable">
-                                    </a>
+                            @if ($courses->course_type == 'online')
+                                {{-- Kursus online tanpa batasan kuota, tidak ada tombol --}}
+                            @elseif ($jumlahPendaftaran >= $courses->kuota)
+                                <div class="courses__details-enroll">
+                                    <div class="tg-button-wrap">
+                                        <a href="#" class="btn btn-secondary disabled">Pendaftaran Penuh</a>
+                                    </div>
                                 </div>
-                                <br>
-                                <div class="tg-button-wrap">
-                                    <a href="{{ route('cart.adddetail', ['id' => $courses->id]) }}"
-                                        class="btn">Masukkan keranjang
-                                        <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
-                                            class="injectable">
-                                    </a>
+                            @else
+                                <div class="courses__details-enroll">
+                                    <div class="tg-button-wrap">
+                                        <a href="{{ route('cart.checkout', ['id' => $courses->id]) }}"
+                                            class="btn btn-two arrow-btn">
+                                            Checkout
+                                            <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}"
+                                                alt="img" class="injectable">
+                                        </a>
+                                    </div>
+                                    <br>
+                                    <div class="tg-button-wrap">
+                                        <a href="{{ route('cart.adddetail', ['id' => $courses->id]) }}"
+                                            class="btn">Masukkan keranjang
+                                            <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}"
+                                                alt="img" class="injectable">
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                        @else
-                            <div class="courses__details-enroll">
-                                <div class="tg-button-wrap">
-                                    <a href="#" class="btn btn-secondary disabled">Pendaftaran Penuh</a>
-                                </div>
-                            </div>
-                        @endif
+                            @endif
 
 
                     </div>
