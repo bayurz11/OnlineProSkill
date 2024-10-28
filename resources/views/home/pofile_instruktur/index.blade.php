@@ -196,14 +196,19 @@
                                                                         <del style="color: red; margin-right: 8px;">Rp
                                                                             {{ number_format($item['price'], 0, ',', '.') }}</del>
                                                                         <span
-                                                                            style="color: #007F73; font-weight: bold; font-size: 1.2em;">Rp
-                                                                            {{ number_format($item['discountedPrice'], 0, ',', '.') }}</span>
+                                                                            style="color: #007F73; font-weight: bold; font-size: 1.2em;">
+                                                                            Rp
+                                                                            {{ number_format($item['discountedPrice'], 0, ',', '.') }}
+                                                                        </span>
                                                                     @else
                                                                         <span
-                                                                            style="color: #007F73; font-weight: bold; font-size: 1.2em;">Rp
-                                                                            {{ number_format($item['price'], 0, ',', '.') }}</span>
+                                                                            style="color: red; font-weight: bold; font-size: 1.2em;">
+                                                                            Rp
+                                                                            {{ number_format($item['price'], 0, ',', '.') }}
+                                                                        </span>
                                                                     @endif
                                                                 </li>
+
 
                                                                 @if (in_array($item->id, $joinedCourses))
                                                                     <i class="fas fa-check-circle fa-lg"
