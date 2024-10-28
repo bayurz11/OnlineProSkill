@@ -203,9 +203,7 @@
                                                                 </div>
                                                                 <div class="courses__item-bottom-two">
                                                                     <ul class="list-wrap">
-                                                                        <li><i
-                                                                                class="flaticon-book"></i>{{ $kelas->lesson_count }}
-                                                                        </li>
+
                                                                         <li><i
                                                                                 class="flaticon-clock"></i>{{ $kelas->durasi }}
                                                                         </li>
