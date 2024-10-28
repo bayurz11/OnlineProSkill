@@ -212,14 +212,20 @@
         const kuotaField = document.getElementById('kuota').closest('.mb-3');
         const onlineRadio = document.getElementById('online');
         const offlineRadio = document.getElementById('offline');
+        const durasiInput = document.getElementById('durasi');
+        const kuotaInput = document.getElementById('kuota');
 
         function toggleFields() {
             if (onlineRadio.checked) {
                 durasiField.style.display = 'none';
                 kuotaField.style.display = 'none';
+                durasiInput.removeAttribute('required');
+                kuotaInput.removeAttribute('required');
             } else {
                 durasiField.style.display = 'block';
                 kuotaField.style.display = 'block';
+                durasiInput.setAttribute('required', true);
+                kuotaInput.setAttribute('required', true);
             }
         }
 
