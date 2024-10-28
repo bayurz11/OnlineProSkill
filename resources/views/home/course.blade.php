@@ -125,6 +125,11 @@
                                                     </h5>
                                                     <p class="author">By <a
                                                             href="{{ route('profile_instruktur', ['id' => $cours->user->id]) }}">{{ $cours->user->name }}</a>&nbsp;&nbsp;
+                                                        @if ($cours->course_type === 'online')
+                                                            <i class="fas fa-users"></i>
+                                                            Member
+                                                            <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}</span>
+                                                        @endif
                                                     </p>
 
 
