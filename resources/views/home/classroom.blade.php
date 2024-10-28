@@ -134,17 +134,6 @@
 
 
                                                     <div class="courses__item-bottom">
-                                                        <div class="button">
-                                                            <a
-                                                                href="{{ route('classroomdetail', ['id' => $cours->id]) }}">
-                                                                <span class="text">Detail</span>
-                                                                <i class="flaticon-arrow-right"></i>
-                                                            </a>
-                                                        </div>
-                                                        @if (in_array($cours->id, $joinedCourses))
-                                                            <i class="fas fa-check-circle fa-lg"
-                                                                style="color: green;"></i>
-                                                        @endif
                                                         <h5 class="price">
                                                             @if (!empty($cours->discountedPrice) && $cours->discount != 0)
                                                                 <del>Rp
@@ -156,6 +145,18 @@
                                                                 {{ number_format($cours->price, 0, ',', '.') }}
                                                             @endif
                                                         </h5>
+                                                        <div class="button">
+                                                            <a
+                                                                href="{{ route('classroomdetail', ['id' => $cours->id]) }}">
+                                                                <span class="text">Detail</span>
+                                                                <i class="flaticon-arrow-right"></i>
+                                                            </a>
+                                                        </div>
+                                                        @if (in_array($cours->id, $joinedCourses))
+                                                            <i class="fas fa-check-circle fa-lg"
+                                                                style="color: green;"></i>
+                                                        @endif
+
                                                     </div>
                                                 </div>
                                             </div>
