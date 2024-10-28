@@ -199,11 +199,9 @@
                                                             alt="img" class="injectable">
                                                         Kuota Kelas
                                                         @if ($cours->course_type === 'online')
-                                                            <li>
-                                                                <i class="fas fa-users"></i>
-                                                                Member
-                                                                <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}</span>
-                                                            </li>
+                                                            <i class="fas fa-users"></i>
+                                                            Member
+                                                            <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}</span>
                                                         @endif
 
                                                         @if (in_array($cours->id, $joinedCourses))
