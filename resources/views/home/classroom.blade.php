@@ -371,19 +371,22 @@
                 localStorage.setItem('showMoreCategories', 'true');
             }
         });
-        $(document).ready(function() {
-            var maxHeight = 0;
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mengatur tinggi untuk elemen judul kursus
+            var courseTitles = document.querySelectorAll('.title');
+            var maxCourseTitleHeight = 0;
 
-            // Menghitung tinggi maksimum dari elemen kursus
-            $('.courses__item').each(function() {
-                var thisHeight = $(this).outerHeight();
-                if (thisHeight > maxHeight) {
-                    maxHeight = thisHeight;
+            // Temukan tinggi maksimum untuk .title
+            courseTitles.forEach(function(title) {
+                if (title.offsetHeight > maxCourseTitleHeight) {
+                    maxCourseTitleHeight = title.offsetHeight;
                 }
             });
 
-            // Mengatur semua elemen kursus memiliki tinggi maksimum yang sama
-            $('.courses__item').css('height', maxHeight + 'px');
+            // Tetapkan tinggi maksimum ke semua elemen .title
+            courseTitles.forEach(function(title) {
+                title.style.height = maxCourseTitleHeight + 'px';
+            });
         });
     </script>
 @endsection
