@@ -85,7 +85,8 @@
                                                                     class="courses__item-content courses__item-content-two">
                                                                     <ul class="courses__item-meta list-wrap">
                                                                         <li class="courses__item-tag">
-                                                                            <a href="course.html">{{ $kelas->tag }}</a>
+                                                                            <a
+                                                                                href="course.html">{{ $kelas->course_type }}</a>
                                                                         </li>
                                                                         <li class="price">
                                                                             @if (!empty($kelas->discountedPrice))
@@ -170,7 +171,8 @@
                                                                     class="courses__item-content courses__item-content-two">
                                                                     <ul class="courses__item-meta list-wrap">
                                                                         <li class="courses__item-tag">
-                                                                            <a href="">{{ $kelas->tag }}</a>
+                                                                            <a
+                                                                                href="">{{ $kelas->course_type }}</a>
                                                                         </li>
                                                                         <li class="price">
                                                                             @if (!empty($kelas->discountedPrice))
