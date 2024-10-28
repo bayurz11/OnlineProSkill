@@ -18,7 +18,11 @@
                             </span>
                             <span class="breadcrumb-separator"><i class="fas fa-angle-right"></i></span>
                             <span property="itemListElement" typeof="ListItem">
-                                <a href="{{ route('classroom') }}">Kelas Tatap Muka</a>
+                                @if ($courses->course_type == 'online')
+                                    <a href="{{ route('course') }}">Kelas Online</a>
+                                @else
+                                    <a href="{{ route('classroom') }}">Kelas Tatap Muka</a>
+                                @endif
                             </span>
                             <span class="breadcrumb-separator"><i class="fas fa-angle-right"></i></span>
                             <span property="itemListElement" typeof="ListItem">{{ $courses->nama_kursus }}</span>
@@ -27,6 +31,7 @@
                 </div>
             </div>
         </div>
+
         <div class="breadcrumb__shape-wrap">
             <img src="{{ asset('public/assets/img/others/breadcrumb_shape01.svg') }}" alt="img" class="alltuchtopdown">
             <img src="{{ asset('public/assets/img/others/breadcrumb_shape02.svg') }}" alt="img" data-aos="fade-right"
