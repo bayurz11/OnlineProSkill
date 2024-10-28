@@ -72,7 +72,7 @@
                                 @if ($courses->course_type === 'online')
                                     <li>
                                         <i class="fas fa-users"></i>
-                                        Kuota Kelas
+                                        Member
                                         <span>{{ $jumlahPendaftaran }}</span>
                                     </li>
                                 @endif
