@@ -123,8 +123,7 @@
                                                         <a
                                                             href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
                                                     </h5>
-                                                    <p class="author">By <a
-                                                            href="{{ route('profile_instruktur', ['id' => $cours->user->id]) }}">{{ $cours->user->name }}</a>&nbsp;&nbsp;
+                                                    <p class="author">
                                                         @if ($cours->course_type === 'online')
                                                             <i class="fas fa-users"></i>
                                                             Member
@@ -199,9 +198,7 @@
                                                     <h5 class="title"><a
                                                             href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
                                                     </h5>
-                                                    <p class="author">By <a
-                                                            href="{{ route('profile_instruktur', ['id' => $cours->user->id]) }}">{{ $cours->user->name }}</a>&nbsp;&nbsp;
-
+                                                    <p class="author">
                                                         @if ($cours->course_type === 'online')
                                                             <i class="fas fa-users"></i>
                                                             Member
