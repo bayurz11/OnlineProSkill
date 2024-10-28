@@ -129,13 +129,14 @@
                                                                     Reviews)</li>
                                                                 <li class="price">
                                                                     @if (!empty($item['discountedPrice']) && $item['discount'] != 0)
-                                                                        <del>Rp
+                                                                        <del style="color: red; margin-right: 8px;">Rp
                                                                             {{ number_format($item['price'], 0, ',', '.') }}</del>
-                                                                        Rp
-                                                                        {{ number_format($item['discountedPrice'], 0, ',', '.') }}
+                                                                        <span
+                                                                            style="color: #007F73; font-weight: bold; font-size: 1.2em;">Rp
+                                                                            {{ number_format($item['discountedPrice'], 0, ',', '.') }}</span>
                                                                     @else
-                                                                        Rp
-                                                                        {{ number_format($item['price'], 0, ',', '.') }}
+                                                                        <span style="color: red;">Rp
+                                                                            {{ number_format($item['price'], 0, ',', '.') }}</span>
                                                                     @endif
                                                                 </li>
 
@@ -192,16 +193,21 @@
                                                                     Reviews)</li>
                                                                 <li class="price">
                                                                     @if (!empty($item['discountedPrice']) && $item['discount'] != 0)
-                                                                        <del>Rp
+                                                                        <del style="color: red; margin-right: 8px;">Rp
                                                                             {{ number_format($item['price'], 0, ',', '.') }}</del>
-                                                                        Rp
-                                                                        {{ number_format($item['discountedPrice'], 0, ',', '.') }}
+                                                                        <span
+                                                                            style="color: #007F73; font-weight: bold; font-size: 1.2em;">
+                                                                            Rp
+                                                                            {{ number_format($item['discountedPrice'], 0, ',', '.') }}
+                                                                        </span>
                                                                     @else
-                                                                        Rp
-                                                                        {{ number_format($item['price'], 0, ',', '.') }}
+                                                                        <span
+                                                                            style="color: #007F73; font-weight: bold; font-size: 1.2em;">
+                                                                            Rp
+                                                                            {{ number_format($item['price'], 0, ',', '.') }}
+                                                                        </span>
                                                                     @endif
                                                                 </li>
-
 
 
                                                                 @if (in_array($item->id, $joinedCourses))
