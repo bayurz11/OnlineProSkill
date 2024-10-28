@@ -202,7 +202,7 @@
                                                                         </span>
                                                                     @else
                                                                         <span
-                                                                            style="color: red; font-weight: bold; font-size: 1.2em;">
+                                                                            style="color: #007F73; font-weight: bold; font-size: 1.2em;">
                                                                             Rp
                                                                             {{ number_format($item['price'], 0, ',', '.') }}
                                                                         </span>
