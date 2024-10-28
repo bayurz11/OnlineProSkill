@@ -118,7 +118,17 @@
 
                                                 </div>
                                                 <div class="courses__item-content">
-
+                                                    <h5 class="price">
+                                                        @if (!empty($cours->discountedPrice) && $cours->discount != 0)
+                                                            <del>Rp
+                                                                {{ number_format($cours->price, 0, ',', '.') }}</del>
+                                                            Rp
+                                                            {{ number_format($cours->discountedPrice, 0, ',', '.') }}
+                                                        @else
+                                                            Rp
+                                                            {{ number_format($cours->price, 0, ',', '.') }}
+                                                        @endif
+                                                    </h5>
                                                     <h5 class="title">
                                                         <a
                                                             href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
@@ -133,17 +143,7 @@
 
 
                                                     <div class="courses__item-bottom">
-                                                        <h5 class="price">
-                                                            @if (!empty($cours->discountedPrice) && $cours->discount != 0)
-                                                                <del>Rp
-                                                                    {{ number_format($cours->price, 0, ',', '.') }}</del>
-                                                                Rp
-                                                                {{ number_format($cours->discountedPrice, 0, ',', '.') }}
-                                                            @else
-                                                                Rp
-                                                                {{ number_format($cours->price, 0, ',', '.') }}
-                                                            @endif
-                                                        </h5> <br>
+
                                                         <div class="button">
                                                             <a
                                                                 href="{{ route('classroomdetail', ['id' => $cours->id]) }}">
