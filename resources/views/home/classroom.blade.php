@@ -105,7 +105,7 @@
                             <div
                                 class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
                                 @foreach ($course as $cours)
-                                    @if ($cours->status == 1 && $jumlahPendaftaran->get($cours->id, 0) < 8)
+                                    @if ($cours->status == 1 && $jumlahPendaftaran->get($cours->id, 0) < 9)
                                         <div class="col">
                                             <div class="courses__item shine__animate-item">
                                                 <div class="courses__item-thumb">
@@ -127,8 +127,13 @@
                                                             href="{{ route('profile_instruktur', ['id' => $cours->user->id]) }}">{{ $cours->user->name }}</a>&nbsp;&nbsp;
                                                         <img src="{{ asset('public/assets/img/icons/course_icon06.svg') }}"
                                                             alt="img" class="injectable">
-                                                        Kuota Kelas
-                                                        <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}/{{ $cours->kuota }}</span>
+                                                        @if ($cours->course_type === 'online')
+                                                            <li>
+                                                                <i class="fas fa-users"></i>
+                                                                Member
+                                                                <span>{{ $jumlahPendaftaran }}</span>
+                                                            </li>
+                                                        @endif
 
 
                                                     </p>
@@ -171,7 +176,7 @@
                         <div class="tab-pane fade" id="list" role="tabpanel" aria-labelledby="list-tab">
                             <div class="row courses__list-wrap row-cols-1">
                                 @foreach ($course as $cours)
-                                    @if ($cours->status == 1 && $jumlahPendaftaran->get($cours->id, 0) < 8)
+                                    @if ($cours->status == 1 && $jumlahPendaftaran->get($cours->id, 0) < 9)
                                         <div class="col">
                                             <div class="courses__item courses__item-three shine__animate-item">
                                                 <div class="courses__item-thumb">
