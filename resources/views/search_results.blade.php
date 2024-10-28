@@ -227,7 +227,7 @@
                                                             </li>
 
                                                             <li class="price">
-                                                                @if (!empty($cours['discountedPrice']))
+                                                                @if (!empty($cours['discountedPrice']) && $kelas['discount'] != 0)
                                                                     <del>Rp
                                                                         {{ number_format($cours['price'], 0, ',', '.') }}</del>
                                                                     Rp
@@ -274,7 +274,7 @@
                                                 <div class="courses__item-content">
                                                     <ul class="courses__item-meta list-wrap">
                                                         <li class="price">
-                                                            @if (!empty($cours->discountedPrice))
+                                                            @if (!empty($cours->discountedPrice) && $kelas['discount'] != 0)
                                                                 <del>Rp
                                                                     {{ number_format($cours->price, 0, ',', '.') }}</del>
                                                                 Rp
