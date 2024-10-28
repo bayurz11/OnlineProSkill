@@ -69,7 +69,14 @@
 
 
                                 <li><i class="flaticon-mortarboard"></i>{{ $sertifikatCount }} Lulusan</li>
-
+                                @if ($courses->course_type === 'online')
+                                    <li>
+                                        <img src="{{ asset('public/assets/img/icons/course_icon06.svg') }}" alt="img"
+                                            class="injectable">
+                                        Kuota Kelas
+                                        <span>{{ $jumlahPendaftaran }}</span>
+                                    </li>
+                                @endif
                             </ul>
                         </div>
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
