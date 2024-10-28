@@ -143,7 +143,7 @@
                                                                 Rp
                                                                 {{ number_format($cours->price, 0, ',', '.') }}
                                                             @endif
-                                                        </h5> <br><br>
+                                                        </h5> <br>
                                                         <div class="button">
                                                             <a
                                                                 href="{{ route('classroomdetail', ['id' => $cours->id]) }}">
