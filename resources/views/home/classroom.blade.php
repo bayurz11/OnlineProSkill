@@ -147,7 +147,7 @@
                                                                 style="color: green;"></i>
                                                         @endif
                                                         <h5 class="price">
-                                                            @if (!empty($cours->discountedPrice))
+                                                            @if (!empty($cours->discountedPrice) && $cours->discount != 0)
                                                                 <del>Rp
                                                                     {{ number_format($cours->price, 0, ',', '.') }}</del>
                                                                 Rp
@@ -185,7 +185,7 @@
                                                     <ul class="courses__item-meta list-wrap">
 
                                                         <li class="price">
-                                                            @if (!empty($cours->discountedPrice))
+                                                            @if (!empty($cours->discountedPrice) && $cours->discount != 0)
                                                                 <del>Rp
                                                                     {{ number_format($cours->price, 0, ',', '.') }}</del>
                                                                 Rp
