@@ -60,7 +60,7 @@
                                                     Anda Belum Menambahkan kelas Apapun
                                                 </div>
                                             @else
-                                                @foreach ($KelasTatapMuka->where('status', 1)->take(6) as $kelas)
+                                                @foreach ($KelasTatapMuka->where('status', 1) as $kelas)
                                                     @php
                                                         // Mengecek apakah course_id ada di model Kurikulum
                                                         $kurikulumExists = \App\Models\Kurikulum::where(
@@ -143,7 +143,7 @@
                                                     Anda Belum Menambahkan kelas Apapun
                                                 </div>
                                             @else
-                                                @foreach ($KelasTatapMuka->where('status', 1)->take(6) as $kelas)
+                                                @foreach ($KelasTatapMuka->where('status', 1) as $kelas)
                                                     @php
                                                         // Mengecek apakah course_id ada di model Kurikulum
                                                         $kurikulumExists = \App\Models\Kurikulum::where(
