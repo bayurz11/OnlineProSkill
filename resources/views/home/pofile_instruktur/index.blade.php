@@ -128,7 +128,7 @@
                                                                 <li class="avg-rating"><i class="fas fa-star"></i> (4.3
                                                                     Reviews)</li>
                                                                 <li class="price">
-                                                                    @if (!empty($item['discountedPrice']))
+                                                                    @if (!empty($item['discountedPrice']) && $item['discount'] != 0)
                                                                         <del style="color: red; margin-right: 8px;">Rp
                                                                             {{ number_format($item['price'], 0, ',', '.') }}</del>
                                                                         <span
@@ -192,7 +192,7 @@
                                                                 <li class="avg-rating"><i class="fas fa-star"></i> (4.3
                                                                     Reviews)</li>
                                                                 <li class="price">
-                                                                    @if (!empty($item['discountedPrice']))
+                                                                    @if (!empty($item['discountedPrice']) && $item['discount'] != 0)
                                                                         <del style="color: red; margin-right: 8px;">Rp
                                                                             {{ number_format($item['price'], 0, ',', '.') }}</del>
                                                                         <span
