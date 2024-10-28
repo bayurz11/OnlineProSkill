@@ -168,7 +168,7 @@
                                                     </li>
 
                                                     <li class="price">
-                                                        @if (!empty($kelas['discountedPrice']))
+                                                        @if (!empty($kelas['discountedPrice']) && $kelas['discount'] != 0)
                                                             <del>Rp
                                                                 {{ number_format($kelas['price'], 0, ',', '.') }}</del>
                                                             Rp {{ number_format($kelas['discountedPrice'], 0, ',', '.') }}
