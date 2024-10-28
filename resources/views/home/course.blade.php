@@ -202,10 +202,10 @@
                                                             <li>
                                                                 <i class="fas fa-users"></i>
                                                                 Member
-                                                                <span>{{ $jumlahPendaftaran }}</span>
+                                                                <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}</span>
                                                             </li>
                                                         @endif
-                                                        <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}/{{ $cours->kuota }}</span>
+
                                                         @if (in_array($cours->id, $joinedCourses))
                                                             <i class="fas fa-check-circle fa-lg"
                                                                 style="color: green;"></i>
