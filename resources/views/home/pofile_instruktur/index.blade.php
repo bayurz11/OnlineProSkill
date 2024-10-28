@@ -192,14 +192,14 @@
                                                                 <li class="avg-rating"><i class="fas fa-star"></i> (4.3
                                                                     Reviews)</li>
                                                                 <li class="price">
-                                                                    @if (!empty($cours['discountedPrice']) && $cours['discount'] != 0)
+                                                                    @if (!empty($item['discountedPrice']) && $item['discount'] != 0)
                                                                         <del>Rp
-                                                                            {{ number_format($cours['price'], 0, ',', '.') }}</del>
+                                                                            {{ number_format($item['price'], 0, ',', '.') }}</del>
                                                                         Rp
-                                                                        {{ number_format($cours['discountedPrice'], 0, ',', '.') }}
+                                                                        {{ number_format($item['discountedPrice'], 0, ',', '.') }}
                                                                     @else
                                                                         Rp
-                                                                        {{ number_format($cours['price'], 0, ',', '.') }}
+                                                                        {{ number_format($item['price'], 0, ',', '.') }}
                                                                     @endif
                                                                 </li>
 
