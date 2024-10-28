@@ -371,5 +371,19 @@
                 localStorage.setItem('showMoreCategories', 'true');
             }
         });
+        $(document).ready(function() {
+            var maxHeight = 0;
+
+            // Menghitung tinggi maksimum dari elemen kursus
+            $('.courses__item').each(function() {
+                var thisHeight = $(this).outerHeight();
+                if (thisHeight > maxHeight) {
+                    maxHeight = thisHeight;
+                }
+            });
+
+            // Mengatur semua elemen kursus memiliki tinggi maksimum yang sama
+            $('.courses__item').css('height', maxHeight + 'px');
+        });
     </script>
 @endsection
