@@ -374,5 +374,23 @@
                 localStorage.setItem('showMoreCategories', 'true');
             }
         });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mengatur tinggi untuk elemen judul kursus
+            var courseTitles = document.querySelectorAll('.title');
+            var maxCourseTitleHeight = 0;
+
+            // Temukan tinggi maksimum untuk .title
+            courseTitles.forEach(function(title) {
+                if (title.offsetHeight > maxCourseTitleHeight) {
+                    maxCourseTitleHeight = title.offsetHeight;
+                }
+            });
+
+            // Tetapkan tinggi maksimum ke semua elemen .title
+            courseTitles.forEach(function(title) {
+                title.style.height = maxCourseTitleHeight + 'px';
+            });
+        });
     </script>
 @endsection
