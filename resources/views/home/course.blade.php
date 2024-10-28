@@ -103,7 +103,7 @@
 
                         <div class="tab-pane fade show active" id="grid" role="tabpanel" aria-labelledby="grid-tab">
                             <div
-                                class="row courses__grid-wrap row-cols-1 row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
+                                class="row courses__grid-wrap row-cols-1 row-cols-xl-4 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
                                 @foreach ($course as $cours)
                                     @if ($cours->status == 1 && $jumlahPendaftaran->get($cours->id, 0) < 8)
                                         <div class="col">
