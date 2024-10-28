@@ -206,25 +206,28 @@
         reader.readAsDataURL(this.files[0]);
     });
 
-    // Show/Hide 'Durasi Kursus' field based on course type selection
+    // Show/Hide 'Durasi Kursus' and 'Kuota Perkelas' fields based on course type selection
     document.addEventListener('DOMContentLoaded', function() {
         const durasiField = document.getElementById('durasi').closest('.mb-3');
+        const kuotaField = document.getElementById('kuota').closest('.mb-3');
         const onlineRadio = document.getElementById('online');
         const offlineRadio = document.getElementById('offline');
 
-        function toggleDurasiField() {
+        function toggleFields() {
             if (onlineRadio.checked) {
                 durasiField.style.display = 'none';
+                kuotaField.style.display = 'none';
             } else {
                 durasiField.style.display = 'block';
+                kuotaField.style.display = 'block';
             }
         }
 
         // Initialize field display on page load
-        toggleDurasiField();
+        toggleFields();
 
         // Add event listeners to the radio buttons
-        onlineRadio.addEventListener('change', toggleDurasiField);
-        offlineRadio.addEventListener('change', toggleDurasiField);
+        onlineRadio.addEventListener('change', toggleFields);
+        offlineRadio.addEventListener('change', toggleFields);
     });
 </script>
