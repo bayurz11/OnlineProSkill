@@ -127,13 +127,8 @@
                                                             href="{{ route('profile_instruktur', ['id' => $cours->user->id]) }}">{{ $cours->user->name }}</a>&nbsp;&nbsp;
                                                         <img src="{{ asset('public/assets/img/icons/course_icon06.svg') }}"
                                                             alt="img" class="injectable">
-                                                        @if ($cours->course_type === 'online')
-                                                            <li>
-                                                                <i class="fas fa-users"></i>
-                                                                Member
-                                                                <span>{{ $jumlahPendaftaran }}</span>
-                                                            </li>
-                                                        @endif
+                                                        Kuota Kelas
+                                                        <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}/{{ $cours->kuota }}</span>
 
 
                                                     </p>
