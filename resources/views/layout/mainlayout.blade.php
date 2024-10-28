@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="{{ asset('public/assets/css/spacing.css') }}">
     <link rel="stylesheet" href="{{ asset('public/assets/css/tg-cursor.css') }}">
     <link rel="stylesheet" href="{{ asset('public/assets/css/main.css') }}">
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
 
 
