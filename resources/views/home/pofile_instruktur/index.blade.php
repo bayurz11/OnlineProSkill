@@ -192,20 +192,14 @@
                                                                 <li class="avg-rating"><i class="fas fa-star"></i> (4.3
                                                                     Reviews)</li>
                                                                 <li class="price">
-                                                                    @if (!empty($item['discountedPrice']) && $item['discount'] != 0)
-                                                                        <del style="color: red; margin-right: 8px;">Rp
-                                                                            {{ number_format($item['price'], 0, ',', '.') }}</del>
-                                                                        <span
-                                                                            style="color: #007F73; font-weight: bold; font-size: 1.2em;">
-                                                                            Rp
-                                                                            {{ number_format($item['discountedPrice'], 0, ',', '.') }}
-                                                                        </span>
+                                                                    @if (!empty($cours['discountedPrice']) && $cours['discount'] != 0)
+                                                                        <del>Rp
+                                                                            {{ number_format($cours['price'], 0, ',', '.') }}</del>
+                                                                        Rp
+                                                                        {{ number_format($cours['discountedPrice'], 0, ',', '.') }}
                                                                     @else
-                                                                        <span
-                                                                            style="color: #007F73; font-weight: bold; font-size: 1.2em;">
-                                                                            Rp
-                                                                            {{ number_format($item['price'], 0, ',', '.') }}
-                                                                        </span>
+                                                                        Rp
+                                                                        {{ number_format($cours['price'], 0, ',', '.') }}
                                                                     @endif
                                                                 </li>
 
