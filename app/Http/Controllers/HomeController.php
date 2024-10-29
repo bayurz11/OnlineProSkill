@@ -186,14 +186,16 @@ class HomeController extends Controller
             $profile = UserProfile::where('user_id', $user->id)->first();
         }
 
-        // Tambahkan kondisi untuk filter course_type = offline
+        // Tambahkan kondisi untuk filter course_type = online
         $course = KelasTatapMuka::with('user')
             ->where('status', 1)
             ->where('course_type', 'online')
-            ->whereHas('kurikulum')
             ->get();
 
-
+        // Filter kursus berdasarkan apakah course_id ada di model Kurikulum
+        $course = $course->filter(function ($kelas) {
+            return Kurikulum::where('course_id', $kelas->id)->exists();
+        });
         $count = $course->count();
 
 
