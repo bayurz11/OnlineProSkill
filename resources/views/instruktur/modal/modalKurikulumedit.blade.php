@@ -45,7 +45,7 @@
                         .title); // Set nilai judul kurikulum di dalam modal
 
                     // Set action form dengan id yang benar
-                    $('#editKurikulumForm').attr('action', '/kurikulumupdate/' +
+                    $('#editKurikulumForm').attr('action', '/instruktur_kurikulumupdate/' +
                         kurikulumId);
                 },
                 error: function(xhr) {
