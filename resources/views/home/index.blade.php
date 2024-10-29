@@ -146,7 +146,10 @@
                             @foreach ($KelasTatapMuka->where('status', 1) as $kelas)
                                 @php
                                     // Mengecek apakah course_id ada di model Kurikulum
-                                    $kurikulumExists = \App\Models\Kurikulum::where('course_id', $kelas->id)->exists();
+                                    $kurikulumExists = \App\Models\Kurikulum::where(
+                                        'course_id',
+                                        $kelas['id'],
+                                    )->exists();
                                 @endphp
                                 @if ($kurikulumExists)
                                     <!-- Ubah akses menjadi array -->
