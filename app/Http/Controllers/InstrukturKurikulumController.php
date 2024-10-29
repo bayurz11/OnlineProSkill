@@ -76,4 +76,55 @@ class InstrukturKurikulumController extends Controller
         // Redirect ke halaman sebelumnya dengan pesan sukses
         return redirect()->back()->with('success', 'Kurikulum berhasil ditambahkan.');
     }
+
+    public function edit($id)
+    {
+        $kurikulum = Kurikulum::find($id);
+
+        if (!$kurikulum) {
+            return response()->json(['message' => 'Kurikulum tidak ditemukan'], 404);
+        }
+
+        return response()->json($kurikulum);
+    }
+    public function update(Request $request, $id)
+    {
+        $kurikulum = Kurikulum::find($id);
+
+        if (!$kurikulum) {
+            return redirect()->back()->with('error', 'Kurikulum tidak ditemukan');
+        }
+
+        // Validasi data yang diterima
+        $request->validate([
+            'title' => 'required|string|max:255',
+            // Tambahkan validasi lainnya sesuai kebutuhan
+        ]);
+
+        // Update data kursus
+        $kurikulum->title = $request->input('title');
+        // Tambahkan update field lainnya sesuai kebutuhan
+
+        $kurikulum->save();
+
+        return redirect()->back()->with('success', 'Kurikulum berhasil diperbarui');
+    }
+
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy($id)
+    {
+
+        $course = Kurikulum::find($id);
+
+        if (!$course) {
+            return redirect()->back()->with('error', 'Kategori tidak ditemukan');
+        }
+
+        $course->delete();
+
+        return redirect()->back()->with('success', 'Kategori berhasil dihapus');
+    }
 }

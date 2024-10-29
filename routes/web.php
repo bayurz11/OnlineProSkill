@@ -232,6 +232,9 @@ Route::middleware('isInstruktur')->group(function () {
     //kurikulum
     Route::get('/instruktur/kurikulum/{id}', [InstrukturKurikulumController::class, 'index'])->name('instruktur.kurikulum');
     Route::post('/instruktur_kurikulum/store', [InstrukturKurikulumController::class, 'store'])->name('instruktur_kurikulum.store');
+    Route::get('/instruktur_kurikulum/{id}/edit', [InstrukturKurikulumController::class, 'edit'])->name('instruktur_kurikulum.edit');
+    Route::put('/instruktur_kurikulum/{id}', [InstrukturKurikulumController::class, 'update'])->name('instruktur_kurikulum.update');
+    Route::delete('/instruktur_kurikulum_destroy/{id}', [InstrukturKurikulumController::class, 'destroy'])->name('class.destroy');
 
     Route::get('/section-content/{id}', [InstrukturSectionController::class, 'getContent']);
     Route::post('/instruktur_section/store', [InstrukturSectionController::class, 'store'])->name('instruktur_section.store');
