@@ -196,90 +196,41 @@
                                                     data-bs-parent="#accordionExample">
                                                     <div class="accordion-body">
                                                         <ul class="list-wrap">
-                                                            <div class="tab-pane fade" id="curriculum-tab-pane"
-                                                                role="tabpanel" aria-labelledby="curriculum-tab"
-                                                                tabindex="0">
-                                                                <div class="courses__curriculum-wrap">
-                                                                    <h3 class="title">Kurikulum Kelas</h3>
-                                                                    <p>Apa saja yang akan dipelajari di kelas ini</p>
-                                                                    <div class="accordion" id="accordionExample">
-                                                                        @foreach ($kurikulum as $index => $kurikulumItem)
-                                                                            <div class="accordion-item">
-                                                                                <h2 class="accordion-header"
-                                                                                    id="heading{{ $index }}">
-                                                                                    <button
-                                                                                        class="accordion-button {{ $index != 0 ? 'collapsed' : '' }}"
-                                                                                        type="button"
-                                                                                        data-bs-toggle="collapse"
-                                                                                        data-bs-target="#collapse{{ $index }}"
-                                                                                        aria-expanded="{{ $index == 0 ? 'true' : 'false' }}"
-                                                                                        aria-controls="collapse{{ $index }}">
-                                                                                        {{ $kurikulumItem->title }}
-                                                                                    </button>
-                                                                                </h2>
-                                                                                <div id="collapse{{ $index }}"
-                                                                                    class="accordion-collapse collapse {{ $index == 0 ? 'show' : '' }}"
-                                                                                    aria-labelledby="heading{{ $index }}"
-                                                                                    data-bs-parent="#accordionExample">
-                                                                                    <div class="accordion-body">
-                                                                                        <ul class="list-wrap">
-                                                                                            @foreach ($section[$kurikulumItem->id] ?? [] as $sectionItem)
-                                                                                                <li
-                                                                                                    class="course-item {{ $userHasAccess ? 'open-item' : '' }}">
-                                                                                                    <a href="{{ $userHasAccess ? '/lesson/' . $sectionItem->id : 'javascript:void(0);' }}"
-                                                                                                        id="lesson-link-{{ $sectionItem->id }}"
-                                                                                                        class="course-item-link {{ !$userHasAccess ? '' : 'popup-video' }}">
-                                                                                                        <span
-                                                                                                            class="item-name">{{ $sectionItem->title }}</span>
-                                                                                                        <div
-                                                                                                            class="course-item-meta">
-                                                                                                            <span
-                                                                                                                class="item-meta duration">{{ $sectionItem->duration }}</span>
-                                                                                                            @if (!$userHasAccess)
-                                                                                                                <span
-                                                                                                                    class="item-meta course-item-status">
-                                                                                                                    <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
-                                                                                                                        alt="icon">
-                                                                                                                </span>
-                                                                                                            @endif
-                                                                                                        </div>
-                                                                                                    </a>
-                                                                                                </li>
-                                                                                            @endforeach
 
-                                                                                            @if ($userHasAccess)
-                                                                                                <script>
-                                                                                                    const currentUrl = window.location.href;
-                                                                                                    const match = currentUrl.match(/classroomdetail\/(\d+)/);
-                                                                                                    const pageId = match ? match[1] : null;
+                                                            @foreach ($section[$kurikulumItem->id] ?? [] as $sectionItem)
+                                                                <li
+                                                                    class="course-item {{ $userHasAccess ? 'open-item' : '' }}">
+                                                                    <a href="{{ $userHasAccess ? '#' : 'javascript:void(0);' }}"
+                                                                        class="course-item-link {{ !$userHasAccess ? 'disabled-link' : '' }} {{ $userHasAccess ? 'popup-video' : '' }}"
+                                                                        id="lesson-link-{{ $sectionItem->id }}">
+                                                                        <span
+                                                                            class="item-name">{{ $sectionItem->title }}</span>
+                                                                        <div class="course-item-meta">
+                                                                            <span
+                                                                                class="item-meta duration">{{ $sectionItem->duration }}</span>
+                                                                            @if (!$userHasAccess)
+                                                                                <span class="item-meta course-item-status">
+                                                                                    <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
+                                                                                        alt="icon">
+                                                                                </span>
+                                                                            @endif
+                                                                        </div>
+                                                                    </a>
 
-                                                                                                    if (pageId) {
-                                                                                                        const lessonLinks = document.querySelectorAll('[id^="lesson-link-"]');
-                                                                                                        lessonLinks.forEach(link => {
-                                                                                                            const sectionId = link.id.split('-')[2]; // Mendapatkan ID section dari id link
-                                                                                                            link.href = `/lesson/${pageId}`; // Mengatur href dengan ID halaman saat ini
-                                                                                                        });
-                                                                                                    }
-                                                                                                </script>
-                                                                                            @endif
+                                                                    @if ($userHasAccess)
+                                                                        <script>
+                                                                            const currentUrl = window.location.href;
+                                                                            const match = currentUrl.match(/classroomdetail\/(\d+)/);
+                                                                            const pageId = match ? match[1] : null;
 
-
-                                                                                            <style>
-                                                                                                .disabled-link {
-                                                                                                    pointer-events: none;
-                                                                                                    color: gray;
-                                                                                                    cursor: not-allowed;
-                                                                                                }
-                                                                                            </style>
-
-                                                                                        </ul>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        @endforeach
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                                            if (pageId) {
+                                                                                const lessonLink = document.getElementById('lesson-link-{{ $sectionItem->id }}');
+                                                                                lessonLink.href = `/lesson/${pageId}`; // Set the correct lesson URL
+                                                                            }
+                                                                        </script>
+                                                                    @endif
+                                                                </li>
+                                                            @endforeach
 
 
 
