@@ -62,7 +62,7 @@
                                                                     </div>
                                                                 </a>
                                                             @else
-                                                                <span class="course-item-link active">
+                                                                <span class="course-item-link inactive">
                                                                     <span class="item-name">{{ $section->title }}</span>
                                                                     <div class="course-item-meta">
                                                                         <span
