@@ -67,7 +67,10 @@
                                         href="{{ route('profile_instruktur', ['id' => $courses->user->id]) }}">{{ $courses->user->name }}</a>
                                 </li>
 
-                                <li class="date"><i class="flaticon-calendar"></i>{{ $courses->created_at }}</li>
+                                <li class="date">
+                                    <i class="flaticon-calendar"></i>{{ $courses->created_at->format('d/m/Y') }}
+                                </li>
+
                                 <li><i class="flaticon-mortarboard"></i>{{ $sertifikatCount }} Lulusan</li>
                                 @if ($courses->course_type === 'online')
                                     <li>
