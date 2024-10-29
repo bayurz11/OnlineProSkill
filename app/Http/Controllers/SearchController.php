@@ -135,10 +135,22 @@ class SearchController extends Controller
             ->distinct()
             ->pluck('tingkat');
 
-        // Menghitung jumlah kursus per tingkat
+        // Ambil semua course_id yang ada di model Kurikulum
+        $kurikulumCourseIds = Kurikulum::pluck('course_id')->toArray();
+
+        // Menghitung jumlah kursus per kategori yang ada di Kurikulum
+        $categoryCounts = KelasTatapMuka::select('kategori_id', DB::raw('count(*) as total'))
+            ->where('status', 1)
+            ->where('course_type', '!=', 'bootcamp')
+            ->whereIn('id', $kurikulumCourseIds) // Filter berdasarkan course_id yang ada di Kurikulum
+            ->groupBy('kategori_id')
+            ->pluck('total', 'kategori_id');
+
+        // Menghitung jumlah kursus per tingkat yang ada di Kurikulum
         $tingkatCounts = KelasTatapMuka::select('tingkat', DB::raw('count(*) as total'))
             ->where('status', 1)
             ->where('course_type', '!=', 'bootcamp')
+            ->whereIn('id', $kurikulumCourseIds) // Filter berdasarkan course_id yang ada di Kurikulum
             ->groupBy('tingkat')
             ->pluck('total', 'tingkat');
 
@@ -164,9 +176,6 @@ class SearchController extends Controller
             $courseType = explode(',', $courseType);
         }
         $courseType = array_filter($courseType);
-
-        // Ambil semua course_id yang ada di model Kurikulum
-        $kurikulumCourseIds = Kurikulum::pluck('course_id')->toArray();
 
         // Mencari berdasarkan kategori, tingkat, course_type, dan term pencarian dengan pagination
         $results = KelasTatapMuka::query()
@@ -196,7 +205,7 @@ class SearchController extends Controller
                 }
             })
             ->whereIn('id', $kurikulumCourseIds) // Filter berdasarkan course_id yang ada di Kurikulum
-            ->paginate(6);
+            ->paginate(6); // Gunakan pagination, 6 item per halaman
 
         // Ambil notifikasi untuk pengguna yang sedang login
         $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
@@ -221,13 +230,7 @@ class SearchController extends Controller
         // Ambil ID kursus yang telah diikuti oleh user
         $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
 
-        // Hitung jumlah kursus per kategori
-        $categoryCounts = KelasTatapMuka::select('kategori_id', DB::raw('count(*) as total'))
-            ->where('status', 1)
-            ->groupBy('kategori_id')
-            ->where('course_type', '!=', 'bootcamp')
-            ->pluck('total', 'kategori_id');
-
-        return view('search_results', compact('results', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'course', 'categoryCounts', 'category_ids', 'tingkatLevels', 'tingkatCounts', 'categori'))->with('paginationView', 'vendor.custom');
+        return view('search_results', compact('results', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'course', 'categoryCounts', 'category_ids', 'tingkatLevels', 'tingkatCounts', 'categori'))
+            ->with('paginationView', 'vendor.custom');
     }
 }
