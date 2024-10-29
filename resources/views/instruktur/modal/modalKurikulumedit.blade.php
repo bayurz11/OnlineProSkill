@@ -11,11 +11,13 @@
                     @csrf
                     <!-- Hidden field for course_id -->
                     <input type="hidden" name="course_id" id="course_id">
+
                     <div class="mb-3">
-                        <label for="title" class="form-label">Judul <span class="text-danger">*</span></label>
+                        <label for="edittitle" class="form-label">Judul<span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="edittitle" name="title"
-                            placeholder="Masukkan Judul Kurikulum Anda" required>
+                            placeholder="Masukkan judul Kurikulum Anda">
                     </div>
+
                 </form>
             </div>
             <div class="modal-footer">
