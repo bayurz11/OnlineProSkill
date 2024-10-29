@@ -224,7 +224,7 @@
                                                                         if (pageId) {
                                                                             // Atur atribut href pada link
                                                                             const lessonLink = document.getElementById('lesson-link');
-                                                                            lessonLink.href = `/leson/${pageId}`;
+                                                                            lessonLink.href = `/lesson/${pageId}`;
                                                                         }
                                                                     </script>
 
