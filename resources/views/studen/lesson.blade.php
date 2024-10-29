@@ -162,7 +162,7 @@
 
     <script>
         function changeContent(element, event) {
-            if (element.classList.contains('disabled')) {
+            if (element.classList.contains('open-item')) {
                 event.preventDefault();
                 alert('Bagian ini terkunci, selesaikan bagian sebelumnya untuk membuka bagian ini.');
                 return;
