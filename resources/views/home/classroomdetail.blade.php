@@ -199,7 +199,7 @@
                                                             @foreach ($section[$kurikulumItem->id] ?? [] as $sectionItem)
                                                                 <li class="course-item">
                                                                     <a href="{{ $userHasAccess ? '#' : 'javascript:void(0);' }}"
-                                                                        class="course-item-link {{ $userHasAccess ? '' : 'disabled-link' }}"
+                                                                        class="course-item-link {{ !$userHasAccess ? 'disabled-link' : '' }}"
                                                                         id="lesson-link-{{ $sectionItem->id }}">
                                                                         {{ $sectionItem->title }}
                                                                         <div class="course-item-meta">
@@ -228,6 +228,7 @@
                                                                     @endif
                                                                 </li>
                                                             @endforeach
+
                                                             <style>
                                                                 .disabled-link {
                                                                     pointer-events: none;
@@ -235,6 +236,7 @@
                                                                     cursor: not-allowed;
                                                                 }
                                                             </style>
+
 
                                                         </ul>
                                                     </div>
