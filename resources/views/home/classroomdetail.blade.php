@@ -198,8 +198,8 @@
                                                         <ul class="list-wrap">
                                                             @foreach ($section[$kurikulumItem->id] ?? [] as $sectionItem)
                                                                 <li class="course-item">
-                                                                    <a href="/leson/{{ $id }}" id="lesson-link"
-                                                                        class="course-item-link">
+                                                                    <a href="/lesson/{{ $id }}"
+                                                                        id="lesson-link" class="course-item-link">
                                                                         {{ $sectionItem->title }}
                                                                         <div class="course-item-meta">
                                                                             <span
