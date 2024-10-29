@@ -226,8 +226,8 @@
                                                                 @endif
                                                             </li>
                                                             @if (in_array($cours->id, $joinedCourses))
-                                                                <i class="fas fa-check-circle fa-lg"
-                                                                    style="color: green;"></i>
+                                                                <i class="fas fa-check-circle fa-lg" style="color: green;"
+                                                                    title="Anda sudah bergabung"></i>
                                                             @endif
                                                             <li class="price">
                                                                 @if (!empty($cours['discountedPrice']) && $cours['discount'] != 0)
@@ -278,8 +278,8 @@
                                                     <ul class="courses__item-meta list-wrap">
                                                         <li class="price">
                                                             @if (in_array($cours->id, $joinedCourses))
-                                                                <i class="fas fa-check-circle fa-lg"
-                                                                    style="color: green;"></i>
+                                                                <i class="fas fa-check-circle fa-lg" style="color: green;"
+                                                                    title="Anda sudah bergabung"></i>
                                                             @endif
                                                             @if (!empty($cours->discountedPrice) && $cours['discount'] != 0)
                                                                 <del>Rp
