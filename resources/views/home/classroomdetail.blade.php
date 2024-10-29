@@ -201,7 +201,8 @@
                                                                     <a href="{{ $userHasAccess ? '#' : 'javascript:void(0);' }}"
                                                                         class="course-item-link {{ !$userHasAccess ? 'disabled-link' : '' }}"
                                                                         id="lesson-link-{{ $sectionItem->id }}">
-                                                                        {{ $sectionItem->title }}
+                                                                        <span
+                                                                            class="item-name">{{ $sectionItem->title }}</span>
                                                                         <div class="course-item-meta">
                                                                             <span
                                                                                 class="item-meta duration">{{ $sectionItem->duration }}</span>
@@ -237,17 +238,15 @@
                                                                 }
                                                             </style>
 
-
                                                         </ul>
                                                     </div>
                                                 </div>
                                             </div>
                                         @endforeach
-
                                     </div>
-
                                 </div>
                             </div>
+
                             <div class="tab-pane fade" id="jadwal-tab-pane" role="tabpanel" aria-labelledby="jadwal-tab"
                                 tabindex="0">
                                 @if ($courses->nama_kursus === 'Mahir Aplikasi Office Tingkat Advance')
