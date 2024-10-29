@@ -18,7 +18,7 @@
                     <div class="mb-3">
                         <label for="edittitle" class="form-label">Judul<span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="edittitle" name="title"
-                            placeholder="Masukkan judul Kurikulum Anda" required>
+                            value="{{ $kuri->title }}" placeholder="Masukkan judul Kurikulum Anda" required>
                     </div>
                 </form>
             </div>
