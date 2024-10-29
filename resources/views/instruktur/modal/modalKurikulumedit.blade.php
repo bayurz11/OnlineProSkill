@@ -43,14 +43,14 @@
                 method: 'GET',
                 success: function(response) {
                     console.log(response); // Debugging line
-                    $('#course_id').val(response.id); // Set nilai course_id di dalam modal
+                    $('#edit_course_id').val(response
+                    .course_id); // Set nilai course_id di dalam modal
                     $('#edittitle').val(response
-                        .title); // Set nilai judul kurikulum di dalam modal
+                    .title); // Set nilai judul kurikulum di dalam modal
 
                     // Set action form dengan id yang benar
                     $('#editKurikulumInstrukturForm').attr('action',
-                        '/instruktur_kurikulumupdate/' +
-                        kurikulumId);
+                        '/instruktur_kurikulum/' + kurikulumId);
                 },
                 error: function(xhr) {
                     console.log('Error:', xhr);
