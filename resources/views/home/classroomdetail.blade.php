@@ -219,20 +219,22 @@
 
                                                                     @if ($userHasAccess)
                                                                         <script>
+                                                                            // Pastikan untuk mengecek dan mendapatkan pageId
                                                                             const currentUrl = window.location.href;
                                                                             const match = currentUrl.match(/classroomdetail\/(\d+)/);
                                                                             const pageId = match ? match[1] : null;
 
+                                                                            // Dapatkan link untuk setiap sectionItem dan atur href-nya
                                                                             if (pageId) {
                                                                                 const lessonLink = document.getElementById('lesson-link-{{ $sectionItem->id }}');
-                                                                                lessonLink.href = `/lesson/${pageId}`; // Set the correct lesson URL
+                                                                                if (lessonLink) {
+                                                                                    lessonLink.href = `/lesson/${pageId}`; // Set the correct lesson URL
+                                                                                }
                                                                             }
                                                                         </script>
                                                                     @endif
                                                                 </li>
                                                             @endforeach
-
-
 
                                                         </ul>
                                                     </div>
