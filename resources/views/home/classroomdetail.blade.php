@@ -201,9 +201,8 @@
                                                                 <li
                                                                     class="course-item {{ $userHasAccess ? 'open-item' : '' }}">
                                                                     <a href="{{ $userHasAccess ? '#' : 'javascript:void(0);' }}"
-                                                                        class="course-item-link {{ !$userHasAccess ? 'disabled-link' : '' }} "
+                                                                        class="course-item-link {{ !$userHasAccess ? 'disabled-link' : '' }}"
                                                                         id="lesson-link-{{ $sectionItem->id }}">
-                                                                        {{-- {{ $userHasAccess ? 'popup-video' : '' }} --}}
                                                                         <span
                                                                             class="item-name">{{ $sectionItem->title }}</span>
                                                                         <div class="course-item-meta">
@@ -217,28 +216,26 @@
                                                                             @endif
                                                                         </div>
                                                                     </a>
-
-                                                                    @if ($userHasAccess)
-                                                                        <script>
-                                                                            // Get the current URL and extract the pageId
-                                                                            const currentUrl = window.location.href;
-                                                                            const match = currentUrl.match(/classroomdetail\/(\d+)/);
-                                                                            const pageId = match ? match[1] : null;
-
-                                                                            // Only proceed if pageId is found
-                                                                            if (pageId) {
-                                                                                // Select all lesson-link elements
-                                                                                const lessonLinks = document.querySelectorAll('[id^="lesson-link-"]');
-
-                                                                                // Loop through each link and set the correct href
-                                                                                lessonLinks.forEach(link => {
-                                                                                    link.href = `/lesson/${pageId}`;
-                                                                                });
-                                                                            }
-                                                                        </script>
-                                                                    @endif
                                                                 </li>
                                                             @endforeach
+
+                                                            @if ($userHasAccess)
+                                                                <script>
+                                                                    // Extract the pageId from the current URL
+                                                                    const currentUrl = window.location.href;
+                                                                    const match = currentUrl.match(/classroomdetail\/(\d+)/);
+                                                                    const pageId = match ? match[1] : null;
+
+                                                                    // Apply the href to all lesson-link elements if pageId is found
+                                                                    if (pageId) {
+                                                                        const lessonLinks = document.querySelectorAll('[id^="lesson-link-"]');
+                                                                        lessonLinks.forEach(link => {
+                                                                            link.href = `/lesson/${pageId}`;
+                                                                        });
+                                                                    }
+                                                                </script>
+                                                            @endif
+
 
                                                         </ul>
                                                     </div>
