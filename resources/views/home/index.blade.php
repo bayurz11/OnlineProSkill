@@ -145,7 +145,14 @@
                         <div class="swiper-wrapper">
                             @foreach ($KelasTatapMuka as $kelas)
                                 @if ($kelas['status'] == 1)
-                                    <!-- Ubah akses menjadi array -->
+                                    @php
+                                        // Mengecek apakah course_id ada di model Kurikulum
+                                        $kurikulumExists = \App\Models\Kurikulum::where(
+                                            'course_id',
+                                            $kelas['id'],
+                                        )->exists();
+                                    @endphp
+
                                     <div class="swiper-slide">
                                         <div
                                             class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
@@ -166,11 +173,9 @@
                                                             <span class="badge bg-secondary">Kelas Tatap Muka</span>
                                                         @endif
                                                     </li>
-
                                                     <li class="price">
                                                         @if (!empty($kelas['discountedPrice']) && $kelas['discount'] != 0)
-                                                            <del>Rp
-                                                                {{ number_format($kelas['price'], 0, ',', '.') }}</del>
+                                                            <del>Rp {{ number_format($kelas['price'], 0, ',', '.') }}</del>
                                                             Rp {{ number_format($kelas['discountedPrice'], 0, ',', '.') }}
                                                         @else
                                                             Rp {{ number_format($kelas['price'], 0, ',', '.') }}
@@ -179,8 +184,9 @@
                                                     @if (in_array($kelas['id'], $joinedCourses))
                                                         <i class="fas fa-check-circle fa-lg" style="color: green;"></i>
                                                     @endif
-
-
+                                                    @if ($kurikulumExists)
+                                                        <span class="badge bg-success">Tersedia Kurikulum</span>
+                                                    @endif
                                                 </ul>
                                                 <h5 class="title course-title flex-grow-1">
                                                     <a
@@ -200,6 +206,7 @@
                                 @endif
                             @endforeach
                         </div>
+
                     </div>
                 </div>
             </div>
