@@ -277,6 +277,10 @@
                                                 <div class="courses__item-content">
                                                     <ul class="courses__item-meta list-wrap">
                                                         <li class="price">
+                                                            @if (in_array($cours->id, $joinedCourses))
+                                                                <i class="fas fa-check-circle fa-lg"
+                                                                    style="color: green;"></i>
+                                                            @endif
                                                             @if (!empty($cours->discountedPrice) && $cours['discount'] != 0)
                                                                 <del>Rp
                                                                     {{ number_format($cours->price, 0, ',', '.') }}</del>
@@ -287,10 +291,7 @@
                                                                 {{ number_format($cours->price, 0, ',', '.') }}
                                                             @endif
                                                         </li>
-                                                        @if (in_array($cours->id, $joinedCourses))
-                                                            <i class="fas fa-check-circle fa-lg"
-                                                                style="color: green;"></i>
-                                                        @endif
+
                                                         @if ($cours->course_type == 'online')
                                                             <span class="badge bg-primary">Online</span>
                                                         @else
