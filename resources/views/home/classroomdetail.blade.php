@@ -196,12 +196,14 @@
                                                     data-bs-parent="#accordionExample">
                                                     <div class="accordion-body">
                                                         <ul class="list-wrap">
+
                                                             @foreach ($section[$kurikulumItem->id] ?? [] as $sectionItem)
                                                                 <li
                                                                     class="course-item {{ $userHasAccess ? 'open-item' : '' }}">
                                                                     <a href="{{ $userHasAccess ? '#' : 'javascript:void(0);' }}"
-                                                                        class="course-item-link {{ !$userHasAccess ? 'disabled-link' : '' }} {{ $sectionItem->link ? 'popup-video' : '' }}"
+                                                                        class="course-item-link {{ !$userHasAccess ? 'disabled-link' : '' }} "
                                                                         id="lesson-link-{{ $sectionItem->id }}">
+                                                                        {{-- {{ $userHasAccess ? 'popup-video' : '' }} --}}
                                                                         <span
                                                                             class="item-name">{{ $sectionItem->title }}</span>
                                                                         <div class="course-item-meta">
@@ -227,16 +229,13 @@
                                                                             if (pageId) {
                                                                                 const lessonLink = document.getElementById('lesson-link-{{ $sectionItem->id }}');
                                                                                 if (lessonLink) {
-                                                                                    // Jika sectionItem memiliki link, gunakan link tersebut
-                                                                                    const link = "{{ $sectionItem->link }}";
-                                                                                    lessonLink.href = link ? link : `/lesson/${pageId}`; // Atur URL yang benar
+                                                                                    lessonLink.href = `/lesson/${pageId}`; // Set the correct lesson URL
                                                                                 }
                                                                             }
                                                                         </script>
                                                                     @endif
                                                                 </li>
                                                             @endforeach
-
 
                                                         </ul>
                                                     </div>
