@@ -2,9 +2,9 @@
 <?php $page = 'index'; ?>
 
 @extends('layout.mainlayout')
-@include('instruktur.modal.modalKurikulumedit')
-@section('content')
 
+@section('content')
+    @include('instruktur.modal.modalKurikulumedit')
     <!-- breadcrumb-area -->
     <div class="breadcrumb__area breadcrumb__bg breadcrumb__bg-three"
         data-background="{{ asset('public/assets/img/bg/breadcrumb_bg.jpg') }}">
