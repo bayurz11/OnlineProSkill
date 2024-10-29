@@ -190,7 +190,11 @@ class HomeController extends Controller
         $course = KelasTatapMuka::with('user')
             ->where('status', 1)
             ->where('course_type', 'online')
+            ->whereHas('kurikulum', function ($query) {
+                $query->whereNotNull('course_id');
+            })
             ->get();
+
         $count = $course->count();
 
 
