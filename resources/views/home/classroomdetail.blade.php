@@ -196,7 +196,6 @@
                                                     data-bs-parent="#accordionExample">
                                                     <div class="accordion-body">
                                                         <ul class="list-wrap">
-
                                                             @foreach ($section[$kurikulumItem->id] ?? [] as $sectionItem)
                                                                 <li
                                                                     class="course-item {{ $userHasAccess ? 'open-item' : '' }}">
@@ -228,13 +227,16 @@
                                                                             if (pageId) {
                                                                                 const lessonLink = document.getElementById('lesson-link-{{ $sectionItem->id }}');
                                                                                 if (lessonLink) {
-                                                                                    lessonLink.href = `/lesson/${pageId}`; // Set the correct lesson URL
+                                                                                    // Jika sectionItem memiliki link, gunakan link tersebut
+                                                                                    const link = "{{ $sectionItem->link }}";
+                                                                                    lessonLink.href = link ? link : `/lesson/${pageId}`; // Atur URL yang benar
                                                                                 }
                                                                             }
                                                                         </script>
                                                                     @endif
                                                                 </li>
                                                             @endforeach
+
 
                                                         </ul>
                                                     </div>
