@@ -198,7 +198,7 @@
                                                         <ul class="list-wrap">
                                                             @foreach ($section[$kurikulumItem->id] ?? [] as $sectionItem)
                                                                 <li class="course-item">
-                                                                    <a href="/lesson/{{ $id }}"
+                                                                    <a href="/leson/{{ $id }}" id="lesson-link"
                                                                         class="course-item-link">
                                                                         {{ $sectionItem->title }}
                                                                         <div class="course-item-meta">
@@ -212,6 +212,22 @@
                                                                             @endif
                                                                         </div>
                                                                     </a>
+
+                                                                    <script>
+                                                                        // Ambil URL saat ini
+                                                                        const currentUrl = window.location.href;
+
+                                                                        // Gunakan regular expression untuk mendapatkan ID dari URL
+                                                                        const match = currentUrl.match(/classroomdetail\/(\d+)/);
+                                                                        const pageId = match ? match[1] : null;
+
+                                                                        if (pageId) {
+                                                                            // Atur atribut href pada link
+                                                                            const lessonLink = document.getElementById('lesson-link');
+                                                                            lessonLink.href = `/leson/${pageId}`;
+                                                                        }
+                                                                    </script>
+
                                                                 </li>
                                                             @endforeach
 
