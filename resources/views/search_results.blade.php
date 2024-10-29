@@ -225,7 +225,10 @@
                                                                         Muka</span>
                                                                 @endif
                                                             </li>
-
+                                                            @if (in_array($cours->id, $joinedCourses))
+                                                                <i class="fas fa-check-circle fa-lg"
+                                                                    style="color: green;"></i>
+                                                            @endif
                                                             <li class="price">
                                                                 @if (!empty($cours['discountedPrice']) && $cours['discount'] != 0)
                                                                     <del>Rp
