@@ -220,17 +220,20 @@
 
                                                                     @if ($userHasAccess)
                                                                         <script>
-                                                                            // Pastikan untuk mengecek dan mendapatkan pageId
+                                                                            // Get the current URL and extract the pageId
                                                                             const currentUrl = window.location.href;
                                                                             const match = currentUrl.match(/classroomdetail\/(\d+)/);
                                                                             const pageId = match ? match[1] : null;
 
-                                                                            // Dapatkan link untuk setiap sectionItem dan atur href-nya
+                                                                            // Only proceed if pageId is found
                                                                             if (pageId) {
-                                                                                const lessonLink = document.getElementById('lesson-link-{{ $sectionItem->id }}');
-                                                                                if (lessonLink) {
-                                                                                    lessonLink.href = `/lesson/${pageId}`; // Set the correct lesson URL
-                                                                                }
+                                                                                // Select all lesson-link elements
+                                                                                const lessonLinks = document.querySelectorAll('[id^="lesson-link-"]');
+
+                                                                                // Loop through each link and set the correct href
+                                                                                lessonLinks.forEach(link => {
+                                                                                    link.href = `/lesson/${pageId}`;
+                                                                                });
                                                                             }
                                                                         </script>
                                                                     @endif
