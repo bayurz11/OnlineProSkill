@@ -99,39 +99,40 @@
                         </div>
                     </div>
                     <div class="tab-content" id="myTabContent">
-
-
                         <div class="tab-pane fade show active" id="grid" role="tabpanel" aria-labelledby="grid-tab">
                             <div
                                 class="row courses__grid-wrap row-cols-1 row-cols-xl-4 row-cols-lg-2 row-cols-md-2 row-cols-sm-1">
                                 @foreach ($course as $cours)
                                     @if ($cours->status == 1 && $jumlahPendaftaran->get($cours->id, 0) < 9)
+                                        @php
+                                            // Mengecek apakah course_id ada di Kurikulum menggunakan array $kurikulumExists dari controller
+                                            $kurikulumExists = $kurikulumExists[$cours->id] ?? false;
+                                        @endphp
+
                                         <div class="col">
                                             <div class="courses__item shine__animate-item">
                                                 <div class="courses__item-thumb">
-
                                                     <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}"
                                                         class="shine__animate-link">
                                                         <img src="{{ asset('public/uploads/' . $cours->gambar) }}"
                                                             alt="Banner" class="wd-100 wd-sm-150 me-3">
                                                     </a>
-
                                                 </div>
                                                 <div class="courses__item-content">
-
                                                     <h5 class="title">
                                                         <a
                                                             href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
                                                     </h5>
-                                                    <p class="author"><img
-                                                            src="{{ asset('public/assets/img/icons/course_icon06.svg') }}"
+                                                    <p class="author">
+                                                        <img src="{{ asset('public/assets/img/icons/course_icon06.svg') }}"
                                                             alt="img" class="injectable">
                                                         Kuota Kelas
                                                         <span>{{ $jumlahPendaftaran->get($cours->id, 0) }}/{{ $cours->kuota }}</span>
-
-
                                                     </p>
 
+                                                    @if ($kurikulumExists)
+                                                        <p class="kurikulum-info">Kurikulum tersedia untuk kursus ini</p>
+                                                    @endif
 
                                                     <div class="courses__item-bottom">
                                                         <h5 class="price">
@@ -141,10 +142,10 @@
                                                                 Rp
                                                                 {{ number_format($cours->discountedPrice, 0, ',', '.') }}
                                                             @else
-                                                                Rp
-                                                                {{ number_format($cours->price, 0, ',', '.') }}
+                                                                Rp {{ number_format($cours->price, 0, ',', '.') }}
                                                             @endif
-                                                        </h5> <br>
+                                                        </h5>
+                                                        <br>
                                                         <div class="button">
                                                             <a
                                                                 href="{{ route('classroomdetail', ['id' => $cours->id]) }}">
@@ -156,16 +157,15 @@
                                                             <i class="fas fa-check-circle fa-lg"
                                                                 style="color: green;"></i>
                                                         @endif
-
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     @endif
                                 @endforeach
-
                             </div>
                         </div>
+
 
 
                         <div class="tab-pane fade" id="list" role="tabpanel" aria-labelledby="list-tab">

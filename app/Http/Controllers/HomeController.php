@@ -186,16 +186,11 @@ class HomeController extends Controller
             $profile = UserProfile::where('user_id', $user->id)->first();
         }
 
-        // Ambil data course yang berstatus aktif dan offline
+        // Filter hanya course_type 'online'
         $course = KelasTatapMuka::with('user')
             ->where('status', 1)
             ->where('course_type', 'online')
             ->get();
-
-        // Tambahkan flag kurikulumExists untuk setiap course
-        $course->each(function ($kelas) {
-            $kelas->kurikulumExists = \App\Models\Kurikulum::where('course_id', $kelas->id)->exists();
-        });
 
         $count = $course->count();
 
@@ -203,7 +198,7 @@ class HomeController extends Controller
         $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
             ->orderBy('created_at', 'desc')
             ->get()
-            : collect(); // Menggunakan collect() untuk membuat koleksi kosong jika pengguna belum login
+            : collect();
 
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
@@ -216,9 +211,27 @@ class HomeController extends Controller
         // Ambil ID kursus yang telah diikuti oleh user
         $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
 
+        // Tambahkan pengecekan apakah setiap course_id ada di model Kurikulum
+        $kurikulumExists = [];
+        foreach ($course as $kelas) {
+            $kurikulumExists[$kelas->id] = \App\Models\Kurikulum::where('course_id', $kelas->id)->exists();
+        }
 
-        return view('home.course', compact('user', 'categori', 'count', 'course', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'jumlahPendaftaran', 'joinedCourses'));
+        return view('home.course', compact(
+            'user',
+            'categori',
+            'count',
+            'course',
+            'profile',
+            'cart',
+            'notifikasiCount',
+            'notifikasi',
+            'jumlahPendaftaran',
+            'joinedCourses',
+            'kurikulumExists'
+        ));
     }
+
 
     public function coursedetail($id)
     {
