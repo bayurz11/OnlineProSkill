@@ -8,7 +8,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="" method="POST" id="editKurikulumForm">
+                <form action="" method="POST" id="editKurikulumInstrukturForm">
                     @csrf
                     @method('PUT') <!-- Tambahkan ini untuk menggunakan metode PUT -->
                     <input type="hidden" name="course_id" id="edit_course_id">
@@ -24,28 +24,38 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
-                <button type="submit" class="btn btn-primary" form="editKurikulumForm">Simpan</button>
+                <button type="submit" class="btn btn-primary" form="editKurikulumInstrukturForm">Simpan</button>
             </div>
         </div>
     </div>
 </div>
 
 <script>
-    $(document).on('click', '.editKurikulumBtn', function() {
-        var id = $(this).data('id'); // Ambil ID dari tombol edit
-        $.ajax({
-            url: '/instruktur_kurikulum/' + id + '/edit', // Ganti dengan route edit
-            type: 'GET',
-            success: function(response) {
-                $('#edit_kurikulum_id').val(response.id); // Set ID kurikulum
-                $('#edit_course_id').val(response.course_id); // Set course_id
-                $('#edittitle').val(response.title); // Set judul
+    $(document).ready(function() {
+        $('#kurikulumModalEdit').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget); // Tombol yang membuka modal
+            var kurikulumId = button.data('id'); // Ambil data-id dari tombol
+            console.log('Kurikulum ID:', kurikulumId); // Debugging line
 
-                $('#kurikulumModalEdit').modal('show'); // Tampilkan modal
-            },
-            error: function() {
-                alert('Data tidak ditemukan');
-            }
+            // AJAX request untuk mengambil data kurikulum
+            $.ajax({
+                url: '/instruktur_kurikulum/' + kurikulumId + '/edit',
+                method: 'GET',
+                success: function(response) {
+                    console.log(response); // Debugging line
+                    $('#course_id').val(response.id); // Set nilai course_id di dalam modal
+                    $('#edittitle').val(response
+                        .title); // Set nilai judul kurikulum di dalam modal
+
+                    // Set action form dengan id yang benar
+                    $('#editKurikulumInstrukturForm').attr('action',
+                        '/instruktur_kurikulumupdate/' +
+                        kurikulumId);
+                },
+                error: function(xhr) {
+                    console.log('Error:', xhr);
+                }
+            });
         });
     });
 </script>
