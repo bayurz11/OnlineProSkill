@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Kurikulum;
 use App\Models\Categories;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
