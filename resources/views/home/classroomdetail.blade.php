@@ -203,7 +203,7 @@
                                                                         <div class="course-item-meta">
                                                                             <span
                                                                                 class="item-meta duration">{{ $sectionItem->duration }}</span>
-                                                                            @if ($courses->course_type !== 'offline' && !$userHasAccess)
+                                                                            @if (($courses->course_type !== 'offline') | 'online' && !$userHasAccess)
                                                                                 <span class="item-meta course-item-status">
                                                                                     <img src="{{ asset('public/assets/img/icons/lock.svg') }}"
                                                                                         alt="icon">
