@@ -59,7 +59,7 @@ class SearchController extends Controller
         $courseType = array_filter($courseType); // Hapus elemen kosong
 
         // Mencari berdasarkan kategori, tingkat, course_type, dan term pencarian dengan pagination
-        $results = KelasTatapMuka::query()
+        $query = KelasTatapMuka::query()
             ->where('status', 1)
             ->whereNotIn('course_type', ['bootcamp']) // Mengecualikan 'bootcamp'
             ->when(!empty($category_ids), function ($query) use ($category_ids) {
@@ -84,13 +84,15 @@ class SearchController extends Controller
                 } elseif ($orderby == 'lowest_price') {
                     return $query->orderBy('price', 'asc');
                 }
-            })
-            ->paginate(6); // Gunakan pagination, 6 item per halaman
+            });
+
+        // Gunakan pagination, 6 item per halaman
+        $results = $query->paginate(6);
 
         // Filter kursus berdasarkan apakah course_id ada di model Kurikulum
-        $results = $results->filter(function ($kelas) {
+        $results->setCollection($results->filter(function ($kelas) {
             return Kurikulum::where('course_id', $kelas->id)->exists();
-        });
+        }));
 
         // Ambil notifikasi untuk pengguna yang sedang login
         $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
@@ -123,8 +125,10 @@ class SearchController extends Controller
             ->where('course_type', '!=', 'bootcamp')
             ->pluck('total', 'kategori_id');
 
-        return view('search_results', compact('results', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'course', 'categoryCounts', 'category_ids', 'tingkatLevels', 'tingkatCounts', 'categori'))->with('paginationView', 'vendor.custom');
+        return view('search_results', compact('results', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'course', 'categoryCounts', 'category_ids', 'tingkatLevels', 'tingkatCounts', 'categori'))
+            ->with('paginationView', 'vendor.custom');
     }
+
     //  public function search(Request $request)
     // {
     //     $user = Auth::user();
