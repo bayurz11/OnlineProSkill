@@ -148,35 +148,47 @@ class HomeController extends Controller
 
         $fasilitas = json_decode($courses->fasilitas, true);
 
-        // Ambil notifikasi untuk pengguna yang sedang login
         $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
             ->orderBy('created_at', 'desc')
             ->get()
-            : collect(); // Menggunakan collect() untuk membuat koleksi kosong jika pengguna belum login
+            : collect();
 
-        // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
         $jumlahPendaftaran = Order::where('product_id', $id)->count();
 
-        // Ambil section yang relevan dengan kurikulum
         $section = Section::whereIn('kurikulum_id', $kurikulum->pluck('id'))->get()->groupBy('kurikulum_id');
 
         $joinedCourses = $user
             ? Order::where('user_id', $user->id)
-            ->whereIn('status', ['paid', 'settled']) // Memeriksa status
+            ->whereIn('status', ['paid', 'settled'])
             ->pluck('product_id')
             ->toArray()
             : [];
 
-        // Cek apakah user memiliki order untuk course ini
         $userHasAccess = in_array($id, $joinedCourses);
 
-        // Ambil sertifikat dan hitung jumlah kategori_id sesuai dengan id dari product_id
         $orderProductIds = Order::where('product_id', $id)->pluck('product_id');
         $sertifikatCount = Sertifikat::whereIn('kategori_id', $orderProductIds)->count();
 
-        return view('home.classroomdetail', compact('user', 'categori', 'jumlahPendaftaran', 'courses', 'kurikulum', 'courseList', 'perstaratan', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'section', 'joinedCourses', 'sertifikatCount', 'userHasAccess'));
+        return view('home.classroomdetail', compact(
+            'user',
+            'categori',
+            'jumlahPendaftaran',
+            'courses',
+            'kurikulum',
+            'courseList',
+            'perstaratan',
+            'profile',
+            'cart',
+            'notifikasiCount',
+            'notifikasi',
+            'section',
+            'joinedCourses',
+            'sertifikatCount',
+            'userHasAccess'
+        ));
     }
+
 
 
 

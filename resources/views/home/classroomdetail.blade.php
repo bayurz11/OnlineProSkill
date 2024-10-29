@@ -198,8 +198,9 @@
                                                         <ul class="list-wrap">
                                                             @foreach ($section[$kurikulumItem->id] ?? [] as $sectionItem)
                                                                 <li class="course-item">
-                                                                    <a href="#" id="lesson-link"
-                                                                        class="course-item-link">
+                                                                    <a href="{{ $userHasAccess ? '#' : 'javascript:void(0);' }}"
+                                                                        class="course-item-link {{ $userHasAccess ? '' : 'disabled-link' }}"
+                                                                        id="lesson-link-{{ $sectionItem->id }}">
                                                                         {{ $sectionItem->title }}
                                                                         <div class="course-item-meta">
                                                                             <span
@@ -213,23 +214,21 @@
                                                                         </div>
                                                                     </a>
 
-                                                                    <script>
-                                                                        // Ambil URL saat ini
-                                                                        const currentUrl = window.location.href;
+                                                                    @if ($userHasAccess)
+                                                                        <script>
+                                                                            const currentUrl = window.location.href;
+                                                                            const match = currentUrl.match(/classroomdetail\/(\d+)/);
+                                                                            const pageId = match ? match[1] : null;
 
-                                                                        // Gunakan regular expression untuk mendapatkan ID dari URL
-                                                                        const match = currentUrl.match(/classroomdetail\/(\d+)/);
-                                                                        const pageId = match ? match[1] : null;
-
-                                                                        if (pageId) {
-                                                                            // Atur atribut href pada link
-                                                                            const lessonLink = document.getElementById('lesson-link');
-                                                                            lessonLink.href = `/lesson/${pageId}`;
-                                                                        }
-                                                                    </script>
-
+                                                                            if (pageId) {
+                                                                                const lessonLink = document.getElementById('lesson-link-{{ $sectionItem->id }}');
+                                                                                lessonLink.href = `/lesson/${pageId}`;
+                                                                            }
+                                                                        </script>
+                                                                    @endif
                                                                 </li>
                                                             @endforeach
+
 
                                                         </ul>
                                                     </div>
