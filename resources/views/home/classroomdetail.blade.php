@@ -212,6 +212,18 @@
                                                                                         alt="icon">
                                                                                 </span>
                                                                             @endif
+                                                                            @if ($userHasAccess)
+                                                                                <script>
+                                                                                    const currentUrl = window.location.href;
+                                                                                    const match = currentUrl.match(/classroomdetail\/(\d+)/);
+                                                                                    const pageId = match ? match[1] : null;
+
+                                                                                    if (pageId) {
+                                                                                        const lessonLink = document.getElementById('lesson-link-{{ $sectionItem->id }}');
+                                                                                        lessonLink.href = `/lesson/${pageId}`;
+                                                                                    }
+                                                                                </script>
+                                                                            @endif
                                                                         </div>
                                                                     </a>
                                                                 </li>
