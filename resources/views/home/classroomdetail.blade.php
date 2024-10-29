@@ -197,10 +197,10 @@
                                                     <div class="accordion-body">
                                                         <ul class="list-wrap">
                                                             @foreach ($section[$kurikulumItem->id] ?? [] as $sectionItem)
-                                                                <li class="course-item">
-                                                                    <a href="{{ $userHasAccess ? '#' : 'javascript:void(0);' }}"
-                                                                        class="course-item-link {{ !$userHasAccess ? 'disabled-link' : '' }}"
-                                                                        id="lesson-link-{{ $sectionItem->id }}">
+                                                                <li
+                                                                    class="course-item {{ $userHasAccess ? 'open-item' : '' }}">
+                                                                    <a href="{{ $userHasAccess ? '/lesson/' . $sectionItem->id : '#' }}"
+                                                                        class="course-item-link {{ !$userHasAccess ? '' : 'popup-video' }}">
                                                                         <span
                                                                             class="item-name">{{ $sectionItem->title }}</span>
                                                                         <div class="course-item-meta">
@@ -214,19 +214,6 @@
                                                                             @endif
                                                                         </div>
                                                                     </a>
-
-                                                                    @if ($userHasAccess)
-                                                                        <script>
-                                                                            const currentUrl = window.location.href;
-                                                                            const match = currentUrl.match(/classroomdetail\/(\d+)/);
-                                                                            const pageId = match ? match[1] : null;
-
-                                                                            if (pageId) {
-                                                                                const lessonLink = document.getElementById('lesson-link-{{ $sectionItem->id }}');
-                                                                                lessonLink.href = `/lesson/${pageId}`;
-                                                                            }
-                                                                        </script>
-                                                                    @endif
                                                                 </li>
                                                             @endforeach
 
@@ -246,6 +233,7 @@
                                     </div>
                                 </div>
                             </div>
+
 
                             <div class="tab-pane fade" id="jadwal-tab-pane" role="tabpanel" aria-labelledby="jadwal-tab"
                                 tabindex="0">
