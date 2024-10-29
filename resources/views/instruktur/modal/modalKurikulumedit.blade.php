@@ -18,7 +18,7 @@
                     <div class="mb-3">
                         <label for="edittitle" class="form-label">Judul<span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="edittitle" name="title"
-                            value="{{ $kuri->title }}" placeholder="Masukkan judul Kurikulum Anda" required>
+                            placeholder="Masukkan judul Kurikulum Anda" required>
                     </div>
                 </form>
             </div>
@@ -29,6 +29,7 @@
         </div>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     // Tangani saat modal dibuka
     $('#kurikulumModalEdit').on('show.bs.modal', function(event) {
