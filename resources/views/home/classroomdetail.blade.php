@@ -198,7 +198,7 @@
                                                         <ul class="list-wrap">
                                                             @foreach ($section[$kurikulumItem->id] ?? [] as $sectionItem)
                                                                 <li class="course-item">
-                                                                    <a href="/kurikulum/{{ $kurikulumItem->id }}/section/{{ $sectionItem->id }}"
+                                                                    <a href="/lesson/{{ $id }}"
                                                                         class="course-item-link">
                                                                         {{ $sectionItem->title }}
                                                                         <div class="course-item-meta">
@@ -214,15 +214,17 @@
                                                                     </a>
                                                                 </li>
                                                             @endforeach
+
                                                         </ul>
                                                     </div>
                                                 </div>
                                             </div>
                                         @endforeach
+
                                     </div>
+
                                 </div>
                             </div>
-
                             <div class="tab-pane fade" id="jadwal-tab-pane" role="tabpanel" aria-labelledby="jadwal-tab"
                                 tabindex="0">
                                 @if ($courses->nama_kursus === 'Mahir Aplikasi Office Tingkat Advance')
