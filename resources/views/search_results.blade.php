@@ -287,15 +287,17 @@
                                                                 {{ number_format($cours->price, 0, ',', '.') }}
                                                             @endif
                                                         </li>
+                                                        @if (in_array($cours->id, $joinedCourses))
+                                                            <i class="fas fa-check-circle fa-lg"
+                                                                style="color: green;"></i>
+                                                        @endif
                                                         @if ($cours->course_type == 'online')
                                                             <span class="badge bg-primary">Online</span>
                                                         @else
                                                             <span class="badge bg-secondary">Kelas Tatap Muka</span>
                                                         @endif
                                                     </ul>
-                                                    @if (in_array($cours->id, $joinedCourses))
-                                                        <i class="fas fa-check-circle fa-lg" style="color: green;"></i>
-                                                    @endif
+
                                                     <h5 class="title">
                                                         <a
                                                             href="{{ route('classroomdetail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
