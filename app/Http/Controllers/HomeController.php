@@ -89,6 +89,10 @@ class HomeController extends Controller
             ->where('status', 1)
             ->where('course_type', 'offline')
             ->get();
+        // Filter kursus berdasarkan apakah course_id ada di model Kurikulum
+        $course = $course->filter(function ($kelas) {
+            return Kurikulum::where('course_id', $kelas->id)->exists();
+        });
         $count = $course->count();
 
 
