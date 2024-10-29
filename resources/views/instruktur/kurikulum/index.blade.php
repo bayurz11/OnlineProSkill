@@ -2,7 +2,7 @@
 <?php $page = 'index'; ?>
 
 @extends('layout.mainlayout')
-
+@include('instruktur.modal.modalKurikulumedit')
 @section('content')
 
     <!-- breadcrumb-area -->
@@ -104,6 +104,7 @@
         </div>
     </section>
     <!-- dashboard-area-end -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         function hapus(id) {
             const confirmationBox = `
