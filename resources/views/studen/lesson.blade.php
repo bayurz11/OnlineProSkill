@@ -62,7 +62,7 @@
                                                                     </div>
                                                                 </a>
                                                             @else
-                                                                <span class="course-item-link open-item">
+                                                                <span class="course-item-link active">
                                                                     <span class="item-name">{{ $section->title }}</span>
                                                                     <div class="course-item-meta">
                                                                         <span
@@ -162,7 +162,7 @@
 
     <script>
         function changeContent(element, event) {
-            if (element.classList.contains('open-item')) {
+            if (element.classList.contains('disabled')) {
                 event.preventDefault();
                 alert('Bagian ini terkunci, selesaikan bagian sebelumnya untuk membuka bagian ini.');
                 return;
