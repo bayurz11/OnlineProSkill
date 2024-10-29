@@ -52,19 +52,18 @@
                                                         Bagian {{ $kuri->no_urut }}. {{ $kuri->title }}
                                                     </div>
                                                     <div class="dashboard__review-action">
-                                                        <a href="#" title="Edit" data-bs-toggle="modal"
+                                                        <button title="Edit" data-bs-toggle="modal"
                                                             data-bs-target="#kurikulumModalEdit"
                                                             data-id="{{ $kuri->id }}">
                                                             <i class="skillgro-edit"></i>
-                                                        </a>
-                                                        <a href="#" title="Delete"
-                                                            onclick="hapus('{{ $kuri->id }}')">
+                                                        </button>
+                                                        <button title="Delete" onclick="hapus('{{ $kuri->id }}')">
                                                             <i class="skillgro-bin"></i>
-                                                        </a>
-                                                        <a href="#" title="Tambah Materi" data-bs-toggle="modal"
+                                                        </button>
+                                                        <button title="Tambah Materi" data-bs-toggle="modal"
                                                             data-id="{{ $kuri->id }}" data-bs-target="#materiModal">
                                                             <i class="skillgro-plus-circle">+ Materi Baru</i>
-                                                        </a>
+                                                        </button>
                                                     </div>
                                                 </div>
 
