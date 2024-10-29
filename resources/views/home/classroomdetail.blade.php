@@ -228,7 +228,13 @@
                                                                     @endif
                                                                 </li>
                                                             @endforeach
-
+                                                            <style>
+                                                                .disabled-link {
+                                                                    pointer-events: none;
+                                                                    color: gray;
+                                                                    cursor: not-allowed;
+                                                                }
+                                                            </style>
 
                                                         </ul>
                                                     </div>
