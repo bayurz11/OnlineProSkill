@@ -201,8 +201,11 @@
                                                                 <li
                                                                     class="course-item {{ $userHasAccess ? 'open-item' : '' }}">
                                                                     <a href="{{ $userHasAccess ? '#' : 'javascript:void(0);' }}"
-                                                                        class="course-item-link {{ !$userHasAccess ? 'disabled-link' : '' }}"
+                                                                        class="course-item-link 
+                                                                        {{ !$userHasAccess ? 'disabled-link' : '' }}
+                                                                        @once {{ $sectionItem->link ? 'popup-video' : '' }} @endonce"
                                                                         id="lesson-link-{{ $sectionItem->id }}">
+
                                                                         <span
                                                                             class="item-name">{{ $sectionItem->title }}</span>
                                                                         <div class="course-item-meta">
@@ -235,6 +238,7 @@
                                                                     }
                                                                 </script>
                                                             @endif
+
 
 
                                                         </ul>
