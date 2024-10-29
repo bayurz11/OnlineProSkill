@@ -335,6 +335,7 @@
 @if (Auth::check() && Auth::user()->userRole->role_id == 2)
     @include('instruktur.modal.modalcreateCourse')
     @include('instruktur.modal.modalKurikulum')
+    @include('instruktur.modal.modalKurikulumedit')
     @include('instruktur.modal.materiModal')
 @endif
 

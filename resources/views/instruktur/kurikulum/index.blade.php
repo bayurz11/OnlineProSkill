@@ -53,7 +53,7 @@
                                                     </div>
                                                     <div class="dashboard__review-action">
                                                         <a href="#" title="Edit" data-bs-toggle="modal"
-                                                            data-bs-target="#exampleModalEdit"
+                                                            data-bs-target="#kurikulumModalEdit"
                                                             data-id="{{ $kuri->id }}">
                                                             <i class="skillgro-edit"></i>
                                                         </a>
