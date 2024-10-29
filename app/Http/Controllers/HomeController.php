@@ -168,13 +168,16 @@ class HomeController extends Controller
             ->toArray()
             : [];
 
+        // Cek apakah user memiliki order untuk course ini
+        $userHasAccess = in_array($id, $joinedCourses);
 
         // Ambil sertifikat dan hitung jumlah kategori_id sesuai dengan id dari product_id
         $orderProductIds = Order::where('product_id', $id)->pluck('product_id');
         $sertifikatCount = Sertifikat::whereIn('kategori_id', $orderProductIds)->count();
 
-        return view('home.classroomdetail', compact('user', 'categori', 'jumlahPendaftaran', 'courses', 'kurikulum', 'courseList', 'perstaratan', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'section', 'joinedCourses', 'sertifikatCount'));
+        return view('home.classroomdetail', compact('user', 'categori', 'jumlahPendaftaran', 'courses', 'kurikulum', 'courseList', 'perstaratan', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'section', 'joinedCourses', 'sertifikatCount', 'userHasAccess'));
     }
+
 
 
 
