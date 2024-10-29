@@ -103,12 +103,13 @@ class InstrukturKurikulumController extends Controller
 
         // Update data kursus
         $kurikulum->title = $request->input('title');
-        // Tambahkan update field lainnya sesuai kebutuhan
+        // Jika Anda menambahkan field lain, lakukan update di sini
 
         $kurikulum->save();
 
         return redirect()->back()->with('success', 'Kurikulum berhasil diperbarui');
     }
+
 
 
     /**

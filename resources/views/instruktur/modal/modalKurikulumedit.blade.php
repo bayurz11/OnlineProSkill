@@ -29,33 +29,28 @@
         </div>
     </div>
 </div>
-
 <script>
-    $(document).ready(function() {
-        $('#kurikulumModalEdit').on('show.bs.modal', function(event) {
-            var button = $(event.relatedTarget); // Tombol yang membuka modal
-            var kurikulumId = button.data('id'); // Ambil data-id dari tombol
-            console.log('Kurikulum ID:', kurikulumId); // Debugging line
+    // Tangani saat modal dibuka
+    $('#kurikulumModalEdit').on('show.bs.modal', function(event) {
+        var button = $(event.relatedTarget); // Tombol yang diklik
+        var id = button.data('id'); // Ambil ID kurikulum dari data-id
 
-            // AJAX request untuk mengambil data kurikulum
-            $.ajax({
-                url: '/instruktur_kurikulum/' + kurikulumId + '/edit',
-                method: 'GET',
-                success: function(response) {
-                    console.log(response); // Debugging line
-                    $('#edit_course_id').val(response
-                    .course_id); // Set nilai course_id di dalam modal
-                    $('#edittitle').val(response
-                    .title); // Set nilai judul kurikulum di dalam modal
-
-                    // Set action form dengan id yang benar
-                    $('#editKurikulumInstrukturForm').attr('action',
-                        '/instruktur_kurikulum/' + kurikulumId);
-                },
-                error: function(xhr) {
-                    console.log('Error:', xhr);
-                }
-            });
+        // Lakukan permintaan AJAX untuk mendapatkan data kurikulum
+        $.ajax({
+            url: '/instruktur_kurikulum/' + id + '/edit', // Endpoint untuk mengedit kurikulum
+            method: 'GET',
+            success: function(data) {
+                // Mengisi form dengan data yang diterima
+                $('#edit_kurikulum_id').val(data.id); // Mengisi ID kurikulum
+                $('#edittitle').val(data.title); // Mengisi judul kurikulum
+                $('#edit_course_id').val(data.course_id); // Mengisi course_id jika perlu
+                // Pastikan modal terbuka setelah data diisi
+            },
+            error: function(xhr) {
+                // Menangani error
+                console.error('Data tidak ditemukan', xhr);
+                alert('Kurikulum tidak ditemukan.');
+            }
         });
     });
 </script>
