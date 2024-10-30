@@ -58,7 +58,8 @@
                                             <div class="col-md-6">
                                                 <div class="form-grp">
                                                     <label for="nama">Nama <span class="text-danger">*</span></label>
-                                                    <input id="nama" name="nama" type="text" required>
+                                                    <input id="nama" name="nama" type="text"
+                                                        placeholder="masukkan nama anda" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -66,13 +67,14 @@
                                                     <label for="phonenumber">Nomor Telepon <span
                                                             class="text-danger">*</span></label>
                                                     <input id="phonenumber" name="phonenumber" type="number" min="0"
-                                                        required>
+                                                        placeholder="masukkan nomor telepon" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-grp">
                                                     <label for="email">Email</label>
-                                                    <input id="lastname" type="email" required>
+                                                    <input id="lastname" type="email" placeholder="masukkan email anda"
+                                                        required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
