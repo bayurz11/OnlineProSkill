@@ -108,21 +108,24 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         function hapus(id) {
+            event.preventDefault(); // Mencegah aksi default
+
             const confirmationBox = `
-                <div id="confirmationModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">
-                    <div style="background: white; padding: 40px; border-radius: 8px; text-align: center;">
-                        <h4>Konfirmasi Penghapusan</h4><br>
-                        <p>Apakah Anda yakin ingin menghapus ini?</p><br>
-                        <button id="confirmDelete" class="btn btn-danger btn-lg" data-id="${id}">Ya, Hapus</button>
-                        <button id="cancelDelete" class="btn btn-secondary btn-lg">Batal</button>
-                    </div>
-                </div>
-            `;
+        <div id="confirmationModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">
+            <div style="background: white; padding: 40px; border-radius: 8px; text-align: center;">
+                <h4>Konfirmasi Penghapusan</h4><br>
+                <p>Apakah Anda yakin ingin menghapus ini?</p><br>
+                <button id="confirmDelete" class="btn btn-danger btn-lg" data-id="${id}">Ya, Hapus</button>
+                <button id="cancelDelete" class="btn btn-secondary btn-lg">Batal</button>
+            </div>
+        </div>
+    `;
 
             document.body.insertAdjacentHTML('beforeend', confirmationBox);
 
-            document.getElementById('confirmDelete').onclick = function() {
-                event.preventDefault();
+            document.getElementById('confirmDelete').onclick = function(event) {
+                event.preventDefault(); // Mencegah aksi default saat mengklik konfirmasi
+
                 const kurikulumId = this.getAttribute('data-id');
                 $.ajax({
                     url: `/instruktur_kurikulum_destroy/${kurikulumId}`,
@@ -149,6 +152,7 @@
                 document.getElementById('confirmationModal').remove();
             };
         }
+
 
         function hapus1(id) {
             const confirmationBox = `
