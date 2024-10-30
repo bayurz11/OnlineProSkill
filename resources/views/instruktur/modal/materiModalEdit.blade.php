@@ -14,17 +14,17 @@
                     </div>
                     <div class="mb-3">
                         <label for="linkedit" class="form-label">Link Materi</label>
-                        <input type="text" class="form-control" id="linkedit" name="link"
+                        <input type="text" class="form-control" id="link_edit" name="link"
                             placeholder="Masukkan link materi Anda">
                     </div>
                     <div class="mb-3">
                         <label for="durationedit" class="form-label">Durasi</label>
-                        <input type="text" class="form-control" id="durationedit" name="duration"
+                        <input type="text" class="form-control" id="duration_edit" name="duration"
                             placeholder="00:00:00">
                     </div>
                     <div class="mb-3">
                         <label for="fileedit" class="form-label">Upload Materi</label>
-                        <input type="file" class="form-control" id="fileedit" name="file">
+                        <input type="file" class="form-control" id="file_edit" name="file">
                     </div>
                     <div class="mb-3" id="fileDisplay">
                         <!-- Informasi file akan ditampilkan di sini -->
