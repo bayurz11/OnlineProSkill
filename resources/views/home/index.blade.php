@@ -149,8 +149,8 @@
                 </div>
             </div>
             <div class="tab-content" id="courseTabContent">
-                <!-- Semua Program -->
-                <div class="tab-pane fade show active" id="all-tab-pane" role="tabpanel" aria-labelledby="all-tab">
+                <div class="tab-pane fade show active" id="all-tab-pane" role="tabpanel" aria-labelledby="all-tab"
+                    tabindex="0">
                     <div class="swiper courses-swiper-active">
                         <div class="swiper-wrapper">
                             @foreach ($KelasTatapMuka->where('status', 1) as $kelas)
@@ -160,38 +160,18 @@
                     </div>
                 </div>
 
-                <!-- Bootcamp -->
-                <div class="tab-pane fade" id="bootcamp-tab-pane" role="tabpanel" aria-labelledby="bootcamp-tab">
-                    <div class="swiper courses-swiper-active">
-                        <div class="swiper-wrapper">
-                            @foreach ($KelasTatapMuka->where('status', 1)->where('course_type', 'bootcamp') as $kelas)
-                                @include('partials.course-item', ['kelas' => $kelas])
-                            @endforeach
+                @foreach ($courseTypes as $type)
+                    <div class="tab-pane fade" id="{{ strtolower($type) }}-tab-pane" role="tabpanel"
+                        aria-labelledby="{{ strtolower($type) }}-tab" tabindex="0">
+                        <div class="swiper courses-swiper-active">
+                            <div class="swiper-wrapper">
+                                @foreach ($KelasTatapMuka->where('course_type', $type)->where('status', 1) as $kelas)
+                                    @include('partials.course-item', ['kelas' => $kelas])
+                                @endforeach
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Kelas Tatap Muka -->
-                <div class="tab-pane fade" id="offline-tab-pane" role="tabpanel" aria-labelledby="offline-tab">
-                    <div class="swiper courses-swiper-active">
-                        <div class="swiper-wrapper">
-                            @foreach ($KelasTatapMuka->where('status', 1)->where('course_type', 'offline') as $kelas)
-                                @include('partials.course-item', ['kelas' => $kelas])
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Kelas Online -->
-                <div class="tab-pane fade" id="online-tab-pane" role="tabpanel" aria-labelledby="online-tab">
-                    <div class="swiper courses-swiper-active">
-                        <div class="swiper-wrapper">
-                            @foreach ($KelasTatapMuka->where('status', 1)->where('course_type', 'online') as $kelas)
-                                @include('partials.course-item', ['kelas' => $kelas])
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
 
             <div class="all-courses-btn mt-30">
