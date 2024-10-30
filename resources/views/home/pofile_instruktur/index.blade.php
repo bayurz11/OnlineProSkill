@@ -105,7 +105,7 @@
 
                                 <div class="swiper-wrapper">
                                     @if ($kelas->isNotEmpty())
-                                        @foreach ($kelas as $item)
+                                        @foreach (array_merge($kelas->toArray(), $kelas->toArray()) as $item)
                                             @if ($item['status'] == 1)
                                                 <div class="swiper-slide">
                                                     <div class="courses__item shine__animate-item">
@@ -147,17 +147,11 @@
                                                                         style="color: #007F73;"></i>
                                                                 @endif
                                                             </ul>
-                                                            <h5 class="title">
-                                                                <a
-                                                                    href="{{ route('classroomdetail', ['id' => $item['id']]) }}">
-                                                                    {{ $item['nama_kursus'] }}
-                                                                </a>
+                                                            <h5 class="title"><a
+                                                                    href="{{ route('classroomdetail', ['id' => $item['id']]) }}">{{ $item['nama_kursus'] }}</a>
                                                             </h5>
-                                                            <p class="author">
-                                                                By <a
-                                                                    href="{{ route('profile_instruktur', ['id' => $instructorProfile->user->id]) }}">
-                                                                    {{ $instructorProfile->user->name }}
-                                                                </a>
+                                                            <p class="author">By <a
+                                                                    href="{{ route('profile_instruktur', ['id' => $instructorProfile->user->id]) }}">{{ $instructorProfile->user->name }}</a>
                                                             </p>
 
                                                             <div class="courses__item-bottom">
@@ -177,8 +171,8 @@
                                     @else
                                         <p>Tidak ada kelas yang ditemukan untuk instruktur ini.</p>
                                     @endif
-                                </div>
 
+                                </div>
                             </div>
 
                         </div>

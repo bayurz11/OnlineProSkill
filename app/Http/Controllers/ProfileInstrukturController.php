@@ -53,13 +53,13 @@ class ProfileInstrukturController extends Controller
         // Ambil data kelas berdasarkan instructor_id dari instructorProfile
         $kelas = [];
         if ($instructorProfile) {
-            // Ambil semua kelas berdasarkan instructor
-            $kelas = KelasTatapMuka::where('user_id', $instructorProfile->user_id)
-                ->whereIn('course_type', ['offline', 'online'])
-                ->get();
-
             // Ambil semua course_id dari kurikulum
             $validCourseIds = Kurikulum::pluck('course_id')->toArray();
+
+            // Ambil semua kelas berdasarkan instructor
+            $kelas = KelasTatapMuka::where('user_id', $instructorProfile->user_id)
+                ->whereIn('course_type', ['offline', 'online'], $validCourseIds)
+                ->get();
 
             // Filter kelas berdasarkan course_id yang valid
             $kelas = $kelas->filter(function ($item) use ($validCourseIds) {
