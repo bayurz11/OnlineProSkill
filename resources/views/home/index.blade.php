@@ -130,28 +130,122 @@
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link active" id="all-tab" data-bs-toggle="tab"
                                         data-bs-target="#all-tab-pane" type="button" role="tab"
+                                        aria-controls="all-tab-pane" aria-selected="true">Semua Program</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="bootcamp-tab" data-bs-toggle="tab"
+                                        data-bs-target="#bootcamp-tab-pane" type="button" role="tab"
+                                        aria-controls="bootcamp-tab-pane" aria-selected="false">Bootcamp</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="offline-tab" data-bs-toggle="tab"
+                                        data-bs-target="#offline-tab-pane" type="button" role="tab"
+                                        aria-controls="offline-tab-pane" aria-selected="false">Kelas Tatap Muka</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="online-tab" data-bs-toggle="tab"
+                                        data-bs-target="#online-tab-pane" type="button" role="tab"
+                                        aria-controls="online-tab-pane" aria-selected="false">Kelas Online</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="courseTabContent">
+                <!-- Semua Program -->
+                <div class="tab-pane fade show active" id="all-tab-pane" role="tabpanel" aria-labelledby="all-tab">
+                    <div class="swiper courses-swiper-active">
+                        <div class="swiper-wrapper">
+                            @foreach ($KelasTatapMuka->where('status', 1) as $kelas)
+                                @include('partials.course-item', ['kelas' => $kelas])
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bootcamp -->
+                <div class="tab-pane fade" id="bootcamp-tab-pane" role="tabpanel" aria-labelledby="bootcamp-tab">
+                    <div class="swiper courses-swiper-active">
+                        <div class="swiper-wrapper">
+                            @foreach ($KelasTatapMuka->where('status', 1)->where('course_type', 'bootcamp') as $kelas)
+                                @include('partials.course-item', ['kelas' => $kelas])
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kelas Tatap Muka -->
+                <div class="tab-pane fade" id="offline-tab-pane" role="tabpanel" aria-labelledby="offline-tab">
+                    <div class="swiper courses-swiper-active">
+                        <div class="swiper-wrapper">
+                            @foreach ($KelasTatapMuka->where('status', 1)->where('course_type', 'offline') as $kelas)
+                                @include('partials.course-item', ['kelas' => $kelas])
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kelas Online -->
+                <div class="tab-pane fade" id="online-tab-pane" role="tabpanel" aria-labelledby="online-tab">
+                    <div class="swiper courses-swiper-active">
+                        <div class="swiper-wrapper">
+                            @foreach ($KelasTatapMuka->where('status', 1)->where('course_type', 'online') as $kelas)
+                                @include('partials.course-item', ['kelas' => $kelas])
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="all-courses-btn mt-30">
+                <div class="tg-button-wrap justify-content-center">
+                    <a href="{{ route('search') }}" class="btn arrow-btn">Lihat Semua Kelas <img
+                            src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- <section class="courses-area section-py-120" data-background="public/assets/img/bg/courses_bg.jpg" loading="lazy">
+        <div class="container">
+            <div class="section__title-wrap">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6 col-lg-8">
+                        <div class="section__title text-center mb-40">
+                            <span class="sub-title">Program ProSkill Akademia</span>
+                            <h2 class="title">Jelajahi Program Unggulan Kami</h2>
+                            <p class="desc">Inilah saat yang tepat untuk melangkah maju! Program ProSkill Akademia siap
+                                membantu Anda meningkatkan keterampilan dengan pelatihan terbaik yang sesuai dengan
+                                kebutuhan Anda.</p>
+                        </div>
+                        <div class="courses__nav">
+                            <ul class="nav nav-tabs" id="courseTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="all-tab" data-bs-toggle="tab"
+                                        data-bs-target="#all-tab-pane" type="button" role="tab"
                                         aria-controls="all-tab-pane" aria-selected="true">
                                         Semua Program
                                     </button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="design-tab" data-bs-toggle="tab"
-                                        data-bs-target="#design-tab-pane" type="button" role="tab"
-                                        aria-controls="design-tab-pane" aria-selected="false">
+                                    <button class="nav-link" id="bootcamp" data-bs-toggle="tab"
+                                        data-bs-target="#bootcamp" type="button" role="tab"
+                                        aria-controls="bootcamp" aria-selected="false">
                                         Bootcamp
                                     </button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="business-tab" data-bs-toggle="tab"
-                                        data-bs-target="#business-tab-pane" type="button" role="tab"
-                                        aria-controls="business-tab-pane" aria-selected="false">
+                                    <button class="nav-link" id="offline" data-bs-toggle="tab"
+                                        data-bs-target="#offline" type="button" role="tab" aria-controls="offline"
+                                        aria-selected="false">
                                         Kelas Tatap Muka
                                     </button>
                                 </li>
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="development-tab" data-bs-toggle="tab"
-                                        data-bs-target="#development-tab-pane" type="button" role="tab"
-                                        aria-controls="development-tab-pane" aria-selected="false">
+                                    <button class="nav-link" id="online" data-bs-toggle="tab"
+                                        data-bs-target="#online" type="button" role="tab" aria-controls="online"
+                                        aria-selected="false">
                                         Kelas Online
                                     </button>
                                 </li>
@@ -239,7 +333,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- course-area-end -->
 
     <!-- about-area -->
