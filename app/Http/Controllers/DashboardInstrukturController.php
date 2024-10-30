@@ -25,11 +25,14 @@ class DashboardInstrukturController extends Controller
         $categori = Categories::all();
         $cart = Session::get('cart', []);
         $user = Auth::user();
+
         if (!$user) {
             return redirect()->route('/');
         }
+
         // Mengambil profil pengguna yang sedang login
         $profile = UserProfile::where('user_id', $user->id)->first();
+
         // Ambil notifikasi untuk pengguna yang sedang login
         $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
             ->orderBy('created_at', 'desc')
@@ -38,25 +41,37 @@ class DashboardInstrukturController extends Controller
 
         // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
+
+        // Mengambil orders berdasarkan user_id yang sedang login
         $orders = Order::where('user_id', $user->id)
             ->whereIn('status', ['PAID', 'SETTLED'])
             ->with('KelasTatapMuka')
             ->get();
+
+        // Mengambil kelas tatap muka sesuai dengan user_id yang sedang login
         $kelastatapmuka = KelasTatapMuka::where('user_id', $user->id)
             ->whereIn('id', function ($query) {
-                $query->select('course_id')
-                    ->from('kurikulum');
+                $query->select('course_id')->from('kurikulum');
             })
             ->get();
+
         $kelastatapmukaCount = $kelastatapmuka->count();
+
+        // Menghitung jumlah siswa unik yang terdaftar di kelas tatap muka
         $jumlahSiswa = Order::whereIn('product_id', $kelastatapmuka->pluck('id'))
             ->distinct('user_id') // Menghitung hanya siswa unik
             ->count('user_id');
-        $daftarpesanan = KelasTatapMuka::whereIn('id', function ($query) {
-            $query->select('product_id')->from('orders');
-        })->get();
+
+        // Mengambil daftar pesanan kelas tatap muka berdasarkan user_id dan id yang ada di order
+        $daftarpesanan = KelasTatapMuka::where('user_id', $user->id) // Menambahkan kondisi untuk user_id
+            ->whereIn('id', function ($query) {
+                $query->select('product_id')->from('orders');
+            })
+            ->get();
+
         return view('instruktur.dashboard', compact('user', 'jumlahSiswa', 'daftarpesanan', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kelastatapmuka', 'kelastatapmukaCount'));
     }
+
     public function profile()
     {
         $categori = Categories::all();
