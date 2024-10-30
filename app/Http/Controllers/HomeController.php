@@ -21,56 +21,64 @@ use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
+
     public function index()
     {
-        $categori = Categories::all();
         $user = Auth::user();
-        $profile = null;
+        $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
         $cart = Session::get('cart', []);
-        //   $jumlah_siswa = Sertifikat::whereIn('kategori_id', [13, 14])
-        //         ->distinct('name')
-        //         ->count('name');
-        $daftar_siswa = UserProfile::where('role_id', 3)->get();
-        $sertifikat = Sertifikat::whereIn('kategori_id', [13, 14])->get();
 
+        // Mengambil kategori
+        $categori = Categories::all();
 
-        // Mengambil KelasTatapMuka dengan course_type = 'online' atau 'offline' dan mengurutkannya berdasarkan kolom created_at
+        // Mengambil kelas tatap muka, mengurutkan secara dinamis
         $KelasTatapMuka = KelasTatapMuka::whereIn('course_type', ['online', 'offline'])
             ->orderBy('created_at', 'asc')
-            ->get();
+            ->get()
+            ->flatMap(function ($kelas) {
+                return [$kelas, $kelas, $kelas]; // Duplikasi 3 kali langsung di koleksi
+            });
 
-        // Ubah koleksi Eloquent menjadi array
-        $KelasTatapMukaArray = $KelasTatapMuka->toArray();
+        // Mengambil Blog terbaru
+        $blog = Blog::latest()->take(4)->get();
 
-        // Duplikasi array menggunakan array_merge()
-        $KelasTatapMukaArray = array_merge($KelasTatapMukaArray, $KelasTatapMukaArray, $KelasTatapMukaArray); // 3 kali duplikasi
-
-        // Jika ingin kembali ke koleksi Eloquent, gunakan collect()
-        $KelasTatapMuka = collect($KelasTatapMukaArray);
-
-        $blog = Blog::orderBy('created_at', 'desc')->take(4)->get();
-
-        // Mengambil event dan memfilter yang tanggalnya belum lewat, lalu membatasi 3 terbaru
+        // Mengambil event yang belum lewat
         $event = AdminEvent::where('tgl', '>=', Carbon::now())
-            ->orderBy('created_at', 'desc')
+            ->latest()
             ->take(3)
             ->get();
 
-        if ($user) {
-            $profile = UserProfile::where('user_id', $user->id)->first();
-        }
+        // Mengambil daftar siswa dan sertifikat
+        $daftar_siswa = UserProfile::where('role_id', 3)->get();
+        $sertifikat = Sertifikat::whereIn('kategori_id', [13, 14])->get();
 
-        // Ambil notifikasi untuk pengguna yang sedang login
+        // Mengambil notifikasi
         $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
-            ->orderBy('created_at', 'desc')
-            ->get()
-            : collect(); // Menggunakan collect() untuk membuat koleksi kosong jika pengguna belum login
+            ->latest()
+            ->get() : collect();
 
-        // Hitung jumlah notifikasi dengan status = 1
+        // Hitung notifikasi dengan status tertentu
         $notifikasiCount = $notifikasi->where('status', 1)->count();
+
+        // Ambil joined courses untuk user yang login
         $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
-        return view('home.index', compact('user', 'profile', 'joinedCourses', 'cart', 'notifikasiCount', 'notifikasi', 'categori', 'KelasTatapMuka', 'event', 'blog', 'daftar_siswa', 'sertifikat'));
+
+        return view('home.index', compact(
+            'user',
+            'profile',
+            'joinedCourses',
+            'cart',
+            'notifikasiCount',
+            'notifikasi',
+            'categori',
+            'KelasTatapMuka',
+            'event',
+            'blog',
+            'daftar_siswa',
+            'sertifikat'
+        ));
     }
+
 
     public function classroom()
     {

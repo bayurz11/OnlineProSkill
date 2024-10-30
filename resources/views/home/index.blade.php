@@ -132,23 +132,19 @@
                                         data-bs-target="#all-tab-pane" type="button" role="tab"
                                         aria-controls="all-tab-pane" aria-selected="true">Semua Program</button>
                                 </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="bootcamp-tab" data-bs-toggle="tab"
-                                        data-bs-target="#bootcamp-tab-pane" type="button" role="tab"
-                                        aria-controls="bootcamp-tab-pane" aria-selected="false">Bootcamp</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="offline-tab" data-bs-toggle="tab"
-                                        data-bs-target="#offline-tab-pane" type="button" role="tab"
-                                        aria-controls="offline-tab-pane" aria-selected="false">Kelas Tatap Muka</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="online-tab" data-bs-toggle="tab"
-                                        data-bs-target="#online-tab-pane" type="button" role="tab"
-                                        aria-controls="online-tab-pane" aria-selected="false">Kelas Online</button>
-                                </li>
+
+                                @foreach ($courseTypes as $index => $type)
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link {{ $index === 0 ? '' : '' }}"
+                                            id="{{ strtolower($type) }}-tab" data-bs-toggle="tab"
+                                            data-bs-target="#{{ strtolower($type) }}-tab-pane" type="button"
+                                            role="tab" aria-controls="{{ strtolower($type) }}-tab-pane"
+                                            aria-selected="false">{{ $type }}</button>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
+
                     </div>
                 </div>
             </div>
