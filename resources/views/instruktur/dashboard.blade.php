@@ -72,7 +72,7 @@
                     </div>
                     <div class="dashboard__content-wrap">
                         <div class="dashboard__content-title">
-                            <h4 class="title">My Courses</h4>
+                            <h4 class="title">Kursus Saya</h4>
                         </div>
                         <div class="row">
                             <div class="col-12">
@@ -80,88 +80,32 @@
                                     <table class="table table-borderless">
                                         <thead>
                                             <tr>
-                                                <th>Course Name</th>
-                                                <th>Enrolled</th>
+                                                <th>Nama Kursus</th>
+                                                <th>Terdaftar</th>
                                                 <th>Rating</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>
-                                                    <a href="course-details.html">Accounting</a>
-                                                </td>
-                                                <td>
-                                                    <p class="color-black">50</p>
-                                                </td>
-                                                <td>
-                                                    <div class="review__wrap">
-                                                        <div class="rating">
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
+                                            @foreach ($orders as $order)
+                                                <tr>
+                                                    <td>
+                                                        <a
+                                                            href="course-details.html">{{ $order->KelasTatapMuka->nama_kursus }}</a>
+                                                    </td>
+                                                    <td>
+                                                        <p class="color-black">{{ $order->count() }}</p>
+                                                    </td>
+                                                    <td>
+                                                        <div class="review__wrap">
+                                                            <div class="rating">
+                                                                @for ($i = 0; $i < 5; $i++)
+                                                                    <i class="fas fa-star"></i>
+                                                                @endfor
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="course-details.html">Marketing</a>
-                                                </td>
-                                                <td>
-                                                    <p class="color-black">43</p>
-                                                </td>
-                                                <td>
-                                                    <div class="review__wrap">
-                                                        <div class="rating">
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="course-details.html">Web Design</a>
-                                                </td>
-                                                <td>
-                                                    <p class="color-black">36</p>
-                                                </td>
-                                                <td>
-                                                    <div class="review__wrap">
-                                                        <div class="rating">
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="course-details.html">Graphic</a>
-                                                </td>
-                                                <td>
-                                                    <p class="color-black">22</p>
-                                                </td>
-                                                <td>
-                                                    <div class="review__wrap">
-                                                        <div class="rating">
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>

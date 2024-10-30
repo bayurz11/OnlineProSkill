@@ -52,6 +52,8 @@ class DashboardInstrukturController extends Controller
         $jumlahSiswa = Order::whereIn('product_id', $kelastatapmuka->pluck('id'))
             ->distinct('user_id') // Menghitung hanya siswa unik
             ->count('user_id');
+        
+            $pesanan = Order::
         return view('instruktur.dashboard', compact('user', 'jumlahSiswa', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kelastatapmuka', 'kelastatapmukaCount'));
     }
     public function profile()
