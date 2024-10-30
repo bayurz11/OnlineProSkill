@@ -48,7 +48,7 @@
                         training corporate dll, silahkan isi form berikut:</p>
                 </div>
                 <div class="row">
-                    <div class="col-lg-12 ml-3 mr-3">
+                    <div class="col-lg-12 ml-6 mr-6">
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="itemOne-tab-pane" role="tabpanel"
                                 aria-labelledby="itemOne-tab" tabindex="0">
