@@ -48,23 +48,23 @@
                 .catch(error => console.error('Error:', error));
         });
     });
-    // document.getElementById('saveKurikulumButton').addEventListener('click', function(event) {
-    //     event.preventDefault();
-    //     var form = document.getElementById('editKurikulumInstrukturForm');
-    //     var kurikulumId = document.getElementById('edit_kurikulum_id').value;
+    document.getElementById('saveKurikulumButton').addEventListener('click', function(event) {
+        event.preventDefault();
+        var form = document.getElementById('editKurikulumInstrukturForm');
+        var kurikulumId = document.getElementById('edit_kurikulum_id').value;
 
-    //     // Set method dan action form
-    //     form.setAttribute('action', `/instruktur_kurikulum/${kurikulumId}`);
-    //     form.setAttribute('method', 'POST');
+        // Set method dan action form
+        form.setAttribute('action', `/instruktur_kurikulum/${kurikulumId}`);
+        form.setAttribute('method', 'POST');
 
-    //     // Tambahkan input hidden untuk method PUT
-    //     var methodInput = document.createElement('input');
-    //     methodInput.type = 'hidden';
-    //     methodInput.name = '_method';
-    //     methodInput.value = 'PUT';
-    //     form.appendChild(methodInput);
+        // Tambahkan input hidden untuk method PUT
+        var methodInput = document.createElement('input');
+        methodInput.type = 'hidden';
+        methodInput.name = '_method';
+        methodInput.value = 'PUT';
+        form.appendChild(methodInput);
 
-    //     // Kirim form
-    //     form.submit();
-    // });
+        // Kirim form
+        form.submit();
+    });
 </script>
