@@ -31,17 +31,20 @@ class HomeController extends Controller
         // Mengambil kategori
         $categori = Categories::all();
 
-        // Mengambil daftar course_type unik dari KelasTatapMuka
+        // Mengambil daftar course_type unik dari KelasTatapMuka dan mengganti nama
         $courseTypes = KelasTatapMuka::select('course_type')
             ->distinct()
-            ->pluck('course_type'); // Menambahkan 'Semua Program' untuk semua program
+            ->pluck('course_type')
+            ->map(function ($type) {
+                return $type === 'online' ? 'Kelas Online' : ($type === 'offline' ? 'Kelas Tatap Muka' : $type);
+            });
 
         // Mengambil KelasTatapMuka berdasarkan course_type
         $KelasTatapMuka = KelasTatapMuka::whereIn('course_type', ['online', 'offline'])
             ->orderBy('created_at', 'asc')
             ->get()
             ->flatMap(function ($kelas) {
-                return [$kelas]; // Duplikasi 3 kali
+                return [$kelas];
             });
 
         // Mengambil Blog terbaru
@@ -84,6 +87,7 @@ class HomeController extends Controller
             'courseTypes'
         ));
     }
+
 
 
     public function classroom()
