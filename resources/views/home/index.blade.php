@@ -127,20 +127,23 @@
                         </div>
                         <div class="courses__nav">
                             <ul class="nav nav-tabs" id="courseTab" role="tablist">
-                                @foreach ($courseTypes as $key => $type)
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="all-tab" data-bs-toggle="tab"
+                                        data-bs-target="#all-tab-pane" type="button" role="tab"
+                                        aria-controls="all-tab-pane" aria-selected="true">Semua Program</button>
+                                </li>
+
+                                @foreach ($courseTypes as $index => $type)
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link{{ $key === 'all' ? ' active' : '' }}"
-                                            id="{{ $key }}-tab" data-bs-toggle="tab"
-                                            data-bs-target="#{{ $key }}-tab-pane" type="button" role="tab"
-                                            aria-controls="{{ $key }}-tab-pane"
-                                            aria-selected="{{ $key === 'all' ? 'true' : 'false' }}">
-                                            {{ $type }}
-                                        </button>
+                                        <button class="nav-link {{ $index === 0 ? '' : '' }}"
+                                            id="{{ strtolower($type) }}-tab" data-bs-toggle="tab"
+                                            data-bs-target="#{{ strtolower($type) }}-tab-pane" type="button"
+                                            role="tab" aria-controls="{{ strtolower($type) }}-tab-pane"
+                                            aria-selected="false">{{ $type }}</button>
                                     </li>
                                 @endforeach
                             </ul>
                         </div>
-
 
                     </div>
                 </div>
