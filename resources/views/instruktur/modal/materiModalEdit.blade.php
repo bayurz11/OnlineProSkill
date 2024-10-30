@@ -59,6 +59,7 @@
                 .catch(error => console.error('Error:', error));
         });
 
+
         document.getElementById('saveSectionButton').addEventListener('click', function(event) {
             event.preventDefault();
             var form = document.getElementById('sectionModalEditForm');
