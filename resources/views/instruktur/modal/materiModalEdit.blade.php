@@ -33,7 +33,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
-                    <button type="button" class="btn btn-primary" id="saveKurikulumButton">Simpan</button>
+                    <button type="button" class="btn btn-primary" id="saveSectionButton">Simpan</button>
                 </div>
             </form>
         </div>
@@ -59,7 +59,7 @@
                 .catch(error => console.error('Error:', error));
         });
 
-        document.getElementById('saveKurikulumButton').addEventListener('click', function(event) {
+        document.getElementById('saveSectionButton').addEventListener('click', function(event) {
             event.preventDefault();
             var form = document.getElementById('sectionModalEditForm');
             var sectionId = document.getElementById('section_id').value;
