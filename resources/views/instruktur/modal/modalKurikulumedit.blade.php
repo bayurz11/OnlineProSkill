@@ -8,7 +8,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="editKurikulumInstrukturForm">
+                <form id="kurikulumModalEdit" method="POST">
                     @csrf
                     @method('PUT')
                     <input type="hidden" name="course_id" id="edit_course_id">
@@ -28,8 +28,36 @@
         </div>
     </div>
 </div>
-
 <script>
+    $(document).ready(function() {
+        $('#kurikulumModalEdit').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget); // Tombol yang membuka modal
+            var kurikulumId = button.data('id'); // Ambil data-id dari tombol
+            console.log('Kurikulum ID:', kurikulumId); // Debugging line
+
+            // AJAX request untuk mengambil data kurikulum
+            $.ajax({
+                url: '/instruktur_kurikulum/' + kurikulumId + '/edit',
+                method: 'GET',
+                success: function(response) {
+                    console.log(response); // Debugging line
+                    $('#edit_kurikulum_id').val(response
+                        .id); // Set nilai course_id di dalam modal
+                    $('#edittitle').val(response
+                        .title); // Set nilai judul kurikulum di dalam modal
+
+                    // Set action form dengan id yang benar
+                    $('#editKurikulumForm').attr('action', '/instruktur_kurikulum.update/' +
+                        kurikulumId);
+                },
+                error: function(xhr) {
+                    console.log('Error:', xhr);
+                }
+            });
+        });
+    });
+</script>
+{{-- <script>
     $(document).ready(function() {
         $('#kurikulumModalEdit').on('show.bs.modal', function(event) {
             const button = $(event.relatedTarget);
@@ -81,4 +109,4 @@
             });
         });
     });
-</script>
+</script> --}}
