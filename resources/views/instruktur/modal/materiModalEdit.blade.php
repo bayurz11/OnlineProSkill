@@ -18,17 +18,17 @@
                     </div>
                     <div class="mb-3">
                         <label for="link" class="form-label">Link Materi</label>
-                        <input type="text" class="form-control" id="link" name="link"
+                        <input type="text" class="form-control" id="edit_link" name="link"
                             placeholder="Masukkan link materi Anda">
                     </div>
                     <div class="mb-3">
                         <label for="duration" class="form-label">Durasi</label>
-                        <input type="text" class="form-control" id="duration" name="duration"
+                        <input type="text" class="form-control" id="edit_duration" name="duration"
                             placeholder="00:00:00">
                     </div>
                     <div class="mb-3">
                         <label for="file" class="form-label">Upload Materi</label>
-                        <input type="file" class="form-control" id="file" name="file">
+                        <input type="file" class="form-control" id="edit_file" name="file">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -53,8 +53,8 @@
                 .then(data => {
                     document.getElementById('section_id').value = data.id;
                     document.getElementById('edittitle').value = data.title;
-                    document.getElementById('link').value = data.link || '';
-                    document.getElementById('duration').value = data.duration || '';
+                    document.getElementById('edit_link').value = data.link || '';
+                    document.getElementById('edit_duration').value = data.duration || '';
                 })
                 .catch(error => console.error('Error:', error));
         });
