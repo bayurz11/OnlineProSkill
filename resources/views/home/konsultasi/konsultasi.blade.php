@@ -78,6 +78,7 @@
                                                 <div class="form-grp select-grp">
                                                     <label for="displayname">Peruntukan Training </label>
                                                     <select id="displayname" name="displayname">
+                                                        <option>Pilih</option>
                                                         <option value="company">Company</option>
                                                         <option value="individu">Individu</option>
                                                         <option value="Kelompok_Kecil">Kelompok Kecil</option>
