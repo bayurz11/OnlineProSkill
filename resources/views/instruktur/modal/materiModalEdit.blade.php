@@ -29,6 +29,7 @@
                     <div class="mb-3">
                         <label for="file" class="form-label">Upload Materi</label>
                         <input type="file" class="form-control" id="edit_file" name="file">
+                        <span id="current_file" class="text-muted"></span> <!-- Tempat untuk menampilkan nama file -->
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -39,6 +40,7 @@
         </div>
     </div>
 </div>
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const sectionModalEdit = document.getElementById('sectionModalEdit');
@@ -55,11 +57,14 @@
                     document.getElementById('edit_title').value = data.title;
                     document.getElementById('edit_link').value = data.link || '';
                     document.getElementById('edit_duration').value = data.duration || '';
-                    document.getElementById('edit_file').value = data.file_path || '';
+
+                    // Menampilkan nama file yang diunggah sebelumnya
+                    const currentFile = data.file_path ? `File saat ini: ${data.file_path}` :
+                        'Tidak ada file yang diunggah.';
+                    document.getElementById('current_file').innerText = currentFile;
                 })
                 .catch(error => console.error('Error:', error));
         });
-
 
         document.getElementById('saveSectionButton').addEventListener('click', function(event) {
             event.preventDefault();
