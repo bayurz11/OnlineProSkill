@@ -86,7 +86,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($orders as $order)
+                                            @foreach ($jumlahSiswa as $order)
                                                 <tr>
                                                     <td>
                                                         <a
