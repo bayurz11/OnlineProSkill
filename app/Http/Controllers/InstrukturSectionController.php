@@ -65,23 +65,33 @@ class InstrukturSectionController extends Controller
     }
     public function update(Request $request, $id)
     {
-        $Section = Section::find($id);
+        $section = Section::find($id);
 
-        if (!$Section) {
+        if (!$section) {
             return redirect()->back()->with('error', 'Section tidak ditemukan');
         }
 
         // Validasi data yang diterima
-        $request->validate([
+        $validatedData = $request->validate([
             'title' => 'required|string|max:255',
-            // Tambahkan validasi lainnya sesuai kebutuhan
+            'link' => 'nullable|string|max:255',
+            'duration' => 'nullable|string|max:255',
+            'file' => 'nullable|file|mimes:pdf,doc,docx,txt,xlsx|max:10048', // Validasi file upload
         ]);
 
-        // Update data kursus
-        $Section->title = $request->input('title');
-        // Jika Anda menambahkan field lain, lakukan update di sini
+        // Update data section
+        $section->title = $validatedData['title'];
+        $section->link = $validatedData['link'];
+        $section->duration = $validatedData['duration'];
 
-        $Section->save();
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('uploads'), $fileName);
+            $section->file_path = 'uploads/' . $fileName;
+        }
+
+        $section->save();
 
         return redirect()->back()->with('success', 'Section berhasil diperbarui');
     }
