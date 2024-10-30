@@ -185,7 +185,8 @@ class SearchController extends Controller
                 return $query->whereIn('kategori_id', $category_ids);
             })
             ->when($search_term, function ($query, $search_term) {
-                return $query->where('nama_kursus', 'like', '%' . $search_term . '%');
+                return $query->where('nama_kursus', 'like', '%' . $search_term . '%')
+                    ->orWhere('tag', 'like', '%' . $search_term . '%');
             })
             ->when(!empty($selectedTingkat), function ($query) use ($selectedTingkat) {
                 return $query->whereIn('tingkat', $selectedTingkat);
