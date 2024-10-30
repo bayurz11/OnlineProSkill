@@ -63,11 +63,18 @@ class DashboardInstrukturController extends Controller
             ->count('user_id');
 
         // Mengambil daftar pesanan kelas tatap muka berdasarkan user_id dan id yang ada di order
-        $daftarpesanan = KelasTatapMuka::where('user_id', $user->id) // Menambahkan kondisi untuk user_id
+        $daftarpesanan = KelasTatapMuka::where('user_id', $user->id)
             ->whereIn('id', function ($query) {
                 $query->select('product_id')->from('orders');
             })
             ->get();
+
+        // Menambahkan jumlah order PAID untuk setiap kelas tatap muka ke dalam koleksi
+        foreach ($daftarpesanan as $kelas) {
+            $kelas->jumlah_order_paid = Order::where('product_id', $kelas->id)
+                ->where('status', 'PAID')
+                ->count();
+        }
 
         return view('instruktur.dashboard', compact('user', 'jumlahSiswa', 'daftarpesanan', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kelastatapmuka', 'kelastatapmukaCount'));
     }
