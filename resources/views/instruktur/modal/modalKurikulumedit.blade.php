@@ -10,7 +10,7 @@
             <div class="modal-body">
                 <form id="editKurikulumInstrukturForm">
                     @csrf
-                    @method('PUT') <!-- Metode PUT untuk pembaruan -->
+                    @method('PUT')
                     <input type="hidden" name="course_id" id="edit_course_id">
                     <input type="hidden" name="id" id="edit_kurikulum_id">
 
@@ -49,7 +49,9 @@
         });
 
         // Fungsi untuk memperbarui data
-        document.getElementById('saveKurikulumButton').addEventListener('click', function() {
+        document.getElementById('saveKurikulumButton').addEventListener('click', function(event) {
+            event.preventDefault(); // Mencegah form submit default
+
             const kurikulumId = document.getElementById('edit_kurikulum_id').value;
             const title = document.getElementById('edittitle').value;
 

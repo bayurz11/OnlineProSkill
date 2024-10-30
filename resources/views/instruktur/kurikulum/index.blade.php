@@ -193,7 +193,6 @@
         document.addEventListener('DOMContentLoaded', function() {
             const kurikulumModalEdit = document.getElementById('kurikulumModalEdit');
 
-            // Fungsi saat modal ditampilkan
             kurikulumModalEdit.addEventListener('show.bs.modal', function(event) {
                 const button = event.relatedTarget; // Tombol yang diklik
                 const kurikulumId = button.getAttribute('data-id');
@@ -204,33 +203,6 @@
                     .then(data => {
                         document.getElementById('edit_kurikulum_id').value = data.id;
                         document.getElementById('edittitle').value = data.title;
-                    })
-                    .catch(error => console.error('Error:', error));
-            });
-
-            // Fungsi untuk memperbarui data
-            document.getElementById('saveKurikulumButton').addEventListener('click', function() {
-                const kurikulumId = document.getElementById('edit_kurikulum_id').value;
-                const title = document.getElementById('edittitle').value;
-
-                fetch(`/instruktur_kurikulum/${kurikulumId}`, {
-                        method: 'PUT',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-Token': document.querySelector('input[name="_token"]').value
-                        },
-                        body: JSON.stringify({
-                            title: title
-                        })
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            alert('Kurikulum berhasil diperbarui');
-                            location.reload(); // Refresh halaman untuk menampilkan data terbaru
-                        } else {
-                            alert('Gagal memperbarui kurikulum');
-                        }
                     })
                     .catch(error => console.error('Error:', error));
             });
