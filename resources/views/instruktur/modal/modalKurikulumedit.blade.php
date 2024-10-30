@@ -54,7 +54,7 @@
             const title = document.getElementById('edittitle').value;
 
             fetch(`/instruktur_kurikulum/${kurikulumId}`, {
-                    method: 'PUT',
+                    method: 'get',
                     headers: {
                         'Content-Type': 'application/json',
                         'X-CSRF-Token': document.querySelector('input[name="_token"]').value
