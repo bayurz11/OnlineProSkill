@@ -183,7 +183,7 @@
                                                                                     : asset('public/uploads/' . $order->KelasTatapMuka->user->userprofile->gambar))
                                                                                 : asset('public/assets/img/courses/details_instructors02.jpg') }}"
                                                                                 alt="img" class="rounded-circle"
-                                                                                style="width: 30px; height: 30px;">
+                                                                                style="width: 30px; height: 30px; object-fit: cover;">
                                                                             {{ $order->KelasTatapMuka->user->name }}
                                                                         </a>
                                                                     </div>
