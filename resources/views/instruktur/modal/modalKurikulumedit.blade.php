@@ -8,8 +8,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('instruktur_kurikulum.update', 'id') }}" method="POST"
-                    id="editKurikulumInstrukturForm">
+                <form id="editKurikulumInstrukturForm">
                     @csrf
                     @method('PUT') <!-- Metode PUT untuk pembaruan -->
                     <input type="hidden" name="course_id" id="edit_course_id">
@@ -24,35 +23,56 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
-                <button type="submit" class="btn btn-primary" form="editKurikulumInstrukturForm">Simpan</button>
+                <button type="button" class="btn btn-primary" id="saveKurikulumButton">Simpan</button>
             </div>
         </div>
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    $(document).ready(function() {
-        $('.edit-button').on('click', function() {
-            const kurikulumId = $(this).data('id'); // Mengambil ID dari tombol edit
+    document.addEventListener('DOMContentLoaded', function() {
+        const kurikulumModalEdit = document.getElementById('kurikulumModalEdit');
 
-            $.ajax({
-                url: `/instruktur_kurikulum/${kurikulumId}/edit`, // Menggunakan route yang telah didefinisikan
-                type: 'GET',
-                success: function(response) {
-                    // Mengisi data ke dalam modal
-                    $('#edit_kurikulum_id').val(response.id); // Set ID kurikulum
-                    $('#edittitle').val(response.title); // Set judul kurikulum
-                    $('#edit_course_id').val(response.course_id); // Set course_id jika ada
+        // Fungsi saat modal ditampilkan
+        kurikulumModalEdit.addEventListener('show.bs.modal', function(event) {
+            const button = event.relatedTarget; // Tombol yang diklik
+            const kurikulumId = button.getAttribute('data-id');
 
-                    // Menampilkan modal
-                    $('#kurikulumModalEdit').modal('show');
-                },
-                error: function(xhr) {
-                    alert(xhr.responseJSON
-                        .message); // Menampilkan pesan error jika kurikulum tidak ditemukan
-                }
-            });
+            // Fetch data dari controller untuk modal
+            fetch(`/instruktur_kurikulum/${kurikulumId}/edit`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('edit_kurikulum_id').value = data.id;
+                    document.getElementById('edittitle').value = data.title;
+                })
+                .catch(error => console.error('Error:', error));
+        });
+
+        // Fungsi untuk memperbarui data
+        document.getElementById('saveKurikulumButton').addEventListener('click', function() {
+            const kurikulumId = document.getElementById('edit_kurikulum_id').value;
+            const title = document.getElementById('edittitle').value;
+
+            fetch(`/instruktur_kurikulum/${kurikulumId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-Token': document.querySelector('input[name="_token"]').value
+                    },
+                    body: JSON.stringify({
+                        title: title
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Kurikulum berhasil diperbarui');
+                        location.reload(); // Refresh halaman untuk menampilkan data terbaru
+                    } else {
+                        alert('Gagal memperbarui kurikulum');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
         });
     });
 </script>

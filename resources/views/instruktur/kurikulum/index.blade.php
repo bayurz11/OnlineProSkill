@@ -5,6 +5,7 @@
 
 @section('content')
     @include('instruktur.modal.modalKurikulumedit')
+    @include('instruktur.modal.materiModalEdit')
     <!-- breadcrumb-area -->
     <div class="breadcrumb__area breadcrumb__bg breadcrumb__bg-three"
         data-background="{{ asset('public/assets/img/bg/breadcrumb_bg.jpg') }}">
