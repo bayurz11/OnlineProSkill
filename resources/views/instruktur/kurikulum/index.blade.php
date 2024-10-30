@@ -155,6 +155,7 @@
 
 
         function hapus1(id) {
+            event.preventDefault();
             const confirmationBox = `
                 <div id="confirmationModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">
                     <div style="background: white; padding: 40px; border-radius: 8px; text-align: center;">
