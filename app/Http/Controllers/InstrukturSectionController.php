@@ -52,4 +52,56 @@ class InstrukturSectionController extends Controller
         // Redirect ke halaman sebelumnya dengan pesan sukses
         return redirect()->back()->with('success', 'Section berhasil ditambahkan.');
     }
+
+    public function edit($id)
+    {
+        $Section = Section::find($id);
+
+        if (!$Section) {
+            return response()->json(['message' => 'Section tidak ditemukan'], 404);
+        }
+
+        return response()->json($Section);
+    }
+    public function update(Request $request, $id)
+    {
+        $Section = Section::find($id);
+
+        if (!$Section) {
+            return redirect()->back()->with('error', 'Section tidak ditemukan');
+        }
+
+        // Validasi data yang diterima
+        $request->validate([
+            'title' => 'required|string|max:255',
+            // Tambahkan validasi lainnya sesuai kebutuhan
+        ]);
+
+        // Update data kursus
+        $Section->title = $request->input('title');
+        // Jika Anda menambahkan field lain, lakukan update di sini
+
+        $Section->save();
+
+        return redirect()->back()->with('success', 'Section berhasil diperbarui');
+    }
+
+
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy($id)
+    {
+
+        $course = Section::find($id);
+
+        if (!$course) {
+            return redirect()->back()->with('error', 'Section tidak ditemukan');
+        }
+
+        $course->delete();
+
+        return redirect()->back()->with('success', 'Section berhasil dihapus');
+    }
 }

@@ -238,6 +238,9 @@ Route::middleware('isInstruktur')->group(function () {
 
     Route::get('/section-content/{id}', [InstrukturSectionController::class, 'getContent']);
     Route::post('/instruktur_section/store', [InstrukturSectionController::class, 'store'])->name('instruktur_section.store');
+    Route::get('/instruktur_section/{id}/edit', [InstrukturSectionController::class, 'edit'])->name('instruktur_section.edit');
+    Route::put('/instruktur_section/{id}', [InstrukturSectionController::class, 'update'])->name('instruktur_section.update');
+    Route::delete('/instruktur_section_destroy/{id}', [InstrukturSectionController::class, 'destroy'])->name('class.destroy');
 });
 
 
