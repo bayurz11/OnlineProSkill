@@ -34,10 +34,7 @@ class HomeController extends Controller
         // Mengambil daftar course_type unik dari KelasTatapMuka
         $courseTypes = KelasTatapMuka::select('course_type')
             ->distinct()
-            ->pluck('course_type')
-            ->map(function ($type) {
-                return $type === 'offline' ? 'Kelas Tatap Muka' : ($type === 'online' ? 'Kelas Online' : $type);
-            });
+            ->pluck('course_type');
 
         // Mengambil KelasTatapMuka berdasarkan course_type
         $KelasTatapMuka = KelasTatapMuka::whereIn('course_type', ['online', 'offline'])
