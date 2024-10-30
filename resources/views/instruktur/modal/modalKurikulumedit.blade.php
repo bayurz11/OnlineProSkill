@@ -8,7 +8,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="kurikulumModalEdit" method="POST">
+                <form id="editKurikulumInstrukturForm">
                     @csrf
                     @method('PUT')
                     <input type="hidden" name="course_id" id="edit_course_id">
