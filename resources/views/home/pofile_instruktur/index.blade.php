@@ -178,7 +178,7 @@
                                             @endif
                                         @endforeach
                                     @else
-                                        <p>Tidak ada kelas yang ditemukan untuk instruktur ini.</p>
+                                        <p>Instruktur Belum Membuat Kelas.</p>
                                     @endif
                                 </div>
 
