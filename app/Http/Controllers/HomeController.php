@@ -72,7 +72,6 @@ class HomeController extends Controller
         return view('home.index', compact('user', 'profile', 'joinedCourses', 'cart', 'notifikasiCount', 'notifikasi', 'categori', 'KelasTatapMuka', 'event', 'blog', 'daftar_siswa', 'sertifikat'));
     }
 
-
     public function classroom()
     {
         $categori = Categories::all();
@@ -115,7 +114,6 @@ class HomeController extends Controller
 
         return view('home.classroom', compact('user', 'categori', 'count', 'course', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'jumlahPendaftaran', 'joinedCourses'));
     }
-
 
     public function classroomdetail($id)
     {
@@ -188,11 +186,6 @@ class HomeController extends Controller
             'userHasAccess'
         ));
     }
-
-
-
-
-
 
     public function course()
     {
@@ -296,7 +289,6 @@ class HomeController extends Controller
 
         return view('home.coursedetail', compact('user', 'categori', 'jumlahPendaftaran', 'courses', 'kurikulum', 'courseList', 'perstaratan', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'section', 'joinedCourses', 'sertifikatCount'));
     }
-
 
     public function checkout(Request $request, $id)
     {

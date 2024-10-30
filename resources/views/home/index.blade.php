@@ -119,9 +119,11 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-6 col-lg-8">
                         <div class="section__title text-center mb-40">
-                            <span class="sub-title">Kelas ProSkill Akademia</span>
-                            <h2 class="title">Kelas Online dan Offline Kami</h2>
-                            <p class="desc">Saatnya Meningkatkan Keterampilan dan Skill Anda</p>
+                            <span class="sub-title">Program ProSkill Akademia</span>
+                            <h2 class="title">Jelajahi Program Unggulan Kami</h2>
+                            <p class="desc">Inilah saat yang tepat untuk melangkah maju! Program ProSkill Akademia siap
+                                membantu Anda meningkatkan keterampilan dengan pelatihan terbaik yang sesuai dengan
+                                kebutuhan Anda.</p>
                         </div>
                         <div class="courses__nav">
                             <ul class="nav nav-tabs" id="courseTab" role="tablist">
@@ -129,7 +131,7 @@
                                     <button class="nav-link active" id="all-tab" data-bs-toggle="tab"
                                         data-bs-target="#all-tab-pane" type="button" role="tab"
                                         aria-controls="all-tab-pane" aria-selected="true">
-                                        Semua Kelas
+                                        Semua Program
                                     </button>
                                 </li>
 
@@ -145,14 +147,13 @@
                         <div class="swiper-wrapper">
                             @foreach ($KelasTatapMuka->where('status', 1) as $kelas)
                                 @php
-                                    // Mengecek apakah course_id ada di model Kurikulum
+
                                     $kurikulumExists = \App\Models\Kurikulum::where(
                                         'course_id',
                                         $kelas['id'],
                                     )->exists();
                                 @endphp
                                 @if ($kurikulumExists)
-                                    <!-- Ubah akses menjadi array -->
                                     <div class="swiper-slide">
                                         <div
                                             class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
@@ -210,8 +211,6 @@
                     </div>
                 </div>
             </div>
-
-
 
             <div class="all-courses-btn mt-30">
                 <div class="tg-button-wrap justify-content-center">
