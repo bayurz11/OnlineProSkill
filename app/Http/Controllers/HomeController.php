@@ -42,7 +42,7 @@ class HomeController extends Controller
             ->orderBy('created_at', 'asc')
             ->get()
             ->flatMap(function ($kelas) {
-                return [$kelas, $kelas, $kelas]; // Duplikasi 3 kali
+                return [$kelas]; // Duplikasi 3 kali
             });
 
         // Mengambil Blog terbaru
