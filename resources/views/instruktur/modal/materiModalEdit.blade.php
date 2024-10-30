@@ -1,20 +1,19 @@
 <div class="modal fade" id="sectionModalEdit" tabindex="-1" aria-labelledby="sectionModalEditLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form id="createKurikulumForm" action="{{ route('instruktur_section.store') }}" method="POST"
-                enctype="multipart/form-data">
+            <form id="sectionModalEditForm" method="POST">
                 @csrf
                 <div class="modal-header">
                     <h5 class="modal-title" id="sectionModalEditLabel">Edit Materi</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
                 </div>
                 <div class="modal-body">
-                    <!-- Hidden field for kurikulum_id -->
-                    <input type="hidden" name="kurikulum_id" id="kurikulum_id">
+                    <!-- Hidden field for section_id -->
+                    <input type="hidden" name="section_id" id="section_id">
 
                     <div class="mb-3">
                         <label for="title" class="form-label">Judul <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="title" name="title"
+                        <input type="text" class="form-control" id="edittitle" name="title"
                             placeholder="Masukkan Judul Materi Anda" required>
                     </div>
                     <div class="mb-3">
@@ -22,13 +21,11 @@
                         <input type="text" class="form-control" id="link" name="link"
                             placeholder="Masukkan link materi Anda">
                     </div>
-
                     <div class="mb-3">
                         <label for="duration" class="form-label">Durasi</label>
                         <input type="text" class="form-control" id="duration" name="duration"
                             placeholder="00:00:00">
                     </div>
-
                     <div class="mb-3">
                         <label for="file" class="form-label">Upload Materi</label>
                         <input type="file" class="form-control" id="file" name="file">
@@ -36,9 +33,50 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="button" class="btn btn-primary" id="saveKurikulumButton">Simpan</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const sectionModalEdit = document.getElementById('sectionModalEdit');
+
+        sectionModalEdit.addEventListener('show.bs.modal', function(event) {
+            const button = event.relatedTarget; // Tombol yang diklik
+            const sectionId = button.getAttribute('data-id');
+
+            // Fetch data dari controller untuk modal
+            fetch(`/instruktur_section/${sectionId}/edit`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('section_id').value = data.id;
+                    document.getElementById('edittitle').value = data.title;
+                    document.getElementById('link').value = data.link || '';
+                    document.getElementById('duration').value = data.duration || '';
+                })
+                .catch(error => console.error('Error:', error));
+        });
+
+        document.getElementById('saveKurikulumButton').addEventListener('click', function(event) {
+            event.preventDefault();
+            var form = document.getElementById('sectionModalEditForm');
+            var sectionId = document.getElementById('section_id').value;
+
+            // Set method dan action form
+            form.setAttribute('action', `/instruktur_section/${sectionId}`);
+            form.setAttribute('method', 'POST');
+
+            // Tambahkan input hidden untuk method PUT
+            var methodInput = document.createElement('input');
+            methodInput.type = 'hidden';
+            methodInput.name = '_method';
+            methodInput.value = 'PUT';
+            form.appendChild(methodInput);
+
+            // Kirim form
+            form.submit();
+        });
+    });
+</script>
