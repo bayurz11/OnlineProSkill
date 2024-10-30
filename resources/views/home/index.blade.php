@@ -136,11 +136,11 @@
 
                                 @foreach ($courseTypes as $index => $type)
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link {{ $index === 0 ? '' : '' }}"
+                                        <button class="nav-link {{ $index === 0 ? 'active' : '' }}"
                                             id="{{ strtolower($type) }}-tab" data-bs-toggle="tab"
                                             data-bs-target="#{{ strtolower($type) }}-tab-pane" type="button"
                                             role="tab" aria-controls="{{ strtolower($type) }}-tab-pane"
-                                            aria-selected="false">{{ $type }}</button>
+                                            aria-selected="{{ $index === 0 ? 'true' : 'false' }}">{{ $type }}</button>
                                     </li>
                                 @endforeach
                             </ul>
@@ -162,7 +162,8 @@
                 </div>
 
                 @foreach ($courseTypes as $type)
-                    <div class="tab-pane fade" id="{{ strtolower($type) }}-tab-pane" role="tabpanel"
+                    <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}"
+                        id="{{ strtolower($type) }}-tab-pane" role="tabpanel"
                         aria-labelledby="{{ strtolower($type) }}-tab" tabindex="0">
                         <div class="swiper courses-swiper-active">
                             <div class="swiper-wrapper">
