@@ -57,14 +57,31 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-grp">
-                                                    <label for="firstname">First Name</label>
-                                                    <input id="firstname" type="text" required>
+                                                    <label for="nama">Nama <span class="text-danger">*</span></label>
+                                                    <input id="nama" name="nama" type="text" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-grp">
-                                                    <label for="lastname">Last Name</label>
-                                                    <input id="lastname" type="text" required>
+                                                    <label for="phonenumber">Nomor Telepon <span
+                                                            class="text-danger">*</span></label>
+                                                    <input id="phonenumber" name="phonenumber" type="number" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-grp">
+                                                    <label for="email">Email</label>
+                                                    <input id="lastname" type="email" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-grp select-grp">
+                                                    <label for="displayname">Peruntukan Training </label>
+                                                    <select id="displayname" name="displayname">
+                                                        <option value="company">Company</option>
+                                                        <option value="individu">Individu</option>
+                                                        <option value="Kelompok_Kecil">Kelompok Kecil</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -75,28 +92,11 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-grp">
-                                                    <label for="phonenumber">Phone Number</label>
-                                                    <input id="phonenumber" type="tel" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-grp">
                                                     <label for="skill">Skill/Occupation</label>
                                                     <input id="skill" type="text" required>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <div class="form-grp select-grp">
-                                                    <label for="displayname">Display Name Publicly As</label>
-                                                    <select id="displayname" name="displayname">
-                                                        <option value="Emily Hannah">Emily Hannah</option>
-                                                        <option value="John">John</option>
-                                                        <option value="Due">Due</option>
-                                                        <option value="Due John">Due John</option>
-                                                        <option value="johndue">johndue</option>
-                                                    </select>
-                                                </div>
-                                            </div>
+
                                         </div>
                                         <div class="form-grp">
                                             <label for="bio">Bio</label>
