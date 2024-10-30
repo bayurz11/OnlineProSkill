@@ -89,6 +89,19 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
+                                                <div class="form-grp select-grp">
+                                                    <label for="displayname">Berapa jumlah peserta yang ikut serta dalam
+                                                        training?</label>
+                                                    <select id="displayname" name="displayname">
+                                                        <option>Pilih</option>
+                                                        <option value="1-5">1-5 Orang</option>
+                                                        <option value="6-10">6-10 Orang</option>
+                                                        <option value="11-15">11-15 Orang</option>
+                                                        <option value=">15">>15</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
                                                 <div class="form-grp">
                                                     <label for="username">User Name</label>
                                                     <input id="username" type="text" required>
