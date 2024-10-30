@@ -33,12 +33,10 @@
     document.addEventListener('DOMContentLoaded', function() {
         const kurikulumModalEdit = document.getElementById('kurikulumModalEdit');
 
-        // Fungsi saat modal ditampilkan
         kurikulumModalEdit.addEventListener('show.bs.modal', function(event) {
-            const button = event.relatedTarget; // Tombol yang diklik
+            const button = event.relatedTarget;
             const kurikulumId = button.getAttribute('data-id');
 
-            // Fetch data dari controller untuk modal
             fetch(`/instruktur_kurikulum/${kurikulumId}/edit`)
                 .then(response => response.json())
                 .then(data => {
@@ -48,9 +46,8 @@
                 .catch(error => console.error('Error:', error));
         });
 
-        // Fungsi untuk memperbarui data
         document.getElementById('saveKurikulumButton').addEventListener('click', function(event) {
-            event.preventDefault(); // Mencegah form submit default
+            event.preventDefault();
 
             const kurikulumId = document.getElementById('edit_kurikulum_id').value;
             const title = document.getElementById('edittitle').value;
@@ -69,7 +66,7 @@
                 .then(data => {
                     if (data.success) {
                         alert('Kurikulum berhasil diperbarui');
-                        location.reload(); // Refresh halaman untuk menampilkan data terbaru
+                        location.reload(); // Refresh halaman setelah update berhasil
                     } else {
                         alert('Gagal memperbarui kurikulum');
                     }
