@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\ContactUs;
-use App\Models\Kurikulum;
 use App\Models\Categories;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
@@ -53,20 +52,10 @@ class ProfileInstrukturController extends Controller
         // Ambil data kelas berdasarkan instructor_id dari instructorProfile
         $kelas = [];
         if ($instructorProfile) {
-            // Ambil semua course_id dari kurikulum
-            $validCourseIds = Kurikulum::pluck('course_id')->toArray();
-
-            // Ambil semua kelas berdasarkan instructor
             $kelas = KelasTatapMuka::where('user_id', $instructorProfile->user_id)
-                ->whereIn('course_type', ['offline', 'online'], $validCourseIds)
+                ->whereIn('course_type', ['offline', 'online'])
                 ->get();
-
-            // Filter kelas berdasarkan course_id yang valid
-            $kelas = $kelas->filter(function ($item) use ($validCourseIds) {
-                return in_array($item->course_id, $validCourseIds);
-            });
         }
-
         $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
         return view('home.pofile_instruktur.index', compact('user', 'categori', 'joinedCourses', 'emailList', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'contactUs', 'teleponList', 'instructorProfile', 'kelas'));
     }
