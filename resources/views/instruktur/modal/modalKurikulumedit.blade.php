@@ -48,7 +48,8 @@
                 .catch(error => console.error('Error:', error));
         });
     });
-    document.getElementById('saveKurikulumButton').addEventListener('click', function() {
+    document.getElementById('saveKurikulumButton').addEventListener('click', function(event) {
+        event.preventDefault();
         var form = document.getElementById('editKurikulumInstrukturForm');
         var kurikulumId = document.getElementById('edit_kurikulum_id').value;
 

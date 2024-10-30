@@ -122,6 +122,7 @@
             document.body.insertAdjacentHTML('beforeend', confirmationBox);
 
             document.getElementById('confirmDelete').onclick = function() {
+                event.preventDefault();
                 const kurikulumId = this.getAttribute('data-id');
                 $.ajax({
                     url: `/instruktur_kurikulum_destroy/${kurikulumId}`,
@@ -164,6 +165,7 @@
             document.body.insertAdjacentHTML('beforeend', confirmationBox);
 
             document.getElementById('confirmDelete').onclick = function() {
+                event.preventDefault();
                 const sectionId = this.getAttribute('data-id');
                 $.ajax({
                     url: `/instruktur_section_destroy/${sectionId}`,
