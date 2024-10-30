@@ -39,6 +39,7 @@ use App\Http\Controllers\DashboardInstrukturController;
 use App\Http\Controllers\InstrukturCoursesController;
 use App\Http\Controllers\InstrukturKurikulumController;
 use App\Http\Controllers\InstrukturSectionController;
+use App\Http\Controllers\KonsultasiController;
 use App\Http\Controllers\OrderHistoryManagerController;
 use App\Http\Controllers\ProfileInstrukturController;
 use App\Http\Controllers\SettingProfileInstrukturController;
@@ -287,6 +288,9 @@ Route::get('/hubungikami', [HubungiKamiController::class, 'index'])->name('hubun
 
 //Tentang Kami
 Route::get('/tentangkami', [TentangKamiController::class, 'index'])->name('tentangkami');
+
+//konsultasi
+Route::get('/konsultasi', [KonsultasiController::class, 'index'])->name('konsultasi');
 
 //Profile Instruktur
 Route::get('/profile_instruktur/{id}', [ProfileInstrukturController::class, 'index'])->name('profile_instruktur');

@@ -30,8 +30,8 @@
                                             <li class="{{ Request::is('course') ? 'active' : '' }}">
                                                 <a href="{{ route('course') }}">Kelas Online</a>
                                             </li>
-                                            <li class="{{ Request::is('In-house_Training') ? 'active' : '' }}">
-                                                <a href="#"> In-house Training</a>
+                                            <li class="{{ Request::is('konsultasi') ? 'active' : '' }}">
+                                                <a href="{{ route('konsultasi') }}"> In-house Training</a>
                                             </li>
                                         </ul>
                                     </li>
