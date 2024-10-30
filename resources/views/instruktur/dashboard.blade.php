@@ -86,14 +86,13 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($jumlahSiswa as $order)
+                                            @foreach ($daftarpesanan as $daftarpesanan)
                                                 <tr>
                                                     <td>
-                                                        <a
-                                                            href="course-details.html">{{ $order->KelasTatapMuka->nama_kursus }}</a>
+                                                        <a href="course-details.html">{{ $daftarpesanan->nama_kursus }}</a>
                                                     </td>
                                                     <td>
-                                                        <p class="color-black">{{ $order->count() }}</p>
+                                                        <p class="color-black">{{ $daftarpesanan->count() }}</p>
                                                     </td>
                                                     <td>
                                                         <div class="review__wrap">
