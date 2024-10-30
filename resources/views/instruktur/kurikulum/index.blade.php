@@ -166,7 +166,7 @@
             document.getElementById('confirmDelete').onclick = function() {
                 const sectionId = this.getAttribute('data-id');
                 $.ajax({
-                    url: `/section_destroy/${sectionId}`,
+                    url: `/instruktur_section_destroy/${sectionId}`,
                     method: 'POST',
                     headers: {
                         'X-CSRF-TOKEN': '{{ csrf_token() }}',
