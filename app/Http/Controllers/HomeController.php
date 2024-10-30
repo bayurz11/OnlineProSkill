@@ -37,14 +37,15 @@ class HomeController extends Controller
             ->pluck('course_type')
             ->map(function ($type) {
                 return $type === 'online' ? 'Kelas Online' : ($type === 'offline' ? 'Kelas Tatap Muka' : $type);
-            });
+            })
+            ->prepend('Semua Program'); // Menambahkan 'all' untuk semua program
 
         // Mengambil KelasTatapMuka berdasarkan course_type
         $KelasTatapMuka = KelasTatapMuka::whereIn('course_type', ['online', 'offline'])
             ->orderBy('created_at', 'asc')
             ->get()
             ->flatMap(function ($kelas) {
-                return [$kelas];
+                return [$kelas,];
             });
 
         // Mengambil Blog terbaru
