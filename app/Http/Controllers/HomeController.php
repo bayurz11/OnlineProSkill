@@ -35,7 +35,7 @@ class HomeController extends Controller
         $courseTypes = KelasTatapMuka::select('course_type')
             ->distinct()
             ->pluck('course_type')
-            ->prepend('all'); // Menambahkan 'all' untuk semua program
+            ->prepend('Semua Program'); // Menambahkan 'Semua Program' untuk semua program
 
         // Mengambil KelasTatapMuka berdasarkan course_type
         $KelasTatapMuka = KelasTatapMuka::whereIn('course_type', ['online', 'offline'])
