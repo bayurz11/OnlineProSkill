@@ -13,7 +13,7 @@
 
                     <div class="mb-3">
                         <label for="title" class="form-label">Judul <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="edittitle" name="title"
+                        <input type="text" class="form-control" id="edit_title" name="title"
                             placeholder="Masukkan Judul Materi Anda" required>
                     </div>
                     <div class="mb-3">
@@ -52,7 +52,7 @@
                 .then(response => response.json())
                 .then(data => {
                     document.getElementById('section_id').value = data.id;
-                    document.getElementById('edittitle').value = data.title;
+                    document.getElementById('edit_title').value = data.title;
                     document.getElementById('edit_link').value = data.link || '';
                     document.getElementById('edit_duration').value = data.duration || '';
                 })
