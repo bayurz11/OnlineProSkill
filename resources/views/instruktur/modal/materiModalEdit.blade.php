@@ -1,82 +1,113 @@
+<!-- Modal untuk Edit Kurikulum -->
 <div class="modal fade" id="sectionModalEdit" tabindex="-1" aria-labelledby="sectionModalEditLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form id="sectionModalEditForm" method="POST" enctype="multipart/form-data">
+            <form id="editSectionForm" method="POST" enctype="multipart/form-data">
                 @csrf
-                <div class="modal-header">
-                    <h5 class="modal-title" id="sectionModalEditLabel">Edit Materi</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
-                </div>
+                @method('PUT')
                 <div class="modal-body">
-                    <!-- Hidden field for section_id -->
-                    <input type="hidden" name="section_id" id="section_id">
-
+                    <input type="hidden" class="form-control" id="kurikulum_id" name="kurikulum_id">
                     <div class="mb-3">
-                        <label for="title" class="form-label">Judul <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="edit_title" name="title"
-                            placeholder="Masukkan Judul Materi Anda" required>
+                        <label for="edittitle1" class="form-label">Judul<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="edittitle1" name="title"
+                            placeholder="Masukkan judul Kurikulum Anda">
                     </div>
                     <div class="mb-3">
-                        <label for="link" class="form-label">Link Materi</label>
-                        <input type="text" class="form-control" id="edit_link" name="link"
+                        <label for="linkedit" class="form-label">Link Materi</label>
+                        <input type="text" class="form-control" id="linkedit" name="link"
                             placeholder="Masukkan link materi Anda">
                     </div>
                     <div class="mb-3">
-                        <label for="duration" class="form-label">Durasi</label>
-                        <input type="text" class="form-control" id="edit_duration" name="duration"
+                        <label for="durationedit" class="form-label">Durasi</label>
+                        <input type="text" class="form-control" id="durationedit" name="duration"
                             placeholder="00:00:00">
                     </div>
                     <div class="mb-3">
-                        <label for="file" class="form-label">Upload Materi</label>
-                        <input type="file" class="form-control" id="edit_file" name="file">
+                        <label for="fileedit" class="form-label">Upload Materi</label>
+                        <input type="file" class="form-control" id="fileedit" name="file">
+                    </div>
+                    <div class="mb-3" id="fileDisplay">
+                        <!-- Informasi file akan ditampilkan di sini -->
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
-                    <button type="button" class="btn btn-primary" id="saveKurikulumButton">Simpan</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const sectionModalEdit = document.getElementById('sectionModalEdit');
+    $(document).ready(function() {
+        $('#sectionModalEdit').on('show.bs.modal', function(event) {
+            var button = $(event.relatedTarget); // Tombol yang membuka modal
+            var sectionId = button.data('id'); // Ambil data-id dari tombol
+            console.log('section ID:', sectionId); // Debugging line
 
-        sectionModalEdit.addEventListener('show.bs.modal', function(event) {
-            const button = event.relatedTarget; // Tombol yang diklik
-            const sectionId = button.getAttribute('data-id');
+            // AJAX request untuk mengambil data section
+            $.ajax({
+                url: '/section/' + sectionId + '/edit',
+                method: 'GET',
+                success: function(response) {
+                    console.log(response); // Debugging line
+                    if (response.kurikulum_id) {
+                        $('#kurikulum_id').val(response
+                            .kurikulum_id); // Set nilai kurikulum_id di dalam modal
+                    } else {
+                        console.log('kurikulum_id is missing in response');
+                    }
+                    $('#edittitle1').val(response
+                        .title); // Set nilai judul section di dalam modal
+                    $('#linkedit').val(response
+                        .link); // Set nilai link section di dalam modal
+                    $('#durationedit').val(response
+                        .duration); // Set nilai link section di dalam modal
 
-            // Fetch data dari controller untuk modal
-            fetch(`/instruktur_section/${sectionId}/edit`)
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('section_id').value = data.id;
-                    document.getElementById('edit_title').value = data.title;
-                    document.getElementById('edit_link').value = data.link || '';
-                    document.getElementById('edit_duration').value = data.duration || '';
-                })
-                .catch(error => console.error('Error:', error));
+                    // Handle file display or download link
+                    if (response.file_path) {
+                        var fileName = response.file_name ||
+                            'File'; // Nama file jika tersedia atau default 'File'
+                        var fileDownloadUrl = '/public/' + response
+                            .file_path; // URL untuk mengunduh file
+
+                        // Tampilkan informasi file atau buat tautan unduh
+                        var fileDisplayHtml = '<p>File: <a href="' + fileDownloadUrl +
+                            '" target="_blank">' + fileName + '</a></p>';
+                        $('#fileDisplay').html(
+                            fileDisplayHtml); // Ganti #fileDisplay dengan ID elemen Anda
+                    } else {
+                        $('#fileDisplay').html(
+                            '<p>No file uploaded.</p>'
+                        ); // Kasus di mana tidak ada file yang diunggah
+                    }
+
+                    // Set action form dengan id yang benar
+                    $('#editSectionForm').attr('action', '/sectionupdate/' + sectionId);
+                },
+                error: function(xhr) {
+                    console.log('Error:', xhr);
+                }
+            });
         });
+    });
+    document.getElementById('duration').addEventListener('input', function(e) {
+        let value = e.target.value.replace(/[^0-9:]/g, ''); // Hanya izinkan angka dan tanda titik dua
+        let parts = value.split(':').map(Number); // Pisahkan berdasarkan tanda titik dua dan ubah menjadi angka
 
-        document.getElementById('saveKurikulumButton').addEventListener('click', function(event) {
-            event.preventDefault();
-            var form = document.getElementById('sectionModalEditForm');
-            var sectionId = document.getElementById('section_id').value;
+        // Menangani format jam:menit:detik
+        if (parts.length === 1 && parts[0] > 59) {
+            parts[1] = parts[0] % 60;
+            parts[0] = Math.floor(parts[0] / 60);
+        } else if (parts.length === 2 && parts[1] > 59) {
+            parts[2] = parts[1] % 60;
+            parts[1] = Math.floor(parts[1] / 60);
+        }
 
-            // Set method dan action form
-            form.setAttribute('action', `/instruktur_section/${sectionId}`);
-            form.setAttribute('method', 'POST');
+        // Format kembali menjadi string dengan leading zero jika perlu
+        value = parts.map(part => part.toString().padStart(2, '0')).join(':');
 
-            // Tambahkan input hidden untuk method PUT
-            var methodInput = document.createElement('input');
-            methodInput.type = 'hidden';
-            methodInput.name = '_method';
-            methodInput.value = 'PUT';
-            form.appendChild(methodInput);
-
-            // Kirim form
-            form.submit();
-        });
+        // Set kembali nilai input field
+        e.target.value = value;
     });
 </script>
