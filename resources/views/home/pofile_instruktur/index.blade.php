@@ -111,8 +111,10 @@
                                 @if ($kurikulumExists)
                                     <div class="swiper-wrapper">
                                         @if ($kelas->isNotEmpty())
-                                            @foreach (array_merge($kelas->toArray(), $kelas->toArray()) as $item)
-                                                @if ($item['status'] == 1)
+                                            @foreach ($kelas as $item)
+                                                <!-- Menggunakan $kelas langsung -->
+                                                @if (isset($item['status']) && $item['status'] == 1)
+                                                    <!-- Memastikan 'status' ada -->
                                                     <div class="swiper-slide">
                                                         <div class="courses__item shine__animate-item">
                                                             <div class="courses__item-thumb">
@@ -177,10 +179,8 @@
                                         @else
                                             <p>Tidak ada kelas yang ditemukan untuk instruktur ini.</p>
                                         @endif
-
                                     </div>
                                 @endif
-
                             </div>
 
                         </div>
