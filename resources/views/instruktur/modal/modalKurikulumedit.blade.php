@@ -10,7 +10,6 @@
             <div class="modal-body">
                 <form id="editKurikulumInstrukturForm" method="POST">
                     @csrf
-                    @method('PUT')
                     <input type="hidden" name="course_id" id="edit_course_id">
                     <input type="hidden" name="id" id="edit_kurikulum_id">
 
@@ -30,51 +29,24 @@
 </div>
 
 
+
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const kurikulumModalEdit = document.getElementById('kurikulumModalEdit');
+    document.getElementById('saveKurikulumButton').addEventListener('click', function() {
+        var form = document.getElementById('editKurikulumInstrukturForm');
+        var kurikulumId = document.getElementById('edit_kurikulum_id').value;
 
-        kurikulumModalEdit.addEventListener('show.bs.modal', function(event) {
-            const button = event.relatedTarget;
-            const kurikulumId = button.getAttribute('data-id');
+        // Set method dan action form
+        form.setAttribute('action', `/instruktur_kurikulum/${kurikulumId}`);
+        form.setAttribute('method', 'POST');
 
-            fetch(`/instruktur_kurikulum/${kurikulumId}/edit`)
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('edit_kurikulum_id').value = data.id;
-                    document.getElementById('edittitle').value = data.title;
-                })
-                .catch(error => console.error('Error:', error));
-        });
+        // Tambahkan input hidden untuk method PUT
+        var methodInput = document.createElement('input');
+        methodInput.type = 'hidden';
+        methodInput.name = '_method';
+        methodInput.value = 'PUT';
+        form.appendChild(methodInput);
 
-        document.getElementById('saveKurikulumButton').addEventListener('click', function(event) {
-
-
-            const kurikulumId = document.getElementById('edit_kurikulum_id').value;
-            const title = document.getElementById('edittitle').value;
-
-            fetch(`/instruktur_kurikulum/${kurikulumId}`, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-Token': document.querySelector('input[name="_token"]').value
-                    },
-                    body: JSON.stringify({
-                        title: title
-                    })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        alert('Kurikulum berhasil diperbarui');
-                        const modal = bootstrap.Modal.getInstance(kurikulumModalEdit);
-                        modal.hide(); // Tutup modal setelah berhasil
-                        location.reload(); // Refresh halaman setelah modal ditutup
-                    } else {
-                        alert('Gagal memperbarui kurikulum');
-                    }
-                })
-                .catch(error => console.error('Error:', error));
-        });
+        // Kirim form
+        form.submit();
     });
 </script>
