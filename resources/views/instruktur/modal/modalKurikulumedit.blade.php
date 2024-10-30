@@ -48,13 +48,13 @@
         });
 
         document.getElementById('saveKurikulumButton').addEventListener('click', function(event) {
-            event.preventDefault();
+
 
             const kurikulumId = document.getElementById('edit_kurikulum_id').value;
             const title = document.getElementById('edittitle').value;
 
             fetch(`/instruktur_kurikulum/${kurikulumId}`, {
-                    method: 'get',
+                    method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
                         'X-CSRF-Token': document.querySelector('input[name="_token"]').value
