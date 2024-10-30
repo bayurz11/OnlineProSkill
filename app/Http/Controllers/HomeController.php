@@ -31,12 +31,18 @@ class HomeController extends Controller
         // Mengambil kategori
         $categori = Categories::all();
 
-        // Mengambil kelas tatap muka, mengurutkan secara dinamis
+        // Mengambil daftar course_type unik dari KelasTatapMuka
+        $courseTypes = KelasTatapMuka::select('course_type')
+            ->distinct()
+            ->pluck('course_type')
+            ->prepend('all'); // Menambahkan 'all' untuk semua program
+
+        // Mengambil KelasTatapMuka berdasarkan course_type
         $KelasTatapMuka = KelasTatapMuka::whereIn('course_type', ['online', 'offline'])
             ->orderBy('created_at', 'asc')
             ->get()
             ->flatMap(function ($kelas) {
-                return [$kelas, $kelas, $kelas]; // Duplikasi 3 kali langsung di koleksi
+                return [$kelas, $kelas, $kelas]; // Duplikasi 3 kali
             });
 
         // Mengambil Blog terbaru
@@ -75,7 +81,8 @@ class HomeController extends Controller
             'event',
             'blog',
             'daftar_siswa',
-            'sertifikat'
+            'sertifikat',
+            'courseTypes'
         ));
     }
 
