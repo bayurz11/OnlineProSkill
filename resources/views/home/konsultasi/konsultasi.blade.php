@@ -43,7 +43,9 @@
         <div class="col-lg-12">
             <div class="dashboard__content-wrap">
                 <div class="dashboard__content-title">
-                    <h4 class="title">Settings</h4>
+                    <h4 class="title">Leave a Message</h4>
+                    <p>Jika kamu masih bingung memilih materi dan kelas yang sesuai atau ingin mendapatkan penawaran untuk
+                        training corporate dll, silahkan isi form berikut:</p>
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
