@@ -65,7 +65,8 @@
                                                 <div class="form-grp">
                                                     <label for="phonenumber">Nomor Telepon <span
                                                             class="text-danger">*</span></label>
-                                                    <input id="phonenumber" name="phonenumber" type="number" required>
+                                                    <input id="phonenumber" name="phonenumber" type="number" min="0"
+                                                        required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
