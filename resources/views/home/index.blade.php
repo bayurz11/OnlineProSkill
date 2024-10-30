@@ -127,6 +127,7 @@
                         </div>
                         <div class="courses__nav">
                             <ul class="nav nav-tabs" id="courseTab" role="tablist">
+
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link active" id="all-tab" data-bs-toggle="tab"
                                         data-bs-target="#all-tab-pane" type="button" role="tab"
@@ -137,7 +138,7 @@
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link {{ $index === 0 ? '' : '' }}"
                                             id="{{ strtolower($type) }}-tab" data-bs-toggle="tab"
-                                            data-bs-target="{{ strtolower($type) }}-tab-pane" type="button"
+                                            data-bs-target="#{{ strtolower($type) }}-tab-pane" type="button"
                                             role="tab" aria-controls="{{ strtolower($type) }}-tab-pane"
                                             aria-selected="false">{{ $type }}</button>
                                     </li>
