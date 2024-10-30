@@ -127,11 +127,11 @@
                         </div>
                         <div class="courses__nav">
                             <ul class="nav nav-tabs" id="courseTab" role="tablist">
-                                {{-- <li class="nav-item" role="presentation">
+                                <li class="nav-item" role="presentation">
                                     <button class="nav-link active" id="all-tab" data-bs-toggle="tab"
                                         data-bs-target="#all-tab-pane" type="button" role="tab"
                                         aria-controls="all-tab-pane" aria-selected="true">Semua Program</button>
-                                </li> --}}
+                                </li>
 
                                 @foreach ($courseTypes as $index => $type)
                                     <li class="nav-item" role="presentation">
