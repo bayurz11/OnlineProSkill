@@ -102,76 +102,85 @@
                                 </div>
                             </div>
                             <div class="swiper courses-swiper-active-two">
-                                <div class="swiper-wrapper">
-                                    @if ($kelas->isNotEmpty())
-                                        @foreach (array_merge($kelas->toArray(), $kelas->toArray()) as $item)
-                                            @if ($item['status'] == 1)
-                                                <div class="swiper-slide">
-                                                    <div class="courses__item shine__animate-item">
-                                                        <div class="courses__item-thumb">
-                                                            <a href="{{ route('classroomdetail', ['id' => $item['id']]) }}"
-                                                                class="shine__animate-link">
-                                                                <img src="{{ asset('public/uploads/' . $item['gambar']) }}"
-                                                                    alt="img" class="img-fluid" loading="lazy">
-                                                            </a>
-                                                        </div>
-                                                        <div class="courses__item-content">
-                                                            <ul class="courses__item-meta list-wrap">
-                                                                <li class="courses__item-tag">
-                                                                    @if ($item['course_type'] == 'online')
-                                                                        <span class="badge bg-primary">Online</span>
-                                                                    @else
-                                                                        <span class="badge bg-secondary">Kelas Tatap
-                                                                            Muka</span>
-                                                                    @endif
-                                                                </li>
-                                                                <li class="avg-rating"><i class="fas fa-star"></i> (4.3
-                                                                    Reviews)</li>
-                                                                <li class="price">
-                                                                    @if (!empty($item['discountedPrice']) && $item['discount'] != 0)
-                                                                        <del style="color: red; margin-right: 8px;">Rp
-                                                                            {{ number_format($item['price'], 0, ',', '.') }}</del>
-                                                                        <span
-                                                                            style="color: #007F73; font-weight: bold; font-size: 1.2em;">Rp
-                                                                            {{ number_format($item['discountedPrice'], 0, ',', '.') }}</span>
-                                                                    @else
-                                                                        <span
-                                                                            style="color: #007F73; font-weight: bold; font-size: 1.2em;">Rp
-                                                                            {{ number_format($item['price'], 0, ',', '.') }}</span>
-                                                                    @endif
-                                                                </li>
+                                @php
+                                    $kurikulumExists = \App\Models\Kurikulum::where(
+                                        'course_id',
+                                        $kelas['id'],
+                                    )->exists();
+                                @endphp
+                                @if ($kurikulumExists)
+                                    <div class="swiper-wrapper">
+                                        @if ($kelas->isNotEmpty())
+                                            @foreach (array_merge($kelas->toArray(), $kelas->toArray()) as $item)
+                                                @if ($item['status'] == 1)
+                                                    <div class="swiper-slide">
+                                                        <div class="courses__item shine__animate-item">
+                                                            <div class="courses__item-thumb">
+                                                                <a href="{{ route('classroomdetail', ['id' => $item['id']]) }}"
+                                                                    class="shine__animate-link">
+                                                                    <img src="{{ asset('public/uploads/' . $item['gambar']) }}"
+                                                                        alt="img" class="img-fluid" loading="lazy">
+                                                                </a>
+                                                            </div>
+                                                            <div class="courses__item-content">
+                                                                <ul class="courses__item-meta list-wrap">
+                                                                    <li class="courses__item-tag">
+                                                                        @if ($item['course_type'] == 'online')
+                                                                            <span class="badge bg-primary">Online</span>
+                                                                        @else
+                                                                            <span class="badge bg-secondary">Kelas Tatap
+                                                                                Muka</span>
+                                                                        @endif
+                                                                    </li>
+                                                                    <li class="avg-rating"><i class="fas fa-star"></i> (4.3
+                                                                        Reviews)</li>
+                                                                    <li class="price">
+                                                                        @if (!empty($item['discountedPrice']) && $item['discount'] != 0)
+                                                                            <del style="color: red; margin-right: 8px;">Rp
+                                                                                {{ number_format($item['price'], 0, ',', '.') }}</del>
+                                                                            <span
+                                                                                style="color: #007F73; font-weight: bold; font-size: 1.2em;">Rp
+                                                                                {{ number_format($item['discountedPrice'], 0, ',', '.') }}</span>
+                                                                        @else
+                                                                            <span
+                                                                                style="color: #007F73; font-weight: bold; font-size: 1.2em;">Rp
+                                                                                {{ number_format($item['price'], 0, ',', '.') }}</span>
+                                                                        @endif
+                                                                    </li>
 
-                                                                @if (in_array($item['id'], $joinedCourses))
-                                                                    <i class="fas fa-check-circle fa-lg"
-                                                                        style="color: #007F73;"></i>
-                                                                @endif
-                                                            </ul>
-                                                            <h5 class="title"><a
-                                                                    href="{{ route('classroomdetail', ['id' => $item['id']]) }}">{{ $item['nama_kursus'] }}</a>
-                                                            </h5>
-                                                            <p class="author">By <a
-                                                                    href="{{ route('profile_instruktur', ['id' => $instructorProfile->user->id]) }}">{{ $instructorProfile->user->name }}</a>
-                                                            </p>
+                                                                    @if (in_array($item['id'], $joinedCourses))
+                                                                        <i class="fas fa-check-circle fa-lg"
+                                                                            style="color: #007F73;"></i>
+                                                                    @endif
+                                                                </ul>
+                                                                <h5 class="title"><a
+                                                                        href="{{ route('classroomdetail', ['id' => $item['id']]) }}">{{ $item['nama_kursus'] }}</a>
+                                                                </h5>
+                                                                <p class="author">By <a
+                                                                        href="{{ route('profile_instruktur', ['id' => $instructorProfile->user->id]) }}">{{ $instructorProfile->user->name }}</a>
+                                                                </p>
 
-                                                            <div class="courses__item-bottom">
-                                                                <div class="button">
-                                                                    <a
-                                                                        href="{{ route('classroomdetail', ['id' => $item['id']]) }}">
-                                                                        <span class="text">Detail Kelas</span>
-                                                                        <i class="flaticon-arrow-right"></i>
-                                                                    </a>
+                                                                <div class="courses__item-bottom">
+                                                                    <div class="button">
+                                                                        <a
+                                                                            href="{{ route('classroomdetail', ['id' => $item['id']]) }}">
+                                                                            <span class="text">Detail Kelas</span>
+                                                                            <i class="flaticon-arrow-right"></i>
+                                                                        </a>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            @endif
-                                        @endforeach
-                                    @else
-                                        <p>Tidak ada kelas yang ditemukan untuk instruktur ini.</p>
-                                    @endif
+                                                @endif
+                                            @endforeach
+                                        @else
+                                            <p>Tidak ada kelas yang ditemukan untuk instruktur ini.</p>
+                                        @endif
 
-                                </div>
+                                    </div>
+                                @endif
+
                             </div>
 
                         </div>
