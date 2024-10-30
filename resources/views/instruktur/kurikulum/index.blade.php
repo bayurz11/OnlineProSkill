@@ -190,22 +190,5 @@
                 document.getElementById('confirmationModal').remove();
             };
         }
-        document.addEventListener('DOMContentLoaded', function() {
-            const kurikulumModalEdit = document.getElementById('kurikulumModalEdit');
-
-            kurikulumModalEdit.addEventListener('show.bs.modal', function(event) {
-                const button = event.relatedTarget; // Tombol yang diklik
-                const kurikulumId = button.getAttribute('data-id');
-
-                // Fetch data dari controller untuk modal
-                fetch(`/instruktur_kurikulum/${kurikulumId}/edit`)
-                    .then(response => response.json())
-                    .then(data => {
-                        document.getElementById('edit_kurikulum_id').value = data.id;
-                        document.getElementById('edittitle').value = data.title;
-                    })
-                    .catch(error => console.error('Error:', error));
-            });
-        });
     </script>
 @endsection
