@@ -58,31 +58,31 @@
                                             <div class="col-md-6">
                                                 <div class="form-grp">
                                                     <label for="firstname">First Name</label>
-                                                    <input id="firstname" type="text" value="John">
+                                                    <input id="firstname" type="text" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-grp">
                                                     <label for="lastname">Last Name</label>
-                                                    <input id="lastname" type="text" value="Due">
+                                                    <input id="lastname" type="text" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-grp">
                                                     <label for="username">User Name</label>
-                                                    <input id="username" type="text" value="johndue">
+                                                    <input id="username" type="text" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-grp">
                                                     <label for="phonenumber">Phone Number</label>
-                                                    <input id="phonenumber" type="tel" value="+1-202-555-0174">
+                                                    <input id="phonenumber" type="tel" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-grp">
                                                     <label for="skill">Skill/Occupation</label>
-                                                    <input id="skill" type="text" value="Full Stack Developer">
+                                                    <input id="skill" type="text" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
