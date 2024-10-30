@@ -31,41 +31,50 @@
 
 
 <script>
-    $(document).ready(function() {
-        $('#saveKurikulumButton').click(function() {
-            var form = $('#editKurikulumInstrukturForm');
-            var formData = form.serialize(); // Mengambil data dari form
+    document.addEventListener('DOMContentLoaded', function() {
+        const kurikulumModalEdit = document.getElementById('kurikulumModalEdit');
 
-            // Mengambil ID kurikulum dari input tersembunyi
-            var kurikulumId = $('#edit_kurikulum_id').val();
+        kurikulumModalEdit.addEventListener('show.bs.modal', function(event) {
+            const button = event.relatedTarget;
+            const kurikulumId = button.getAttribute('data-id');
 
-            $.ajax({
-                url: '/instruktur_kurikulum/' + kurikulumId, // URL endpoint update
-                type: 'PUT',
-                data: formData,
-                success: function(response) {
-                    // Menampilkan pesan sukses
-                    alert(response.message);
+            fetch(`/instruktur_kurikulum/${kurikulumId}/edit`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('edit_kurikulum_id').value = data.id;
+                    document.getElementById('edittitle').value = data.title;
+                })
+                .catch(error => console.error('Error:', error));
+        });
 
-                    // Menutup modal
-                    $('#kurikulumModalEdit').modal('hide');
+        document.getElementById('saveKurikulumButton').addEventListener('click', function(event) {
+            event.preventDefault();
 
-                    // Melakukan refresh halaman
-                    location.reload();
-                },
-                error: function(xhr) {
-                    // Menangani kesalahan
-                    var errors = xhr.responseJSON.errors;
-                    var errorMessage = '';
-                    for (var key in errors) {
-                        if (errors.hasOwnProperty(key)) {
-                            errorMessage += errors[key][0] +
-                            '\n'; // Mengumpulkan pesan kesalahan
-                        }
+            const kurikulumId = document.getElementById('edit_kurikulum_id').value;
+            const title = document.getElementById('edittitle').value;
+
+            fetch(`/instruktur_kurikulum/${kurikulumId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-Token': document.querySelector('input[name="_token"]').value
+                    },
+                    body: JSON.stringify({
+                        title: title
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Kurikulum berhasil diperbarui');
+                        const modal = bootstrap.Modal.getInstance(kurikulumModalEdit);
+                        modal.hide(); // Tutup modal setelah berhasil
+                        location.reload(); // Refresh halaman setelah modal ditutup
+                    } else {
+                        alert('Gagal memperbarui kurikulum');
                     }
-                    alert(errorMessage || 'Terjadi kesalahan saat memperbarui kurikulum.');
-                }
-            });
+                })
+                .catch(error => console.error('Error:', error));
         });
     });
 </script>
