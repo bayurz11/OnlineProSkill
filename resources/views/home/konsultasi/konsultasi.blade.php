@@ -40,7 +40,7 @@
     </section>
     <div class="row">
 
-        <div class="col-lg-12">
+        <div class="col-lg-12 mx-5">
             <div class="dashboard__content-wrap">
                 <div class="dashboard__content-title">
                     <h4 class="title">Leave a Message</h4>
@@ -49,7 +49,6 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
-
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="itemOne-tab-pane" role="tabpanel"
                                 aria-labelledby="itemOne-tab" tabindex="0">
