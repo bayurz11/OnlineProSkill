@@ -51,20 +51,6 @@
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="itemOne-tab-pane" role="tabpanel"
                                 aria-labelledby="itemOne-tab" tabindex="0">
-                                <div class="instructor__cover-bg"
-                                    data-background="assets/img/bg/instructor_dashboard_bg.jpg">
-                                    <div class="instructor__cover-info">
-                                        <div class="instructor__cover-info-left">
-                                            <div class="thumb">
-                                                <img src="assets/img/courses/details_instructors01.jpg" alt="img">
-                                            </div>
-                                            <button title="Upload Photo"><i class="fas fa-camera"></i></button>
-                                        </div>
-                                        <div class="instructor__cover-info-right">
-                                            <a href="#" class="btn btn-two arrow-btn">Edit Cover Photo</a>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="instructor__profile-form-wrap">
                                     <form action="#" class="instructor__profile-form">
                                         <div class="row">
