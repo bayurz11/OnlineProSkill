@@ -134,7 +134,27 @@
                                         Semua Program
                                     </button>
                                 </li>
-
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="design-tab" data-bs-toggle="tab"
+                                        data-bs-target="#design-tab-pane" type="button" role="tab"
+                                        aria-controls="design-tab-pane" aria-selected="false">
+                                        Bootcamp
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="business-tab" data-bs-toggle="tab"
+                                        data-bs-target="#business-tab-pane" type="button" role="tab"
+                                        aria-controls="business-tab-pane" aria-selected="false">
+                                        Kelas Tatap Muka
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="development-tab" data-bs-toggle="tab"
+                                        data-bs-target="#development-tab-pane" type="button" role="tab"
+                                        aria-controls="development-tab-pane" aria-selected="false">
+                                        Kelas Online
+                                    </button>
+                                </li>
                             </ul>
                         </div>
                     </div>
