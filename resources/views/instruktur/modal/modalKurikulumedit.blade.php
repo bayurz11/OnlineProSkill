@@ -8,7 +8,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="kurikulumModalEditForm" method="POST">
+                <form id="kurikulumModalEdit" method="POST">
                     @csrf
                     @method('PUT')
                     <input type="hidden" name="course_id" id="edit_course_id">
@@ -32,24 +32,16 @@
 <script>
     $(document).ready(function() {
         $('#kurikulumModalEdit').on('show.bs.modal', function(event) {
-            var button = $(event.relatedTarget); // Tombol yang membuka modal
-            var kurikulumId = button.data('id'); // Ambil data-id dari tombol
-            console.log('Kurikulum ID:', kurikulumId); // Debugging line
+            const button = $(event.relatedTarget);
+            const kurikulumId = button.data('id');
 
-            // AJAX request untuk mengambil data kurikulum
+            // AJAX request untuk mendapatkan data kurikulum
             $.ajax({
                 url: '/instruktur_kurikulum/' + kurikulumId + '/edit',
                 method: 'GET',
                 success: function(response) {
-                    console.log(response); // Debugging line
-                    $('#edit_kurikulum_id').val(response
-                    .id); // Set nilai course_id di dalam modal
-                    $('#edittitle').val(response
-                    .title); // Set nilai judul kurikulum di dalam modal
-
-                    // Set action form dengan id yang benar
-                    $('#kurikulumModalEditForm').attr('action', '/instruktur_kurikulum/' +
-                        kurikulumId);
+                    $('#edit_kurikulum_id').val(response.id);
+                    $('#edittitle').val(response.title);
                 },
                 error: function(xhr) {
                     console.log('Error:', xhr);
@@ -57,20 +49,34 @@
             });
         });
 
-        // Event listener untuk tombol simpan
-        $('#saveKurikulumButton').on('click', function() {
-            var form = $('#kurikulumModalEditForm');
+        $('#saveKurikulumButton').on('click', function(event) {
+            event.preventDefault();
+
+            const kurikulumId = $('#edit_kurikulum_id').val();
+            const title = $('#edittitle').val();
+
+            // AJAX request untuk update data kurikulum
             $.ajax({
-                url: form.attr('action'),
-                method: 'POST',
-                data: form.serialize(), // Mengambil data dari form
+                url: '/instruktur_kurikulum/' + kurikulumId,
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-Token': $('input[name="_token"]').val()
+                },
+                data: JSON.stringify({
+                    title: title
+                }),
                 success: function(response) {
-                    console.log('Kurikulum berhasil diperbarui:', response);
-                    // Anda dapat menutup modal dan memperbarui tampilan di sini
-                    $('#kurikulumModalEdit').modal('hide');
+                    if (response.success) {
+                        alert('Kurikulum berhasil diperbarui');
+                        $('#kurikulumModalEdit').modal('hide'); // Tutup modal
+                        location.reload(); // Refresh halaman
+                    } else {
+                        alert('Gagal memperbarui kurikulum');
+                    }
                 },
                 error: function(xhr) {
-                    console.log('Error saat menyimpan:', xhr);
+                    console.log('Error:', xhr);
                 }
             });
         });
