@@ -30,55 +30,50 @@
 </div>
 
 <script>
-    $(document).ready(function() {
-        $('#kurikulumModalEdit').on('show.bs.modal', function(event) {
-            const button = $(event.relatedTarget);
-            const kurikulumId = button.data('id');
+    document.addEventListener('DOMContentLoaded', function() {
+        const kurikulumModalEdit = document.getElementById('kurikulumModalEdit');
 
-            // AJAX request untuk mendapatkan data kurikulum
-            $.ajax({
-                url: '/instruktur_kurikulum/' + kurikulumId + '/edit',
-                method: 'GET',
-                success: function(response) {
-                    $('#edit_kurikulum_id').val(response.id);
-                    $('#edittitle').val(response.title);
-                },
-                error: function(xhr) {
-                    console.log('Error:', xhr);
-                }
-            });
+        kurikulumModalEdit.addEventListener('show.bs.modal', function(event) {
+            const button = event.relatedTarget;
+            const kurikulumId = button.getAttribute('data-id');
+
+            fetch(`/instruktur_kurikulum/${kurikulumId}/edit`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('edit_kurikulum_id').value = data.id;
+                    document.getElementById('edittitle').value = data.title;
+                })
+                .catch(error => console.error('Error:', error));
         });
 
-        $('#saveKurikulumButton').on('click', function(event) {
+        document.getElementById('saveKurikulumButton').addEventListener('click', function(event) {
             event.preventDefault();
 
-            const kurikulumId = $('#edit_kurikulum_id').val();
-            const title = $('#edittitle').val();
+            const kurikulumId = document.getElementById('edit_kurikulum_id').value;
+            const title = document.getElementById('edittitle').value;
 
-            // AJAX request untuk update data kurikulum
-            $.ajax({
-                url: '/instruktur_kurikulum/' + kurikulumId,
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-Token': $('input[name="_token"]').val()
-                },
-                data: JSON.stringify({
-                    title: title
-                }),
-                success: function(response) {
-                    if (response.success) {
+            fetch(`/instruktur_kurikulum/${kurikulumId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-Token': document.querySelector('input[name="_token"]').value
+                    },
+                    body: JSON.stringify({
+                        title: title
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
                         alert('Kurikulum berhasil diperbarui');
-                        $('#kurikulumModalEdit').modal('hide'); // Tutup modal
-                        location.reload(); // Refresh halaman
+                        const modal = bootstrap.Modal.getInstance(kurikulumModalEdit);
+                        modal.hide(); // Tutup modal setelah berhasil
+                        location.reload(); // Refresh halaman setelah modal ditutup
                     } else {
                         alert('Gagal memperbarui kurikulum');
                     }
-                },
-                error: function(xhr) {
-                    console.log('Error:', xhr);
-                }
-            });
+                })
+                .catch(error => console.error('Error:', error));
         });
     });
 </script>
