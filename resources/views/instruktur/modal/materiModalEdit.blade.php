@@ -8,8 +8,8 @@
                 <div class="modal-body">
                     <input type="hidden" class="form-control" id="kurikulum_id" name="kurikulum_id">
                     <div class="mb-3">
-                        <label for="edittitle1" class="form-label">Judul<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="edittitle1" name="title"
+                        <label for="edit_title" class="form-label">Judul<span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="edit_title" name="title"
                             placeholder="Masukkan judul Kurikulum Anda">
                     </div>
                     <div class="mb-3">
@@ -47,7 +47,7 @@
 
             // AJAX request untuk mengambil data section
             $.ajax({
-                url: '/section/' + sectionId + '/edit',
+                url: '/instruktur_section/' + sectionId + '/edit',
                 method: 'GET',
                 success: function(response) {
                     console.log(response); // Debugging line
@@ -57,11 +57,11 @@
                     } else {
                         console.log('kurikulum_id is missing in response');
                     }
-                    $('#edittitle1').val(response
+                    $('#edit_title').val(response
                         .title); // Set nilai judul section di dalam modal
-                    $('#linkedit').val(response
+                    $('#link_edit').val(response
                         .link); // Set nilai link section di dalam modal
-                    $('#durationedit').val(response
+                    $('#duration_edit').val(response
                         .duration); // Set nilai link section di dalam modal
 
                     // Handle file display or download link
@@ -83,7 +83,8 @@
                     }
 
                     // Set action form dengan id yang benar
-                    $('#editSectionForm').attr('action', '/sectionupdate/' + sectionId);
+                    $('#edit_SectionForm').attr('action', '/instruktur_section/' +
+                        sectionId);
                 },
                 error: function(xhr) {
                     console.log('Error:', xhr);
