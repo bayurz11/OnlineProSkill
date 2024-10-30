@@ -55,6 +55,7 @@
                     document.getElementById('edit_title').value = data.title;
                     document.getElementById('edit_link').value = data.link || '';
                     document.getElementById('edit_duration').value = data.duration || '';
+                    document.getElementById('edit_file').value = data.file_path || '';
                 })
                 .catch(error => console.error('Error:', error));
         });
