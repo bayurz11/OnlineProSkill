@@ -1,7 +1,7 @@
 <div class="modal fade" id="sectionModalEdit" tabindex="-1" aria-labelledby="sectionModalEditLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form id="sectionModalEditForm" method="POST">
+            <form id="sectionModalEditForm" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
                     <h5 class="modal-title" id="sectionModalEditLabel">Edit Materi</h5>
