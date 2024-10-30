@@ -53,7 +53,7 @@
             const title = document.getElementById('edittitle').value;
 
             fetch(`/instruktur_kurikulum/${kurikulumId}`, {
-                    method: 'POST',
+                    method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
                         'X-CSRF-Token': document.querySelector('input[name="_token"]').value
@@ -66,7 +66,9 @@
                 .then(data => {
                     if (data.success) {
                         alert('Kurikulum berhasil diperbarui');
-                        location.reload(); // Refresh halaman setelah update berhasil
+                        const modal = bootstrap.Modal.getInstance(kurikulumModalEdit);
+                        modal.hide(); // Tutup modal setelah berhasil
+                        location.reload(); // Refresh halaman setelah modal ditutup
                     } else {
                         alert('Gagal memperbarui kurikulum');
                     }
