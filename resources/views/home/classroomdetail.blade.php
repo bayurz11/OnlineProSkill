@@ -357,7 +357,7 @@
                                             <div class="review-author-thumb">
                                                 <img src="{{ $review->user->userprofile && $review->user->userprofile->gambar ? (strpos($review->user->userprofile->gambar, 'googleusercontent') !== false ? $review->user->userprofile->gambar : asset('public/uploads/' . $review->user->userprofile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
                                                     alt="img"
-                                                    style="border-radius: 50%; width: 50px; height: 50px; object-fit: cover;">
+                                                    style="border-radius: 50%; width: 80px; height: 80px; object-fit: cover;">
                                             </div>
                                             <div class="review-author-content">
                                                 <div class="author-name">
