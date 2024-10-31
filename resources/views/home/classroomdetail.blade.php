@@ -360,7 +360,7 @@
                                             </div>
                                             <div class="review-author-content">
                                                 <div class="author-name">
-                                                    <h5 class="name">{{ $review->users->name }}
+                                                    <h5 class="name">{{ $review->user->name }}
                                                         <span>{{ $review->created_at->diffForHumans() }}</span>
                                                     </h5>
                                                     <div class="author-rating">
