@@ -98,7 +98,7 @@
                                                         <div class="review__wrap">
                                                             <div class="rating">
                                                                 @for ($i = 1; $i <= 5; $i++)
-                                                                    @if ($i <= $kelas->$reviews->avg('rating'))
+                                                                    @if ($i <= $kelas->avg('rating'))
                                                                         <i class="fas fa-star"></i>
                                                                     @else
                                                                         <i class="far fa-star"></i>
