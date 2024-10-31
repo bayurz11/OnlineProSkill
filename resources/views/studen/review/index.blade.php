@@ -72,20 +72,30 @@
                                                 <tr>
                                                     <td>
                                                         <a
-                                                            href="{{ route('classroomdetail', ['id' => $order->product_id]) }}">{{ $order->KelasTatapMuka->nama_kursus ?? 'Nama kelas tidak tersedia' }}</a>
+                                                            href="{{ route('classroomdetail', ['id' => $order->product_id]) }}">
+                                                            {{ $order->KelasTatapMuka->nama_kursus ?? 'Nama kelas tidak tersedia' }}
+                                                        </a>
                                                     </td>
                                                     <td>
-                                                        <div class="review__wrap">
-                                                            <div class="rating">
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
+                                                        @if ($order->reviews->isNotEmpty())
+                                                            <div class="review__wrap">
+                                                                <div class="rating">
+                                                                    @php
+                                                                        $rating = $order->reviews->avg('rating'); // Ambil rata-rata rating dari review
+                                                                        $stars = round($rating); // Membulatkan rating ke integer
+                                                                    @endphp
+                                                                    @for ($i = 1; $i <= 5; $i++)
+                                                                        <i
+                                                                            class="fas fa-star{{ $i <= $stars ? '' : '-o' }}"></i>
+                                                                    @endfor
+                                                                </div>
+                                                                <span>({{ $order->reviews->count() }} Reviews)</span>
                                                             </div>
-                                                            <span>(3 Reviews)</span>
-                                                        </div>
-                                                        <p>Good</p>
+                                                            <p>{{ $order->reviews->first()->comment ?? 'No comment available' }}
+                                                            </p>
+                                                        @else
+                                                            <p>No reviews available</p>
+                                                        @endif
                                                     </td>
                                                     <td>
                                                         <div class="dashboard__review-action">
@@ -97,6 +107,7 @@
                                                     </td>
                                                 </tr>
                                             @endforeach
+
                                         </tbody>
                                     </table>
                                 </div>

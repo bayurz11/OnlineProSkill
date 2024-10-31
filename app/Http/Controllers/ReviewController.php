@@ -38,7 +38,7 @@ class ReviewController extends Controller
         // Fetching orders related to the user with status PAID and SETTLED
         $orders = Order::where('user_id', $user->id)
             ->whereIn('status', ['PAID', 'SETTLED'])
-            ->with('KelasTatapMuka')
+            ->with('KelasTatapMuka', 'Reviews')
             ->get();
 
         $kurikulum = Kurikulum::all();
