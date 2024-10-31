@@ -238,6 +238,7 @@ class SearchController extends Controller
         // Ambil ID kursus yang telah diikuti oleh user
         $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
 
+        // Inisialisasi distribusi rating
         $ratingDistribution = [
             5 => 0,
             4 => 0,
@@ -246,14 +247,21 @@ class SearchController extends Controller
             1 => 0,
         ];
 
-        // Menghitung distribusi rating
-        foreach ($ratingCounts as $classId => $count) {
-            // Ambil rating untuk class_id ini, Anda bisa menggunakan model Reviews
-            $rating = Reviews::where('class_id', $classId)->value('rating'); // Asumsikan ada field 'rating'
-            if ($rating) {
-                $ratingDistribution[$rating] += $count;
+        // Mengambil semua rating untuk setiap class_id dari tabel Reviews
+        $ratings = Reviews::select('class_id', 'rating')
+            ->whereIn('class_id', array_keys($ratingCounts))
+            ->get();
+
+        // Menghitung distribusi rating berdasarkan setiap class_id
+        foreach ($ratings as $review) {
+            $rating = $review->rating;
+
+            // Pastikan rating sesuai dengan skala yang diharapkan
+            if (array_key_exists($rating, $ratingDistribution)) {
+                $ratingDistribution[$rating]++;
             }
         }
+
         return view('search_results', compact(
             'results',
             'cart',
