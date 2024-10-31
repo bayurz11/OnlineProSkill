@@ -248,9 +248,18 @@
                                                             <div class="button">
                                                                 <a
                                                                     href="{{ route('classroomdetail', ['id' => $cours['id']]) }}">
-                                                                    <span class="text">Detail cours</span>
+                                                                    <span class="text">Detail Kelas</span>
                                                                     <i class="flaticon-arrow-right"></i>
                                                                 </a>
+                                                            </div>
+                                                            @php
+                                                                $averageRating = $cours->reviews()->avg('rating');
+
+                                                            @endphp
+                                                            <div class="avg-rating">
+                                                                <i class="fas fa-star"></i>
+                                                                ({{ $averageRating ? number_format($averageRating, 1) : '0.0' }}
+                                                                Reviews)
                                                             </div>
                                                         </div>
                                                     </div>
