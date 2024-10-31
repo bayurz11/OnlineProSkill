@@ -12,4 +12,9 @@ class Reviews extends Model
     protected $primaryKey = 'id';
 
     protected $guarded = [];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }
