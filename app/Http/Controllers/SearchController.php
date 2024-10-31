@@ -238,58 +238,7 @@ class SearchController extends Controller
         // Ambil ID kursus yang telah diikuti oleh user
         $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
 
-        // Inisialisasi distribusi rating
-        $ratingDistribution = [
-            5 => 0,
-            4 => 0,
-            3 => 0,
-            2 => 0,
-            1 => 0,
-        ];
-
-        // Inisialisasi distribusi rating
-        $ratingDistribution = [
-            5 => 0,
-            4 => 0,
-            3 => 0,
-            2 => 0,
-            1 => 0,
-        ];
-
-        // Konversi ratingCounts ke array jika masih berupa Collection
-        $classIds = array_keys($ratingCounts->toArray());
-
-        // Mengambil semua rating untuk setiap class_id dari tabel Reviews
-        $ratings = Reviews::select('class_id', 'rating')
-            ->whereIn('class_id', $classIds)
-            ->get();
-
-        // Menghitung distribusi rating berdasarkan setiap class_id
-        foreach ($ratings as $review) {
-            $rating = $review->rating;
-
-            // Pastikan rating sesuai dengan skala yang diharapkan
-            if (array_key_exists($rating, $ratingDistribution)) {
-                $ratingDistribution[$rating]++;
-            }
-        }
-        return view('search_results', compact(
-            'results',
-            'cart',
-            'notifikasi',
-            'notifikasiCount',
-            'user',
-            'profile',
-            'jumlahPendaftaran',
-            'joinedCourses',
-            'course',
-            'categoryCounts',
-            'category_ids',
-            'tingkatLevels',
-            'tingkatCounts',
-            'categori',
-            'ratingCounts',
-            'ratingDistribution'
-        ))->with('paginationView', 'vendor.custom');
+        return view('search_results', compact('results', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'course', 'categoryCounts', 'category_ids', 'tingkatLevels', 'tingkatCounts', 'categori', 'ratingCounts'))
+            ->with('paginationView', 'vendor.custom');
     }
 }

@@ -110,31 +110,6 @@
                             </div>
                         </div>
 
-                        <div class="courses-widget">
-                            <h4 class="widget-title">Ratings</h4>
-                            <div class="courses-rating-list">
-                                <ul class="list-wrap">
-                                    @foreach (range(5, 1) as $star)
-                                        <li>
-                                            <div class="form-check">
-                                                <input class="form-check-input rating-checkbox" type="checkbox"
-                                                    value="{{ $star }}">
-                                                <div class="rating">
-                                                    <ul class="list-wrap">
-                                                        @for ($i = 0; $i < 5; $i++)
-                                                            <li class="{{ $i < $star ? '' : 'delete' }}"><i
-                                                                    class="fas fa-star"></i></li>
-                                                        @endfor
-                                                    </ul>
-                                                    <span>({{ $ratingDistribution[$star] }})</span>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </div>
-
 
                     </aside>
                 </div>
