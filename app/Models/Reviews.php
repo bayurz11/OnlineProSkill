@@ -17,4 +17,8 @@ class Reviews extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+    public function kelasTatapMuka()
+    {
+        return $this->belongsTo(KelasTatapMuka::class, 'class_id', 'id');
+    }
 }

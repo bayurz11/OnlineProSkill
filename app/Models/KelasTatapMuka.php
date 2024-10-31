@@ -51,4 +51,8 @@ class KelasTatapMuka extends Model
     {
         return $this->hasMany(Sertifikat::class);
     }
+    public function reviews()
+    {
+        return $this->hasMany(Reviews::class, 'class_id', 'id');
+    }
 }
