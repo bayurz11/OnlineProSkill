@@ -110,7 +110,88 @@
                             </div>
                         </div>
 
-
+                        <div class="courses-widget">
+                            <h4 class="widget-title">Ratings</h4>
+                            <div class="courses-rating-list">
+                                <ul class="list-wrap">
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="">
+                                            <div class="rating">
+                                                <ul class="list-wrap">
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                </ul>
+                                                <span>(42)</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="">
+                                            <div class="rating">
+                                                <ul class="list-wrap">
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li class="delete"><i class="fas fa-star"></i></li>
+                                                </ul>
+                                                <span>(23)</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="">
+                                            <div class="rating">
+                                                <ul class="list-wrap">
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li class="delete"><i class="fas fa-star"></i></li>
+                                                    <li class="delete"><i class="fas fa-star"></i></li>
+                                                </ul>
+                                                <span>(11)</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="">
+                                            <div class="rating">
+                                                <ul class="list-wrap">
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li class="delete"><i class="fas fa-star"></i></li>
+                                                    <li class="delete"><i class="fas fa-star"></i></li>
+                                                    <li class="delete"><i class="fas fa-star"></i></li>
+                                                </ul>
+                                                <span>(7)</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="">
+                                            <div class="rating">
+                                                <ul class="list-wrap">
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li class="delete"><i class="fas fa-star"></i></li>
+                                                    <li class="delete"><i class="fas fa-star"></i></li>
+                                                    <li class="delete"><i class="fas fa-star"></i></li>
+                                                    <li class="delete"><i class="fas fa-star"></i></li>
+                                                </ul>
+                                                <span>(3)</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </aside>
                 </div>
                 <!-- Courses Grid -->
