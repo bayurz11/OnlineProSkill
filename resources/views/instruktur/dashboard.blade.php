@@ -96,12 +96,12 @@
                                                     </td>
                                                     <td>
                                                         <div class="review__wrap">
-                                                            <div class="ratting" style="font-size: 24px">
+                                                            <div class="rate__summary-value" style="font-size: 24px">
 
                                                                 {{ number_format($kelas->average_rating, 1) }}
                                                             </div>
                                                             <div class="rating">
-                                                                {{ number_format($kelas->average_rating, 1) }}
+
                                                                 @php
                                                                     $maxStars = 5;
                                                                 @endphp
