@@ -40,6 +40,9 @@
                             <i class="flaticon-arrow-right"></i>
                         </a>
                     </div>
+                    <div class="avg-rating">
+                        <i class="fas fa-star"></i> (4.8 Reviews)
+                    </div>
                 </div>
             </div>
         </div>
