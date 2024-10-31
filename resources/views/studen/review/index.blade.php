@@ -71,8 +71,8 @@
                                             @foreach ($orders as $order)
                                                 <tr>
                                                     <td>
-                                                        <a href="course-details.html">The Complete Graphic Design for
-                                                            Beginners</a>
+                                                        <a
+                                                            href="course-details.html">{{ $order->KelasTatapMuka->nama_kursus ?? 'Nama kelas tidak tersedia' }}</a>
                                                     </td>
                                                     <td>
                                                         <div class="review__wrap">
