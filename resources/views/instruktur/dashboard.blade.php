@@ -96,6 +96,10 @@
                                                     </td>
                                                     <td>
                                                         <div class="review__wrap">
+                                                            <div class="course-rate__summary-value">
+
+                                                                {{ number_format($kelas->average_rating, 1) }}
+                                                            </div>
                                                             <div class="rating">
                                                                 @php
                                                                     $maxStars = 5;
@@ -112,8 +116,6 @@
                                                     </td>
                                                 </tr>
                                             @endforeach
-
-
                                         </tbody>
                                     </table>
                                 </div>
