@@ -78,9 +78,13 @@
                                                     </td>
                                                     <td>
                                                         @php
+                                                            // Mengambil review untuk kelas ini dari setiap user tanpa duplikat
+                                                            $uniqueReviewsCount = $order->reviews
+                                                                ->unique('user_id')
+                                                                ->count();
                                                             $userReview = $order->reviews
                                                                 ->where('user_id', Auth::id())
-                                                                ->first();
+                                                                ->first(); // Mengambil review pengguna yang login
                                                         @endphp
                                                         @if ($userReview)
                                                             <div class="review__wrap">
@@ -99,7 +103,7 @@
                                                                         @endif
                                                                     @endfor
                                                                 </div>
-                                                                <span>(1 Review)</span>
+                                                                <span>({{ $uniqueReviewsCount }} Reviews)</span>
                                                             </div>
                                                             <p>{{ $userReview->comment ?? 'No comment available' }}</p>
                                                         @else
@@ -120,7 +124,6 @@
                                                     </td>
                                                 </tr>
                                             @endforeach
-
 
                                         </tbody>
                                     </table>
