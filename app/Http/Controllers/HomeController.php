@@ -189,7 +189,6 @@ class HomeController extends Controller
             ->take(3)
             ->get();
 
-
         return view('home.classroomdetail', compact(
             'user',
             'reviews',
