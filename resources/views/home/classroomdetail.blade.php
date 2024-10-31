@@ -365,11 +365,15 @@
                                                         <span>{{ $review->created_at->diffForHumans() }}</span>
                                                     </h5>
                                                     <div class="author-rating">
-                                                        @for ($i = 0; $i < 5; $i++)
-                                                            <i
-                                                                class="fas fa-star {{ $i < $review->rating ? '' : '-o' }}"></i>
+                                                        @for ($i = 1; $i <= 5; $i++)
+                                                            @if ($i <= $review->rating)
+                                                                <i class="fas fa-star"></i> <!-- Bintang solid -->
+                                                            @else
+                                                                <i class="far fa-star"></i> <!-- Bintang kosong -->
+                                                            @endif
                                                         @endfor
                                                     </div>
+
                                                 </div>
                                                 <h4 class="title">{{ $review->kelasTatapMuka->nama_kursus }}</h4>
                                                 <p>{{ $review->comment }}</p>
