@@ -72,7 +72,7 @@
                                                 <tr>
                                                     <td>
                                                         <a
-                                                            href="{{ route('classroomdetail', ['id' => $order->id]) }}">{{ $order->KelasTatapMuka->nama_kursus ?? 'Nama kelas tidak tersedia' }}</a>
+                                                            href="{{ route('classroomdetail', ['id' => $order->product_id]) }}">{{ $order->KelasTatapMuka->nama_kursus ?? 'Nama kelas tidak tersedia' }}</a>
                                                     </td>
                                                     <td>
                                                         <div class="review__wrap">
