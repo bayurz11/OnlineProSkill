@@ -43,11 +43,11 @@
                     @php
                         // Menghitung rata-rata rating
                         $averageRating = $kelas->reviews()->avg('rating'); // Asumsikan kolom rating ada di tabel reviews
-                        $reviewCount = $kelas->reviews()->count(); // Menghitung jumlah review
+
                     @endphp
                     <div class="avg-rating">
                         <i class="fas fa-star"></i> ({{ $averageRating ? number_format($averageRating, 1) : '0.0' }}
-                        Reviews: {{ $reviewCount }})
+                        Reviews)
                     </div>
 
                 </div>
