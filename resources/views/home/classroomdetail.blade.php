@@ -388,7 +388,7 @@
                                     </div>
 
                                     <button id="load-more"
-                                        style="display: {{ count($reviews) > 1 ? 'block' : 'none' }}; background-color: #e9ecef; color: #495057; border: none; border-radius: 50px; padding: 10px 20px; font-size: 16px; cursor: pointer; display: block; margin: 0 auto;">
+                                        style="display: {{ count($reviews) > 3 ? 'block' : 'none' }}; background-color: #e9ecef; color: #495057; border: none; border-radius: 50px; padding: 10px 20px; font-size: 16px; cursor: pointer; display: block; margin: 0 auto;">
                                         Tampilkan Lebih Banyak
                                     </button>
 
