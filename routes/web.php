@@ -41,6 +41,7 @@ use App\Http\Controllers\InstrukturSectionController;
 use App\Http\Controllers\ProfileInstrukturController;
 use App\Http\Controllers\HubungiKamiSettingController;
 use App\Http\Controllers\DashboardInstrukturController;
+use App\Http\Controllers\GiftClassController;
 use App\Http\Controllers\InstrukturKurikulumController;
 use App\Http\Controllers\OrderHistoryManagerController;
 use App\Http\Controllers\SettingProfileInstrukturController;
@@ -143,7 +144,8 @@ Route::middleware('isAdmin')->group(function () {
     Route::put('/sectionupdate/{id}', [SectionController::class, 'update'])->name('section.update');
     Route::delete('/section_destroy/{id}', [SectionController::class, 'destroy'])->name('class.destroy');
 
-
+    //Gift Class
+    // Route::get('/giftClass', [GiftClassController::class, 'giftClass'])->name('giftClass');
     //*******pixel Setting*******//
 
     Route::get('/settings/pixel', [PixelController::class, 'index'])->name('pixel.settings');
@@ -196,7 +198,6 @@ Route::middleware('isStuden')->group(function () {
 
     //payment
     Route::post('/payment', [PaymentController::class, 'payment'])->name('payment');
-
 
     //Akses Pembelian
     Route::get('/akses_pembelian', [AksesPembelianController::class, 'index'])->name('akses_pembelian');
