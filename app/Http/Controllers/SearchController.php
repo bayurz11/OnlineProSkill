@@ -247,9 +247,21 @@ class SearchController extends Controller
             1 => 0,
         ];
 
+        // Inisialisasi distribusi rating
+        $ratingDistribution = [
+            5 => 0,
+            4 => 0,
+            3 => 0,
+            2 => 0,
+            1 => 0,
+        ];
+
+        // Konversi ratingCounts ke array jika masih berupa Collection
+        $classIds = array_keys($ratingCounts->toArray());
+
         // Mengambil semua rating untuk setiap class_id dari tabel Reviews
         $ratings = Reviews::select('class_id', 'rating')
-            ->whereIn('class_id', array_keys($ratingCounts))
+            ->whereIn('class_id', $classIds)
             ->get();
 
         // Menghitung distribusi rating berdasarkan setiap class_id
@@ -261,7 +273,6 @@ class SearchController extends Controller
                 $ratingDistribution[$rating]++;
             }
         }
-
         return view('search_results', compact(
             'results',
             'cart',
