@@ -53,6 +53,6 @@ class ReviewController extends Controller
             }
         }
 
-        return view('studen.aksespembelian', compact('user', 'categori', 'profile', 'cart', 'KelasTatapMuka', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum'));
+        return view('studen.review.index', compact('user', 'categori', 'profile', 'cart', 'KelasTatapMuka', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum'));
     }
 }
