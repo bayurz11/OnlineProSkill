@@ -80,7 +80,7 @@
                                                         @php
                                                             $userReview = $order->reviews
                                                                 ->where('user_id', Auth::id())
-                                                                ->first(); // Mengambil review pengguna yang login
+                                                                ->first();
                                                         @endphp
                                                         @if ($userReview)
                                                             <div class="review__wrap">
