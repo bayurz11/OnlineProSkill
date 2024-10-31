@@ -97,8 +97,12 @@
                                                     <td>
                                                         <div class="review__wrap">
                                                             <div class="rating">
-                                                                @for ($i = 0; $i < 5; $i++)
-                                                                    <i class="fas fa-star"></i>
+                                                                @for ($i = 1; $i <= 5; $i++)
+                                                                    @if ($i <= $kelas->$reviews->avg('rating'))
+                                                                        <i class="fas fa-star"></i>
+                                                                    @else
+                                                                        <i class="far fa-star"></i>
+                                                                    @endif
                                                                 @endfor
                                                             </div>
                                                         </div>
