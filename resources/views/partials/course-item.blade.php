@@ -40,8 +40,16 @@
                             <i class="flaticon-arrow-right"></i>
                         </a>
                     </div>
+
+                    @php
+                        // Menghitung rata-rata rating untuk setiap kelas
+                        $averageRating = $kelas->ratings()->avg('rating'); // Asumsikan ada relasi `ratings`
+                        $reviewCount = $kelas->ratings()->count(); // Menghitung jumlah ulasan
+                    @endphp
+
                     <div class="avg-rating">
-                        <i class="fas fa-star"></i> (4.8 Reviews)
+                        <i class="fas fa-star"></i>
+                        ({{ $reviewCount > 0 ? number_format($averageRating, 1) : '0.0' }} Reviews)
                     </div>
                 </div>
             </div>
