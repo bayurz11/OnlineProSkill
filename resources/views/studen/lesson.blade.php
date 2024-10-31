@@ -9,12 +9,11 @@
                     <div class="lesson__content">
                         <h2 class="title">Konten Kursus</h2>
 
-                        <!-- Periksa apakah ada kurikulum -->
                         @if (!$kurikulum)
                             <p>Data kurikulum belum tersedia.</p>
                         @else
                             <div class="accordion" id="accordionExample">
-                                @foreach ($kurikulum as $index => $item)
+                                @foreach ($kurikulum->sections as $index => $item)
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="heading{{ $index }}">
                                             <button class="accordion-button {{ $index !== 0 ? 'collapsed' : '' }}"
@@ -79,6 +78,7 @@
                                 @endforeach
                             </div>
                         @endif
+
                     </div>
                 </div>
                 @if (!$kurikulum->isEmpty())
