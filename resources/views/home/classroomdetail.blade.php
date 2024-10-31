@@ -371,7 +371,7 @@
                                                     </div>
                                                 </div>
                                                 <h4 class="title">{{ $review->title }}</h4>
-                                                <p>{{ $review->content }}</p>
+                                                <p>{{ $review->comment }}</p>
                                             </div>
                                         </div>
                                     @endforeach
