@@ -75,10 +75,15 @@ class DashboardInstrukturController extends Controller
             $kelas->jumlah_order_paid = Order::where('product_id', $kelas->id)
                 ->where('status', 'PAID')
                 ->count();
+
+            // Ambil ulasan untuk kelas
+            $kelas->reviews = Reviews::where('class_id', $kelas->id)->with('user')->get();
+            $kelas->average_rating = $kelas->reviews->avg('rating');
         }
-        $reviews = Reviews::where('class_id')->with('user', 'kelasTatapMuka')->get();
-        return view('instruktur.dashboard', compact('user', 'jumlahSiswa', 'reviews', 'daftarpesanan', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kelastatapmuka', 'kelastatapmukaCount'));
+
+        return view('instruktur.dashboard', compact('user', 'jumlahSiswa', 'daftarpesanan', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kelastatapmuka', 'kelastatapmukaCount'));
     }
+
 
     public function profile()
     {

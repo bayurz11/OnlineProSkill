@@ -98,21 +98,13 @@
                                                         <div class="review__wrap">
                                                             <div class="rating">
                                                                 @php
-                                                                    // Ambil ulasan terkait kelas
-                                                                    $kelasReviews = $reviews->where(
-                                                                        'class_id',
-                                                                        $kelas->id,
-                                                                    );
-                                                                    // Hitung rata-rata rating
-                                                                    $averageRating = $kelasReviews->avg('rating');
-                                                                    // Set jumlah bintang maksimum
                                                                     $maxStars = 5;
                                                                 @endphp
                                                                 @for ($i = 1; $i <= $maxStars; $i++)
-                                                                    @if ($i <= $averageRating)
-                                                                        <i class="fas fa-star"></i> <!-- Bintang solid -->
+                                                                    @if ($i <= $kelas->average_rating)
+                                                                        <i class="fas fa-star"></i>
                                                                     @else
-                                                                        <i class="far fa-star"></i> <!-- Bintang kosong -->
+                                                                        <i class="far fa-star"></i>
                                                                     @endif
                                                                 @endfor
                                                             </div>
@@ -120,6 +112,7 @@
                                                     </td>
                                                 </tr>
                                             @endforeach
+
 
                                         </tbody>
                                     </table>
