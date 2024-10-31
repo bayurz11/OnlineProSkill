@@ -203,6 +203,7 @@ Route::middleware('isStuden')->group(function () {
 
     //review
     Route::get('/review', [ReviewController::class, 'index'])->name('review');
+    Route::post('/review/store', [ReviewController::class, 'store'])->name('review.store');
 
     //lesson
     Route::get('/lesson/{id}', [AksesPembelianController::class, 'lesson'])->name('lesson');
