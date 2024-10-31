@@ -359,7 +359,7 @@
                                     <div id="review-container">
                                         @foreach ($reviews as $index => $review)
                                             <div class="course-review-head review"
-                                                style="display: {{ $index < 3 ? 'block' : 'none' }};">
+                                                style="display: {{ $index < 1 ? 'block' : 'none' }};">
                                                 <div class="review-author-thumb">
                                                     <img src="{{ $review->user->userprofile && $review->user->userprofile->gambar ? (strpos($review->user->userprofile->gambar, 'googleusercontent') !== false ? $review->user->userprofile->gambar : asset('public/uploads/' . $review->user->userprofile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
                                                         alt="img"
