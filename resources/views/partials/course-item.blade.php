@@ -3,12 +3,7 @@
     $kurikulumExists = \App\Models\Kurikulum::where('course_id', $kelas['id'])->exists();
 @endphp
 @if ($kurikulumExists)
-    @php
-        // Menghitung jumlah ulasan dan rata-rata rating
-        $reviews = $kelas->reviews; // Ambil semua ulasan untuk kelas ini
-        $reviewCount = $reviews->count(); // Hitung jumlah ulasan
-        $averageRating = $reviewCount > 0 ? $reviews->avg('rating') : 0; // Hitung rata-rata rating
-    @endphp
+
     <div class="swiper-slide">
         <div class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
             <div class="courses__item-thumb courses__item-thumb-two">
@@ -54,6 +49,7 @@
                             (Belum ada ulasan)
                         @endif
                     </div>
+
                 </div>
 
             </div>
