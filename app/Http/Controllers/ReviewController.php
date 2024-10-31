@@ -12,6 +12,7 @@ use App\Models\NotifikasiUser;
 use App\Models\UserSectionStatus;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
+use App\Models\Reviews;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -55,5 +56,30 @@ class ReviewController extends Controller
         }
 
         return view('studen.review.index', compact('user', 'userSectionStatus', 'categori', 'profile', 'cart', 'KelasTatapMuka', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum'));
+    }
+
+    public function store(Request $request)
+    {
+        // Memastikan user login
+        $user = Auth::user();
+        if (!$user) {
+            return redirect()->route('home');
+        }
+
+        // Validasi data
+        $request->validate([
+            'class_id' => 'required|exists:KelasTatapMuka,id',
+            'rating' => 'required|integer|min:1|max:5',
+            'comment' => 'required|string',
+        ]);
+
+        Reviews::create([
+            'class_id' => $request->class_id,
+            'user_id' => $user->id,
+            'rating' => $request->rating,
+            'comment' => $request->comment,
+        ]);
+
+        return redirect()->back()->with('success', 'Review berhasil ditambahkan');
     }
 }
