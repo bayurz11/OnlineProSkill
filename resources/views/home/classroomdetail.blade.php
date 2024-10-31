@@ -356,34 +356,59 @@
                                         </div>
                                     </div>
 
-                                    @foreach ($reviews as $review)
-                                        <div class="course-review-head">
-                                            <div class="review-author-thumb">
-                                                <img src="{{ $review->user->userprofile && $review->user->userprofile->gambar ? (strpos($review->user->userprofile->gambar, 'googleusercontent') !== false ? $review->user->userprofile->gambar : asset('public/uploads/' . $review->user->userprofile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
-                                                    alt="img"
-                                                    style="border-radius: 50%; width: 80px; height: 80px; object-fit: cover;">
-                                            </div>
-                                            <div class="review-author-content">
-                                                <div class="author-name">
-                                                    <h5 class="name">{{ $review->user->name }}
-                                                        <span>{{ $review->created_at->diffForHumans() }}</span>
-                                                    </h5>
-                                                    <div class="author-rating">
-                                                        @for ($i = 1; $i <= 5; $i++)
-                                                            @if ($i <= $review->rating)
-                                                                <i class="fas fa-star"></i>
-                                                            @else
-                                                                <i class="far fa-star"></i>
-                                                            @endif
-                                                        @endfor
-                                                    </div>
-
+                                    <div id="review-container">
+                                        @foreach ($reviews as $index => $review)
+                                            <div class="course-review-head review"
+                                                style="display: {{ $index < 3 ? 'block' : 'none' }};">
+                                                <div class="review-author-thumb">
+                                                    <img src="{{ $review->user->userprofile && $review->user->userprofile->gambar ? (strpos($review->user->userprofile->gambar, 'googleusercontent') !== false ? $review->user->userprofile->gambar : asset('public/uploads/' . $review->user->userprofile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
+                                                        alt="img"
+                                                        style="border-radius: 50%; width: 80px; height: 80px; object-fit: cover;">
                                                 </div>
-                                                <h4 class="title">{{ $review->kelasTatapMuka->nama_kursus }}</h4>
-                                                <p>{{ $review->comment }}</p>
+                                                <div class="review-author-content">
+                                                    <div class="author-name">
+                                                        <h5 class="name">{{ $review->user->name }}
+                                                            <span>{{ $review->created_at->diffForHumans() }}</span>
+                                                        </h5>
+                                                        <div class="author-rating">
+                                                            @for ($i = 1; $i <= 5; $i++)
+                                                                @if ($i <= $review->rating)
+                                                                    <i class="fas fa-star"></i>
+                                                                @else
+                                                                    <i class="far fa-star"></i>
+                                                                @endif
+                                                            @endfor
+                                                        </div>
+                                                    </div>
+                                                    <h4 class="title">{{ $review->kelasTatapMuka->nama_kursus }}</h4>
+                                                    <p>{{ $review->comment }}</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                    @endforeach
+                                        @endforeach
+                                    </div>
+
+                                    <button id="load-more"
+                                        style="display: {{ count($reviews) > 3 ? 'block' : 'none' }};">Tampilkan Lebih
+                                        Banyak</button>
+
+                                    <script>
+                                        document.getElementById('load-more').addEventListener('click', function() {
+                                            const reviews = document.querySelectorAll('.review');
+                                            let displayed = 0;
+                                            reviews.forEach((review, index) => {
+                                                if (index < 3 + displayed) {
+                                                    review.style.display = 'block';
+                                                    displayed++;
+                                                }
+                                            });
+
+                                            // Jika sudah menampilkan semua ulasan, sembunyikan tombol
+                                            if (displayed >= reviews.length) {
+                                                this.style.display = 'none';
+                                            }
+                                        });
+                                    </script>
+
                                 </div>
                             </div>
 

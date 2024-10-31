@@ -183,11 +183,7 @@ class HomeController extends Controller
         $orderProductIds = Order::where('product_id', $id)->pluck('product_id');
         $sertifikatCount = Sertifikat::whereIn('kategori_id', $orderProductIds)->count();
 
-        $reviews = Reviews::where('class_id', $id)
-            ->with(['user', 'kelasTatapMuka'])
-            ->latest()
-            ->take(3)
-            ->get();
+        $reviews = Reviews::where('class_id', $id)->with('user', 'kelasTatapMuka')->get();
 
         return view('home.classroomdetail', compact(
             'user',
