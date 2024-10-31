@@ -73,6 +73,16 @@ class ReviewController extends Controller
             'comment' => 'required|string',
         ]);
 
+        // Cek apakah user sudah memberi review pada kelas ini
+        $existingReview = Reviews::where('class_id', $request->class_id)
+            ->where('user_id', $user->id)
+            ->first();
+
+        if ($existingReview) {
+            return redirect()->back()->with('error', 'Anda sudah memberi review untuk kelas ini.');
+        }
+
+        // Simpan review baru
         Reviews::create([
             'class_id' => $request->class_id,
             'user_id' => $user->id,

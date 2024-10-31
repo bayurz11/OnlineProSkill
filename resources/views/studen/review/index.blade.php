@@ -77,11 +77,16 @@
                                                         </a>
                                                     </td>
                                                     <td>
-                                                        @if ($order->reviews->isNotEmpty())
+                                                        @php
+                                                            $userReview = $order->reviews
+                                                                ->where('user_id', Auth::id())
+                                                                ->first(); // Mengambil review pengguna yang login
+                                                        @endphp
+                                                        @if ($userReview)
                                                             <div class="review__wrap">
                                                                 <div class="rating">
                                                                     @php
-                                                                        $rating = round($order->reviews->avg('rating')); // Membulatkan rata-rata rating ke integer
+                                                                        $rating = round($userReview->rating);
                                                                         $maxStars = 5;
                                                                     @endphp
                                                                     @for ($i = 1; $i <= $maxStars; $i++)
@@ -94,10 +99,9 @@
                                                                         @endif
                                                                     @endfor
                                                                 </div>
-                                                                <span>({{ $order->reviews->count() }} Reviews)</span>
+                                                                <span>(1 Review)</span>
                                                             </div>
-                                                            <p>{{ $order->reviews->first()->comment ?? 'No comment available' }}
-                                                            </p>
+                                                            <p>{{ $userReview->comment ?? 'No comment available' }}</p>
                                                         @else
                                                             <p>No reviews available</p>
                                                         @endif
@@ -106,13 +110,17 @@
                                                         <div class="dashboard__review-action">
                                                             <a data-bs-toggle="modal"
                                                                 data-bs-target="#reviewModal{{ $order->KelasTatapMuka->id }}"
-                                                                title="Beri Review"><i class="skillgro-edit"></i></a>
-                                                            <a href="#" title="Delete"><i
-                                                                    class="skillgro-bin"></i></a>
+                                                                title="Beri Review">
+                                                                <i class="skillgro-edit"></i>
+                                                            </a>
+                                                            <a href="#" title="Delete">
+                                                                <i class="skillgro-bin"></i>
+                                                            </a>
                                                         </div>
                                                     </td>
                                                 </tr>
                                             @endforeach
+
 
                                         </tbody>
                                     </table>
