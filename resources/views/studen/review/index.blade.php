@@ -104,7 +104,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="dashboard__review-action">
-                                                            <a href="#" title="Edit"><i
+                                                            <a href="#" title="Beri Review"><i
                                                                     class="skillgro-edit"></i></a>
                                                             <a href="#" title="Delete"><i
                                                                     class="skillgro-bin"></i></a>
