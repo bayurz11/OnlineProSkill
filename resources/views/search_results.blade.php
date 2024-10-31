@@ -110,88 +110,39 @@
                             </div>
                         </div>
 
-                        <div class="courses-widget">
-                            <h4 class="widget-title">Ratings</h4>
-                            <div class="courses-rating-list">
-                                <ul class="list-wrap">
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="">
-                                            <div class="rating">
-                                                <ul class="list-wrap">
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                </ul>
-                                                <span>(42)</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="">
-                                            <div class="rating">
-                                                <ul class="list-wrap">
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li class="delete"><i class="fas fa-star"></i></li>
-                                                </ul>
-                                                <span>(23)</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="">
-                                            <div class="rating">
-                                                <ul class="list-wrap">
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li class="delete"><i class="fas fa-star"></i></li>
-                                                    <li class="delete"><i class="fas fa-star"></i></li>
-                                                </ul>
-                                                <span>(11)</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="">
-                                            <div class="rating">
-                                                <ul class="list-wrap">
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li class="delete"><i class="fas fa-star"></i></li>
-                                                    <li class="delete"><i class="fas fa-star"></i></li>
-                                                    <li class="delete"><i class="fas fa-star"></i></li>
-                                                </ul>
-                                                <span>(7)</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="">
-                                            <div class="rating">
-                                                <ul class="list-wrap">
-                                                    <li><i class="fas fa-star"></i></li>
-                                                    <li class="delete"><i class="fas fa-star"></i></li>
-                                                    <li class="delete"><i class="fas fa-star"></i></li>
-                                                    <li class="delete"><i class="fas fa-star"></i></li>
-                                                    <li class="delete"><i class="fas fa-star"></i></li>
-                                                </ul>
-                                                <span>(3)</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
+                        <form method="GET" action="{{ route('search') }}">
+                            <div class="courses-widget">
+                                <h4 class="widget-title">Ratings</h4>
+                                <div class="courses-rating-list">
+                                    <ul class="list-wrap">
+                                        @foreach (range(5, 1) as $rating)
+                                            <li>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" name="ratings[]"
+                                                        value="{{ $rating }}" id="rating-{{ $rating }}">
+                                                    <label class="form-check-label" for="rating-{{ $rating }}">
+                                                        <div class="rating">
+                                                            <ul class="list-wrap">
+                                                                @foreach (range(1, 5) as $star)
+                                                                    <li class="{{ $star > $rating ? 'delete' : '' }}"><i
+                                                                            class="fas fa-star"></i></li>
+                                                                @endforeach
+                                                            </ul>
+                                                            <span>({{ $ratingCounts->get($rating, 0) }})</span>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
+
+                            <!-- Tambahkan elemen form lainnya di sini (seperti kategori, tingkat, dll.) -->
+
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </form>
+
                     </aside>
                 </div>
                 <!-- Courses Grid -->

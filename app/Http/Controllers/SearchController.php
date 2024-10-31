@@ -142,7 +142,7 @@ class SearchController extends Controller
         $categoryCounts = KelasTatapMuka::select('kategori_id', DB::raw('count(*) as total'))
             ->where('status', 1)
             ->where('course_type', '!=', 'bootcamp')
-            ->whereIn('id', $kurikulumCourseIds) // Filter berdasarkan course_id yang ada di Kurikulum
+            ->whereIn('id', $kurikulumCourseIds)
             ->groupBy('kategori_id')
             ->pluck('total', 'kategori_id');
 
@@ -150,9 +150,14 @@ class SearchController extends Controller
         $tingkatCounts = KelasTatapMuka::select('tingkat', DB::raw('count(*) as total'))
             ->where('status', 1)
             ->where('course_type', '!=', 'bootcamp')
-            ->whereIn('id', $kurikulumCourseIds) // Filter berdasarkan course_id yang ada di Kurikulum
+            ->whereIn('id', $kurikulumCourseIds)
             ->groupBy('tingkat')
             ->pluck('total', 'tingkat');
+
+        // Hitung jumlah rating untuk setiap kursus
+        $ratingCounts = Reviews::select('class_id', DB::raw('count(*) as total'))
+            ->groupBy('class_id')
+            ->pluck('total', 'class_id');
 
         // Pastikan category_ids adalah array
         if (!is_array($category_ids)) {
@@ -194,6 +199,13 @@ class SearchController extends Controller
             ->when(!empty($courseType), function ($query) use ($courseType) {
                 return $query->whereIn('course_type', $courseType);
             })
+            ->when($request->input('ratings', []), function ($query) use ($ratingCounts) {
+                foreach ($request->input('ratings') as $rating) {
+                    $query->whereIn('id', array_keys($ratingCounts->filter(function ($total) use ($rating) {
+                        return $total >= $rating; // Menghitung rating yang lebih besar atau sama
+                    })->toArray()));
+                }
+            })
             ->when($orderby, function ($query, $orderby) {
                 if ($orderby == 'latest') {
                     return $query->orderBy('created_at', 'desc');
@@ -205,8 +217,8 @@ class SearchController extends Controller
                     return $query->orderBy('price', 'asc');
                 }
             })
-            ->whereIn('id', $kurikulumCourseIds) // Filter berdasarkan course_id yang ada di Kurikulum
-            ->paginate(6); // Gunakan pagination, 6 item per halaman
+            ->whereIn('id', $kurikulumCourseIds)
+            ->paginate(6);
 
         // Ambil notifikasi untuk pengguna yang sedang login
         $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
@@ -231,7 +243,7 @@ class SearchController extends Controller
         // Ambil ID kursus yang telah diikuti oleh user
         $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
 
-        return view('search_results', compact('results', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'course', 'categoryCounts', 'category_ids', 'tingkatLevels', 'tingkatCounts', 'categori'))
+        return view('search_results', compact('results', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'course', 'categoryCounts', 'category_ids', 'tingkatLevels', 'tingkatCounts', 'categori', 'ratingCounts'))
             ->with('paginationView', 'vendor.custom');
     }
 }
