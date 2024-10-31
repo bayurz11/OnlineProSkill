@@ -97,14 +97,25 @@
                                                     <td>
                                                         <div class="review__wrap">
                                                             <div class="rating">
+                                                                @php
+                                                                    // Ambil ulasan terkait kelas
+                                                                    $kelasReviews = $reviews->where(
+                                                                        'class_id',
+                                                                        $kelas->id,
+                                                                    );
+                                                                    // Hitung rata-rata rating
+                                                                    $averageRating = $kelasReviews->avg('rating');
+                                                                @endphp
                                                                 @for ($i = 0; $i < 5; $i++)
-                                                                    <i class="fas fa-star"></i>
+                                                                    <i
+                                                                        class="fas fa-star {{ $i < $averageRating ? 'active' : '' }}"></i>
                                                                 @endfor
                                                             </div>
                                                         </div>
                                                     </td>
                                                 </tr>
                                             @endforeach
+
 
                                         </tbody>
                                     </table>

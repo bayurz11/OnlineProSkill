@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use Closure;
 use App\Models\User;
 use App\Models\Order;
+use App\Models\Reviews;
 use App\Models\UserRoles;
 use App\Models\Categories;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
+use App\Models\KelasTatapMuka;
 use App\Models\NotifikasiUser;
 use Illuminate\Support\Carbon;
 use App\Http\Controllers\Controller;
-use App\Models\KelasTatapMuka;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Session;
@@ -75,8 +76,8 @@ class DashboardInstrukturController extends Controller
                 ->where('status', 'PAID')
                 ->count();
         }
-
-        return view('instruktur.dashboard', compact('user', 'jumlahSiswa', 'daftarpesanan', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kelastatapmuka', 'kelastatapmukaCount'));
+        $reviews = Reviews::where('class_id')->with('user', 'kelasTatapMuka')->get();
+        return view('instruktur.dashboard', compact('user', 'jumlahSiswa', 'reviews', 'daftarpesanan', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kelastatapmuka', 'kelastatapmukaCount'));
     }
 
     public function profile()
