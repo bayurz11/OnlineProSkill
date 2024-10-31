@@ -393,37 +393,41 @@
                                     </button>
 
                                     <div id="review-container">
-                                        @foreach ($reviews as $index => $review)
-                                            <div class="course-review-head review"
-                                                style="display: {{ $index < 3 ? 'block' : 'none' }};">
-                                                <div class="review-author-thumb">
-                                                    <img src="{{ $review->user->userprofile && $review->user->userprofile->gambar ? (strpos($review->user->userprofile->gambar, 'googleusercontent') !== false ? $review->user->userprofile->gambar : asset('public/uploads/' . $review->user->userprofile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
-                                                        alt="img"
-                                                        style="border-radius: 50%; width: 80px; height: 80px; object-fit: cover;">
-                                                </div>
-                                                <div class="review-author-content">
-                                                    <div class="author-name">
-                                                        <h5 class="name">{{ $review->user->name }}
-                                                            <span>{{ $review->created_at->diffForHumans() }}</span>
-                                                        </h5>
-                                                        <div class="author-rating">
-                                                            @for ($i = 1; $i <= 5; $i++)
-                                                                @if ($i <= $review->rating)
-                                                                    <i class="fas fa-star"></i>
-                                                                @else
-                                                                    <i class="far fa-star"></i>
-                                                                @endif
-                                                            @endfor
-                                                        </div>
+                                        @if ($reviews->count() > 0)
+                                            @foreach ($reviews as $index => $review)
+                                                <div class="course-review-head review"
+                                                    style="display: {{ $index < 3 ? 'block' : 'none' }};">
+                                                    <div class="review-author-thumb">
+                                                        <img src="{{ $review->user->userprofile && $review->user->userprofile->gambar ? (strpos($review->user->userprofile->gambar, 'googleusercontent') !== false ? $review->user->userprofile->gambar : asset('public/uploads/' . $review->user->userprofile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
+                                                            alt="img"
+                                                            style="border-radius: 50%; width: 80px; height: 80px; object-fit: cover;">
                                                     </div>
-                                                    <h4 class="title">{{ $review->kelasTatapMuka->nama_kursus }}</h4>
-                                                    <p>{{ $review->comment }}</p>
+                                                    <div class="review-author-content">
+                                                        <div class="author-name">
+                                                            <h5 class="name">{{ $review->user->name }}
+                                                                <span>{{ $review->created_at->diffForHumans() }}</span>
+                                                            </h5>
+                                                            <div class="author-rating">
+                                                                @for ($i = 1; $i <= 5; $i++)
+                                                                    @if ($i <= $review->rating)
+                                                                        <i class="fas fa-star"></i>
+                                                                    @else
+                                                                        <i class="far fa-star"></i>
+                                                                    @endif
+                                                                @endfor
+                                                            </div>
+                                                        </div>
+                                                        <h4 class="title">{{ $review->kelasTatapMuka->nama_kursus }}</h4>
+                                                        <p>{{ $review->comment }}</p>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        @endforeach
+                                            @endforeach
+                                        @else
+                                            <p>Tidak ada ulasan untuk kelas ini.</p>
+                                        @endif
                                     </div>
 
-                                    @if (count($reviews) > 3)
+                                    @if ($reviews->count() > 3)
                                         <button id="load-more"
                                             style="background-color: #e9ecef; color: #495057; border: none; border-radius: 50px; padding: 10px 20px; font-size: 16px; cursor: pointer; display: block; margin: 0 auto;">
                                             Tampilkan Lebih Banyak
