@@ -387,152 +387,154 @@
                                         @endforeach
                                     </div>
 
-                                    <button id="load-more"
-                                        style="display: {{ count($reviews) > 1 ? 'block' : 'none' }};">Tampilkan Lebih
-                                        Banyak</button>
-                                    <button class="nav-link" id="load-more" type="button" role="tab"
-                                        aria-controls="reviews-tab-pane" aria-selected="false">Tampilkan Lebih
-                                        Banyak</button>
-                                    <script>
-                                        document.getElementById('load-more').addEventListener('click', function() {
-                                            const reviews = document.querySelectorAll('.review');
-                                            let displayed = 0;
-                                            reviews.forEach((review, index) => {
-                                                if (index < 3 + displayed) {
-                                                    review.style.display = 'block';
-                                                    displayed++;
-                                                }
-                                            });
+                                    <<div style="text-align: center;">
+                                        <button id="load-more"
+                                            style="display: {{ count($reviews) > 1 ? 'block' : 'none' }}; background-color: #e9ecef; color: #495057; border: none; border-radius: 50px; padding: 10px 20px; font-size: 16px; cursor: pointer;">
+                                            Tampilkan Lebih Banyak
+                                        </button>
+                                </div>
 
-                                            // Jika sudah menampilkan semua ulasan, sembunyikan tombol
-                                            if (displayed >= reviews.length) {
-                                                this.style.display = 'none';
+
+                                <script>
+                                    document.getElementById('load-more').addEventListener('click', function() {
+                                        const reviews = document.querySelectorAll('.review');
+                                        let displayed = 0;
+                                        reviews.forEach((review, index) => {
+                                            if (index < 3 + displayed) {
+                                                review.style.display = 'block';
+                                                displayed++;
                                             }
                                         });
-                                    </script>
 
-                                </div>
+                                        // Jika sudah menampilkan semua ulasan, sembunyikan tombol
+                                        if (displayed >= reviews.length) {
+                                            this.style.display = 'none';
+                                        }
+                                    });
+                                </script>
+
                             </div>
-
                         </div>
-                    </div>
-
-                </div>
-
-                <div class="col-xl-3 col-lg-4">
-                    <div class="courses__details-sidebar">
-                        <div class="courses__cost-wrap">
-                            <span>Kursus Fee:</span>
-                            <h2 class="title">
-                                @if (!empty($courses->discountedPrice) && $courses->discount != 0)
-                                    <div>
-                                        <span style="font-size: 15px; text-decoration: line-through; opacity: 0.8;">
-                                            Rp {{ number_format($courses->price, 0, ',', '.') }}
-                                        </span>
-                                        <span style="font-size: 30px; font-weight: bold;">
-                                            Rp {{ number_format($courses->discountedPrice, 0, ',', '.') }}
-                                        </span>
-                                    </div>
-                                @else
-                                    <span>Rp {{ number_format($courses->price, 0, ',', '.') }}</span>
-                                @endif
-
-                            </h2>
-
-                        </div>
-                        <div class="courses__information-wrap">
-                            <h5 class="title">Keterangan:</h5>
-                            <ul class="list-wrap">
-                                <li>
-                                    <img src="{{ asset('public/assets/img/icons/course_icon01.svg') }}" alt="img"
-                                        class="injectable">
-                                    Tingkat
-                                    <span>{{ $courses->tingkat }}</span>
-                                </li>
-                                @if ($courses->course_type !== 'online')
-                                    <li>
-                                        <img src="{{ asset('public/assets/img/icons/course_icon02.svg') }}"
-                                            alt="img" class="injectable">
-                                        Durasi
-                                        <span>{{ $courses->durasi }}</span>
-                                    </li>
-                                @endif
-                                <li>
-                                    <img src="{{ asset('public/assets/img/icons/course_icon05.svg') }}" alt="img"
-                                        class="injectable">
-                                    Sertifikat
-                                    <span>{{ $courses->sertifikat }}</span>
-                                </li>
-                                @if ($courses->course_type !== 'online')
-                                    <li>
-                                        <img src="{{ asset('public/assets/img/icons/course_icon06.svg') }}"
-                                            alt="img" class="injectable">
-                                        Kuota Kelas
-                                        <span>{{ $jumlahPendaftaran }}/{{ $courses->kuota }}</span>
-                                    </li>
-                                @endif
-                            </ul>
-                        </div>
-
-                        @if (in_array($courses->id, $joinedCourses))
-                            <div class="courses__details-enroll">
-                                <div class="tg-button-wrap">
-                                    <a href="{{ route('lesson', ['id' => $courses->id]) }}"
-                                        class="btn btn-two arrow-btn">Lanjut Belajar</a>
-                                </div>
-                            </div>
-                        @elseif ($courses->course_type == 'online')
-                            {{-- Kursus online tanpa batasan kuota dan tanpa tombol pendaftaran penuh --}}
-                            <div class="courses__details-enroll">
-                                <div class="tg-button-wrap">
-                                    <a href="{{ route('cart.checkout', ['id' => $courses->id]) }}"
-                                        class="btn btn-two arrow-btn">
-                                        Checkout
-                                        <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
-                                            class="injectable">
-                                    </a>
-                                </div>
-                                <br>
-                                <div class="tg-button-wrap">
-                                    <a href="{{ route('cart.adddetail', ['id' => $courses->id]) }}"
-                                        class="btn">Masukkan keranjang
-                                        <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
-                                            class="injectable">
-                                    </a>
-                                </div>
-                            </div>
-                        @elseif ($jumlahPendaftaran < $courses->kuota)
-                            <div class="courses__details-enroll">
-                                <div class="tg-button-wrap">
-                                    <a href="{{ route('cart.checkout', ['id' => $courses->id]) }}"
-                                        class="btn btn-two arrow-btn">
-                                        Checkout
-                                        <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
-                                            class="injectable">
-                                    </a>
-                                </div>
-                                <br>
-                                <div class="tg-button-wrap">
-                                    <a href="{{ route('cart.adddetail', ['id' => $courses->id]) }}"
-                                        class="btn">Masukkan keranjang
-                                        <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
-                                            class="injectable">
-                                    </a>
-                                </div>
-                            </div>
-                        @else
-                            <div class="courses__details-enroll">
-                                <div class="tg-button-wrap">
-                                    <a href="#" class="btn btn-secondary disabled">Pendaftaran Penuh</a>
-                                </div>
-                            </div>
-                        @endif
-
 
                     </div>
                 </div>
 
             </div>
+
+            <div class="col-xl-3 col-lg-4">
+                <div class="courses__details-sidebar">
+                    <div class="courses__cost-wrap">
+                        <span>Kursus Fee:</span>
+                        <h2 class="title">
+                            @if (!empty($courses->discountedPrice) && $courses->discount != 0)
+                                <div>
+                                    <span style="font-size: 15px; text-decoration: line-through; opacity: 0.8;">
+                                        Rp {{ number_format($courses->price, 0, ',', '.') }}
+                                    </span>
+                                    <span style="font-size: 30px; font-weight: bold;">
+                                        Rp {{ number_format($courses->discountedPrice, 0, ',', '.') }}
+                                    </span>
+                                </div>
+                            @else
+                                <span>Rp {{ number_format($courses->price, 0, ',', '.') }}</span>
+                            @endif
+
+                        </h2>
+
+                    </div>
+                    <div class="courses__information-wrap">
+                        <h5 class="title">Keterangan:</h5>
+                        <ul class="list-wrap">
+                            <li>
+                                <img src="{{ asset('public/assets/img/icons/course_icon01.svg') }}" alt="img"
+                                    class="injectable">
+                                Tingkat
+                                <span>{{ $courses->tingkat }}</span>
+                            </li>
+                            @if ($courses->course_type !== 'online')
+                                <li>
+                                    <img src="{{ asset('public/assets/img/icons/course_icon02.svg') }}" alt="img"
+                                        class="injectable">
+                                    Durasi
+                                    <span>{{ $courses->durasi }}</span>
+                                </li>
+                            @endif
+                            <li>
+                                <img src="{{ asset('public/assets/img/icons/course_icon05.svg') }}" alt="img"
+                                    class="injectable">
+                                Sertifikat
+                                <span>{{ $courses->sertifikat }}</span>
+                            </li>
+                            @if ($courses->course_type !== 'online')
+                                <li>
+                                    <img src="{{ asset('public/assets/img/icons/course_icon06.svg') }}" alt="img"
+                                        class="injectable">
+                                    Kuota Kelas
+                                    <span>{{ $jumlahPendaftaran }}/{{ $courses->kuota }}</span>
+                                </li>
+                            @endif
+                        </ul>
+                    </div>
+
+                    @if (in_array($courses->id, $joinedCourses))
+                        <div class="courses__details-enroll">
+                            <div class="tg-button-wrap">
+                                <a href="{{ route('lesson', ['id' => $courses->id]) }}"
+                                    class="btn btn-two arrow-btn">Lanjut Belajar</a>
+                            </div>
+                        </div>
+                    @elseif ($courses->course_type == 'online')
+                        {{-- Kursus online tanpa batasan kuota dan tanpa tombol pendaftaran penuh --}}
+                        <div class="courses__details-enroll">
+                            <div class="tg-button-wrap">
+                                <a href="{{ route('cart.checkout', ['id' => $courses->id]) }}"
+                                    class="btn btn-two arrow-btn">
+                                    Checkout
+                                    <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
+                                        class="injectable">
+                                </a>
+                            </div>
+                            <br>
+                            <div class="tg-button-wrap">
+                                <a href="{{ route('cart.adddetail', ['id' => $courses->id]) }}" class="btn">Masukkan
+                                    keranjang
+                                    <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
+                                        class="injectable">
+                                </a>
+                            </div>
+                        </div>
+                    @elseif ($jumlahPendaftaran < $courses->kuota)
+                        <div class="courses__details-enroll">
+                            <div class="tg-button-wrap">
+                                <a href="{{ route('cart.checkout', ['id' => $courses->id]) }}"
+                                    class="btn btn-two arrow-btn">
+                                    Checkout
+                                    <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
+                                        class="injectable">
+                                </a>
+                            </div>
+                            <br>
+                            <div class="tg-button-wrap">
+                                <a href="{{ route('cart.adddetail', ['id' => $courses->id]) }}" class="btn">Masukkan
+                                    keranjang
+                                    <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
+                                        class="injectable">
+                                </a>
+                            </div>
+                        </div>
+                    @else
+                        <div class="courses__details-enroll">
+                            <div class="tg-button-wrap">
+                                <a href="#" class="btn btn-secondary disabled">Pendaftaran Penuh</a>
+                            </div>
+                        </div>
+                    @endif
+
+
+                </div>
+            </div>
+
+        </div>
 
         </div>
     </section>
