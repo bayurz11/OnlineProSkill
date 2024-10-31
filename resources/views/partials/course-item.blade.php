@@ -3,7 +3,6 @@
     $kurikulumExists = \App\Models\Kurikulum::where('course_id', $kelas['id'])->exists();
 @endphp
 @if ($kurikulumExists)
-
     <div class="swiper-slide">
         <div class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
             <div class="courses__item-thumb courses__item-thumb-two">
@@ -42,16 +41,11 @@
                         </a>
                     </div>
                     <div class="avg-rating">
-                        <i class="fas fa-star"></i>
-                        @if ($reviewCount > 0)
-                            ({{ number_format($averageRating, 1) }} / 5 dari {{ $reviewCount }} Reviews)
-                        @else
-                            (Belum ada ulasan)
-                        @endif
+                        <i class="fas fa-star"></i> ({{ $averageRating ? number_format($averageRating, 1) : '0.0' }}
+                        Reviews: {{ $reviewCount }})
                     </div>
 
                 </div>
-
             </div>
         </div>
     </div>

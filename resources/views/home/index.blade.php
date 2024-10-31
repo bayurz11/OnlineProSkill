@@ -167,21 +167,19 @@
                         <div class="swiper courses-swiper-active">
                             <div class="swiper-wrapper">
                                 @foreach ($KelasTatapMuka->where('course_type', $type)->where('status', 1) as $kelas)
-                                    @foreach ($KelasTatapMuka->where('course_type', $type)->where('status', 1) as $kelas)
-                                        @php
-                                            // Menghitung jumlah ulasan dan rata-rata rating
-                                            $reviews = $kelas->reviews; // Ambil semua ulasan untuk kelas ini
-                                            $reviewCount = $reviews->count(); // Hitung jumlah ulasan
-                                            $averageRating = $reviewCount > 0 ? $reviews->avg('rating') : 0; // Hitung rata-rata rating
-                                        @endphp
+                                    @php
+                                        // Menghitung rata-rata rating
+                                        $averageRating = $kelas->reviews()->avg('rating'); // Asumsikan kolom rating ada di tabel reviews
+                                        $reviewCount = $kelas->reviews()->count(); // Menghitung jumlah review
+                                    @endphp
 
-                                        @include('partials.course-item', [
-                                            'kelas' => $kelas,
-                                            'reviewCount' => $reviewCount,
-                                            'averageRating' => $averageRating,
-                                        ])
-                                    @endforeach
+                                    @include('partials.course-item', [
+                                        'kelas' => $kelas,
+                                        'averageRating' => $averageRating,
+                                        'reviewCount' => $reviewCount,
+                                    ])
                                 @endforeach
+
                             </div>
                         </div>
                     </div>
