@@ -393,7 +393,9 @@
                                     </button>
 
                                     <div id="review-container">
-                                        @if ($reviews->count() > 0)
+                                        @if ($reviews->isEmpty())
+                                            <p>Tidak ada ulasan untuk kelas ini.</p>
+                                        @else
                                             @foreach ($reviews as $index => $review)
                                                 <div class="course-review-head review"
                                                     style="display: {{ $index < 3 ? 'block' : 'none' }};">
@@ -422,37 +424,27 @@
                                                     </div>
                                                 </div>
                                             @endforeach
-                                        @else
-                                            <p>Tidak ada ulasan untuk kelas ini.</p>
                                         @endif
                                     </div>
 
-                                    @if ($reviews->count() > 3)
-                                        <button id="load-more"
-                                            style="background-color: #e9ecef; color: #495057; border: none; border-radius: 50px; padding: 10px 20px; font-size: 16px; cursor: pointer; display: block; margin: 0 auto;">
-                                            Tampilkan Lebih Banyak
-                                        </button>
-                                    @endif
+                                    <button id="load-more"
+                                        style="display: {{ $reviews->count() > 3 ? 'block' : 'none' }};">Tampilkan Lebih
+                                        Banyak</button>
 
                                     <script>
-                                        document.addEventListener('DOMContentLoaded', function() {
+                                        document.getElementById('load-more').addEventListener('click', function() {
                                             const reviews = document.querySelectorAll('.review');
-                                            const loadMoreButton = document.getElementById('load-more');
-                                            let displayed = 3; // Awalnya hanya menampilkan 3 ulasan
+                                            let displayed = 0;
+                                            reviews.forEach((review, index) => {
+                                                if (index < 3 + displayed) {
+                                                    review.style.display = 'block';
+                                                    displayed++;
+                                                }
+                                            });
 
-                                            // Hanya jalankan event listener jika ada tombol
-                                            if (loadMoreButton) {
-                                                loadMoreButton.addEventListener('click', function() {
-                                                    for (let i = displayed; i < displayed + 3 && i < reviews.length; i++) {
-                                                        reviews[i].style.display = 'block';
-                                                    }
-                                                    displayed += 3;
-
-                                                    // Jika semua ulasan telah ditampilkan, sembunyikan tombol
-                                                    if (displayed >= reviews.length) {
-                                                        loadMoreButton.style.display = 'none';
-                                                    }
-                                                });
+                                            // Jika sudah menampilkan semua ulasan, sembunyikan tombol
+                                            if (displayed >= reviews.length) {
+                                                this.style.display = 'none';
                                             }
                                         });
                                     </script>
