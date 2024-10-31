@@ -117,12 +117,14 @@
                                     @foreach (range(5, 1) as $star)
                                         <li>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="">
+                                                <input class="form-check-input" type="checkbox" name="rating_filter[]"
+                                                    value="{{ $star }}">
                                                 <div class="rating">
                                                     <ul class="list-wrap">
                                                         @for ($i = 0; $i < 5; $i++)
-                                                            <li class="{{ $i < $star ? '' : 'delete' }}"><i
-                                                                    class="fas fa-star"></i></li>
+                                                            <li class="{{ $i < $star ? '' : 'inactive-star' }}">
+                                                                <i class="fas fa-star"></i>
+                                                            </li>
                                                         @endfor
                                                     </ul>
                                                     <span>({{ $ratingDistribution[$star] }})</span>
