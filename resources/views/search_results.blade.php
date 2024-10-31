@@ -300,7 +300,15 @@
                                                                 {{ number_format($cours->price, 0, ',', '.') }}
                                                             @endif
                                                         </li>
+                                                        @php
+                                                            $averageRating = $cours->reviews()->avg('rating');
 
+                                                        @endphp
+                                                        <div class="avg-rating">
+                                                            <i class="fas fa-star"></i>
+                                                            ({{ $averageRating ? number_format($averageRating, 1) : '0.0' }}
+                                                            Reviews)
+                                                        </div>
                                                         @if ($cours->course_type == 'online')
                                                             <span class="badge bg-primary">Online</span>
                                                         @else
