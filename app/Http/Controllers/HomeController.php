@@ -187,7 +187,7 @@ class HomeController extends Controller
 
         return view('home.classroomdetail', compact(
             'user',
-            'review',
+            'reviews',
             'categori',
             'jumlahPendaftaran',
             'courses',
