@@ -43,7 +43,7 @@
 
                     @php
                         // Menghitung rata-rata rating untuk setiap kelas
-                        $averageRating = $kelas->ratings()->avg('rating'); // Asumsikan ada relasi `ratings`
+                        $averageRating = $kelas->ratings()->avg('reviews'); // Asumsikan ada relasi `ratings`
                         $reviewCount = $kelas->ratings()->count(); // Menghitung jumlah ulasan
                     @endphp
 
