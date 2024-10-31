@@ -105,17 +105,21 @@
                                                                     );
                                                                     // Hitung rata-rata rating
                                                                     $averageRating = $kelasReviews->avg('rating');
+                                                                    // Set jumlah bintang maksimum
+                                                                    $maxStars = 5;
                                                                 @endphp
-                                                                @for ($i = 0; $i < 5; $i++)
-                                                                    <i
-                                                                        class="fas fa-star {{ $i < $averageRating ? 'active' : '' }}"></i>
+                                                                @for ($i = 1; $i <= $maxStars; $i++)
+                                                                    @if ($i <= $averageRating)
+                                                                        <i class="fas fa-star"></i> <!-- Bintang solid -->
+                                                                    @else
+                                                                        <i class="far fa-star"></i> <!-- Bintang kosong -->
+                                                                    @endif
                                                                 @endfor
                                                             </div>
                                                         </div>
                                                     </td>
                                                 </tr>
                                             @endforeach
-
 
                                         </tbody>
                                     </table>
