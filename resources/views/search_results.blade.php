@@ -549,40 +549,6 @@
                 sortBySelect.value = urlParams.get('orderby');
             }
         });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const checkboxes = document.querySelectorAll('.rating-checkbox');
-            checkboxes.forEach((checkbox) => {
-                checkbox.addEventListener('change', function() {
-                    let selectedRatings = [];
-                    checkboxes.forEach((cb) => {
-                        if (cb.checked) {
-                            selectedRatings.push(cb.value);
-                        }
-                    });
-
-                    // Kirim request AJAX dengan rating yang terpilih
-                    fetchResults(selectedRatings);
-                });
-            });
-        });
-
-        function fetchResults(selectedRatings) {
-            const url = '/search'; // Sesuaikan dengan URL search yang diinginkan
-            const params = new URLSearchParams();
-            params.append('ratings', selectedRatings.join(','));
-
-            fetch(`${url}?${params}`, {
-                    headers: {
-                        'X-Requested-With': 'XMLHttpRequest'
-                    }
-                })
-                .then(response => response.text())
-                .then(html => {
-                    document.querySelector('#search-results').innerHTML = html;
-                })
-                .catch(error => console.error('Error fetching data:', error));
-        }
     </script>
 
 
