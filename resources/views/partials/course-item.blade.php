@@ -41,9 +41,15 @@
                         </a>
                     </div>
                     <div class="avg-rating">
-                        <i class="fas fa-star"></i> ({{ $reviewCount }} Reviews)
+                        <i class="fas fa-star"></i>
+                        @if ($reviewCount > 0)
+                            ({{ number_format($averageRating, 1) }} / 5 dari {{ $reviewCount }} Reviews)
+                        @else
+                            (Belum ada ulasan)
+                        @endif
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
