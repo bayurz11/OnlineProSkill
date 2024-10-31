@@ -139,7 +139,7 @@
                 <div class="modal-body">
                     <form action="{{ route('review.store') }}" method="POST">
                         @csrf
-                        <input type="hidden" name="order_id" value="{{ $order->id }}">
+                        <input type="hidden" name="class_id" value="{{ $order->KelasTatapMuka->id }}">
 
                         <!-- Input Rating -->
                         <div class="mb-3">
