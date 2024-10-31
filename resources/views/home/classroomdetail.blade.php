@@ -370,7 +370,7 @@
                                                         @endfor
                                                     </div>
                                                 </div>
-                                                <h4 class="title">{{ $review->title }}</h4>
+                                                <h4 class="title">{{ $review->kelasTatapMuka->nama_kursus }}</h4>
                                                 <p>{{ $review->comment }}</p>
                                             </div>
                                         </div>
