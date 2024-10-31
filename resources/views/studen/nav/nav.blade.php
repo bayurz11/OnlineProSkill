@@ -23,8 +23,8 @@
                         Riwayat Transaksi
                     </a>
                 </li>
-                <li>
-                    <a href="{{ Request::is('review') ? 'active' : '' }}">
+                <li class="{{ Request::is('review') ? 'active' : '' }}">
+                    <a href="{{ route('review') }}">
                         <i class="skillgro-book-2"></i>
                         Reviews
                     </a>
