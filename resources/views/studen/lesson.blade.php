@@ -10,7 +10,7 @@
                         <h2 class="title">Konten Kursus</h2>
 
                         <!-- Periksa apakah ada kurikulum -->
-                        @if ($kurikulum->isEmpty())
+                        @if (!$kurikulum)
                             <p>Data kurikulum belum tersedia.</p>
                         @else
                             <div class="accordion" id="accordionExample">
