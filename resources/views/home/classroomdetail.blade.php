@@ -390,7 +390,9 @@
                                     <button id="load-more"
                                         style="display: {{ count($reviews) > 1 ? 'block' : 'none' }};">Tampilkan Lebih
                                         Banyak</button>
-
+                                    <button class="nav-link" id="load-more" type="button" role="tab"
+                                        aria-controls="reviews-tab-pane" aria-selected="false">Tampilkan Lebih
+                                        Banyak</button>
                                     <script>
                                         document.getElementById('load-more').addEventListener('click', function() {
                                             const reviews = document.querySelectorAll('.review');
