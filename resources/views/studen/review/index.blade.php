@@ -104,8 +104,9 @@
                                                     </td>
                                                     <td>
                                                         <div class="dashboard__review-action">
-                                                            <a href="#" title="Beri Review"><i
-                                                                    class="skillgro-edit"></i></a>
+                                                            <a data-bs-toggle="modal"
+                                                                data-bs-target="#reviewModal{{ $order->id }}"
+                                                                title="Beri Review"><i class="skillgro-edit"></i></a>
                                                             <a href="#" title="Delete"><i
                                                                     class="skillgro-bin"></i></a>
                                                         </div>
