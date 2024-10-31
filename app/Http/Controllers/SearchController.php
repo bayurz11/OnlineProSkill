@@ -238,7 +238,39 @@ class SearchController extends Controller
         // Ambil ID kursus yang telah diikuti oleh user
         $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
 
-        return view('search_results', compact('results', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'course', 'categoryCounts', 'category_ids', 'tingkatLevels', 'tingkatCounts', 'categori', 'ratingCounts'))
-            ->with('paginationView', 'vendor.custom');
+        $ratingDistribution = [
+            5 => 0,
+            4 => 0,
+            3 => 0,
+            2 => 0,
+            1 => 0,
+        ];
+
+        // Menghitung distribusi rating
+        foreach ($ratingCounts as $classId => $count) {
+            // Ambil rating untuk class_id ini, Anda bisa menggunakan model Reviews
+            $rating = Reviews::where('class_id', $classId)->value('rating'); // Asumsikan ada field 'rating'
+            if ($rating) {
+                $ratingDistribution[$rating] += $count;
+            }
+        }
+        return view('search_results', compact(
+            'results',
+            'cart',
+            'notifikasi',
+            'notifikasiCount',
+            'user',
+            'profile',
+            'jumlahPendaftaran',
+            'joinedCourses',
+            'course',
+            'categoryCounts',
+            'category_ids',
+            'tingkatLevels',
+            'tingkatCounts',
+            'categori',
+            'ratingCounts',
+            'ratingDistribution'
+        ))->with('paginationView', 'vendor.custom');
     }
 }
