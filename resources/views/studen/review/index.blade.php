@@ -68,211 +68,35 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>
-                                                    <a href="course-details.html">The Complete Graphic Design for
-                                                        Beginners</a>
-                                                </td>
-                                                <td>
-                                                    <div class="review__wrap">
-                                                        <div class="rating">
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
+                                            @foreach ($orders as $order)
+                                                <tr>
+                                                    <td>
+                                                        <a href="course-details.html">The Complete Graphic Design for
+                                                            Beginners</a>
+                                                    </td>
+                                                    <td>
+                                                        <div class="review__wrap">
+                                                            <div class="rating">
+                                                                <i class="fas fa-star"></i>
+                                                                <i class="fas fa-star"></i>
+                                                                <i class="fas fa-star"></i>
+                                                                <i class="fas fa-star"></i>
+                                                                <i class="fas fa-star"></i>
+                                                            </div>
+                                                            <span>(3 Reviews)</span>
                                                         </div>
-                                                        <span>(3 Reviews)</span>
-                                                    </div>
-                                                    <p>Good</p>
-                                                </td>
-                                                <td>
-                                                    <div class="dashboard__review-action">
-                                                        <a href="#" title="Edit"><i class="skillgro-edit"></i></a>
-                                                        <a href="#" title="Delete"><i class="skillgro-bin"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="course-details.html">The Complete Graphic Design for
-                                                        Beginners</a>
-                                                </td>
-                                                <td>
-                                                    <div class="review__wrap">
-                                                        <div class="rating">
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
+                                                        <p>Good</p>
+                                                    </td>
+                                                    <td>
+                                                        <div class="dashboard__review-action">
+                                                            <a href="#" title="Edit"><i
+                                                                    class="skillgro-edit"></i></a>
+                                                            <a href="#" title="Delete"><i
+                                                                    class="skillgro-bin"></i></a>
                                                         </div>
-                                                        <span>(3 Reviews)</span>
-                                                    </div>
-                                                    <p>Good</p>
-                                                </td>
-                                                <td>
-                                                    <div class="dashboard__review-action">
-                                                        <a href="#" title="Edit"><i class="skillgro-edit"></i></a>
-                                                        <a href="#" title="Delete"><i class="skillgro-bin"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="course-details.html">The Complete Graphic Design for
-                                                        Beginners</a>
-                                                </td>
-                                                <td>
-                                                    <div class="review__wrap">
-                                                        <div class="rating">
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                        </div>
-                                                        <span>(3 Reviews)</span>
-                                                    </div>
-                                                    <p>Good</p>
-                                                </td>
-                                                <td>
-                                                    <div class="dashboard__review-action">
-                                                        <a href="#" title="Edit"><i class="skillgro-edit"></i></a>
-                                                        <a href="#" title="Delete"><i class="skillgro-bin"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="course-details.html">The Complete Graphic Design for
-                                                        Beginners</a>
-                                                </td>
-                                                <td>
-                                                    <div class="review__wrap">
-                                                        <div class="rating">
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                        </div>
-                                                        <span>(3 Reviews)</span>
-                                                    </div>
-                                                    <p>Good</p>
-                                                </td>
-                                                <td>
-                                                    <div class="dashboard__review-action">
-                                                        <a href="#" title="Edit"><i
-                                                                class="skillgro-edit"></i></a>
-                                                        <a href="#" title="Delete"><i class="skillgro-bin"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="course-details.html">The Complete Graphic Design for
-                                                        Beginners</a>
-                                                </td>
-                                                <td>
-                                                    <div class="review__wrap">
-                                                        <div class="rating">
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                        </div>
-                                                        <span>(3 Reviews)</span>
-                                                    </div>
-                                                    <p>Good</p>
-                                                </td>
-                                                <td>
-                                                    <div class="dashboard__review-action">
-                                                        <a href="#" title="Edit"><i
-                                                                class="skillgro-edit"></i></a>
-                                                        <a href="#" title="Delete"><i class="skillgro-bin"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="course-details.html">The Complete Graphic Design for
-                                                        Beginners</a>
-                                                </td>
-                                                <td>
-                                                    <div class="review__wrap">
-                                                        <div class="rating">
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                        </div>
-                                                        <span>(3 Reviews)</span>
-                                                    </div>
-                                                    <p>Good</p>
-                                                </td>
-                                                <td>
-                                                    <div class="dashboard__review-action">
-                                                        <a href="#" title="Edit"><i
-                                                                class="skillgro-edit"></i></a>
-                                                        <a href="#" title="Delete"><i class="skillgro-bin"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="course-details.html">The Complete Graphic Design for
-                                                        Beginners</a>
-                                                </td>
-                                                <td>
-                                                    <div class="review__wrap">
-                                                        <div class="rating">
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                        </div>
-                                                        <span>(3 Reviews)</span>
-                                                    </div>
-                                                    <p>Good</p>
-                                                </td>
-                                                <td>
-                                                    <div class="dashboard__review-action">
-                                                        <a href="#" title="Edit"><i
-                                                                class="skillgro-edit"></i></a>
-                                                        <a href="#" title="Delete"><i class="skillgro-bin"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <a href="course-details.html">The Complete Graphic Design for
-                                                        Beginners</a>
-                                                </td>
-                                                <td>
-                                                    <div class="review__wrap">
-                                                        <div class="rating">
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                            <i class="fas fa-star"></i>
-                                                        </div>
-                                                        <span>(3 Reviews)</span>
-                                                    </div>
-                                                    <p>Good</p>
-                                                </td>
-                                                <td>
-                                                    <div class="dashboard__review-action">
-                                                        <a href="#" title="Edit"><i
-                                                                class="skillgro-edit"></i></a>
-                                                        <a href="#" title="Delete"><i class="skillgro-bin"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>

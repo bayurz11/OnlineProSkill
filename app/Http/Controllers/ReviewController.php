@@ -9,6 +9,7 @@ use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use App\Models\KelasTatapMuka;
 use App\Models\NotifikasiUser;
+use App\Models\UserSectionStatus;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -24,7 +25,7 @@ class ReviewController extends Controller
         if (!$user) {
             return redirect()->route('home');
         }
-
+        $userSectionStatus = UserSectionStatus::all();
         $profile = UserProfile::where('user_id', $user->id)->first();
         $KelasTatapMuka = KelasTatapMuka::inRandomOrder()->get();
         $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
@@ -53,6 +54,6 @@ class ReviewController extends Controller
             }
         }
 
-        return view('studen.review.index', compact('user', 'categori', 'profile', 'cart', 'KelasTatapMuka', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum'));
+        return view('studen.review.index', compact('user', 'userSectionStatus', 'categori', 'profile', 'cart', 'KelasTatapMuka', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum'));
     }
 }

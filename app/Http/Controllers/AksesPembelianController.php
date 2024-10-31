@@ -147,49 +147,6 @@ class AksesPembelianController extends Controller
         ]);
     }
 
-    // public function updatestatus(Request $request)
-    // {
-    //     // Dapatkan semua kategori (jika diperlukan)
-    //     $categori = Categories::all();
-
-    //     // Dapatkan data cart dari session
-    //     $cart = Session::get('cart', []);
-
-    //     // Dapatkan pengguna yang sedang login
-    //     $user = Auth::user();
-    //     if (!$user) {
-    //         return redirect()->route('home');
-    //     }
-
-    //     // Dapatkan profil pengguna
-    //     $profile = UserProfile::where('user_id', $user->id)->first();
-
-    //     // Dapatkan notifikasi pengguna yang sedang login
-    //     $notifikasi = NotifikasiUser::where('user_id', $user->id)
-    //         ->orderBy('created_at', 'desc')
-    //         ->get();
-
-    //     // Hitung notifikasi yang belum dibaca
-    //     $notifikasiCount = $notifikasi->where('status', 1)->count();
-
-    //     // Dapatkan pesanan yang terkait dengan pengguna
-    //     $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
-
-    //     // Dapatkan sectionId dari request
-    //     $sectionId = $request->input('sectionId');
-
-    //     // Temukan section berdasarkan sectionId
-    //     $section = Section::find($sectionId);
-    //     if (!$section) {
-    //         return redirect()->back()->with('error', 'Section tidak ditemukan');
-    //     }
-
-    //     // Update status section
-    //     $section->status = '1'; // Atau status yang sesuai dengan kebutuhan Anda
-    //     $section->save();
-
-    //     return redirect()->back()->with('success', 'Status section berhasil diperbarui');
-    // } 010824
     public function updatestatus(Request $request)
     {
         // Dapatkan pengguna yang sedang login
@@ -213,9 +170,6 @@ class AksesPembelianController extends Controller
             ['status' => true] // Status yang menunjukkan bagian telah diselesaikan
         );
 
-        // Jika perlu, perbarui status bagian di tabel sections
-        // $section->status = '1'; // Tidak disarankan, jika menggunakan pivot table
-        // $section->save();
 
         return redirect()->back()->with('success', 'Status bagian berhasil diperbarui');
     }
