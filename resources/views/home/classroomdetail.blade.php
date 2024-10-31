@@ -355,7 +355,7 @@
                                     @foreach ($reviews as $review)
                                         <div class="course-review-head">
                                             <div class="review-author-thumb">
-                                                <img src="{{ asset('assets/img/courses/review-author.png') }}"
+                                                <img src="{{ $review->user->userprofile && $review->user->userprofile->gambar ? (strpos($review->user->userprofile->gambar, 'googleusercontent') !== false ? $review->user->userprofile->gambar : asset('public/uploads/' . $review->user->userprofile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
                                                     alt="img">
                                             </div>
                                             <div class="review-author-content">
