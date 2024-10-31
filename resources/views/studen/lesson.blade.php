@@ -22,7 +22,8 @@
                                                 aria-expanded="{{ $index === 0 ? 'true' : 'false' }}"
                                                 aria-controls="collapse{{ $index }}">
                                                 {{ $item->title }}
-                                                <span>{{ $item->sections->count() }}/{{ $item->sections->count() }}</span>
+                                                <span>{{ $item->sections ? $item->sections->count() : 0 }}/{{ $item->sections ? $item->sections->count() : 0 }}</span>
+
                                             </button>
                                         </h2>
                                         <div id="collapse{{ $index }}"
