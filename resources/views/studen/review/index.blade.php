@@ -105,7 +105,7 @@
                                                     <td>
                                                         <div class="dashboard__review-action">
                                                             <a data-bs-toggle="modal"
-                                                                data-bs-target="#reviewModal{{ $order->id }}"
+                                                                data-bs-target="#reviewModal{{ $order->KelasTatapMuka->id }}"
                                                                 title="Beri Review"><i class="skillgro-edit"></i></a>
                                                             <a href="#" title="Delete"><i
                                                                     class="skillgro-bin"></i></a>
@@ -127,12 +127,12 @@
     </section>
     <!-- dashboard-area-end -->
 
-    <div class="modal fade" id="reviewModal{{ $order->id }}" tabindex="-1"
-        aria-labelledby="reviewModalLabel{{ $order->id }}" aria-hidden="true">
+    <div class="modal fade" id="reviewModal{{ $order->KelasTatapMuka->id }}" tabindex="-1"
+        aria-labelledby="reviewModalLabel{{ $order->KelasTatapMuka->id }}" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="reviewModalLabel{{ $order->id }}">Beri Review untuk Kelas:
+                    <h5 class="modal-title" id="reviewModalLabel{{ $order->KelasTatapMuka->id }}">Beri Review untuk Kelas:
                         {{ $order->KelasTatapMuka->nama_kursus ?? 'Tidak tersedia' }}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
