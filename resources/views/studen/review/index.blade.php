@@ -81,12 +81,17 @@
                                                             <div class="review__wrap">
                                                                 <div class="rating">
                                                                     @php
-                                                                        $rating = $order->reviews->avg('rating'); // Ambil rata-rata rating dari review
-                                                                        $stars = round($rating); // Membulatkan rating ke integer
+                                                                        $rating = round($order->reviews->avg('rating')); // Membulatkan rata-rata rating ke integer
+                                                                        $maxStars = 5;
                                                                     @endphp
-                                                                    @for ($i = 1; $i <= 5; $i++)
-                                                                        <i
-                                                                            class="fas fa-star{{ $i <= $stars ? '' : '-o' }}"></i>
+                                                                    @for ($i = 1; $i <= $maxStars; $i++)
+                                                                        @if ($i <= $rating)
+                                                                            <i class="fas fa-star"></i>
+                                                                            <!-- Bintang solid -->
+                                                                        @else
+                                                                            <i class="far fa-star"></i>
+                                                                            <!-- Bintang kosong -->
+                                                                        @endif
                                                                     @endfor
                                                                 </div>
                                                                 <span>({{ $order->reviews->count() }} Reviews)</span>
