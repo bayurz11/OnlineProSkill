@@ -318,19 +318,23 @@
                                     <div class="course-rate">
                                         <div class="course-rate__summary">
                                             <div class="course-rate__summary-value">
-                                                {{-- Menghitung nilai rata-rata rating --}}
+
                                                 {{ number_format($reviews->avg('rating'), 1) }}
                                             </div>
                                             <div class="course-rate__summary-stars">
-                                                @for ($i = 0; $i < 5; $i++)
-                                                    <i
-                                                        class="fas fa-star {{ $i < $reviews->avg('rating') ? '' : '-o' }}"></i>
+                                                @for ($i = 1; $i <= 5; $i++)
+                                                    @if ($i <= $reviews->avg('rating'))
+                                                        <i class="fas fa-star"></i>
+                                                    @else
+                                                        <i class="far fa-star"></i>
+                                                    @endif
                                                 @endfor
                                             </div>
                                             <div class="course-rate__summary-text">
                                                 {{ $reviews->count() }} Ratings
                                             </div>
                                         </div>
+
                                         <div class="course-rate__details">
                                             @for ($rating = 5; $rating >= 1; $rating--)
                                                 <div class="course-rate__details-row">
@@ -367,9 +371,9 @@
                                                     <div class="author-rating">
                                                         @for ($i = 1; $i <= 5; $i++)
                                                             @if ($i <= $review->rating)
-                                                                <i class="fas fa-star"></i> <!-- Bintang solid -->
+                                                                <i class="fas fa-star"></i>
                                                             @else
-                                                                <i class="far fa-star"></i> <!-- Bintang kosong -->
+                                                                <i class="far fa-star"></i>
                                                             @endif
                                                         @endfor
                                                     </div>
