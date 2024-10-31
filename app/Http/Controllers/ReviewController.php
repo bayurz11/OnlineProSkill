@@ -68,7 +68,7 @@ class ReviewController extends Controller
 
         // Validasi data
         $request->validate([
-            'class_id' => 'required|exists:KelasTatapMuka,id',
+            'class_id' => 'required|exists:classroom_master,id',
             'rating' => 'required|integer|min:1|max:5',
             'comment' => 'required|string',
         ]);
