@@ -16,6 +16,7 @@ use App\Models\NotifikasiUser;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Reviews;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -182,8 +183,11 @@ class HomeController extends Controller
         $orderProductIds = Order::where('product_id', $id)->pluck('product_id');
         $sertifikatCount = Sertifikat::whereIn('kategori_id', $orderProductIds)->count();
 
+        $review = Reviews::all();
+
         return view('home.classroomdetail', compact(
             'user',
+            'review',
             'categori',
             'jumlahPendaftaran',
             'courses',
