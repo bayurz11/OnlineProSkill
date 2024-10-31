@@ -167,13 +167,6 @@
                         <div class="swiper courses-swiper-active">
                             <div class="swiper-wrapper">
                                 @foreach ($KelasTatapMuka->where('course_type', $type)->where('status', 1) as $kelas)
-                                    @php
-                                        // Menghitung jumlah ulasan dan rata-rata rating
-                                        $reviews = $kelas->reviews; // Ambil semua ulasan untuk kelas ini
-                                        $reviewCount = $reviews->count(); // Hitung jumlah ulasan
-                                        $averageRating = $reviewCount > 0 ? $reviews->avg('rating') : 0; // Hitung rata-rata rating
-                                    @endphp
-
                                     @include('partials.course-item', [
                                         'kelas' => $kelas,
                                         'reviewCount' => $reviewCount,
