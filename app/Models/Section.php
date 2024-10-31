@@ -24,4 +24,8 @@ class Section extends Model
         return $this->belongsToMany(User::class, 'user_section_status')
             ->withPivot('status');
     }
+    public static function countSectionsByKurikulum($kurikulum_id)
+    {
+        return self::where('kurikulum_id', $kurikulum_id)->count();
+    }
 }

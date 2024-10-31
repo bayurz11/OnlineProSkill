@@ -173,6 +173,7 @@ class AksesPembelianController extends Controller
 
 
 
+
     public function getContent($id)
     {
         $section = Section::findOrFail($id);
