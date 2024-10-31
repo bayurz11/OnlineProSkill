@@ -33,4 +33,8 @@ class Order extends Model
             }
         });
     }
+    public function reviews()
+    {
+        return $this->hasMany(Reviews::class, 'order_id', 'id');
+    }
 }
