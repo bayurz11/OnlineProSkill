@@ -23,7 +23,12 @@
                         Riwayat Transaksi
                     </a>
                 </li>
-
+                <li>
+                    <a href="{{ Request::is('review') ? 'active' : '' }}">
+                        <i class="skillgro-book-2"></i>
+                        Reviews
+                    </a>
+                </li>
 
             </ul>
         </nav>

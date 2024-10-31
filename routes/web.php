@@ -9,6 +9,7 @@ use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\OauthController;
 use App\Http\Controllers\PixelController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SectionController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KurikulumController;
 use App\Http\Controllers\AdminEventController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\KonsultasiController;
 use App\Http\Controllers\SertifikatController;
 use App\Http\Controllers\DaftarSiswaController;
 use App\Http\Controllers\HeroSectionController;
@@ -34,14 +36,13 @@ use App\Http\Controllers\NotifikasiUserController;
 use App\Http\Controllers\BootcampsettingController;
 use App\Http\Controllers\DashboardStudenController;
 use App\Http\Controllers\RiwayatTransaksiController;
+use App\Http\Controllers\InstrukturCoursesController;
+use App\Http\Controllers\InstrukturSectionController;
+use App\Http\Controllers\ProfileInstrukturController;
 use App\Http\Controllers\HubungiKamiSettingController;
 use App\Http\Controllers\DashboardInstrukturController;
-use App\Http\Controllers\InstrukturCoursesController;
 use App\Http\Controllers\InstrukturKurikulumController;
-use App\Http\Controllers\InstrukturSectionController;
-use App\Http\Controllers\KonsultasiController;
 use App\Http\Controllers\OrderHistoryManagerController;
-use App\Http\Controllers\ProfileInstrukturController;
 use App\Http\Controllers\SettingProfileInstrukturController;
 
 //Authentikasi
@@ -200,15 +201,14 @@ Route::middleware('isStuden')->group(function () {
     //Akses Pembelian
     Route::get('/akses_pembelian', [AksesPembelianController::class, 'index'])->name('akses_pembelian');
 
+    //review
+    Route::get('/review', [ReviewController::class, 'index'])->name('review');
+
     //lesson
     Route::get('/lesson/{id}', [AksesPembelianController::class, 'lesson'])->name('lesson');
     Route::put('/sectionupdatestatus/{id}', [AksesPembelianController::class, 'updatestatus'])->name('sectionstatus');
     Route::post('/print-certificate/{id}', [AksesPembelianController::class, 'printCertificate'])->name('print_certificate');
     Route::get('/certificate/preview', [AksesPembelianController::class, 'previewCertificate'])->name('certificate.preview');
-
-
-    //sertifikat
-
 });
 
 
@@ -299,6 +299,10 @@ Route::get('/profile_instruktur/{id}', [ProfileInstrukturController::class, 'ind
 Route::get('/cetak_sertifikat/{id}', [SertifikatController::class, 'cetakSertifikat'])->name('cetak_sertifikat');
 Route::get('/print/{id}', [SertifikatController::class, 'printCertificate'])->name('print');
 
+// reviews
+Route::post('/classes/{class}/reviews', [ReviewController::class, 'store'])->name('reviews.store');
+Route::put('/reviews/{review}', [ReviewController::class, 'update'])->name('reviews.update');
+Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
 
 //*********Bootcamp*********//
 //PowerBI
