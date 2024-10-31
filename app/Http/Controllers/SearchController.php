@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Reviews;
 use App\Models\Kurikulum;
 use App\Models\Categories;
 use App\Models\UserProfile;
@@ -199,13 +200,7 @@ class SearchController extends Controller
             ->when(!empty($courseType), function ($query) use ($courseType) {
                 return $query->whereIn('course_type', $courseType);
             })
-            ->when($request->input('ratings', []), function ($query) use ($ratingCounts) {
-                foreach ($request->input('ratings') as $rating) {
-                    $query->whereIn('id', array_keys($ratingCounts->filter(function ($total) use ($rating) {
-                        return $total >= $rating; // Menghitung rating yang lebih besar atau sama
-                    })->toArray()));
-                }
-            })
+
             ->when($orderby, function ($query, $orderby) {
                 if ($orderby == 'latest') {
                     return $query->orderBy('created_at', 'desc');
