@@ -96,7 +96,6 @@ class AksesPembelianController extends Controller
     }
 
 
-
     public function lesson($id)
     {
         $categori = Categories::all();
@@ -118,33 +117,70 @@ class AksesPembelianController extends Controller
 
         // Fetching orders related to the user
         $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
-        $kurikulum = Kurikulum::with('sections')->where('course_id', $id)->first();
+        $kurikulum = Kurikulum::with('sections')->where('course_id', $id)->get();
 
-        // Check if kurikulum exists
-        if (!$kurikulum) {
-            return redirect()->route('home')->with('error', 'Kurikulum tidak ditemukan.');
-        }
-
-        // Get all section IDs for the kurikulum
-        $sectionIds = $kurikulum->sections->pluck('id')->toArray();
-
-        // Get user section statuses for these section IDs
+        // Fetch user section statuses
         $userSectionStatuses = UserSectionStatus::where('user_id', $user->id)
-            ->whereIn('section_id', $sectionIds)
             ->pluck('status', 'section_id')
             ->toArray();
 
-        // Check if all sections are completed by the user
-        $totalSections = count($sectionIds);
-        $completedSections = count(array_filter($userSectionStatuses, function ($status) {
-            return $status === 1; // Status 1 berarti selesai
-        }));
-
-        // Determine if all sections are completed
-        $allSectionsCompleted = ($totalSections === $completedSections);
+        // Check if all sections are completed by user
+        $allSectionsCompleted = $kurikulum->every(function ($kurikulumItem) use ($userSectionStatuses) {
+            return $kurikulumItem->sections->every(function ($section) use ($userSectionStatuses) {
+                return isset($userSectionStatuses[$section->id]) && $userSectionStatuses[$section->id] === 1;
+            });
+        });
 
         return view('studen.lesson', compact('user', 'sertifikat', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum', 'allSectionsCompleted'));
     }
+    // public function lesson($id)
+    // {
+    //     $categori = Categories::all();
+    //     $cart = Session::get('cart', []);
+    //     $sertifikat = Sertifikat::findOrFail($id);
+    //     $user = Auth::user();
+    //     if (!$user) {
+    //         return redirect()->route('home');
+    //     }
+
+    //     $profile = UserProfile::where('user_id', $user->id)->first();
+
+    //     $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
+    //         ->orderBy('created_at', 'desc')
+    //         ->get()
+    //         : collect();
+
+    //     $notifikasiCount = $notifikasi->where('status', 1)->count();
+
+    //     // Fetching orders related to the user
+    //     $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
+    //     $kurikulum = Kurikulum::with('sections')->where('course_id', $id)->first();
+
+    //     // Check if kurikulum exists
+    //     if (!$kurikulum) {
+    //         return redirect()->route('home')->with('error', 'Kurikulum tidak ditemukan.');
+    //     }
+
+    //     // Get all section IDs for the kurikulum
+    //     $sectionIds = $kurikulum->sections->pluck('id')->toArray();
+
+    //     // Get user section statuses for these section IDs
+    //     $userSectionStatuses = UserSectionStatus::where('user_id', $user->id)
+    //         ->whereIn('section_id', $sectionIds)
+    //         ->pluck('status', 'section_id')
+    //         ->toArray();
+
+    //     // Check if all sections are completed by the user
+    //     $totalSections = count($sectionIds);
+    //     $completedSections = count(array_filter($userSectionStatuses, function ($status) {
+    //         return $status === 1; // Status 1 berarti selesai
+    //     }));
+
+    //     // Determine if all sections are completed
+    //     $allSectionsCompleted = ($totalSections === $completedSections);
+
+    //     return view('studen.lesson', compact('user', 'sertifikat', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum', 'allSectionsCompleted'));
+    // }
 
 
 

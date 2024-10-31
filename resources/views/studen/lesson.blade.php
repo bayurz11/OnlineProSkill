@@ -9,11 +9,12 @@
                     <div class="lesson__content">
                         <h2 class="title">Konten Kursus</h2>
 
-                        @if (!$kurikulum)
+                        <!-- Periksa apakah ada kurikulum -->
+                        @if ($kurikulum->isEmpty())
                             <p>Data kurikulum belum tersedia.</p>
                         @else
                             <div class="accordion" id="accordionExample">
-                                @foreach ($kurikulum->sections as $index => $item)
+                                @foreach ($kurikulum as $index => $item)
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="heading{{ $index }}">
                                             <button class="accordion-button {{ $index !== 0 ? 'collapsed' : '' }}"
@@ -22,8 +23,7 @@
                                                 aria-expanded="{{ $index === 0 ? 'true' : 'false' }}"
                                                 aria-controls="collapse{{ $index }}">
                                                 {{ $item->title }}
-                                                <span>{{ $item->sections ? $item->sections->count() : 0 }}/{{ $item->sections ? $item->sections->count() : 0 }}</span>
-
+                                                <span>{{ $item->sections->count() }}/{{ $item->sections->count() }}</span>
                                             </button>
                                         </h2>
                                         <div id="collapse{{ $index }}"
@@ -79,7 +79,6 @@
                                 @endforeach
                             </div>
                         @endif
-
                     </div>
                 </div>
                 @if (!$kurikulum->isEmpty())
