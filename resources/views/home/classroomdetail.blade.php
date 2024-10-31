@@ -388,7 +388,7 @@
                                     </div>
 
                                     <button id="load-more"
-                                        style="display: {{ count($reviews) > 3 ? 'block' : 'none' }};">Tampilkan Lebih
+                                        style="display: {{ count($reviews) > 1 ? 'block' : 'none' }};">Tampilkan Lebih
                                         Banyak</button>
 
                                     <script>
