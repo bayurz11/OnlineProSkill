@@ -191,18 +191,6 @@
             }
         }
 
-        function refreshKurikulumContent() {
-            // Lakukan permintaan fetch untuk mendapatkan konten terbaru
-            fetch(
-                "{{ route('kurikulum-content', $kurikulum[0]->sections->first()->id) }}") // Ubah ke rute yang sesuai untuk mendapatkan konten
-                .then(response => response.text())
-                .then(html => {
-                    // Ganti konten yang ada dengan konten baru
-                    document.querySelector('.lesson__content').innerHTML = html;
-                })
-                .catch(error => console.error('Error fetching kurikulum content:', error));
-        }
-
         function submitStatusForm(event) {
             event.preventDefault();
             const form = document.getElementById('statusForm');
@@ -225,9 +213,11 @@
                             changeContent(nextLink, new Event('click'));
                         }
 
-                        // Panggil refresh setelah status diperbarui
-                        refreshKurikulumContent();
-                        alert("Status berhasil diperbarui dan konten diperbarui.");
+                        // Memperbarui konten setelah iframe selesai di-load
+                        document.getElementById('lessonContent').onload = function() {
+                            refreshKurikulumContent();
+                            alert("Status berhasil diperbarui dan pindah ke konten berikutnya.");
+                        };
                     } else {
                         console.error("Error: " + response.statusText);
                     }
