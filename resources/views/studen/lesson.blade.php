@@ -200,13 +200,15 @@
                 })
                 .then(response => {
                     if (response.ok) {
-                        // Refresh iframe
+                        // Reload iframe
                         const lessonContentIframe = document.getElementById('lessonContent');
                         lessonContentIframe.src = lessonContentIframe.src; // Reload iframe
-                        alert("Status berhasil diperbarui.");
 
-                        // Panggil fungsi untuk menyegarkan konten kurikulum
-                        refreshKurikulumContent();
+                        // Tambahkan event listener untuk refresh konten kurikulum saat iframe selesai dimuat
+                        lessonContentIframe.onload = function() {
+                            refreshKurikulumContent();
+                            alert("Status berhasil diperbarui.");
+                        };
                     } else {
                         console.error("Error: " + response.statusText);
                     }
@@ -214,13 +216,13 @@
                 .catch(error => console.error("Fetch error:", error));
         }
 
-
         function refreshKurikulumContent() {
             $.ajax({
                 url: '{{ route('kurikulum.content') }}',
                 method: 'GET',
                 success: function(response) {
                     $('.lesson__content').html(response);
+                    console.log('Konten kurikulum berhasil diperbarui');
                 },
                 error: function(error) {
                     console.error('Error refreshing kurikulum content:', error);
@@ -228,7 +230,7 @@
             });
         }
 
-        // Contoh penggunaan: refresh saat halaman dimuat atau pada aksi tertentu
+        // Refresh saat halaman dimuat
         $(document).ready(function() {
             refreshKurikulumContent();
         });
