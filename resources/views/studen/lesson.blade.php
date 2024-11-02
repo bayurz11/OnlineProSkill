@@ -165,12 +165,6 @@
     </section>
     <!-- lesson-area-end -->
     <script>
-        let originalLessonContent = document.querySelector('.lesson__content').innerHTML;
-
-        function refreshKurikulumContent() {
-            document.querySelector('.lesson__content').innerHTML = originalLessonContent;
-        }
-
         function changeContent(element, event) {
             if (element.classList.contains('disabled')) {
                 event.preventDefault();
@@ -239,11 +233,14 @@
 
             // Add active class to the clicked link
             element.classList.add('active');
+        }
 
-            // Refresh lesson__content after iframe loads
-            document.getElementById('lessonContent').onload = function() {
-                refreshKurikulumContent();
-            };
+        function refreshKurikulumContent() {
+            // Logika untuk merefresh konten lesson__content
+            const lessonContent = document.querySelector('.lesson__content');
+            // Contoh: Ambil data dari server jika perlu dan update elemen di lessonContent
+            console.log("Kurikulum content refreshed.");
+            // Di sini, kamu bisa menambahkan logika untuk mengambil dan memperbarui data jika diperlukan
         }
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -283,13 +280,15 @@
                 })
                 .then(response => {
                     if (response.ok) {
+                        // Pindah ke konten berikutnya setelah status diperbarui
                         const activeLink = document.querySelector('.course-item-link.active');
                         const nextLink = activeLink.parentElement.nextElementSibling?.querySelector(
-                        '.course-item-link');
+                            '.course-item-link');
                         if (nextLink) {
                             changeContent(nextLink, new Event('click'));
                         }
 
+                        // Panggil refresh setelah iframe selesai di-load
                         document.getElementById('lessonContent').onload = function() {
                             refreshKurikulumContent();
                             alert("Status berhasil diperbarui dan pindah ke konten berikutnya.");
@@ -300,6 +299,11 @@
                 })
                 .catch(error => console.error("Fetch error:", error));
         }
+
+        // Mengatur onload untuk iframe
+        document.getElementById('lessonContent').onload = function() {
+            refreshKurikulumContent();
+        };
     </script>
 
     {{-- <script>
