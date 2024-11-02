@@ -8,79 +8,9 @@
                 <div class="col-xl-4 col-lg-4">
                     <div class="lesson__content">
                         <h2 class="title">Konten Kursus</h2>
-                        {{-- @dd($kurikulum) --}}
-                        @if ($kurikulum->isEmpty())
-                            <p>Data kurikulum belum tersedia.</p>
-                        @else
-                            <div class="accordion" id="accordionExample">
-                                @foreach ($kurikulum as $index => $item)
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="heading{{ $index }}">
-                                            <button class="accordion-button {{ $index !== 0 ? 'collapsed' : '' }}"
-                                                type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#collapse{{ $index }}"
-                                                aria-expanded="{{ $index === 0 ? 'true' : 'false' }}"
-                                                aria-controls="collapse{{ $index }}">
-                                                {{ $item->title }}
-                                                <span>{{ $item->sections->count() }}/{{ $item->sections->count() }}</span>
-                                            </button>
-                                        </h2>
-                                        <div id="collapse{{ $index }}"
-                                            class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}"
-                                            data-bs-parent="#accordionExample">
-                                            <div class="accordion-body">
-                                                <ul class="list-wrap">
-                                                    @foreach ($item->sections as $section)
-                                                        @php
-                                                            $completed = Auth::user()->hasCompletedSection(
-                                                                $section->id,
-                                                            );
-                                                        @endphp
-                                                        <li class="course-item {{ $loop->first ? 'open-item' : '' }}">
-                                                            @if ($section->link || $section->file_path)
-                                                                <a href="#"
-                                                                    class="course-item-link {{ $loop->first ? 'active' : '' }} {{ !$completed && $loop->first ? 'unlocked' : (!$completed ? 'locked' : '') }}"
-                                                                    data-title="{{ $section->title }}"
-                                                                    data-link="{{ $section->link ? asset($section->link) : asset($section->file_path) }}"
-                                                                    data-type="{{ $section->type }}"
-                                                                    data-id="{{ $section->id }}"
-                                                                    onclick="changeContent(this, event)">
-                                                                    <span class="item-name">{{ $section->title }}</span>
-                                                                    @if ($completed)
-                                                                        <div
-                                                                            class="d-flex align-items-center justify-content-center">
-                                                                            <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center"
-                                                                                style="width: 24px; height: 24px;">
-                                                                                <i class="fas fa-check"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                    @endif
-                                                                    <div class="course-item-meta">
-                                                                        <span
-                                                                            class="item-meta duration">{{ $section->duration }}</span>
-                                                                    </div>
-                                                                </a>
-                                                            @else
-                                                                <span class="course-item-link inactive">
-                                                                    <span class="item-name">{{ $section->title }}</span>
-                                                                    <div class="course-item-meta">
-                                                                        <span
-                                                                            class="item-meta duration">{{ $section->duration }}</span>
-                                                                    </div>
-                                                                </span>
-                                                            @endif
-                                                        </li>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
-                        @endif
 
 
-                        {{-- @include('studen.partials.kurikulum-content') --}}
+                        @include('studen.partials.kurikulum-content')
                     </div>
                 </div>
                 @if (!$kurikulum->isEmpty())
@@ -265,7 +195,6 @@
             event.preventDefault();
             const form = document.getElementById('statusForm');
             const formData = new FormData(form);
-            const sectionId = formData.get('sectionId'); // Ambil ID bagian dari form data
 
             fetch(form.action, {
                     method: 'POST',
@@ -276,9 +205,6 @@
                 })
                 .then(response => {
                     if (response.ok) {
-                        // Simpan status di localStorage
-                        localStorage.setItem('sectionStatus', 'completed');
-
                         // Pindah ke konten berikutnya setelah status diperbarui
                         const activeLink = document.querySelector('.course-item-link.active');
                         const nextLink = activeLink.parentElement.nextElementSibling?.querySelector(
@@ -287,32 +213,12 @@
                             changeContent(nextLink, new Event('click'));
                         }
 
-                        // Tampilkan elemen cek, dengan mengirimkan sectionId
-                        showCheckMark(sectionId);
+                        // Di sini tidak ada alert yang ditampilkan
                     } else {
                         console.error("Error: " + response.statusText);
                     }
                 })
                 .catch(error => console.error("Fetch error:", error));
-        }
-
-
-        function showCheckMark() {
-            const checkMarkDiv = document.createElement('div');
-            checkMarkDiv.className = 'd-flex align-items-center justify-content-center';
-            checkMarkDiv.innerHTML = `
-        <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 24px; height: 24px;">
-            <i class="fas fa-check"></i>
-        </div>
-    `;
-
-            // Menyisipkan elemen cek ke dalam DOM di samping link aktif
-            const activeLink = document.querySelector('.course-item-link.active');
-            if (activeLink) {
-                activeLink.appendChild(checkMarkDiv); // Menambahkan di dalam elemen link
-            }
-
-
         }
     </script>
 
