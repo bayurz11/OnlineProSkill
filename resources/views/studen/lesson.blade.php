@@ -213,5 +213,24 @@
                 })
                 .catch(error => console.error("Fetch error:", error));
         }
+
+
+        function refreshKurikulumContent() {
+            $.ajax({
+                url: '{{ route('kurikulum.content') }}',
+                method: 'GET',
+                success: function(response) {
+                    $('.lesson__content').html(response);
+                },
+                error: function(error) {
+                    console.error('Error refreshing kurikulum content:', error);
+                }
+            });
+        }
+
+        // Contoh penggunaan: refresh saat halaman dimuat atau pada aksi tertentu
+        $(document).ready(function() {
+            refreshKurikulumContent();
+        });
     </script>
 @endsection
