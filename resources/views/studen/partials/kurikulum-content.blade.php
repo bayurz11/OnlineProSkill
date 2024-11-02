@@ -1,8 +1,8 @@
-@if ($kurikulum->isEmpty())
+@if ($$sections->isEmpty())
     <p>Data kurikulum belum tersedia.</p>
 @else
     <div class="accordion" id="accordionExample">
-        @foreach ($kurikulum as $index => $item)
+        @foreach ($$sections as $index => $item)
             <div class="accordion-item">
                 <h2 class="accordion-header" id="heading{{ $index }}">
                     <button class="accordion-button {{ $index !== 0 ? 'collapsed' : '' }}" type="button"

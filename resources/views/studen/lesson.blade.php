@@ -12,13 +12,13 @@
                         @include('studen.partials.kurikulum-content')
                     </div>
                 </div>
-                @if (!$kurikulum->isEmpty())
+                @if (!$$sections->isEmpty())
                     <div class="col-xl-8 col-lg-8">
                         <div class="lesson__video-wrap">
                             <div class="lesson__video-wrap-top">
                                 <div class="lesson__video-wrap-top-left">
                                     <a href="{{ route('akses_pembelian') }}"><i class="flaticon-arrow-right"></i></a>
-                                    <span id="currentContentTitle">{{ $kurikulum[0]->sections->first()->title }}</span>
+                                    <span id="currentContentTitle">{{ $$sections[0]->sections->first()->title }}</span>
                                 </div>
                                 <div class="lesson__video-wrap-top-right">
                                     <a href="{{ route('/') }}"><i class="fas fa-times"></i></a>
@@ -37,12 +37,12 @@
                             <div class="d-flex justify-content-end mt-3">
                                 <div class="d-flex align-items-center">
                                     <form id="statusForm"
-                                        action="{{ route('sectionstatus', $kurikulum[0]->sections->first()->id) }}"
+                                        action="{{ route('sectionstatus', $$sections[0]->sections->first()->id) }}"
                                         method="POST" onsubmit="submitStatusForm(event)">
                                         @csrf
                                         @method('PUT')
                                         <input type="hidden" id="sectionId" name="sectionId"
-                                            value="{{ $kurikulum[0]->sections->first()->id }}">
+                                            value="{{ $$sections[0]->sections->first()->id }}">
                                         <input type="hidden" name="status" value="true">
                                         <button type="submit" class="btn btn-primary">Menyelesaikan</button>
                                     </form>

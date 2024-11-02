@@ -151,23 +151,34 @@ class AksesPembelianController extends Controller
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
         $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
-        $kurikulum = Kurikulum::with('sections')->where('course_id', $id)->get();
+
+        // Mengambil data sections terkait course_id
+        $sections = Section::whereHas('kurikulum', function ($query) use ($id) {
+            $query->where('course_id', $id);
+        })->get();
 
         $userSectionStatuses = UserSectionStatus::where('user_id', $user->id)
             ->pluck('status', 'section_id')
             ->toArray();
 
-        $allSectionsCompleted = $kurikulum->every(function ($kurikulumItem) use ($userSectionStatuses) {
-            $totalSections = Section::countSectionsByKurikulum($kurikulumItem->id);
-            $completedSections = array_filter($userSectionStatuses, function ($status, $section_id) use ($kurikulumItem) {
-                return $status === 1 && Section::find($section_id)->kurikulum_id === $kurikulumItem->id;
-            }, ARRAY_FILTER_USE_BOTH);
-
-            return count($completedSections) === $totalSections;
+        $allSectionsCompleted = $sections->every(function ($section) use ($userSectionStatuses) {
+            return isset($userSectionStatuses[$section->id]) && $userSectionStatuses[$section->id] == 1;
         });
 
-        return view('studen.lesson', compact('user', 'sertifikat', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum', 'allSectionsCompleted'));
+        return view('studen.lesson', compact(
+            'user',
+            'sertifikat',
+            'categori',
+            'profile',
+            'cart',
+            'notifikasi',
+            'notifikasiCount',
+            'orders',
+            'sections',
+            'allSectionsCompleted'
+        ));
     }
+
 
     public function fetchContent($id)
     {
