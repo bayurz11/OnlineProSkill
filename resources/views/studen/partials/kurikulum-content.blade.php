@@ -45,13 +45,14 @@
                                             </div>
                                         </a>
                                     @else
-                                        <span class="course-item-link inactive">
+                                        <span class="course-item-link inactive" data-id="{{ $section->id }}">
                                             <span class="item-name">{{ $section->title }}</span>
                                             <div class="course-item-meta">
                                                 <span class="item-meta duration">{{ $section->duration }}</span>
                                             </div>
                                         </span>
                                     @endif
+
                                 </li>
                             @endforeach
                         </ul>
