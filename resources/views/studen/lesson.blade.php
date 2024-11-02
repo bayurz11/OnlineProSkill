@@ -208,15 +208,12 @@
                         // Pindah ke konten berikutnya setelah status diperbarui
                         const activeLink = document.querySelector('.course-item-link.active');
                         const nextLink = activeLink.parentElement.nextElementSibling?.querySelector(
-                            '.course-item-link');
+                        '.course-item-link');
                         if (nextLink) {
                             changeContent(nextLink, new Event('click'));
                         }
 
-                        // Removed the refreshKurikulumContent call here
-                        document.getElementById('lessonContent').onload = function() {
-                            alert("Status berhasil diperbarui dan pindah ke konten berikutnya.");
-                        };
+                        // Di sini tidak ada alert yang ditampilkan
                     } else {
                         console.error("Error: " + response.statusText);
                     }
