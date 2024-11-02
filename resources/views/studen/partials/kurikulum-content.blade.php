@@ -60,3 +60,65 @@
         @endforeach
     </div>
 @endif
+<script>
+    function changeContent(element, event) {
+        if (element.classList.contains('disabled')) {
+            event.preventDefault();
+            alert('Bagian ini terkunci, selesaikan bagian sebelumnya untuk membuka bagian ini.');
+            return;
+        }
+
+        var fileUrl = element.getAttribute('data-link');
+        var fileType = element.getAttribute('data-type');
+        var sectionId = element.getAttribute('data-id');
+
+        // Update the hidden input with the clicked section ID
+        document.getElementById('sectionId').value = sectionId;
+
+        // Update localStorage when a section is completed
+        if (!localStorage.getItem(`section_${sectionId}_completed`)) {
+            localStorage.setItem(`section_${sectionId}_completed`, 'true');
+        }
+
+        // Check if the section is completed
+        var completed = localStorage.getItem(`section_${sectionId}_completed`) === 'true';
+
+        // Show check icon if completed
+        if (completed) {
+            element.querySelector('.check-icon').style.display = 'flex';
+        } else {
+            element.querySelector('.check-icon').style.display = 'none';
+        }
+
+        // Logic for changing the content based on fileUrl and fileType here
+        // ...
+
+        // Remove active class from previously active links
+        var activeLinks = document.querySelectorAll('.course-item-link.active');
+        activeLinks.forEach(function(link) {
+            link.classList.remove('active');
+        });
+
+        // Add active class to the clicked link
+        element.classList.add('active');
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var sections = document.querySelectorAll('.course-item-link');
+        sections.forEach(section => {
+            const sectionId = section.getAttribute('data-id');
+            const completed = localStorage.getItem(`section_${sectionId}_completed`) === 'true';
+            if (completed) {
+                section.querySelector('.check-icon').style.display = 'flex'; // Tampilkan ikon centang
+            }
+        });
+
+        var firstFileLink = document.querySelector('.course-item-link.active');
+        if (firstFileLink) {
+            changeContent(firstFileLink, new Event('click'));
+        }
+    });
+
+    // Remaining functions: nextContent, prevContent, refreshKurikulumContent
+    // ...
+</script>
