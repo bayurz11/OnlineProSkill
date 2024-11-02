@@ -208,18 +208,33 @@
                         // Pindah ke konten berikutnya setelah status diperbarui
                         const activeLink = document.querySelector('.course-item-link.active');
                         const nextLink = activeLink.parentElement.nextElementSibling?.querySelector(
-                            '.course-item-link');
+                        '.course-item-link');
                         if (nextLink) {
                             changeContent(nextLink, new Event('click'));
                         }
 
-                        // Di sini tidak ada alert yang ditampilkan
+                        // Simpan ID atau data unik dari item yang aktif ke localStorage
+                        if (activeLink) {
+                            localStorage.setItem('activeCourseItem', activeLink.dataset.id);
+                        }
                     } else {
                         console.error("Error: " + response.statusText);
                     }
                 })
                 .catch(error => console.error("Fetch error:", error));
         }
+
+        // Saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', () => {
+            const activeItemId = localStorage.getItem('activeCourseItem');
+            if (activeItemId) {
+                // Temukan item yang sesuai dan tambahkan kelas aktif
+                const activeItem = document.querySelector(`.course-item-link[data-id="${activeItemId}"]`);
+                if (activeItem) {
+                    activeItem.classList.add('active');
+                }
+            }
+        });
     </script>
 
 @endsection
