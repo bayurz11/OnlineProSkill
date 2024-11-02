@@ -208,19 +208,12 @@
                         // Pindah ke konten berikutnya setelah status diperbarui
                         const activeLink = document.querySelector('.course-item-link.active');
                         const nextLink = activeLink.parentElement.nextElementSibling?.querySelector(
-                        '.course-item-link');
-
+                            '.course-item-link');
                         if (nextLink) {
                             changeContent(nextLink, new Event('click'));
                         }
 
-                        // Tampilkan tanda penyelesaian jika kursus telah selesai
-                        const completionStatus = document.getElementById('completionStatus');
-                        if ( /* kondisi untuk memeriksa apakah kursus selesai */ ) {
-                            completionStatus.style.display = 'flex'; // Tampilkan tanda
-                        } else {
-                            completionStatus.style.display = 'none'; // Sembunyikan tanda
-                        }
+                        // Di sini tidak ada alert yang ditampilkan
                     } else {
                         console.error("Error: " + response.statusText);
                     }
