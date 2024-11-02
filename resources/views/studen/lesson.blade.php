@@ -209,11 +209,18 @@
                         const activeLink = document.querySelector('.course-item-link.active');
                         const nextLink = activeLink.parentElement.nextElementSibling?.querySelector(
                         '.course-item-link');
+
                         if (nextLink) {
                             changeContent(nextLink, new Event('click'));
                         }
 
-                        // Di sini tidak ada alert yang ditampilkan
+                        // Tampilkan tanda penyelesaian jika kursus telah selesai
+                        const completionStatus = document.getElementById('completionStatus');
+                        if ( /* kondisi untuk memeriksa apakah kursus selesai */ ) {
+                            completionStatus.style.display = 'flex'; // Tampilkan tanda
+                        } else {
+                            completionStatus.style.display = 'none'; // Sembunyikan tanda
+                        }
                     } else {
                         console.error("Error: " + response.statusText);
                     }
