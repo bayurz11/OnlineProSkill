@@ -205,20 +205,43 @@
                 })
                 .then(response => {
                     if (response.ok) {
+                        // Simpan status di localStorage
+                        localStorage.setItem('sectionStatus', 'completed');
+
                         // Pindah ke konten berikutnya setelah status diperbarui
                         const activeLink = document.querySelector('.course-item-link.active');
                         const nextLink = activeLink.parentElement.nextElementSibling?.querySelector(
-                            '.course-item-link');
+                        '.course-item-link');
                         if (nextLink) {
                             changeContent(nextLink, new Event('click'));
                         }
 
-                        // Di sini tidak ada alert yang ditampilkan
+                        // Tampilkan elemen cek
+                        showCheckMark();
                     } else {
                         console.error("Error: " + response.statusText);
                     }
                 })
                 .catch(error => console.error("Fetch error:", error));
+        }
+
+        function showCheckMark() {
+            const checkMarkDiv = document.createElement('div');
+            checkMarkDiv.className = 'd-flex align-items-center justify-content-center';
+            checkMarkDiv.innerHTML = `
+        <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 24px; height: 24px;">
+            <i class="fas fa-check"></i>
+        </div>
+    `;
+
+            // Menyisipkan elemen cek ke dalam DOM di tempat yang diinginkan
+            const container = document.querySelector('.lesson__next-prev-button'); // Ganti selector sesuai kebutuhan
+            container.appendChild(checkMarkDiv);
+
+            // Menghapus elemen cek setelah beberapa detik
+            setTimeout(() => {
+                checkMarkDiv.remove();
+            }, 2000); // Menampilkan selama 2 detik
         }
     </script>
 
