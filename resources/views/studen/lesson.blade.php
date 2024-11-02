@@ -261,62 +261,58 @@
             }
         }
 
-        function showCheckMark() {
-            // Periksa apakah elemen cek sudah ada
-            let existingCheckMark = document.querySelector('.check-mark');
-            if (existingCheckMark) {
-                return; // Jika sudah ada, tidak perlu menambahkan lagi
-            }
+        function submitStatusForm(event) {
+            event.preventDefault();
+            const form = document.getElementById('statusForm');
+            const formData = new FormData(form);
 
-            // Membuat elemen cek
+            fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-CSRF-TOKEN': form.querySelector('input[name="_token"]').value
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // Simpan status di localStorage
+                        localStorage.setItem('sectionStatus', 'completed');
+
+                        // Pindah ke konten berikutnya setelah status diperbarui
+                        const activeLink = document.querySelector('.course-item-link.active');
+                        const nextLink = activeLink.parentElement.nextElementSibling?.querySelector(
+                            '.course-item-link');
+                        if (nextLink) {
+                            changeContent(nextLink, new Event('click'));
+                        }
+
+                        // Tampilkan elemen cek
+                        showCheckMark();
+                    } else {
+                        console.error("Error: " + response.statusText);
+                    }
+                })
+                .catch(error => console.error("Fetch error:", error));
+        }
+
+        function showCheckMark() {
             const checkMarkDiv = document.createElement('div');
-            checkMarkDiv.className =
-            'check-mark d-flex align-items-center justify-content-center'; // Tambahkan class 'check-mark'
+            checkMarkDiv.className = 'd-flex align-items-center justify-content-center';
             checkMarkDiv.innerHTML = `
-        <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center"
-             style="width: 24px; height: 24px;">
+        <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 24px; height: 24px;">
             <i class="fas fa-check"></i>
         </div>
     `;
 
             // Menyisipkan elemen cek ke dalam DOM di tempat yang diinginkan
-            const container = document.querySelector('.lesson__next-prev-button');
+            const container = document.querySelector('.lesson__next-prev-button'); // Ganti selector sesuai kebutuhan
             container.appendChild(checkMarkDiv);
+
+            // Menghapus elemen cek setelah beberapa detik
+            setTimeout(() => {
+                checkMarkDiv.remove();
+            }, 2000); // Menampilkan selama 2 detik
         }
-
-        // Fungsi untuk memperbarui status dan menampilkan cek
-        async function updateSectionStatus() {
-            // Ganti dengan URL endpoint API yang sesuai
-            const response = await fetch('http://localhost:3000/api/update-status', {
-                method: 'POST',
-                body: JSON.stringify({
-                    /* data yang diperlukan */ }),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
-
-            if (response.ok) {
-                // Simpan status di localStorage
-                localStorage.setItem('sectionStatus', 'completed');
-
-                // Pindah ke konten berikutnya setelah status diperbarui
-                const activeLink = document.querySelector('.course-item-link.active');
-                const nextLink = activeLink.parentElement.nextElementSibling?.querySelector('.course-item-link');
-                if (nextLink) {
-                    changeContent(nextLink, new Event('click'));
-                }
-
-                // Tampilkan elemen cek
-                showCheckMark(); // Panggil fungsi ini
-            } else {
-                console.error('Gagal memperbarui status:', response.statusText);
-            }
-        }
-
-        // Pastikan untuk memanggil updateSectionStatus() pada event yang sesuai
-        // Misalnya pada click event pada tombol atau link
-        document.querySelector('.your-button-selector').addEventListener('click', updateSectionStatus);
     </script>
 
 @endsection
