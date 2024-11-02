@@ -185,7 +185,7 @@ class AksesPembelianController extends Controller
 
         // $kurikulum = Kurikulum::with('sections')->where('id', $kurikulum_id)->get();
         $sections = Section::whereHas('kurikulum', function ($query) use ($id) {
-            $query->where('course_id', $id);
+            $query->where('kurikulum_id', $id);
         })->get();
         dd($sections);
 
