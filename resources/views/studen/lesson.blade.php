@@ -208,14 +208,13 @@
                         // Pindah ke konten berikutnya setelah status diperbarui
                         const activeLink = document.querySelector('.course-item-link.active');
                         const nextLink = activeLink.parentElement.nextElementSibling?.querySelector(
-                        '.course-item-link');
+                            '.course-item-link');
                         if (nextLink) {
                             changeContent(nextLink, new Event('click'));
                         }
 
-                        // Memperbarui konten setelah iframe selesai di-load
+                        // Removed the refreshKurikulumContent call here
                         document.getElementById('lessonContent').onload = function() {
-                            refreshKurikulumContent();
                             alert("Status berhasil diperbarui dan pindah ke konten berikutnya.");
                         };
                     } else {
@@ -225,4 +224,5 @@
                 .catch(error => console.error("Fetch error:", error));
         }
     </script>
+
 @endsection
