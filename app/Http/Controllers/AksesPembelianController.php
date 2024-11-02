@@ -152,10 +152,11 @@ class AksesPembelianController extends Controller
 
         $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
 
-        // Mengambil data sections terkait course_id
-        $sections = Section::whereHas('kurikulum', function ($query) use ($id) {
-            $query->where('course_id', $id);
-        })->get();
+        // Mengambil semua section yang terkait dengan course_id yang diberikan
+        $kurikulumIds = Kurikulum::where('course_id', $id)->pluck('id');
+
+        // Mengambil data sections berdasarkan kurikulum_id dari hasil sebelumnya
+        $sections = Section::whereIn('kurikulum_id', $kurikulumIds)->get();
 
         $userSectionStatuses = UserSectionStatus::where('user_id', $user->id)
             ->pluck('status', 'section_id')
