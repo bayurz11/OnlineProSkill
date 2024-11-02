@@ -171,13 +171,10 @@ class AksesPembelianController extends Controller
 
     public function fetchContent()
     {
-        $user = Auth::user();
-        if (!$user) {
-            return redirect()->route('home');
-        }
+
         $kurikulum = Kurikulum::with('sections')->where('course_id')->get();
 
-        return view('studen.partials.kurikulum-content', compact('user', 'sertifikat', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum', 'allSectionsCompleted'));
+        return view('studen.partials.kurikulum-content', compact('kurikulum'));
     }
 
 
