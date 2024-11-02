@@ -8,23 +8,20 @@
                 <div class="col-xl-4 col-lg-4">
                     <div class="lesson__content">
                         <h2 class="title">Konten Kursus</h2>
+
                         @include('studen.partials.kurikulum-content')
                     </div>
                 </div>
-                <div class="col-xl-8 col-lg-8">
-                    @if (!$sections->isEmpty())
+                @if (!$kurikulum->isEmpty())
+                    <div class="col-xl-8 col-lg-8">
                         <div class="lesson__video-wrap">
                             <div class="lesson__video-wrap-top">
                                 <div class="lesson__video-wrap-top-left">
-                                    <a href="{{ route('akses_pembelian') }}">
-                                        <i class="flaticon-arrow-right"></i>
-                                    </a>
-                                    <span id="currentContentTitle">{{ $sections[0]->title }}</span>
+                                    <a href="{{ route('akses_pembelian') }}"><i class="flaticon-arrow-right"></i></a>
+                                    <span id="currentContentTitle">{{ $kurikulum[0]->sections->first()->title }}</span>
                                 </div>
                                 <div class="lesson__video-wrap-top-right">
-                                    <a href="{{ route('/') }}">
-                                        <i class="fas fa-times"></i>
-                                    </a>
+                                    <a href="{{ route('/') }}"><i class="fas fa-times"></i></a>
                                 </div>
                             </div>
                             <div class="lesson__video-embed">
@@ -32,21 +29,20 @@
                                     allowfullscreen></iframe>
                             </div>
                             <div class="lesson__next-prev-button d-flex justify-content-between">
-                                <button class="prev-button" title="Previous Content" onclick="prevContent()">
-                                    <i class="flaticon-arrow-left"></i>
-                                </button>
-                                <button class="next-button" title="Next Content" onclick="nextContent()">
-                                    <i class="flaticon-arrow-right"></i>
-                                </button>
+                                <button class="prev-button" title="Previous Content" onclick="prevContent()"><i
+                                        class="flaticon-arrow-left"></i></button>
+                                <button class="next-button" title="Next Content" onclick="nextContent()"><i
+                                        class="flaticon-arrow-right"></i></button>
                             </div>
                             <div class="d-flex justify-content-end mt-3">
                                 <div class="d-flex align-items-center">
-                                    <form id="statusForm" action="{{ route('sectionstatus', $sections[0]->id) }}"
+                                    <form id="statusForm"
+                                        action="{{ route('sectionstatus', $kurikulum[0]->sections->first()->id) }}"
                                         method="POST" onsubmit="submitStatusForm(event)">
                                         @csrf
                                         @method('PUT')
                                         <input type="hidden" id="sectionId" name="sectionId"
-                                            value="{{ $sections[0]->id }}">
+                                            value="{{ $kurikulum[0]->sections->first()->id }}">
                                         <input type="hidden" name="status" value="true">
                                         <button type="submit" class="btn btn-primary">Menyelesaikan</button>
                                     </form>
@@ -58,16 +54,39 @@
                                             <button type="submit" class="btn btn-secondary">Sertifikat
                                                 Penyelesaian</button>
                                         </form>
+                                        <script>
+                                            function openInNewTab(event) {
+                                                event.preventDefault();
+                                                const form = event.target;
+                                                const formData = new FormData(form);
+                                                const actionUrl = form.action;
+
+                                                fetch(actionUrl, {
+                                                        method: 'POST',
+                                                        body: formData,
+                                                        headers: {
+                                                            'X-CSRF-TOKEN': form.querySelector('input[name="_token"]').value
+                                                        }
+                                                    })
+                                                    .then(response => response.blob())
+                                                    .then(blob => {
+                                                        const url = window.URL.createObjectURL(blob);
+                                                        const a = document.createElement('a');
+                                                        a.href = url;
+                                                        a.target = '_blank';
+                                                        a.click();
+                                                        window.URL.revokeObjectURL(url);
+                                                    })
+                                                    .catch(error => console.error('Error:', error));
+                                            }
+                                        </script>
                                     @endif
                                 </div>
                             </div>
                         </div>
-                    @else
-                        <p>Tidak ada konten untuk ditampilkan.</p>
-                    @endif
-                </div>
+                    </div>
+                @endif
             </div>
-        </div>
         </div>
     </section>
     <!-- lesson-area-end -->
@@ -90,22 +109,6 @@
             // Update the hidden input with the clicked section ID
             document.getElementById('sectionId').value = sectionId;
 
-            var fileSrc = getFileSrc(fileUrl, fileType);
-            if (!fileSrc) return; // Jika fileSrc tidak valid
-
-            document.getElementById('lessonContent').src = fileSrc;
-            document.getElementById('currentContentTitle').innerText = element.getAttribute('data-title');
-
-            // Remove active class from previously active links
-            document.querySelectorAll('.course-item-link.active').forEach(function(link) {
-                link.classList.remove('active');
-            });
-
-            // Add active class to the clicked link
-            element.classList.add('active');
-        }
-
-        function getFileSrc(fileUrl, fileType) {
             var youtubeRegex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
             var driveRegex =
                 /(?:drive\.google\.com\/file\/d\/|drive\.google\.com\/open\?id=|docs.google\.com\/(?:presentation|document|spreadsheets)\/d\/)([^"&?\/\s]+)/;
@@ -118,36 +121,45 @@
                 fileSrc = 'https://www.youtube.com/embed/' + youtubeId;
             } else if (driveMatch) {
                 var driveId = driveMatch[1];
-                fileSrc = getDriveSrc(driveId, fileType);
+
+                if (fileType === 'video') {
+                    fileSrc = 'https://drive.google.com/file/d/' + driveId + '/preview';
+                } else if (fileType === 'presentation' || fileType === 'pptx') {
+                    fileSrc = 'https://docs.google.com/presentation/d/' + driveId + '/embed';
+                } else if (fileType === 'document' || fileType === 'docx') {
+                    fileSrc = 'https://docs.google.com/document/d/' + driveId + '/embed';
+                } else if (fileType === 'spreadsheet' || fileType === 'xlsx') {
+                    fileSrc = 'https://docs.google.com/spreadsheets/d/' + driveId + '/embed';
+                } else if (fileType === 'pdf') {
+                    fileSrc = 'https://drive.google.com/file/d/' + driveId + '/preview';
+                } else {
+                    alert('Jenis file tidak didukung: ' + fileType);
+                    return;
+                }
             } else if (fileType === 'pdf' || fileUrl.includes('uploads/')) {
-                fileSrc = '/public/' + fileUrl.replace(/^uploads\//, '');
+                if (fileUrl.startsWith('https://')) {
+                    fileSrc = '/public/' + fileUrl.split('/').slice(3).join('/');
+                } else if (!fileUrl.startsWith('/public/uploads/')) {
+                    fileSrc = '/public/' + fileUrl;
+                } else {
+                    fileSrc = fileUrl;
+                }
             } else {
                 alert('Link file tidak valid: ' + fileUrl);
-                return null; // Indikasi bahwa fileSrc tidak valid
+                return;
             }
 
-            return fileSrc;
-        }
+            document.getElementById('lessonContent').src = fileSrc;
+            document.getElementById('currentContentTitle').innerText = element.getAttribute('data-title');
 
-        function getDriveSrc(driveId, fileType) {
-            switch (fileType) {
-                case 'video':
-                    return 'https://drive.google.com/file/d/' + driveId + '/preview';
-                case 'presentation':
-                case 'pptx':
-                    return 'https://docs.google.com/presentation/d/' + driveId + '/embed';
-                case 'document':
-                case 'docx':
-                    return 'https://docs.google.com/document/d/' + driveId + '/embed';
-                case 'spreadsheet':
-                case 'xlsx':
-                    return 'https://docs.google.com/spreadsheets/d/' + driveId + '/embed';
-                case 'pdf':
-                    return 'https://drive.google.com/file/d/' + driveId + '/preview';
-                default:
-                    alert('Jenis file tidak didukung: ' + fileType);
-                    return null; // Indikasi bahwa fileType tidak didukung
-            }
+            // Remove active class from previously active links
+            var activeLinks = document.querySelectorAll('.course-item-link.active');
+            activeLinks.forEach(function(link) {
+                link.classList.remove('active');
+            });
+
+            // Add active class to the clicked link
+            element.classList.add('active');
         }
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -187,13 +199,15 @@
                 })
                 .then(response => {
                     if (response.ok) {
+                        // Pindah ke konten berikutnya setelah status diperbarui
                         const activeLink = document.querySelector('.course-item-link.active');
                         const nextLink = activeLink.parentElement.nextElementSibling?.querySelector(
-                        '.course-item-link');
+                            '.course-item-link');
                         if (nextLink) {
                             changeContent(nextLink, new Event('click'));
                         }
 
+                        // Panggil refresh setelah iframe selesai di-load
                         document.getElementById('lessonContent').onload = function() {
                             refreshKurikulumContent();
                             alert("Status berhasil diperbarui dan pindah ke konten berikutnya.");
@@ -213,31 +227,6 @@
                     document.querySelector('.lesson__content').innerHTML = html;
                 })
                 .catch(error => console.error("Error fetching kurikulum content:", error));
-        }
-
-        function openInNewTab(event) {
-            event.preventDefault();
-            const form = event.target;
-            const formData = new FormData(form);
-            const actionUrl = form.action;
-
-            fetch(actionUrl, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'X-CSRF-TOKEN': form.querySelector('input[name="_token"]').value
-                    }
-                })
-                .then(response => response.blob())
-                .then(blob => {
-                    const url = window.URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.target = '_blank';
-                    a.click();
-                    window.URL.revokeObjectURL(url);
-                })
-                .catch(error => console.error('Error:', error));
         }
     </script>
 @endsection

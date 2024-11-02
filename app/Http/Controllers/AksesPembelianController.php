@@ -151,45 +151,29 @@ class AksesPembelianController extends Controller
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
         $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
-
-        // Mengambil semua section yang terkait dengan course_id yang diberikan
-        $kurikulumIds = Kurikulum::where('course_id', $id)->pluck('id');
-
-        // Mengambil data sections berdasarkan kurikulum_id dari hasil sebelumnya
-        $sections = Section::whereIn('kurikulum_id', $kurikulumIds)->get();
+        $kurikulum = Kurikulum::with('sections')->where('course_id', $id)->get();
 
         $userSectionStatuses = UserSectionStatus::where('user_id', $user->id)
             ->pluck('status', 'section_id')
             ->toArray();
 
-        $allSectionsCompleted = $sections->every(function ($section) use ($userSectionStatuses) {
-            return isset($userSectionStatuses[$section->id]) && $userSectionStatuses[$section->id] == 1;
+        $allSectionsCompleted = $kurikulum->every(function ($kurikulumItem) use ($userSectionStatuses) {
+            $totalSections = Section::countSectionsByKurikulum($kurikulumItem->id);
+            $completedSections = array_filter($userSectionStatuses, function ($status, $section_id) use ($kurikulumItem) {
+                return $status === 1 && Section::find($section_id)->kurikulum_id === $kurikulumItem->id;
+            }, ARRAY_FILTER_USE_BOTH);
+
+            return count($completedSections) === $totalSections;
         });
 
-        return view('studen.lesson', compact(
-            'user',
-            'sertifikat',
-            'categori',
-            'profile',
-            'cart',
-            'notifikasi',
-            'notifikasiCount',
-            'orders',
-            'sections',
-            'allSectionsCompleted'
-        ));
+        return view('studen.lesson', compact('user', 'sertifikat', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum', 'allSectionsCompleted'));
     }
-
 
     public function fetchContent($id)
     {
 
-        // Mengambil semua section yang terkait dengan course_id yang diberikan
-        $kurikulumIds = Kurikulum::where('course_id', $id)->pluck('id');
-
-        // Mengambil data sections berdasarkan kurikulum_id dari hasil sebelumnya
-        $sections = Section::whereIn('kurikulum_id', $kurikulumIds)->get();
-        dd($sections);
+        // $kurikulum = Kurikulum::with('sections')->where('id', $kurikulum_id)->get();
+        $kurikulum = Section::with('kurikulum')->where('kurikulum_id', $id)->get();
 
         return view('studen.partials.kurikulum-content', compact('kurikulum'));
     }
