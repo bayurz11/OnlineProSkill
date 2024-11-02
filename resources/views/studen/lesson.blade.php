@@ -200,10 +200,13 @@
                 })
                 .then(response => {
                     if (response.ok) {
-                        // Reload the iframe content only
+                        // Refresh iframe
                         const lessonContentIframe = document.getElementById('lessonContent');
                         lessonContentIframe.src = lessonContentIframe.src; // Reload iframe
                         alert("Status berhasil diperbarui.");
+
+                        // Panggil fungsi untuk menyegarkan konten kurikulum
+                        refreshKurikulumContent();
                     } else {
                         console.error("Error: " + response.statusText);
                     }
