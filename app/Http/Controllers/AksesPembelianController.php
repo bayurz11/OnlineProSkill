@@ -171,28 +171,36 @@ class AksesPembelianController extends Controller
 
     public function fetchContent($id)
     {
-        $categori = Categories::all();
-        $cart = Session::get('cart', []);
-        $sertifikat = Sertifikat::findOrFail($id);
+        // Memastikan pengguna terautentikasi
         $user = Auth::user();
         if (!$user) {
             return redirect()->route('home');
         }
 
+        // Mengambil data yang diperlukan
+        $categori = Categories::all();
+        $cart = Session::get('cart', []);
+        $sertifikat = Sertifikat::findOrFail($id);
         $profile = UserProfile::where('user_id', $user->id)->first();
-        $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
+
+        // Mengambil notifikasi pengguna
+        $notifikasi = NotifikasiUser::where('user_id', $user->id)
             ->orderBy('created_at', 'desc')
-            ->get()
-            : collect();
+            ->get();
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
+        // Mengambil pesanan pengguna
         $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
+
+        // Mengambil kurikulum
         $kurikulum = Kurikulum::with('sections')->where('course_id', $id)->get();
 
+        // Mengambil status bagian pengguna
         $userSectionStatuses = UserSectionStatus::where('user_id', $user->id)
             ->pluck('status', 'section_id')
             ->toArray();
 
+        // Memeriksa apakah semua bagian telah selesai
         $allSectionsCompleted = $kurikulum->every(function ($kurikulumItem) use ($userSectionStatuses) {
             $totalSections = Section::countSectionsByKurikulum($kurikulumItem->id);
             $completedSections = array_filter($userSectionStatuses, function ($status, $section_id) use ($kurikulumItem) {
@@ -202,8 +210,10 @@ class AksesPembelianController extends Controller
             return count($completedSections) === $totalSections;
         });
 
+        // Mengembalikan tampilan dengan data yang diperlukan
         return view('studen.partials.kurikulum-content', compact('user', 'sertifikat', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum', 'allSectionsCompleted'));
     }
+
 
 
 
