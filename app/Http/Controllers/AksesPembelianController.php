@@ -184,10 +184,11 @@ class AksesPembelianController extends Controller
     public function fetchContent($id)
     {
 
-        // $kurikulum = Kurikulum::with('sections')->where('id', $kurikulum_id)->get();
-        $sections = Section::whereHas('kurikulum', function ($query) use ($id) {
-            $query->where('kurikulum_id', $id);
-        })->get();
+        // Mengambil semua section yang terkait dengan course_id yang diberikan
+        $kurikulumIds = Kurikulum::where('course_id', $id)->pluck('id');
+
+        // Mengambil data sections berdasarkan kurikulum_id dari hasil sebelumnya
+        $sections = Section::whereIn('kurikulum_id', $kurikulumIds)->get();
         dd($sections);
 
         return view('studen.partials.kurikulum-content', compact('kurikulum'));
