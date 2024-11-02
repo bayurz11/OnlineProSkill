@@ -175,6 +175,7 @@ class AksesPembelianController extends Controller
         $cart = Session::get('cart', []);
         $sertifikat = Sertifikat::findOrFail($id);
         $user = Auth::user();
+
         if (!$user) {
             return redirect()->route('home');
         }
@@ -202,8 +203,9 @@ class AksesPembelianController extends Controller
             return count($completedSections) === $totalSections;
         });
 
-        return view('studen.lesson', compact('user', 'sertifikat', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum', 'allSectionsCompleted'));
+        return view('studen.partials.kurikulum-content', compact('user', 'sertifikat', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum', 'allSectionsCompleted'));
     }
+
 
 
 
