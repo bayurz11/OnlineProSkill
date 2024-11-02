@@ -213,9 +213,9 @@
                             changeContent(nextLink, new Event('click'));
                         }
 
-                        // Removed the refreshKurikulumContent call here
+                        // Panggil refresh setelah iframe selesai di-load
                         document.getElementById('lessonContent').onload = function() {
-                            alert("Status berhasil diperbarui dan pindah ke konten berikutnya.");
+                            refreshKurikulumContent();
                         };
                     } else {
                         console.error("Error: " + response.statusText);
