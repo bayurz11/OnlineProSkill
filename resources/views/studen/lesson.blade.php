@@ -297,14 +297,7 @@
         }
 
 
-        function showCheckMark(sectionId) {
-            // Cek apakah bagian ini sudah diselesaikan
-            const completed = Auth::user() - > hasCompletedSection(sectionId);
-
-            if (completed) {
-                return; // Jangan tampilkan jika sudah selesai
-            }
-
+        function showCheckMark() {
             const checkMarkDiv = document.createElement('div');
             checkMarkDiv.className = 'd-flex align-items-center justify-content-center';
             checkMarkDiv.innerHTML = `
