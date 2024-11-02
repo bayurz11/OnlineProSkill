@@ -91,7 +91,7 @@
     </section>
     <!-- lesson-area-end -->
 
-    <script>
+    {{-- <script>
         function changeContent(element, event) {
             if (element.classList.contains('disabled')) {
                 event.preventDefault();
@@ -234,5 +234,161 @@
         $(document).ready(function() {
             refreshKurikulumContent();
         });
+    </script> --}}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Fungsi untuk menyegarkan konten kurikulum melalui AJAX
+        function refreshKurikulumContent() {
+            $.ajax({
+                url: '{{ route('kurikulum.content') }}',
+                method: 'GET',
+                success: function(response) {
+                    $('.lesson__content').html(response);
+                    console.log('Konten kurikulum berhasil diperbarui');
+                },
+                error: function(error) {
+                    console.error('Error refreshing kurikulum content:', error);
+                }
+            });
+        }
+
+        // Fungsi untuk mengubah konten iframe berdasarkan pilihan pengguna
+        function changeContent(element, event) {
+            if (element.classList.contains('disabled')) {
+                event.preventDefault();
+                alert('Bagian ini terkunci, selesaikan bagian sebelumnya untuk membuka bagian ini.');
+                return;
+            }
+
+            var fileUrl = element.getAttribute('data-link');
+            var fileType = element.getAttribute('data-type');
+            var sectionId = element.getAttribute('data-id');
+
+            document.getElementById('sectionId').value = sectionId;
+
+            var youtubeRegex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+            var driveRegex =
+                /(?:drive\.google\.com\/file\/d\/|drive\.google\.com\/open\?id=|docs.google\.com\/(?:presentation|document|spreadsheets)\/d\/)([^"&?\/\s]+)/;
+
+            var youtubeMatch = fileUrl.match(youtubeRegex);
+            var driveMatch = fileUrl.match(driveRegex);
+            var fileSrc = '';
+
+            if (youtubeMatch) {
+                var youtubeId = youtubeMatch[1];
+                fileSrc = 'https://www.youtube.com/embed/' + youtubeId;
+            } else if (driveMatch) {
+                var driveId = driveMatch[1];
+
+                if (fileType === 'video') {
+                    fileSrc = 'https://drive.google.com/file/d/' + driveId + '/preview';
+                } else if (fileType === 'presentation' || fileType === 'pptx') {
+                    fileSrc = 'https://docs.google.com/presentation/d/' + driveId + '/embed';
+                } else if (fileType === 'document' || fileType === 'docx') {
+                    fileSrc = 'https://docs.google.com/document/d/' + driveId + '/embed';
+                } else if (fileType === 'spreadsheet' || fileType === 'xlsx') {
+                    fileSrc = 'https://docs.google.com/spreadsheets/d/' + driveId + '/embed';
+                } else if (fileType === 'pdf') {
+                    fileSrc = 'https://drive.google.com/file/d/' + driveId + '/preview';
+                } else {
+                    alert('Jenis file tidak didukung: ' + fileType);
+                    return;
+                }
+            } else if (fileType === 'pdf' || fileUrl.includes('uploads/')) {
+                if (fileUrl.startsWith('https://')) {
+                    fileSrc = '/public/' + fileUrl.split('/').slice(3).join('/');
+                } else if (!fileUrl.startsWith('/public/uploads/')) {
+                    fileSrc = '/public/' + fileUrl;
+                } else {
+                    fileSrc = fileUrl;
+                }
+            } else {
+                alert('Link file tidak valid: ' + fileUrl);
+                return;
+            }
+
+            document.getElementById('lessonContent').src = fileSrc;
+            document.getElementById('currentContentTitle').innerText = element.getAttribute('data-title');
+
+            // Update kelas aktif
+            document.querySelectorAll('.course-item-link.active').forEach(link => link.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        // Fungsi untuk submit status form dan refresh kurikulum serta iframe
+        function submitStatusForm(event) {
+            event.preventDefault(); // Cegah submit form secara default
+
+            const form = document.getElementById('statusForm');
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-CSRF-TOKEN': form.querySelector('input[name="_token"]').value
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        const lessonContentIframe = document.getElementById('lessonContent');
+                        lessonContentIframe.src = lessonContentIframe.src; // Reload iframe
+                        alert("Status berhasil diperbarui.");
+
+                        // Refresh konten kurikulum setelah submit berhasil
+                        refreshKurikulumContent();
+                    } else {
+                        console.error("Error: " + response.statusText);
+                    }
+                })
+                .catch(error => console.error("Fetch error:", error));
+        }
+
+        // Fungsi untuk navigasi konten selanjutnya
+        function nextContent() {
+            const activeLink = document.querySelector('.course-item-link.active');
+            const nextLink = activeLink.parentElement.nextElementSibling?.querySelector('.course-item-link');
+            if (nextLink) changeContent(nextLink, new Event('click'));
+        }
+
+        // Fungsi untuk navigasi konten sebelumnya
+        function prevContent() {
+            const activeLink = document.querySelector('.course-item-link.active');
+            const prevLink = activeLink.parentElement.previousElementSibling?.querySelector('.course-item-link');
+            if (prevLink) changeContent(prevLink, new Event('click'));
+        }
+
+        // Fungsi untuk membuka halaman sertifikat dalam tab baru
+        function openInNewTab(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-CSRF-TOKEN': form.querySelector('input[name="_token"]').value
+                    }
+                })
+                .then(response => response.blob())
+                .then(blob => {
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.target = '_blank';
+                    a.click();
+                    window.URL.revokeObjectURL(url);
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        // Jalankan saat halaman pertama kali dimuat
+        $(document).ready(function() {
+            refreshKurikulumContent(); // Refresh kurikulum
+            document.getElementById('lessonContent').src = document.getElementById('lessonContent')
+            .src; // Reload iframe
+        });
     </script>
+
 @endsection
