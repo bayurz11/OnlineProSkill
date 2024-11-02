@@ -107,7 +107,7 @@
                                 <div class="d-flex align-items-center">
                                     <form id="statusForm"
                                         action="{{ route('sectionstatus', $kurikulum[0]->sections->first()->id) }}"
-                                        method="POST">
+                                        method="POST" onsubmit="submitStatusForm(event)">
                                         @csrf
                                         @method('PUT')
                                         <input type="hidden" id="sectionId" name="sectionId"
@@ -252,6 +252,32 @@
             if (prevLink) {
                 changeContent(prevLink, new Event('click'));
             }
+        }
+
+        function submitStatusForm(event) {
+            event.preventDefault(); // Mencegah form submit secara default
+
+            const form = document.getElementById('statusForm');
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-CSRF-TOKEN': form.querySelector('input[name="_token"]').value
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        // Reload the iframe content only
+                        const lessonContentIframe = document.getElementById('lessonContent');
+                        lessonContentIframe.src = lessonContentIframe.src; // Reload iframe
+                        alert("Status berhasil diperbarui.");
+                    } else {
+                        console.error("Error: " + response.statusText);
+                    }
+                })
+                .catch(error => console.error("Fetch error:", error));
         }
     </script>
 @endsection
