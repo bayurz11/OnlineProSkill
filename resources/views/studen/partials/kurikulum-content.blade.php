@@ -1,11 +1,12 @@
-@php
+{{-- @php
     dd($sections); // Untuk melihat apakah data `Section` diterima dengan benar di view
-@endphp
-@if ($$sections->isEmpty())
+@endphp --}}
+
+@if ($sections->isEmpty())
     <p>Data kurikulum belum tersedia.</p>
 @else
     <div class="accordion" id="accordionExample">
-        @foreach ($$sections as $index => $item)
+        @foreach ($sections as $index => $item)
             <div class="accordion-item">
                 <h2 class="accordion-header" id="heading{{ $index }}">
                     <button class="accordion-button {{ $index !== 0 ? 'collapsed' : '' }}" type="button"
