@@ -220,8 +220,7 @@
         }
 
         function refreshKurikulumContent() {
-            const id = /* ID course atau parameter yang sesuai */ ;
-            fetch(`/kurikulum-content/${id}`)
+            fetch("{{ route('kurikulum.content') }}")
                 .then(response => response.text())
                 .then(html => {
                     document.querySelector('.lesson__content').innerHTML = html;
