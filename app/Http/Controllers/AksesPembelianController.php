@@ -169,13 +169,40 @@ class AksesPembelianController extends Controller
         return view('studen.lesson', compact('user', 'sertifikat', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum', 'allSectionsCompleted'));
     }
 
-    public function fetchContent()
+    public function fetchContent($id)
     {
+        $categori = Categories::all();
+        $cart = Session::get('cart', []);
+        $sertifikat = Sertifikat::findOrFail($id);
+        $user = Auth::user();
+        if (!$user) {
+            return redirect()->route('home');
+        }
 
-        // $kurikulum = Kurikulum::with('sections')->where('id', $kurikulum_id)->get();
-        $kurikulum = Section::with('kurikulum')->where('kurikulum_id')->get();
+        $profile = UserProfile::where('user_id', $user->id)->first();
+        $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
+            ->orderBy('created_at', 'desc')
+            ->get()
+            : collect();
+        $notifikasiCount = $notifikasi->where('status', 1)->count();
 
-        return view('studen.partials.kurikulum-content', compact('kurikulum'));
+        $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
+        $kurikulum = Kurikulum::with('sections')->where('course_id', $id)->get();
+
+        $userSectionStatuses = UserSectionStatus::where('user_id', $user->id)
+            ->pluck('status', 'section_id')
+            ->toArray();
+
+        $allSectionsCompleted = $kurikulum->every(function ($kurikulumItem) use ($userSectionStatuses) {
+            $totalSections = Section::countSectionsByKurikulum($kurikulumItem->id);
+            $completedSections = array_filter($userSectionStatuses, function ($status, $section_id) use ($kurikulumItem) {
+                return $status === 1 && Section::find($section_id)->kurikulum_id === $kurikulumItem->id;
+            }, ARRAY_FILTER_USE_BOTH);
+
+            return count($completedSections) === $totalSections;
+        });
+
+        return view('studen.partials.kurikulum-content', compact('user', 'sertifikat', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum', 'allSectionsCompleted'));
     }
 
 
