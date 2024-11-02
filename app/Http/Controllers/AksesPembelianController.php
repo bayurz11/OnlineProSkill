@@ -172,7 +172,7 @@ class AksesPembelianController extends Controller
     public function fetchContent()
     {
         $kurikulum = Kurikulum::with('sections')->get(); // sesuaikan dengan query Anda
-        return view('partials.kurikulum-content', compact('kurikulum'))->render();
+        return view('studen.partials.kurikulum-content.', compact('kurikulum'))->render();
     }
 
 
