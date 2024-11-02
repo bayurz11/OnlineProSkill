@@ -306,9 +306,11 @@
         </div>
     `;
 
-            // Menyisipkan elemen cek ke dalam DOM di tempat yang diinginkan
-            const container = document.querySelector('.lesson__next-prev-button'); // Ganti selector sesuai kebutuhan
-            container.appendChild(checkMarkDiv);
+            // Menyisipkan elemen cek ke dalam DOM di samping link aktif
+            const activeLink = document.querySelector('.course-item-link.active');
+            if (activeLink) {
+                activeLink.appendChild(checkMarkDiv); // Menambahkan di dalam elemen link
+            }
 
 
         }
