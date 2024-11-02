@@ -96,7 +96,7 @@
     </section>
     <!-- lesson-area-end -->
 
-    <script>
+    {{-- <script>
         function changeContent(element, event) {
             if (element.classList.contains('disabled')) {
                 event.preventDefault();
@@ -224,14 +224,136 @@
                 .catch(error => console.error("Fetch error:", error));
         }
 
-        function refreshKurikulumContent() {
+        
+    </script> --}}
+    <script>
+        function changeContent(element, event) {
+            if (element.classList.contains('disabled')) {
+                event.preventDefault();
+                alert('Bagian ini terkunci, selesaikan bagian sebelumnya untuk membuka bagian ini.');
+                return;
+            }
 
-            fetch(/kurikulum-content/)
-                .then(response => response.text())
-                .then(html => {
-                    document.querySelector('.lesson__content').innerHTML = html;
+            const fileUrl = element.getAttribute('data-link');
+            const fileType = element.getAttribute('data-type');
+            const sectionId = element.getAttribute('data-id');
+
+            // Update hidden input with the clicked section ID
+            document.getElementById('sectionId').value = sectionId;
+
+            let fileSrc = '';
+            const youtubeRegex =
+                /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+            const driveRegex =
+                /(?:drive\.google\.com\/file\/d\/|drive\.google\.com\/open\?id=|docs.google\.com\/(?:presentation|document|spreadsheets)\/d\/)([^"&?\/\s]+)/;
+
+            const youtubeMatch = fileUrl.match(youtubeRegex);
+            const driveMatch = fileUrl.match(driveRegex);
+
+            if (youtubeMatch) {
+                const youtubeId = youtubeMatch[1];
+                fileSrc = `https://www.youtube.com/embed/${youtubeId}`;
+            } else if (driveMatch) {
+                const driveId = driveMatch[1];
+                fileSrc = getGoogleDriveEmbedLink(fileType, driveId);
+                if (!fileSrc) {
+                    alert(`Jenis file tidak didukung: ${fileType}`);
+                    return;
+                }
+            } else if (fileType === 'pdf' || fileUrl.includes('uploads/')) {
+                fileSrc = getFileUrl(fileUrl);
+            } else {
+                alert(`Link file tidak valid: ${fileUrl}`);
+                return;
+            }
+
+            document.getElementById('lessonContent').src = fileSrc;
+            document.getElementById('currentContentTitle').innerText = element.getAttribute('data-title');
+
+            // Remove active class from previously active links and add to the clicked link
+            document.querySelectorAll('.course-item-link.active').forEach(link => link.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        function getGoogleDriveEmbedLink(fileType, driveId) {
+            switch (fileType) {
+                case 'video':
+                    return `https://drive.google.com/file/d/${driveId}/preview`;
+                case 'presentation':
+                case 'pptx':
+                    return `https://docs.google.com/presentation/d/${driveId}/embed`;
+                case 'document':
+                case 'docx':
+                    return `https://docs.google.com/document/d/${driveId}/embed`;
+                case 'spreadsheet':
+                case 'xlsx':
+                    return `https://docs.google.com/spreadsheets/d/${driveId}/embed`;
+                case 'pdf':
+                    return `https://drive.google.com/file/d/${driveId}/preview`;
+                default:
+                    return '';
+            }
+        }
+
+        function getFileUrl(fileUrl) {
+            if (fileUrl.startsWith('https://')) {
+                return `/public/${fileUrl.split('/').slice(3).join('/')}`;
+            } else if (!fileUrl.startsWith('/public/uploads/')) {
+                return `/public/${fileUrl}`;
+            }
+            return fileUrl;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const firstFileLink = document.querySelector('.course-item-link.active');
+            if (firstFileLink) {
+                changeContent(firstFileLink, new Event('click'));
+            }
+        });
+
+        function navigateContent(direction) {
+            const activeLink = document.querySelector('.course-item-link.active');
+            const newLink = direction === 'next' ?
+                activeLink.parentElement.nextElementSibling?.querySelector('.course-item-link') :
+                activeLink.parentElement.previousElementSibling?.querySelector('.course-item-link');
+
+            if (newLink) {
+                changeContent(newLink, new Event('click'));
+            }
+        }
+
+        function submitStatusForm(event) {
+            event.preventDefault();
+            const form = document.getElementById('statusForm');
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-CSRF-TOKEN': form.querySelector('input[name="_token"]').value
+                    }
                 })
-                .catch(error => console.error("Error fetching kurikulum content:", error));
+                .then(response => {
+                    if (response.ok) {
+                        // Move to next content and refresh curriculum content
+                        navigateContent('next');
+                        document.getElementById('lessonContent').onload = function() {
+                            refreshKurikulumContent();
+                            alert("Status berhasil diperbarui dan pindah ke konten berikutnya.");
+                        };
+                    } else {
+                        console.error("Error: " + response.statusText);
+                    }
+                })
+                .catch(error => console.error("Fetch error:", error));
+        }
+
+        function refreshKurikulumContent() {
+            const lessonContent = document.querySelector('.lesson__content');
+            const newLessonContent = lessonContent.cloneNode(true);
+            lessonContent.parentNode.replaceChild(newLessonContent, lessonContent);
         }
     </script>
+
 @endsection
