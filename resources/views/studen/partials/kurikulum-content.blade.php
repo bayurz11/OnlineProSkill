@@ -1,4 +1,4 @@
- @dd($kurikulum)
+ {{-- @dd($kurikulum) --}}
  @if ($kurikulum->isEmpty())
      <p>Data kurikulum belum tersedia.</p>
  @else
