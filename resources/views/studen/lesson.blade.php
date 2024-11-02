@@ -25,9 +25,14 @@
                                 </div>
                             </div>
                             <div class="lesson__video-embed">
-                                <iframe id="lessonContent" width="100%" height="500" src="" frameborder="0"
-                                    allowfullscreen></iframe>
+                                @if ($kurikulum->isEmpty())
+                                    <p>Data kurikulum belum tersedia.</p>
+                                @else
+                                    <iframe id="lessonContent" width="100%" height="500" src="" frameborder="0"
+                                        allowfullscreen></iframe>
+                                @endif
                             </div>
+
                             <div class="lesson__next-prev-button d-flex justify-content-between">
                                 <button class="prev-button" title="Previous Content" onclick="prevContent()"><i
                                         class="flaticon-arrow-left"></i></button>
