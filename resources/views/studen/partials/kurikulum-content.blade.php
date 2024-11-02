@@ -1,4 +1,3 @@
-<!-- resources/views/partials/kurikulum-content.blade.php -->
 @if ($kurikulum->isEmpty())
     <p>Data kurikulum belum tersedia.</p>
 @else
