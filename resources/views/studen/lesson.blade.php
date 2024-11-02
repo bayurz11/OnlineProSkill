@@ -205,9 +205,6 @@
                 })
                 .then(response => {
                     if (response.ok) {
-                        // Simpan status completed di local storage
-                        localStorage.setItem('completed', 'true');
-
                         // Pindah ke konten berikutnya setelah status diperbarui
                         const activeLink = document.querySelector('.course-item-link.active');
                         const nextLink = activeLink.parentElement.nextElementSibling?.querySelector(
@@ -215,33 +212,14 @@
                         if (nextLink) {
                             changeContent(nextLink, new Event('click'));
                         }
+
+                        // Di sini tidak ada alert yang ditampilkan
                     } else {
                         console.error("Error: " + response.statusText);
                     }
                 })
                 .catch(error => console.error("Fetch error:", error));
         }
-
-        // Cek status saat halaman dimuat
-        document.addEventListener('DOMContentLoaded', function() {
-            if (localStorage.getItem('completed') === 'true') {
-                // Menampilkan elemen yang menunjukkan status completed
-                const completedIndicator = document.createElement('div');
-                completedIndicator.className = "d-flex align-items-center justify-content-center";
-                completedIndicator.innerHTML = `
-            <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 24px; height: 24px;">
-                <i class="fas fa-check"></i>
-            </div>
-        `;
-                document.querySelector('.lesson__video-wrap').appendChild(completedIndicator);
-            }
-
-            // Jika ada link yang aktif saat halaman dimuat, ganti konten
-            var firstFileLink = document.querySelector('.course-item-link.active');
-            if (firstFileLink) {
-                changeContent(firstFileLink, new Event('click'));
-            }
-        });
     </script>
 
 @endsection
