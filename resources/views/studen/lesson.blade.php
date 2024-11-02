@@ -121,46 +121,55 @@
                 fileSrc = 'https://www.youtube.com/embed/' + youtubeId;
             } else if (driveMatch) {
                 var driveId = driveMatch[1];
-
-                if (fileType === 'video') {
-                    fileSrc = 'https://drive.google.com/file/d/' + driveId + '/preview';
-                } else if (fileType === 'presentation' || fileType === 'pptx') {
-                    fileSrc = 'https://docs.google.com/presentation/d/' + driveId + '/embed';
-                } else if (fileType === 'document' || fileType === 'docx') {
-                    fileSrc = 'https://docs.google.com/document/d/' + driveId + '/embed';
-                } else if (fileType === 'spreadsheet' || fileType === 'xlsx') {
-                    fileSrc = 'https://docs.google.com/spreadsheets/d/' + driveId + '/embed';
-                } else if (fileType === 'pdf') {
-                    fileSrc = 'https://drive.google.com/file/d/' + driveId + '/preview';
-                } else {
-                    alert('Jenis file tidak didukung: ' + fileType);
-                    return;
+                switch (fileType) {
+                    case 'video':
+                        fileSrc = 'https://drive.google.com/file/d/' + driveId + '/preview';
+                        break;
+                    case 'presentation':
+                    case 'pptx':
+                        fileSrc = 'https://docs.google.com/presentation/d/' + driveId + '/embed';
+                        break;
+                    case 'document':
+                    case 'docx':
+                        fileSrc = 'https://docs.google.com/document/d/' + driveId + '/embed';
+                        break;
+                    case 'spreadsheet':
+                    case 'xlsx':
+                        fileSrc = 'https://docs.google.com/spreadsheets/d/' + driveId + '/embed';
+                        break;
+                    case 'pdf':
+                        fileSrc = 'https://drive.google.com/file/d/' + driveId + '/preview';
+                        break;
+                    default:
+                        alert('Jenis file tidak didukung: ' + fileType);
+                        return;
                 }
             } else if (fileType === 'pdf' || fileUrl.includes('uploads/')) {
                 if (fileUrl.startsWith('https://')) {
-                    fileSrc = '/public/' + fileUrl.split('/').slice(3).join('/');
-                } else if (!fileUrl.startsWith('/public/uploads/')) {
-                    fileSrc = '/public/' + fileUrl;
-                } else {
                     fileSrc = fileUrl;
+                } else {
+                    fileSrc = '/public/' + fileUrl.replace(/^\/?public\/?/, '');
                 }
             } else {
-                alert('Link file tidak valid: ' + fileUrl);
+                alert('Link file tidak valid atau tidak didukung: ' + fileUrl);
                 return;
             }
 
-            document.getElementById('lessonContent').src = fileSrc;
-            document.getElementById('currentContentTitle').innerText = element.getAttribute('data-title');
+            // Set iframe src only if fileSrc is valid
+            if (fileSrc) {
+                document.getElementById('lessonContent').src = fileSrc;
+                document.getElementById('currentContentTitle').innerText = element.getAttribute('data-title');
 
-            // Remove active class from previously active links
-            var activeLinks = document.querySelectorAll('.course-item-link.active');
-            activeLinks.forEach(function(link) {
-                link.classList.remove('active');
-            });
+                // Remove active class from previously active links
+                document.querySelectorAll('.course-item-link.active').forEach(link => link.classList.remove('active'));
 
-            // Add active class to the clicked link
-            element.classList.add('active');
+                // Add active class to the clicked link
+                element.classList.add('active');
+            } else {
+                console.error('fileSrc is empty or invalid:', fileSrc);
+            }
         }
+
 
         document.addEventListener('DOMContentLoaded', function() {
             var firstFileLink = document.querySelector('.course-item-link.active');
