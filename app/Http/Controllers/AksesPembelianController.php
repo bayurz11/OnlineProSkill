@@ -151,7 +151,7 @@ class AksesPembelianController extends Controller
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
         $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
-        $kurikulum = Kurikulum::with('sections')->where('course_id', $id)->get();
+        $kurikulum = Kurikulum::with('sections')->where('id', $id)->get();
 
         $userSectionStatuses = UserSectionStatus::where('user_id', $user->id)
             ->pluck('status', 'section_id')
