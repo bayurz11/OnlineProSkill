@@ -1,3 +1,6 @@
+@php
+    dd($sections); // Untuk melihat apakah data `Section` diterima dengan benar di view
+@endphp
 @if ($$sections->isEmpty())
     <p>Data kurikulum belum tersedia.</p>
 @else
