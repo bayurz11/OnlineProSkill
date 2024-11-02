@@ -169,10 +169,10 @@ class AksesPembelianController extends Controller
         return view('studen.lesson', compact('user', 'sertifikat', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum', 'allSectionsCompleted'));
     }
 
-    public function fetchContent($id)
+    public function fetchContent()
     {
 
-        $kurikulum = Kurikulum::with('sections')->where('course_id', $id)->get();
+        $kurikulum = Kurikulum::with('sections')->where('course_id')->get();
 
         return view('studen.partials.kurikulum-content', compact('kurikulum'));
     }
