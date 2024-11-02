@@ -265,6 +265,7 @@
             event.preventDefault();
             const form = document.getElementById('statusForm');
             const formData = new FormData(form);
+            const sectionId = formData.get('sectionId'); // Ambil ID bagian dari form data
 
             fetch(form.action, {
                     method: 'POST',
@@ -286,8 +287,8 @@
                             changeContent(nextLink, new Event('click'));
                         }
 
-                        // Tampilkan elemen cek
-                        showCheckMark();
+                        // Tampilkan elemen cek, dengan mengirimkan sectionId
+                        showCheckMark(sectionId);
                     } else {
                         console.error("Error: " + response.statusText);
                     }
@@ -295,7 +296,15 @@
                 .catch(error => console.error("Fetch error:", error));
         }
 
-        function showCheckMark() {
+
+        function showCheckMark(sectionId) {
+            // Cek apakah bagian ini sudah diselesaikan
+            const completed = Auth::user() - > hasCompletedSection(sectionId);
+
+            if (completed) {
+                return; // Jangan tampilkan jika sudah selesai
+            }
+
             const checkMarkDiv = document.createElement('div');
             checkMarkDiv.className = 'd-flex align-items-center justify-content-center';
             checkMarkDiv.innerHTML = `
@@ -308,10 +317,7 @@
             const container = document.querySelector('.lesson__next-prev-button'); // Ganti selector sesuai kebutuhan
             container.appendChild(checkMarkDiv);
 
-            // Menghapus elemen cek setelah beberapa detik
-            setTimeout(() => {
-                checkMarkDiv.remove();
-            }, 2000); // Menampilkan selama 2 detik
+
         }
     </script>
 
