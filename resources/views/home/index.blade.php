@@ -113,7 +113,7 @@
 
     @endguest
     <!-- course-area -->
-    <section class="courses-area section-py-120" data-background="public/assets/img/bg/courses_bg.jpg" loading="lazy">
+    {{-- <section class="courses-area section-py-120" data-background="public/assets/img/bg/courses_bg.jpg" loading="lazy">
         <div class="container">
             <div class="section__title-wrap">
                 <div class="row justify-content-center">
@@ -160,24 +160,22 @@
                         </div>
                     </div>
                 </div>
-                @for ($i = 0; $i < 4; $i++)
-                    @foreach ($courseTypes as $type)
-                        <div class="tab-pane fade" id="{{ strtolower($type) }}-tab-pane" role="tabpanel"
-                            aria-labelledby="{{ strtolower($type) }}-tab" tabindex="0">
-                            <div class="swiper courses-swiper-active">
-                                <div class="swiper-wrapper">
-                                    @foreach ($KelasTatapMuka->where('course_type', $type)->where('status', 1) as $kelas)
-                                        @include('partials.course-item', [
-                                            'kelas' => $kelas,
-                                        ])
-                                    @endforeach
 
-                                </div>
+                @foreach ($courseTypes as $type)
+                    <div class="tab-pane fade" id="{{ strtolower($type) }}-tab-pane" role="tabpanel"
+                        aria-labelledby="{{ strtolower($type) }}-tab" tabindex="0">
+                        <div class="swiper courses-swiper-active">
+                            <div class="swiper-wrapper">
+                                @foreach ($KelasTatapMuka->where('course_type', $type)->where('status', 1) as $kelas)
+                                    @include('partials.course-item', [
+                                        'kelas' => $kelas,
+                                    ])
+                                @endforeach
+
                             </div>
                         </div>
-                    @endforeach
-                @endfor
-
+                    </div>
+                @endforeach
             </div>
 
             <div class="all-courses-btn mt-30">
@@ -187,9 +185,9 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
-    {{-- <section class="courses-area section-py-120" data-background="public/assets/img/bg/courses_bg.jpg" loading="lazy">
+    <section class="courses-area section-py-120" data-background="public/assets/img/bg/courses_bg.jpg" loading="lazy">
         <div class="container">
             <div class="section__title-wrap">
                 <div class="row justify-content-center">
@@ -313,7 +311,7 @@
                 </div>
             </div>
         </div>
-    </section> --}}
+    </section>
     <!-- course-area-end -->
 
     <!-- about-area -->
