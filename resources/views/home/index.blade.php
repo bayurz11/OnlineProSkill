@@ -186,7 +186,7 @@
             </div>
         </div>
     </section> --}}
-
+    {{-- 
     <section class="courses-area section-py-120" data-background="public/assets/img/bg/courses_bg.jpg" loading="lazy">
         <div class="container">
             <div class="section__title-wrap">
@@ -208,7 +208,7 @@
                                         Semua Program
                                     </button>
                                 </li>
-                                {{-- <li class="nav-item" role="presentation">
+                                <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="bootcamp" data-bs-toggle="tab"
                                         data-bs-target="#bootcamp" type="button" role="tab"
                                         aria-controls="bootcamp" aria-selected="false">
@@ -228,7 +228,7 @@
                                         aria-selected="false">
                                         Kelas Online
                                     </button>
-                                </li> --}}
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -304,6 +304,405 @@
                 </div>
             </div>
 
+            <div class="all-courses-btn mt-30">
+                <div class="tg-button-wrap justify-content-center">
+                    <a href="{{ route('search') }}" class="btn arrow-btn">Lihat Semua Kelas <img
+                            src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
+                </div>
+            </div>
+        </div>
+    </section> --}}
+    <!-- course-area-end -->
+    <!-- course-area -->
+    <section class="courses-area section-py-120" data-background="assets/img/bg/courses_bg.jpg">
+        <div class="container">
+            <div class="section__title-wrap">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6 col-lg-8">
+                        <div class="section__title text-center mb-40">
+                            <span class="sub-title">Program ProSkill Akademia</span>
+                            <h2 class="title">Jelajahi Program Unggulan Kami</h2>
+                            <p class="desc">Inilah saat yang tepat untuk melangkah maju! Program ProSkill Akademia siap
+                                membantu Anda meningkatkan keterampilan dengan pelatihan terbaik yang sesuai dengan
+                                kebutuhan Anda.</p>
+                        </div>
+                        <div class="courses__nav">
+                            <ul class="nav nav-tabs" id="courseTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="all-tab" data-bs-toggle="tab"
+                                        data-bs-target="#all-tab-pane" type="button" role="tab"
+                                        aria-controls="all-tab-pane" aria-selected="true">
+                                        Semua Kelas
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="design-tab" data-bs-toggle="tab"
+                                        data-bs-target="#design-tab-pane" type="button" role="tab"
+                                        aria-controls="design-tab-pane" aria-selected="false">
+                                        Kelas Tatap Muka
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="business-tab" data-bs-toggle="tab"
+                                        data-bs-target="#business-tab-pane" type="button" role="tab"
+                                        aria-controls="business-tab-pane" aria-selected="false">
+                                        Kelas Online
+                                    </button>
+                                </li>
+                                {{-- <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="development-tab" data-bs-toggle="tab"
+                                        data-bs-target="#development-tab-pane" type="button" role="tab"
+                                        aria-controls="development-tab-pane" aria-selected="false">
+                                        Development
+                                    </button>
+                                </li> --}}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content" id="courseTabContent">
+                <div class="tab-pane fade show active" id="all-tab-pane" role="tabpanel" aria-labelledby="all-tab"
+                    tabindex="0">
+                    <div class="swiper courses-swiper-active">
+                        <div class="swiper-wrapper">
+                            @foreach ($KelasTatapMuka->where('status', 1) as $kelas)
+                                @php
+                                    $kurikulumExists = \App\Models\Kurikulum::where('course_id', $kelas->id)->exists();
+                                    $averageRating = $kelas->reviews()->avg('rating');
+                                @endphp
+
+                                @if ($kurikulumExists)
+                                    <div class="swiper-slide">
+                                        <div
+                                            class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
+                                            <div class="courses__item-thumb courses__item-thumb-two">
+                                                <a href="{{ route('classroomdetail', ['id' => $kelas->id]) }}"
+                                                    class="shine__animate-link">
+                                                    <img src="{{ asset('public/uploads/' . $kelas->gambar) }}"
+                                                        alt="img" class="img-fluid" loading="lazy">
+                                                </a>
+                                            </div>
+                                            <div
+                                                class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1">
+                                                <ul class="courses__item-meta list-wrap">
+                                                    <li class="courses__item-tag">
+                                                        <span
+                                                            class="badge {{ $kelas->course_type == 'online' ? 'bg-primary' : 'bg-secondary' }}">
+                                                            {{ $kelas->course_type == 'online' ? 'Online' : 'Kelas Tatap Muka' }}
+                                                        </span>
+                                                    </li>
+                                                    <li class="price">
+                                                        @if (!empty($kelas->discountedPrice) && $kelas->discount != 0)
+                                                            <del>Rp {{ number_format($kelas->price, 0, ',', '.') }}</del>
+                                                            Rp {{ number_format($kelas->discountedPrice, 0, ',', '.') }}
+                                                        @else
+                                                            Rp {{ number_format($kelas->price, 0, ',', '.') }}
+                                                        @endif
+                                                    </li>
+                                                    @if (in_array($kelas->id, $joinedCourses))
+                                                        <i class="fas fa-check-circle fa-lg" style="color: green;"></i>
+                                                    @endif
+                                                </ul>
+                                                <h5 class="title course-title flex-grow-1">
+                                                    <a
+                                                        href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">{{ $kelas->nama_kursus }}</a>
+                                                </h5>
+                                                <div class="courses__item-bottom">
+                                                    <div class="button">
+                                                        <a href="{{ route('classroomdetail', ['id' => $kelas->id]) }}">
+                                                            <span class="text">Detail Kelas</span>
+                                                            <i class="flaticon-arrow-right"></i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="avg-rating">
+                                                        <i class="fas fa-star"></i>
+                                                        ({{ $averageRating ? number_format($averageRating, 1) : '0.0' }}
+                                                        Reviews)
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="design-tab-pane" role="tabpanel" aria-labelledby="design-tab"
+                    tabindex="0">
+                    <div class="swiper courses-swiper-active">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="courses__item courses__item-two shine__animate-item">
+                                    <div class="courses__item-thumb courses__item-thumb-two">
+                                        <a href="course-details.html" class="shine__animate-link">
+                                            <img src="assets/img/courses/course_thumb02.jpg" alt="img">
+                                        </a>
+                                    </div>
+                                    <div class="courses__item-content courses__item-content-two">
+                                        <ul class="courses__item-meta list-wrap">
+                                            <li class="courses__item-tag">
+                                                <a href="course.html">Design</a>
+                                            </li>
+                                            <li class="price"><del>$20.00</del>$10.00</li>
+                                        </ul>
+                                        <h5 class="title"><a href="course-details.html">The Complete Graphic Design for
+                                                Beginners</a></h5>
+                                        <div class="courses__item-content-bottom">
+                                            <div class="author-two">
+                                                <a href="instructor-details.html"><img
+                                                        src="assets/img/courses/course_author002.png"
+                                                        alt="img">Wilson</a>
+                                            </div>
+                                            <div class="avg-rating">
+                                                <i class="fas fa-star"></i> (4.5 Reviews)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="courses__item-bottom-two">
+                                        <ul class="list-wrap">
+                                            <li><i class="flaticon-book"></i>60</li>
+                                            <li><i class="flaticon-clock"></i>70h 45m</li>
+                                            <li><i class="flaticon-mortarboard"></i>202</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="business-tab-pane" role="tabpanel" aria-labelledby="business-tab"
+                    tabindex="0">
+                    <div class="swiper courses-swiper-active">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="courses__item courses__item-two shine__animate-item">
+                                    <div class="courses__item-thumb courses__item-thumb-two">
+                                        <a href="course-details.html" class="shine__animate-link">
+                                            <img src="assets/img/courses/course_thumb03.jpg" alt="img">
+                                        </a>
+                                    </div>
+                                    <div class="courses__item-content courses__item-content-two">
+                                        <ul class="courses__item-meta list-wrap">
+                                            <li class="courses__item-tag">
+                                                <a href="course.html">Data Science</a>
+                                            </li>
+                                            <li class="price">$20.00</li>
+                                        </ul>
+                                        <h5 class="title"><a href="course-details.html">Learning JavaScript With
+                                                Imagination</a></h5>
+                                        <div class="courses__item-content-bottom">
+                                            <div class="author-two">
+                                                <a href="instructor-details.html"><img
+                                                        src="assets/img/courses/course_author003.png"
+                                                        alt="img">Warren</a>
+                                            </div>
+                                            <div class="avg-rating">
+                                                <i class="fas fa-star"></i> (4.8 Reviews)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="courses__item-bottom-two">
+                                        <ul class="list-wrap">
+                                            <li><i class="flaticon-book"></i>08</li>
+                                            <li><i class="flaticon-clock"></i>18h 20m</li>
+                                            <li><i class="flaticon-mortarboard"></i>66</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{-- <div class="tab-pane fade" id="development-tab-pane" role="tabpanel" aria-labelledby="development-tab"
+                    tabindex="0">
+                    <div class="swiper courses-swiper-active">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="courses__item courses__item-two shine__animate-item">
+                                    <div class="courses__item-thumb courses__item-thumb-two">
+                                        <a href="course-details.html" class="shine__animate-link">
+                                            <img src="assets/img/courses/course_thumb04.jpg" alt="img">
+                                        </a>
+                                    </div>
+                                    <div class="courses__item-content courses__item-content-two">
+                                        <ul class="courses__item-meta list-wrap">
+                                            <li class="courses__item-tag">
+                                                <a href="course.html">Business</a>
+                                            </li>
+                                            <li class="price"><del>$20.00</del>$15.00</li>
+                                        </ul>
+                                        <h5 class="title"><a href="course-details.html">Financial Analyst Training &
+                                                Investing Course</a></h5>
+                                        <div class="courses__item-content-bottom">
+                                            <div class="author-two">
+                                                <a href="instructor-details.html"><img
+                                                        src="assets/img/courses/course_author004.png"
+                                                        alt="img">Robert Fox</a>
+                                            </div>
+                                            <div class="avg-rating">
+                                                <i class="fas fa-star"></i> (4.2 Reviews)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="courses__item-bottom-two">
+                                        <ul class="list-wrap">
+                                            <li><i class="flaticon-book"></i>05</li>
+                                            <li><i class="flaticon-clock"></i>11h 20m</li>
+                                            <li><i class="flaticon-mortarboard"></i>22</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="courses__item courses__item-two shine__animate-item">
+                                    <div class="courses__item-thumb courses__item-thumb-two">
+                                        <a href="course-details.html" class="shine__animate-link">
+                                            <img src="assets/img/courses/course_thumb01.jpg" alt="img">
+                                        </a>
+                                    </div>
+                                    <div class="courses__item-content courses__item-content-two">
+                                        <ul class="courses__item-meta list-wrap">
+                                            <li class="courses__item-tag">
+                                                <a href="course.html">Development</a>
+                                            </li>
+                                            <li class="price"><del>$29.00</del>$9.00</li>
+                                        </ul>
+                                        <h5 class="title"><a href="course-details.html">Learning JavaScript With
+                                                Imagination</a></h5>
+                                        <div class="courses__item-content-bottom">
+                                            <div class="author-two">
+                                                <a href="instructor-details.html"><img
+                                                        src="assets/img/courses/course_author001.png" alt="img">David
+                                                    Millar</a>
+                                            </div>
+                                            <div class="avg-rating">
+                                                <i class="fas fa-star"></i> (4.8 Reviews)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="courses__item-bottom-two">
+                                        <ul class="list-wrap">
+                                            <li><i class="flaticon-book"></i>05</li>
+                                            <li><i class="flaticon-clock"></i>11h 20m</li>
+                                            <li><i class="flaticon-mortarboard"></i>22</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="courses__item courses__item-two shine__animate-item">
+                                    <div class="courses__item-thumb courses__item-thumb-two">
+                                        <a href="course-details.html" class="shine__animate-link">
+                                            <img src="assets/img/courses/course_thumb02.jpg" alt="img">
+                                        </a>
+                                    </div>
+                                    <div class="courses__item-content courses__item-content-two">
+                                        <ul class="courses__item-meta list-wrap">
+                                            <li class="courses__item-tag">
+                                                <a href="course.html">Design</a>
+                                            </li>
+                                            <li class="price"><del>$20.00</del>$10.00</li>
+                                        </ul>
+                                        <h5 class="title"><a href="course-details.html">The Complete Graphic Design for
+                                                Beginners</a></h5>
+                                        <div class="courses__item-content-bottom">
+                                            <div class="author-two">
+                                                <a href="instructor-details.html"><img
+                                                        src="assets/img/courses/course_author002.png"
+                                                        alt="img">Wilson</a>
+                                            </div>
+                                            <div class="avg-rating">
+                                                <i class="fas fa-star"></i> (4.5 Reviews)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="courses__item-bottom-two">
+                                        <ul class="list-wrap">
+                                            <li><i class="flaticon-book"></i>60</li>
+                                            <li><i class="flaticon-clock"></i>70h 45m</li>
+                                            <li><i class="flaticon-mortarboard"></i>202</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="courses__item courses__item-two shine__animate-item">
+                                    <div class="courses__item-thumb courses__item-thumb-two">
+                                        <a href="course-details.html" class="shine__animate-link">
+                                            <img src="assets/img/courses/course_thumb03.jpg" alt="img">
+                                        </a>
+                                    </div>
+                                    <div class="courses__item-content courses__item-content-two">
+                                        <ul class="courses__item-meta list-wrap">
+                                            <li class="courses__item-tag">
+                                                <a href="course.html">Data Science</a>
+                                            </li>
+                                            <li class="price">$20.00</li>
+                                        </ul>
+                                        <h5 class="title"><a href="course-details.html">Learning JavaScript With
+                                                Imagination</a></h5>
+                                        <div class="courses__item-content-bottom">
+                                            <div class="author-two">
+                                                <a href="instructor-details.html"><img
+                                                        src="assets/img/courses/course_author003.png"
+                                                        alt="img">Warren</a>
+                                            </div>
+                                            <div class="avg-rating">
+                                                <i class="fas fa-star"></i> (4.8 Reviews)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="courses__item-bottom-two">
+                                        <ul class="list-wrap">
+                                            <li><i class="flaticon-book"></i>08</li>
+                                            <li><i class="flaticon-clock"></i>18h 20m</li>
+                                            <li><i class="flaticon-mortarboard"></i>66</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="courses__item courses__item-two shine__animate-item">
+                                    <div class="courses__item-thumb courses__item-thumb-two">
+                                        <a href="course-details.html" class="shine__animate-link">
+                                            <img src="assets/img/courses/course_thumb05.jpg" alt="img">
+                                        </a>
+                                    </div>
+                                    <div class="courses__item-content courses__item-content-two">
+                                        <ul class="courses__item-meta list-wrap">
+                                            <li class="courses__item-tag">
+                                                <a href="course.html">Mathematic</a>
+                                            </li>
+                                            <li class="price"><del>$29.00</del>$9.00</li>
+                                        </ul>
+                                        <h5 class="title"><a href="course-details.html">Learning JavaScript With
+                                                Imagination</a></h5>
+                                        <div class="courses__item-content-bottom">
+                                            <div class="author-two">
+                                                <a href="instructor-details.html"><img
+                                                        src="assets/img/courses/course_author002.png"
+                                                        alt="img">Hawkins</a>
+                                            </div>
+                                            <div class="avg-rating">
+                                                <i class="fas fa-star"></i> (4.7 Reviews)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="courses__item-bottom-two">
+                                        <ul class="list-wrap">
+                                            <li><i class="flaticon-book"></i>10</li>
+                                            <li><i class="flaticon-clock"></i>13h 10m</li>
+                                            <li><i class="flaticon-mortarboard"></i>99</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> --}}
+            </div>
             <div class="all-courses-btn mt-30">
                 <div class="tg-button-wrap justify-content-center">
                     <a href="{{ route('search') }}" class="btn arrow-btn">Lihat Semua Kelas <img
