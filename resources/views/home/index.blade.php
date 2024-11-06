@@ -160,22 +160,24 @@
                         </div>
                     </div>
                 </div>
+                @for ($i = 0; $i < 4; $i++)
+                    @foreach ($courseTypes as $type)
+                        <div class="tab-pane fade" id="{{ strtolower($type) }}-tab-pane" role="tabpanel"
+                            aria-labelledby="{{ strtolower($type) }}-tab" tabindex="0">
+                            <div class="swiper courses-swiper-active">
+                                <div class="swiper-wrapper">
+                                    @foreach ($KelasTatapMuka->where('course_type', $type)->where('status', 1) as $kelas)
+                                        @include('partials.course-item', [
+                                            'kelas' => $kelas,
+                                        ])
+                                    @endforeach
 
-                @foreach ($courseTypes as $type)
-                    <div class="tab-pane fade" id="{{ strtolower($type) }}-tab-pane" role="tabpanel"
-                        aria-labelledby="{{ strtolower($type) }}-tab" tabindex="0">
-                        <div class="swiper courses-swiper-active">
-                            <div class="swiper-wrapper">
-                                @foreach ($KelasTatapMuka->where('course_type', $type)->where('status', 1) as $kelas)
-                                    @include('partials.course-item', [
-                                        'kelas' => $kelas,
-                                    ])
-                                @endforeach
-
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                @endfor
+
             </div>
 
             <div class="all-courses-btn mt-30">
