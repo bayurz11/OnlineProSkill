@@ -113,7 +113,7 @@
 
     @endguest
     <!-- course-area -->
-    <section class="courses-area section-py-120" data-background="public/assets/img/bg/courses_bg.jpg" loading="lazy">
+    {{-- <section class="courses-area section-py-120" data-background="public/assets/img/bg/courses_bg.jpg" loading="lazy">
         <div class="container">
             <div class="section__title-wrap">
                 <div class="row justify-content-center">
@@ -185,9 +185,9 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
-    {{-- <section class="courses-area section-py-120" data-background="public/assets/img/bg/courses_bg.jpg" loading="lazy">
+    <section class="courses-area section-py-120" data-background="public/assets/img/bg/courses_bg.jpg" loading="lazy">
         <div class="container">
             <div class="section__title-wrap">
                 <div class="row justify-content-center">
@@ -313,7 +313,7 @@
                 </div>
             </div>
         </div>
-    </section> --}}
+    </section>
     <!-- course-area-end -->
 
     <!-- about-area -->
