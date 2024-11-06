@@ -117,9 +117,9 @@
                                                                 title="Beri Review">
                                                                 <i class="skillgro-edit"></i>
                                                             </a>
-                                                            <a href="#" title="Delete">
+                                                            {{-- <a href="#" title="Delete">
                                                                 <i class="skillgro-bin"></i>
-                                                            </a>
+                                                            </a> --}}
                                                         </div>
                                                     </td>
                                                 </tr>
