@@ -67,6 +67,7 @@
                                                             'course_id',
                                                             $kelas->id,
                                                         )->exists();
+                                                        $averageRating = $kelas->reviews()->avg('rating');
                                                     @endphp
                                                     @if ($kurikulumExists)
                                                         <div class="col-xl-4 col-md-6">
@@ -111,7 +112,9 @@
                                                                                     alt="img">{{ $kelas->user->name }}</a>
                                                                         </div>
                                                                         <div class="avg-rating">
-                                                                            <i class="fas fa-star"></i> (4.5 Reviews)
+                                                                            <i class="fas fa-star"></i>
+                                                                            ({{ $averageRating ? number_format($averageRating, 1) : '0.0' }}
+                                                                            Reviews)
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -150,6 +153,7 @@
                                                             'course_id',
                                                             $kelas->id,
                                                         )->exists();
+                                                        $averageRating = $kelas->reviews()->avg('rating');
                                                     @endphp
                                                     @if (!$kurikulumExists)
                                                         <!-- Hanya menampilkan yang tidak ada di Kurikulum -->
@@ -195,7 +199,9 @@
                                                                                     alt="img">{{ $kelas->user->name }}</a>
                                                                         </div>
                                                                         <div class="avg-rating">
-                                                                            <i class="fas fa-star"></i> (4.5 Reviews)
+                                                                            <i class="fas fa-star"></i>
+                                                                            ({{ $averageRating ? number_format($averageRating, 1) : '0.0' }}
+                                                                            Reviews)
                                                                         </div>
                                                                     </div>
                                                                 </div>
