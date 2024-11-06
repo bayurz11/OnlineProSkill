@@ -23,50 +23,93 @@ use Illuminate\Support\Facades\Session;
 class HomeController extends Controller
 {
 
+    // public function index()
+    // {
+    //     $user = Auth::user();
+    //     $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
+    //     $cart = Session::get('cart', []);
+
+    //     // Mengambil kategori
+    //     $categori = Categories::all();
+
+    //     // Mengambil daftar course_type unik dari KelasTatapMuka
+    //     $courseTypes = KelasTatapMuka::select('course_type')
+    //         ->distinct()
+    //         ->pluck('course_type');
+
+    //     // Mengambil KelasTatapMuka berdasarkan course_type
+    //     $KelasTatapMuka = KelasTatapMuka::whereIn('course_type', ['online', 'offline'])
+    //         ->orderBy('created_at', 'asc')
+    //         ->get()
+    //         ->flatMap(function ($kelas) {
+    //             return [$kelas]; // Duplikasi 3 kali
+    //         });
+
+    //     // Mengambil Blog terbaru
+    //     $blog = Blog::latest()->take(4)->get();
+
+    //     // Mengambil event yang belum lewat
+    //     $event = AdminEvent::where('tgl', '>=', Carbon::now())
+    //         ->latest()
+    //         ->take(3)
+    //         ->get();
+
+    //     // Mengambil daftar siswa dan sertifikat
+    //     $daftar_siswa = UserProfile::where('role_id', 3)->get();
+    //     $sertifikat = Sertifikat::whereIn('kategori_id', [13, 14])->get();
+
+    //     // Mengambil notifikasi
+    //     $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
+    //         ->latest()
+    //         ->get() : collect();
+
+    //     // Hitung notifikasi dengan status tertentu
+    //     $notifikasiCount = $notifikasi->where('status', 1)->count();
+
+    //     // Ambil joined courses untuk user yang login
+    //     $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
+
+    //     return view('home.index', compact(
+    //         'user',
+    //         'profile',
+    //         'joinedCourses',
+    //         'cart',
+    //         'notifikasiCount',
+    //         'notifikasi',
+    //         'categori',
+    //         'KelasTatapMuka',
+    //         'event',
+    //         'blog',
+    //         'daftar_siswa',
+    //         'sertifikat',
+    //         'courseTypes'
+    //     ));
+    // }
+
     public function index()
     {
         $user = Auth::user();
         $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
         $cart = Session::get('cart', []);
-
-        // Mengambil kategori
         $categori = Categories::all();
 
         // Mengambil daftar course_type unik dari KelasTatapMuka
-        $courseTypes = KelasTatapMuka::select('course_type')
-            ->distinct()
-            ->pluck('course_type');
+        $courseTypes = KelasTatapMuka::distinct()->pluck('course_type');
 
-        // Mengambil KelasTatapMuka berdasarkan course_type
-        $KelasTatapMuka = KelasTatapMuka::whereIn('course_type', ['online', 'offline'])
-            ->orderBy('created_at', 'asc')
-            ->get()
-            ->flatMap(function ($kelas) {
-                return [$kelas]; // Duplikasi 3 kali
-            });
+        // Mengambil KelasTatapMuka yang aktif dengan filter berdasarkan status
+        $KelasTatapMuka = KelasTatapMuka::where('status', 1)->orderBy('created_at', 'asc')->get();
 
-        // Mengambil Blog terbaru
+        // Data tambahan
         $blog = Blog::latest()->take(4)->get();
-
-        // Mengambil event yang belum lewat
-        $event = AdminEvent::where('tgl', '>=', Carbon::now())
-            ->latest()
-            ->take(3)
-            ->get();
-
-        // Mengambil daftar siswa dan sertifikat
+        $event = AdminEvent::where('tgl', '>=', Carbon::now())->latest()->take(3)->get();
         $daftar_siswa = UserProfile::where('role_id', 3)->get();
         $sertifikat = Sertifikat::whereIn('kategori_id', [13, 14])->get();
 
-        // Mengambil notifikasi
-        $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
-            ->latest()
-            ->get() : collect();
-
-        // Hitung notifikasi dengan status tertentu
+        // Notifikasi
+        $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)->latest()->get() : collect();
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
-        // Ambil joined courses untuk user yang login
+        // Joined courses
         $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
 
         return view('home.index', compact(
@@ -85,7 +128,6 @@ class HomeController extends Controller
             'courseTypes'
         ));
     }
-
 
     public function classroom()
     {
