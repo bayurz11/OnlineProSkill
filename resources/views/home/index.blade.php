@@ -241,12 +241,10 @@
                         <div class="swiper-wrapper">
                             @foreach ($KelasTatapMuka->where('status', 1) as $kelas)
                                 @php
-
-                                    $kurikulumExists = \App\Models\Kurikulum::where(
-                                        'course_id',
-                                        $kelas['id'],
-                                    )->exists();
+                                    $kurikulumExists = \App\Models\Kurikulum::where('course_id', $kelas->id)->exists();
+                                    $averageRating = $kelas->reviews()->avg('rating');
                                 @endphp
+
                                 @if ($kurikulumExists)
                                     <div class="swiper-slide">
                                         <div
