@@ -3,8 +3,8 @@
     $averageRating = $kelas->reviews()->avg('rating');
 @endphp
 
-@if ($kurikulumExists)
-    @for ($i = 0; $i < 4; $i++)
+@for ($i = 0; $i < 4; $i++)
+    @if ($kurikulumExists)
         <div class="swiper-slide">
             <div class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
                 <div class="courses__item-thumb courses__item-thumb-two">
@@ -51,5 +51,5 @@
                 </div>
             </div>
         </div>
-    @endfor
-@endif
+    @endif
+@endfor
