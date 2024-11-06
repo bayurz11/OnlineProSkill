@@ -94,7 +94,9 @@ class HomeController extends Controller
         $categori = Categories::all();
 
         // Mengambil daftar course_type unik dari KelasTatapMuka
-        $courseTypes = KelasTatapMuka::distinct()->pluck('course_type');
+        $courseTypes = KelasTatapMuka::distinct()
+            ->where('course_type', '!=', 'bootcamp')
+            ->pluck('course_type');
 
         // Mengambil KelasTatapMuka yang aktif dengan filter berdasarkan status
         $KelasTatapMuka = KelasTatapMuka::where('status', 1)->orderBy('created_at', 'asc')->get();
