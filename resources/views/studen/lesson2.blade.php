@@ -36,7 +36,7 @@
                                                 $totalDuration = sprintf('%02d:%02d:%02d', $hours, $minutes, $seconds);
                                             @endphp
 
-                                            <span>{{ count($kurikulumItem->sections) }} Materi {{ $totalDuration }}</span>
+                                            <span>{{ count($kurikulumItem->sections) }} Materi ({{ $totalDuration }})</span>
 
 
                                         </button>
