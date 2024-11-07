@@ -20,11 +20,19 @@
                                             @php
                                                 $totalDurationInSeconds = 0;
                                                 foreach ($kurikulumItem->sections as $section) {
-                                                    // Pisahkan jam, menit, dan detik
-                                                    [$hours, $minutes, $seconds] = explode(':', $section->duration);
+                                                    // Pastikan format duration valid
+                                                    $durationParts = explode(':', $section->duration);
 
-                                                    // Konversikan ke detik
-                                                    $totalDurationInSeconds += $hours * 3600 + $minutes * 60 + $seconds;
+                                                    // Cek apakah duration memiliki 3 bagian (jam, menit, detik)
+                                                    if (count($durationParts) === 3) {
+                                                        [$hours, $minutes, $seconds] = $durationParts;
+                                                        // Konversikan ke detik
+                                                        $totalDurationInSeconds +=
+                                                            $hours * 3600 + $minutes * 60 + $seconds;
+                                                    } else {
+                                                        // Jika format tidak valid, atur durasi ke 0 detik
+                                                        $totalDurationInSeconds += 0;
+                                                    }
                                                 }
 
                                                 // Mengonversi total detik menjadi format jam dan menit
