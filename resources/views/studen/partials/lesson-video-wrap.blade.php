@@ -68,33 +68,31 @@
             }
         }
 
-    }
-
-    // Event listener untuk setiap item kursus
-    courseItems.forEach((item, index) => {
-        item.addEventListener('click', function() {
-            currentIndex = index;
-            updateVideo(currentIndex);
+        // Event listener untuk setiap item kursus
+        courseItems.forEach((item, index) => {
+            item.addEventListener('click', function() {
+                currentIndex = index;
+                updateVideo(currentIndex);
+            });
         });
-    });
 
-    // Menampilkan video pertama saat halaman dimuat
-    updateVideo(currentIndex);
+        // Menampilkan video pertama saat halaman dimuat
+        updateVideo(currentIndex);
 
-    // Tombol Previous Lesson
-    document.querySelector('.prev-button').addEventListener('click', function() {
-        if (currentIndex > 0) {
-            currentIndex--;
-            updateVideo(currentIndex);
-        }
-    });
+        // Tombol Previous Lesson
+        document.querySelector('.prev-button').addEventListener('click', function() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateVideo(currentIndex);
+            }
+        });
 
-    // Tombol Next Lesson
-    document.querySelector('.next-button').addEventListener('click', function() {
-        if (currentIndex < courseItems.length - 1) {
-            currentIndex++;
-            updateVideo(currentIndex);
-        }
-    });
+        // Tombol Next Lesson
+        document.querySelector('.next-button').addEventListener('click', function() {
+            if (currentIndex < courseItems.length - 1) {
+                currentIndex++;
+                updateVideo(currentIndex);
+            }
+        });
     });
 </script>
