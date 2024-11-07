@@ -59,11 +59,25 @@
                                             <ul class="list-wrap">
                                                 <ul class="list-wrap">
                                                     @foreach ($kurikulumItem->sections as $section)
+                                                        @php
+                                                            $completed = Auth::user()->hasCompletedSection(
+                                                                $section->id,
+                                                            );
+                                                        @endphp
                                                         <li class="course-item open-item"
                                                             data-video-id="{{ $section->link }}"
                                                             data-file-path="{{ $section->file_path }}">
                                                             <a href="javascript:void(0)" class="course-item-link active">
                                                                 <span class="item-name">{{ $section->title }}</span>
+                                                                @if ($completed)
+                                                                    <div
+                                                                        class="d-flex align-items-center justify-content-center">
+                                                                        <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center"
+                                                                            style="width: 24px; height: 24px;">
+                                                                            <i class="fas fa-check"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                @endif
                                                                 <div class="course-item-meta">
                                                                     <span
                                                                         class="item-meta duration">{{ $section->duration }}</span>
