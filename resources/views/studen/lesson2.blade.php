@@ -79,7 +79,7 @@
                     @include('studen.partials.lesson-video-wrap')
                 </div>
 
-                <div class="d-none d-lg-block position-fixed" style="left: 20px; bottom: 20px; z-index: 1000;">
+                <div class="d-none d-lg-block position-fixed" style="right: 20px; bottom: 20px; z-index: 1000;">
                     <button id="completeSectionBtn" class="btn btn-primary" data-section-id="">
                         Tandai Selesai
                     </button>
