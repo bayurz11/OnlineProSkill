@@ -48,44 +48,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            Capacitance and Inductance
-                                            <span>1/5</span>
-                                        </button>
-                                    </h2>
-                                    <div id="collapseTwo" class="accordion-collapse collapse"
-                                        data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <ul class="list-wrap">
-                                                <li class="course-item">
-                                                    <a href="#" class="course-item-link">
-                                                        <span class="item-name">Course Installation</span>
-                                                        <div class="course-item-meta">
-                                                            <span class="item-meta duration">03:03</span>
-                                                            <span class="item-meta course-item-status">
-                                                                <img src="assets/img/icons/lock.svg" alt="icon">
-                                                            </span>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li class="course-item">
-                                                    <a href="#" class="course-item-link">
-                                                        <span class="item-name">Create a Simple React App</span>
-                                                        <div class="course-item-meta">
-                                                            <span class="item-meta duration">07:48</span>
-                                                            <span class="item-meta course-item-status">
-                                                                <img src="assets/img/icons/lock.svg" alt="icon">
-                                                            </span>
-                                                        </div>
-                                                    </a>
 
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
 
                             </div>
                         @endforeach
