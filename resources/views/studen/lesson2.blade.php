@@ -56,13 +56,6 @@
                                                             <div class="course-item-meta">
                                                                 <span
                                                                     class="item-meta duration">{{ $section->duration }}</span>
-
-                                                                {{-- Cek jika materi belum selesai, tampilkan ikon kunci --}}
-                                                                @if (!$section->is_completed)
-                                                                    <span class="item-meta course-item-status">
-                                                                        <img src="assets/img/icons/lock.svg" alt="icon">
-                                                                    </span>
-                                                                @endif
                                                             </div>
                                                         </a>
                                                     </li>
