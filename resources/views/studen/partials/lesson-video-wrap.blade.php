@@ -37,8 +37,8 @@
 
                 // Menangani file PDF
                 if (filePath.endsWith('.pdf')) {
-                    const correctFilePath = '/upload/' + filePath.split('/upload')[
-                    1]; // Menyesuaikan path file PDF
+                    const correctFilePath = '/public/' + filePath.split('/upload')[
+                        1]; // Menyesuaikan path file PDF
                     player.src = correctFilePath; // Atur URL yang benar untuk PDF
                 }
                 // Menangani video YouTube
