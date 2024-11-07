@@ -232,11 +232,11 @@
                 completeSectionBtn.style.display = isCompleted ? 'none' : 'block';
 
                 // Cek jika semua section selesai
-                checkAllSectionsCompleted();
+                allSectionsCompleted();
             }
 
             // Fungsi untuk memeriksa apakah semua section sudah selesai
-            function checkAllSectionsCompleted() {
+            function allSectionsCompleted() {
                 const allCompleted = Array.from(courseItems).every(item => item.querySelector('.bg-success'));
                 if (allCompleted) {
                     reviewButton.style.display = 'block'; // Tampilkan tombol Review jika semua section selesai
@@ -307,14 +307,14 @@
                                 const kurikulumContainer = document.getElementById(
                                     'kurikulum-content');
                                 const courseId = document.getElementById('course-id')
-                                .value; // Pastikan memiliki ID kursus di halaman
+                                    .value; // Pastikan memiliki ID kursus di halaman
 
                                 // Mengambil konten kurikulum terbaru
                                 fetch(`/course-content/${courseId}`)
                                     .then(response => response.text())
                                     .then(html => {
                                         kurikulumContainer.innerHTML =
-                                        html; // Mengganti konten kurikulum
+                                            html; // Mengganti konten kurikulum
                                     })
                                     .catch(error => {
                                         console.error('Error:', error);

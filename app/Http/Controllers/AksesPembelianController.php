@@ -205,8 +205,26 @@ class AksesPembelianController extends Controller
 
     public function getKurikulum($id)
     {
+        $user = Auth::user();
+        if (!$user) {
+            return redirect()->route('home');
+        }
+
         $kurikulum = Kurikulum::with('sections')->where('course_id', $id)->get();
-        return view('studen.kurikulum', compact('kurikulum'))->render();
+
+        $userSectionStatuses = UserSectionStatus::where('user_id', $user->id)
+            ->pluck('status', 'section_id')
+            ->toArray();
+
+        $allSectionsCompleted = $kurikulum->every(function ($kurikulumItem) use ($userSectionStatuses) {
+            $totalSections = Section::countSectionsByKurikulum($kurikulumItem->id);
+            $completedSections = collect($userSectionStatuses)
+                ->filter(fn($status, $section_id) => $status === 1 && Section::find($section_id)->kurikulum_id === $kurikulumItem->id)
+                ->count();
+
+            return $completedSections === $totalSections;
+        });
+        return view('studen.kurikulum', compact('kurikulum', 'userSectionStatuses', 'allSectionsCompleted'))->render();
     }
 
 
