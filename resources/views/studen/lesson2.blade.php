@@ -255,6 +255,7 @@
                 </div>
                 <div class="modal-body">
                     <form id="reviewForm">
+                        @csrf
                         <input type="hidden" id="idKurikulum" name="class_id" />
 
                         <!-- Rating -->
