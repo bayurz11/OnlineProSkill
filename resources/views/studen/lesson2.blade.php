@@ -51,7 +51,7 @@
                                             <ul class="list-wrap">
                                                 @foreach ($kurikulumItem->sections as $section)
                                                     <li class="course-item open-item" data-video-id="{{ $section->id }}">
-                                                        <a href="javascript:void(0)" class="course-item-link">
+                                                        <a href="javascript:void(0)" class="course-item-link active">
                                                             <span class="item-name">{{ $section->title }}</span>
                                                             <div class="course-item-meta">
                                                                 <span
