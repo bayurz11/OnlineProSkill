@@ -17,39 +17,7 @@
                                             aria-expanded="{{ $index === 0 ? 'true' : 'false' }}"
                                             aria-controls="collapse{{ $index }}">
                                             {{ $kurikulumItem->title }}
-                                            @php
-                                                $totalDurationInSeconds = 0;
-                                                foreach ($kurikulumItem->sections as $section) {
-                                                    // Pastikan format duration valid
-                                                    $durationParts = explode(':', $section->duration);
-
-                                                    // Cek apakah duration memiliki 3 bagian (jam, menit, detik)
-                                                    if (count($durationParts) === 3) {
-                                                        [$hours, $minutes, $seconds] = $durationParts;
-                                                        // Konversikan ke detik
-                                                        $totalDurationInSeconds +=
-                                                            $hours * 3600 + $minutes * 60 + $seconds;
-                                                    } else {
-                                                        // Jika format tidak valid, atur durasi ke 0 detik
-                                                        $totalDurationInSeconds += 0;
-                                                    }
-                                                }
-
-                                                // Mengonversi total detik menjadi format jam dan menit
-                                                $hours = floor($totalDurationInSeconds / 3600);
-                                                $minutes = floor(($totalDurationInSeconds % 3600) / 60);
-
-                                                // Tentukan format durasi berdasarkan nilai jam dan menit
-                                                if ($hours > 0) {
-                                                    $totalDuration = "{$hours} jam {$minutes} menit";
-                                                } else {
-                                                    $totalDuration = "{$minutes} menit";
-                                                }
-                                            @endphp
-
                                             <span>{{ count($kurikulumItem->sections) }} Materi ({{ $totalDuration }})</span>
-
-
                                         </button>
                                     </h2>
                                     <div id="collapse{{ $index }}"
@@ -57,44 +25,39 @@
                                         data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
                                             <ul class="list-wrap">
-                                                <ul class="list-wrap">
-                                                    @foreach ($kurikulumItem->sections as $section)
-                                                        @php
-                                                            $completed = Auth::user()->hasCompletedSection(
-                                                                $section->id,
-                                                            );
-                                                        @endphp
-                                                        <li class="course-item open-item"
-                                                            data-video-id="{{ $section->link }}"
-                                                            data-file-path="{{ $section->file_path }}"
-                                                            data-id="{{ $section->id }}">
-                                                            <a href="javascript:void(0)" class="course-item-link active">
-                                                                <span class="item-name">{{ $section->title }}</span>
-                                                                @if ($completed)
-                                                                    <div
-                                                                        class="d-flex align-items-center justify-content-center">
-                                                                        <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center"
-                                                                            style="width: 24px; height: 24px;">
-                                                                            <i class="fas fa-check"></i>
-                                                                        </div>
+                                                @foreach ($kurikulumItem->sections as $section)
+                                                    @php
+                                                        $completed = Auth::user()->hasCompletedSection($section->id);
+                                                    @endphp
+                                                    <li class="course-item open-item {{ request()->get('section_id') == $section->id ? 'active' : '' }}"
+                                                        data-video-id="{{ $section->link }}"
+                                                        data-file-path="{{ $section->file_path }}"
+                                                        data-id="{{ $section->id }}">
+                                                        <a href="javascript:void(0)" class="course-item-link">
+                                                            <span class="item-name">{{ $section->title }}</span>
+                                                            @if ($completed)
+                                                                <div
+                                                                    class="d-flex align-items-center justify-content-center">
+                                                                    <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center"
+                                                                        style="width: 24px; height: 24px;">
+                                                                        <i class="fas fa-check"></i>
                                                                     </div>
-                                                                @endif
-                                                                <div class="course-item-meta">
-                                                                    <span
-                                                                        class="item-meta duration">{{ $section->duration }}</span>
                                                                 </div>
-                                                            </a>
-                                                        </li>
-                                                    @endforeach
-                                                </ul>
+                                                            @endif
+                                                            <div class="course-item-meta">
+                                                                <span
+                                                                    class="item-meta duration">{{ $section->duration }}</span>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
-
-
                             </div>
                         @endforeach
+
                     </div>
                 </div>
                 <div class="col-xl-9 col-lg-8">
@@ -105,4 +68,27 @@
             </div>
         </div>
     </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const videoElements = document.querySelectorAll('.course-item[data-video-id]');
+
+            videoElements.forEach((videoItem) => {
+                videoItem.addEventListener('click', function() {
+                    // Menghapus kelas 'active' dari semua item
+                    videoElements.forEach((item) => {
+                        item.classList.remove('active');
+                    });
+
+                    // Menambahkan kelas 'active' pada item yang dipilih
+                    videoItem.classList.add('active');
+                });
+            });
+        });
+    </script>
+    <style>
+        .course-item.active {
+            background-color: #f0f0f0;
+            border-left: 5px solid #007bff;
+        }
+    </style>
 @endsection
