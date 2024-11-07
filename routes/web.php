@@ -211,7 +211,8 @@ Route::middleware('isStuden')->group(function () {
     Route::put('/sectionupdatestatus/{id}', [AksesPembelianController::class, 'updatestatus'])->name('sectionstatus');
     Route::post('/print-certificate/{id}', [AksesPembelianController::class, 'printCertificate'])->name('print_certificate');
     Route::get('/certificate/preview', [AksesPembelianController::class, 'previewCertificate'])->name('certificate.preview');
-    Route::get('/kurikulum', [AksesPembelianController::class, 'getKurikulum'])->name('kurikulum');
+    Route::get('/kurikulum/{id}', [AksesPembelianController::class, 'getKurikulum']);
+
 
 
     // Route::get('/kurikulum-content/{$kurikulum_id}', [AksesPembelianController::class, 'fetchContent'])->name('kurikulum.content');
