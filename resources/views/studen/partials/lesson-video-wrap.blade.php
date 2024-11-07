@@ -16,34 +16,7 @@
         <button class="next-button" title="Next Lesson"><i class="flaticon-arrow-right"></i></button>
     </div>
 </div>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const courseItems = document.querySelectorAll('.course-item');
-        const videoTitle = document.getElementById('video-title');
-        const player = document.getElementById('player');
 
-        courseItems.forEach(function(courseItem) {
-            courseItem.addEventListener('click', function() {
-                const videoId = courseItem.getAttribute('data-video-id');
-                const filePath = courseItem.getAttribute('data-file-path');
-                const title = courseItem.querySelector('.item-name').textContent;
-
-                // Update the video title
-                videoTitle.textContent = title;
-
-                // Update the iframe src with the new video ID or file path
-                if (videoId) {
-                    player.src =
-                    videoId; // Assuming videoId is a URL to the video (e.g., YouTube or Vimeo link)
-                }
-
-                // Optionally, you can handle filePath (for other types of content, such as PDFs)
-                console.log('File Path:', filePath); // Do something with filePath if needed
-            });
-        });
-    });
-</script>
-{{-- 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const courseItems = document.querySelectorAll('.course-item');
@@ -104,4 +77,4 @@
             }
         });
     });
-</script> --}}
+</script>
