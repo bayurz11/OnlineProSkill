@@ -168,6 +168,42 @@ class AksesPembelianController extends Controller
 
     //     return view('studen.lesson', compact('user', 'sertifikat', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum', 'allSectionsCompleted'));
     // }
+
+    // public function lesson($id)
+    // {
+    //     $user = Auth::user();
+    //     if (!$user) {
+    //         return redirect()->route('home');
+    //     }
+
+    //     $categori = Categories::all();
+    //     $cart = Session::get('cart', []);
+    //     $sertifikat = Sertifikat::findOrFail($id);
+    //     $profile = UserProfile::where('user_id', $user->id)->first();
+
+    //     $notifikasi = NotifikasiUser::where('user_id', $user->id)
+    //         ->orderBy('created_at', 'desc')
+    //         ->get();
+    //     $notifikasiCount = $notifikasi->where('status', 1)->count();
+
+    //     $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
+    //     $kurikulum = Kurikulum::with('sections')->where('course_id', $id)->get();
+
+    //     $userSectionStatuses = UserSectionStatus::where('user_id', $user->id)
+    //         ->pluck('status', 'section_id')
+    //         ->toArray();
+
+    //     $allSectionsCompleted = $kurikulum->every(function ($kurikulumItem) use ($userSectionStatuses) {
+    //         $totalSections = Section::countSectionsByKurikulum($kurikulumItem->id);
+    //         $completedSections = collect($userSectionStatuses)
+    //             ->filter(fn($status, $section_id) => $status === 1 && Section::find($section_id)->kurikulum_id === $kurikulumItem->id)
+    //             ->count();
+
+    //         return $completedSections === $totalSections;
+    //     });
+
+    //     return view('studen.lesson', compact('user', 'sertifikat', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum', 'allSectionsCompleted'));
+    // }
     public function lesson($id)
     {
         $user = Auth::user();
@@ -179,12 +215,8 @@ class AksesPembelianController extends Controller
         $cart = Session::get('cart', []);
         $sertifikat = Sertifikat::findOrFail($id);
         $profile = UserProfile::where('user_id', $user->id)->first();
-
-        $notifikasi = NotifikasiUser::where('user_id', $user->id)
-            ->orderBy('created_at', 'desc')
-            ->get();
+        $notifikasi = NotifikasiUser::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
         $notifikasiCount = $notifikasi->where('status', 1)->count();
-
         $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
         $kurikulum = Kurikulum::with('sections')->where('course_id', $id)->get();
 
@@ -201,8 +233,20 @@ class AksesPembelianController extends Controller
             return $completedSections === $totalSections;
         });
 
-        return view('studen.lesson', compact('user', 'sertifikat', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum', 'allSectionsCompleted'));
+        return view('studen.lesson', compact(
+            'user',
+            'sertifikat',
+            'categori',
+            'profile',
+            'cart',
+            'notifikasi',
+            'notifikasiCount',
+            'orders',
+            'kurikulum',
+            'allSectionsCompleted'
+        ));
     }
+
 
     public function fetchContent($id)
     {
