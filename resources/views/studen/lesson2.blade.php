@@ -198,7 +198,7 @@
                 myModal.show();
             });
 
-            document.getElementById('reviewForm').addEventListener('submit', function(e) {
+            ddocument.getElementById('reviewForm').addEventListener('submit', function(e) {
                 e.preventDefault();
 
                 const rating = document.getElementById('rating').value;
@@ -224,10 +224,23 @@
                     .then(data => {
                         if (data.success) {
                             alert('Review submitted successfully!');
-                            // Tambahkan logika untuk menutup modal atau memperbarui UI
-                            // Misalnya, menutup modal setelah berhasil
+                            // Menyembunyikan modal setelah berhasil
                             const myModal = new bootstrap.Modal(document.getElementById('reviewModal'));
                             myModal.hide();
+
+                            // Memeriksa apakah pengguna berhak mencetak sertifikat
+                            if (data.can_print_certificate) {
+                                // Menampilkan tombol cetak sertifikat
+                                const printCertificateButton = document.getElementById(
+                                    'printCertificateButton');
+                                if (printCertificateButton) {
+                                    printCertificateButton.style.display =
+                                    'block'; // Menampilkan tombol
+                                }
+                            }
+
+                            // Muat ulang halaman setelah review berhasil
+                            window.location.reload(); // Memuat ulang halaman
                         } else {
                             alert(data.error || 'Failed to submit review.'); // Menampilkan pesan error
                         }
@@ -237,7 +250,6 @@
                         alert('An error occurred.');
                     });
             });
-
 
         });
     </script>
