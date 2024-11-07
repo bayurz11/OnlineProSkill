@@ -89,4 +89,18 @@
             </div>
         </div>
     </section>
+    <script>
+        document.querySelectorAll('.course-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const videoId = this.getAttribute('data-video-id');
+                const videoTitle = this.querySelector('.item-name').textContent;
+
+                // Update video source and title dynamically
+                document.getElementById('video-source').src =
+                `/path/to/video-${videoId}.mp4`; // Ubah dengan URL video yang sesuai
+                document.getElementById('video-title').textContent = videoTitle;
+                document.getElementById('player').load();
+            });
+        });
+    </script>
 @endsection
