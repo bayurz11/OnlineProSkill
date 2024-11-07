@@ -16,22 +16,52 @@
         <button class="next-button" title="Next Lesson"><i class="flaticon-arrow-right"></i></button>
     </div>
 </div>
-<div class="courses__details-content lesson__details-content">
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item" role="presentation">
-            <button class="nav-link active" type="button" role="tab" aria-controls="overview-tab-pane"
-                aria-selected="true">Menyelesiakan</button>
-        </li>
-        {{-- <li class="nav-item" role="presentation">
-            <button class="nav-link" id="instructors-tab" data-bs-toggle="tab" data-bs-target="#instructors-tab-pane"
-                type="button" role="tab" aria-controls="instructors-tab-pane"
-                aria-selected="false">Instructors</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews-tab-pane"
-                type="button" role="tab" aria-controls="reviews-tab-pane" aria-selected="false">reviews</button>
-        </li> --}}
-    </ul>
+<div class="d-flex justify-content-end mt-3">
+    <div class="d-flex align-items-center">
+        <form id="statusForm" action="{{ route('sectionstatus', $kurikulum[0]->sections->first()->id) }}" method="POST"
+            onsubmit="submitStatusForm(event)">
+            @csrf
+            @method('PUT')
+            <input type="hidden" id="sectionId" name="sectionId" value="{{ $kurikulum[0]->sections->first()->id }}">
+            <input type="hidden" name="status" value="true">
+            <button type="submit" class="btn btn-primary">Menyelesaikan</button>
+        </form>
+
+        @if ($allSectionsCompleted)
+            <form id="printForm" action="{{ route('print_certificate', ['id' => $user->id]) }}" method="POST"
+                class="ms-3" target="_blank" onsubmit="openInNewTab(event)">
+                @csrf
+                <button type="submit" class="btn btn-secondary">Sertifikat
+                    Penyelesaian</button>
+            </form>
+            <script>
+                function openInNewTab(event) {
+                    event.preventDefault();
+                    const form = event.target;
+                    const formData = new FormData(form);
+                    const actionUrl = form.action;
+
+                    fetch(actionUrl, {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'X-CSRF-TOKEN': form.querySelector('input[name="_token"]').value
+                            }
+                        })
+                        .then(response => response.blob())
+                        .then(blob => {
+                            const url = window.URL.createObjectURL(blob);
+                            const a = document.createElement('a');
+                            a.href = url;
+                            a.target = '_blank';
+                            a.click();
+                            window.URL.revokeObjectURL(url);
+                        })
+                        .catch(error => console.error('Error:', error));
+                }
+            </script>
+        @endif
+    </div>
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
