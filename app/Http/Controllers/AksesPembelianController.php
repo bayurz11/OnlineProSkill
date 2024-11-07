@@ -209,7 +209,7 @@ class AksesPembelianController extends Controller
         if (!$user) {
             return redirect()->route('home');
         }
-
+        $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
         $kurikulum = Kurikulum::with('sections')->where('course_id', $id)->get();
 
         $userSectionStatuses = UserSectionStatus::where('user_id', $user->id)
@@ -224,7 +224,7 @@ class AksesPembelianController extends Controller
 
             return $completedSections === $totalSections;
         });
-        return view('studen.kurikulum', compact('kurikulum', 'userSectionStatuses', 'allSectionsCompleted', 'user'))->render();
+        return view('studen.kurikulum', compact('kurikulum', 'userSectionStatuses', 'allSectionsCompleted', 'user', 'orders'))->render();
     }
 
 
