@@ -213,11 +213,17 @@
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
-                            rating,
-                            comment
+                            rating: rating,
+                            comment: comment,
+                            class_id: classId
                         })
                     })
-                    .then(response => response.json())
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok ' + response.statusText);
+                        }
+                        return response.json();
+                    })
                     .then(data => {
                         if (data.success) {
                             alert('Review submitted successfully!');
@@ -232,6 +238,7 @@
                     .catch(error => {
                         console.error('Error:', error);
                     });
+
             });
         });
     </script>
