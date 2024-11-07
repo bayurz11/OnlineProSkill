@@ -90,6 +90,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const courseItems = document.querySelectorAll('.course-item');
+            const completeSectionBtn = document.getElementById('completeSectionBtn');
             let currentIndex = 0;
 
             // Fungsi untuk memperbarui konten iframe dan kelas aktif berdasarkan indeks
@@ -108,6 +109,9 @@
                     // Menghapus kelas 'active' dari semua item dan menambahkannya pada item yang dipilih
                     courseItems.forEach((el) => el.classList.remove('active'));
                     item.classList.add('active');
+
+                    // Memperbarui tombol "Tandai Selesai"
+                    updateCompleteButton(item);
 
                     // Menangani file PDF
                     if (filePath.endsWith('.pdf')) {
@@ -132,6 +136,16 @@
                         player.src = filePath;
                     }
                 }
+            }
+
+            // Fungsi untuk memperbarui tampilan tombol "Tandai Selesai"
+            function updateCompleteButton(item) {
+                const sectionId = item.getAttribute('data-id');
+                const isCompleted = item.querySelector('.bg-success'); // Mengecek apakah section sudah selesai
+                completeSectionBtn.setAttribute('data-section-id', sectionId);
+
+                // Tampilkan tombol jika section belum selesai, sembunyikan jika sudah selesai
+                completeSectionBtn.style.display = isCompleted ? 'none' : 'block';
             }
 
             // Event listener untuk setiap item kursus
@@ -160,7 +174,43 @@
                     updateVideo(currentIndex);
                 }
             });
+
+            // Event klik untuk tombol "Tandai Selesai"
+            completeSectionBtn.addEventListener('click', function() {
+                const sectionId = this.getAttribute('data-section-id');
+
+                fetch(`/sectionupdatestatus/${sectionId}`, {
+                        method: 'PUT',
+                        headers: {
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            sectionId
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Update UI untuk menunjukkan section sudah selesai
+                            const activeItem = document.querySelector(
+                                `.course-item[data-id="${sectionId}"]`);
+                            activeItem.querySelector('.course-item-link').insertAdjacentHTML(
+                                'beforeend',
+                                '<div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 24px; height: 24px;"><i class="fas fa-check"></i></div>'
+                            );
+                            completeSectionBtn.style.display = 'none';
+                        } else {
+                            alert('Gagal memperbarui status.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Terjadi kesalahan.');
+                    });
+            });
         });
+
 
 
         document.addEventListener('DOMContentLoaded', function() {
