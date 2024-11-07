@@ -26,9 +26,9 @@
         function updateVideo(index) {
             if (index >= 0 && index < courseItems.length) {
                 const item = courseItems[index];
-                const filePath = item.getAttribute('data-file-path');
+                const filePath = item.getAttribute('data-file-path'); // File PDF atau video
+                const videoId = item.getAttribute('data-video-id'); // URL video YouTube
                 const videoTitle = item.querySelector('.item-name').innerText;
-                const videoId = item.getAttribute('data-video-id'); // Ambil link video dari data-video-id
 
                 // Perbarui judul video
                 document.getElementById('video-title').innerText = videoTitle;
@@ -36,21 +36,16 @@
                 const player = document.getElementById('player');
 
                 if (filePath.endsWith('.pdf')) {
-                    // Jika file adalah PDF
-                    player.src = filePath;
-                } else if (filePath.includes('youtube.com')) {
-                    // Jika file adalah video YouTube
-                    player.src = filePath.replace('watch?v=', 'embed/');
+                    // Jika file adalah PDF, tampilkan PDF di dalam iframe
+                    player.src = filePath; // Menggunakan file PDF langsung
+                } else if (videoId.includes('youtube.com')) {
+                    // Jika URL adalah YouTube, tampilkan video di dalam iframe
+                    const videoUrl = videoId.replace('watch?v=', 'embed/'); // Mengubah URL ke format embed
+                    player.src = videoUrl;
                 } else {
-                    // Jika file video
-                    const videoSource = document.getElementById('video-source');
-                    videoSource.src = filePath;
-                    player.load();
-                    player.play();
+                    // Untuk jenis file video lainnya, Anda dapat menambahkan logika untuk menampilkan video
+                    player.src = filePath; // Asumsikan file path mengarah ke file video
                 }
-
-                // Jika ada video ID, tampilkan atau gunakan sesuai kebutuhan
-                console.log('Video ID:', videoId); // Menampilkan ID video di console
             }
         }
 
