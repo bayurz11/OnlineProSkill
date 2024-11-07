@@ -9,21 +9,20 @@
         </div>
     </div>
 
-    <iframe id="lessonContent" width="100%" height="500" src="" frameborder="0" allowfullscreen></iframe>
+    <iframe id="player" width="100%" height="500px" src="" frameborder="0"></iframe>
 
     <div class="lesson__next-prev-button">
         <button class="prev-button" title="Previous Lesson"><i class="flaticon-arrow-right"></i></button>
         <button class="next-button" title="Next Lesson"><i class="flaticon-arrow-right"></i></button>
     </div>
 </div>
+
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // Ambil semua item kursus
         const courseItems = document.querySelectorAll('.course-item');
+        let currentIndex = 0;
 
-        let currentIndex = 0; // Variabel untuk menyimpan indeks kursus yang sedang diputar
-
-        // Fungsi untuk memperbarui video berdasarkan indeks
+        // Fungsi untuk memperbarui konten iframe berdasarkan indeks
         function updateVideo(index) {
             if (index >= 0 && index < courseItems.length) {
                 const item = courseItems[index];
@@ -33,21 +32,28 @@
                 // Perbarui judul video
                 document.getElementById('video-title').innerText = videoTitle;
 
-                // Perbarui sumber video
-                const videoSource = document.getElementById('video-source');
-                videoSource.src = filePath;
-
-                // Muat dan mainkan video
                 const player = document.getElementById('player');
-                player.load(); // Memuat video baru
-                player.play(); // Memulai pemutaran video
+
+                if (filePath.endsWith('.pdf')) {
+                    // Jika file adalah PDF
+                    player.src = filePath;
+                } else if (filePath.includes('youtube.com')) {
+                    // Jika file adalah video YouTube
+                    player.src = filePath.replace('watch?v=', 'embed/');
+                } else {
+                    // Jika file video
+                    const videoSource = document.getElementById('video-source');
+                    videoSource.src = filePath;
+                    player.load();
+                    player.play();
+                }
             }
         }
 
         // Event listener untuk setiap item kursus
         courseItems.forEach((item, index) => {
             item.addEventListener('click', function() {
-                currentIndex = index; // Simpan indeks item yang diklik
+                currentIndex = index;
                 updateVideo(currentIndex);
             });
         });
@@ -58,7 +64,7 @@
         // Tombol Previous Lesson
         document.querySelector('.prev-button').addEventListener('click', function() {
             if (currentIndex > 0) {
-                currentIndex--; // Pindah ke indeks sebelumnya
+                currentIndex--;
                 updateVideo(currentIndex);
             }
         });
@@ -66,7 +72,7 @@
         // Tombol Next Lesson
         document.querySelector('.next-button').addEventListener('click', function() {
             if (currentIndex < courseItems.length - 1) {
-                currentIndex++; // Pindah ke indeks berikutnya
+                currentIndex++;
                 updateVideo(currentIndex);
             }
         });
