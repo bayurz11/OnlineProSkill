@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- lesson-area -->
-    <section class="lesson__area section-pb-120">
+    {{-- <section class="lesson__area section-pb-120">
         <div class="container-fluid p-0">
             <div class="row gx-0">
                 <div class="col-xl-4 col-lg-4">
@@ -92,8 +92,102 @@
                 @endif
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- lesson-area-end -->
+    <section class="lesson__area section-pb-120">
+        <div class="container-fluid p-0">
+            <div class="row gx-0">
+                <!-- Sidebar Content -->
+                <div class="col-xl-3 col-lg-4">
+                    <div class="lesson__content">
+                        <h2 class="title">Course Content</h2>
+                        <div class="accordion" id="accordionExample">
+                            @foreach ($kurikulum as $section)
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapse{{ $section->id }}" aria-expanded="true"
+                                            aria-controls="collapse{{ $section->id }}">
+                                            {{ $section->title }}
+                                            <span>{{ $section->sections->count() }}/{{ $section->sections->count() }}</span>
+                                        </button>
+                                    </h2>
+                                    <div id="collapse{{ $section->id }}" class="accordion-collapse collapse show"
+                                        data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <ul class="list-wrap">
+                                                @foreach ($section->sections as $subsection)
+                                                    <li
+                                                        class="course-item @if (in_array($subsection->id, array_keys($userSectionStatuses)) && $userSectionStatuses[$subsection->id] == 1) completed @endif">
+                                                        <a href="#" class="course-item-link">
+                                                            <span class="item-name">{{ $subsection->title }}</span>
+                                                            <div class="course-item-meta">
+                                                                <span
+                                                                    class="item-meta duration">{{ $subsection->duration }}</span>
+                                                                @if (in_array($subsection->id, array_keys($userSectionStatuses)) && $userSectionStatuses[$subsection->id] == 1)
+                                                                    <span
+                                                                        class="item-meta status-completed">Completed</span>
+                                                                @else
+                                                                    <span class="item-meta course-item-status">
+                                                                        <img src="assets/img/icons/lock.svg" alt="icon">
+                                                                    </span>
+                                                                @endif
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Content -->
+                <div class="col-xl-9 col-lg-8">
+                    <div class="lesson__video-wrap">
+                        <div class="lesson__video-wrap-top">
+                            <div class="lesson__video-wrap-top-left">
+                                <a href="#"><i class="flaticon-arrow-right"></i></a>
+                                <span>The Complete Design Course: From Zero to Expert!</span>
+                            </div>
+                            <div class="lesson__video-wrap-top-right">
+                                <a href="#"><i class="fas fa-times"></i></a>
+                            </div>
+                        </div>
+
+                        <video id="player" playsinline controls data-poster="assets/img/bg/video_bg.webp">
+                            <source src="assets/video/video.mp4" type="video/mp4" />
+                            <source src="assets/video/video.webm" type="video/webm" />
+                        </video>
+
+                        <div class="lesson__next-prev-button">
+                            <button class="prev-button" title="Create a Simple React App"><i
+                                    class="flaticon-arrow-left"></i></button>
+                            <button class="next-button" title="React for the Rest of Us"><i
+                                    class="flaticon-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Action Buttons (Completion, Review, Certificate) -->
+    <div class="lesson__action-buttons">
+        @if ($allSectionsCompleted && !$userReviewGiven)
+            <button class="btn btn-primary"
+                onclick="location.href='{{ route('review.page', ['id' => $sertifikat->id]) }}'">Review</button>
+        @elseif($allSectionsCompleted && $userReviewGiven)
+            <button class="btn btn-success"
+                onclick="location.href='{{ route('sertifikat.page', ['id' => $sertifikat->id]) }}'">Download
+                Sertifikat</button>
+        @else
+            <button class="btn btn-secondary">Selesaikan Materi</button>
+        @endif
+    </div>
 
     <script>
         function changeContent(element, event) {
@@ -234,5 +328,4 @@
             }
         });
     </script>
-
 @endsection
