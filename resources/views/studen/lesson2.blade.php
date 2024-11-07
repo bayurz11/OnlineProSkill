@@ -135,18 +135,25 @@
                             );
                             completeSectionBtn.style.display = 'none';
 
+                            // Pindah ke lesson berikutnya setelah sukses
+                            if (currentIndex < courseItems.length - 1) {
+                                currentIndex++;
+                                updateVideo(currentIndex);
+                            }
+
+                            // Mengambil konten kurikulum terbaru setelah update status
                             document.addEventListener('DOMContentLoaded', () => {
                                 const kurikulumContainer = document.getElementById(
                                     'kurikulum-content');
                                 const courseId = document.getElementById('course-id')
-                                    .value; // Pastikan memiliki ID kursus di halaman
+                                .value; // Pastikan memiliki ID kursus di halaman
 
                                 // Mengambil konten kurikulum terbaru
                                 fetch(`/course-content/${courseId}`)
                                     .then(response => response.text())
                                     .then(html => {
                                         kurikulumContainer.innerHTML =
-                                            html; // Mengganti konten kurikulum
+                                        html; // Mengganti konten kurikulum
                                     })
                                     .catch(error => {
                                         console.error('Error:', error);
@@ -160,6 +167,7 @@
                         console.error('Error:', error);
                     });
             });
+
         });
     </script>
     <style>
