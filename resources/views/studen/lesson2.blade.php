@@ -35,7 +35,7 @@
                                                             </div>
                                                         </a>
                                                     </li>
-                                                    <li class="course-item">
+                                                    {{-- <li class="course-item">
                                                         <a href="#" class="course-item-link">
                                                             <span class="item-name">Create a Simple React App</span>
                                                             <div class="course-item-meta">
@@ -45,7 +45,7 @@
                                                                 </span>
                                                             </div>
                                                         </a>
-                                                    </li>
+                                                    </li> --}}
                                                 @endforeach
                                             </ul>
                                         </div>
