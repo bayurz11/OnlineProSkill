@@ -1,5 +1,5 @@
 @extends('layout.mainlayout')
-
+@include('studen.review.modal.reviewmodal')
 @section('content')
     <section class="lesson__area section-pb-120">
         <div class="container-fluid p-0">
