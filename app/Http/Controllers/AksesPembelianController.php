@@ -95,115 +95,6 @@ class AksesPembelianController extends Controller
         return view('studen.aksespembelian', compact('user', 'categori', 'profile', 'cart', 'KelasTatapMuka', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum'));
     }
 
-
-    // public function lesson($id)
-    // {
-    //     $categori = Categories::all();
-    //     $cart = Session::get('cart', []);
-    //     $sertifikat = Sertifikat::findOrFail($id);
-    //     $user = Auth::user();
-    //     if (!$user) {
-    //         return redirect()->route('home');
-    //     }
-
-    //     $profile = UserProfile::where('user_id', $user->id)->first();
-
-    //     $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
-    //         ->orderBy('created_at', 'desc')
-    //         ->get()
-    //         : collect();
-
-    //     $notifikasiCount = $notifikasi->where('status', 1)->count();
-
-    //     // Fetching orders related to the user
-    //     $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
-    //     $kurikulum = Kurikulum::with('sections')->where('course_id', $id)->get();
-
-    //     // Fetch user section statuses
-    //     $userSectionStatuses = UserSectionStatus::where('user_id', $user->id)
-    //         ->pluck('status', 'section_id')
-    //         ->toArray();
-
-    //     // Check if all sections are completed by user
-    //     $allSectionsCompleted = $kurikulum->every(function ($kurikulumItem) use ($userSectionStatuses) {
-    //         return $kurikulumItem->sections->every(function ($section) use ($userSectionStatuses) {
-    //             return isset($userSectionStatuses[$section->id]) && $userSectionStatuses[$section->id] === 1;
-    //         });
-    //     });
-
-    //     return view('studen.lesson', compact('user', 'sertifikat', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum', 'allSectionsCompleted'));
-    // }
-    // public function lesson($id)
-    // {
-    //     $categori = Categories::all();
-    //     $cart = Session::get('cart', []);
-    //     $sertifikat = Sertifikat::findOrFail($id);
-    //     $user = Auth::user();
-    //     if (!$user) {
-    //         return redirect()->route('home');
-    //     }
-
-    //     $profile = UserProfile::where('user_id', $user->id)->first();
-    //     $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
-    //         ->orderBy('created_at', 'desc')
-    //         ->get()
-    //         : collect();
-    //     $notifikasiCount = $notifikasi->where('status', 1)->count();
-
-    //     $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
-    //     $kurikulum = Kurikulum::with('sections')->where('course_id', $id)->get();
-
-    //     $userSectionStatuses = UserSectionStatus::where('user_id', $user->id)
-    //         ->pluck('status', 'section_id')
-    //         ->toArray();
-
-    //     $allSectionsCompleted = $kurikulum->every(function ($kurikulumItem) use ($userSectionStatuses) {
-    //         $totalSections = Section::countSectionsByKurikulum($kurikulumItem->id);
-    //         $completedSections = array_filter($userSectionStatuses, function ($status, $section_id) use ($kurikulumItem) {
-    //             return $status === 1 && Section::find($section_id)->kurikulum_id === $kurikulumItem->id;
-    //         }, ARRAY_FILTER_USE_BOTH);
-
-    //         return count($completedSections) === $totalSections;
-    //     });
-
-    //     return view('studen.lesson', compact('user', 'sertifikat', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum', 'allSectionsCompleted'));
-    // }
-
-    // public function lesson($id)
-    // {
-    //     $user = Auth::user();
-    //     if (!$user) {
-    //         return redirect()->route('home');
-    //     }
-
-    //     $categori = Categories::all();
-    //     $cart = Session::get('cart', []);
-    //     $sertifikat = Sertifikat::findOrFail($id);
-    //     $profile = UserProfile::where('user_id', $user->id)->first();
-
-    //     $notifikasi = NotifikasiUser::where('user_id', $user->id)
-    //         ->orderBy('created_at', 'desc')
-    //         ->get();
-    //     $notifikasiCount = $notifikasi->where('status', 1)->count();
-
-    //     $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
-    //     $kurikulum = Kurikulum::with('sections')->where('course_id', $id)->get();
-
-    //     $userSectionStatuses = UserSectionStatus::where('user_id', $user->id)
-    //         ->pluck('status', 'section_id')
-    //         ->toArray();
-
-    //     $allSectionsCompleted = $kurikulum->every(function ($kurikulumItem) use ($userSectionStatuses) {
-    //         $totalSections = Section::countSectionsByKurikulum($kurikulumItem->id);
-    //         $completedSections = collect($userSectionStatuses)
-    //             ->filter(fn($status, $section_id) => $status === 1 && Section::find($section_id)->kurikulum_id === $kurikulumItem->id)
-    //             ->count();
-
-    //         return $completedSections === $totalSections;
-    //     });
-
-    //     return view('studen.lesson', compact('user', 'sertifikat', 'categori', 'profile', 'cart', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum', 'allSectionsCompleted'));
-    // }
     public function lesson($id)
     {
         $user = Auth::user();
@@ -342,55 +233,11 @@ class AksesPembelianController extends Controller
         $this->pdf = $pdf;
     }
 
-    // public function printCertificate(Request $request)
-    // {
-    //     $user = Auth::user();
-
-    //     if (!$user) {
-    //         return redirect()->route('home')->with('error', 'Anda harus login untuk mencetak sertifikat.');
-    //     }
-
-    //     $profile = UserProfile::where('user_id', $user->id)->first();
-    //     $orders = Order::where('user_id', $user->id)->with('KelasTatapMuka')->get();
-
-    //     $completedCourses = $orders->filter(function ($order) use ($user) {
-    //         $kurikulum = Kurikulum::with('sections')->where('course_id', $order->KelasTatapMuka->id)->get();
-
-    //         return $kurikulum->every(function ($kurikulumItem) use ($user) {
-    //             return $kurikulumItem->sections->every(function ($section) use ($user) {
-    //                 $userSectionStatus = UserSectionStatus::where('user_id', $user->id)
-    //                     ->where('section_id', $section->id)
-    //                     ->first();
-
-    //                 return $userSectionStatus && $userSectionStatus->status === 1;
-    //             });
-    //         });
-    //     })->values(); // Tambahkan values() untuk mereset kunci array
-
-    //     if ($completedCourses->isEmpty()) {
-    //         return redirect()->route('home')->with('error', 'Anda belum menyelesaikan kursus apapun.');
-    //     }
-
-    //     $pdfs = [];
-    //     foreach ($completedCourses as $course) {
-    //         $courseId = $course->KelasTatapMuka->id; // Ambil ID kursus
-    //         $kurikulum = Kurikulum::with('sections')->where('course_id', $courseId)->first();
-    //         $coursename = strtoupper($kurikulum->nama_kelas); // Ambil nama kursus dari kurikulum
-    //         $certificateId = sprintf("%03d", Order::where('user_id', $user->id)->count()) . " / PSA / " . $courseId . " / " . now()->format('m.Y');
-
-    //         $pdf = $this->pdf->loadView('home.sertifikat.index', [
-    //             'user' => $user,
-    //             'profile' => $profile,
-    //             'completedCourses' => $completedCourses,
-    //             'date' => now()->format('d F Y'),
-    //             'certificateId' => $certificateId,
-    //             'coursename' => $coursename,
-    //         ])->setPaper('legal', 'landscape'); // Mengatur ukuran kertas menjadi legal dan orientasi landscape
-
-    //         return $pdf->download('sertifikat_penyelesaian.pdf');
-    //     }
-    // }
-
+    public function getKurikulum()
+    {
+        $kurikulum = Kurikulum::with('sections')->get();
+        return response()->json(view('kurikulum', compact('kurikulum'))->render());
+    }
 
 
 
