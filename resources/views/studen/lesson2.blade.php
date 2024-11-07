@@ -17,12 +17,26 @@
                                             aria-expanded="{{ $index === 0 ? 'true' : 'false' }}"
                                             aria-controls="collapse{{ $index }}">
                                             {{ $kurikulumItem->title }}
-                                            <span>{{ count($kurikulumItem->sections) }} Materi
-                                                @php
-                                                    $totalDuration = $kurikulumItem->sections->sum('duration');
-                                                @endphp
-                                                {{ $totalDuration }}
-                                            </span>
+                                            @php
+                                                $totalDurationInSeconds = 0;
+                                                foreach ($kurikulumItem->sections as $section) {
+                                                    // Pisahkan jam, menit, dan detik
+                                                    [$hours, $minutes, $seconds] = explode(':', $section->duration);
+
+                                                    // Konversikan ke detik
+                                                    $totalDurationInSeconds += $hours * 3600 + $minutes * 60 + $seconds;
+                                                }
+
+                                                // Hitung total durasi dalam format jam:menit:detik
+                                                $hours = floor($totalDurationInSeconds / 3600);
+                                                $minutes = floor(($totalDurationInSeconds % 3600) / 60);
+                                                $seconds = $totalDurationInSeconds % 60;
+
+                                                // Format total durasi
+                                                $totalDuration = sprintf('%02d:%02d:%02d', $hours, $minutes, $seconds);
+                                            @endphp
+
+                                            <span>{{ count($kurikulumItem->sections) }} Materi {{ $totalDuration }}</span>
 
 
                                         </button>
