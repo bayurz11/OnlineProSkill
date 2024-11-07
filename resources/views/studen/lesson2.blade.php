@@ -45,11 +45,11 @@
                                                     @php
                                                         $completed = Auth::user()->hasCompletedSection($section->id);
                                                     @endphp
-                                                    <li class="course-item open-item list-group-item list-group-item-action active {{ $index === 0 && $sectionIndex === 0 ? 'active' : '' }}"
+                                                    <li class="course-item open-item list-group-item list-group-item-action {{ $index === 0 && $sectionIndex === 0 ? 'active' : '' }}"
                                                         data-video-id="{{ $section->link }}"
                                                         data-file-path="{{ $section->file_path }}"
                                                         data-id="{{ $section->id }}">
-                                                        <a href="javascript:void(0)" class="course-item-link">
+                                                        <a href="javascript:void(0)" class="course-item-link active">
                                                             <span class="item-name">{{ $section->title }}</span>
                                                             @if ($completed)
                                                                 <div
