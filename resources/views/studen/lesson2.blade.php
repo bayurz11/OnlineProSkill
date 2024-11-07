@@ -59,6 +59,11 @@
                                                                         <i class="fas fa-check"></i>
                                                                     </div>
                                                                 </div>
+                                                            @else
+                                                                <button class="btn btn-primary btn-sm complete-section-btn"
+                                                                    data-section-id="{{ $section->id }}">
+                                                                    Tandai Selesai
+                                                                </button>
                                                             @endif
                                                             <div class="course-item-meta">
                                                                 <span
@@ -94,6 +99,42 @@
 
                     // Menambahkan kelas 'active' pada item yang dipilih
                     videoItem.classList.add('active');
+                });
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            const completeButtons = document.querySelectorAll('.complete-section-btn');
+
+            completeButtons.forEach((button) => {
+                button.addEventListener('click', function() {
+                    const sectionId = this.getAttribute('data-section-id');
+
+                    fetch(`/sectionupdatestatus/${sectionId}`, {
+                            method: 'PUT',
+                            headers: {
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                sectionId
+                            })
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                // Update UI jika berhasil
+                                this.innerText = 'Selesai';
+                                this.classList.remove('btn-primary');
+                                this.classList.add('btn-success');
+                                this.disabled = true;
+                            } else {
+                                alert('Gagal memperbarui status.');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            alert('Terjadi kesalahan.');
+                        });
                 });
             });
         });
