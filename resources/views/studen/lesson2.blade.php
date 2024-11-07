@@ -223,9 +223,12 @@
                     .then(response => response.json()) // Mengubah respons menjadi format JSON
                     .then(data => {
                         if (data.success) {
-                            // Tutup modal setelah berhasil submit
+                            // Menutup modal setelah berhasil
                             const myModal = new bootstrap.Modal(document.getElementById('reviewModal'));
                             myModal.hide();
+
+                            // Segera refresh halaman
+                            window.location.reload(); // Menyegarkan halaman setelah berhasil submit
                         } else {
                             alert(data.error || 'Failed to submit review.'); // Menampilkan pesan error
                         }
