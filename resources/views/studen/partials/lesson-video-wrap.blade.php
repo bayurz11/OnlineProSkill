@@ -19,39 +19,37 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const courseItems = document.querySelectorAll('.course-item');
+        // Data kursus yang berisi URL file PDF atau video
+        const courseItems = [{
+                title: 'Full Stack Developer Resume',
+                filePath: '/public/uploads/1730969979_nur%20azani%20bayu%20rezki_Full%20Stack%20Developer_Resume.pdf'
+            },
+            {
+                title: 'YouTube Video',
+                filePath: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
+            },
+            // Tambahkan item kursus lainnya di sini...
+        ];
+
         let currentIndex = 0;
 
-        // Fungsi untuk memperbarui konten iframe berdasarkan indeks
+        // Fungsi untuk memperbarui iframe berdasarkan indeks
         function updateVideo(index) {
             if (index >= 0 && index < courseItems.length) {
                 const item = courseItems[index];
-                const filePath = item.getAttribute('data-file-path');
-                const videoTitle = item.querySelector('.item-name').innerText;
+                const videoTitle = item.title;
 
-                // Perbarui judul video
+                // Perbarui judul
                 document.getElementById('video-title').innerText = videoTitle;
 
                 const player = document.getElementById('player');
-
-                if (filePath.endsWith('.pdf')) {
-                    // Jika file adalah PDF
-                    player.src = filePath;
-                } else if (filePath.includes('youtube.com')) {
-                    // Jika file adalah video YouTube
-                    player.src = filePath.replace('watch?v=', 'embed/');
-                } else {
-                    // Jika file video
-                    const videoSource = document.getElementById('video-source');
-                    videoSource.src = filePath;
-                    player.load();
-                    player.play();
-                }
+                player.src = item.filePath; // Perbarui src iframe dengan file yang dipilih
             }
         }
 
         // Event listener untuk setiap item kursus
-        courseItems.forEach((item, index) => {
+        // Misalnya, Anda bisa mengubah data dinamis ini sesuai dengan kursus yang dipilih
+        document.querySelectorAll('.course-item').forEach((item, index) => {
             item.addEventListener('click', function() {
                 currentIndex = index;
                 updateVideo(currentIndex);
