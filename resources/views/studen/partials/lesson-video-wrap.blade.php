@@ -19,40 +19,59 @@
         <button class="next-button" title="Next Lesson"><i class="flaticon-arrow-right"></i></button>
     </div>
 </div>
-
 <script>
-    // Ambil semua item kursus
-    const courseItems = document.querySelectorAll('.course-item');
+    document.addEventListener('DOMContentLoaded', () => {
+        // Ambil semua item kursus
+        const courseItems = document.querySelectorAll('.course-item');
 
-    // Event listener untuk setiap item kursus
-    courseItems.forEach(item => {
-        item.addEventListener('click', function() {
-            // Ambil file path dari data-attribute
-            const filePath = item.getAttribute('data-file-path');
-            const videoTitle = item.querySelector('.item-name').innerText;
+        let currentIndex = 0; // Variabel untuk menyimpan indeks kursus yang sedang diputar
 
-            // Perbarui video title
-            document.getElementById('video-title').innerText = videoTitle;
+        // Fungsi untuk memperbarui video berdasarkan indeks
+        function updateVideo(index) {
+            if (index >= 0 && index < courseItems.length) {
+                const item = courseItems[index];
+                const filePath = item.getAttribute('data-file-path');
+                const videoTitle = item.querySelector('.item-name').innerText;
 
-            // Perbarui sumber video
-            const videoSource = document.getElementById('video-source');
-            videoSource.src = filePath;
+                // Perbarui judul video
+                document.getElementById('video-title').innerText = videoTitle;
 
-            // Mulai memutar video
-            const player = document.getElementById('player');
-            player.load(); // Memuat video baru
-            player.play(); // Memulai pemutaran video
-        });
-    });
+                // Perbarui sumber video
+                const videoSource = document.getElementById('video-source');
+                videoSource.src = filePath;
 
-    // Menampilkan video pertama saat halaman dimuat
-    window.addEventListener('load', () => {
-        // Ambil item kursus pertama
-        const firstCourseItem = document.querySelector('.course-item');
-
-        // Jika ada item kursus, trigger event klik pada item pertama
-        if (firstCourseItem) {
-            firstCourseItem.click();
+                // Muat dan mainkan video
+                const player = document.getElementById('player');
+                player.load(); // Memuat video baru
+                player.play(); // Memulai pemutaran video
+            }
         }
+
+        // Event listener untuk setiap item kursus
+        courseItems.forEach((item, index) => {
+            item.addEventListener('click', function() {
+                currentIndex = index; // Simpan indeks item yang diklik
+                updateVideo(currentIndex);
+            });
+        });
+
+        // Menampilkan video pertama saat halaman dimuat
+        updateVideo(currentIndex);
+
+        // Tombol Previous Lesson
+        document.querySelector('.prev-button').addEventListener('click', function() {
+            if (currentIndex > 0) {
+                currentIndex--; // Pindah ke indeks sebelumnya
+                updateVideo(currentIndex);
+            }
+        });
+
+        // Tombol Next Lesson
+        document.querySelector('.next-button').addEventListener('click', function() {
+            if (currentIndex < courseItems.length - 1) {
+                currentIndex++; // Pindah ke indeks berikutnya
+                updateVideo(currentIndex);
+            }
+        });
     });
 </script>
