@@ -16,7 +16,7 @@
         <button class="next-button" title="Next Lesson"><i class="flaticon-arrow-right"></i></button>
     </div>
 </div>
-<div class="d-flex justify-content-end mt-3 ms-3 me-3">
+{{-- <div class="d-flex justify-content-end mt-3 ms-3 me-3">
     <!-- Form untuk mengirimkan status completion -->
     <form action="{{ route('sectionstatus', ['id' => $section->id]) }}" method="POST">
         @csrf
@@ -25,7 +25,7 @@
         <input type="hidden" name="sectionId" value="{{ $section->id }}">
         <button type="submit" class="btn btn-primary">Menyelesaikan</button>
     </form>
-</div>
+</div> --}}
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
