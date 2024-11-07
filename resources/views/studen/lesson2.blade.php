@@ -20,31 +20,18 @@
                                             @php
                                                 $totalDurationInSeconds = 0;
                                                 foreach ($kurikulumItem->sections as $section) {
-                                                    // Pastikan format duration valid
+                                                    // Perhitungan durasi total
                                                     $durationParts = explode(':', $section->duration);
-
-                                                    // Cek apakah duration memiliki 3 bagian (jam, menit, detik)
                                                     if (count($durationParts) === 3) {
                                                         [$hours, $minutes, $seconds] = $durationParts;
-                                                        // Konversikan ke detik
                                                         $totalDurationInSeconds +=
                                                             $hours * 3600 + $minutes * 60 + $seconds;
-                                                    } else {
-                                                        // Jika format tidak valid, atur durasi ke 0 detik
-                                                        $totalDurationInSeconds += 0;
                                                     }
                                                 }
-
-                                                // Mengonversi total detik menjadi format jam dan menit
                                                 $hours = floor($totalDurationInSeconds / 3600);
                                                 $minutes = floor(($totalDurationInSeconds % 3600) / 60);
-
-                                                // Tentukan format durasi berdasarkan nilai jam dan menit
-                                                if ($hours > 0) {
-                                                    $totalDuration = "{$hours} jam {$minutes} menit";
-                                                } else {
-                                                    $totalDuration = "{$minutes} menit";
-                                                }
+                                                $totalDuration =
+                                                    $hours > 0 ? "{$hours} jam {$minutes} menit" : "{$minutes} menit";
                                             @endphp
                                             <span>{{ count($kurikulumItem->sections) }} Materi ({{ $totalDuration }})</span>
                                         </button>
@@ -54,11 +41,11 @@
                                         data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
                                             <ul class="list-wrap">
-                                                @foreach ($kurikulumItem->sections as $section)
+                                                @foreach ($kurikulumItem->sections as $sectionIndex => $section)
                                                     @php
                                                         $completed = Auth::user()->hasCompletedSection($section->id);
                                                     @endphp
-                                                    <li class="course-item open-item {{ request()->get('section_id') == $section->id ? 'active' : '' }}"
+                                                    <li class="course-item open-item list-group-item list-group-item-action {{ $index === 0 && $sectionIndex === 0 ? 'active' : '' }}"
                                                         data-video-id="{{ $section->link }}"
                                                         data-file-path="{{ $section->file_path }}"
                                                         data-id="{{ $section->id }}">
@@ -86,14 +73,11 @@
                                 </div>
                             </div>
                         @endforeach
-
                     </div>
                 </div>
                 <div class="col-xl-9 col-lg-8">
                     @include('studen.partials.lesson-video-wrap')
                 </div>
-
-
             </div>
         </div>
     </section>
