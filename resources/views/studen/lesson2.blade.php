@@ -25,26 +25,27 @@
                                         data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
                                             <ul class="list-wrap">
-                                                <li class="course-item open-item">
-                                                    <a href="#" class="course-item-link active">
-                                                        <span class="item-name">Course Installation</span>
-                                                        <div class="course-item-meta">
-                                                            <span class="item-meta duration">03:03</span>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li class="course-item">
-                                                    <a href="#" class="course-item-link">
-                                                        <span class="item-name">Create a Simple React App</span>
-                                                        <div class="course-item-meta">
-                                                            <span class="item-meta duration">07:48</span>
-                                                            <span class="item-meta course-item-status">
-                                                                <img src="assets/img/icons/lock.svg" alt="icon">
-                                                            </span>
-                                                        </div>
-                                                    </a>
-                                                </li>
-
+                                                @foreach ($kurikulumItem->sections as $section)
+                                                    <li class="course-item open-item">
+                                                        <a href="#" class="course-item-link active">
+                                                            <span class="item-name">Course Installation</span>
+                                                            <div class="course-item-meta">
+                                                                <span class="item-meta duration">03:03</span>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li class="course-item">
+                                                        <a href="#" class="course-item-link">
+                                                            <span class="item-name">Create a Simple React App</span>
+                                                            <div class="course-item-meta">
+                                                                <span class="item-meta duration">07:48</span>
+                                                                <span class="item-meta course-item-status">
+                                                                    <img src="assets/img/icons/lock.svg" alt="icon">
+                                                                </span>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                @endforeach
                                             </ul>
                                         </div>
                                     </div>
