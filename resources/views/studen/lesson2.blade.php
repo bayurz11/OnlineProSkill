@@ -78,19 +78,4 @@
             </div>
         </div>
     </section>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const firstSection = document.querySelector('.course-item'); // Menargetkan item pertama
-            if (firstSection) {
-                const videoId = firstSection.getAttribute('data-video-id');
-                const videoTitle = firstSection.querySelector('.item-name').textContent;
-
-                // Update video source dan title
-                document.getElementById('video-source').src =
-                    `/path/to/video-${videoId}.mp4`; // Ganti dengan path video yang sesuai
-                document.getElementById('video-title').textContent = videoTitle;
-                document.getElementById('player').load(); // Muat ulang video
-            }
-        });
-    </script>
 @endsection
