@@ -9,10 +9,7 @@
         </div>
     </div>
 
-    <video id="player" playsinline controls data-poster="assets/img/bg/video_bg.webp">
-        <source id="video-source" src="" type="video/mp4" />
-        <source src="/path/to/video.webm" type="video/webm" />
-    </video>
+    <iframe id="lessonContent" width="100%" height="500" src="" frameborder="0" allowfullscreen></iframe>
 
     <div class="lesson__next-prev-button">
         <button class="prev-button" title="Previous Lesson"><i class="flaticon-arrow-right"></i></button>
