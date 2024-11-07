@@ -50,7 +50,7 @@
                                         <div class="accordion-body">
                                             <ul class="list-wrap">
                                                 @foreach ($kurikulumItem->sections as $section)
-                                                    <li class="course-item open-item" data-video-id="{{ $section->id }}">
+                                                    <li class="course-item open-item" data-video-id="{{ $section->link }}">
                                                         <a href="javascript:void(0)" class="course-item-link">
                                                             <span class="item-name">{{ $section->title }}</span>
                                                             <div class="course-item-meta">
@@ -98,7 +98,7 @@
 
                 // Update video source dan title
                 document.getElementById('video-source').src =
-                `/path/to/video-${videoId}.mp4`; // Ganti dengan path video yang sesuai
+                    `/path/to/video-${videoId}.mp4`; // Ganti dengan path video yang sesuai
                 document.getElementById('video-title').textContent = videoTitle;
                 document.getElementById('player').load(); // Muat ulang video
             }
