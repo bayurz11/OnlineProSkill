@@ -20,7 +20,7 @@
                                             <span>{{ $index + 1 }}/{{ count($kurikulum) }}</span>
                                         </button>
                                     </h2>
-                                    <div id="collapseOne" class="accordion-collapse collapse show"
+                                    <div id="collapse{{ $index }}" class="accordion-collapse collapse show"
                                         data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
                                             <ul class="list-wrap">
