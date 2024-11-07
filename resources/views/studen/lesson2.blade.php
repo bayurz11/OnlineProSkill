@@ -307,14 +307,14 @@
                                 const kurikulumContainer = document.getElementById(
                                     'kurikulum-content');
                                 const courseId = document.getElementById('course-id')
-                                .value; // Pastikan memiliki ID kursus di halaman
+                                    .value; // Pastikan memiliki ID kursus di halaman
 
                                 // Mengambil konten kurikulum terbaru
                                 fetch(`/course-content/${courseId}`)
                                     .then(response => response.text())
                                     .then(html => {
                                         kurikulumContainer.innerHTML =
-                                        html; // Mengganti konten kurikulum
+                                            html; // Mengganti konten kurikulum
                                     })
                                     .catch(error => {
                                         console.error('Error:', error);
@@ -390,7 +390,9 @@
                 </div>
                 <div class="modal-body">
                     <form id="reviewForm">
+                        <input type="hidden" id="sectionId" name="sectionId" value="{{ $section->id }}">
                         <!-- Rating -->
+                        <div></div>
                         <div class="mb-3">
                             <label for="rating" class="form-label">Rating</label>
                             <select id="rating" class="form-select" required>
