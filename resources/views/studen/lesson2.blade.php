@@ -100,14 +100,16 @@
                     @include('studen.partials.lesson-video-wrap')
                 </div>
                 <div class="d-flex justify-content-end mt-3 ms-3 me-3">
+                    <!-- Form untuk mengirimkan status completion -->
                     <form action="{{ route('sectionstatus', ['id' => $section->id]) }}" method="POST">
                         @csrf
                         @method('PUT')
-
-                        <button type="submit" class="btn btn-primary">Update Status</button>
+                        <!-- Kirimkan sectionId dalam form -->
+                        <input type="hidden" name="sectionId" value="{{ $section->id }}">
+                        <button type="submit" class="btn btn-primary">Menyelesaikan</button>
                     </form>
-
                 </div>
+
             </div>
         </div>
     </section>

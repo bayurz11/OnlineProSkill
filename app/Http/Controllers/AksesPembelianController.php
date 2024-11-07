@@ -306,7 +306,7 @@ class AksesPembelianController extends Controller
         ]);
     }
 
-    public function updatestatus(Request $request)
+    public function updatestatus(Request $request, $id)
     {
         // Dapatkan pengguna yang sedang login
         $user = Auth::user();
@@ -314,24 +314,22 @@ class AksesPembelianController extends Controller
             return redirect()->route('home');
         }
 
-        // Dapatkan sectionId dari request
-        $sectionId = $request->input('sectionId');
-
-        // Temukan section berdasarkan sectionId
-        $section = Section::find($sectionId);
+        // Temukan section berdasarkan ID
+        $section = Section::find($id);
         if (!$section) {
             return redirect()->back()->with('error', 'Bagian tidak ditemukan');
         }
 
         // Perbarui status bagian untuk pengguna
         $userSectionStatus = UserSectionStatus::updateOrCreate(
-            ['user_id' => $user->id, 'section_id' => $sectionId],
+            ['user_id' => $user->id, 'section_id' => $section->id],
             ['status' => true] // Status yang menunjukkan bagian telah diselesaikan
         );
 
-
+        // Kembali ke halaman sebelumnya dengan pesan sukses
         return redirect()->back()->with('success', 'Status bagian berhasil diperbarui');
     }
+
 
 
     protected $pdf;
