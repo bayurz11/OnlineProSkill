@@ -9,28 +9,6 @@
         </div>
     </div>
 
-    <div id="video-container">
-        <!-- Video YouTube atau PDF akan ditampilkan di sini -->
-    </div>
-
-    <div class="lesson__next-prev-button">
-        <button class="prev-button" title="Previous Lesson"><i class="flaticon-arrow-right"></i></button>
-        <button class="next-button" title="Next Lesson"><i class="flaticon-arrow-right"></i></button>
-    </div>
-</div>
-
-<!-- Bagian HTML untuk menampilkan PDF -->
-<div class="lesson__video-wrap">
-    <div class="lesson__video-wrap-top">
-        <div class="lesson__video-wrap-top-left">
-            <a href="#"><i class="flaticon-arrow-right"></i></a>
-            <span id="video-title">Choose a lesson</span>
-        </div>
-        <div class="lesson__video-wrap-top-right">
-            <a href="#"><i class="fas fa-times"></i></a>
-        </div>
-    </div>
-
     <!-- Tempatkan PDF atau Video berdasarkan tipe -->
     <div id="media-container"></div> <!-- Div ini untuk menampung PDF atau video -->
 
@@ -57,11 +35,11 @@
             const mediaContainer = document.getElementById('media-container');
 
             if (filePath.endsWith('.pdf')) {
-                // Menampilkan PDF
+                // Menampilkan PDF dengan iframe
                 mediaContainer.innerHTML = `
-                    <object data="${filePath}" type="application/pdf" width="100%" height="600px">
-                        <p>Sorry, your browser does not support PDF view.</p>
-                    </object>
+                    <iframe src="${filePath}" width="100%" height="600px" frameborder="0">
+                        <p>Your browser does not support PDF viewing. You can <a href="${filePath}">download the PDF</a> instead.</p>
+                    </iframe>
                 `;
             } else if (videoId) {
                 // Menampilkan video YouTube
@@ -100,11 +78,11 @@
             const mediaContainer = document.getElementById('media-container');
 
             if (filePath.endsWith('.pdf')) {
-                // Menampilkan PDF
+                // Menampilkan PDF dengan iframe
                 mediaContainer.innerHTML = `
-                    <object data="${filePath}" type="application/pdf" width="100%" height="600px">
-                        <p>Sorry, your browser does not support PDF view.</p>
-                    </object>
+                    <iframe src="${filePath}" width="100%" height="600px" frameborder="0">
+                        <p>Your browser does not support PDF viewing. You can <a href="${filePath}">download the PDF</a> instead.</p>
+                    </iframe>
                 `;
             } else if (videoId) {
                 // Menampilkan video YouTube
