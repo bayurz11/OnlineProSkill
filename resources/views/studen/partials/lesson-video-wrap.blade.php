@@ -28,6 +28,7 @@
                 const item = courseItems[index];
                 const filePath = item.getAttribute('data-file-path');
                 const videoTitle = item.querySelector('.item-name').innerText;
+                const videoId = item.getAttribute('data-video-id'); // Ambil link video dari data-video-id
 
                 // Perbarui judul video
                 document.getElementById('video-title').innerText = videoTitle;
@@ -47,6 +48,9 @@
                     player.load();
                     player.play();
                 }
+
+                // Jika ada video ID, tampilkan atau gunakan sesuai kebutuhan
+                console.log('Video ID:', videoId); // Menampilkan ID video di console
             }
         }
 
