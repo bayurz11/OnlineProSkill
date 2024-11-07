@@ -344,7 +344,7 @@
                 const comment = document.getElementById('comment').value;
 
                 // Mengirim review ke server
-                fetch('/submit-review', {
+                fetch('/review.store', {
                         method: 'POST',
                         headers: {
                             'X-CSRF-TOKEN': '{{ csrf_token() }}',
@@ -390,7 +390,8 @@
                 </div>
                 <div class="modal-body">
                     <form id="reviewForm">
-                        <input type="hidden" id="sectionId" name="sectionId" value="{{ $section->id }}">
+                        <input type="hidden" id="{{ $kurikulum->id }}" name="class_id" />
+
                         <!-- Rating -->
                         <div></div>
                         <div class="mb-3">
