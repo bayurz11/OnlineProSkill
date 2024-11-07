@@ -4,11 +4,12 @@
     <section class="lesson__area section-pb-120">
         <div class="container-fluid p-0">
             <div class="row gx-0">
+                <!-- Sidebar Course Content -->
                 <div class="col-xl-3 col-lg-4">
                     <div class="lesson__content">
                         <h2 class="title">Course Content</h2>
-                        @foreach ($kurikulum as $index => $kurikulumItem)
-                            <div class="accordion" id="accordionExample">
+                        <div class="accordion" id="accordionExample">
+                            @foreach ($kurikulum as $index => $kurikulumItem)
                                 <div class="accordion-item">
                                     <h2 class="accordion-header">
                                         <button class="accordion-button {{ $index === 0 ? '' : 'collapsed' }}"
@@ -27,7 +28,8 @@
                                             <ul class="list-wrap">
                                                 @foreach ($kurikulumItem->sections as $section)
                                                     <li class="course-item open-item">
-                                                        <a href="{{ $section->id }}" class="course-item-link active">
+                                                        <a href="{{ route('section.view', ['id' => $section->id]) }}"
+                                                            class="course-item-link active">
                                                             <span class="item-name">{{ $section->title }}</span>
                                                             <div class="course-item-meta">
                                                                 <span
@@ -35,30 +37,20 @@
                                                             </div>
                                                         </a>
                                                     </li>
-                                                    {{-- <li class="course-item">
-                                                        <a href="#" class="course-item-link">
-                                                            <span class="item-name">Create a Simple React App</span>
-                                                            <div class="course-item-meta">
-                                                                <span class="item-meta duration">07:48</span>
-                                                                <span class="item-meta course-item-status">
-                                                                    <img src="assets/img/icons/lock.svg" alt="icon">
-                                                                </span>
-                                                            </div>
-                                                        </a>
-                                                    </li> --}}
                                                 @endforeach
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
-
-
-                            </div>
-                        @endforeach
+                            @endforeach
+                        </div>
                     </div>
                 </div>
+
+                <!-- Main Video Content -->
                 <div class="col-xl-9 col-lg-8">
                     <div class="lesson__video-wrap">
+                        <!-- Video Header -->
                         <div class="lesson__video-wrap-top">
                             <div class="lesson__video-wrap-top-left">
                                 <a href="#"><i class="flaticon-arrow-right"></i></a>
@@ -68,18 +60,23 @@
                                 <a href="#"><i class="fas fa-times"></i></a>
                             </div>
                         </div>
+
+                        <!-- Video Player -->
                         <video id="player" playsinline controls data-poster="assets/img/bg/video_bg.webp">
                             <source src="assets/video/video.mp4" type="video/mp4" />
                             <source src="/path/to/video.webm" type="video/webm" />
                         </video>
+
+                        <!-- Next and Previous Buttons -->
                         <div class="lesson__next-prev-button">
-                            <button class="prev-button" title="Create a Simple React App"><i
-                                    class="flaticon-arrow-right"></i></button>
-                            <button class="next-button" title="React for the Rest of us"><i
-                                    class="flaticon-arrow-right"></i></button>
+                            <button class="prev-button" title="Previous Lesson">
+                                <i class="flaticon-arrow-left"></i>
+                            </button>
+                            <button class="next-button" title="Next Lesson">
+                                <i class="flaticon-arrow-right"></i>
+                            </button>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
