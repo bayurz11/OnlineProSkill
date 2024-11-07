@@ -203,6 +203,12 @@ class AksesPembelianController extends Controller
         $this->pdf = $pdf;
     }
 
+    public function getKurikulum($id)
+    {
+        $kurikulum = Kurikulum::with('sections')->where('course_id', $id)->get();
+        return view('studen.kurikulum', compact('kurikulum'))->render();
+    }
+
 
 
     public function previewCertificate(Request $request)
