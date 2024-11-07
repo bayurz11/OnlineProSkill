@@ -8,8 +8,6 @@
                 <div class="col-xl-4 col-lg-4">
                     <div class="lesson__content" id="kurikulumContent">
                         <h2 class="title">Konten Kursus</h2>
-
-
                         @include('studen.partials.kurikulum-content')
                     </div>
                 </div>
