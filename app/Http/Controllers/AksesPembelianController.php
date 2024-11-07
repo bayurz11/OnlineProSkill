@@ -224,7 +224,7 @@ class AksesPembelianController extends Controller
 
             return $completedSections === $totalSections;
         });
-        return view('studen.kurikulum', compact('kurikulum', 'userSectionStatuses', 'allSectionsCompleted'))->render();
+        return view('studen.kurikulum', compact('kurikulum', 'userSectionStatuses', 'allSectionsCompleted', 'user'))->render();
     }
 
 
