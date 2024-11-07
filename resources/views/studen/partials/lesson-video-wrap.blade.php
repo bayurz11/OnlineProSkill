@@ -1,6 +1,24 @@
+<div class="lesson__video-wrap">
+    <div class="lesson__video-wrap-top">
+        <div class="lesson__video-wrap-top-left">
+            <a href="{{ route('akses_pembelian') }}"><i class="flaticon-arrow-right"></i></a>
+            <span id="video-title">Choose a lesson</span>
+        </div>
+        <div class="lesson__video-wrap-top-right">
+            <a href="{{ route('/') }}"><i class="fas fa-times"></i></a>
+        </div>
+    </div>
+
+    <iframe id="player" width="100%" height="500px" src="" frameborder="0"></iframe>
+
+    <div class="lesson__next-prev-button">
+        <button class="prev-button" title="Previous Lesson"><i class="flaticon-arrow-right"></i></button>
+        <button class="next-button" title="Next Lesson"><i class="flaticon-arrow-right"></i></button>
+    </div>
+</div>
 <div class="d-flex justify-content-end mt-3 ms-3 me-3">
     <!-- Form untuk mengirimkan status completion -->
-    <form action="{{ route('sectionstatus', ['id' => $section->id]) }}" method="POST" id="completion-form">
+    <form action="{{ route('sectionstatus', ['id' => $section->id]) }}" method="POST">
         @csrf
         @method('PUT')
         <!-- Kirimkan sectionId dalam form -->
@@ -81,17 +99,6 @@
 
         // Tombol Next Lesson
         document.querySelector('.next-button').addEventListener('click', function() {
-            if (currentIndex < courseItems.length - 1) {
-                currentIndex++;
-                updateVideo(currentIndex);
-            }
-        });
-
-        // Menangani tombol "Menyelesaikan" untuk pindah ke pelajaran berikutnya
-        document.getElementById('completion-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Mencegah form dari reload halaman
-            // Kirim form dengan AJAX atau reload halaman sesuai kebutuhan
-            // Setelah selesai, pindah ke video berikutnya
             if (currentIndex < courseItems.length - 1) {
                 currentIndex++;
                 updateVideo(currentIndex);
