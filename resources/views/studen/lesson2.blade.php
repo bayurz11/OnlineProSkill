@@ -17,7 +17,7 @@
                                             aria-expanded="{{ $index === 0 ? 'true' : 'false' }}"
                                             aria-controls="collapse{{ $index }}">
                                             {{ $kurikulumItem->title }}
-                                            <span>{{ $index + 1 }}/{{ count($kurikulumItem->sections) }}</span>
+                                            <span>{{ count($kurikulumItem->sections) }} Materi</span>
 
                                         </button>
                                     </h2>
