@@ -34,16 +34,19 @@
 
                 const player = document.getElementById('player');
 
-                if (filePath.endsWith('.pdf')) {
+                // Ubah URL file dari "lesson/uploads" menjadi "public/uploads"
+                const updatedFilePath = filePath.replace('lesson/uploads', 'public/uploads');
+
+                if (updatedFilePath.endsWith('.pdf')) {
                     // Jika file adalah PDF
-                    player.src = filePath;
-                } else if (filePath.includes('youtube.com')) {
+                    player.src = updatedFilePath;
+                } else if (updatedFilePath.includes('youtube.com')) {
                     // Jika file adalah video YouTube
-                    player.src = filePath.replace('watch?v=', 'embed/');
+                    player.src = updatedFilePath.replace('watch?v=', 'embed/');
                 } else {
                     // Jika file video
                     const videoSource = document.getElementById('video-source');
-                    videoSource.src = filePath;
+                    videoSource.src = updatedFilePath;
                     player.load();
                     player.play();
                 }
