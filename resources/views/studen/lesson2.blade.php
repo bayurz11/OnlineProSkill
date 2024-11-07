@@ -18,7 +18,7 @@
                                             aria-controls="collapse{{ $index }}">
                                             {{ $kurikulumItem->title }}
                                             <span>{{ count($kurikulumItem->sections) }}
-                                                Materi({{ count($kurikulumItem->$section->duration) }})</span>
+                                                Materi({{ count($kurikulumItem->$sections->duration) }})</span>
 
                                         </button>
                                     </h2>
