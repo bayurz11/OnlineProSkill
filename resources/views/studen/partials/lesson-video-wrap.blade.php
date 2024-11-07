@@ -44,4 +44,15 @@
             player.play(); // Memulai pemutaran video
         });
     });
+
+    // Menampilkan video pertama saat halaman dimuat
+    window.addEventListener('load', () => {
+        // Ambil item kursus pertama
+        const firstCourseItem = document.querySelector('.course-item');
+
+        // Jika ada item kursus, trigger event klik pada item pertama
+        if (firstCourseItem) {
+            firstCourseItem.click();
+        }
+    });
 </script>
