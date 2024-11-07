@@ -263,18 +263,23 @@
                             );
                             completeSectionBtn.style.display = 'none';
 
-                            // Memperbarui bagian kurikulum tanpa me-reload halaman
-                            const kurikulumContainer = document.getElementById('kurikulum-content');
-                            fetch('/kurikulum') // Mengambil konten terbaru kurikulum
-                                .then(response => response.text())
-                                .then(html => {
-                                    kurikulumContainer.innerHTML =
-                                    html; // Mengganti konten kurikulum
-                                })
-                                .catch(error => {
-                                    console.error('Error:', error);
-                                });
+                            document.addEventListener('DOMContentLoaded', () => {
+                                const kurikulumContainer = document.getElementById(
+                                    'kurikulum-content');
+                                const courseId = document.getElementById('course-id')
+                                .value; // Pastikan memiliki ID kursus di halaman
 
+                                // Mengambil konten kurikulum terbaru
+                                fetch(`/course-content/${courseId}`)
+                                    .then(response => response.text())
+                                    .then(html => {
+                                        kurikulumContainer.innerHTML =
+                                        html; // Mengganti konten kurikulum
+                                    })
+                                    .catch(error => {
+                                        console.error('Error:', error);
+                                    });
+                            });
                         } else {
                             console.error('Gagal memperbarui status.');
                         }
