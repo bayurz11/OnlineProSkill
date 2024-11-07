@@ -17,8 +17,13 @@
                                             aria-expanded="{{ $index === 0 ? 'true' : 'false' }}"
                                             aria-controls="collapse{{ $index }}">
                                             {{ $kurikulumItem->title }}
-                                            <span>{{ count($kurikulumItem->sections) }}
-                                                Materi({{ count($kurikulumItem->$sections->duration) }})</span>
+                                            <span>{{ count($kurikulumItem->sections) }} Materi
+                                                @php
+                                                    $totalDuration = $kurikulumItem->sections->sum('duration');
+                                                @endphp
+                                                {{ $totalDuration }}
+                                            </span>
+
 
                                         </button>
                                     </h2>
