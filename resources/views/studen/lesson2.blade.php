@@ -406,7 +406,7 @@
                 </div>
                 <div class="modal-body">
                     <form id="reviewForm">
-                        {{-- <input type="hidden" id="{{ $kurikulum->id }}" name="class_id" /> --}}
+                        <input type="hidden" id="sectionId" name="class_id" />
 
                         <!-- Rating -->
                         <div></div>
