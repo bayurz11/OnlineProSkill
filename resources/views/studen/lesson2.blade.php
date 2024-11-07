@@ -200,107 +200,17 @@
                                 '<div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 24px; height: 24px;"><i class="fas fa-check"></i></div>'
                             );
                             completeSectionBtn.style.display = 'none';
+
+                            // Reload halaman untuk menjaga status dan bagian aktif
+                            location.reload();
                         } else {
-                            alert('Gagal memperbarui status.');
+                            // Jika gagal, tidak ada alert
+                            console.error('Gagal memperbarui status.');
                         }
                     })
                     .catch(error => {
                         console.error('Error:', error);
-                        alert('Terjadi kesalahan.');
                     });
-            });
-        });
-
-
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const videoElements = document.querySelectorAll('.course-item[data-id]');
-            const completeSectionBtn = document.getElementById('completeSectionBtn');
-
-            // Fungsi untuk mengatur tombol sesuai dengan section aktif
-            function setActiveSectionButton(sectionId, isCompleted) {
-                completeSectionBtn.setAttribute('data-section-id', sectionId);
-
-                if (!isCompleted) {
-                    completeSectionBtn.style.display = 'block';
-                } else {
-                    completeSectionBtn.style.display = 'none';
-                }
-            }
-
-            // Mengatur tombol untuk section pertama yang aktif saat halaman dimuat
-            const firstActiveSection = document.querySelector('.course-item.active');
-            if (firstActiveSection) {
-                const sectionId = firstActiveSection.getAttribute('data-id');
-                const isCompleted = firstActiveSection.querySelector(
-                    '.bg-success'); // Mengecek apakah section sudah selesai
-                setActiveSectionButton(sectionId, isCompleted);
-            }
-
-            // Mengatur event klik untuk setiap item section
-            videoElements.forEach((videoItem) => {
-                videoItem.addEventListener('click', function() {
-                    // Menghapus kelas 'active' dari semua item dan menambahkannya pada item yang dipilih
-                    videoElements.forEach((item) => item.classList.remove('active'));
-                    videoItem.classList.add('active');
-
-                    // Ambil ID section yang aktif
-                    const sectionId = videoItem.getAttribute('data-id');
-                    const isCompleted = videoItem.querySelector(
-                        '.bg-success'); // Mengecek apakah section sudah selesai
-                    setActiveSectionButton(sectionId, isCompleted);
-                });
-            });
-
-            // Event klik untuk tombol "Tandai Selesai"
-            completeSectionBtn.addEventListener('click', function() {
-                const sectionId = this.getAttribute('data-section-id');
-
-                fetch(`/sectionupdatestatus/${sectionId}`, {
-                        method: 'PUT',
-                        headers: {
-                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            sectionId
-                        })
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            // Update UI untuk menunjukkan section sudah selesai
-                            const activeItem = document.querySelector(
-                                `.course-item[data-id="${sectionId}"]`);
-                            activeItem.querySelector('.course-item-link').insertAdjacentHTML(
-                                'beforeend',
-                                '<div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 24px; height: 24px;"><i class="fas fa-check"></i></div>'
-                            );
-                            completeSectionBtn.style.display = 'none';
-                        } else {
-                            alert('Gagal memperbarui status.');
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        alert('Terjadi kesalahan.');
-                    });
-            });
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const videoElements = document.querySelectorAll('.course-item[data-video-id]');
-
-            videoElements.forEach((videoItem) => {
-                videoItem.addEventListener('click', function() {
-                    // Menghapus kelas 'active' dari semua item
-                    videoElements.forEach((item) => {
-                        item.classList.remove('active');
-                    });
-
-                    // Menambahkan kelas 'active' pada item yang dipilih
-                    videoItem.classList.add('active');
-                });
             });
         });
     </script>
