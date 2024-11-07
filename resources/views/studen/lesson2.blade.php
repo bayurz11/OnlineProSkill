@@ -330,63 +330,47 @@
             });
 
             // Event klik untuk tombol "Review Course"
-            document.addEventListener('DOMContentLoaded', () => {
-                const reviewButton = document.getElementById('reviewButton'); // Tombol Review
-
-                reviewButton.addEventListener('click', () => {
-                    // Ambil ID dari URL (misalnya https://testonline.proskill.sch.id/lesson/18)
-                    const urlPath = window.location.pathname;
-                    const sectionId = urlPath.split('/')
-                        .pop(); // Mengambil bagian terakhir dari URL, yaitu '18'
-
-                    // Set nilai sectionId ke input hidden
-                    document.getElementById('sectionId').value = sectionId;
-
-                    // Menampilkan modal review
-                    const myModal = new bootstrap.Modal(document.getElementById('reviewModal'));
-                    myModal.show();
-                });
-
-                // Event submit untuk form review
-                document.getElementById('reviewForm').addEventListener('submit', function(e) {
-                    e.preventDefault();
-
-                    const sectionId = document.getElementById('sectionId')
-                        .value; // Ambil sectionId dari input tersembunyi
-                    const rating = document.getElementById('rating').value;
-                    const comment = document.getElementById('comment').value;
-
-                    // Kirim review ke server
-                    fetch('/review.store', {
-                            method: 'POST',
-                            headers: {
-                                'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({
-                                sectionId, // Kirim sectionId bersama dengan rating dan comment
-                                rating,
-                                comment
-                            })
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data.success) {
-                                alert('Review submitted successfully!');
-                                // Menutup modal
-                                const myModal = bootstrap.Modal.getInstance(document
-                                    .getElementById('reviewModal'));
-                                myModal.hide();
-                            } else {
-                                alert('Failed to submit review.');
-                            }
-                        })
-                        .catch(error => {
-                            console.error('Error:', error);
-                        });
-                });
+            reviewButton.addEventListener('click', () => {
+                // Menampilkan modal review ketika tombol di klik
+                const myModal = new bootstrap.Modal(document.getElementById('reviewModal'));
+                myModal.show();
             });
 
+            // Event submit untuk form review
+            document.getElementById('reviewForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const rating = document.getElementById('rating').value;
+                const comment = document.getElementById('comment').value;
+
+                // Mengirim review ke server
+                fetch('/review.store', {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            rating,
+                            comment
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert('Review submitted successfully!');
+                            // Menutup modal
+                            const myModal = bootstrap.Modal.getInstance(document.getElementById(
+                                'reviewModal'));
+                            myModal.hide();
+                        } else {
+                            alert('Failed to submit review.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            });
         });
     </script>
     <style>
@@ -406,7 +390,7 @@
                 </div>
                 <div class="modal-body">
                     <form id="reviewForm">
-                        <input type="hidden" id="sectionId" name="class_id" />
+                        {{-- <input type="hidden" id="{{ $kurikulum->id }}" name="class_id" /> --}}
 
                         <!-- Rating -->
                         <div></div>
