@@ -1,11 +1,11 @@
 <div class="lesson__video-wrap">
     <div class="lesson__video-wrap-top">
         <div class="lesson__video-wrap-top-left">
-            <a href="#"><i class="flaticon-arrow-right"></i></a>
+            <a href="{{ route('/') }}"><i class="flaticon-arrow-right"></i></a>
             <span id="video-title">Choose a lesson</span>
         </div>
         <div class="lesson__video-wrap-top-right">
-            <a href="#"><i class="fas fa-times"></i></a>
+            <a href="{{ route('akses_pembelian') }}"><i class="fas fa-times"></i></a>
         </div>
     </div>
 
@@ -46,16 +46,16 @@
                     const videoIdMatch = videoId.match(/(?:v=|\/)([a-zA-Z0-9_-]{11})/);
                     if (videoIdMatch) {
                         const videoEmbedUrl =
-                        `https://www.youtube.com/embed/${videoIdMatch[1]}`; // Membuat URL embed
+                            `https://www.youtube.com/embed/${videoIdMatch[1]}`; // Membuat URL embed
 
                         // Jika ada parameter waktu untuk memulai video, tambahkan ke URL
                         if (videoId.includes('t=')) {
                             const timeParam = videoId.split('t=')[1].split('&')[0]; // Menangkap waktu t=xxx
                             player.src =
-                            `${videoEmbedUrl}?start=${timeParam}`; // Menambahkan parameter start ke URL embed
+                                `${videoEmbedUrl}?start=${timeParam}`; // Menambahkan parameter start ke URL embed
                         } else {
                             player.src =
-                            videoEmbedUrl; // Jika tidak ada parameter waktu, gunakan URL embed standar
+                                videoEmbedUrl; // Jika tidak ada parameter waktu, gunakan URL embed standar
                         }
                     }
                 }
