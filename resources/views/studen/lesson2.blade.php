@@ -91,6 +91,27 @@
             const videoElements = document.querySelectorAll('.course-item[data-id]');
             const completeSectionBtn = document.getElementById('completeSectionBtn');
 
+            // Fungsi untuk mengatur tombol sesuai dengan section aktif
+            function setActiveSectionButton(sectionId, isCompleted) {
+                completeSectionBtn.setAttribute('data-section-id', sectionId);
+
+                if (!isCompleted) {
+                    completeSectionBtn.style.display = 'block';
+                } else {
+                    completeSectionBtn.style.display = 'none';
+                }
+            }
+
+            // Mengatur tombol untuk section pertama yang aktif saat halaman dimuat
+            const firstActiveSection = document.querySelector('.course-item.active');
+            if (firstActiveSection) {
+                const sectionId = firstActiveSection.getAttribute('data-id');
+                const isCompleted = firstActiveSection.querySelector(
+                '.bg-success'); // Mengecek apakah section sudah selesai
+                setActiveSectionButton(sectionId, isCompleted);
+            }
+
+            // Mengatur event klik untuk setiap item section
             videoElements.forEach((videoItem) => {
                 videoItem.addEventListener('click', function() {
                     // Menghapus kelas 'active' dari semua item dan menambahkannya pada item yang dipilih
@@ -101,16 +122,7 @@
                     const sectionId = videoItem.getAttribute('data-id');
                     const isCompleted = videoItem.querySelector(
                     '.bg-success'); // Mengecek apakah section sudah selesai
-
-                    // Atur data-section-id pada tombol "Tandai Selesai" sesuai dengan section aktif
-                    completeSectionBtn.setAttribute('data-section-id', sectionId);
-
-                    // Tampilkan atau sembunyikan tombol tergantung apakah section sudah selesai
-                    if (!isCompleted) {
-                        completeSectionBtn.style.display = 'block';
-                    } else {
-                        completeSectionBtn.style.display = 'none';
-                    }
+                    setActiveSectionButton(sectionId, isCompleted);
                 });
             });
 
