@@ -92,7 +92,7 @@
             const courseItems = document.querySelectorAll('.course-item');
             let currentIndex = 0;
 
-            // Fungsi untuk memperbarui konten iframe berdasarkan indeks
+            // Fungsi untuk memperbarui konten iframe dan kelas aktif berdasarkan indeks
             function updateVideo(index) {
                 if (index >= 0 && index < courseItems.length) {
                     const item = courseItems[index];
@@ -105,36 +105,32 @@
 
                     const player = document.getElementById('player');
 
+                    // Menghapus kelas 'active' dari semua item dan menambahkannya pada item yang dipilih
+                    courseItems.forEach((el) => el.classList.remove('active'));
+                    item.classList.add('active');
+
                     // Menangani file PDF
                     if (filePath.endsWith('.pdf')) {
                         const correctFilePath = '/public/' + filePath;
-                        player.src = correctFilePath; // Atur URL yang benar untuk PDF
+                        player.src = correctFilePath;
                     }
                     // Menangani video YouTube
                     else if (videoId.includes('youtube.com')) {
-                        // Mengambil ID video dari URL YouTube
                         const videoIdMatch = videoId.match(/(?:v=|\/)([a-zA-Z0-9_-]{11})/);
                         if (videoIdMatch) {
-                            const videoEmbedUrl =
-                                `https://www.youtube.com/embed/${videoIdMatch[1]}`; // Membuat URL embed
-
-                            // Jika ada parameter waktu untuk memulai video, tambahkan ke URL
+                            const videoEmbedUrl = `https://www.youtube.com/embed/${videoIdMatch[1]}`;
                             if (videoId.includes('t=')) {
-                                const timeParam = videoId.split('t=')[1].split('&')[0]; // Menangkap waktu t=xxx
-                                player.src =
-                                    `${videoEmbedUrl}?start=${timeParam}`; // Menambahkan parameter start ke URL embed
+                                const timeParam = videoId.split('t=')[1].split('&')[0];
+                                player.src = `${videoEmbedUrl}?start=${timeParam}`;
                             } else {
-                                player.src =
-                                    videoEmbedUrl; // Jika tidak ada parameter waktu, gunakan URL embed standar
+                                player.src = videoEmbedUrl;
                             }
                         }
                     }
                     // Menangani file video biasa
                     else {
-                        player.src = filePath; // Untuk file video lainnya
+                        player.src = filePath;
                     }
-
-                    console.log('Player URL:', player.src); // Debugging untuk memeriksa URL
                 }
             }
 
@@ -165,6 +161,7 @@
                 }
             });
         });
+
 
         document.addEventListener('DOMContentLoaded', function() {
             const videoElements = document.querySelectorAll('.course-item[data-id]');
