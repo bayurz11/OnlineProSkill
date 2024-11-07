@@ -78,11 +78,13 @@
                 <div class="col-xl-9 col-lg-8">
                     @include('studen.partials.lesson-video-wrap')
                 </div>
-                <div class="d-flex justify-content-end mt-3 ms-3 me-3">
-                    <button id="completeSectionBtn" class="btn btn-primary" style="display: none;" data-section-id="">
+
+                <div class="d-none d-lg-block position-fixed" style="left: 20px; bottom: 20px; z-index: 1000;">
+                    <button id="completeSectionBtn" class="btn btn-primary" data-section-id="">
                         Tandai Selesai
                     </button>
                 </div>
+
             </div>
         </div>
 
