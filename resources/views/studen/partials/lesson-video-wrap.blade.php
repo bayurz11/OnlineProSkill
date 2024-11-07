@@ -40,7 +40,9 @@
                     player.src = filePath; // Menggunakan file PDF langsung
                 } else if (videoId.includes('youtube.com')) {
                     // Jika URL adalah YouTube, tampilkan video di dalam iframe
-                    const videoUrl = videoId.replace('watch?v=', 'embed/'); // Mengubah URL ke format embed
+                    const videoUrl = videoId.replace('watch?v=', 'embed/') + (videoId.includes('&') ? '' :
+                        videoId.split('?')[1] || '');
+
                     player.src = videoUrl;
                 } else {
                     // Untuk jenis file video lainnya, Anda dapat menambahkan logika untuk menampilkan video
