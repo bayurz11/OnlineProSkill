@@ -1,11 +1,11 @@
 <div class="lesson__video-wrap">
     <div class="lesson__video-wrap-top">
         <div class="lesson__video-wrap-top-left">
-            <a href="{{ route('/') }}"><i class="flaticon-arrow-right"></i></a>
+            <a href="{{ route('akses_pembelian') }}"><i class="flaticon-arrow-right"></i></a>
             <span id="video-title">Choose a lesson</span>
         </div>
         <div class="lesson__video-wrap-top-right">
-            <a href="{{ route('akses_pembelian') }}"><i class="fas fa-times"></i></a>
+            <a href="{{ route('/') }}"><i class="fas fa-times"></i></a>
         </div>
     </div>
 
