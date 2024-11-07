@@ -212,23 +212,20 @@
                 fetch('/review/store', {
                         method: 'POST',
                         headers: {
-                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')
+                                .getAttribute('content'),
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
                             rating: rating,
                             comment: comment,
-                            class_id: classId // Mengirimkan classId yang benar
+                            class_id: classId
                         })
                     })
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
                             alert('Review submitted successfully!');
-                            // Menutup modal
-                            const myModal = bootstrap.Modal.getInstance(document.getElementById(
-                                'reviewModal'));
-                            myModal.hide();
                         } else {
                             alert('Failed to submit review.');
                         }
@@ -236,6 +233,7 @@
                     .catch(error => {
                         console.error('Error:', error);
                     });
+
             });
 
         });
