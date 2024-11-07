@@ -36,7 +36,8 @@
                                                                     class="item-meta duration">{{ $section->duration }}</span>
                                                                 @if (!isset($userSectionStatuses[$section->id]) || $userSectionStatuses[$section->id] == 0)
                                                                     <span class="item-meta course-item-status">
-                                                                        <img src="assets/img/icons/lock.svg" alt="icon">
+                                                                        <img src="public/assets/img/icons/lock.svg"
+                                                                            alt="icon">
                                                                     </span>
                                                                 @endif
                                                             </div>
