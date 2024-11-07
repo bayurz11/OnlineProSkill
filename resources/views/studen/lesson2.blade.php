@@ -206,7 +206,7 @@
                 const comment = document.getElementById('comment').value;
 
                 // Mengirim review ke server
-                fetch('/review.store', {
+                fetch('/review/store', {
                         method: 'POST',
                         headers: {
                             'X-CSRF-TOKEN': '{{ csrf_token() }}',
