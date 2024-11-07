@@ -32,12 +32,12 @@
             // Perbarui video title
             document.getElementById('video-title').innerText = videoTitle;
 
-            // Perbarui tampilan video
+            // Perbarui tampilan video atau PDF
             const player = document.getElementById('player');
             const videoSource = document.getElementById('video-source');
 
             if (filePath.endsWith('.pdf')) {
-                // Menampilkan PDF
+                // Menampilkan PDF dengan URL yang benar
                 document.querySelector('.lesson__video-wrap').innerHTML = `
                 <object data="${filePath}" type="application/pdf" width="100%" height="600px">
                     <p>Sorry, your browser does not support PDF view.</p>
@@ -71,7 +71,7 @@
             const videoSource = document.getElementById('video-source');
 
             if (filePath.endsWith('.pdf')) {
-                // Menampilkan PDF
+                // Menampilkan PDF dengan URL yang benar
                 document.querySelector('.lesson__video-wrap').innerHTML = `
                 <object data="${filePath}" type="application/pdf" width="100%" height="600px">
                     <p>Sorry, your browser does not support PDF view.</p>
