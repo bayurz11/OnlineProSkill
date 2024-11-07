@@ -16,10 +16,10 @@
         <button class="next-button" title="Next Lesson"><i class="flaticon-arrow-right"></i></button>
     </div>
 </div>
-<div class="d-flex justify-content-end mt-3">
+<div class="d-flex justify-content-end mt-3 ms-3 me-3">
     <button type="submit" class="btn btn-primary">Menyelesaikan</button>
-
 </div>
+
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const courseItems = document.querySelectorAll('.course-item');
