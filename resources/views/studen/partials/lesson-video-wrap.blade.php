@@ -26,8 +26,8 @@
         function updateVideo(index) {
             if (index >= 0 && index < courseItems.length) {
                 const item = courseItems[index];
-                const filePath = item.getAttribute('data-file-path'); // File PDF atau video
-                const videoId = item.getAttribute('data-video-id'); // URL video YouTube
+                const filePath = item.getAttribute('data-file-path');
+                const videoId = item.getAttribute('data-video-id');
                 const videoTitle = item.querySelector('.item-name').innerText;
 
                 // Perbarui judul video
@@ -35,19 +35,25 @@
 
                 const player = document.getElementById('player');
 
+                // Menangani file PDF
                 if (filePath.endsWith('.pdf')) {
-                    // Jika file adalah PDF, tampilkan PDF di dalam iframe
-                    player.src = filePath; // Menggunakan file PDF langsung
-                } else if (videoId.includes('youtube.com')) {
-                    // Jika URL adalah YouTube, tampilkan video di dalam iframe
-                    const videoUrl = videoId.replace('watch?v=', 'embed/') + (videoId.includes('&') ? '' :
-                        videoId.split('?')[1] || '');
-
-                    player.src = videoUrl;
-                } else {
-                    // Untuk jenis file video lainnya, Anda dapat menambahkan logika untuk menampilkan video
-                    player.src = filePath; // Asumsikan file path mengarah ke file video
+                    const correctFilePath = '/upload/' + filePath.split('/upload')[
+                    1]; // Menyesuaikan path file PDF
+                    player.src = correctFilePath; // Atur URL yang benar untuk PDF
                 }
+                // Menangani video YouTube
+                else if (videoId.includes('youtube.com')) {
+                    const videoUrl = videoId.replace('watch?v=', 'embed/'); // Mengubah ke format embed
+                    // Menambahkan parameter query jika ada (misalnya untuk waktu mulai)
+                    const embedUrl = videoUrl + (videoId.includes('&') ? '' : videoId.split('?')[1] || '');
+                    player.src = embedUrl; // Memasukkan URL embed YouTube
+                }
+                // Menangani file video biasa
+                else {
+                    player.src = filePath; // Untuk file video lainnya
+                }
+
+                console.log('Player URL:', player.src); // Debugging untuk memeriksa URL
             }
         }
 
