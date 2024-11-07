@@ -204,7 +204,8 @@
 
                 const rating = document.getElementById('rating').value;
                 const comment = document.getElementById('comment').value;
-
+                // Ambil ID kelas dari URL
+                const classId = window.location.pathname.split('/').pop();
                 // Mengirim review ke server
                 fetch('/review/store', {
                         method: 'POST',
