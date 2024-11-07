@@ -59,11 +59,6 @@
                                                                         <i class="fas fa-check"></i>
                                                                     </div>
                                                                 </div>
-                                                            @else
-                                                                <button class="btn btn-primary btn-sm complete-section-btn"
-                                                                    data-section-id="{{ $section->id }}">
-                                                                    Tandai Selesai
-                                                                </button>
                                                             @endif
                                                             <div class="course-item-meta">
                                                                 <span
@@ -83,10 +78,78 @@
                 <div class="col-xl-9 col-lg-8">
                     @include('studen.partials.lesson-video-wrap')
                 </div>
+                <button id="completeSectionBtn" class="btn btn-primary" style="display: none;" data-section-id="">
+                    Tandai Selesai
+                </button>
             </div>
         </div>
+
+
     </section>
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const videoElements = document.querySelectorAll('.course-item[data-id]');
+            const completeSectionBtn = document.getElementById('completeSectionBtn');
+
+            videoElements.forEach((videoItem) => {
+                videoItem.addEventListener('click', function() {
+                    // Menghapus kelas 'active' dari semua item dan menambahkannya pada item yang dipilih
+                    videoElements.forEach((item) => item.classList.remove('active'));
+                    videoItem.classList.add('active');
+
+                    // Ambil ID section yang aktif
+                    const sectionId = videoItem.getAttribute('data-id');
+                    const isCompleted = videoItem.querySelector(
+                    '.bg-success'); // Mengecek apakah section sudah selesai
+
+                    // Atur data-section-id pada tombol "Tandai Selesai" sesuai dengan section aktif
+                    completeSectionBtn.setAttribute('data-section-id', sectionId);
+
+                    // Tampilkan atau sembunyikan tombol tergantung apakah section sudah selesai
+                    if (!isCompleted) {
+                        completeSectionBtn.style.display = 'block';
+                    } else {
+                        completeSectionBtn.style.display = 'none';
+                    }
+                });
+            });
+
+            // Event klik untuk tombol "Tandai Selesai"
+            completeSectionBtn.addEventListener('click', function() {
+                const sectionId = this.getAttribute('data-section-id');
+
+                fetch(`/sectionupdatestatus/${sectionId}`, {
+                        method: 'PUT',
+                        headers: {
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            sectionId
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Update UI untuk menunjukkan section sudah selesai
+                            const activeItem = document.querySelector(
+                                `.course-item[data-id="${sectionId}"]`);
+                            activeItem.querySelector('.course-item-link').insertAdjacentHTML(
+                                'beforeend',
+                                '<div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 24px; height: 24px;"><i class="fas fa-check"></i></div>'
+                            );
+                            completeSectionBtn.style.display = 'none';
+                        } else {
+                            alert('Gagal memperbarui status.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Terjadi kesalahan.');
+                    });
+            });
+        });
+
         document.addEventListener('DOMContentLoaded', function() {
             const videoElements = document.querySelectorAll('.course-item[data-video-id]');
 
@@ -99,42 +162,6 @@
 
                     // Menambahkan kelas 'active' pada item yang dipilih
                     videoItem.classList.add('active');
-                });
-            });
-        });
-        document.addEventListener('DOMContentLoaded', function() {
-            const completeButtons = document.querySelectorAll('.complete-section-btn');
-
-            completeButtons.forEach((button) => {
-                button.addEventListener('click', function() {
-                    const sectionId = this.getAttribute('data-section-id');
-
-                    fetch(`/sectionupdatestatus/${sectionId}`, {
-                            method: 'PUT',
-                            headers: {
-                                'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({
-                                sectionId
-                            })
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data.success) {
-                                // Update UI jika berhasil
-                                this.innerText = 'Selesai';
-                                this.classList.remove('btn-primary');
-                                this.classList.add('btn-success');
-                                this.disabled = true;
-                            } else {
-                                alert('Gagal memperbarui status.');
-                            }
-                        })
-                        .catch(error => {
-                            console.error('Error:', error);
-                            alert('Terjadi kesalahan.');
-                        });
                 });
             });
         });
