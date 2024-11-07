@@ -337,7 +337,7 @@
                     // Ambil ID dari URL (misalnya https://testonline.proskill.sch.id/lesson/18)
                     const urlPath = window.location.pathname;
                     const sectionId = urlPath.split('/')
-                .pop(); // Mengambil bagian terakhir dari URL, yaitu '18'
+                        .pop(); // Mengambil bagian terakhir dari URL, yaitu '18'
 
                     // Set nilai sectionId ke input hidden
                     document.getElementById('sectionId').value = sectionId;
@@ -352,12 +352,12 @@
                     e.preventDefault();
 
                     const sectionId = document.getElementById('sectionId')
-                    .value; // Ambil sectionId dari input tersembunyi
+                        .value; // Ambil sectionId dari input tersembunyi
                     const rating = document.getElementById('rating').value;
                     const comment = document.getElementById('comment').value;
 
                     // Kirim review ke server
-                    fetch('/submit-review', {
+                    fetch('/review.store', {
                             method: 'POST',
                             headers: {
                                 'X-CSRF-TOKEN': '{{ csrf_token() }}',
