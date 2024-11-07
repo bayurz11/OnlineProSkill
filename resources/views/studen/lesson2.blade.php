@@ -209,7 +209,7 @@
                 const classId = window.location.pathname.split('/').pop(); // Mengambil ID dari URL
 
                 // Mengirim review ke server
-                fetch('/review/store', {
+                fetch('/review.store', {
                         method: 'POST',
                         headers: {
                             'X-CSRF-TOKEN': '{{ csrf_token() }}',
