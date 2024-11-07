@@ -19,3 +19,29 @@
         <button class="next-button" title="Next Lesson"><i class="flaticon-arrow-right"></i></button>
     </div>
 </div>
+
+<script>
+    // Ambil semua item kursus
+    const courseItems = document.querySelectorAll('.course-item');
+
+    // Event listener untuk setiap item kursus
+    courseItems.forEach(item => {
+        item.addEventListener('click', function() {
+            // Ambil file path dari data-attribute
+            const filePath = item.getAttribute('data-file-path');
+            const videoTitle = item.querySelector('.item-name').innerText;
+
+            // Perbarui video title
+            document.getElementById('video-title').innerText = videoTitle;
+
+            // Perbarui sumber video
+            const videoSource = document.getElementById('video-source');
+            videoSource.src = filePath;
+
+            // Mulai memutar video
+            const player = document.getElementById('player');
+            player.load(); // Memuat video baru
+            player.play(); // Memulai pemutaran video
+        });
+    });
+</script>
