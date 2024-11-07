@@ -233,7 +233,7 @@ class AksesPembelianController extends Controller
             return $completedSections === $totalSections;
         });
 
-        return view('studen.lesson', compact(
+        return view('studen.lesson2', compact(
             'user',
             'sertifikat',
             'categori',
