@@ -291,7 +291,8 @@ class AksesPembelianController extends Controller
             'orders',
             'kurikulum',
             'allSectionsCompleted',
-            'userReviewGiven'
+            'userReviewGiven',
+            'userSectionStatuses'
         ));
     }
 
