@@ -9,7 +9,7 @@
         </div>
     </div>
 
-    <video id="player" playsinline controls data-poster="assets/img/bg/video_bg.webp">
+    <video id="player" playsinline controls data-poster="{{ asset('public/assets/img/bg/video_bg.webp') }}">
         <source id="video-source" src="" type="video/mp4" />
         <source src="/path/to/video.webm" type="video/webm" />
     </video>
