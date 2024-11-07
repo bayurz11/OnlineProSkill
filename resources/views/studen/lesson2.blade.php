@@ -28,7 +28,7 @@
                                                 @foreach ($kurikulumItem->sections as $section)
                                                     <li class="course-item open-item">
                                                         <a href="#" class="course-item-link active">
-                                                            <span class="item-name">Course Installation</span>
+                                                            <span class="item-name">{{ $section->title }}</span>
                                                             <div class="course-item-meta">
                                                                 <span class="item-meta duration">03:03</span>
                                                             </div>
