@@ -27,7 +27,7 @@
                                             <ul class="list-wrap">
                                                 @foreach ($kurikulumItem->sections as $section)
                                                     <li class="course-item open-item">
-                                                        <a href="#" class="course-item-link active">
+                                                        <a href="{{ $section->id }}" class="course-item-link active">
                                                             <span class="item-name">{{ $section->title }}</span>
                                                             <div class="course-item-meta">
                                                                 <span
