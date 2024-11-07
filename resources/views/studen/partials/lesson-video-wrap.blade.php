@@ -19,3 +19,6 @@
 <button id="completeSectionBtn" class="btn btn-primary" style="display: none;" data-section-id="">
     Tandai Selesai
 </button>
+<button id="rrviewBtn" class="btn btn-primary" style="display: none;" data-section-id="">
+    Review kelas
+</button>
