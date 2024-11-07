@@ -78,9 +78,11 @@
                 <div class="col-xl-9 col-lg-8">
                     @include('studen.partials.lesson-video-wrap')
                 </div>
-                <button id="completeSectionBtn" class="btn btn-primary" style="display: none;" data-section-id="">
-                    Tandai Selesai
-                </button>
+                <div class="d-flex justify-content-end mt-3 ms-3 me-3">
+                    <button id="completeSectionBtn" class="btn btn-primary" style="display: none;" data-section-id="">
+                        Tandai Selesai
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -107,7 +109,7 @@
             if (firstActiveSection) {
                 const sectionId = firstActiveSection.getAttribute('data-id');
                 const isCompleted = firstActiveSection.querySelector(
-                '.bg-success'); // Mengecek apakah section sudah selesai
+                    '.bg-success'); // Mengecek apakah section sudah selesai
                 setActiveSectionButton(sectionId, isCompleted);
             }
 
@@ -121,7 +123,7 @@
                     // Ambil ID section yang aktif
                     const sectionId = videoItem.getAttribute('data-id');
                     const isCompleted = videoItem.querySelector(
-                    '.bg-success'); // Mengecek apakah section sudah selesai
+                        '.bg-success'); // Mengecek apakah section sudah selesai
                     setActiveSectionButton(sectionId, isCompleted);
                 });
             });
