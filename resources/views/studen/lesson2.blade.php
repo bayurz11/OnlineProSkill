@@ -212,8 +212,7 @@
                 fetch('/review/store', {
                         method: 'POST',
                         headers: {
-                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')
-                                .getAttribute('content'),
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
