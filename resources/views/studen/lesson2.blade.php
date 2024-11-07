@@ -28,8 +28,7 @@
                                             <ul class="list-wrap">
                                                 @foreach ($kurikulumItem->sections as $section)
                                                     <li class="course-item open-item">
-                                                        <a href="{{ route('section.view', ['id' => $section->id]) }}"
-                                                            class="course-item-link active">
+                                                        <a href="" class="course-item-link active">
                                                             <span class="item-name">{{ $section->title }}</span>
                                                             <div class="course-item-meta">
                                                                 <span
@@ -46,7 +45,7 @@
                         </div>
                     </div>
                 </div>
-
+                {{-- {{ route('section.view', ['id' => $section->id]) }} --}}
                 <!-- Main Video Content -->
                 <div class="col-xl-9 col-lg-8">
                     <div class="lesson__video-wrap">
