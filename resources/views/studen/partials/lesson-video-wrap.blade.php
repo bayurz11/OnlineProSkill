@@ -21,9 +21,7 @@
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // Ambil semua item kursus
         const courseItems = document.querySelectorAll('.course-item');
-
         let currentIndex = 0; // Variabel untuk menyimpan indeks kursus yang sedang diputar
 
         // Fungsi untuk memperbarui video berdasarkan indeks
@@ -44,6 +42,15 @@
                 const player = document.getElementById('player');
                 player.load(); // Memuat video baru
                 player.play(); // Memulai pemutaran video
+
+                // Update status aktif pada item kursus
+                courseItems.forEach((item, idx) => {
+                    if (idx === index) {
+                        item.setAttribute('aria-expanded', 'true'); // Menandai item aktif
+                    } else {
+                        item.setAttribute('aria-expanded', 'false'); // Menandai item tidak aktif
+                    }
+                });
             }
         }
 
