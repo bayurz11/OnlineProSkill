@@ -50,8 +50,8 @@
                                         <div class="accordion-body">
                                             <ul class="list-wrap">
                                                 @foreach ($kurikulumItem->sections as $section)
-                                                    <li class="course-item open-item">
-                                                        <a href="{{ $section->id }}" class="course-item-link active">
+                                                    <li class="course-item open-item" data-video-id="{{ $section->id }}">
+                                                        <a href="javascript:void(0)" class="course-item-link">
                                                             <span class="item-name">{{ $section->title }}</span>
                                                             <div class="course-item-meta">
                                                                 <span
@@ -59,7 +59,9 @@
                                                             </div>
                                                         </a>
                                                     </li>
-                                                    {{-- <li class="course-item">
+                                                @endforeach
+
+                                                {{-- <li class="course-item">
                                                         <a href="#" class="course-item-link">
                                                             <span class="item-name">Create a Simple React App</span>
                                                             <div class="course-item-meta">
@@ -70,7 +72,7 @@
                                                             </div>
                                                         </a>
                                                     </li> --}}
-                                                @endforeach
+
                                             </ul>
                                         </div>
                                     </div>
