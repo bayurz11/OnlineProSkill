@@ -6,9 +6,12 @@
         <div class="container-fluid p-0">
             <div class="row gx-0">
                 <div class="col-xl-4 col-lg-4">
-                    <div class="lesson__content">
+                    <div class="lesson__content" id="kurikulumContent">
                         <h2 class="title">Konten Kursus</h2>
 
+                        <!-- Tombol untuk reload kurikulum content -->
+                        <button onclick="reloadKurikulumContent()" class="btn btn-secondary mb-3">Reload Kurikulum
+                            Content</button>
 
                         @include('studen.partials.kurikulum-content')
                     </div>
@@ -60,32 +63,6 @@
                                             <button type="submit" class="btn btn-secondary">Sertifikat
                                                 Penyelesaian</button>
                                         </form>
-                                        <script>
-                                            function openInNewTab(event) {
-                                                event.preventDefault();
-                                                const form = event.target;
-                                                const formData = new FormData(form);
-                                                const actionUrl = form.action;
-
-                                                fetch(actionUrl, {
-                                                        method: 'POST',
-                                                        body: formData,
-                                                        headers: {
-                                                            'X-CSRF-TOKEN': form.querySelector('input[name="_token"]').value
-                                                        }
-                                                    })
-                                                    .then(response => response.blob())
-                                                    .then(blob => {
-                                                        const url = window.URL.createObjectURL(blob);
-                                                        const a = document.createElement('a');
-                                                        a.href = url;
-                                                        a.target = '_blank';
-                                                        a.click();
-                                                        window.URL.revokeObjectURL(url);
-                                                    })
-                                                    .catch(error => console.error('Error:', error));
-                                            }
-                                        </script>
                                     @endif
                                 </div>
                             </div>
@@ -98,6 +75,15 @@
     <!-- lesson-area-end -->
 
     <script>
+        function reloadKurikulumContent() {
+            fetch("{{ route('reload.kurikulum.content') }}") // Route yang perlu diatur di web.php
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById("kurikulumContent").innerHTML = html;
+                })
+                .catch(error => console.error("Error:", error));
+        }
+
         function changeContent(element, event) {
             if (element.classList.contains('disabled')) {
                 event.preventDefault();

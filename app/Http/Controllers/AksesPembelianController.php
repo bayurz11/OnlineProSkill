@@ -246,7 +246,10 @@ class AksesPembelianController extends Controller
             'allSectionsCompleted'
         ));
     }
-
+    public function reloadKurikulumContent()
+    {
+        return view('studen.partials.kurikulum-content');
+    }
 
     public function fetchContent($id)
     {
