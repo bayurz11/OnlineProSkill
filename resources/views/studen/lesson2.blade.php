@@ -8,81 +8,46 @@
                     <div class="lesson__content">
                         <h2 class="title">Course Content</h2>
                         <div class="accordion" id="accordionExample">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Introduction
-                                        <span>1/3</span>
-                                    </button>
-                                </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse show"
-                                    data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <ul class="list-wrap">
-                                            <li class="course-item open-item">
-                                                <a href="#" class="course-item-link active">
-                                                    <span class="item-name">Course Installation</span>
-                                                    <div class="course-item-meta">
-                                                        <span class="item-meta duration">03:03</span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="course-item">
-                                                <a href="#" class="course-item-link">
-                                                    <span class="item-name">Create a Simple React App</span>
-                                                    <div class="course-item-meta">
-                                                        <span class="item-meta duration">07:48</span>
-                                                        <span class="item-meta course-item-status">
-                                                            <img src="assets/img/icons/lock.svg" alt="icon">
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                            </li>
-
-                                        </ul>
+                            @foreach ($kurikulum as $index => $kurikulumItem)
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button {{ $index === 0 ? '' : 'collapsed' }}"
+                                            type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapse{{ $index }}"
+                                            aria-expanded="{{ $index === 0 ? 'true' : 'false' }}"
+                                            aria-controls="collapse{{ $index }}">
+                                            {{ $kurikulumItem->title }}
+                                            <span>{{ $index + 1 }}/{{ count($kurikulum) }}</span>
+                                        </button>
+                                    </h2>
+                                    <div id="collapse{{ $index }}"
+                                        class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}"
+                                        data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <ul class="list-wrap">
+                                                @foreach ($kurikulumItem->sections as $section)
+                                                    <li
+                                                        class="course-item {{ isset($userSectionStatuses[$section->id]) && $userSectionStatuses[$section->id] == 1 ? 'open-item' : '' }}">
+                                                        <a href="#"
+                                                            class="course-item-link {{ isset($userSectionStatuses[$section->id]) && $userSectionStatuses[$section->id] == 1 ? 'active' : '' }}">
+                                                            <span class="item-name">{{ $section->title }}</span>
+                                                            <div class="course-item-meta">
+                                                                <span
+                                                                    class="item-meta duration">{{ $section->duration }}</span>
+                                                                @if (!isset($userSectionStatuses[$section->id]) || $userSectionStatuses[$section->id] == 0)
+                                                                    <span class="item-meta course-item-status">
+                                                                        <img src="assets/img/icons/lock.svg" alt="icon">
+                                                                    </span>
+                                                                @endif
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Capacitance and Inductance
-                                        <span>1/5</span>
-                                    </button>
-                                </h2>
-                                <div id="collapseTwo" class="accordion-collapse collapse"
-                                    data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <ul class="list-wrap">
-                                            <li class="course-item">
-                                                <a href="#" class="course-item-link">
-                                                    <span class="item-name">Course Installation</span>
-                                                    <div class="course-item-meta">
-                                                        <span class="item-meta duration">03:03</span>
-                                                        <span class="item-meta course-item-status">
-                                                            <img src="assets/img/icons/lock.svg" alt="icon">
-                                                        </span>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="course-item">
-                                                <a href="#" class="course-item-link">
-                                                    <span class="item-name">Create a Simple React App</span>
-                                                    <div class="course-item-meta">
-                                                        <span class="item-meta duration">07:48</span>
-                                                        <span class="item-meta course-item-status">
-                                                            <img src="assets/img/icons/lock.svg" alt="icon">
-                                                        </span>
-                                                    </div>
-                                                </a>
-
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -108,7 +73,6 @@
                                     class="flaticon-arrow-right"></i></button>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
