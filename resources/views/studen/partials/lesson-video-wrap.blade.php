@@ -42,10 +42,22 @@
                 }
                 // Menangani video YouTube
                 else if (videoId.includes('youtube.com')) {
-                    const videoUrl = videoId.replace('watch?v=', 'embed/'); // Mengubah ke format embed
-                    // Menambahkan parameter query jika ada (misalnya untuk waktu mulai)
-                    const embedUrl = videoUrl + (videoId.includes('&') ? '' : videoId.split('?')[1] || '');
-                    player.src = embedUrl; // Memasukkan URL embed YouTube
+                    // Mengambil ID video dari URL YouTube
+                    const videoIdMatch = videoId.match(/(?:v=|\/)([a-zA-Z0-9_-]{11})/);
+                    if (videoIdMatch) {
+                        const videoEmbedUrl =
+                        `https://www.youtube.com/embed/${videoIdMatch[1]}`; // Membuat URL embed
+
+                        // Jika ada parameter waktu untuk memulai video, tambahkan ke URL
+                        if (videoId.includes('t=')) {
+                            const timeParam = videoId.split('t=')[1].split('&')[0]; // Menangkap waktu t=xxx
+                            player.src =
+                            `${videoEmbedUrl}?start=${timeParam}`; // Menambahkan parameter start ke URL embed
+                        } else {
+                            player.src =
+                            videoEmbedUrl; // Jika tidak ada parameter waktu, gunakan URL embed standar
+                        }
+                    }
                 }
                 // Menangani file video biasa
                 else {
@@ -56,31 +68,33 @@
             }
         }
 
-        // Event listener untuk setiap item kursus
-        courseItems.forEach((item, index) => {
-            item.addEventListener('click', function() {
-                currentIndex = index;
-                updateVideo(currentIndex);
-            });
-        });
+    }
 
-        // Menampilkan video pertama saat halaman dimuat
-        updateVideo(currentIndex);
-
-        // Tombol Previous Lesson
-        document.querySelector('.prev-button').addEventListener('click', function() {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateVideo(currentIndex);
-            }
+    // Event listener untuk setiap item kursus
+    courseItems.forEach((item, index) => {
+        item.addEventListener('click', function() {
+            currentIndex = index;
+            updateVideo(currentIndex);
         });
+    });
 
-        // Tombol Next Lesson
-        document.querySelector('.next-button').addEventListener('click', function() {
-            if (currentIndex < courseItems.length - 1) {
-                currentIndex++;
-                updateVideo(currentIndex);
-            }
-        });
+    // Menampilkan video pertama saat halaman dimuat
+    updateVideo(currentIndex);
+
+    // Tombol Previous Lesson
+    document.querySelector('.prev-button').addEventListener('click', function() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateVideo(currentIndex);
+        }
+    });
+
+    // Tombol Next Lesson
+    document.querySelector('.next-button').addEventListener('click', function() {
+        if (currentIndex < courseItems.length - 1) {
+            currentIndex++;
+            updateVideo(currentIndex);
+        }
+    });
     });
 </script>
