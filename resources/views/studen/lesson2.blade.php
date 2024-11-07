@@ -11,10 +11,13 @@
                             <div class="accordion" id="accordionExample">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            Introduction
-                                            <span>1/3</span>
+                                        <button class="accordion-button {{ $index === 0 ? '' : 'collapsed' }}"
+                                            type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapse{{ $index }}"
+                                            aria-expanded="{{ $index === 0 ? 'true' : 'false' }}"
+                                            aria-controls="collapse{{ $index }}">
+                                            {{ $kurikulumItem->title }}
+                                            <span>{{ $index + 1 }}/{{ count($kurikulum) }}</span>
                                         </button>
                                     </h2>
                                     <div id="collapseOne" class="accordion-collapse collapse show"
