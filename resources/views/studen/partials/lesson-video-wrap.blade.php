@@ -16,7 +16,34 @@
         <button class="next-button" title="Next Lesson"><i class="flaticon-arrow-right"></i></button>
     </div>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const courseItems = document.querySelectorAll('.course-item');
+        const videoTitle = document.getElementById('video-title');
+        const player = document.getElementById('player');
 
+        courseItems.forEach(function(courseItem) {
+            courseItem.addEventListener('click', function() {
+                const videoId = courseItem.getAttribute('data-video-id');
+                const filePath = courseItem.getAttribute('data-file-path');
+                const title = courseItem.querySelector('.item-name').textContent;
+
+                // Update the video title
+                videoTitle.textContent = title;
+
+                // Update the iframe src with the new video ID or file path
+                if (videoId) {
+                    player.src =
+                    videoId; // Assuming videoId is a URL to the video (e.g., YouTube or Vimeo link)
+                }
+
+                // Optionally, you can handle filePath (for other types of content, such as PDFs)
+                console.log('File Path:', filePath); // Do something with filePath if needed
+            });
+        });
+    });
+</script>
+{{-- 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const courseItems = document.querySelectorAll('.course-item');
@@ -34,19 +61,16 @@
 
                 const player = document.getElementById('player');
 
-                // Ubah URL file dari "lesson/uploads" menjadi "public/uploads"
-                const updatedFilePath = filePath.replace('lesson/uploads', 'public/uploads');
-
-                if (updatedFilePath.endsWith('.pdf')) {
+                if (filePath.endsWith('.pdf')) {
                     // Jika file adalah PDF
-                    player.src = updatedFilePath;
-                } else if (updatedFilePath.includes('youtube.com')) {
+                    player.src = filePath;
+                } else if (filePath.includes('youtube.com')) {
                     // Jika file adalah video YouTube
-                    player.src = updatedFilePath.replace('watch?v=', 'embed/');
+                    player.src = filePath.replace('watch?v=', 'embed/');
                 } else {
                     // Jika file video
                     const videoSource = document.getElementById('video-source');
-                    videoSource.src = updatedFilePath;
+                    videoSource.src = filePath;
                     player.load();
                     player.play();
                 }
@@ -80,4 +104,4 @@
             }
         });
     });
-</script>
+</script> --}}
