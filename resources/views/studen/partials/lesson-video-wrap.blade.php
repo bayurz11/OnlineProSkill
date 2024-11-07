@@ -9,21 +9,16 @@
         </div>
     </div>
 
-    <div id="video-container">
-        <video id="player" playsinline controls data-poster="assets/img/bg/video_bg.webp">
-            <source id="video-source" src="" type="video/mp4" />
-            <source src="/path/to/video.webm" type="video/webm" />
-        </video>
-        <iframe id="video-iframe" style="display:none" width="560" height="315" frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
+    <video id="player" playsinline controls data-poster="assets/img/bg/video_bg.webp">
+        <source id="video-source" src="" type="video/mp4" />
+        <source src="/path/to/video.webm" type="video/webm" />
+    </video>
 
     <div class="lesson__next-prev-button">
         <button class="prev-button" title="Previous Lesson"><i class="flaticon-arrow-right"></i></button>
         <button class="next-button" title="Next Lesson"><i class="flaticon-arrow-right"></i></button>
     </div>
 </div>
-
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         // Ambil semua item kursus
@@ -41,42 +36,14 @@
                 // Perbarui judul video
                 document.getElementById('video-title').innerText = videoTitle;
 
-                // Cek tipe file (YouTube atau Google Drive atau lainnya)
-                let fileSrc = '';
-                const youtubeRegex =
-                    /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
-                const driveRegex =
-                    /(?:drive\.google\.com\/file\/d\/|drive\.google\.com\/open\?id=|docs.google\.com\/(?:presentation|document|spreadsheets)\/d\/)([^"&?\/\s]+)/;
+                // Perbarui sumber video
+                const videoSource = document.getElementById('video-source');
+                videoSource.src = filePath;
 
-                const youtubeMatch = filePath.match(youtubeRegex);
-                const driveMatch = filePath.match(driveRegex);
-
-                if (youtubeMatch) {
-                    const youtubeId = youtubeMatch[1];
-                    fileSrc = 'https://www.youtube.com/embed/' + youtubeId;
-                    // Menyembunyikan video biasa dan menampilkan iframe YouTube
-                    document.getElementById('player').style.display = 'none';
-                    document.getElementById('video-iframe').style.display = 'block';
-                    document.getElementById('video-iframe').src = fileSrc;
-                } else if (driveMatch) {
-                    const driveId = driveMatch[1];
-                    fileSrc = 'https://drive.google.com/file/d/' + driveId + '/preview';
-                    // Menyembunyikan video biasa dan menampilkan iframe Google Drive
-                    document.getElementById('player').style.display = 'none';
-                    document.getElementById('video-iframe').style.display = 'block';
-                    document.getElementById('video-iframe').src = fileSrc;
-                } else {
-                    // Perbarui sumber video biasa jika bukan YouTube atau Google Drive
-                    document.getElementById('player').style.display = 'block';
-                    document.getElementById('video-iframe').style.display = 'none';
-                    const videoSource = document.getElementById('video-source');
-                    videoSource.src = filePath;
-
-                    // Muat dan mainkan video
-                    const player = document.getElementById('player');
-                    player.load(); // Memuat video baru
-                    player.play(); // Memulai pemutaran video
-                }
+                // Muat dan mainkan video
+                const player = document.getElementById('player');
+                player.load(); // Memuat video baru
+                player.play(); // Memulai pemutaran video
             }
         }
 
