@@ -246,12 +246,7 @@ class AksesPembelianController extends Controller
             'allSectionsCompleted'
         ));
     }
-    public function reloadKurikulumContent()
-    {
-        $kurikulum = Kurikulum::with('sections')->where('course_id')->get();
 
-        return view('studen.partials.kurikulum-content', compact('kurikulum'));
-    }
 
     public function fetchContent($id)
     {
