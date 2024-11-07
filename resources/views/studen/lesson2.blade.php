@@ -1,5 +1,5 @@
 @extends('layout.mainlayout')
-@include('studen.review.modal.reviewmodal')
+
 @section('content')
     <section class="lesson__area section-pb-120">
         <div class="container-fluid p-0">
@@ -232,11 +232,11 @@
                 completeSectionBtn.style.display = isCompleted ? 'none' : 'block';
 
                 // Cek jika semua section selesai
-                allSectionsCompleted();
+                checkAllSectionsCompleted();
             }
 
             // Fungsi untuk memeriksa apakah semua section sudah selesai
-            function allSectionsCompleted() {
+            function checkAllSectionsCompleted() {
                 const allCompleted = Array.from(courseItems).every(item => item.querySelector('.bg-success'));
                 if (allCompleted) {
                     reviewButton.style.display = 'block'; // Tampilkan tombol Review jika semua section selesai
@@ -307,14 +307,14 @@
                                 const kurikulumContainer = document.getElementById(
                                     'kurikulum-content');
                                 const courseId = document.getElementById('course-id')
-                                    .value; // Pastikan memiliki ID kursus di halaman
+                                .value; // Pastikan memiliki ID kursus di halaman
 
                                 // Mengambil konten kurikulum terbaru
                                 fetch(`/course-content/${courseId}`)
                                     .then(response => response.text())
                                     .then(html => {
                                         kurikulumContainer.innerHTML =
-                                            html; // Mengganti konten kurikulum
+                                        html; // Mengganti konten kurikulum
                                     })
                                     .catch(error => {
                                         console.error('Error:', error);
@@ -329,6 +329,48 @@
                     });
             });
 
+            // Event klik untuk tombol "Review Course"
+            reviewButton.addEventListener('click', () => {
+                // Menampilkan modal review ketika tombol di klik
+                const myModal = new bootstrap.Modal(document.getElementById('reviewModal'));
+                myModal.show();
+            });
+
+            // Event submit untuk form review
+            document.getElementById('reviewForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const rating = document.getElementById('rating').value;
+                const comment = document.getElementById('comment').value;
+
+                // Mengirim review ke server
+                fetch('/submit-review', {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            rating,
+                            comment
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert('Review submitted successfully!');
+                            // Menutup modal
+                            const myModal = bootstrap.Modal.getInstance(document.getElementById(
+                                'reviewModal'));
+                            myModal.hide();
+                        } else {
+                            alert('Failed to submit review.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            });
         });
     </script>
     <style>
@@ -337,4 +379,38 @@
             border-left: 5px solid #007bff;
         }
     </style>
+
+    <!-- Modal untuk memberikan review -->
+    <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="reviewModalLabel">Give Your Review</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="reviewForm">
+                        <!-- Rating -->
+                        <div class="mb-3">
+                            <label for="rating" class="form-label">Rating</label>
+                            <select id="rating" class="form-select" required>
+                                <option value="">Select Rating</option>
+                                <option value="1">1 - Very Bad</option>
+                                <option value="2">2 - Bad</option>
+                                <option value="3">3 - Average</option>
+                                <option value="4">4 - Good</option>
+                                <option value="5">5 - Excellent</option>
+                            </select>
+                        </div>
+                        <!-- Comment -->
+                        <div class="mb-3">
+                            <label for="comment" class="form-label">Your Comment</label>
+                            <textarea id="comment" class="form-control" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Review</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

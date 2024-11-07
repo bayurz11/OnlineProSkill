@@ -20,5 +20,4 @@
     Tandai Selesai
 </button>
 
-<button id="reviewButton" data-bs-toggle="modal" data-bs-target="#reviewModal" class="btn btn-primary"
-    style="display: none;">Review Course</button>
+<button id="reviewButton" class="btn btn-primary" style="display: none;">Review Course</button>
