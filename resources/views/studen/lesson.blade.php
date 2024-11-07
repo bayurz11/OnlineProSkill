@@ -106,9 +106,6 @@
             var fileUrl = element.getAttribute('data-link');
             var fileType = element.getAttribute('data-type');
             var sectionId = element.getAttribute('data-id');
-            console.log('fileUrl:', fileUrl);
-            console.log('fileType:', fileType);
-            console.log('sectionId:', sectionId);
 
             // Update the hidden input with the clicked section ID
             document.getElementById('sectionId').value = sectionId;
@@ -166,29 +163,6 @@
             element.classList.add('active');
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            var firstFileLink = document.querySelector('.course-item-link.active');
-            if (firstFileLink) {
-                changeContent(firstFileLink, new Event('click'));
-            }
-        });
-
-        function nextContent() {
-            var activeLink = document.querySelector('.course-item-link.active');
-            var nextLink = activeLink.parentElement.nextElementSibling?.querySelector('.course-item-link');
-            if (nextLink) {
-                changeContent(nextLink, new Event('click'));
-            }
-        }
-
-        function prevContent() {
-            var activeLink = document.querySelector('.course-item-link.active');
-            var prevLink = activeLink.parentElement.previousElementSibling?.querySelector('.course-item-link');
-            if (prevLink) {
-                changeContent(prevLink, new Event('click'));
-            }
-        }
-
         function submitStatusForm(event) {
             event.preventDefault();
             const form = document.getElementById('statusForm');
@@ -203,17 +177,16 @@
                 })
                 .then(response => {
                     if (response.ok) {
+                        // Simpan `sectionId` ke `localStorage`
+                        const sectionId = document.getElementById('sectionId').value;
+                        localStorage.setItem('lastCompletedSection', sectionId);
+
                         // Pindah ke konten berikutnya setelah status diperbarui
                         const activeLink = document.querySelector('.course-item-link.active');
                         const nextLink = activeLink.parentElement.nextElementSibling?.querySelector(
-                            '.course-item-link');
+                        '.course-item-link');
                         if (nextLink) {
                             changeContent(nextLink, new Event('click'));
-                        }
-
-                        // Simpan ID atau data unik dari item yang aktif ke localStorage
-                        if (activeLink) {
-                            localStorage.setItem('activeCourseItem', activeLink.dataset.id);
                         }
                     } else {
                         console.error("Error: " + response.statusText);
@@ -222,17 +195,32 @@
                 .catch(error => console.error("Fetch error:", error));
         }
 
-        // Saat halaman dimuat
+        // Saat halaman dimuat, posisikan ke `sectionId` terakhir yang diselesaikan
         document.addEventListener('DOMContentLoaded', () => {
-            const activeItemId = localStorage.getItem('activeCourseItem');
-            if (activeItemId) {
-                // Temukan item yang sesuai dan tambahkan kelas aktif
-                const activeItem = document.querySelector(`.course-item-link[data-id="${activeItemId}"]`);
+            const lastCompletedSection = localStorage.getItem('lastCompletedSection');
+            if (lastCompletedSection) {
+                const activeItem = document.querySelector(`.course-item-link[data-id="${lastCompletedSection}"]`);
                 if (activeItem) {
                     activeItem.classList.add('active');
+                    changeContent(activeItem, new Event('click'));
                 }
             }
         });
-    </script>
 
+        function nextContent() {
+            const activeLink = document.querySelector('.course-item-link.active');
+            const nextLink = activeLink.parentElement.nextElementSibling?.querySelector('.course-item-link');
+            if (nextLink) {
+                changeContent(nextLink, new Event('click'));
+            }
+        }
+
+        function prevContent() {
+            const activeLink = document.querySelector('.course-item-link.active');
+            const prevLink = activeLink.parentElement.previousElementSibling?.querySelector('.course-item-link');
+            if (prevLink) {
+                changeContent(prevLink, new Event('click'));
+            }
+        }
+    </script>
 @endsection
