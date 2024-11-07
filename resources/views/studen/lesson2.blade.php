@@ -17,6 +17,35 @@
                                             aria-expanded="{{ $index === 0 ? 'true' : 'false' }}"
                                             aria-controls="collapse{{ $index }}">
                                             {{ $kurikulumItem->title }}
+                                            @php
+                                                $totalDurationInSeconds = 0;
+                                                foreach ($kurikulumItem->sections as $section) {
+                                                    // Pastikan format duration valid
+                                                    $durationParts = explode(':', $section->duration);
+
+                                                    // Cek apakah duration memiliki 3 bagian (jam, menit, detik)
+                                                    if (count($durationParts) === 3) {
+                                                        [$hours, $minutes, $seconds] = $durationParts;
+                                                        // Konversikan ke detik
+                                                        $totalDurationInSeconds +=
+                                                            $hours * 3600 + $minutes * 60 + $seconds;
+                                                    } else {
+                                                        // Jika format tidak valid, atur durasi ke 0 detik
+                                                        $totalDurationInSeconds += 0;
+                                                    }
+                                                }
+
+                                                // Mengonversi total detik menjadi format jam dan menit
+                                                $hours = floor($totalDurationInSeconds / 3600);
+                                                $minutes = floor(($totalDurationInSeconds % 3600) / 60);
+
+                                                // Tentukan format durasi berdasarkan nilai jam dan menit
+                                                if ($hours > 0) {
+                                                    $totalDuration = "{$hours} jam {$minutes} menit";
+                                                } else {
+                                                    $totalDuration = "{$minutes} menit";
+                                                }
+                                            @endphp
                                             <span>{{ count($kurikulumItem->sections) }} Materi ({{ $totalDuration }})</span>
                                         </button>
                                     </h2>
