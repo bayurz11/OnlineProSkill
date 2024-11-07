@@ -30,7 +30,8 @@
                                                         <a href="#" class="course-item-link active">
                                                             <span class="item-name">{{ $section->title }}</span>
                                                             <div class="course-item-meta">
-                                                                <span class="item-meta duration">03:03</span>
+                                                                <span
+                                                                    class="item-meta duration">{{ $section->duration }}</span>
                                                             </div>
                                                         </a>
                                                     </li>
