@@ -198,7 +198,6 @@
                 myModal.show();
             });
 
-            // Event submit untuk form review
             document.getElementById('reviewForm').addEventListener('submit', function(e) {
                 e.preventDefault();
 
@@ -212,8 +211,8 @@
                 fetch('/review/store', {
                         method: 'POST',
                         headers: {
-                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                            'Content-Type': 'application/json'
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}', // Pastikan CSRF token dimasukkan
+                            'Content-Type': 'application/json' // Memberitahukan bahwa data yang dikirim dalam format JSON
                         },
                         body: JSON.stringify({
                             rating: rating,
@@ -221,19 +220,24 @@
                             class_id: classId
                         })
                     })
-                    .then(response => response.json())
+                    .then(response => response.json()) // Mengubah respons menjadi format JSON
                     .then(data => {
                         if (data.success) {
                             alert('Review submitted successfully!');
+                            // Tambahkan logika untuk menutup modal atau memperbarui UI
+                            // Misalnya, menutup modal setelah berhasil
+                            const myModal = new bootstrap.Modal(document.getElementById('reviewModal'));
+                            myModal.hide();
                         } else {
-                            alert('Failed to submit review.');
+                            alert(data.error || 'Failed to submit review.'); // Menampilkan pesan error
                         }
                     })
                     .catch(error => {
                         console.error('Error:', error);
+                        alert('An error occurred.');
                     });
-
             });
+
 
         });
     </script>

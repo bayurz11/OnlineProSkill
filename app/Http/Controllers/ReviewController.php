@@ -63,7 +63,7 @@ class ReviewController extends Controller
         // Memastikan user login
         $user = Auth::user();
         if (!$user) {
-            return redirect()->route('home');
+            return response()->json(['error' => 'User not logged in'], 401); // Response JSON jika user tidak login
         }
 
         // Validasi data
@@ -79,7 +79,7 @@ class ReviewController extends Controller
             ->first();
 
         if ($existingReview) {
-            return redirect()->back()->with('error', 'Anda sudah memberi review untuk kelas ini.');
+            return response()->json(['error' => 'You have already reviewed this class.'], 400); // Response JSON jika sudah ada review
         }
 
         // Simpan review baru
@@ -90,6 +90,6 @@ class ReviewController extends Controller
             'comment' => $request->comment,
         ]);
 
-        return redirect()->back()->with('success', 'Review berhasil ditambahkan');
+        return response()->json(['success' => 'Review submitted successfully.'], 200); // Response JSON jika sukses
     }
 }
