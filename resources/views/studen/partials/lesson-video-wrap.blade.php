@@ -19,5 +19,6 @@
 <button id="completeSectionBtn" class="btn btn-primary" style="display: none;" data-section-id="">
     Tandai Selesai
 </button>
-<!-- Tombol Review, disembunyikan pada awalnya -->
-<button id="reviewButton" class="btn btn-primary" style="display: none;">Review Course</button>
+
+<button id="reviewButton" data-bs-toggle="modal" data-bs-target="#reviewModal{{ $order->KelasTatapMuka->id }}"
+    class="btn btn-primary" style="display: none;">Review Course</button>
