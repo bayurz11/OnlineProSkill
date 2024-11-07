@@ -1,8 +1,12 @@
+@php
+    $firstSection = $kurikulumItem->sections[0];
+@endphp
+
 <div class="lesson__video-wrap">
     <div class="lesson__video-wrap-top">
         <div class="lesson__video-wrap-top-left">
             <a href="#"><i class="flaticon-arrow-right"></i></a>
-            <span id="video-title">Choose a lesson</span>
+            <span id="video-title">{{ $firstSection->title }}</span>
         </div>
         <div class="lesson__video-wrap-top-right">
             <a href="#"><i class="fas fa-times"></i></a>
@@ -10,7 +14,7 @@
     </div>
 
     <video id="player" playsinline controls data-poster="assets/img/bg/video_bg.webp">
-        <source id="video-source" src="" type="video/mp4" />
+        <source id="video-source" src="/path/to/video-{{ $firstSection->id }}.mp4" type="video/mp4" />
         <source src="/path/to/video.webm" type="video/webm" />
     </video>
 
