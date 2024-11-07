@@ -19,10 +19,10 @@
 <div class="courses__details-content lesson__details-content">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview-tab-pane"
-                type="button" role="tab" aria-controls="overview-tab-pane" aria-selected="true">Overview</button>
+            <button class="nav-link active" type="button" role="tab" aria-controls="overview-tab-pane"
+                aria-selected="true">Menyelesiakan</button>
         </li>
-        <li class="nav-item" role="presentation">
+        {{-- <li class="nav-item" role="presentation">
             <button class="nav-link" id="instructors-tab" data-bs-toggle="tab" data-bs-target="#instructors-tab-pane"
                 type="button" role="tab" aria-controls="instructors-tab-pane"
                 aria-selected="false">Instructors</button>
@@ -30,7 +30,7 @@
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews-tab-pane"
                 type="button" role="tab" aria-controls="reviews-tab-pane" aria-selected="false">reviews</button>
-        </li>
+        </li> --}}
     </ul>
 </div>
 <script>
