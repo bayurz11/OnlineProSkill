@@ -204,8 +204,10 @@
 
                 const rating = document.getElementById('rating').value;
                 const comment = document.getElementById('comment').value;
+
                 // Ambil ID kelas dari URL
-                const classId = window.location.pathname.split('/').pop();
+                const classId = window.location.pathname.split('/').pop(); // Mengambil ID dari URL
+
                 // Mengirim review ke server
                 fetch('/review/store', {
                         method: 'POST',
@@ -216,15 +218,10 @@
                         body: JSON.stringify({
                             rating: rating,
                             comment: comment,
-                            class_id: classId
+                            class_id: classId // Mengirimkan classId yang benar
                         })
                     })
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok ' + response.statusText);
-                        }
-                        return response.json();
-                    })
+                    .then(response => response.json())
                     .then(data => {
                         if (data.success) {
                             alert('Review submitted successfully!');
@@ -239,8 +236,8 @@
                     .catch(error => {
                         console.error('Error:', error);
                     });
-
             });
+
         });
     </script>
 
