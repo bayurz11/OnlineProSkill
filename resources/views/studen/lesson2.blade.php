@@ -14,9 +14,7 @@
                     @include('studen.partials.lesson-video-wrap')
                 </div>
 
-                <button id="completeSectionBtn" class="btn btn-primary" style="display: none;" data-section-id="">
-                    Tandai Selesai
-                </button>
+
             </div>
         </div>
 

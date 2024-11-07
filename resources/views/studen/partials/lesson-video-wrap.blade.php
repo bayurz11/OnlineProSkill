@@ -16,3 +16,6 @@
         <button class="next-button" title="Next Lesson"><i class="flaticon-arrow-right"></i></button>
     </div>
 </div>
+<button id="completeSectionBtn" class="btn btn-primary" style="display: none;" data-section-id="">
+    Tandai Selesai
+</button>
