@@ -99,6 +99,15 @@
                 <div class="col-xl-9 col-lg-8">
                     @include('studen.partials.lesson-video-wrap')
                 </div>
+                <div class="d-flex justify-content-end mt-3 ms-3 me-3">
+                    <form action="{{ route('sectionstatus', ['id' => $section->id]) }}" method="POST">
+                        @csrf
+                        @method('PUT')
+
+                        <button type="submit" class="btn btn-primary">Update Status</button>
+                    </form>
+
+                </div>
             </div>
         </div>
     </section>
