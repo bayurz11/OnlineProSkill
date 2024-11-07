@@ -27,13 +27,16 @@
                                                     $totalDurationInSeconds += $hours * 3600 + $minutes * 60 + $seconds;
                                                 }
 
-                                                // Hitung total durasi dalam format jam:menit:detik
+                                                // Mengonversi total detik menjadi format jam dan menit
                                                 $hours = floor($totalDurationInSeconds / 3600);
                                                 $minutes = floor(($totalDurationInSeconds % 3600) / 60);
-                                                $seconds = $totalDurationInSeconds % 60;
 
-                                                // Format total durasi
-                                                $totalDuration = sprintf('%02d:%02d:%02d', $hours, $minutes, $seconds);
+                                                // Tentukan format durasi berdasarkan nilai jam dan menit
+                                                if ($hours > 0) {
+                                                    $totalDuration = "{$hours} jam {$minutes} menit";
+                                                } else {
+                                                    $totalDuration = "{$minutes} menit";
+                                                }
                                             @endphp
 
                                             <span>{{ count($kurikulumItem->sections) }} Materi ({{ $totalDuration }})</span>
