@@ -80,7 +80,7 @@
                                                 <div class="form-grp select-grp">
                                                     <label for="displayname">Peruntukan Training <span
                                                             class="text-danger">*</span></label>
-                                                    <select id="displayname" name="displayname">
+                                                    <select id="displayname" name="displayname"required>
                                                         <option>Pilih</option>
                                                         <option value="company">Company</option>
                                                         <option value="individu">Individu</option>
@@ -123,7 +123,7 @@
                                                 <div class="form-grp select-grp">
                                                     <label for="bulanTraining">Kapan training rencana diadakan?<span
                                                             class="text-danger">*</span></label>
-                                                    <select id="bulanTraining" name="bulanTraining">
+                                                    <select id="bulanTraining" name="bulanTraining"required>
                                                         <option>Pilih Bulan</option>
                                                         <option value="Januari">Januari</option>
                                                         <option value="Februari">Februari</option>
@@ -144,7 +144,7 @@
                                                 <div class="form-grp select-grp">
                                                     <label for="industri">Pilih Industri di mana Kamu Bekerja<span
                                                             class="text-danger">*</span></label>
-                                                    <select id="industri" name="industri">
+                                                    <select id="industri" name="industri"required>
                                                         <option>Pilih Industri</option>
                                                         <option value="Teknologi">Teknologi</option>
                                                         <option value="Pendidikan">Pendidikan</option>
@@ -168,7 +168,7 @@
                                                 <div class="form-grp select-grp">
                                                     <label for="departemen">Pilih Departemen di mana peserta training
                                                         bekerja<span class="text-danger">*</span></label>
-                                                    <select id="departemen" name="departemen">
+                                                    <select id="departemen" name="departemen"required>
                                                         <option>Pilih Departemen</option>
                                                         <option value="Sumber Daya Manusia">Sumber Daya Manusia</option>
                                                         <option value="Keuangan">Keuangan</option>
@@ -191,7 +191,7 @@
                                                 <div class="form-grp select-grp">
                                                     <label for="levelPemahaman">Di level manakah kamu/peserta training
                                                         memahami tools? <span class="text-danger">*</span></label>
-                                                    <select id="levelPemahaman" name="levelPemahaman">
+                                                    <select id="levelPemahaman" name="levelPemahaman"required>
                                                         <option>Pilih Level Pemahaman</option>
                                                         <option value="Pemula">Pemula</option>
                                                         <option value="Menengah">Menengah</option>
@@ -203,13 +203,13 @@
                                         </div>
                                         <div class="form-grp">
                                             <label for="tujuan">Apa harapan terhadap pelatihan ini?</label>
-                                            <textarea id="tujuan"></textarea>
+                                            <textarea id="tujuan"required></textarea>
                                         </div>
                                         <div class="form-grp">
                                             <label for="materi">Adakah materi/modul yang ingin kamu pelajari sebagai
                                                 topik wajib dalam program?
                                             </label>
-                                            <textarea id="materi"></textarea>
+                                            <textarea id="materi"required></textarea>
                                         </div>
                                         <div class="submit-btn mt-25 d-flex justify-content-center align-items-center">
                                             <button type="submit" class="btn">Kirim Pesan</button>
