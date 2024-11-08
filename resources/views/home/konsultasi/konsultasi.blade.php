@@ -119,9 +119,10 @@
                                             <label for="bio">Bio</label>
                                             <textarea id="bio">I'm the Front-End Developer for #ThemeGenix in New York, OR. I am passionate about UI effects, animations, and creating intuitive, dynamic user experiences.</textarea>
                                         </div>
-                                        <div class="submit-btn mt-25">
+                                        <div class="submit-btn mt-25 flex justify-center items-center">
                                             <button type="submit" class="btn">Update Info</button>
                                         </div>
+
                                     </form>
                                 </div>
                             </div>
