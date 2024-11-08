@@ -189,8 +189,8 @@
                                                                     </div>
                                                                     <div class="courses__item-bottom-two">
                                                                         <ul class="list-wrap">
-                                                                            <li>{{ $kurikulumCount }}<i
-                                                                                    class="flaticon-book"></i>
+                                                                            <li>{{ $kurikulumCount[$order->KelasTatapMuka->id]->first()->total ?? 0 }}
+                                                                                <i class="flaticon-book"></i>
                                                                             </li>
                                                                             <li><i class="flaticon-clock"></i>
                                                                             </li>

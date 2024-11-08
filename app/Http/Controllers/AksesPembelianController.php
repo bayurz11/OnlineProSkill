@@ -79,18 +79,18 @@ class AksesPembelianController extends Controller
 
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
-        // Fetching orders related to the user with status PAID and SETTLED
         $orders = Order::where('user_id', $user->id)
             ->whereIn('status', ['PAID', 'SETTLED'])
             ->with(['KelasTatapMuka.sections'])
             ->get();
 
-        // Menghitung jumlah kurikulum_id yang sama
+        // Hitung jumlah kurikulum_id berdasarkan kelas
         $kurikulumCount = Section::whereIn('kelas_tatap_muka_id', $orders->pluck('KelasTatapMuka.id'))
-            ->select('kurikulum_id')
-            ->groupBy('kurikulum_id')
-            ->selectRaw('kurikulum_id, COUNT(*) as total')
-            ->get();
+            ->select('kelas_tatap_muka_id', 'kurikulum_id')
+            ->groupBy('kelas_tatap_muka_id', 'kurikulum_id')
+            ->selectRaw('kelas_tatap_muka_id, COUNT(*) as total')
+            ->get()
+            ->groupBy('kelas_tatap_muka_id');
 
         return view('studen.aksespembelian', compact(
             'user',
