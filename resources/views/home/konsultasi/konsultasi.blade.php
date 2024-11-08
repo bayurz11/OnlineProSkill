@@ -39,7 +39,7 @@
         </div>
     </section>
     <div class="row">
-        <div class="col-lg-12 px-4">
+        <div class="col-lg-12 px-5">
             <div class="dashboard__content-wrap">
                 <div class="dashboard__content-title text-center">
                     <h4 class="title">Leave a Message</h4>
