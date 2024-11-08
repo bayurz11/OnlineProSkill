@@ -52,7 +52,7 @@
                             <div class="tab-pane fade show active" id="itemOne-tab-pane" role="tabpanel"
                                 aria-labelledby="itemOne-tab" tabindex="0">
                                 <div class="instructor__profile-form-wrap">
-                                    <form action="#" class="instructor__profile-form">
+                                    <form onsubmit="sendWhatsAppMessage(event)" class="instructor__profile-form">
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-grp">
@@ -90,9 +90,9 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-grp select-grp">
-                                                    <label for="displayname">Berapa jumlah peserta yang ikut serta dalam
+                                                    <label for="jumlahPeserta">Berapa jumlah peserta yang ikut serta dalam
                                                         training?</label>
-                                                    <select id="displayname" name="displayname">
+                                                    <select id="jumlahPeserta" name="jumlahPeserta">
                                                         <option>Pilih Jumlah Peserta</option>
                                                         <option value="1-5">1-5 Orang</option>
                                                         <option value="6-10">6-10 Orang</option>
@@ -223,4 +223,48 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function sendWhatsAppMessage(event) {
+            event.preventDefault(); // Mencegah pengiriman form default
+
+            // Ambil nilai dari setiap field form
+            const nama = document.getElementById('nama').value;
+            const phonenumber = document.getElementById('phonenumber').value;
+            const email = document.getElementById('email').value;
+            const peruntukan = document.getElementById('displayname').value;
+            const jumlahPeserta = document.getElementById('jumlahPeserta').value;
+            const targetPeserta = document.getElementById('targetPeserta').value;
+            const bulanTraining = document.getElementById('bulanTraining').value;
+            const industri = document.getElementById('industri').value;
+            const departemen = document.getElementById('departemen').value;
+            const levelPemahaman = document.getElementById('levelPemahaman').value;
+            const tujuan = document.getElementById('tujuan').value;
+            const materi = document.getElementById('materi').value;
+
+            // Format pesan untuk WhatsApp
+            const message = `Halo, saya ingin mendaftar untuk pelatihan. Berikut detail saya:
+          - Nama: ${nama}
+          - Nomor Telepon: ${phonenumber}
+          - Email: ${email}
+          - Peruntukan: ${peruntukan}
+          - Jumlah Peserta: ${jumlahPeserta}
+          - Target Peserta: ${targetPeserta}
+          - Bulan Training: ${bulanTraining}
+          - Industri: ${industri}
+          - Departemen: ${departemen}
+          - Level Pemahaman: ${levelPemahaman}
+          - Harapan: ${tujuan}
+          - Materi: ${materi}`;
+
+            // Nomor tujuan WhatsApp (contoh: 6281234567890)
+            const whatsappNumber = '6281318207954';
+
+            // Buat URL WhatsApp
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+            // Arahkan pengguna ke WhatsApp
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
 @endsection
