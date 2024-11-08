@@ -59,7 +59,6 @@
                                                     <label for="nama">Nama <span class="text-danger">*</span></label>
                                                     <input id="nama" name="nama" type="text"
                                                         placeholder="masukkan nama anda" required>
-
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -229,47 +228,34 @@
         function sendWhatsAppMessage(event) {
             event.preventDefault(); // Mencegah pengiriman form default
 
-            // Fungsi untuk mendapatkan elemen dengan pengecekan null
-            function getElementValue(id) {
-                const element = document.getElementById(id);
-                return element ? element.value.trim() : ''; // Jika elemen tidak ada, kembalikan string kosong
-            }
-
             // Ambil nilai dari setiap field form
-            const nama = getElementValue('nama');
-            const phonenumber = getElementValue('phonenumber');
-            const email = getElementValue('email');
-            const peruntukan = getElementValue('displayname');
-            const jumlahPeserta = getElementValue('jumlahPeserta'); // Dikecualikan dari validasi
-            const targetPeserta = getElementValue('targetPeserta'); // Dikecualikan dari validasi
-            const bulanTraining = getElementValue('bulanTraining');
-            const industri = getElementValue('industri');
-            const departemen = getElementValue('departemen');
-            const levelPemahaman = getElementValue('levelPemahaman');
-            const tujuan = getElementValue('tujuan');
-            const materi = getElementValue('materi');
-
-            // Validasi: Pastikan semua field yang wajib diisi sudah terisi (kecuali jumlahPeserta dan targetPeserta)
-            if (!nama || !phonenumber || !email || !peruntukan || !bulanTraining || !industri ||
-                !departemen || !levelPemahaman || !tujuan || !materi) {
-                alert("Mohon isi semua field yang wajib diisi.");
-                return;
-            }
+            const nama = document.getElementById('nama').value;
+            const phonenumber = document.getElementById('phonenumber').value;
+            const email = document.getElementById('email').value;
+            const peruntukan = document.getElementById('peruntukan').value;
+            const jumlahPeserta = document.getElementById('jumlahPeserta').value;
+            const targetPeserta = document.getElementById('targetPeserta').value;
+            const bulanTraining = document.getElementById('bulanTraining').value;
+            const industri = document.getElementById('industri').value;
+            const departemen = document.getElementById('departemen').value;
+            const levelPemahaman = document.getElementById('levelPemahaman').value;
+            const tujuan = document.getElementById('tujuan').value;
+            const materi = document.getElementById('materi').value;
 
             // Format pesan untuk WhatsApp
             const message = `Halo, saya ingin mendaftar untuk pelatihan. Berikut detail saya:
-              - Nama: ${nama}
-              - Nomor Telepon: ${phonenumber}
-              - Email: ${email}
-              - Peruntukan: ${peruntukan}
-              - Jumlah Peserta: ${jumlahPeserta} (Opsional)
-              - Target Peserta: ${targetPeserta} (Opsional)
-              - Bulan Training: ${bulanTraining}
-              - Industri: ${industri}
-              - Departemen: ${departemen}
-              - Level Pemahaman: ${levelPemahaman}
-              - Harapan: ${tujuan}
-              - Materi: ${materi}`;
+          - Nama: ${nama}
+          - Nomor Telepon: ${phonenumber}
+          - Email: ${email}
+          - Peruntukan: ${peruntukan}
+          - Jumlah Peserta: ${jumlahPeserta}
+          - Target Peserta: ${targetPeserta}
+          - Bulan Training: ${bulanTraining}
+          - Industri: ${industri}
+          - Departemen: ${departemen}
+          - Level Pemahaman: ${levelPemahaman}
+          - Harapan: ${tujuan}
+          - Materi: ${materi}`;
 
             // Nomor tujuan WhatsApp (contoh: 6281234567890)
             const whatsappNumber = '6281318207954';
@@ -281,7 +267,4 @@
             window.open(whatsappURL, '_blank');
         }
     </script>
-
-
-
 @endsection
