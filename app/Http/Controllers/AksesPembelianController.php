@@ -22,6 +22,45 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 class AksesPembelianController extends Controller
 {
 
+    // public function index()
+    // {
+    //     $categori = Categories::all();
+    //     $cart = Session::get('cart', []);
+    //     $user = Auth::user();
+    //     if (!$user) {
+    //         return redirect()->route('home');
+    //     }
+
+    //     $profile = UserProfile::where('user_id', $user->id)->first();
+    //     $KelasTatapMuka = KelasTatapMuka::inRandomOrder()->get();
+    //     $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
+    //         ->orderBy('created_at', 'desc')
+    //         ->get()
+    //         : collect();
+
+    //     $notifikasiCount = $notifikasi->where('status', 1)->count();
+
+    //     // Fetching orders related to the user with status PAID and SETTLED
+    //     $orders = Order::where('user_id', $user->id)
+    //         ->whereIn('status', ['PAID', 'SETTLED'])
+    //         ->with('KelasTatapMuka')
+    //         ->get();
+
+    //     $kurikulum = Kurikulum::all();
+
+    //     // Debugging data
+    //     foreach ($orders as $order) {
+    //         Log::info('Order ID: ' . $order->id);
+    //         if ($order->KelasTatapMuka) {
+    //             Log::info('Kelas Tatap Muka ID: ' . $order->KelasTatapMuka->id);
+    //             Log::info('Kelas Tatap Muka Name: ' . $order->KelasTatapMuka->nama_kelas);
+    //         } else {
+    //             Log::info('Kelas Tatap Muka: Not Found');
+    //         }
+    //     }
+
+    //     return view('studen.aksespembelian', compact('user', 'categori', 'profile', 'cart', 'KelasTatapMuka', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum'));
+    // }
     public function index()
     {
         $categori = Categories::all();
@@ -43,24 +82,29 @@ class AksesPembelianController extends Controller
         // Fetching orders related to the user with status PAID and SETTLED
         $orders = Order::where('user_id', $user->id)
             ->whereIn('status', ['PAID', 'SETTLED'])
-            ->with('KelasTatapMuka')
+            ->with(['KelasTatapMuka.sections'])
             ->get();
 
-        $kurikulum = Kurikulum::all();
+        // Menghitung jumlah kurikulum_id yang sama
+        $kurikulumCount = Section::whereIn('kelas_tatap_muka_id', $orders->pluck('KelasTatapMuka.id'))
+            ->select('kurikulum_id')
+            ->groupBy('kurikulum_id')
+            ->selectRaw('kurikulum_id, COUNT(*) as total')
+            ->get();
 
-        // Debugging data
-        foreach ($orders as $order) {
-            Log::info('Order ID: ' . $order->id);
-            if ($order->KelasTatapMuka) {
-                Log::info('Kelas Tatap Muka ID: ' . $order->KelasTatapMuka->id);
-                Log::info('Kelas Tatap Muka Name: ' . $order->KelasTatapMuka->nama_kelas);
-            } else {
-                Log::info('Kelas Tatap Muka: Not Found');
-            }
-        }
-
-        return view('studen.aksespembelian', compact('user', 'categori', 'profile', 'cart', 'KelasTatapMuka', 'notifikasi', 'notifikasiCount', 'orders', 'kurikulum'));
+        return view('studen.aksespembelian', compact(
+            'user',
+            'categori',
+            'profile',
+            'cart',
+            'KelasTatapMuka',
+            'notifikasi',
+            'notifikasiCount',
+            'orders',
+            'kurikulumCount'
+        ));
     }
+
 
     public function lesson($id)
     {
