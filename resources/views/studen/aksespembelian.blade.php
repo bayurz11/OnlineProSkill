@@ -189,7 +189,7 @@
                                                                     </div>
                                                                     <div class="courses__item-bottom-two">
                                                                         <ul class="list-wrap">
-                                                                            <li>{{ $order->KelasTatapMuka->sections->link }}<i
+                                                                            <li>{{ $order->KelasTatapMuka->section->link }}<i
                                                                                     class="flaticon-book"></i>
                                                                             </li>
                                                                             <li><i class="flaticon-clock"></i>
