@@ -243,7 +243,7 @@
             const materi = document.getElementById('materi').value;
 
             // Format pesan untuk WhatsApp
-            const message = `Halo, saya ingin mendaftar untuk pelatihan. Berikut detail saya:
+            const message = `Halo, Admin ProSkill saya ingin mendaftar untuk pelatihan. Berikut detail saya:
           - Nama: ${nama}
           - Nomor Telepon: ${phonenumber}
           - Email: ${email}
