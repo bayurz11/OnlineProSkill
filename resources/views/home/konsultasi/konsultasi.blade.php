@@ -78,9 +78,9 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-grp select-grp">
-                                                    <label for="displayname">Peruntukan Training <span
+                                                    <label for="peruntukan">Peruntukan Training <span
                                                             class="text-danger">*</span></label>
-                                                    <select id="displayname" name="displayname"required>
+                                                    <select id="peruntukan" name="peruntukan"required>
                                                         <option>Pilih</option>
                                                         <option value="company">Company</option>
                                                         <option value="individu">Individu</option>
@@ -168,7 +168,7 @@
                                                 <div class="form-grp select-grp">
                                                     <label for="departemen">Pilih Departemen di mana peserta training
                                                         bekerja<span class="text-danger">*</span></label>
-                                                    <select id="departemen" name="departemen"required>
+                                                    <select id="departemen" name="departemen" required>
                                                         <option>Pilih Departemen</option>
                                                         <option value="Sumber Daya Manusia">Sumber Daya Manusia</option>
                                                         <option value="Keuangan">Keuangan</option>
@@ -191,7 +191,7 @@
                                                 <div class="form-grp select-grp">
                                                     <label for="levelPemahaman">Di level manakah kamu/peserta training
                                                         memahami tools? <span class="text-danger">*</span></label>
-                                                    <select id="levelPemahaman" name="levelPemahaman"required>
+                                                    <select id="levelPemahaman" name="levelPemahaman" required>
                                                         <option>Pilih Level Pemahaman</option>
                                                         <option value="Pemula">Pemula</option>
                                                         <option value="Menengah">Menengah</option>
@@ -229,33 +229,40 @@
             event.preventDefault(); // Mencegah pengiriman form default
 
             // Ambil nilai dari setiap field form
-            const nama = document.getElementById('nama').value;
-            const phonenumber = document.getElementById('phonenumber').value;
-            const email = document.getElementById('email').value;
-            const peruntukan = document.getElementById('displayname').value;
+            const nama = document.getElementById('nama').value.trim();
+            const phonenumber = document.getElementById('phonenumber').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const peruntukan = document.getElementById('peruntukan').value;
             const jumlahPeserta = document.getElementById('jumlahPeserta').value;
             const targetPeserta = document.getElementById('targetPeserta').value;
             const bulanTraining = document.getElementById('bulanTraining').value;
             const industri = document.getElementById('industri').value;
             const departemen = document.getElementById('departemen').value;
             const levelPemahaman = document.getElementById('levelPemahaman').value;
-            const tujuan = document.getElementById('tujuan').value;
-            const materi = document.getElementById('materi').value;
+            const tujuan = document.getElementById('tujuan').value.trim();
+            const materi = document.getElementById('materi').value.trim();
+
+            // Validasi: Pastikan semua field yang wajib diisi sudah terisi
+            if (!nama || !phonenumber || !email || !peruntukan || !bulanTraining || !industri || !departemen || !
+                levelPemahaman || !tujuan || !materi) {
+                alert("Mohon isi semua field yang wajib diisi.");
+                return;
+            }
 
             // Format pesan untuk WhatsApp
             const message = `Halo, saya ingin mendaftar untuk pelatihan. Berikut detail saya:
-          - Nama: ${nama}
-          - Nomor Telepon: ${phonenumber}
-          - Email: ${email}
-          - Peruntukan: ${peruntukan}
-          - Jumlah Peserta: ${jumlahPeserta}
-          - Target Peserta: ${targetPeserta}
-          - Bulan Training: ${bulanTraining}
-          - Industri: ${industri}
-          - Departemen: ${departemen}
-          - Level Pemahaman: ${levelPemahaman}
-          - Harapan: ${tujuan}
-          - Materi: ${materi}`;
+              - Nama: ${nama}
+              - Nomor Telepon: ${phonenumber}
+              - Email: ${email}
+              - Peruntukan: ${peruntukan}
+              - Jumlah Peserta: ${jumlahPeserta}
+              - Target Peserta: ${targetPeserta}
+              - Bulan Training: ${bulanTraining}
+              - Industri: ${industri}
+              - Departemen: ${departemen}
+              - Level Pemahaman: ${levelPemahaman}
+              - Harapan: ${tujuan}
+              - Materi: ${materi}`;
 
             // Nomor tujuan WhatsApp (contoh: 6281234567890)
             const whatsappNumber = '6281318207954';
@@ -267,4 +274,5 @@
             window.open(whatsappURL, '_blank');
         }
     </script>
+
 @endsection
