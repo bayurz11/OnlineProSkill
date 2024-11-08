@@ -187,17 +187,7 @@
                                                                             {{ $order->KelasTatapMuka->user->name }}
                                                                         </a>
                                                                     </div>
-                                                                    <div class="courses__item-bottom-two">
-                                                                        <ul class="list-wrap">
-                                                                            <li>{{ $kurikulumCount[$order->KelasTatapMuka->id] ?? 0 }}
-                                                                                <i class="flaticon-book"></i>
-                                                                            </li>
-                                                                            <li><i class="flaticon-clock"></i>
-                                                                            </li>
-                                                                            <li><i class="flaticon-mortarboard"></i>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
+
                                                                 </div>
                                                             </div>
                                                         </div>
