@@ -45,8 +45,9 @@ class KelasTatapMuka extends Model
     }
     public function kurikulum()
     {
-        return $this->hasMany(Order::class, 'course_id');
+        return $this->belongsTo(Kurikulum::class);
     }
+
     public function sertifikat()
     {
         return $this->hasMany(Sertifikat::class);
