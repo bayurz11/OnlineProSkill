@@ -229,19 +229,25 @@
         function sendWhatsAppMessage(event) {
             event.preventDefault(); // Mencegah pengiriman form default
 
+            // Fungsi untuk mendapatkan elemen dengan pengecekan null
+            function getElementValue(id) {
+                const element = document.getElementById(id);
+                return element ? element.value.trim() : ''; // Jika elemen tidak ada, kembalikan string kosong
+            }
+
             // Ambil nilai dari setiap field form
-            const nama = document.getElementById('nama').value.trim();
-            const phonenumber = document.getElementById('phonenumber').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const peruntukan = document.getElementById('displayname').value;
-            const jumlahPeserta = document.getElementById('jumlahPeserta').value; // Dikecualikan dari validasi
-            const targetPeserta = document.getElementById('targetPeserta').value; // Dikecualikan dari validasi
-            const bulanTraining = document.getElementById('bulanTraining').value;
-            const industri = document.getElementById('industri').value;
-            const departemen = document.getElementById('departemen').value;
-            const levelPemahaman = document.getElementById('levelPemahaman').value;
-            const tujuan = document.getElementById('tujuan').value.trim();
-            const materi = document.getElementById('materi').value.trim();
+            const nama = getElementValue('nama');
+            const phonenumber = getElementValue('phonenumber');
+            const email = getElementValue('email');
+            const peruntukan = getElementValue('displayname');
+            const jumlahPeserta = getElementValue('jumlahPeserta'); // Dikecualikan dari validasi
+            const targetPeserta = getElementValue('targetPeserta'); // Dikecualikan dari validasi
+            const bulanTraining = getElementValue('bulanTraining');
+            const industri = getElementValue('industri');
+            const departemen = getElementValue('departemen');
+            const levelPemahaman = getElementValue('levelPemahaman');
+            const tujuan = getElementValue('tujuan');
+            const materi = getElementValue('materi');
 
             // Validasi: Pastikan semua field yang wajib diisi sudah terisi (kecuali jumlahPeserta dan targetPeserta)
             if (!nama || !phonenumber || !email || !peruntukan || !bulanTraining || !industri ||
@@ -275,6 +281,7 @@
             window.open(whatsappURL, '_blank');
         }
     </script>
+
 
 
 @endsection
