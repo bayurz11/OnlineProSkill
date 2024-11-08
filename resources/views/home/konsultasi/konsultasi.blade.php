@@ -137,7 +137,66 @@
                                                         <option value="Desember">Desember</option>
                                                     </select>
                                                 </div>
-
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-grp select-grp">
+                                                    <label for="industri">Pilih Industri di mana Kamu Bekerja<span
+                                                            class="text-danger">*</span></label>
+                                                    <select id="industri" name="industri">
+                                                        <option>Pilih Industri</option>
+                                                        <option value="Teknologi">Teknologi</option>
+                                                        <option value="Pendidikan">Pendidikan</option>
+                                                        <option value="Kesehatan">Kesehatan</option>
+                                                        <option value="Keuangan">Keuangan</option>
+                                                        <option value="Manufaktur">Manufaktur</option>
+                                                        <option value="Ritel">Ritel</option>
+                                                        <option value="Perbankan">Perbankan</option>
+                                                        <option value="Pariwisata">Pariwisata</option>
+                                                        <option value="Konstruksi">Konstruksi</option>
+                                                        <option value="Transportasi">Transportasi</option>
+                                                        <option value="Energi">Energi</option>
+                                                        <option value="Pertanian">Pertanian</option>
+                                                        <option value="Hukum">Hukum</option>
+                                                        <option value="Media">Media</option>
+                                                        <option value="Lainnya">Lainnya</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-grp select-grp">
+                                                    <label for="departemen">Pilih Departemen di mana peserta training
+                                                        bekerja<span class="text-danger">*</span></label>
+                                                    <select id="departemen" name="departemen">
+                                                        <option>Pilih Departemen</option>
+                                                        <option value="Sumber Daya Manusia">Sumber Daya Manusia</option>
+                                                        <option value="Keuangan">Keuangan</option>
+                                                        <option value="Pemasaran">Pemasaran</option>
+                                                        <option value="Penjualan">Penjualan</option>
+                                                        <option value="Operasional">Operasional</option>
+                                                        <option value="IT">IT</option>
+                                                        <option value="Produksi">Produksi</option>
+                                                        <option value="R&D">R&D (Penelitian dan Pengembangan)</option>
+                                                        <option value="Legal">Legal</option>
+                                                        <option value="Layanan Pelanggan">Layanan Pelanggan</option>
+                                                        <option value="Pengadaan">Pengadaan</option>
+                                                        <option value="Kesehatan dan Keselamatan Kerja">Kesehatan dan
+                                                            Keselamatan Kerja</option>
+                                                        <option value="Lainnya">Lainnya</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-grp select-grp">
+                                                    <label for="levelPemahaman">Di level manakah kamu/peserta training
+                                                        memahami tools? <span class="text-danger">*</span></label>
+                                                    <select id="levelPemahaman" name="levelPemahaman">
+                                                        <option>Pilih Level Pemahaman</option>
+                                                        <option value="Pemula">Pemula</option>
+                                                        <option value="Menengah">Menengah</option>
+                                                        <option value="Mahir">Mahir</option>
+                                                        <option value="Ahli">Ahli</option>
+                                                    </select>
+                                                </div>
                                             </div>
 
                                             <div class="col-md-6">
