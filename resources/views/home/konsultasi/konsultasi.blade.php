@@ -198,24 +198,16 @@
                                                     </select>
                                                 </div>
                                             </div>
-
-                                            <div class="col-md-6">
-                                                <div class="form-grp">
-                                                    <label for="username">User Name</label>
-                                                    <input id="username" type="text" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-grp">
-                                                    <label for="skill">Skill/Occupation</label>
-                                                    <input id="skill" type="text" required>
-                                                </div>
-                                            </div>
-
                                         </div>
                                         <div class="form-grp">
-                                            <label for="bio">Bio</label>
-                                            <textarea id="bio">I'm the Front-End Developer for #ThemeGenix in New York, OR. I am passionate about UI effects, animations, and creating intuitive, dynamic user experiences.</textarea>
+                                            <label for="tujuan">Apa harapan terhadap pelatihan ini?</label>
+                                            <textarea id="tujuan"></textarea>
+                                        </div>
+                                        <div class="form-grp">
+                                            <label for="materi">Adakah materi/modul yang ingin kamu pelajari sebagai
+                                                topik wajib dalam program?
+                                            </label>
+                                            <textarea id="materi"></textarea>
                                         </div>
                                         <div class="submit-btn mt-25 d-flex justify-content-center align-items-center">
                                             <button type="submit" class="btn">Kirim Pesan</button>
