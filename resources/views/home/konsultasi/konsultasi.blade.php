@@ -232,9 +232,9 @@
             const nama = document.getElementById('nama').value.trim();
             const phonenumber = document.getElementById('phonenumber').value.trim();
             const email = document.getElementById('email').value.trim();
-            const peruntukan = document.getElementById('peruntukan').value;
-            const jumlahPeserta = document.getElementById('jumlahPeserta').value;
-            const targetPeserta = document.getElementById('targetPeserta').value;
+            const peruntukan = document.getElementById('displayname').value;
+            const jumlahPeserta = document.getElementById('jumlahPeserta').value; // Dikecualikan dari validasi
+            const targetPeserta = document.getElementById('targetPeserta').value; // Dikecualikan dari validasi
             const bulanTraining = document.getElementById('bulanTraining').value;
             const industri = document.getElementById('industri').value;
             const departemen = document.getElementById('departemen').value;
@@ -242,9 +242,9 @@
             const tujuan = document.getElementById('tujuan').value.trim();
             const materi = document.getElementById('materi').value.trim();
 
-            // Validasi: Pastikan semua field yang wajib diisi sudah terisi
-            if (!nama || !phonenumber || !email || !peruntukan || !bulanTraining || !industri || !departemen || !
-                levelPemahaman || !tujuan || !materi) {
+            // Validasi: Pastikan semua field yang wajib diisi sudah terisi (kecuali jumlahPeserta dan targetPeserta)
+            if (!nama || !phonenumber || !email || !peruntukan || !bulanTraining || !industri ||
+                !departemen || !levelPemahaman || !tujuan || !materi) {
                 alert("Mohon isi semua field yang wajib diisi.");
                 return;
             }
@@ -255,8 +255,8 @@
               - Nomor Telepon: ${phonenumber}
               - Email: ${email}
               - Peruntukan: ${peruntukan}
-              - Jumlah Peserta: ${jumlahPeserta}
-              - Target Peserta: ${targetPeserta}
+              - Jumlah Peserta: ${jumlahPeserta} (Opsional)
+              - Target Peserta: ${targetPeserta} (Opsional)
               - Bulan Training: ${bulanTraining}
               - Industri: ${industri}
               - Departemen: ${departemen}
@@ -274,5 +274,6 @@
             window.open(whatsappURL, '_blank');
         }
     </script>
+
 
 @endsection
