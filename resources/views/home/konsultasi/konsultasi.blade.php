@@ -98,6 +98,8 @@
                                                         <option value="11-15">11-15 Orang</option>
                                                         <option value=">15">>15</option>
                                                     </select>
+                                                    <small class="form-text text-muted">Pilih jumlah peserta sesuai dengan
+                                                        jumlah yang hadir dalam training.</small>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
