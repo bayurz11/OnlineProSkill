@@ -81,7 +81,7 @@ class AksesPembelianController extends Controller
 
         $orders = Order::where('user_id', $user->id)
             ->whereIn('status', ['PAID', 'SETTLED'])
-            ->with(['Kurikulum.sections'])
+            ->with(['KelasTatapMuka.Kurikulum.sections'])
             ->get();
 
         // Hitung jumlah kurikulum_id berdasarkan kelas
