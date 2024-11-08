@@ -59,6 +59,7 @@
                                                     <label for="nama">Nama <span class="text-danger">*</span></label>
                                                     <input id="nama" name="nama" type="text"
                                                         placeholder="masukkan nama anda" required>
+
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
