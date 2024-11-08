@@ -71,14 +71,15 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-grp">
-                                                    <label for="email">Email</label>
+                                                    <label for="email">Email<span class="text-danger">*</span></label>
                                                     <input id="lastname" type="email" placeholder="masukkan email anda"
                                                         required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-grp select-grp">
-                                                    <label for="displayname">Peruntukan Training </label>
+                                                    <label for="displayname">Peruntukan Training <span
+                                                            class="text-danger">*</span></label>
                                                     <select id="displayname" name="displayname">
                                                         <option>Pilih</option>
                                                         <option value="company">Company</option>
@@ -99,9 +100,46 @@
                                                         <option value=">15">>15</option>
                                                     </select>
                                                 </div>
-                                                <small class="form-text text-muted">Pilih jumlah peserta sesuai dengan
-                                                    jumlah yang hadir dalam training.</small>
+                                                <small class="form-text text-muted">Diisi jika kebutuhan untuk Corporate
+                                                    Training.</small>
                                             </div>
+                                            <div class="col-md-6">
+                                                <div class="form-grp select-grp">
+                                                    <label for="displayname">Ditujukan kepada siapa yang menjadi peserta
+                                                        program ini?</label>
+                                                    <select id="displayname" name="displayname">
+                                                        <option>Pilih</option>
+                                                        <option value="Staf">Staf</option>
+                                                        <option value="Middle Management">Middle Management</option>
+                                                        <option value="Kombinasi">Kombinasi</option>
+                                                    </select>
+                                                </div>
+                                                <small class="form-text text-muted">Diisi jika kebutuhan untuk Corporate
+                                                    Training.</small>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-grp select-grp">
+                                                    <label for="bulanTraining">Kapan training rencana diadakan?<span
+                                                            class="text-danger">*</span></label>
+                                                    <select id="bulanTraining" name="bulanTraining">
+                                                        <option>Pilih Bulan</option>
+                                                        <option value="Januari">Januari</option>
+                                                        <option value="Februari">Februari</option>
+                                                        <option value="Maret">Maret</option>
+                                                        <option value="April">April</option>
+                                                        <option value="Mei">Mei</option>
+                                                        <option value="Juni">Juni</option>
+                                                        <option value="Juli">Juli</option>
+                                                        <option value="Agustus">Agustus</option>
+                                                        <option value="September">September</option>
+                                                        <option value="Oktober">Oktober</option>
+                                                        <option value="November">November</option>
+                                                        <option value="Desember">Desember</option>
+                                                    </select>
+                                                </div>
+
+                                            </div>
+
                                             <div class="col-md-6">
                                                 <div class="form-grp">
                                                     <label for="username">User Name</label>
