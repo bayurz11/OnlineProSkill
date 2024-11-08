@@ -105,18 +105,20 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-grp select-grp">
-                                                    <label for="displayname">Ditujukan kepada siapa yang menjadi peserta
-                                                        program ini?</label>
-                                                    <select id="displayname" name="displayname">
-                                                        <option>Pilih</option>
+                                                    <label for="targetPeserta">Ditujukan kepada siapa yang menjadi peserta
+                                                        program ini? <span class="text-danger">*</span></label>
+                                                    <select id="targetPeserta" name="targetPeserta">
+                                                        <option>Pilih Peserta</option>
                                                         <option value="Staf">Staf</option>
                                                         <option value="Middle Management">Middle Management</option>
-                                                        <option value="Kombinasi">Kombinasi</option>
+                                                        <option value="Senior Management">Senior Management</option>
+                                                        <option value="Lainnya">Lainnya</option>
                                                     </select>
                                                 </div>
                                                 <small class="form-text text-muted">Diisi jika kebutuhan untuk Corporate
                                                     Training.</small>
                                             </div>
+
                                             <div class="col-md-6">
                                                 <div class="form-grp select-grp">
                                                     <label for="bulanTraining">Kapan training rencana diadakan?<span
