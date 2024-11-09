@@ -10,8 +10,8 @@
                 </div>
                 <div class="modal-body">
                     <!-- Hidden field for kurikulum_id -->
-                    <input type="hidden" name="id_instruktur" id="id_instruktur"
-                        value="{{ $KelasTatapMuka->user_id }}">
+                    <input type="hidden" name="id_instruktur" id="id_instruktur" value="{{ Auth::user()->id }}">
+
 
                     <div class="mb-3">
                         <label for="judul_tugas" class="form-label">Judul <span class="text-danger">*</span></label>
