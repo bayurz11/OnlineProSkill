@@ -1,5 +1,5 @@
 @section('title', 'ProSkill Akademia | Quiz')
-<?php $page = 'index'; ?>
+<?php $page = 'instruktur.quiz'; ?>
 
 @extends('layout.mainlayout')
 
