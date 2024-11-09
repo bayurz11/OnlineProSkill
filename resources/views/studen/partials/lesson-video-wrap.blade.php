@@ -22,10 +22,9 @@
 <button id="reviewButton" class="btn btn-primary" style="display: none;">Review Course</button>
 @if ($allSectionsCompleted && $hasReviewed)
     <!-- Tombol Cetak Sertifikat -->
-    <div class="text-center mt-4">
-        <form action="{{ route('print_certificate', ['id' => $sertifikat->id]) }}" method="POST">
-            @csrf
-            <button type="submit" class="btn btn-success">Cetak Sertifikat</button>
-        </form>
-    </div>
+
+    <form action="{{ route('print_certificate', ['id' => $sertifikat->id]) }}" method="POST">
+        @csrf
+        <button type="submit" class="btn btn-success">Cetak Sertifikat</button>
+    </form>
 @endif
