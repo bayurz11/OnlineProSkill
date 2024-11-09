@@ -64,7 +64,7 @@
 
                                                             <p style="font-size: 12px;">Waktu:
                                                                 {{ \Carbon\Carbon::parse($quiz->jam_mulai)->format('H.i') }}
-                                                                /
+                                                                -
                                                                 {{ \Carbon\Carbon::parse($quiz->jam_akhir)->format('H.i') }}
                                                             </p>
 
