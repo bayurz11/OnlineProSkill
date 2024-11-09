@@ -18,15 +18,6 @@
         </div>
 
     </section>
-    {{-- @if ($allSectionsCompleted && $hasReviewed)
-        <!-- Tombol Cetak Sertifikat -->
-        <div class="text-center mt-4">
-            <form action="{{ route('print_certificate', ['id' => $sertifikat->id]) }}" method="POST">
-                @csrf
-                <button type="submit" class="btn btn-success">Cetak Sertifikat</button>
-            </form>
-        </div>
-    @endif --}}
 
 
     <script>
@@ -230,12 +221,12 @@
                     .then(response => response.json()) // Mengubah respons menjadi format JSON
                     .then(data => {
                         if (data.success) {
-                            // Menutup modal setelah berhasil
                             const myModal = new bootstrap.Modal(document.getElementById('reviewModal'));
                             myModal.hide();
 
-                            // Segera refresh halaman
-                            window.location.reload(); // Menyegarkan halaman setelah berhasil submit
+                            // Sembunyikan tombol "Review Course" setelah sukses submit
+                            reviewButton.style.display = 'none';
+                            window.location.reload(); // Untuk memastikan status updated
                         } else {
                             alert(data.error || 'Failed to submit review.'); // Menampilkan pesan error
                         }

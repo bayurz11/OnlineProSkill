@@ -20,7 +20,9 @@
     Tandai Selesai
 </button>
 <div class="d-flex align-items-center">
-    <button id="reviewButton" class="btn btn-primary me-2" style="display: none;">Review Course</button>
+    <button id="reviewButton" class="btn btn-primary me-2"
+        style="display: {{ $hasReviewed ? 'none' : 'block' }};">Review Course</button>
+
     @if ($allSectionsCompleted && $hasReviewed)
         <form action="{{ route('print_certificate', ['id' => $sertifikat->id]) }}" method="POST">
             @csrf
