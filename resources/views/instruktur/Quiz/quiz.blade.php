@@ -31,7 +31,7 @@
                 <div class="col-lg-9">
                     <div class="dashboard__content-wrap">
                         <div class="dashboard__content-title">
-                            <h4 class="title">Quiz Attempts</h4>
+                            <h4 class="title">Quiz </h4>
                         </div>
                         <div class="row">
                             <div class="col-12">
