@@ -19,12 +19,10 @@
 <button id="completeSectionBtn" class="btn btn-primary" style="display: none;" data-section-id="">
     Tandai Selesai
 </button>
-<div class="btn-group" style="gap: 45px;">
-    <button id="reviewButton" class="btn btn-primary" style="display: none;">Review Course</button>
-    @if ($allSectionsCompleted && $hasReviewed)
-        <form action="{{ route('print_certificate', ['id' => $sertifikat->id]) }}" method="POST">
-            @csrf
-            <button type="submit" class="btn btn-success">Cetak Sertifikat</button>
-        </form>
-    @endif
-</div>
+<button id="reviewButton" class="btn btn-primary" style="display: none;">Review Course</button>
+@if ($allSectionsCompleted && $hasReviewed)
+    <form action="{{ route('print_certificate', ['id' => $sertifikat->id]) }}" method="POST">
+        @csrf
+        <button type="submit" class="btn btn-success">Cetak Sertifikat</button>
+    </form>
+@endif
