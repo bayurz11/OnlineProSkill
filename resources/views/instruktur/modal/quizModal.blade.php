@@ -22,10 +22,20 @@
                         <select class="form-control" id="link" name="link">
                             <option value="" disabled selected>Pilih Kelas</option>
                             @foreach ($KelasTatapMuka->where('status', 1) as $kelas)
-                                <option value="{{ $kelas->id }}">{{ $kelas->nama_kursus }}</option>
+                                @php
+                                    // Mengecek apakah course_id ada di model Kurikulum
+                                    $kurikulumExists = \App\Models\Kurikulum::where('course_id', $kelas->id)->exists();
+
+                                @endphp
+                                @if ($kurikulumExists)
+                                    <option value="{{ $kelas->id }}">
+                                        {{ $kelas->nama_kursus }}
+                                    </option>
+                                @endif
                             @endforeach
                         </select>
                     </div>
+
 
                     <div class="mb-3">
                         <label for="link" class="form-label">Link Materi</label>
