@@ -43,9 +43,9 @@
                                         <thead>
                                             <tr>
                                                 <th>Quiz</th>
-                                                <th>Qus</th>
+                                                {{-- <th>Qus</th>
                                                 <th>TM</th>
-                                                <th>CA</th>
+                                                <th>CA</th> --}}
                                                 <th>Result</th>
                                                 <th>&nbsp;</th>
                                             </tr>
@@ -75,7 +75,7 @@
                                                                     {{-- <span>Student: <a href="#">John Due</a></span> --}}
                                                                 </div>
                                                             </td>
-                                                            <td>
+                                                            {{-- <td>
                                                                 <p class="color-black">4</p>
                                                             </td>
                                                             <td>
@@ -83,7 +83,7 @@
                                                             </td>
                                                             <td>
                                                                 <p class="color-black">4</p>
-                                                            </td>
+                                                            </td> --}}
                                                             <td>
                                                                 <span class="dashboard__quiz-result ">Pass</span>
                                                             </td>
