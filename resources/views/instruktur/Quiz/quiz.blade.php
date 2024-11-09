@@ -68,8 +68,7 @@
                                                             <td>
                                                                 <div class="dashboard__quiz-info">
                                                                     <p>January 20, 2024</p>
-                                                                    <h6 class="title">Write a short essay on yourself using
-                                                                        the 5
+                                                                    <h6 class="title">{{ $kelas->nama_kursus }}
                                                                     </h6>
                                                                     <span>Student: <a href="#">John Due</a></span>
                                                                 </div>
