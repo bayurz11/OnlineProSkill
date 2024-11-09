@@ -21,7 +21,11 @@
 </button>
 <div class="d-flex align-items-center">
 
-    <button id="reviewButton" class="btn btn-primary me-2" style="display: none;">Review Course</button>
+    <button id="reviewButton" class="btn btn-primary me-2"
+        {{ $hasReviewed ? 'disabled title="Anda sudah memberikan review"' : '' }}>
+        Review Course
+    </button>
+
 
     @if ($allSectionsCompleted && $hasReviewed)
         <form action="{{ route('print_certificate', ['id' => $sertifikat->id]) }}" method="POST">
@@ -30,3 +34,17 @@
         </form>
     @endif
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const reviewButton = document.getElementById('reviewButton');
+
+        // Ambil nilai hasReviewed dari server
+        const hasReviewed = @json($hasReviewed);
+
+        // Menonaktifkan tombol jika pengguna sudah memberi review
+        if (hasReviewed) {
+            reviewButton.setAttribute('disabled', true);
+            reviewButton.setAttribute('title', 'Anda sudah memberikan review');
+        }
+    });
+</script>
