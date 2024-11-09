@@ -18,8 +18,8 @@
                             placeholder="Masukkan Judul Materi Anda" required>
                     </div>
                     <div class="mb-3">
-                        <label for="link" class="form-label">Pilih Course</label>
-                        <select class="form-control" id="link" name="link">
+                        <label for="course_id" class="form-label">Pilih Course</label>
+                        <select class="form-control" id="course_id" name="course_id">
                             <option value="" disabled selected>Pilih Kelas</option>
                             @foreach ($KelasTatapMuka->where('status', 1) as $kelas)
                                 @php
