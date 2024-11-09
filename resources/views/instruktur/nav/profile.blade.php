@@ -18,14 +18,14 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <span>(15 Reviews)</span>
+                    {{-- <span>(15 Reviews)</span> --}}
                 </div>
             </div>
         </div>
         <div class="dashboard__instructor-info-right">
-            <a href="#" data-bs-toggle="modal" data-bs-target="#CoursesModal" class="btn btn-two arrow-btn">Create
-                a New Course <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
-                    class="injectable"></a>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#CoursesModal"
+                class="btn btn-two arrow-btn">Membuat Kursus Baru <img
+                    src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img" class="injectable"></a>
         </div>
     </div>
 </div>
