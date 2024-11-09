@@ -70,7 +70,7 @@
                                                                     <p>January 20, 2024</p>
                                                                     <h6 class="title">{{ $kelas->nama_kursus }}
                                                                     </h6>
-                                                                    <span>Student: <a href="#">John Due</a></span>
+                                                                    {{-- <span>Student: <a href="#">John Due</a></span> --}}
                                                                 </div>
                                                             </td>
                                                             <td>
