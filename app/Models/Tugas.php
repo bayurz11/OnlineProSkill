@@ -12,4 +12,9 @@ class Tugas extends Model
     protected $primaryKey = 'id';
 
     protected $guarded = [];
+
+    public function kelasTatapMuka()
+    {
+        return $this->belongsTo(KelasTatapMuka::class, 'course_id', 'id');
+    }
 }
