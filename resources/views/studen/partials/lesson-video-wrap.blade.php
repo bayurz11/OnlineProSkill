@@ -24,7 +24,7 @@
     @if ($allSectionsCompleted && $hasReviewed)
         <form action="{{ route('print_certificate', ['id' => $sertifikat->id]) }}" method="POST">
             @csrf
-            <button type="submit" class="btn btn-success">Cetak Sertifikat</button>
+            <button type="submit" class="btn btn-success ml-2">Cetak Sertifikat</button>
         </form>
     @endif
 </div>
