@@ -61,8 +61,11 @@
 
                                                             <h6 class="title">{{ $quiz->judul_tugas }}
                                                             </h6>
-                                                            <span>Waktu: <a
-                                                                    href="#">{{ $quiz->jam_mulai }}/{{ $quiz->jam_akhir }}</a></span>
+                                                            <span>Waktu:
+                                                                {{ \Carbon\Carbon::parse($quiz->jam_mulai)->format('H.i') }}
+                                                                /
+                                                                {{ \Carbon\Carbon::parse($quiz->jam_akhir)->format('H.i') }}</span>
+
                                                         </div>
                                                     </td>
                                                     {{-- <td>
