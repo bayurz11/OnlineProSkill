@@ -54,7 +54,7 @@
         </div>
         <nav class="dashboard__sidebar-menu">
             <ul class="list-wrap">
-                <li class="{{ Request::is('instruktur_courses', 'instruktur_kurikulum') ? 'active' : '' }}">
+                <li class="{{ Request::is('instruktur_courses', 'instruktur.kurikulum') ? 'active' : '' }}">
                     <a href="{{ route('instruktur_courses') }}">
                         <i class="skillgro-video-tutorial"></i>
                         My Courses
@@ -66,7 +66,7 @@
                         Announcements
                     </a>
                 </li> --}}
-                <li class="{{ Request::is('instruktur_quiz') ? 'active' : '' }}">
+                <li class="{{ Request::is('instruktur.quiz') ? 'active' : '' }}">
                     <a href="{{ route('instruktur.quiz') }}">
                         <i class="skillgro-chat"></i>
                         Quiz
