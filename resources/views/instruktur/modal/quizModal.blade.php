@@ -22,7 +22,7 @@
                         <select class="form-control" id="link" name="link">
                             <option value="" disabled selected>Pilih Kelas</option>
                             @foreach ($KelasTatapMuka as $kelas)
-                                <option value="{{ $kelas->id }}">{{ $kelas->nama_kelas }}</option>
+                                <option value="{{ $kelas->id }}">{{ $kelas->nama_kursus }}</option>
                             @endforeach
                         </select>
                     </div>
