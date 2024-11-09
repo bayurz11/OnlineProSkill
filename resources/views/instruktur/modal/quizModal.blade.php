@@ -37,11 +37,18 @@
                     </div>
 
 
-                    <div class="mb-3">
-                        <label for="link" class="form-label">Link Materi</label>
-                        <input type="text" class="form-control" id="link" name="link"
-                            placeholder="Masukkan link materi Anda">
+                    <div class="mb-1">
+                        <label for="start_time" class="form-label">Waktu Mulai</label>
+                        <input type="time" class="form-control" id="start_time" name="start_time"
+                            placeholder="Pilih waktu mulai">
                     </div>
+
+                    <div class="mb-1">
+                        <label for="end_time" class="form-label">Waktu Selesai</label>
+                        <input type="time" class="form-control" id="end_time" name="end_time"
+                            placeholder="Pilih waktu selesai">
+                    </div>
+
 
 
                 </div>
