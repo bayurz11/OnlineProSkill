@@ -221,12 +221,12 @@
                     .then(response => response.json()) // Mengubah respons menjadi format JSON
                     .then(data => {
                         if (data.success) {
+                            // Menutup modal setelah berhasil
                             const myModal = new bootstrap.Modal(document.getElementById('reviewModal'));
                             myModal.hide();
 
-                            // Sembunyikan tombol "Review Course" setelah sukses submit
-                            reviewButton.style.display = 'none';
-                            window.location.reload(); // Untuk memastikan status updated
+                            // Segera refresh halaman
+                            window.location.reload(); // Menyegarkan halaman setelah berhasil submit
                         } else {
                             alert(data.error || 'Failed to submit review.'); // Menampilkan pesan error
                         }
