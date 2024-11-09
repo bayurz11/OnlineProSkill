@@ -19,10 +19,7 @@
 <button id="completeSectionBtn" class="btn btn-primary" style="display: none;" data-section-id="">
     Tandai Selesai
 </button>
-@if (!$allSectionsCompleted || !$hasReviewed)
-    <button id="reviewButton" class="btn btn-primary">Review Course</button>
-@endif
-
+<button id="reviewButton" class="btn btn-primary" style="display: none;">Review Course</button>
 @if ($allSectionsCompleted && $hasReviewed)
     <!-- Tombol Cetak Sertifikat -->
     <div class="text-center mt-4">
