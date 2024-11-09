@@ -11,6 +11,69 @@
             margin: 0;
         }
 
+        @media only screen and (max-width: 768px) {
+            .certificate-container {
+                width: 100vw;
+                height: auto;
+                box-shadow: none;
+                padding: 5px;
+            }
+
+            .certificate {
+                padding: 10px;
+                transform: scale(0.8);
+                /* Menyesuaikan skala */
+                transform-origin: top center;
+            }
+
+            .content h1 {
+                font-size: 30px;
+                margin-top: 10px;
+            }
+
+            .content h2 {
+                font-size: 24px;
+                margin-top: 5px;
+            }
+
+            .content h3 {
+                font-size: 12px;
+            }
+
+            .content p {
+                font-size: 8px;
+            }
+
+            .content img.photo {
+                top: 5px;
+                right: 5px;
+                width: 50px;
+                height: 55px;
+            }
+
+            .qr {
+                top: auto;
+                bottom: 10px;
+                left: 10px;
+                width: 50px;
+                height: 50px;
+            }
+
+            .qr svg {
+                width: 50px;
+                height: 50px;
+            }
+
+            .signature p {
+                font-size: 8px;
+            }
+
+            .print-button {
+                padding: 5px 10px;
+                font-size: 12px;
+            }
+        }
+
         body,
         html {
             margin: 0;
