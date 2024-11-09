@@ -34,34 +34,35 @@
                             <h4 class="title">Quiz </h4>
                         </div>
                         <div class="row">
-                            @if ($KelasTatapMuka->isEmpty())
-                                <div class="alert alert-warning" role="alert">
-                                    Anda Belum Menambahkan kelas Apapun
-                                </div>
-                            @else
-                                @foreach ($KelasTatapMuka->where('status', 1) as $kelas)
-                                    @php
-                                        // Mengecek apakah course_id ada di model Kurikulum
-                                        $kurikulumExists = \App\Models\Kurikulum::where(
-                                            'course_id',
-                                            $kelas->id,
-                                        )->exists();
-                                        $averageRating = $kelas->reviews()->avg('rating');
-                                    @endphp
-                                    @if ($kurikulumExists)
-                                        <div class="col-12">
-                                            <div class="dashboard__review-table">
-                                                <table class="table table-borderless">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Quiz</th>
-                                                            <th>Qus</th>
-                                                            <th>TM</th>
-                                                            <th>CA</th>
-                                                            <th>Result</th>
-                                                            <th>&nbsp;</th>
-                                                        </tr>
-                                                    </thead>
+
+                            <div class="col-12">
+                                <div class="dashboard__review-table">
+                                    <table class="table table-borderless">
+                                        <thead>
+                                            <tr>
+                                                <th>Quiz</th>
+                                                <th>Qus</th>
+                                                <th>TM</th>
+                                                <th>CA</th>
+                                                <th>Result</th>
+                                                <th>&nbsp;</th>
+                                            </tr>
+                                        </thead>
+                                        @if ($KelasTatapMuka->isEmpty())
+                                            <div class="alert alert-warning" role="alert">
+                                                Anda Belum Menambahkan kelas Apapun
+                                            </div>
+                                        @else
+                                            @foreach ($KelasTatapMuka->where('status', 1) as $kelas)
+                                                @php
+                                                    // Mengecek apakah course_id ada di model Kurikulum
+                                                    $kurikulumExists = \App\Models\Kurikulum::where(
+                                                        'course_id',
+                                                        $kelas->id,
+                                                    )->exists();
+                                                    $averageRating = $kelas->reviews()->avg('rating');
+                                                @endphp
+                                                @if ($kurikulumExists)
                                                     <tbody>
                                                         <tr>
                                                             <td>
@@ -219,12 +220,13 @@
                                                             </td>
                                                         </tr>
                                                     </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    @endif
-                                @endforeach
-                            @endif
+                                                @endif
+                                            @endforeach
+                                        @endif
+                                    </table>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
