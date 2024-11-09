@@ -1,7 +1,7 @@
 <div class="modal fade" id="QuizModal" tabindex="-1" aria-labelledby="QuizModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form id="createKurikulumForm" action="{{ route('instruktur_section.store') }}" method="POST"
+            <form id="createKurikulumForm" action="{{ route('instruktur_quiz.store') }}" method="POST"
                 enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
@@ -13,9 +13,9 @@
                     <input type="hidden" name="kurikulum_id" id="kurikulum_id">
 
                     <div class="mb-3">
-                        <label for="title" class="form-label">Judul <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="title" name="title"
-                            placeholder="Masukkan Judul Materi Anda" required>
+                        <label for="judul_tugas" class="form-label">Judul <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="judul_tugas" name="judul_tugas"
+                            placeholder="Masukkan Judul Quiz Anda" required>
                     </div>
                     <div class="mb-3">
                         <label for="course_id" class="form-label">Pilih Course</label>
@@ -37,13 +37,13 @@
                     </div>
                     <div class="mb-3 d-flex justify-content-between">
                         <div class="me-2" style="flex: 1;">
-                            <label for="start_time" class="form-label">Waktu Mulai</label>
-                            <input type="time" class="form-control" id="start_time" name="start_time"
+                            <label for="jam_mulai" class="form-label">Waktu Mulai</label>
+                            <input type="time" class="form-control" id="jam_mulai" name="jam_mulai"
                                 placeholder="Pilih waktu mulai">
                         </div>
                         <div style="flex: 1;">
-                            <label for="end_time" class="form-label">Waktu Selesai</label>
-                            <input type="time" class="form-control" id="end_time" name="end_time"
+                            <label for="jam_akhir" class="form-label">Waktu Selesai</label>
+                            <input type="time" class="form-control" id="jam_akhir" name="jam_akhir"
                                 placeholder="Pilih waktu selesai">
                         </div>
                     </div>

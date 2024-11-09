@@ -10,6 +10,7 @@ use App\Models\KelasTatapMuka;
 use App\Models\NotifikasiUser;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Tugas;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -56,5 +57,29 @@ class InstrukturQuizController extends Controller
             'orders',
             'jumlahPendaftaran'
         ));
+    }
+
+    public function store(Request $request)
+    {
+        // Validasi input
+        $validated = $request->validate([
+            'kurikulum_id' => 'required|exists:kurikulums,id',
+            'judul_tugas' => 'required|string|max:255',
+            'course_id' => 'required|exists:kelas_tatap_muka,id',
+            'jam_mulai' => 'required|date_format:H:i',
+            'jam_akhir' => 'required|date_format:H:i|after:jam_mulai',
+        ]);
+
+        // Menyimpan data quiz
+        $quiz = new Tugas();
+        $quiz->kurikulum_id = $validated['kurikulum_id'];
+        $quiz->judul_tugas = $validated['judul_tugas'];
+        $quiz->course_id = $validated['course_id'];
+        $quiz->jam_mulai = $validated['jam_mulai'];
+        $quiz->jam_akhir = $validated['jam_akhir'];
+        $quiz->save();
+
+        // Redirect ke halaman lain atau kembali dengan pesan sukses
+        return redirect()->back()->with('success', 'Quiz berhasil ditambahkan.');
     }
 }
