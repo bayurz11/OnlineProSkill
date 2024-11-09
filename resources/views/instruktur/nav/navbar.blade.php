@@ -92,8 +92,6 @@
                     </a>
                 </li>
                 <li class="{{ Request::is('#') ? 'active' : '' }}">
-
-
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
