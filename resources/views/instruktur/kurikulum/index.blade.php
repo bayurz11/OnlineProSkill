@@ -1,5 +1,5 @@
 @section('title', 'ProSkill Akademia | Kurikulum')
-<?php $page = 'index'; ?>
+<?php $page = 'instruktur_kurikulum'; ?>
 
 @extends('layout.mainlayout')
 
