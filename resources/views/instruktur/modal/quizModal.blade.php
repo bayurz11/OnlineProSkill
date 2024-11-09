@@ -35,21 +35,18 @@
                             @endforeach
                         </select>
                     </div>
-
-
-                    <div class="mb-1">
-                        <label for="start_time" class="form-label">Waktu Mulai</label>
-                        <input type="time" class="form-control" id="start_time" name="start_time"
-                            placeholder="Pilih waktu mulai">
+                    <div class="mb-3 d-flex justify-content-between">
+                        <div class="me-2" style="flex: 1;">
+                            <label for="start_time" class="form-label">Waktu Mulai</label>
+                            <input type="time" class="form-control" id="start_time" name="start_time"
+                                placeholder="Pilih waktu mulai">
+                        </div>
+                        <div style="flex: 1;">
+                            <label for="end_time" class="form-label">Waktu Selesai</label>
+                            <input type="time" class="form-control" id="end_time" name="end_time"
+                                placeholder="Pilih waktu selesai">
+                        </div>
                     </div>
-
-                    <div class="mb-1">
-                        <label for="end_time" class="form-label">Waktu Selesai</label>
-                        <input type="time" class="form-control" id="end_time" name="end_time"
-                            placeholder="Pilih waktu selesai">
-                    </div>
-
-
 
                 </div>
                 <div class="modal-footer">
