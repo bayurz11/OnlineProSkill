@@ -18,21 +18,22 @@
                             placeholder="Masukkan Judul Materi Anda" required>
                     </div>
                     <div class="mb-3">
+                        <label for="link" class="form-label">Pilih Course</label>
+                        <select class="form-control" id="link" name="link">
+                            <option value="" disabled selected>Pilih Kelas</option>
+                            @foreach ($KelasTatapMuka as $kelas)
+                                <option value="{{ $kelas->id }}">{{ $kelas->nama_kelas }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
                         <label for="link" class="form-label">Link Materi</label>
                         <input type="text" class="form-control" id="link" name="link"
                             placeholder="Masukkan link materi Anda">
                     </div>
 
-                    <div class="mb-3">
-                        <label for="duration" class="form-label">Durasi</label>
-                        <input type="text" class="form-control" id="duration" name="duration"
-                            placeholder="00:00:00">
-                    </div>
 
-                    <div class="mb-3">
-                        <label for="file" class="form-label">Upload Materi</label>
-                        <input type="file" class="form-control" id="file" name="file">
-                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
