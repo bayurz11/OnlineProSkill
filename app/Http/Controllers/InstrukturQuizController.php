@@ -45,7 +45,7 @@ class InstrukturQuizController extends Controller
             ->whereIn('status', ['PAID', 'SETTLED'])
             ->with('KelasTatapMuka')
             ->get();
-
+        $quiz = Tugas::all();
         return view('instruktur.Quiz.quiz', compact(
             'user',
             'KelasTatapMuka',
@@ -55,7 +55,8 @@ class InstrukturQuizController extends Controller
             'notifikasi',
             'notifikasiCount',
             'orders',
-            'jumlahPendaftaran'
+            'jumlahPendaftaran',
+            'quiz'
         ));
     }
 
