@@ -57,11 +57,12 @@
                                                 <tr>
                                                     <td>
                                                         <div class="dashboard__quiz-info">
-                                                            <p>{{ $quiz->created_at->format('d F , Y') }}</p>
+                                                            <p>{{ $quiz->created_at->format('d F, Y') }}</p>
 
                                                             <h6 class="title">{{ $quiz->judul_tugas }}
                                                             </h6>
-                                                            {{-- <span>Student: <a href="#">John Due</a></span> --}}
+                                                            <span>Waktu: <a
+                                                                    href="#">{{ $quiz->jam_mulai }}/{{ $quiz->jam_akhir }}</a></span>
                                                         </div>
                                                     </td>
                                                     {{-- <td>
