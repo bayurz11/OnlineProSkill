@@ -63,6 +63,7 @@ class InstrukturQuizController extends Controller
     {
         // Validasi input
         $validated = $request->validate([
+            'id_instruktur' => 'required',
             'judul_tugas' => 'required|string|max:255',
             'course_id' => 'required',
             'jam_mulai' => 'required|date_format:H:i',
@@ -75,6 +76,7 @@ class InstrukturQuizController extends Controller
         $quiz->course_id = $validated['course_id'];
         $quiz->jam_mulai = $validated['jam_mulai'];
         $quiz->jam_akhir = $validated['jam_akhir'];
+        $quiz->id_instruktur = $validated['id_instruktur'];
         $quiz->save();
 
         // Redirect ke halaman lain atau kembali dengan pesan sukses
