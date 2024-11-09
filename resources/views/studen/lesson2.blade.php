@@ -18,13 +18,16 @@
         </div>
 
     </section>
-
     @if ($allSectionsCompleted && $hasReviewed)
         <!-- Tombol Cetak Sertifikat -->
         <div class="text-center mt-4">
-            <a href="{{ route('print_certificate', ['id' => $sertifikat->id]) }}" class="btn btn-success">Cetak Sertifikat</a>
+            <form action="{{ route('print_certificate', ['id' => $sertifikat->id]) }}" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-success">Cetak Sertifikat</button>
+            </form>
         </div>
     @endif
+
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
