@@ -294,6 +294,15 @@
             });
 
         });
+        document.addEventListener('DOMContentLoaded', () => {
+            const reviewButton = document.getElementById('reviewButton');
+
+            // Hanya tampilkan tombol review jika pengguna belum memberi review
+            const hasReviewed = @json($hasReviewed); // Mendapatkan nilai dari server
+            if (hasReviewed) {
+                reviewButton.style.display = 'none';
+            }
+        });
     </script>
 
     <style>
