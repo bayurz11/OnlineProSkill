@@ -57,7 +57,8 @@
                                                 <tr>
                                                     <td>
                                                         <div class="dashboard__quiz-info">
-                                                            <p>January 20, 2024</p>
+                                                            <p>{{ $quiz->created_at->format('F d, Y') }}</p>
+
                                                             <h6 class="title">{{ $quiz->judul_tugas }}
                                                             </h6>
                                                             {{-- <span>Student: <a href="#">John Due</a></span> --}}
