@@ -117,8 +117,7 @@
                                                         </tr> --}}
 
                                             </tbody>
-
-                                        @endif
+                                        @endforeach
                                     </table>
                                 </div>
                             </div>
