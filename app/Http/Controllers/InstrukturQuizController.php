@@ -71,7 +71,6 @@ class InstrukturQuizController extends Controller
 
         // Menyimpan data quiz
         $quiz = new Tugas();
-        $quiz->kurikulum_id = $validated['kurikulum_id'];
         $quiz->judul_tugas = $validated['judul_tugas'];
         $quiz->course_id = $validated['course_id'];
         $quiz->jam_mulai = $validated['jam_mulai'];
