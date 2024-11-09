@@ -91,9 +91,12 @@
                         Settings
                     </a>
                 </li>
-                <li class="{{ Request::is('#') ? 'active' : '' }}">
-                    <a href="index.html">
-                        <i class="skillgro-logout"></i>
+                <li class="{{ Request::is('logout') ? 'active' : '' }}">
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         Logout
                     </a>
                 </li>
