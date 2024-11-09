@@ -31,200 +31,160 @@
                 <div class="col-lg-9">
                     <div class="dashboard__content-wrap">
                         <div class="dashboard__content-title">
-                            <h4 class="title">Quiz</h4>
+                            <h4 class="title">Quiz Attempts</h4>
                         </div>
                         <div class="row">
                             <div class="col-12">
-                                <div class="dashboard__nav-wrap">
-                                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-
-                                        <li class="nav-item" role="presentation">
-                                            <button class="nav-link active" id="itemOne-tab" data-bs-toggle="tab"
-                                                data-bs-target="#itemOne-tab-pane" type="button" role="tab"
-                                                aria-controls="itemOne-tab-pane" aria-selected="true">Publish</button>
-                                        </li>
-
-                                        <li class="nav-item" role="presentation">
-                                            <button class="nav-link" id="itemThree-tab" data-bs-toggle="tab"
-                                                data-bs-target="#itemThree-tab-pane" type="button" role="tab"
-                                                aria-controls="itemThree-tab-pane" aria-selected="false">Draft</button>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="tab-content" id="myTabContent">
-                                    <div class="tab-pane fade show active" id="itemOne-tab-pane" role="tabpanel"
-                                        aria-labelledby="itemOne-tab" tabindex="0">
-                                        <div class="row">
-                                            @if ($KelasTatapMuka->isEmpty())
-                                                <div class="alert alert-warning" role="alert">
-                                                    Anda Belum Menambahkan kelas Apapun
-                                                </div>
-                                            @else
-                                                @foreach ($KelasTatapMuka->where('status', 1) as $kelas)
-                                                    @php
-                                                        // Mengecek apakah course_id ada di model Kurikulum
-                                                        $kurikulumExists = \App\Models\Kurikulum::where(
-                                                            'course_id',
-                                                            $kelas->id,
-                                                        )->exists();
-                                                        $averageRating = $kelas->reviews()->avg('rating');
-                                                    @endphp
-                                                    @if ($kurikulumExists)
-                                                        <div class="col-xl-4 col-md-6">
-                                                            <div
-                                                                class="courses__item courses__item-two shine__animate-item">
-                                                                <div class="courses__item-thumb courses__item-thumb-two">
-                                                                    <a href="{{ route('instruktur.kurikulum', ['id' => $kelas->id]) }}"
-                                                                        data-id="{{ $kelas->id }}"
-                                                                        class="shine__animate-link">
-                                                                        <img src="{{ asset('public/uploads/' . $kelas->gambar) }}"
-                                                                            alt="img" class="img-fluid"
-                                                                            style="width: 100%; height: auto; object-fit: cover;">
-                                                                    </a>
-                                                                </div>
-                                                                <div
-                                                                    class="courses__item-content courses__item-content-two">
-                                                                    <ul class="courses__item-meta list-wrap">
-                                                                        <li class="courses__item-tag">
-                                                                            <a
-                                                                                href="course.html">{{ $kelas->course_type }}</a>
-                                                                        </li>
-                                                                        <li class="price">
-                                                                            @if (!empty($kelas->discountedPrice))
-                                                                                <del>Rp
-                                                                                    {{ number_format($kelas->price, 0, ',', '.') }}</del>
-                                                                                Rp
-                                                                                {{ number_format($kelas->discountedPrice, 0, ',', '.') }}
-                                                                            @else
-                                                                                Rp
-                                                                                {{ number_format($kelas->price, 0, ',', '.') }}
-                                                                            @endif
-                                                                        </li>
-                                                                    </ul>
-                                                                    <h5 class="title"><a
-                                                                            href="{{ route('instruktur.kurikulum', ['id' => $kelas->id]) }}">{{ $kelas->nama_kursus }}</a>
-                                                                    </h5>
-                                                                    <div class="courses__item-content-bottom">
-                                                                        <div class="author-two">
-                                                                            <a href="#"><img
-                                                                                    src="{{ $profile && $profile->gambar ? (strpos($profile->gambar, 'googleusercontent') !== false ? $profile->gambar : asset('public/uploads/' . $profile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
-                                                                                    style="object-fit: cover;"
-                                                                                    alt="img">{{ $kelas->user->name }}</a>
-                                                                        </div>
-                                                                        <div class="avg-rating">
-                                                                            <i class="fas fa-star"></i>
-                                                                            ({{ $averageRating ? number_format($averageRating, 1) : '0.0' }}
-                                                                            Reviews)
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="courses__item-bottom-two">
-                                                                    <ul class="list-wrap">
-
-                                                                        <li><i
-                                                                                class="flaticon-clock"></i>{{ $kelas->durasi }}
-                                                                        </li>
-                                                                        <li><i
-                                                                                class="flaticon-mortarboard"></i>{{ $jumlahPendaftaran->get($kelas->id, 0) }}
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    @endif
-                                                @endforeach
-                                            @endif
-                                        </div>
-                                    </div>
-
-
-                                    <div class="tab-pane fade" id="itemThree-tab-pane" role="tabpanel"
-                                        aria-labelledby="itemThree-tab" tabindex="0">
-                                        <div class="row">
-                                            @if ($KelasTatapMuka->isEmpty())
-                                                <div class="alert alert-warning" role="alert">
-                                                    Anda Belum Menambahkan kelas Apapun
-                                                </div>
-                                            @else
-                                                @foreach ($KelasTatapMuka->where('status', 1) as $kelas)
-                                                    @php
-                                                        // Mengecek apakah course_id ada di model Kurikulum
-                                                        $kurikulumExists = \App\Models\Kurikulum::where(
-                                                            'course_id',
-                                                            $kelas->id,
-                                                        )->exists();
-                                                        $averageRating = $kelas->reviews()->avg('rating');
-                                                    @endphp
-                                                    @if (!$kurikulumExists)
-                                                        <!-- Hanya menampilkan yang tidak ada di Kurikulum -->
-                                                        <div class="col-xl-4 col-md-6">
-                                                            <div
-                                                                class="courses__item courses__item-two shine__animate-item">
-                                                                <div class="courses__item-thumb courses__item-thumb-two">
-                                                                    <a href="{{ route('instruktur.kurikulum', ['id' => $kelas->id]) }}"
-                                                                        data-id="{{ $kelas->id }}"
-                                                                        class="shine__animate-link">
-                                                                        <img src="{{ asset('public/uploads/' . $kelas->gambar) }}"
-                                                                            alt="img" class="img-fluid"
-                                                                            style="width: 100%; height: auto; object-fit: cover;">
-                                                                    </a>
-                                                                </div>
-                                                                <div
-                                                                    class="courses__item-content courses__item-content-two">
-                                                                    <ul class="courses__item-meta list-wrap">
-                                                                        <li class="courses__item-tag">
-                                                                            <a
-                                                                                href="">{{ $kelas->course_type }}</a>
-                                                                        </li>
-                                                                        <li class="price">
-                                                                            @if (!empty($kelas->discountedPrice))
-                                                                                <del>Rp
-                                                                                    {{ number_format($kelas->price, 0, ',', '.') }}</del>
-                                                                                Rp
-                                                                                {{ number_format($kelas->discountedPrice, 0, ',', '.') }}
-                                                                            @else
-                                                                                Rp
-                                                                                {{ number_format($kelas->price, 0, ',', '.') }}
-                                                                            @endif
-                                                                        </li>
-                                                                    </ul>
-                                                                    <h5 class="title"><a
-                                                                            href="{{ route('instruktur.kurikulum', ['id' => $kelas->id]) }}">{{ $kelas->nama_kursus }}</a>
-                                                                    </h5>
-                                                                    <div class="courses__item-content-bottom">
-                                                                        <div class="author-two">
-                                                                            <a href="#"><img
-                                                                                    src="{{ $profile && $profile->gambar ? (strpos($profile->gambar, 'googleusercontent') !== false ? $profile->gambar : asset('public/uploads/' . $profile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
-                                                                                    style="object-fit: cover;"
-                                                                                    alt="img">{{ $kelas->user->name }}</a>
-                                                                        </div>
-                                                                        <div class="avg-rating">
-                                                                            <i class="fas fa-star"></i>
-                                                                            ({{ $averageRating ? number_format($averageRating, 1) : '0.0' }}
-                                                                            Reviews)
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="courses__item-bottom-two">
-                                                                    <ul class="list-wrap">
-
-                                                                        <li><i
-                                                                                class="flaticon-clock"></i>{{ $kelas->durasi }}
-                                                                        </li>
-                                                                        <li><i
-                                                                                class="flaticon-mortarboard"></i>{{ $jumlahPendaftaran->get($kelas->id, 0) }}
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    @endif
-                                                @endforeach
-                                            @endif
-                                        </div>
-                                    </div>
-
-
+                                <div class="dashboard__review-table">
+                                    <table class="table table-borderless">
+                                        <thead>
+                                            <tr>
+                                                <th>Quiz</th>
+                                                <th>Qus</th>
+                                                <th>TM</th>
+                                                <th>CA</th>
+                                                <th>Result</th>
+                                                <th>&nbsp;</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="dashboard__quiz-info">
+                                                        <p>January 20, 2024</p>
+                                                        <h6 class="title">Write a short essay on yourself using the 5</h6>
+                                                        <span>Student: <a href="#">John Due</a></span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <p class="color-black">4</p>
+                                                </td>
+                                                <td>
+                                                    <p class="color-black">8</p>
+                                                </td>
+                                                <td>
+                                                    <p class="color-black">4</p>
+                                                </td>
+                                                <td>
+                                                    <span class="dashboard__quiz-result">Pass</span>
+                                                </td>
+                                                <td>
+                                                    <div class="dashboard__review-action">
+                                                        <a href="#" title="Edit"><i class="skillgro-edit"></i></a>
+                                                        <a href="#" title="Delete"><i class="skillgro-bin"></i></a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="dashboard__quiz-info">
+                                                        <p>February 29, 2024</p>
+                                                        <h6 class="title">Write a short essay on yourself using the 5</h6>
+                                                        <span>Student: <a href="#">John Due</a></span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <p class="color-black">2</p>
+                                                </td>
+                                                <td>
+                                                    <p class="color-black">6</p>
+                                                </td>
+                                                <td>
+                                                    <p class="color-black">3</p>
+                                                </td>
+                                                <td>
+                                                    <span class="dashboard__quiz-result fail">Fail</span>
+                                                </td>
+                                                <td>
+                                                    <div class="dashboard__review-action">
+                                                        <a href="#" title="Edit"><i class="skillgro-edit"></i></a>
+                                                        <a href="#" title="Delete"><i class="skillgro-bin"></i></a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="dashboard__quiz-info">
+                                                        <p>January 20, 2024</p>
+                                                        <h6 class="title">Write a short essay on yourself using the 5</h6>
+                                                        <span>Student: <a href="#">John Due</a></span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <p class="color-black">4</p>
+                                                </td>
+                                                <td>
+                                                    <p class="color-black">8</p>
+                                                </td>
+                                                <td>
+                                                    <p class="color-black">4</p>
+                                                </td>
+                                                <td>
+                                                    <span class="dashboard__quiz-result">Pass</span>
+                                                </td>
+                                                <td>
+                                                    <div class="dashboard__review-action">
+                                                        <a href="#" title="Edit"><i class="skillgro-edit"></i></a>
+                                                        <a href="#" title="Delete"><i class="skillgro-bin"></i></a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="dashboard__quiz-info">
+                                                        <p>February 29, 2024</p>
+                                                        <h6 class="title">Write a short essay on yourself using the 5</h6>
+                                                        <span>Student: <a href="#">John Due</a></span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <p class="color-black">2</p>
+                                                </td>
+                                                <td>
+                                                    <p class="color-black">6</p>
+                                                </td>
+                                                <td>
+                                                    <p class="color-black">3</p>
+                                                </td>
+                                                <td>
+                                                    <span class="dashboard__quiz-result fail">Fail</span>
+                                                </td>
+                                                <td>
+                                                    <div class="dashboard__review-action">
+                                                        <a href="#" title="Edit"><i class="skillgro-edit"></i></a>
+                                                        <a href="#" title="Delete"><i class="skillgro-bin"></i></a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="dashboard__quiz-info">
+                                                        <p>January 20, 2024</p>
+                                                        <h6 class="title">Write a short essay on yourself using the 5</h6>
+                                                        <span>Student: <a href="#">John Due</a></span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <p class="color-black">4</p>
+                                                </td>
+                                                <td>
+                                                    <p class="color-black">8</p>
+                                                </td>
+                                                <td>
+                                                    <p class="color-black">4</p>
+                                                </td>
+                                                <td>
+                                                    <span class="dashboard__quiz-result">Pass</span>
+                                                </td>
+                                                <td>
+                                                    <div class="dashboard__review-action">
+                                                        <a href="#" title="Edit"><i class="skillgro-edit"></i></a>
+                                                        <a href="#" title="Delete"><i class="skillgro-bin"></i></a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
