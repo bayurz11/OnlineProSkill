@@ -22,7 +22,7 @@
     @if ($allSectionsCompleted && $hasReviewed)
         <!-- Tombol Cetak Sertifikat -->
         <div class="text-center mt-4">
-            <a href="{{ route('cetak_sertifikat', ['id' => $sertifikat->id]) }}" class="btn btn-success">Cetak Sertifikat</a>
+            <a href="{{ route('print-certificate', ['id' => $sertifikat->id]) }}" class="btn btn-success">Cetak Sertifikat</a>
         </div>
     @endif
 
