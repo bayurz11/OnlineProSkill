@@ -131,6 +131,64 @@
             });
 
             // Event klik untuk tombol "Tandai Selesai"
+            // completeSectionBtn.addEventListener('click', function() {
+            //     const sectionId = this.getAttribute('data-section-id');
+
+            //     fetch(`/sectionupdatestatus/${sectionId}`, {
+            //             method: 'PUT',
+            //             headers: {
+            //                 'X-CSRF-TOKEN': '{{ csrf_token() }}',
+            //                 'Content-Type': 'application/json'
+            //             },
+            //             body: JSON.stringify({
+            //                 sectionId
+            //             })
+            //         })
+            //         .then(response => response.json())
+            //         .then(data => {
+            //             if (data.success) {
+            //                 // Update UI untuk menunjukkan section sudah selesai
+            //                 const activeItem = document.querySelector(
+            //                     `.course-item[data-id="${sectionId}"]`);
+            //                 activeItem.querySelector('.course-item-link').insertAdjacentHTML(
+            //                     'beforeend',
+            //                     '<div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 24px; height: 24px;"><i class="fas fa-check"></i></div>'
+            //                 );
+            //                 completeSectionBtn.style.display = 'none';
+
+            //                 // Pindah ke lesson berikutnya setelah sukses
+            //                 if (currentIndex < courseItems.length - 1) {
+            //                     currentIndex++;
+            //                     updateVideo(currentIndex);
+            //                 }
+
+            //                 // Mengambil konten kurikulum terbaru setelah update status
+            //                 document.addEventListener('DOMContentLoaded', () => {
+            //                     const kurikulumContainer = document.getElementById(
+            //                         'kurikulum-content');
+            //                     const courseId = document.getElementById('course-id')
+            //                         .value; // Pastikan memiliki ID kursus di halaman
+
+            //                     // Mengambil konten kurikulum terbaru
+            //                     fetch(`/course-content/${courseId}`)
+            //                         .then(response => response.text())
+            //                         .then(html => {
+            //                             kurikulumContainer.innerHTML =
+            //                                 html; // Mengganti konten kurikulum
+            //                         })
+            //                         .catch(error => {
+            //                             console.error('Error:', error);
+            //                         });
+            //                 });
+            //             } else {
+            //                 console.error('Gagal memperbarui status.');
+            //             }
+            //         })
+            //         .catch(error => {
+            //             console.error('Error:', error);
+            //         });
+            // });
+            // Event klik untuk tombol "Tandai Selesai"
             completeSectionBtn.addEventListener('click', function() {
                 const sectionId = this.getAttribute('data-section-id');
 
@@ -147,7 +205,6 @@
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
-                            // Update UI untuk menunjukkan section sudah selesai
                             const activeItem = document.querySelector(
                                 `.course-item[data-id="${sectionId}"]`);
                             activeItem.querySelector('.course-item-link').insertAdjacentHTML(
@@ -156,25 +213,24 @@
                             );
                             completeSectionBtn.style.display = 'none';
 
-                            // Pindah ke lesson berikutnya setelah sukses
-                            if (currentIndex < courseItems.length - 1) {
+                            // Jika item terakhir sudah selesai, reload halaman
+                            if (currentIndex === courseItems.length - 1) {
+                                window.location.reload();
+                            } else {
+                                // Pindah ke lesson berikutnya jika tidak
                                 currentIndex++;
                                 updateVideo(currentIndex);
                             }
 
-                            // Mengambil konten kurikulum terbaru setelah update status
                             document.addEventListener('DOMContentLoaded', () => {
                                 const kurikulumContainer = document.getElementById(
                                     'kurikulum-content');
-                                const courseId = document.getElementById('course-id')
-                                    .value; // Pastikan memiliki ID kursus di halaman
+                                const courseId = document.getElementById('course-id').value;
 
-                                // Mengambil konten kurikulum terbaru
                                 fetch(`/course-content/${courseId}`)
                                     .then(response => response.text())
                                     .then(html => {
-                                        kurikulumContainer.innerHTML =
-                                            html; // Mengganti konten kurikulum
+                                        kurikulumContainer.innerHTML = html;
                                     })
                                     .catch(error => {
                                         console.error('Error:', error);
