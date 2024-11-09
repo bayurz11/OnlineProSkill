@@ -21,7 +21,7 @@
                         <label for="link" class="form-label">Pilih Course</label>
                         <select class="form-control" id="link" name="link">
                             <option value="" disabled selected>Pilih Kelas</option>
-                            @foreach ($KelasTatapMuka as $kelas)
+                            @foreach ($KelasTatapMuka->where('status', 1) as $kelas)
                                 <option value="{{ $kelas->id }}">{{ $kelas->nama_kursus }}</option>
                             @endforeach
                         </select>
