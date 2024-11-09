@@ -19,13 +19,13 @@
 <button id="completeSectionBtn" class="btn btn-primary" style="display: none;" data-section-id="">
     Tandai Selesai
 </button>
+<button id="reviewButton" class="btn btn-primary" style="display: none;">Review Course</button>
 
-
-<div class="button-wrapper">
+{{-- <div class="button-wrapper">
     @if ($hasReviewed)
         <a href="{{ route('print_certificate', ['id' => $user->id]) }}" class="btn btn-success">Cetak
             Sertifikat</a>
     @else
         <button id="reviewButton" class="btn btn-primary" style="display: none;">Review Course</button>
     @endif
-</div>
+</div> --}}

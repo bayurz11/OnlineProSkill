@@ -92,10 +92,10 @@ class AksesPembelianController extends Controller
 
             return $completedSections === $totalSections;
         });
-        // Pengecekan review
-        $hasReviewed = Reviews::where('user_id', $user->id)
-            ->where('class_id', $id)
-            ->exists();
+        // // Pengecekan review
+        // $hasReviewed = Reviews::where('user_id', $user->id)
+        //     ->where('class_id', $id)
+        //     ->exists();
 
         return view('studen.lesson2', compact(
             'user',
@@ -108,7 +108,7 @@ class AksesPembelianController extends Controller
             'orders',
             'kurikulum',
             'allSectionsCompleted',
-            'hasReviewed'
+            // 'hasReviewed'
         ));
     }
 
