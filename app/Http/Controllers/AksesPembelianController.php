@@ -328,13 +328,49 @@ class AksesPembelianController extends Controller
         }
     }
 
+    // public function printCertificate($id)
+    // {
+    //     $user = Auth::user();
+    //     $profile = UserProfile::where('user_id', $user->id)->first();
+
+    //     // Temukan sertifikat berdasarkan user_id dan sertifikat_id
+    //     $sertifikat = Sertifikat::where('user_id', $user->id)->first();
+
+    //     // Cek apakah sertifikat ditemukan
+    //     if (!$sertifikat) {
+    //         return response()->json(['message' => 'Sertifikat tidak ditemukan'], 404);
+    //     }
+
+    //     // Ambil link dan product_id dari sertifikat
+    //     $sertifikat_id = $sertifikat->sertifikat_id;
+    //     $link = $sertifikat->link;
+    //     $productId = $sertifikat->product_id;
+
+    //     // Ambil nama_kursus dari kursus menggunakan relasi
+    //     $course = $sertifikat->course;
+    //     $namaKursus = $course ? $course->nama_kursus : 'Nama kursus tidak ditemukan';
+
+    //     // Cek apakah $link null atau tidak
+    //     if (is_null($link)) {
+    //         return response()->json(['message' => 'Link sertifikat tidak ditemukan'], 404);
+    //     }
+
+    //     // Generate QR code sebagai string SVG
+    //     $qrCode = QrCode::size(300)->generate($link);
+
+    //     // Setelah menemukan sertifikat, arahkan pengguna ke view sertifikat
+    //     return view('home.sertifikat.cetak', compact('sertifikat', 'qrCode', 'user', 'profile', 'productId', 'namaKursus', 'sertifikat_id'));
+    // }
+
     public function printCertificate($id)
     {
         $user = Auth::user();
         $profile = UserProfile::where('user_id', $user->id)->first();
 
-        // Temukan sertifikat berdasarkan user_id dan sertifikat_id
-        $sertifikat = Sertifikat::where('user_id', $user->id)->first();
+        // Temukan sertifikat berdasarkan user_id dan product_id
+        $sertifikat = Sertifikat::where('user_id', $user->id)
+            ->where('product_id', $id)
+            ->first();
 
         // Cek apakah sertifikat ditemukan
         if (!$sertifikat) {
