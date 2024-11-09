@@ -94,7 +94,7 @@
                                                                 </div>
                                                             </td>
                                                         </tr>
-                                                        <tr>
+                                                        {{-- <tr>
                                                             <td>
                                                                 <div class="dashboard__quiz-info">
                                                                     <p>February 29, 2024</p>
@@ -124,7 +124,7 @@
                                                                             class="skillgro-bin"></i></a>
                                                                 </div>
                                                             </td>
-                                                        </tr>
+                                                        </tr> --}}
 
                                                     </tbody>
                                                 @endif
