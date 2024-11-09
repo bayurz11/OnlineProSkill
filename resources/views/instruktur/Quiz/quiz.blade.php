@@ -83,7 +83,7 @@
                                                                 <p class="color-black">4</p>
                                                             </td>
                                                             <td>
-                                                                <span class="dashboard__quiz-result">Pass</span>
+                                                                <span class="dashboard__quiz-result fail">Pass</span>
                                                             </td>
                                                             <td>
                                                                 <div class="dashboard__review-action">
