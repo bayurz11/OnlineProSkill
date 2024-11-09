@@ -34,159 +34,197 @@
                             <h4 class="title">Quiz </h4>
                         </div>
                         <div class="row">
-                            <div class="col-12">
-                                <div class="dashboard__review-table">
-                                    <table class="table table-borderless">
-                                        <thead>
-                                            <tr>
-                                                <th>Quiz</th>
-                                                <th>Qus</th>
-                                                <th>TM</th>
-                                                <th>CA</th>
-                                                <th>Result</th>
-                                                <th>&nbsp;</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <div class="dashboard__quiz-info">
-                                                        <p>January 20, 2024</p>
-                                                        <h6 class="title">Write a short essay on yourself using the 5</h6>
-                                                        <span>Student: <a href="#">John Due</a></span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <p class="color-black">4</p>
-                                                </td>
-                                                <td>
-                                                    <p class="color-black">8</p>
-                                                </td>
-                                                <td>
-                                                    <p class="color-black">4</p>
-                                                </td>
-                                                <td>
-                                                    <span class="dashboard__quiz-result">Pass</span>
-                                                </td>
-                                                <td>
-                                                    <div class="dashboard__review-action">
-                                                        <a href="#" title="Edit"><i class="skillgro-edit"></i></a>
-                                                        <a href="#" title="Delete"><i class="skillgro-bin"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="dashboard__quiz-info">
-                                                        <p>February 29, 2024</p>
-                                                        <h6 class="title">Write a short essay on yourself using the 5</h6>
-                                                        <span>Student: <a href="#">John Due</a></span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <p class="color-black">2</p>
-                                                </td>
-                                                <td>
-                                                    <p class="color-black">6</p>
-                                                </td>
-                                                <td>
-                                                    <p class="color-black">3</p>
-                                                </td>
-                                                <td>
-                                                    <span class="dashboard__quiz-result fail">Fail</span>
-                                                </td>
-                                                <td>
-                                                    <div class="dashboard__review-action">
-                                                        <a href="#" title="Edit"><i class="skillgro-edit"></i></a>
-                                                        <a href="#" title="Delete"><i class="skillgro-bin"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="dashboard__quiz-info">
-                                                        <p>January 20, 2024</p>
-                                                        <h6 class="title">Write a short essay on yourself using the 5</h6>
-                                                        <span>Student: <a href="#">John Due</a></span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <p class="color-black">4</p>
-                                                </td>
-                                                <td>
-                                                    <p class="color-black">8</p>
-                                                </td>
-                                                <td>
-                                                    <p class="color-black">4</p>
-                                                </td>
-                                                <td>
-                                                    <span class="dashboard__quiz-result">Pass</span>
-                                                </td>
-                                                <td>
-                                                    <div class="dashboard__review-action">
-                                                        <a href="#" title="Edit"><i class="skillgro-edit"></i></a>
-                                                        <a href="#" title="Delete"><i class="skillgro-bin"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="dashboard__quiz-info">
-                                                        <p>February 29, 2024</p>
-                                                        <h6 class="title">Write a short essay on yourself using the 5</h6>
-                                                        <span>Student: <a href="#">John Due</a></span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <p class="color-black">2</p>
-                                                </td>
-                                                <td>
-                                                    <p class="color-black">6</p>
-                                                </td>
-                                                <td>
-                                                    <p class="color-black">3</p>
-                                                </td>
-                                                <td>
-                                                    <span class="dashboard__quiz-result fail">Fail</span>
-                                                </td>
-                                                <td>
-                                                    <div class="dashboard__review-action">
-                                                        <a href="#" title="Edit"><i class="skillgro-edit"></i></a>
-                                                        <a href="#" title="Delete"><i class="skillgro-bin"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="dashboard__quiz-info">
-                                                        <p>January 20, 2024</p>
-                                                        <h6 class="title">Write a short essay on yourself using the 5</h6>
-                                                        <span>Student: <a href="#">John Due</a></span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <p class="color-black">4</p>
-                                                </td>
-                                                <td>
-                                                    <p class="color-black">8</p>
-                                                </td>
-                                                <td>
-                                                    <p class="color-black">4</p>
-                                                </td>
-                                                <td>
-                                                    <span class="dashboard__quiz-result">Pass</span>
-                                                </td>
-                                                <td>
-                                                    <div class="dashboard__review-action">
-                                                        <a href="#" title="Edit"><i class="skillgro-edit"></i></a>
-                                                        <a href="#" title="Delete"><i class="skillgro-bin"></i></a>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                            @if ($KelasTatapMuka->isEmpty())
+                                <div class="alert alert-warning" role="alert">
+                                    Anda Belum Menambahkan kelas Apapun
                                 </div>
-                            </div>
+                            @else
+                                @foreach ($KelasTatapMuka->where('status', 1) as $kelas)
+                                    @php
+                                        // Mengecek apakah course_id ada di model Kurikulum
+                                        $kurikulumExists = \App\Models\Kurikulum::where(
+                                            'course_id',
+                                            $kelas->id,
+                                        )->exists();
+                                        $averageRating = $kelas->reviews()->avg('rating');
+                                    @endphp
+                                    @if ($kurikulumExists)
+                                        <div class="col-12">
+                                            <div class="dashboard__review-table">
+                                                <table class="table table-borderless">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Quiz</th>
+                                                            <th>Qus</th>
+                                                            <th>TM</th>
+                                                            <th>CA</th>
+                                                            <th>Result</th>
+                                                            <th>&nbsp;</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="dashboard__quiz-info">
+                                                                    <p>January 20, 2024</p>
+                                                                    <h6 class="title">Write a short essay on yourself using
+                                                                        the 5
+                                                                    </h6>
+                                                                    <span>Student: <a href="#">John Due</a></span>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <p class="color-black">4</p>
+                                                            </td>
+                                                            <td>
+                                                                <p class="color-black">8</p>
+                                                            </td>
+                                                            <td>
+                                                                <p class="color-black">4</p>
+                                                            </td>
+                                                            <td>
+                                                                <span class="dashboard__quiz-result">Pass</span>
+                                                            </td>
+                                                            <td>
+                                                                <div class="dashboard__review-action">
+                                                                    <a href="#" title="Edit"><i
+                                                                            class="skillgro-edit"></i></a>
+                                                                    <a href="#" title="Delete"><i
+                                                                            class="skillgro-bin"></i></a>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="dashboard__quiz-info">
+                                                                    <p>February 29, 2024</p>
+                                                                    <h6 class="title">Write a short essay on yourself using
+                                                                        the 5
+                                                                    </h6>
+                                                                    <span>Student: <a href="#">John Due</a></span>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <p class="color-black">2</p>
+                                                            </td>
+                                                            <td>
+                                                                <p class="color-black">6</p>
+                                                            </td>
+                                                            <td>
+                                                                <p class="color-black">3</p>
+                                                            </td>
+                                                            <td>
+                                                                <span class="dashboard__quiz-result fail">Fail</span>
+                                                            </td>
+                                                            <td>
+                                                                <div class="dashboard__review-action">
+                                                                    <a href="#" title="Edit"><i
+                                                                            class="skillgro-edit"></i></a>
+                                                                    <a href="#" title="Delete"><i
+                                                                            class="skillgro-bin"></i></a>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="dashboard__quiz-info">
+                                                                    <p>January 20, 2024</p>
+                                                                    <h6 class="title">Write a short essay on yourself using
+                                                                        the 5
+                                                                    </h6>
+                                                                    <span>Student: <a href="#">John Due</a></span>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <p class="color-black">4</p>
+                                                            </td>
+                                                            <td>
+                                                                <p class="color-black">8</p>
+                                                            </td>
+                                                            <td>
+                                                                <p class="color-black">4</p>
+                                                            </td>
+                                                            <td>
+                                                                <span class="dashboard__quiz-result">Pass</span>
+                                                            </td>
+                                                            <td>
+                                                                <div class="dashboard__review-action">
+                                                                    <a href="#" title="Edit"><i
+                                                                            class="skillgro-edit"></i></a>
+                                                                    <a href="#" title="Delete"><i
+                                                                            class="skillgro-bin"></i></a>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="dashboard__quiz-info">
+                                                                    <p>February 29, 2024</p>
+                                                                    <h6 class="title">Write a short essay on yourself using
+                                                                        the 5
+                                                                    </h6>
+                                                                    <span>Student: <a href="#">John Due</a></span>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <p class="color-black">2</p>
+                                                            </td>
+                                                            <td>
+                                                                <p class="color-black">6</p>
+                                                            </td>
+                                                            <td>
+                                                                <p class="color-black">3</p>
+                                                            </td>
+                                                            <td>
+                                                                <span class="dashboard__quiz-result fail">Fail</span>
+                                                            </td>
+                                                            <td>
+                                                                <div class="dashboard__review-action">
+                                                                    <a href="#" title="Edit"><i
+                                                                            class="skillgro-edit"></i></a>
+                                                                    <a href="#" title="Delete"><i
+                                                                            class="skillgro-bin"></i></a>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="dashboard__quiz-info">
+                                                                    <p>January 20, 2024</p>
+                                                                    <h6 class="title">Write a short essay on yourself using
+                                                                        the 5
+                                                                    </h6>
+                                                                    <span>Student: <a href="#">John Due</a></span>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <p class="color-black">4</p>
+                                                            </td>
+                                                            <td>
+                                                                <p class="color-black">8</p>
+                                                            </td>
+                                                            <td>
+                                                                <p class="color-black">4</p>
+                                                            </td>
+                                                            <td>
+                                                                <span class="dashboard__quiz-result">Pass</span>
+                                                            </td>
+                                                            <td>
+                                                                <div class="dashboard__review-action">
+                                                                    <a href="#" title="Edit"><i
+                                                                            class="skillgro-edit"></i></a>
+                                                                    <a href="#" title="Delete"><i
+                                                                            class="skillgro-bin"></i></a>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            @endif
                         </div>
                     </div>
                 </div>
