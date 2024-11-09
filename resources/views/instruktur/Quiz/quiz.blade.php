@@ -57,7 +57,7 @@
                                                 <tr>
                                                     <td>
                                                         <div class="dashboard__quiz-info">
-                                                            <p>{{ $quiz->created_at->format('F d, Y') }}</p>
+                                                            <p>{{ $quiz->created_at->format('d F , Y') }}</p>
 
                                                             <h6 class="title">{{ $quiz->judul_tugas }}
                                                             </h6>
