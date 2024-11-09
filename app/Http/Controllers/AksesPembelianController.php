@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Reviews;
 use App\Models\Section;
 use Barryvdh\DomPDF\PDF;
 use App\Models\Kurikulum;
@@ -91,6 +92,10 @@ class AksesPembelianController extends Controller
 
             return $completedSections === $totalSections;
         });
+        // Pengecekan review
+        $hasReviewed = Reviews::where('user_id', $user->id)
+            ->where('class_id', $id)
+            ->exists();
 
         return view('studen.lesson2', compact(
             'user',
@@ -102,7 +107,8 @@ class AksesPembelianController extends Controller
             'notifikasiCount',
             'orders',
             'kurikulum',
-            'allSectionsCompleted'
+            'allSectionsCompleted',
+            'hasReviewed'
         ));
     }
 
