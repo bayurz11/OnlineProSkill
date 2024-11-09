@@ -10,7 +10,7 @@
             </div>
             <div class="content">
                 <h4 class="title">{{ $user->name }}</h4>
-                <div class="review__wrap review__wrap-two">
+                {{-- <div class="review__wrap review__wrap-two">
                     <div class="rating">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -18,8 +18,8 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    {{-- <span>(15 Reviews)</span> --}}
-                </div>
+                    <span>(15 Reviews)</span>
+                </div> --}}
             </div>
         </div>
         <div class="dashboard__instructor-info-right">
