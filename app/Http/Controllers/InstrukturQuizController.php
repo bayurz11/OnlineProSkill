@@ -63,9 +63,8 @@ class InstrukturQuizController extends Controller
     {
         // Validasi input
         $validated = $request->validate([
-            'kurikulum_id' => 'required|exists:kurikulums,id',
             'judul_tugas' => 'required|string|max:255',
-            'course_id' => 'required|exists:kelas_tatap_muka,id',
+            'course_id' => 'required',
             'jam_mulai' => 'required|date_format:H:i',
             'jam_akhir' => 'required|date_format:H:i|after:jam_mulai',
         ]);
