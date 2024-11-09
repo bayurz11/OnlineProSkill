@@ -14,13 +14,17 @@
                     @include('studen.partials.lesson-video-wrap')
                 </div>
 
-
             </div>
         </div>
 
-
     </section>
 
+    @if ($allSectionsCompleted && $hasReviewed)
+        <!-- Tombol Cetak Sertifikat -->
+        <div class="text-center mt-4">
+            <a href="{{ route('cetak_sertifikat', ['id' => $sertifikat->id]) }}" class="btn btn-success">Cetak Sertifikat</a>
+        </div>
+    @endif
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
