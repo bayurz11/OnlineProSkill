@@ -11,23 +11,6 @@
             margin: 0;
         }
 
-        @media only screen and (max-width: 768px) {
-            .certificate-container {
-                transform: scale(0.8);
-                /* Mengurangi ukuran sertifikat */
-                transform-origin: top center;
-                width: 100vw;
-                height: auto;
-                overflow: hidden;
-            }
-
-            .certificate {
-                width: 100%;
-                height: auto;
-                box-shadow: none;
-            }
-        }
-
         body,
         html {
             margin: 0;
@@ -276,7 +259,7 @@
     </style>
 </head>
 
-<body>
+{{-- <body>
     <div class="certificate-container">
         <div class="certificate">
             <div class="content">
@@ -299,6 +282,65 @@
         </div>
     </div>
     <button class="print-button" onclick="window.print()">Cetak Sertifikat</button>
+</body> --}}
+
+<body>
+    <div class="certificate-container">
+        <div class="certificate">
+            <div class="content">
+                <h1>SERTIFIKAT</h1>
+                <div class="underline"></div>
+                <p>{{ $sertifikat_id }}</p>
+                @if ($profile && $profile->gambar)
+                    @if (strpos($profile->gambar, 'googleusercontent') !== false)
+                        <img class="photo" src="{{ $profile->gambar }}" alt="Foto Peserta">
+                    @else
+                        <img class="photo" src="{{ asset('public/uploads/' . $profile->gambar) }}" alt="Foto Peserta">
+                    @endif
+                @endif
+
+                <div class="qr">{!! $qrCode !!}</div>
+                <h2>{{ $user->name }}</h2>
+                <p>Atas Kelulusannya Pada Kelas</p>
+                <h3>{{ $namaKursus }}</h3>
+            </div>
+        </div>
+    </div>
+    <button class="print-button" onclick="handlePrint()">Cetak Sertifikat</button>
+
+    <!-- Menyertakan pustaka html2pdf -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <script>
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        function handlePrint() {
+            if (isMobileDevice()) {
+                // Jika perangkat mobile, unduh sebagai PDF
+                const element = document.querySelector('.certificate-container');
+                html2pdf(element, {
+                    margin: 0,
+                    filename: 'sertifikat.pdf',
+                    image: {
+                        type: 'jpeg',
+                        quality: 0.98
+                    },
+                    html2canvas: {
+                        scale: 2
+                    },
+                    jsPDF: {
+                        unit: 'mm',
+                        format: 'a4',
+                        orientation: 'landscape'
+                    }
+                });
+            } else {
+                // Jika desktop, buka dialog cetak biasa
+                window.print();
+            }
+        }
+    </script>
 </body>
 
 </html>
