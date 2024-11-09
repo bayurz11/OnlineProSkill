@@ -43,6 +43,7 @@ use App\Http\Controllers\HubungiKamiSettingController;
 use App\Http\Controllers\DashboardInstrukturController;
 use App\Http\Controllers\GiftClassController;
 use App\Http\Controllers\InstrukturKurikulumController;
+use App\Http\Controllers\InstrukturQuizController;
 use App\Http\Controllers\OrderHistoryManagerController;
 use App\Http\Controllers\SettingProfileInstrukturController;
 
@@ -249,6 +250,9 @@ Route::middleware('isInstruktur')->group(function () {
     Route::get('/instruktur_section/{id}/edit', [InstrukturSectionController::class, 'edit'])->name('instruktur_section.edit');
     Route::put('/instruktur_section/{id}', [InstrukturSectionController::class, 'update'])->name('instruktur_section.update');
     Route::delete('/instruktur_section_destroy/{id}', [InstrukturSectionController::class, 'destroy'])->name('section.destroy');
+
+    //Quiz
+    Route::get('/instruktur_quiz', [InstrukturQuizController::class, 'index'])->name('instruktur.quiz');
 });
 
 
