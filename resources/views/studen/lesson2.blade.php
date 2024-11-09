@@ -18,7 +18,7 @@
         </div>
 
     </section>
-    @if ($allSectionsCompleted && $hasReviewed)
+    {{-- @if ($allSectionsCompleted && $hasReviewed)
         <!-- Tombol Cetak Sertifikat -->
         <div class="text-center mt-4">
             <form action="{{ route('print_certificate', ['id' => $sertifikat->id]) }}" method="POST">
@@ -26,7 +26,7 @@
                 <button type="submit" class="btn btn-success">Cetak Sertifikat</button>
             </form>
         </div>
-    @endif
+    @endif --}}
 
 
     <script>
