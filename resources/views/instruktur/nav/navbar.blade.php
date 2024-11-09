@@ -60,22 +60,22 @@
                         My Courses
                     </a>
                 </li>
-                <li class="{{ Request::is('#') ? 'active' : '' }}">
+                {{-- <li class="{{ Request::is('#') ? 'active' : '' }}">
                     <a href="instructor-announcement.html">
                         <i class="skillgro-marketing"></i>
                         Announcements
                     </a>
-                </li>
+                </li> --}}
                 <li class="{{ Request::is('#') ? 'active' : '' }}">
                     <a href="instructor-quiz.html">
                         <i class="skillgro-chat"></i>
-                        Quiz Attempts
+                        Quiz
                     </a>
                 </li>
                 <li class="{{ Request::is('#') ? 'active' : '' }}">
                     <a href="instructor-assignment.html">
                         <i class="skillgro-list"></i>
-                        Assignments
+                        Tugas
                     </a>
                 </li>
             </ul>
