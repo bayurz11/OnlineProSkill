@@ -78,26 +78,30 @@ class InstrukturQuestionController extends Controller
         $id_tugas = $request->input('id_tugas');
         // Iterasi untuk menyimpan setiap pertanyaan dan jawabannya
         foreach ($validated['questions'] as $key => $questionData) {
-            // Simpan pertanyaan
+            // Simpan pertanyaan dan pastikan ID tersimpan setelah create
             $pertanyaan = Pertanyaan::create([
                 'isi_pertanyaan' => $questionData['question'],
                 'jenis_pertanyaan' => 'pilihan_ganda', // Menyesuaikan jenis pertanyaan
                 'id_tugas' => $id_tugas,
             ]);
 
-            // Simpan pilihan jawaban
-            foreach ($questionData['options'] as $optionKey => $optionValue) {
-                $pilihanJawaban = Pilih_Jawaban::create([
-                    'id_pertanyaan' => $pertanyaan->id,
-                    'isi_pilihan' => $optionValue,
-                    'benar' => $optionKey == $questionData['correct_answer'] ? 1 : 0,
-                ]);
+            // Pastikan ID pertanyaan sudah ada sebelum digunakan
+            if ($pertanyaan) {
+                // Simpan pilihan jawaban
+                foreach ($questionData['options'] as $optionKey => $optionValue) {
+                    Pilih_Jawaban::create([
+                        'id_pertanyaan' => $pertanyaan->id,  // Pastikan ID digunakan dengan benar
+                        'isi_pilihan' => $optionValue,
+                        'benar' => $optionKey == $questionData['correct_answer'] ? 1 : 0,
+                    ]);
+                }
             }
         }
 
         // Redirect atau beri response setelah berhasil menyimpan
         return redirect()->route('pertanyaan_pg.index')->with('success', 'Pertanyaan dan jawaban berhasil disimpan.');
     }
+
     public function esai()
     {
         $categori = Categories::all();
