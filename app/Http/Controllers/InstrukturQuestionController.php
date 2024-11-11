@@ -62,6 +62,41 @@ class InstrukturQuestionController extends Controller
         ));
     }
 
+    public function storepg(Request $request)
+    {
+        // Validasi input form
+        $validated = $request->validate([
+            'questions.*.question' => 'required|string',
+            'questions.*.options.A' => 'required|string',
+            'questions.*.options.B' => 'required|string',
+            'questions.*.options.C' => 'required|string',
+            'questions.*.options.D' => 'required|string',
+            'questions.*.options.E' => 'required|string',
+            'questions.*.correct_answer' => 'required|in:A,B,C,D,E',
+        ]);
+
+        // Iterasi untuk menyimpan setiap pertanyaan dan jawabannya
+        foreach ($validated['questions'] as $key => $questionData) {
+            // Simpan pertanyaan
+            $pertanyaan = Pertanyaan::create([
+                'isi_pertanyaan' => $questionData['question'],
+                'jenis_pertanyaan' => 'pilihan_ganda', // Menyesuaikan jenis pertanyaan
+                'id_tugas' => 1, // Ganti sesuai dengan id_tugas yang relevan
+            ]);
+
+            // Simpan pilihan jawaban
+            foreach ($questionData['options'] as $optionKey => $optionValue) {
+                $pilihanJawaban = Pilih_Jawaban::create([
+                    'id_pertanyaan' => $pertanyaan->id,
+                    'isi_pilihan' => $optionValue,
+                    'benar' => $optionKey == $questionData['correct_answer'] ? 1 : 0,
+                ]);
+            }
+        }
+
+        // Redirect atau beri response setelah berhasil menyimpan
+        return redirect()->route('pertanyaan_pg.index')->with('success', 'Pertanyaan dan jawaban berhasil disimpan.');
+    }
     public function esai()
     {
         $categori = Categories::all();
