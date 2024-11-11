@@ -122,19 +122,41 @@
         document.addEventListener('DOMContentLoaded', function() {
             const deleteLinks = document.querySelectorAll('.delete-quiz');
             const deleteForm = document.getElementById('delete-form');
+            const confirmationModal = document.getElementById('confirmationModal');
+            const confirmDeleteBtn = document.getElementById('confirmDelete');
+            const cancelDeleteBtn = document.getElementById('cancelDelete');
+
+            let quizId; // Variable to store quiz ID for deletion
 
             deleteLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const id = this.getAttribute('data-id');
-                    const confirmed = confirm("Apakah Anda yakin ingin menghapus quiz ini?");
-
-                    if (confirmed) {
-                        deleteForm.action = `/instruktur_quiz/${id}`;
-                        deleteForm.submit();
-                    }
+                    quizId = this.getAttribute('data-id');
+                    confirmationModal.style.display = 'flex'; // Show the modal
                 });
+            });
+
+            confirmDeleteBtn.addEventListener('click', function() {
+                deleteForm.action = `/instruktur_quiz/${quizId}`;
+                deleteForm.submit();
+                confirmationModal.style.display = 'none'; // Hide the modal after confirmation
+            });
+
+            cancelDeleteBtn.addEventListener('click', function() {
+                confirmationModal.style.display = 'none'; // Hide the modal on cancel
             });
         });
     </script>
+
+    <!-- HTML for the modal -->
+    <div id="confirmationModal"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: none; justify-content: center; align-items: center; z-index: 1000;">
+        <div style="background: white; padding: 40px; border-radius: 8px; text-align: center;">
+            <h4>Konfirmasi Penghapusan</h4><br>
+            <p>Apakah Anda yakin ingin menghapus ini?</p><br>
+            <button id="confirmDelete" class="btn btn-danger btn-lg">Ya, Hapus</button>
+            <button id="cancelDelete" class="btn btn-secondary btn-lg">Batal</button>
+        </div>
+    </div>
+
 @endsection
