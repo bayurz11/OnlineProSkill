@@ -34,7 +34,9 @@
 
                         </div>
 
-                        <form id="questionsForm">
+                        <form id="questionsForm" action="{{ route('pertanyaan_pg.store', ['id_tugas' => $id_tugas]) }}"
+                            method="POST">
+                            @csrf
                             <div class="row" id="questionsList">
                                 <!-- Formulir pertanyaan pertama akan muncul saat halaman dimuat -->
                                 <div class="col-12 question-form" id="question-form-1">
@@ -89,8 +91,13 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group d-flex justify-content-end">
+                                <button type="submit" class="btn btn-primary">Simpan</button>
+                            </div>
                         </form>
+
                         <div class="form-group d-flex justify-content-end">
+
                             <button type="button" class="btn btn-primary" onclick="addChoiceQuestion()">Tambah
                                 Pertanyaan</button>
                         </div>

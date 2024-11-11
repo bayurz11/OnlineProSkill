@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\Tugas;
 use App\Models\Categories;
+use App\Models\Pertanyaan;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use App\Models\KelasTatapMuka;
@@ -58,6 +59,27 @@ class InstrukturQuestionController extends Controller
             'jumlahPendaftaran',
             'quiz'
         ));
+    }
+    public function storepg(Request $request, $id_tugas)
+    {
+        $request->validate([
+            'questions.*.question' => 'required|string',
+            'questions.*.correct_answer' => 'required|in:A,B,C,D,E',
+            'questions.*.options.*' => 'required|string',
+        ]);
+
+        // ID tugas yang diambil dari URL
+        // $id_tugas sudah tersedia di sini
+
+        foreach ($request->questions as $questionData) {
+            Pertanyaan::create([
+                'isi_pertanyaan' => $questionData['question'],
+                'jenis_pertanyaan' => 'pilihan_ganda', // Jenis pertanyaan
+                'id_tugas' => $id_tugas, // Menggunakan id_tugas yang didapat dari URL
+            ]);
+        }
+
+        return redirect()->back()->with('success', 'Pertanyaan berhasil ditambahkan.');
     }
     public function esai()
     {
