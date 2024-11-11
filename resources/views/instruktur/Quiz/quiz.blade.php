@@ -1,4 +1,4 @@
-a@section('title', 'ProSkill Akademia | Quiz')
+@section('title', 'ProSkill Akademia | Quiz')
 <?php $page = 'instruktur.quiz'; ?>
 
 @extends('layout.mainlayout')
