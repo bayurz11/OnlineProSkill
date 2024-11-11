@@ -12,6 +12,7 @@ use App\Models\KelasTatapMuka;
 use App\Models\NotifikasiUser;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Pilih_Jawaban;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -68,18 +69,27 @@ class InstrukturQuestionController extends Controller
             'questions.*.options.*' => 'required|string',
         ]);
 
-        // ID tugas yang diambil dari URL
-        // $id_tugas sudah tersedia di sini
-
+        // Menyimpan pertanyaan dan pilihan jawabannya
         foreach ($request->questions as $questionData) {
-            Pertanyaan::create([
+            // Menyimpan pertanyaan
+            $pertanyaan = Pertanyaan::create([
                 'isi_pertanyaan' => $questionData['question'],
                 'jenis_pertanyaan' => 'pilihan_ganda', // Jenis pertanyaan
-                // 'id_tugas' => $id_tugas, // Menggunakan id_tugas yang didapat dari URL
+                // Jika Anda memiliki id_tugas, bisa ditambahkan di sini
+                // 'id_tugas' => $id_tugas,
             ]);
+
+            // Menyimpan pilihan jawaban
+            foreach ($questionData['options'] as $key => $option) {
+                Pilih_Jawaban::create([
+                    'id_pertanyaan' => $pertanyaan->id,
+                    'isi_pilihan' => $option,
+                    'is_correct' => ($key === $questionData['correct_answer']) ? 1 : 0, // Menandai jawaban benar
+                ]);
+            }
         }
 
-        return redirect()->back()->with('success', 'Pertanyaan berhasil ditambahkan.');
+        return redirect()->back()->with('success', 'Pertanyaan dan pilihan jawaban berhasil ditambahkan.');
     }
     public function esai()
     {
