@@ -58,41 +58,36 @@
                                                     <td>
                                                         <div class="dashboard__quiz-info">
                                                             <p>{{ $quiz->created_at->format('d F, Y') }}</p>
-
-                                                            <h6 class="title">{{ $quiz->judul_tugas }}
-                                                            </h6>
-
+                                                            <h6 class="title">{{ $quiz->judul_tugas }}</h6>
                                                             <p style="font-size: 12px;">Waktu:
                                                                 {{ \Carbon\Carbon::parse($quiz->jam_mulai)->format('H.i') }}
                                                                 s/d
                                                                 {{ \Carbon\Carbon::parse($quiz->jam_akhir)->format('H.i') }}
                                                             </p>
-
                                                         </div>
                                                     </td>
                                                     <td>
                                                         <p class="color-black">{{ $quiz->KelasTatapMuka->nama_kursus }}</p>
                                                     </td>
-                                                    {{-- <td>
-                                                        <p class="color-black">8</p>
-                                                    </td>
                                                     <td>
-                                                        <p class="color-black">4</p>
-                                                    </td> --}}
-                                                    <td>
-                                                        <p>Waktu Saat Ini: {{ now()->format('H:i') }}</p>
-                                                        <p>Waktu Mulai:
-                                                            {{ \Carbon\Carbon::parse($quiz->jam_mulai)->format('H:i') }}</p>
-                                                        <p>Waktu Akhir:
-                                                            {{ \Carbon\Carbon::parse($quiz->jam_akhir)->format('H:i') }}</p>
+                                                        @php
+                                                            // Menggabungkan tanggal `created_at` dengan waktu `jam_akhir` untuk mendapatkan waktu akhir penuh
+                                                            $waktuAkhir = \Carbon\Carbon::parse(
+                                                                $quiz->created_at->format('Y-m-d') .
+                                                                    ' ' .
+                                                                    $quiz->jam_akhir,
+                                                            );
 
-                                                        @if (now()->between(\Carbon\Carbon::parse($quiz->jam_mulai), \Carbon\Carbon::parse($quiz->jam_akhir)))
-                                                            <span class="dashboard__quiz-result">Berjalan</span>
-                                                        @else
+                                                            // Cek jika waktu sekarang sudah melewati $waktuAkhir
+                                                            $isSelesai = now()->greaterThan($waktuAkhir);
+                                                        @endphp
+
+                                                        @if ($isSelesai)
                                                             <span class="dashboard__quiz-result fail">Selesai</span>
+                                                        @else
+                                                            <span class="dashboard__quiz-result">Berjalan</span>
                                                         @endif
                                                     </td>
-
                                                     <td>
                                                         <div class="dashboard__review-action">
                                                             <a href="#" title="Edit"><i
@@ -102,40 +97,9 @@
                                                         </div>
                                                     </td>
                                                 </tr>
-                                                {{-- <tr>
-                                                            <td>
-                                                                <div class="dashboard__quiz-info">
-                                                                    <p>February 29, 2024</p>
-                                                                    <h6 class="title">Write a short essay on yourself using
-                                                                        the 5
-                                                                    </h6>
-                                                                    <span>Student: <a href="#">John Due</a></span>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <p class="color-black">2</p>
-                                                            </td>
-                                                            <td>
-                                                                <p class="color-black">6</p>
-                                                            </td>
-                                                            <td>
-                                                                <p class="color-black">3</p>
-                                                            </td>
-                                                            <td>
-                                                                <span class="dashboard__quiz-result fail">Fail</span>
-                                                            </td>
-                                                            <td>
-                                                                <div class="dashboard__review-action">
-                                                                    <a href="#" title="Edit"><i
-                                                                            class="skillgro-edit"></i></a>
-                                                                    <a href="#" title="Delete"><i
-                                                                            class="skillgro-bin"></i></a>
-                                                                </div>
-                                                            </td>
-                                                        </tr> --}}
-
                                             </tbody>
                                         @endforeach
+
                                     </table>
                                 </div>
                             </div>
