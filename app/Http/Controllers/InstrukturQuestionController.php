@@ -96,7 +96,7 @@ class InstrukturQuestionController extends Controller
             }
         }
 
-        return redirect()->route('pertanyaan_pg.index')->with('success', 'Pertanyaan berhasil disimpan!');
+        return redirect()->route('instruktur_question_pg')->with('success', 'Pertanyaan berhasil disimpan!');
     }
 
     public function esai()

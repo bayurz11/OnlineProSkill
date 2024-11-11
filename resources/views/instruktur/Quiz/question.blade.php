@@ -37,8 +37,6 @@
                         <form id="questionsForm" action="{{ route('instruktur_pertanyaan_pg.store') }}" method="POST">
                             @csrf
                             <div class="row" id="questionsList">
-
-
                                 <div class="col-12 question-form" id="question-form-1">
                                     <div class="form-group">
                                         <label for="question_1">Pertanyaan Pilihan Ganda 1</label>
