@@ -38,7 +38,7 @@
                             @csrf
                             <div class="row" id="questionsList">
                                 <!-- Formulir pertanyaan pertama akan muncul saat halaman dimuat -->
-                                <input type="hidden" name="id_tugas" value="{{ $id_tugas }}">
+                                <input type="hidden" name="id_tugas" id="id_tugas">
                                 <div class="col-12 question-form" id="question-form-1">
                                     <div class="form-group">
                                         <label for="question_1">Pertanyaan Pilihan Ganda 1</label>
@@ -110,6 +110,28 @@
     <!-- dashboard-area-end -->
 
 @endsection
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Ambil elemen <a> dengan class 'btn'
+        var button = document.querySelector('.btn-primary');
+
+        // Ambil input hidden untuk id_tugas
+        var hiddenInput = document.getElementById('id_tugas');
+
+        // Tambahkan event listener pada click button
+        button.addEventListener('click', function(event) {
+            // Ambil nilai dari data-id
+            var idTugas = button.getAttribute('data-id');
+
+            // Set nilai id_tugas ke dalam input hidden
+            hiddenInput.value = idTugas;
+
+            // Optionally, kamu bisa redirect atau melakukan aksi lain setelahnya
+            // Misalnya jika kamu ingin mengarahkan ke route setelah mengatur nilai hidden:
+            // window.location.href = button.getAttribute('href');
+        });
+    });
+</script>
 
 <script>
     let questionCount = 1; // Inisialisasi nomor pertanyaan
