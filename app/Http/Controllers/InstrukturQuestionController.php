@@ -60,7 +60,7 @@ class InstrukturQuestionController extends Controller
             'quiz'
         ));
     }
-    public function storepg(Request $request, $id_tugas)
+    public function storepg(Request $request)
     {
         $request->validate([
             'questions.*.question' => 'required|string',
@@ -75,7 +75,7 @@ class InstrukturQuestionController extends Controller
             Pertanyaan::create([
                 'isi_pertanyaan' => $questionData['question'],
                 'jenis_pertanyaan' => 'pilihan_ganda', // Jenis pertanyaan
-                'id_tugas' => $id_tugas, // Menggunakan id_tugas yang didapat dari URL
+                // 'id_tugas' => $id_tugas, // Menggunakan id_tugas yang didapat dari URL
             ]);
         }
 
