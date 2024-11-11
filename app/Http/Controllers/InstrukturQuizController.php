@@ -89,16 +89,16 @@ class InstrukturQuizController extends Controller
         return redirect()->back()->with('success', 'Quiz berhasil ditambahkan.');
     }
 
-    public function destroy($id)
+    public function destroy($id_tugas)
     {
-        $quiz = Tugas::find($id);
+        $quiz = Tugas::where('id_tugas', $id_tugas)->first();
 
         if (!$quiz) {
-            return redirect()->back()->with('error', 'quiz tidak ditemukan');
+            return redirect()->back()->with('error', 'Quiz tidak ditemukan');
         }
 
         $quiz->delete();
 
-        return redirect()->back()->with('success', 'quiz berhasil dihapus');
+        return redirect()->back()->with('success', 'Quiz berhasil dihapus');
     }
 }
