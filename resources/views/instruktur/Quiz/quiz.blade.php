@@ -90,7 +90,7 @@
                                                                     class="skillgro-edit"></i></a>
 
                                                             <!-- Form untuk menghapus quiz -->
-                                                            <<form action="{{ route('quiz.destroy', $quiz->id_tugas) }}"
+                                                            <form action="{{ route('quiz.destroy', $quiz->id_tugas) }}"
                                                                 method="POST" style="display:inline;">
                                                                 @csrf
                                                                 @method('DELETE')
@@ -98,7 +98,7 @@
                                                                     onclick="return confirm('Apakah Anda yakin ingin menghapus quiz ini?')">
                                                                     <i class="skillgro-bin"></i>
                                                                 </button>
-                                                                </form>
+                                                            </form>
 
                                                         </div>
                                                     </td>
