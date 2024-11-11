@@ -65,28 +65,33 @@
                     <textarea id="question_${questionCount}" name="questions[${questionCount}][question]" class="form-control" rows="2" placeholder="Tulis pertanyaan di sini..."></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="option1_${questionCount}">Pilihan 1</label>
-                    <input type="text" id="option1_${questionCount}" name="questions[${questionCount}][options][1]" class="form-control" placeholder="Masukkan pilihan pertama">
+                    <label for="optionA_${questionCount}">Pilihan A</label>
+                    <input type="text" id="optionA_${questionCount}" name="questions[${questionCount}][options][A]" class="form-control" placeholder="Masukkan pilihan A">
                 </div>
                 <div class="form-group">
-                    <label for="option2_${questionCount}">Pilihan 2</label>
-                    <input type="text" id="option2_${questionCount}" name="questions[${questionCount}][options][2]" class="form-control" placeholder="Masukkan pilihan kedua">
+                    <label for="optionB_${questionCount}">Pilihan B</label>
+                    <input type="text" id="optionB_${questionCount}" name="questions[${questionCount}][options][B]" class="form-control" placeholder="Masukkan pilihan B">
                 </div>
                 <div class="form-group">
-                    <label for="option3_${questionCount}">Pilihan 3</label>
-                    <input type="text" id="option3_${questionCount}" name="questions[${questionCount}][options][3]" class="form-control" placeholder="Masukkan pilihan ketiga">
+                    <label for="optionC_${questionCount}">Pilihan C</label>
+                    <input type="text" id="optionC_${questionCount}" name="questions[${questionCount}][options][C]" class="form-control" placeholder="Masukkan pilihan C">
                 </div>
                 <div class="form-group">
-                    <label for="option4_${questionCount}">Pilihan 4</label>
-                    <input type="text" id="option4_${questionCount}" name="questions[${questionCount}][options][4]" class="form-control" placeholder="Masukkan pilihan keempat">
+                    <label for="optionD_${questionCount}">Pilihan D</label>
+                    <input type="text" id="optionD_${questionCount}" name="questions[${questionCount}][options][D]" class="form-control" placeholder="Masukkan pilihan D">
+                </div>
+                <div class="form-group">
+                    <label for="optionE_${questionCount}">Pilihan E</label>
+                    <input type="text" id="optionE_${questionCount}" name="questions[${questionCount}][options][E]" class="form-control" placeholder="Masukkan pilihan E">
                 </div>
                 <div class="form-group">
                     <label for="correct_answer_${questionCount}">Jawaban Benar</label>
                     <select id="correct_answer_${questionCount}" name="questions[${questionCount}][correct_answer]" class="form-control">
-                        <option value="1">Pilihan 1</option>
-                        <option value="2">Pilihan 2</option>
-                        <option value="3">Pilihan 3</option>
-                        <option value="4">Pilihan 4</option>
+                        <option value="A">Pilihan A</option>
+                        <option value="B">Pilihan B</option>
+                        <option value="C">Pilihan C</option>
+                        <option value="D">Pilihan D</option>
+                        <option value="E">Pilihan E</option>
                     </select>
                 </div>
             </div>
@@ -94,4 +99,9 @@
         // Menambahkan form baru ke dalam list
         document.getElementById('questionsList').insertAdjacentHTML('beforeend', questionForm);
     }
+
+    // Panggil fungsi addChoiceQuestion untuk langsung menampilkan formulir saat halaman dibuka
+    window.onload = function() {
+        addChoiceQuestion(); // Panggil fungsi untuk menampilkan form pertama
+    };
 </script>
