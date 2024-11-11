@@ -89,8 +89,9 @@
                                                             <a href="#" title="Tambahkan Pertanyaan"><i
                                                                     class="skillgro-edit"></i></a>
                                                             <a href="#" title="Hapus Quiz"
-                                                                data-id="{{ $quiz->id_tugas }}" class="delete-quiz"><i
+                                                                onclick="hapus({{ $quiz->id_tugas }})"><i
                                                                     class="skillgro-bin"></i></a>
+
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -119,22 +120,57 @@
     </form>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const deleteLinks = document.querySelectorAll('.delete-quiz');
-            const deleteForm = document.getElementById('delete-form');
+        function hapus(id_tugas) {
+            event.preventDefault(); // Mencegah aksi default pada tautan
 
-            deleteLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const id = this.getAttribute('data-id');
-                    const confirmed = confirm("Apakah Anda yakin ingin menghapus quiz ini?");
+            // Membuat modal konfirmasi secara dinamis
+            const confirmationBox = `
+                <div id="confirmationModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; z-index: 1000;">
+                    <div style="background: white; padding: 40px; border-radius: 8px; text-align: center;">
+                        <h4>Konfirmasi Penghapusan</h4><br>
+                        <p>Apakah Anda yakin ingin menghapus quiz ini?</p><br>
+                        <button id="confirmDelete" class="btn btn-danger btn-lg" data-id="${id_tugas}">Ya, Hapus</button>
+                        <button id="cancelDelete" class="btn btn-secondary btn-lg">Batal</button>
+                    </div>
+                </div>
+            `;
 
-                    if (confirmed) {
-                        deleteForm.action = `/instruktur_quiz/${id}`;
-                        deleteForm.submit();
-                    }
-                });
-            });
-        });
+            // Menambahkan modal ke dalam body
+            document.body.insertAdjacentHTML('beforeend', confirmationBox);
+
+            // Event listener untuk tombol konfirmasi hapus
+            document.getElementById('confirmDelete').onclick = function(event) {
+                event.preventDefault(); // Mencegah aksi default
+
+                const id = this.getAttribute('data-id');
+
+                // Mengirim permintaan DELETE menggunakan AJAX
+                fetch(`/instruktur_quiz/${id}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        }
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            document.getElementById('confirmationModal').remove(); // Hapus modal
+                            alert('Quiz berhasil dihapus.');
+                            location.reload(); // Refresh halaman setelah penghapusan
+                        } else {
+                            throw new Error('Gagal menghapus quiz.');
+                        }
+                    })
+                    .catch(error => {
+                        document.getElementById('confirmationModal').remove(); // Hapus modal jika gagal
+                        console.error('Gagal menghapus quiz:', error);
+                    });
+            };
+
+            // Event listener untuk tombol batal
+            document.getElementById('cancelDelete').onclick = function() {
+                document.getElementById('confirmationModal').remove();
+            };
+        }
     </script>
+
 @endsection
