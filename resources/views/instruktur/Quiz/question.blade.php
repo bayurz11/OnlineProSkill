@@ -94,12 +94,8 @@
                             <label for="optionE_${questionCount}">Pilihan E</label>
                             <input type="text" id="optionE_${questionCount}" name="questions[${questionCount}][options][E]" class="form-control" placeholder="Masukkan pilihan E">
                         </div>
-                    </div>
-                </div>
-
-                <!-- Kunci jawaban -->
-                <div class="form-group">
-                    <label for="correct_answer_${questionCount}">Jawaban Benar</label>
+                        <div class="choice">
+                            <label for="correct_answer_${questionCount}">Jawaban Benar</label>
                     <select id="correct_answer_${questionCount}" name="questions[${questionCount}][correct_answer]" class="form-control">
                         <option value="A">Pilihan A</option>
                         <option value="B">Pilihan B</option>
@@ -107,7 +103,11 @@
                         <option value="D">Pilihan D</option>
                         <option value="E">Pilihan E</option>
                     </select>
+                    </div>
+                    </div>
                 </div>
+
+                
             </div>
         `;
         // Menambahkan form baru ke dalam list
@@ -137,10 +137,5 @@
 
     .choice input {
         margin-top: 5px;
-    }
-
-    /* Mengatur kunci jawaban di bawah pilihan E */
-    .form-group label {
-        margin-bottom: 5px;
     }
 </style>
