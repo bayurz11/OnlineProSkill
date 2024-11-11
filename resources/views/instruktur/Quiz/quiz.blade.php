@@ -71,17 +71,13 @@
                                                     </td>
                                                     <td>
                                                         @php
-                                                            // Menggabungkan tanggal `created_at` dengan waktu `jam_akhir` untuk mendapatkan waktu akhir penuh
                                                             $waktuAkhir = \Carbon\Carbon::parse(
                                                                 $quiz->created_at->format('Y-m-d') .
                                                                     ' ' .
                                                                     $quiz->jam_akhir,
                                                             );
-
-                                                            // Cek jika waktu sekarang sudah melewati $waktuAkhir
                                                             $isSelesai = now()->greaterThan($waktuAkhir);
                                                         @endphp
-
                                                         @if ($isSelesai)
                                                             <span class="dashboard__quiz-result fail">Selesai</span>
                                                         @else
