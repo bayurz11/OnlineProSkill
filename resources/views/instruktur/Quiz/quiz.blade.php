@@ -162,10 +162,9 @@
             <button id="cancelDelete" class="btn btn-secondary btn-lg">Batal</button>
         </div>
     </div>
-    <!-- Modal Konfirmasi -->
     <div id="confirmationModalQuestion"
         style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: none; justify-content: center; align-items: center; z-index: 1000;">
-        <div style="background: white; padding: 40px; border-radius: 8px; text-align: center;">
+        <div style="background: white; padding: 40px; border-radius: 8px; text-align: center; position: relative;">
             <h4>Pilih Jenis Pertanyaan</h4><br>
             <p>Silakan pilih jenis pertanyaan yang ingin ditambahkan.</p><br>
             <!-- Button menuju halaman pilihan ganda -->
@@ -174,7 +173,9 @@
             <!-- Button menuju halaman esai -->
             <a href="{{ route('instruktur_question_essay', ['id_tugas' => $quiz->id_tugas]) }}"
                 class="btn btn-secondary btn-lg">Esai</a>
-            <button onclick="hideModal()" class="btn btn-danger btn-lg">Batal</button>
+            <!-- Tombol X di pojok kanan atas -->
+            <button onclick="hideModal()"
+                style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 24px; color: #333;">&times;</button>
         </div>
     </div>
 
@@ -188,4 +189,5 @@
             document.getElementById('confirmationModalQuestion').style.display = 'none';
         }
     </script>
+
 @endsection
