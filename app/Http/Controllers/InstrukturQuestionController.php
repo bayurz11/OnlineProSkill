@@ -84,7 +84,7 @@ class InstrukturQuestionController extends Controller
                 Pilih_Jawaban::create([
                     'id_pertanyaan' => $pertanyaan->id,
                     'isi_pilihan' => $option,
-                    'is_correct' => ($key === $questionData['correct_answer']) ? 1 : 0, // Menandai jawaban benar
+                    'benar' => ($key === $questionData['correct_answer']) ? 1 : 0, // Menandai jawaban benar
                 ]);
             }
         }
