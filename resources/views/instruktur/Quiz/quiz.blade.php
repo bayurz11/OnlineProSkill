@@ -71,7 +71,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <p class="color-black">{{ $quiz->KelasTatapMuka->course_id }}</p>
+                                                        <p class="color-black">{{ $quiz->KelasTatapMuka->nama_kursus }}</p>
                                                     </td>
                                                     {{-- <td>
                                                         <p class="color-black">8</p>
