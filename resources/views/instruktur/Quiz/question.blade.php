@@ -54,24 +54,26 @@
                                                     class="form-control" placeholder="Masukkan pilihan A">
                                             </div>
                                             <div class="choice">
+                                                <label for="optionE_1">Pilihan E</label>
+                                                <input type="text" id="optionE_1" name="questions[1][options][E]"
+                                                    class="form-control" placeholder="Masukkan pilihan E">
+                                            </div>
+
+                                            <div class="choice">
                                                 <label for="optionB_1">Pilihan B</label>
                                                 <input type="text" id="optionB_1" name="questions[1][options][B]"
                                                     class="form-control" placeholder="Masukkan pilihan B">
-                                            </div>
-                                            <div class="choice">
-                                                <label for="optionC_1">Pilihan C</label>
-                                                <input type="text" id="optionC_1" name="questions[1][options][C]"
-                                                    class="form-control" placeholder="Masukkan pilihan C">
                                             </div>
                                             <div class="choice">
                                                 <label for="optionD_1">Pilihan D</label>
                                                 <input type="text" id="optionD_1" name="questions[1][options][D]"
                                                     class="form-control" placeholder="Masukkan pilihan D">
                                             </div>
+
                                             <div class="choice">
-                                                <label for="optionE_1">Pilihan E</label>
-                                                <input type="text" id="optionE_1" name="questions[1][options][E]"
-                                                    class="form-control" placeholder="Masukkan pilihan E">
+                                                <label for="optionC_1">Pilihan C</label>
+                                                <input type="text" id="optionC_1" name="questions[1][options][C]"
+                                                    class="form-control" placeholder="Masukkan pilihan C">
                                             </div>
                                             <div class="choice">
                                                 <label for="correct_answer_1">Jawaban Benar</label>
