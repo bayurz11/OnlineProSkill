@@ -18,16 +18,19 @@ use Illuminate\Support\Facades\Session;
 
 class InstrukturQuestionController extends Controller
 {
-    public function pg()
+    public function pg(Request $request)
     {
         $categori = Categories::all();
         $cart = Session::get('cart', []);
         $user = Auth::user();
+
         if (!$user) {
             return redirect()->route('/');
         }
+
         // Mengambil profil pengguna yang sedang login
         $profile = UserProfile::where('user_id', $user->id)->first();
+
         // Ambil notifikasi untuk pengguna yang sedang login
         $notifikasi = NotifikasiUser::where('user_id', $user->id)
             ->orderBy('created_at', 'desc')
@@ -47,7 +50,13 @@ class InstrukturQuestionController extends Controller
             ->whereIn('status', ['PAID', 'SETTLED'])
             ->with('KelasTatapMuka')
             ->get();
-        $quiz = Tugas::all();
+
+        // Ambil pertanyaan dan pilihan jawaban berdasarkan id_tugas
+        $id_tugas = $request->route('id_tugas');
+        $pertanyaan = Pertanyaan::where('id_tugas', $id_tugas)
+            ->with('pilihanJawaban')
+            ->get();
+
         return view('instruktur.Quiz.question', compact(
             'user',
             'KelasTatapMuka',
@@ -58,9 +67,10 @@ class InstrukturQuestionController extends Controller
             'notifikasiCount',
             'orders',
             'jumlahPendaftaran',
-            'quiz'
+            'pertanyaan'
         ));
     }
+
 
     public function storepg(Request $request)
     {
