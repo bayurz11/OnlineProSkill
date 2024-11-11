@@ -151,7 +151,7 @@
                         if (response.ok) {
                             document.getElementById('confirmationModal').remove(); // Hapus modal
                             alert('Quiz berhasil dihapus.');
-                            // Arahkan ke halaman index instruktur quiz setelah berhasil menghapus
+                            console.log("Penghapusan berhasil, mengarahkan ke halaman index.");
                             window.location.href = "{{ route('instruktur.quiz') }}";
                         } else {
                             throw new Error('Gagal menghapus quiz.');
@@ -161,13 +161,13 @@
                         document.getElementById('confirmationModal').remove(); // Hapus modal jika gagal
                         console.error('Gagal menghapus quiz:', error);
                     });
-            };
 
-            // Event listener untuk tombol batal
-            document.getElementById('cancelDelete').onclick = function() {
-                document.getElementById('confirmationModal').remove();
-            };
-        }
+
+                // Event listener untuk tombol batal
+                document.getElementById('cancelDelete').onclick = function() {
+                    document.getElementById('confirmationModal').remove();
+                };
+            }
     </script>
 
 
