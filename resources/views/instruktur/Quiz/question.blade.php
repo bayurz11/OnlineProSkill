@@ -43,7 +43,7 @@
                                         <textarea id="question_1" name="questions[1][question]" class="form-control" rows="2"
                                             placeholder="Tulis pertanyaan di sini..." required></textarea>
                                     </div>
-                                    <input type="hidden" name="id_tugas" id="id_tugas" value="">
+                                    <input type="hidden" name="id_tugas" value="{{ $id_tugas }}">
                                     <!-- Grid untuk pilihan jawaban A, B, C, D, E -->
                                     <div class="form-group">
                                         <div class="choices-grid">
