@@ -86,16 +86,20 @@
                                                     </td>
                                                     <td>
                                                         <div class="dashboard__review-action">
-                                                            <a href="#" title="Tambahkan Pertanyaan"><i
-                                                                    class="skillgro-edit"></i></a>
+                                                            <a href="#" title="Tambahkan Pertanyaan"
+                                                                @if ($isSelesai) style="pointer-events: none; color: #ccc;" @endif>
+                                                                <i class="skillgro-edit"></i>
+                                                            </a>
                                                             <a href="#" title="Hapus Quiz"
-                                                                data-id="{{ $quiz->id_tugas }}" class="delete-quiz"><i
-                                                                    class="skillgro-bin"></i></a>
+                                                                data-id="{{ $quiz->id_tugas }}" class="delete-quiz">
+                                                                <i class="skillgro-bin"></i>
+                                                            </a>
                                                         </div>
                                                     </td>
                                                 </tr>
                                             </tbody>
                                         @endforeach
+
 
 
 
