@@ -77,6 +77,7 @@
                                                 <label for="correct_answer_1">Jawaban Benar</label>
                                                 <select id="correct_answer_1" name="questions[1][correct_answer]"
                                                     class="form-control">
+                                                    <option>Pilihan Jawaban</option>
                                                     <option value="A">Pilihan A</option>
                                                     <option value="B">Pilihan B</option>
                                                     <option value="C">Pilihan C</option>
