@@ -37,17 +37,15 @@
 
                         <form id="questionsForm">
                             <div class="row" id="questionsList">
-                                <div class="col-12 question-form" id="question-form-${questionCount}">
+                                <div class="col-12 question-form" id="question-form-1">
                                     <div class="form-group">
                                         <label for="question_${questionCount}">Pertanyaan Esai ${questionCount}</label>
                                         <textarea id="question_${questionCount}" name="questions[${questionCount}][question]" class="form-control"
                                             rows="4" placeholder="Tulis pertanyaan esai di sini..."></textarea>
                                     </div>
-
                                 </div>
                             </div>
                         </form>
-
                     </div>
                 </div>
             </div>
@@ -59,7 +57,7 @@
 @endsection
 
 <script>
-    let questionCount = 1; // Menyimpan jumlah pertanyaan
+    let questionCount = 1;
 
     function addQuestionForm() {
         questionCount++; // Menambah nomor urut
@@ -69,7 +67,6 @@
                     <label for="question_${questionCount}">Pertanyaan Esai ${questionCount}</label>
                     <textarea id="question_${questionCount}" name="questions[${questionCount}][question]" class="form-control" rows="4" placeholder="Tulis pertanyaan esai di sini..."></textarea>
                 </div>
-                
             </div>
         `;
         document.getElementById('questionsList').insertAdjacentHTML('beforeend', questionForm);
