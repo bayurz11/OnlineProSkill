@@ -162,9 +162,12 @@
             <button id="cancelDelete" class="btn btn-secondary btn-lg">Batal</button>
         </div>
     </div>
+
     <div id="confirmationModalQuestion"
-        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: none; justify-content: center; align-items: center; z-index: 1000;">
-        <div style="background: white; padding: 40px; border-radius: 8px; text-align: center; position: relative;">
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: none; justify-content: center; align-items: center; z-index: 1000;"
+        onclick="hideModal(event)">
+        <div style="background: white; padding: 40px; border-radius: 8px; text-align: center; position: relative;"
+            onclick="event.stopPropagation()">
             <h4>Pilih Jenis Pertanyaan</h4><br>
             <p>Silakan pilih jenis pertanyaan yang ingin ditambahkan.</p><br>
             <!-- Button menuju halaman pilihan ganda -->
@@ -185,9 +188,14 @@
             document.getElementById('confirmationModalQuestion').style.display = 'flex';
         }
 
-        function hideModal() {
+        function hideModal(event) {
+            // Pastikan kita hanya menutup modal jika area luar yang diklik
+            if (event) {
+                event.stopPropagation(); // Mencegah event propagation ke modal
+            }
             document.getElementById('confirmationModalQuestion').style.display = 'none';
         }
     </script>
+
 
 @endsection
