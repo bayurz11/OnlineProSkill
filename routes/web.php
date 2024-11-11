@@ -17,6 +17,7 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\BootcampController;
 use App\Http\Controllers\AdminBlogController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\GiftClassController;
 use App\Http\Controllers\KurikulumController;
 use App\Http\Controllers\AdminEventController;
 use App\Http\Controllers\CategoriesController;
@@ -31,6 +32,7 @@ use App\Http\Controllers\KategoriBlogController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\SubcategoriesController;
 use App\Http\Controllers\AksesPembelianController;
+use App\Http\Controllers\InstrukturQuizController;
 use App\Http\Controllers\KelasTatapMukaController;
 use App\Http\Controllers\NotifikasiUserController;
 use App\Http\Controllers\BootcampsettingController;
@@ -40,10 +42,9 @@ use App\Http\Controllers\InstrukturCoursesController;
 use App\Http\Controllers\InstrukturSectionController;
 use App\Http\Controllers\ProfileInstrukturController;
 use App\Http\Controllers\HubungiKamiSettingController;
+use App\Http\Controllers\InstrukturQuestionController;
 use App\Http\Controllers\DashboardInstrukturController;
-use App\Http\Controllers\GiftClassController;
 use App\Http\Controllers\InstrukturKurikulumController;
-use App\Http\Controllers\InstrukturQuizController;
 use App\Http\Controllers\OrderHistoryManagerController;
 use App\Http\Controllers\SettingProfileInstrukturController;
 
@@ -255,6 +256,9 @@ Route::middleware('isInstruktur')->group(function () {
     Route::get('/instruktur_quiz', [InstrukturQuizController::class, 'index'])->name('instruktur.quiz');
     Route::post('/instruktur_quiz/store', [InstrukturQuizController::class, 'store'])->name('instruktur_quiz.store');
     Route::delete('/instruktur_quiz/{id_tugas}', [InstrukturQuizController::class, 'destroy'])->name('quiz.destroy');
+
+    //Pertanyaan
+    Route::get('/instruktur_question/{id_tugas}', [InstrukturQuestionController::class, 'index'])->name('instruktur_question');
 });
 
 

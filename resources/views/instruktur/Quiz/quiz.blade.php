@@ -86,8 +86,8 @@
                                                     </td>
                                                     <td>
                                                         <div class="dashboard__review-action">
-                                                            <a href="#" title="Tambahkan Pertanyaan"
-                                                                data-id="{{ $quiz->id_tugas }}"
+                                                            <a href="{{ route('instruktur_question', ['id_tugas' => $quiz->id_tugas]) }}"
+                                                                title="Tambahkan Pertanyaan"
                                                                 @if ($isSelesai) style="pointer-events: none; color: #ccc;" @endif>
                                                                 <i class="skillgro-edit"></i>
                                                             </a>
