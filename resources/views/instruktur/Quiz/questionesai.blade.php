@@ -39,13 +39,14 @@
                             <div class="row" id="questionsList">
                                 <div class="col-12 question-form" id="question-form-1">
                                     <div class="form-group">
-                                        <label for="question_${questionCount}">Pertanyaan Esai ${questionCount}</label>
-                                        <textarea id="question_${questionCount}" name="questions[${questionCount}][question]" class="form-control"
-                                            rows="4" placeholder="Tulis pertanyaan esai di sini..."></textarea>
+                                        <label for="question_1">Pertanyaan Esai 1</label>
+                                        <textarea id="question_1" name="questions[1][question]" class="form-control" rows="4"
+                                            placeholder="Tulis pertanyaan esai di sini..."></textarea>
                                     </div>
                                 </div>
                             </div>
                         </form>
+
                     </div>
                 </div>
             </div>
