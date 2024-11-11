@@ -61,36 +61,7 @@ class InstrukturQuestionController extends Controller
             'quiz'
         ));
     }
-    public function storepg(Request $request)
-    {
-        $request->validate([
-            'questions.*.question' => 'required|string',
-            'questions.*.correct_answer' => 'required|in:A,B,C,D,E',
-            'questions.*.options.*' => 'required|string',
-        ]);
 
-        // Menyimpan pertanyaan dan pilihan jawabannya
-        foreach ($request->questions as $questionData) {
-            // Menyimpan pertanyaan
-            $pertanyaan = Pertanyaan::create([
-                'isi_pertanyaan' => $questionData['question'],
-                'jenis_pertanyaan' => 'pilihan_ganda', // Jenis pertanyaan
-                // Jika Anda memiliki id_tugas, bisa ditambahkan di sini
-                // 'id_tugas' => $id_tugas,
-            ]);
-
-            // Menyimpan pilihan jawaban
-            foreach ($questionData['options'] as $key => $option) {
-                Pilih_Jawaban::create([
-                    'id_pertanyaan' => $pertanyaan->id,
-                    'isi_pilihan' => $option,
-                    'benar' => ($key === $questionData['correct_answer']) ? 1 : 0, // Menandai jawaban benar
-                ]);
-            }
-        }
-
-        return redirect()->back()->with('success', 'Pertanyaan dan pilihan jawaban berhasil ditambahkan.');
-    }
     public function esai()
     {
         $categori = Categories::all();
