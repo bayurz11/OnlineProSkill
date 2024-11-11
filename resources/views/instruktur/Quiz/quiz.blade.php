@@ -132,18 +132,18 @@
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     quizId = this.getAttribute('data-id');
-                    confirmationModal.style.display = 'flex'; // Show the modal
+                    confirmationModal.style.display = 'flex';
                 });
             });
 
             confirmDeleteBtn.addEventListener('click', function() {
                 deleteForm.action = `/instruktur_quiz/${quizId}`;
                 deleteForm.submit();
-                confirmationModal.style.display = 'none'; // Hide the modal after confirmation
+                confirmationModal.style.display = 'none';
             });
 
             cancelDeleteBtn.addEventListener('click', function() {
-                confirmationModal.style.display = 'none'; // Hide the modal on cancel
+                confirmationModal.style.display = 'none';
             });
         });
     </script>
