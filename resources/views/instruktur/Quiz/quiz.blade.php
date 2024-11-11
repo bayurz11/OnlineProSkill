@@ -150,6 +150,14 @@
                 confirmationModal.style.display = 'none';
             });
         });
+
+        function showModal() {
+            document.getElementById('confirmationModalQuestion').style.display = 'flex';
+        }
+
+        function hideModal() {
+            document.getElementById('confirmationModalQuestion').style.display = 'none';
+        }
     </script>
 
     <!-- HTML for the modal -->
@@ -176,20 +184,10 @@
             <!-- Tombol X di pojok kanan atas -->
             <button onclick="hideModal()"
                 style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 24px; color: #333;">&times;</button>
+
+            <!-- Tombol Batal kecil di pojok kanan bawah dalam modal -->
+            <button onclick="hideModal()" class="btn btn-secondary btn-sm"
+                style="position: absolute; bottom: 10px; right: 10px;">Batal</button>
         </div>
-        <button onclick="hideModal()" class="btn btn-secondary btn-sm"
-            style="position: fixed; bottom: 20px; right: 20px;">Batal</button>
     </div>
-
-    <!-- Script JavaScript untuk menampilkan dan menyembunyikan modal -->
-    <script>
-        function showModal() {
-            document.getElementById('confirmationModalQuestion').style.display = 'flex';
-        }
-
-        function hideModal() {
-            document.getElementById('confirmationModalQuestion').style.display = 'none';
-        }
-    </script>
-
 @endsection
