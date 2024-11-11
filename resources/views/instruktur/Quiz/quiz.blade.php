@@ -87,6 +87,7 @@
                                                     <td>
                                                         <div class="dashboard__review-action">
                                                             <a href="#" title="Tambahkan Pertanyaan"
+                                                                data-id="{{ $quiz->id_tugas }}"
                                                                 @if ($isSelesai) style="pointer-events: none; color: #ccc;" @endif>
                                                                 <i class="skillgro-edit"></i>
                                                             </a>
