@@ -10,7 +10,7 @@ class Pertanyaan extends Model
     use HasFactory;
     protected $table = 'pertanyaan';
     protected $primaryKey = 'id_pertanyaan';
-
+    protected $fillable = ['isi_pertanyaan', 'jenis_pertanyaan', 'id_tugas'];
     protected $guarded = [];
 
     public function kelasTatapMuka()
@@ -20,5 +20,9 @@ class Pertanyaan extends Model
     public function tugas()
     {
         return $this->belongsTo(Tugas::class, 'id_tugas');
+    }
+    public function pilihanJawaban()
+    {
+        return $this->hasMany(Pilih_Jawaban::class, 'id_pertanyaan');
     }
 }

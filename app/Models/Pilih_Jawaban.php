@@ -12,4 +12,10 @@ class Pilih_Jawaban extends Model
     protected $primaryKey = 'id_pilihan';
 
     protected $guarded = [];
+    protected $fillable = ['id_pertanyaan', 'isi_pilihan', 'benar'];
+
+    public function pertanyaan()
+    {
+        return $this->belongsTo(Pertanyaan::class, 'id_pertanyaan');
+    }
 }
