@@ -177,4 +177,27 @@
     .choice input {
         margin-top: 5px;
     }
+
+    /* Menambahkan jarak antar form pertanyaan */
+    .question-form {
+        margin-bottom: 30px;
+        /* Menambah jarak bawah antar pertanyaan */
+    }
+
+    /* CSS Grid untuk memilih tata letak pilihan A, B, C, D, E */
+    .choices-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+
+    .choice {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .choice input {
+        margin-top: 5px;
+    }
 </style>
