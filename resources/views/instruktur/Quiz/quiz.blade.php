@@ -153,7 +153,7 @@
         style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: none; justify-content: center; align-items: center; z-index: 1000;">
         <div style="background: white; padding: 40px; border-radius: 8px; text-align: center;">
             <h4>Konfirmasi Penghapusan</h4><br>
-            <p>Apakah Anda yakin ingin menghapus ini?</p><br>
+            <p>Apakah Anda yakin ingin menghapus quiz ini?</p><br>
             <button id="confirmDelete" class="btn btn-danger btn-lg">Ya, Hapus</button>
             <button id="cancelDelete" class="btn btn-secondary btn-lg">Batal</button>
         </div>
