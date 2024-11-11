@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Session;
 
 class InstrukturQuestionController extends Controller
 {
-    public function index()
+    public function pg()
     {
         $categori = Categories::all();
         $cart = Session::get('cart', []);
@@ -47,6 +47,49 @@ class InstrukturQuestionController extends Controller
             ->get();
         $quiz = Tugas::all();
         return view('instruktur.Quiz.question', compact(
+            'user',
+            'KelasTatapMuka',
+            'categori',
+            'profile',
+            'cart',
+            'notifikasi',
+            'notifikasiCount',
+            'orders',
+            'jumlahPendaftaran',
+            'quiz'
+        ));
+    }
+    public function esai()
+    {
+        $categori = Categories::all();
+        $cart = Session::get('cart', []);
+        $user = Auth::user();
+        if (!$user) {
+            return redirect()->route('/');
+        }
+        // Mengambil profil pengguna yang sedang login
+        $profile = UserProfile::where('user_id', $user->id)->first();
+        // Ambil notifikasi untuk pengguna yang sedang login
+        $notifikasi = NotifikasiUser::where('user_id', $user->id)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        // Hitung jumlah notifikasi dengan status = 1
+        $notifikasiCount = $notifikasi->where('status', 1)->count();
+
+        // Ambil KelasTatapMuka berdasarkan user_id pengguna yang sedang login
+        $KelasTatapMuka = KelasTatapMuka::where('user_id', $user->id)->get();
+
+        $jumlahPendaftaran = Order::select('product_id', DB::raw('count(*) as total'))
+            ->groupBy('product_id')
+            ->pluck('total', 'product_id');
+
+        $orders = Order::where('user_id', $user->id)
+            ->whereIn('status', ['PAID', 'SETTLED'])
+            ->with('KelasTatapMuka')
+            ->get();
+        $quiz = Tugas::all();
+        return view('instruktur.Quiz.questionesai', compact(
             'user',
             'KelasTatapMuka',
             'categori',
