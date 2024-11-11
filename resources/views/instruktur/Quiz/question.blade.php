@@ -36,57 +36,64 @@
 
                         <form id="questionsForm" action="{{ route('instruktur_pertanyaan_pg.store') }}" method="POST">
                             @csrf
-                            <input type="hidden" name="id_tugas" value="{{ request()->route('id_tugas') }}">
-
                             <div class="row" id="questionsList">
-                                @foreach ($pertanyaan as $index => $question)
-                                    <div class="col-12 question-form" id="question-form-{{ $index + 1 }}">
-                                        <div class="form-group">
-                                            <label for="question_{{ $index + 1 }}">Pertanyaan Pilihan Ganda
-                                                {{ $index + 1 }}</label>
-                                            <textarea id="question_{{ $index + 1 }}" name="questions[{{ $index + 1 }}][question]" class="form-control"
-                                                rows="2" required>{{ $question->isi_pertanyaan }}</textarea>
-                                        </div>
+                                <div class="col-12 question-form" id="question-form-1">
+                                    <div class="form-group">
+                                        <label for="question_1">Pertanyaan Pilihan Ganda 1</label>
+                                        <textarea id="question_1" name="questions[1][question]" class="form-control" rows="2"
+                                            placeholder="Tulis pertanyaan di sini..." required></textarea>
+                                    </div>
+                                    <input type="hidden" id="id_tugas_input" name="id_tugas" value="">
 
-                                        <div class="form-group">
-                                            <div class="choices-grid">
-                                                @foreach (['A', 'B', 'C', 'D', 'E'] as $optionKey)
-                                                    <div class="choice">
-                                                        <label for="option{{ $optionKey }}_{{ $index + 1 }}">Pilihan
-                                                            {{ $optionKey }}</label>
-                                                        <input type="text"
-                                                            id="option{{ $optionKey }}_{{ $index + 1 }}"
-                                                            name="questions[{{ $index + 1 }}][options][{{ $optionKey }}]"
-                                                            class="form-control"
-                                                            value="{{ $question->pilihanJawaban->where('isi_pilihan', $optionKey)->first()->isi_pilihan ?? '' }}"
-                                                            required>
-                                                    </div>
-                                                @endforeach
+                                    <!-- Grid untuk pilihan jawaban A, B, C, D, E -->
+                                    <div class="form-group">
+                                        <div class="choices-grid">
+                                            <div class="choice">
+                                                <label for="optionA_1">Pilihan A</label>
+                                                <input type="text" id="optionA_1" name="questions[1][options][A]"
+                                                    class="form-control" placeholder="Masukkan pilihan A" required>
+                                            </div>
+                                            <div class="choice">
+                                                <label for="optionD_1">Pilihan D</label>
+                                                <input type="text" id="optionD_1" name="questions[1][options][D]"
+                                                    class="form-control" placeholder="Masukkan pilihan D" required>
+                                            </div>
+                                            <div class="choice">
+                                                <label for="optionB_1">Pilihan B</label>
+                                                <input type="text" id="optionB_1" name="questions[1][options][B]"
+                                                    class="form-control" placeholder="Masukkan pilihan B" required>
+                                            </div>
+                                            <div class="choice">
+                                                <label for="optionE_1">Pilihan E</label>
+                                                <input type="text" id="optionE_1" name="questions[1][options][E]"
+                                                    class="form-control" placeholder="Masukkan pilihan E" required>
+                                            </div>
 
-                                                <div class="choice">
-                                                    <label for="correct_answer_{{ $index + 1 }}">Jawaban Benar</label>
-                                                    <select id="correct_answer_{{ $index + 1 }}"
-                                                        name="questions[{{ $index + 1 }}][correct_answer]"
-                                                        class="form-control" required>
-                                                        <option value="">Pilih Jawaban Benar</option>
-                                                        @foreach (['A', 'B', 'C', 'D', 'E'] as $optionKey)
-                                                            <option value="{{ $optionKey }}"
-                                                                {{ $question->pilihanJawaban->where('benar', true)->first()->isi_pilihan === $optionKey ? 'selected' : '' }}>
-                                                                Pilihan {{ $optionKey }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
+                                            <div class="choice">
+                                                <label for="optionC_1">Pilihan C</label>
+                                                <input type="text" id="optionC_1" name="questions[1][options][C]"
+                                                    class="form-control" placeholder="Masukkan pilihan C" required>
+                                            </div>
+                                            <div class="choice">
+                                                <label for="correct_answer_1">Jawaban Benar</label>
+                                                <select id="correct_answer_1" name="questions[1][correct_answer]"
+                                                    class="form-control" required>
+                                                    <option>Pilihan Jawaban</option>
+                                                    <option value="A">Pilihan A</option>
+                                                    <option value="B">Pilihan B</option>
+                                                    <option value="C">Pilihan C</option>
+                                                    <option value="D">Pilihan D</option>
+                                                    <option value="E">Pilihan E</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach
+                                </div>
                             </div>
-
                             <div class="form-group d-flex justify-content-end">
                                 <button type="submit" class="btn btn-primary">Simpan</button>
                             </div>
                         </form>
-
 
                         <div class="form-group d-flex justify-content-end">
 
