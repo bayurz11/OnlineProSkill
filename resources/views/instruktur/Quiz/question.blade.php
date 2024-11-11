@@ -38,7 +38,7 @@
                             @csrf
                             <div class="row" id="questionsList">
                                 <!-- Formulir pertanyaan pertama akan muncul saat halaman dimuat -->
-                                <input type="hidden" name="id_tugas" value="{{ $quiz->id_tugas }}">
+                                <input type="hidden" name="id_tugas" value="{{ $id_tugas }}">
                                 <div class="col-12 question-form" id="question-form-1">
                                     <div class="form-group">
                                         <label for="question_1">Pertanyaan Pilihan Ganda 1</label>
