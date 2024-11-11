@@ -80,7 +80,11 @@
                                                         <p class="color-black">4</p>
                                                     </td> --}}
                                                     <td>
-                                                        <span class="dashboard__quiz-result ">Pass</span>
+                                                        @if (now()->between(\Carbon\Carbon::parse($quiz->jam_mulai), \Carbon\Carbon::parse($quiz->jam_akhir)))
+                                                            <span class="dashboard__quiz-result">Berjalan</span>
+                                                        @else
+                                                            <span class="dashboard__quiz-result fail">Selesai</span>
+                                                        @endif
                                                     </td>
                                                     <td>
                                                         <div class="dashboard__review-action">
