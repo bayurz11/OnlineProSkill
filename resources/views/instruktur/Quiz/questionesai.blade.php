@@ -59,6 +59,8 @@
 @endsection
 
 <script>
+    let questionCount = 1;
+
     function addQuestionForm() {
         questionCount++; // Menambah nomor urut
         const questionForm = `
