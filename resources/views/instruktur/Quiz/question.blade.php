@@ -105,71 +105,6 @@
 
 
 <script>
-    let questionCount = 1; // Inisialisasi nomor pertanyaan
-
-    // Fungsi untuk menambah form pertanyaan pilihan ganda
-    function addChoiceQuestion() {
-        questionCount++; // Menambah nomor urut untuk pertanyaan
-
-        // Membuat form pertanyaan pilihan ganda baru
-        const questionForm = `
-        <div class="col-12 question-form" id="question-form-${questionCount}">
-            <div class="form-group">
-                <label for="question_${questionCount}">Pertanyaan Pilihan Ganda ${questionCount}</label>
-                <textarea id="question_${questionCount}" name="questions[${questionCount}][question]" class="form-control" rows="2" placeholder="Tulis pertanyaan di sini..."></textarea>
-            </div>
-            
-            <!-- Grid untuk pilihan jawaban A, B, C, D, E -->
-            <div class="form-group">
-                <div class="choices-grid">
-                    <div class="choice">
-                        <label for="optionA_${questionCount}">Pilihan A</label>
-                        <input type="text" id="optionA_${questionCount}" name="questions[${questionCount}][options][A]"
-                            class="form-control" placeholder="Masukkan pilihan A">
-                    </div>
-                     <div class="choice">
-                        <label for="optionD_${questionCount}">Pilihan D</label>
-                        <input type="text" id="optionD_${questionCount}" name="questions[${questionCount}][options][D]"
-                            class="form-control" placeholder="Masukkan pilihan D">
-                    </div>
-                    <div class="choice">
-                        <label for="optionB_${questionCount}">Pilihan B</label>
-                        <input type="text" id="optionB_${questionCount}" name="questions[${questionCount}][options][B]"
-                            class="form-control" placeholder="Masukkan pilihan B">
-                    </div>
-                    <div class="choice">
-                        <label for="optionE_${questionCount}">Pilihan E</label>
-                        <input type="text" id="optionE_${questionCount}" name="questions[${questionCount}][options][E]"
-                            class="form-control" placeholder="Masukkan pilihan E">
-                    </div>
-                    <div class="choice">
-                        <label for="optionC_${questionCount}">Pilihan C</label>
-                        <input type="text" id="optionC_${questionCount}" name="questions[${questionCount}][options][C]"
-                            class="form-control" placeholder="Masukkan pilihan C">
-                    </div>
-                   
-                    
-                    <div class="choice">
-                        <label for="correct_answer_${questionCount}">Jawaban Benar</label>
-                        <select id="correct_answer_${questionCount}" name="questions[${questionCount}][correct_answer]"
-                            class="form-control">
-                            <option>Pilihan Jawaban</option>
-                            <option value="A">Pilihan A</option>
-                            <option value="B">Pilihan B</option>
-                            <option value="C">Pilihan C</option>
-                            <option value="D">Pilihan D</option>
-                            <option value="E">Pilihan E</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
-
-        // Menambahkan form baru ke dalam list
-        document.getElementById('questionsList').insertAdjacentHTML('beforeend', questionForm);
-    }
-
     document.addEventListener("DOMContentLoaded", function() {
         // Mendapatkan id_tugas dari URL
         const url = window.location.pathname;
@@ -177,8 +112,69 @@
 
         // Set id_tugas ke dalam input hidden
         document.getElementById("id_tugas_input").value = id_tugas;
+
+        // Inisialisasi questionCount sesuai dengan jumlah pertanyaan yang sudah ada
+        const existingQuestions = document.querySelectorAll('.question-form').length;
+        let questionCount = existingQuestions;
+
+        // Fungsi untuk menambah form pertanyaan pilihan ganda
+        window.addChoiceQuestion = function() {
+            questionCount++; // Menambah nomor urut untuk pertanyaan baru
+
+            // Membuat form pertanyaan pilihan ganda baru
+            const questionForm = `
+            <div class="col-12 question-form" id="question-form-${questionCount}">
+                <div class="form-group">
+                    <label for="question_${questionCount}">Pertanyaan Pilihan Ganda ${questionCount}</label>
+                    <textarea id="question_${questionCount}" name="questions[${questionCount}][question]" class="form-control" rows="2" placeholder="Tulis pertanyaan di sini..."></textarea>
+                </div>
+                
+                <!-- Grid untuk pilihan jawaban A, B, C, D, E -->
+                <div class="form-group">
+                    <div class="choices-grid">
+                        <div class="choice">
+                            <label for="optionA_${questionCount}">Pilihan A</label>
+                            <input type="text" id="optionA_${questionCount}" name="questions[${questionCount}][options][A]" class="form-control" placeholder="Masukkan pilihan A">
+                        </div>
+                        <div class="choice">
+                            <label for="optionD_${questionCount}">Pilihan D</label>
+                            <input type="text" id="optionD_${questionCount}" name="questions[${questionCount}][options][D]" class="form-control" placeholder="Masukkan pilihan D">
+                        </div>
+                        <div class="choice">
+                            <label for="optionB_${questionCount}">Pilihan B</label>
+                            <input type="text" id="optionB_${questionCount}" name="questions[${questionCount}][options][B]" class="form-control" placeholder="Masukkan pilihan B">
+                        </div>
+                        <div class="choice">
+                            <label for="optionE_${questionCount}">Pilihan E</label>
+                            <input type="text" id="optionE_${questionCount}" name="questions[${questionCount}][options][E]" class="form-control" placeholder="Masukkan pilihan E">
+                        </div>
+                        <div class="choice">
+                            <label for="optionC_${questionCount}">Pilihan C</label>
+                            <input type="text" id="optionC_${questionCount}" name="questions[${questionCount}][options][C]" class="form-control" placeholder="Masukkan pilihan C">
+                        </div>
+                        
+                        <div class="choice">
+                            <label for="correct_answer_${questionCount}">Jawaban Benar</label>
+                            <select id="correct_answer_${questionCount}" name="questions[${questionCount}][correct_answer]" class="form-control">
+                                <option>Pilihan Jawaban</option>
+                                <option value="A">Pilihan A</option>
+                                <option value="B">Pilihan B</option>
+                                <option value="C">Pilihan C</option>
+                                <option value="D">Pilihan D</option>
+                                <option value="E">Pilihan E</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `;
+
+            // Menambahkan form baru ke dalam list
+            document.getElementById('questionsList').insertAdjacentHTML('beforeend', questionForm);
+        };
     });
 </script>
+
 
 <style>
     /* CSS Grid untuk memilih tata letak pilihan A, B, C, D, E */
