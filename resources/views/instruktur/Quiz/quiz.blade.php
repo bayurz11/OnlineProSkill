@@ -86,9 +86,8 @@
                                                     </td>
                                                     <td>
                                                         <div class="dashboard__review-action">
-                                                            <a href="{{ route('instruktur_question', ['id_tugas' => $quiz->id_tugas]) }}"
-                                                                title="Tambahkan Pertanyaan"
-                                                                @if ($isSelesai) style="pointer-events: none; color: #ccc;" @endif>
+                                                            <a href="#" title="Tambahkan Pertanyaan"
+                                                                @if ($isSelesai) style="pointer-events: none; color: #ccc;" @else onclick="showModal()" @endif>
                                                                 <i class="skillgro-edit"></i>
                                                             </a>
                                                             <a href="#" title="Hapus Quiz"
@@ -163,5 +162,30 @@
             <button id="cancelDelete" class="btn btn-secondary btn-lg">Batal</button>
         </div>
     </div>
+    <!-- Modal Konfirmasi -->
+    <div id="confirmationModal"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: none; justify-content: center; align-items: center; z-index: 1000;">
+        <div style="background: white; padding: 40px; border-radius: 8px; text-align: center;">
+            <h4>Pilih Jenis Pertanyaan</h4><br>
+            <p>Silakan pilih jenis pertanyaan yang ingin ditambahkan.</p><br>
+            <!-- Button menuju halaman pilihan ganda -->
+            <a href="{{ route('instruktur_question_pg', ['id_tugas' => $quiz->id_tugas]) }}"
+                class="btn btn-primary btn-lg">Pilihan Ganda</a>
+            <!-- Button menuju halaman esai -->
+            <a href="{{ route('instruktur_question_essay', ['id_tugas' => $quiz->id_tugas]) }}"
+                class="btn btn-secondary btn-lg">Esai</a>
+            <button onclick="hideModal()" class="btn btn-danger btn-lg">Batal</button>
+        </div>
+    </div>
 
+    <!-- Script JavaScript untuk menampilkan dan menyembunyikan modal -->
+    <script>
+        function showModal() {
+            document.getElementById('confirmationModal').style.display = 'flex';
+        }
+
+        function hideModal() {
+            document.getElementById('confirmationModal').style.display = 'none';
+        }
+    </script>
 @endsection

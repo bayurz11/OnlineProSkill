@@ -32,7 +32,7 @@
                     <div class="dashboard__content-wrap">
                         <div class="dashboard__content-title d-flex justify-content-between align-items-center">
                             <h4 class="title">Pertanyaan</h4>
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#QuizModal">Tambah
+                            <button class="btn btn-primary">Tambah
                                 Pertanyaan</button>
                         </div>
 
