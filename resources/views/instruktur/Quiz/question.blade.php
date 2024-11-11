@@ -89,10 +89,11 @@
                                 </div>
                             </div>
                         </form>
-                        <div class="form-group text-left">
+                        <div class="form-group d-flex justify-content-end">
                             <button type="button" class="btn btn-primary" onclick="addChoiceQuestion()">Tambah
                                 Pertanyaan</button>
                         </div>
+
                     </div>
                 </div>
             </div>
