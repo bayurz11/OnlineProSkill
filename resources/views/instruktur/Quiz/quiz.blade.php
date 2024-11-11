@@ -88,21 +88,17 @@
                                                         <div class="dashboard__review-action">
                                                             <a href="#" title="Tambahkan Pertanyaan"><i
                                                                     class="skillgro-edit"></i></a>
-                                                            <!-- Tombol Hapus Quiz -->
-                                                            <form action="{{ route('quiz.destroy', $quiz->id_tugas) }}"
-                                                                method="POST" style="display: inline;">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                                <button type="submit" title="Hapus Quiz"
-                                                                    onclick="return confirm('Apakah Anda yakin ingin menghapus quiz ini?')">
-                                                                    <i class="skillgro-bin"></i>
-                                                                </button>
-                                                            </form>
+                                                            <a href="#" title="Hapus Quiz"
+                                                                data-id="{{ $quiz->id_tugas }}" class="delete-quiz"><i
+                                                                    class="skillgro-bin"></i></a>
                                                         </div>
                                                     </td>
                                                 </tr>
                                             </tbody>
                                         @endforeach
+
+
+
 
                                     </table>
                                 </div>
@@ -116,25 +112,29 @@
         </div>
     </section>
     <!-- dashboard-area-end -->
+    <!-- Form untuk penghapusan dengan JavaScript -->
+    <form id="delete-form" action="" method="POST" style="display: none;">
+        @csrf
+        @method('DELETE')
+    </form>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Mengatur tinggi untuk elemen h5.title dalam konteks courses__item-thumb
-            var courseTitles = document.querySelectorAll('.courses__item-thumb h5.title');
-            var maxCourseTitleHeight = 0;
+            const deleteLinks = document.querySelectorAll('.delete-quiz');
+            const deleteForm = document.getElementById('delete-form');
 
-            // Temukan tinggi maksimum untuk h5.title
-            courseTitles.forEach(function(title) {
-                if (title.offsetHeight > maxCourseTitleHeight) {
-                    maxCourseTitleHeight = title.offsetHeight;
-                }
-            });
+            deleteLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const id = this.getAttribute('data-id');
+                    const confirmed = confirm("Apakah Anda yakin ingin menghapus quiz ini?");
 
-            // Tetapkan tinggi maksimum ke semua elemen h5.title
-            courseTitles.forEach(function(title) {
-                title.style.height = maxCourseTitleHeight + 'px';
+                    if (confirmed) {
+                        deleteForm.action = `/instruktur_quiz/${id}`;
+                        deleteForm.submit();
+                    }
+                });
             });
         });
     </script>
-
-
 @endsection
