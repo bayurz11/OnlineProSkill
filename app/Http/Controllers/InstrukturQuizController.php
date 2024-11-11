@@ -93,6 +93,7 @@ class InstrukturQuizController extends Controller
     {
         $quiz = Tugas::find($id);
 
+        // Tambahkan pengecekan jika quiz tidak ditemukan
         if (!$quiz) {
             return response()->json(['status' => 'Not Found'], 404);
         }
