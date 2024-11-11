@@ -64,42 +64,39 @@ class InstrukturQuestionController extends Controller
 
     public function storepg(Request $request)
     {
-        // Validasi input form
-        $validated = $request->validate([
-            'questions.*.question' => 'required|string',
-            'questions.*.options.A' => 'required|string',
-            'questions.*.options.B' => 'required|string',
-            'questions.*.options.C' => 'required|string',
-            'questions.*.options.D' => 'required|string',
-            'questions.*.options.E' => 'required|string',
+        // Validasi input
+        $request->validate([
+            'questions.*.question' => 'required|string|max:255',
+            'questions.*.options.A' => 'required|string|max:255',
+            'questions.*.options.B' => 'required|string|max:255',
+            'questions.*.options.C' => 'required|string|max:255',
+            'questions.*.options.D' => 'required|string|max:255',
+            'questions.*.options.E' => 'required|string|max:255',
             'questions.*.correct_answer' => 'required|in:A,B,C,D,E',
+            'id_tugas' => 'required|exists:tugas,id_tugas',
         ]);
 
-        $id_tugas = $request->input('id_tugas');
-        // Iterasi untuk menyimpan setiap pertanyaan dan jawabannya
-        foreach ($validated['questions'] as $key => $questionData) {
-            // Simpan pertanyaan dan pastikan ID tersimpan setelah create
+        // Menyimpan data pertanyaan
+        foreach ($request->input('questions') as $key => $questionData) {
             $pertanyaan = Pertanyaan::create([
                 'isi_pertanyaan' => $questionData['question'],
-                'jenis_pertanyaan' => 'pilihan_ganda', // Menyesuaikan jenis pertanyaan
-                'id_tugas' => $id_tugas,
+                'jenis_pertanyaan' => 'pilihan_ganda',
+                'id_tugas' => $request->id_tugas,
             ]);
 
-            // Pastikan ID pertanyaan sudah ada sebelum digunakan
-            if ($pertanyaan) {
-                // Simpan pilihan jawaban
-                foreach ($questionData['options'] as $optionKey => $optionValue) {
-                    Pilih_Jawaban::create([
-                        'id_pertanyaan' => $pertanyaan->id,  // Pastikan ID digunakan dengan benar
-                        'isi_pilihan' => $optionValue,
-                        'benar' => $optionKey == $questionData['correct_answer'] ? 1 : 0,
-                    ]);
-                }
+            // Menyimpan pilihan jawaban untuk setiap pertanyaan
+            foreach ($questionData['options'] as $optionKey => $optionValue) {
+                $benar = ($optionKey === $questionData['correct_answer']) ? true : false;
+
+                Pilih_Jawaban::create([
+                    'id_pertanyaan' => $pertanyaan->id_pertanyaan,
+                    'isi_pilihan' => $optionValue,
+                    'benar' => $benar,
+                ]);
             }
         }
 
-        // Redirect atau beri response setelah berhasil menyimpan
-        return redirect()->route('pertanyaan_pg.index')->with('success', 'Pertanyaan dan jawaban berhasil disimpan.');
+        return redirect()->route('pertanyaan_pg.index')->with('success', 'Pertanyaan berhasil disimpan!');
     }
 
     public function esai()
