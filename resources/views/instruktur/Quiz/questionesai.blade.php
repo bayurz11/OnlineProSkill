@@ -32,7 +32,7 @@
                     <div class="dashboard__content-wrap">
                         <div class="dashboard__content-title d-flex justify-content-between align-items-center">
                             <h4 class="title">Pertanyaan</h4>
-                            <button class="btn btn-primary" onclick="addQuestionForm()">Tambah Pertanyaan</button>
+
                         </div>
 
                         <form id="questionsForm">
@@ -46,7 +46,9 @@
                                 </div>
                             </div>
                         </form>
-
+                        <div class="form-group d-flex justify-content-end">
+                            <button class="btn btn-primary" onclick="addQuestionForm()">Tambah Pertanyaan</button>
+                        </div>
 
                     </div>
                 </div>
