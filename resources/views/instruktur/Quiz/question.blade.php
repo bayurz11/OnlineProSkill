@@ -1,8 +1,7 @@
 @section('title', 'ProSkill Akademia | Tambah Pertanyaan Pilihan Ganda')
-<?php $page = 'instruktur.quiz'; ?>
+<?php $page = 'instruktur_question_pg'; ?>
 
 @extends('layout.mainlayout')
-@include('instruktur.modal.quizModal')
 @section('content')
 
     <!-- breadcrumb-area -->

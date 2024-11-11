@@ -66,7 +66,8 @@
                         Announcements
                     </a>
                 </li> --}}
-                <li class="{{ Request::is('instruktur_quiz') ? 'active' : '' }}">
+                <li
+                    class="{{ Request::is('instruktur_quiz', 'instruktur_question_pg', 'instruktur_question_essay') ? 'active' : '' }}">
                     <a href="{{ route('instruktur.quiz') }}">
                         <i class="skillgro-chat"></i>
                         Quiz
