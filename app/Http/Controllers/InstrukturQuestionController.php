@@ -75,13 +75,14 @@ class InstrukturQuestionController extends Controller
             'questions.*.correct_answer' => 'required|in:A,B,C,D,E',
         ]);
 
+        $id_tugas = $request->input('id_tugas');
         // Iterasi untuk menyimpan setiap pertanyaan dan jawabannya
         foreach ($validated['questions'] as $key => $questionData) {
             // Simpan pertanyaan
             $pertanyaan = Pertanyaan::create([
                 'isi_pertanyaan' => $questionData['question'],
                 'jenis_pertanyaan' => 'pilihan_ganda', // Menyesuaikan jenis pertanyaan
-                'id_tugas' => 1, // Ganti sesuai dengan id_tugas yang relevan
+                'id_tugas' => $id_tugas,
             ]);
 
             // Simpan pilihan jawaban
