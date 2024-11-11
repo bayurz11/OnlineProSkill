@@ -32,11 +32,7 @@
                     <div class="dashboard__content-wrap">
                         <div class="dashboard__content-title d-flex justify-content-between align-items-center">
                             <h4 class="title">Pertanyaan Pilihan Ganda</h4>
-                            <!-- Tombol untuk menambah pertanyaan -->
-                            <div class="form-group text-right">
-                                <button type="button" class="btn btn-primary" onclick="addChoiceQuestion()">Tambah
-                                    Pertanyaan</button>
-                            </div>
+
                         </div>
 
                         <form id="questionsForm">
@@ -93,6 +89,10 @@
                                 </div>
                             </div>
                         </form>
+                        <div class="form-group text-right">
+                            <button type="button" class="btn btn-primary" onclick="addChoiceQuestion()">Tambah
+                                Pertanyaan</button>
+                        </div>
                     </div>
                 </div>
             </div>
