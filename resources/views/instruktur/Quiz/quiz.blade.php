@@ -184,7 +184,7 @@
             <!-- Tombol X di pojok kanan atas -->
             <button onclick="hideModal()"
                 style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 24px; color: #333;">&times;</button>
-
+            <br>
             <!-- Tombol Batal kecil di pojok kanan bawah dalam modal -->
             <button onclick="hideModal()" class="btn btn-secondary btn-sm"
                 style="position: absolute; bottom: 10px; right: 10px;">Batal</button>
