@@ -126,9 +126,7 @@
             // Set nilai id_tugas ke dalam input hidden
             hiddenInput.value = idTugas;
 
-            // Optionally, kamu bisa redirect atau melakukan aksi lain setelahnya
-            // Misalnya jika kamu ingin mengarahkan ke route setelah mengatur nilai hidden:
-            // window.location.href = button.getAttribute('href');
+
         });
     });
 </script>
