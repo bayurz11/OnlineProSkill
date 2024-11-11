@@ -43,7 +43,8 @@
                                         <textarea id="question_1" name="questions[1][question]" class="form-control" rows="2"
                                             placeholder="Tulis pertanyaan di sini..." required></textarea>
                                     </div>
-                                    <input type="hidden" name="id_tugas" value="{{ $id_tugas }}">
+                                    <input type="hidden" id="id_tugas_input" name="id_tugas" value="">
+
                                     <!-- Grid untuk pilihan jawaban A, B, C, D, E -->
                                     <div class="form-group">
                                         <div class="choices-grid">
@@ -173,6 +174,14 @@
         // Menambahkan form baru ke dalam list
         document.getElementById('questionsList').insertAdjacentHTML('beforeend', questionForm);
     }
+    document.addEventListener("DOMContentLoaded", function() {
+        // Mendapatkan id_tugas dari URL
+        const url = window.location.pathname;
+        const id_tugas = url.split("/").pop(); // Mengambil bagian terakhir dari URL sebagai id_tugas
+
+        // Set id_tugas ke dalam input hidden
+        document.getElementById("id_tugas_input").value = id_tugas;
+    });
 </script>
 
 <style>
