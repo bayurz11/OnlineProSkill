@@ -39,6 +39,12 @@
                             <div class="row" id="questionsList">
                                 <!-- Formulir pertanyaan pilihan ganda pertama akan muncul saat halaman dimuat -->
                             </div>
+
+                            <!-- Tombol untuk menambah pertanyaan -->
+                            <div class="form-group text-right">
+                                <button type="button" class="btn btn-primary" onclick="addChoiceQuestion()">Tambah
+                                    Pertanyaan</button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -108,7 +114,7 @@
         document.getElementById('questionsList').insertAdjacentHTML('beforeend', questionForm);
     }
 
-    // Panggil fungsi addChoiceQuestion untuk langsung menampilkan formulir saat halaman dibuka
+    // Panggil fungsi addChoiceQuestion untuk langsung menampilkan formulir pertama saat halaman dibuka
     window.onload = function() {
         addChoiceQuestion(); // Panggil fungsi untuk menampilkan form pertama
     };
