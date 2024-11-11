@@ -86,9 +86,9 @@
                                                     </td>
                                                     <td>
                                                         <div class="dashboard__review-action">
-                                                            <a href="#" title="Edit"><i
+                                                            <a href="#" title="Tambahkan Pertanyaan"><i
                                                                     class="skillgro-edit"></i></a>
-                                                            <a href="#" title="Delete"><i
+                                                            <a href="#" title="Hapus Quiz"><i
                                                                     class="skillgro-bin"></i></a>
                                                         </div>
                                                     </td>
