@@ -113,11 +113,7 @@
         </div>
     </section>
     <!-- dashboard-area-end -->
-    <!-- Form untuk penghapusan dengan JavaScript -->
-    <form id="delete-form" action="" method="POST" style="display: none;">
-        @csrf
-        @method('DELETE')
-    </form>
+
 
     <script>
         function hapus(id_tugas) {
@@ -155,7 +151,8 @@
                         if (response.ok) {
                             document.getElementById('confirmationModal').remove(); // Hapus modal
                             alert('Quiz berhasil dihapus.');
-                            location.reload(); // Refresh halaman setelah penghapusan
+                            // Arahkan ke halaman index instruktur quiz setelah berhasil menghapus
+                            window.location.href = "{{ route('instruktur.quiz') }}";
                         } else {
                             throw new Error('Gagal menghapus quiz.');
                         }
@@ -172,5 +169,6 @@
             };
         }
     </script>
+
 
 @endsection
