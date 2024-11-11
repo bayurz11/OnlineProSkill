@@ -44,7 +44,7 @@
                                         <thead>
                                             <tr>
                                                 <th>Quiz</th>
-                                                <th>Course</th>
+                                                <th>Course Name</th>
                                                 {{-- <th>TM</th>
                                                 <th>CA</th> --}}
                                                 <th>Keterangan</th>
@@ -71,7 +71,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <p class="color-black">{{ $quiz->course_id }}</p>
+                                                        <p class="color-black">{{ $quiz->KelasTatapMuka->course_id }}</p>
                                                     </td>
                                                     {{-- <td>
                                                         <p class="color-black">8</p>
