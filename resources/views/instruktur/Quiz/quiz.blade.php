@@ -177,7 +177,8 @@
             <button onclick="hideModal()"
                 style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 24px; color: #333;">&times;</button>
         </div>
-        <button onclick="hideModal()" class="btn btn-danger btn-lg">Batal</button>
+        <button onclick="hideModal()" class="btn btn-secondary btn-sm"
+            style="position: fixed; bottom: 20px; right: 20px;">Batal</button>
     </div>
 
     <!-- Script JavaScript untuk menampilkan dan menyembunyikan modal -->
