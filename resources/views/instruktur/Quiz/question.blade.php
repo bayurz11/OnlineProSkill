@@ -89,7 +89,7 @@
                                 </div>
                             </div>
                         </form>
-                        <div class="form-group text-right">
+                        <div class="form-group text-left">
                             <button type="button" class="btn btn-primary" onclick="addChoiceQuestion()">Tambah
                                 Pertanyaan</button>
                         </div>
