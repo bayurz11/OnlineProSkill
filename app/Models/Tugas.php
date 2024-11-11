@@ -9,7 +9,7 @@ class Tugas extends Model
 {
     use HasFactory;
     protected $table = 'tugas';
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_tugas';
 
     protected $guarded = [];
 
