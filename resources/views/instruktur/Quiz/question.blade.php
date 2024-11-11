@@ -34,8 +34,7 @@
 
                         </div>
 
-                        <form id="questionsForm" action="{{ route('pertanyaan_pg.store', ['id_tugas' => $id_tugas]) }}"
-                            method="POST">
+                        <form id="questionsForm" action="{{ route('pertanyaan_pg.store') }}" method="POST">
                             @csrf
                             <div class="row" id="questionsList">
                                 <!-- Formulir pertanyaan pertama akan muncul saat halaman dimuat -->
