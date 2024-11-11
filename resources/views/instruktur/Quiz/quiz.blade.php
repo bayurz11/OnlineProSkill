@@ -59,7 +59,8 @@
                                                         <div class="dashboard__quiz-info">
                                                             <p>{{ $quiz->created_at->format('d F, Y') }}</p>
                                                             <h6 class="title">{{ $quiz->judul_tugas }}</h6>
-                                                            <p style="font-size: 12px;">Waktu:
+                                                            <p style="font-size: 12px;">
+                                                                Waktu:
                                                                 {{ \Carbon\Carbon::parse($quiz->jam_mulai)->format('H.i') }}
                                                                 s/d
                                                                 {{ \Carbon\Carbon::parse($quiz->jam_akhir)->format('H.i') }}
@@ -69,32 +70,22 @@
                                                     <td>
                                                         <p class="color-black">{{ $quiz->KelasTatapMuka->nama_kursus }}</p>
                                                     </td>
-                                                    <td>
-                                                        @php
-                                                            $waktuAkhir = \Carbon\Carbon::parse(
-                                                                $quiz->created_at->format('Y-m-d') .
-                                                                    ' ' .
-                                                                    $quiz->jam_akhir,
-                                                            );
-                                                            $isSelesai = now()->greaterThan($waktuAkhir);
-                                                        @endphp
-                                                        @if ($isSelesai)
-                                                            <span class="dashboard__quiz-result fail">Selesai</span>
-                                                        @else
-                                                            <span class="dashboard__quiz-result">Berjalan</span>
-                                                        @endif
+                                                    <td id="quiz-status-{{ $quiz->id }}">
+                                                        {{-- Status awal, nanti akan diperbarui oleh JavaScript --}}
+                                                        <span class="dashboard__quiz-result">Berjalan</span>
                                                     </td>
                                                     <td>
                                                         <div class="dashboard__review-action">
-                                                            <a href="#" title="Tambahkan Pertanyaan"><i
+                                                            <a href="#" title="Edit"><i
                                                                     class="skillgro-edit"></i></a>
-                                                            <a href="#" title="Hapus Quiz"><i
+                                                            <a href="#" title="Delete"><i
                                                                     class="skillgro-bin"></i></a>
                                                         </div>
                                                     </td>
                                                 </tr>
                                             </tbody>
                                         @endforeach
+
 
                                     </table>
                                 </div>
@@ -108,23 +99,29 @@
         </div>
     </section>
     <!-- dashboard-area-end -->
+
+
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mengatur tinggi untuk elemen h5.title dalam konteks courses__item-thumb
-            var courseTitles = document.querySelectorAll('.courses__item-thumb h5.title');
-            var maxCourseTitleHeight = 0;
+        function checkQuizStatus() {
+            @foreach ($quiz as $quiz)
+                $.get("{{ route('quiz.checkStatus', ['id' => $quiz->id]) }}", function(data) {
+                    const statusElement = $("#quiz-status-{{ $quiz->id }}");
+                    if (data.status === 'Selesai') {
+                        statusElement.html('<span class="dashboard__quiz-result fail">Selesai</span>');
+                    } else {
+                        statusElement.html('<span class="dashboard__quiz-result">Berjalan</span>');
+                    }
+                });
+            @endforeach
+        }
 
-            // Temukan tinggi maksimum untuk h5.title
-            courseTitles.forEach(function(title) {
-                if (title.offsetHeight > maxCourseTitleHeight) {
-                    maxCourseTitleHeight = title.offsetHeight;
-                }
-            });
+        // Cek status setiap 60 detik (60000 ms)
+        setInterval(checkQuizStatus, 60000);
 
-            // Tetapkan tinggi maksimum ke semua elemen h5.title
-            courseTitles.forEach(function(title) {
-                title.style.height = maxCourseTitleHeight + 'px';
-            });
+        // Pengecekan awal saat halaman pertama kali dimuat
+        $(document).ready(function() {
+            checkQuizStatus();
         });
     </script>
 
