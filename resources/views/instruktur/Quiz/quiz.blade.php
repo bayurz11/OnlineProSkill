@@ -80,12 +80,19 @@
                                                         <p class="color-black">4</p>
                                                     </td> --}}
                                                     <td>
+                                                        <p>Waktu Saat Ini: {{ now()->format('H:i') }}</p>
+                                                        <p>Waktu Mulai:
+                                                            {{ \Carbon\Carbon::parse($quiz->jam_mulai)->format('H:i') }}</p>
+                                                        <p>Waktu Akhir:
+                                                            {{ \Carbon\Carbon::parse($quiz->jam_akhir)->format('H:i') }}</p>
+
                                                         @if (now()->between(\Carbon\Carbon::parse($quiz->jam_mulai), \Carbon\Carbon::parse($quiz->jam_akhir)))
                                                             <span class="dashboard__quiz-result">Berjalan</span>
                                                         @else
                                                             <span class="dashboard__quiz-result fail">Selesai</span>
                                                         @endif
                                                     </td>
+
                                                     <td>
                                                         <div class="dashboard__review-action">
                                                             <a href="#" title="Edit"><i
