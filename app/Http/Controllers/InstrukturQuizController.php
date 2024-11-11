@@ -88,19 +88,4 @@ class InstrukturQuizController extends Controller
         // Redirect ke halaman lain atau kembali dengan pesan sukses
         return redirect()->back()->with('success', 'Quiz berhasil ditambahkan.');
     }
-
-    public function checkStatus($id)
-    {
-        $quiz = Tugas::find($id);
-
-        // Tambahkan pengecekan jika quiz tidak ditemukan
-        if (!$quiz) {
-            return response()->json(['status' => 'Not Found'], 404);
-        }
-
-        $waktuAkhir = \Carbon\Carbon::parse($quiz->created_at->format('Y-m-d') . ' ' . $quiz->jam_akhir);
-        $isSelesai = now()->greaterThan($waktuAkhir);
-
-        return response()->json(['status' => $isSelesai ? 'Selesai' : 'Berjalan']);
-    }
 }
