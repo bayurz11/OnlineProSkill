@@ -38,7 +38,8 @@
                             @csrf
                             <div class="row" id="questionsList">
                                 <!-- Formulir pertanyaan pertama akan muncul saat halaman dimuat -->
-                                <input type="hidden" name="id_tugas" id="id_tugas">
+                                <input type="hidden" name="id_pertanyaan" id="id_pertanyaan" value="">
+
                                 <div class="col-12 question-form" id="question-form-1">
                                     <div class="form-group">
                                         <label for="question_1">Pertanyaan Pilihan Ganda 1</label>
@@ -110,26 +111,7 @@
     <!-- dashboard-area-end -->
 
 @endsection
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Ambil elemen <a> dengan class 'btn'
-        var button = document.querySelector('.btn-primary');
 
-        // Ambil input hidden untuk id_tugas
-        var hiddenInput = document.getElementById('id_tugas');
-
-        // Tambahkan event listener pada click button
-        button.addEventListener('click', function(event) {
-            // Ambil nilai dari data-id
-            var idTugas = button.getAttribute('data-id');
-
-            // Set nilai id_tugas ke dalam input hidden
-            hiddenInput.value = idTugas;
-
-
-        });
-    });
-</script>
 
 <script>
     let questionCount = 1; // Inisialisasi nomor pertanyaan
@@ -194,6 +176,29 @@
         // Menambahkan form baru ke dalam list
         document.getElementById('questionsList').insertAdjacentHTML('beforeend', questionForm);
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Ambil elemen <a> dengan class 'btn'
+        var button = document.querySelector('.btn-primary');
+
+        // Ambil input hidden untuk id_tugas dan id_pertanyaan
+        var hiddenInputTugas = document.getElementById('id_tugas');
+        var hiddenInputPertanyaan = document.getElementById('id_pertanyaan');
+
+        // Tambahkan event listener pada click button
+        button.addEventListener('click', function(event) {
+            // Ambil nilai dari data-id yang ada pada button
+            var idTugas = button.getAttribute('data-id');
+
+            // Set nilai id_tugas ke dalam input hidden
+            hiddenInputTugas.value = idTugas;
+
+            // Anda bisa menambahkan nilai untuk id_pertanyaan, misalnya menggunakan ID yang terkait dengan pertanyaan
+            var
+            idPertanyaan = /* Nilai id_pertanyaan yang ingin Anda kirim, misalnya bisa diambil dari data pertanyaan yang dipilih */ ;
+            hiddenInputPertanyaan.value = idPertanyaan;
+        });
+    });
 </script>
 
 <style>
