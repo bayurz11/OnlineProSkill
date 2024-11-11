@@ -44,10 +44,10 @@
                                         <thead>
                                             <tr>
                                                 <th>Quiz</th>
-                                                {{-- <th>Qus</th>
-                                                <th>TM</th>
+                                                <th>Course</th>
+                                                {{-- <th>TM</th>
                                                 <th>CA</th> --}}
-                                                <th>Result</th>
+                                                <th>Keterangan</th>
                                                 <th>&nbsp;</th>
                                             </tr>
                                         </thead>
@@ -70,15 +70,15 @@
 
                                                         </div>
                                                     </td>
+                                                    <td>
+                                                        <p class="color-black">{{ $quiz->course_id }}</p>
+                                                    </td>
                                                     {{-- <td>
-                                                                <p class="color-black">4</p>
-                                                            </td>
-                                                            <td>
-                                                                <p class="color-black">8</p>
-                                                            </td>
-                                                            <td>
-                                                                <p class="color-black">4</p>
-                                                            </td> --}}
+                                                        <p class="color-black">8</p>
+                                                    </td>
+                                                    <td>
+                                                        <p class="color-black">4</p>
+                                                    </td> --}}
                                                     <td>
                                                         <span class="dashboard__quiz-result ">Pass</span>
                                                     </td>
