@@ -259,6 +259,7 @@ Route::middleware('isInstruktur')->group(function () {
 
     //Pertanyaan
     Route::get('/instruktur_question_pg/{id_tugas}', [InstrukturQuestionController::class, 'index'])->name('instruktur_question_pg');
+    Route::get('/instruktur_question_essay/{id_tugas}', [InstrukturQuestionController::class, 'index'])->name('instruktur_question_essay');
 });
 
 
