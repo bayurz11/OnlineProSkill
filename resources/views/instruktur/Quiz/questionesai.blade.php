@@ -1,4 +1,4 @@
-@section('title', 'ProSkill Akademia | Tambah Pertanyaan')
+@section('title', 'ProSkill Akademia | Tambah Pertanyaan Esai')
 <?php $page = 'instruktur.quiz'; ?>
 
 @extends('layout.mainlayout')
