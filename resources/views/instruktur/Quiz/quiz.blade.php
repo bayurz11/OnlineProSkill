@@ -52,39 +52,44 @@
                                             </tr>
                                         </thead>
 
-                                        @foreach ($quiz as $quiz)
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <div class="dashboard__quiz-info">
-                                                            <p>{{ $quiz->created_at->format('d F, Y') }}</p>
-                                                            <h6 class="title">{{ $quiz->judul_tugas }}</h6>
-                                                            <p style="font-size: 12px;">
-                                                                Waktu:
-                                                                {{ \Carbon\Carbon::parse($quiz->jam_mulai)->format('H.i') }}
-                                                                s/d
-                                                                {{ \Carbon\Carbon::parse($quiz->jam_akhir)->format('H.i') }}
+                                        @if ($quiz->isNotEmpty())
+                                            @foreach ($quiz as $item)
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="dashboard__quiz-info">
+                                                                <p>{{ $item->created_at->format('d F, Y') }}</p>
+                                                                <h6 class="title">{{ $item->judul_tugas }}</h6>
+                                                                <p style="font-size: 12px;">
+                                                                    Waktu:
+                                                                    {{ \Carbon\Carbon::parse($item->jam_mulai)->format('H.i') }}
+                                                                    s/d
+                                                                    {{ \Carbon\Carbon::parse($item->jam_akhir)->format('H.i') }}
+                                                                </p>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <p class="color-black">{{ $item->KelasTatapMuka->nama_kursus }}
                                                             </p>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <p class="color-black">{{ $quiz->KelasTatapMuka->nama_kursus }}</p>
-                                                    </td>
-                                                    <td id="quiz-status-{{ $quiz->id }}">
-                                                        {{-- Status awal, nanti akan diperbarui oleh JavaScript --}}
-                                                        <span class="dashboard__quiz-result">Berjalan</span>
-                                                    </td>
-                                                    <td>
-                                                        <div class="dashboard__review-action">
-                                                            <a href="#" title="Edit"><i
-                                                                    class="skillgro-edit"></i></a>
-                                                            <a href="#" title="Delete"><i
-                                                                    class="skillgro-bin"></i></a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        @endforeach
+                                                        </td>
+                                                        <td id="quiz-status-{{ $item->id }}">
+                                                            <span class="dashboard__quiz-result">Berjalan</span>
+                                                        </td>
+                                                        <td>
+                                                            <div class="dashboard__review-action">
+                                                                <a href="#" title="Edit"><i
+                                                                        class="skillgro-edit"></i></a>
+                                                                <a href="#" title="Delete"><i
+                                                                        class="skillgro-bin"></i></a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            @endforeach
+                                        @else
+                                            <p>Data quiz tidak tersedia.</p>
+                                        @endif
+
 
 
                                     </table>
