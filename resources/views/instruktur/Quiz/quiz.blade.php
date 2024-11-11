@@ -88,8 +88,17 @@
                                                         <div class="dashboard__review-action">
                                                             <a href="#" title="Tambahkan Pertanyaan"><i
                                                                     class="skillgro-edit"></i></a>
-                                                            <a href="#" title="Hapus Quiz"><i
-                                                                    class="skillgro-bin"></i></a>
+
+                                                            <!-- Form untuk menghapus quiz -->
+                                                            <form action="{{ route('quiz.destroy', $quiz->id) }}"
+                                                                method="POST" style="display:inline;">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="submit" title="Hapus Quiz"
+                                                                    onclick="return confirm('Apakah Anda yakin ingin menghapus quiz ini?')">
+                                                                    <i class="skillgro-bin"></i>
+                                                                </button>
+                                                            </form>
                                                         </div>
                                                     </td>
                                                 </tr>
