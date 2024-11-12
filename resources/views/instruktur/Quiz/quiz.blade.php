@@ -2,7 +2,7 @@
 <?php $page = 'instruktur.quiz'; ?>
 
 @extends('layout.mainlayout')
-@include('instruktur.modal.quizModal')
+
 @section('content')
 
     <!-- breadcrumb-area -->
