@@ -123,11 +123,11 @@
                         <!-- Navigation Buttons -->
                         <div class="mt-4 text-center">
                             <a href="#" class="text-primary px-2 fs-4">
-                                &laquo;&laquo;
+                                &laquo;&laquo; Back
                             </a>
                             <span>1 Dari {{ $totalQuestions }} Nomor Soal</span>
                             <a href="#" class="text-primary px-2 fs-4">
-                                &raquo;&raquo;
+                                &raquo;&raquo; Next
                             </a>
                         </div>
 
