@@ -37,11 +37,6 @@
                         <form id="createKurikulumForm" action="{{ route('instruktur_quiz.store') }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="QuizModalLabel">Tambah Quiz Baru</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="btn-close"></button>
-                            </div>
                             <div class="modal-body">
                                 <!-- Hidden field for kurikulum_id -->
                                 <input type="hidden" name="id_instruktur" id="id_instruktur"
@@ -90,7 +85,6 @@
 
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
                                 <button type="submit" class="btn btn-primary">Simpan</button>
                             </div>
                         </form>
