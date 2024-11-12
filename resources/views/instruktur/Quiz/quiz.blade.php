@@ -88,10 +88,10 @@
                                                     </td>
                                                     <td>
                                                         <div class="dashboard__review-action">
-                                                            <a href="#" title="Tambahkan Pertanyaan"
-                                                                @if ($isSelesai) style="pointer-events: none; color: #ccc;" @else onclick="showModal()" @endif>
-                                                                <i class="skillgro-edit"></i>
+                                                            <a href="#" title="Lihat Soal">
+                                                                <i class="fas fa-eye"></i>
                                                             </a>
+
                                                             <a href="#" title="Hapus Quiz"
                                                                 data-id="{{ $quiz->id_tugas }}" class="delete-quiz">
                                                                 <i class="skillgro-bin"></i>
