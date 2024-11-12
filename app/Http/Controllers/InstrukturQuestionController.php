@@ -28,18 +28,11 @@ class InstrukturQuestionController extends Controller
             return redirect()->route('/');
         }
 
-        // Mengambil profil pengguna yang sedang login
         $profile = UserProfile::where('user_id', $user->id)->first();
-
-        // Ambil notifikasi untuk pengguna yang sedang login
         $notifikasi = NotifikasiUser::where('user_id', $user->id)
             ->orderBy('created_at', 'desc')
             ->get();
-
-        // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
-
-        // Ambil KelasTatapMuka berdasarkan user_id pengguna yang sedang login
         $KelasTatapMuka = KelasTatapMuka::where('user_id', $user->id)->get();
 
         $jumlahPendaftaran = Order::select('product_id', DB::raw('count(*) as total'))
@@ -51,10 +44,11 @@ class InstrukturQuestionController extends Controller
             ->with('KelasTatapMuka')
             ->get();
 
-        // Ambil pertanyaan dan pilihan jawaban berdasarkan id_tugas
+        // Mengurutkan pertanyaan berdasarkan id atau urutan yang diinginkan
         $id_tugas = $request->route('id_tugas');
         $pertanyaan = Pertanyaan::where('id_tugas', $id_tugas)
             ->with('pilihanJawaban')
+            ->orderBy('id_pertanyaan', 'asc') // Mengurutkan berdasarkan id atau kolom lainnya
             ->get();
 
         return view('instruktur.Quiz.question', compact(
@@ -70,6 +64,7 @@ class InstrukturQuestionController extends Controller
             'pertanyaan'
         ));
     }
+
 
 
     public function storepg(Request $request)

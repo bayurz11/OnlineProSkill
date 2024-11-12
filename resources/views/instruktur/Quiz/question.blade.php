@@ -31,81 +31,36 @@
                     <div class="dashboard__content-wrap">
                         <div class="dashboard__content-title d-flex justify-content-between align-items-center">
                             <h4 class="title">Pertanyaan Pilihan Ganda</h4>
-
                         </div>
 
                         <form id="questionsForm" action="{{ route('instruktur_pertanyaan_pg.store') }}" method="POST">
                             @csrf
                             <div class="row" id="questionsList">
-                                <div class="col-12 question-form" id="question-form-1">
-                                    <div class="form-group">
-                                        <label for="question_1">Pertanyaan Pilihan Ganda 1</label>
-                                        <textarea id="question_1" name="questions[1][question]" class="form-control" rows="2"
-                                            placeholder="Tulis pertanyaan di sini..." required></textarea>
-                                    </div>
-                                    <input type="hidden" id="id_tugas_input" name="id_tugas" value="">
-
-                                    <!-- Grid untuk pilihan jawaban A, B, C, D, E -->
-                                    <div class="form-group">
-                                        <div class="choices-grid">
-                                            <div class="choice">
-                                                <label for="optionA_1">Pilihan A</label>
-                                                <input type="text" id="optionA_1" name="questions[1][options][A]"
-                                                    class="form-control" placeholder="Masukkan pilihan A" required>
-                                            </div>
-                                            <div class="choice">
-                                                <label for="optionD_1">Pilihan D</label>
-                                                <input type="text" id="optionD_1" name="questions[1][options][D]"
-                                                    class="form-control" placeholder="Masukkan pilihan D" required>
-                                            </div>
-                                            <div class="choice">
-                                                <label for="optionB_1">Pilihan B</label>
-                                                <input type="text" id="optionB_1" name="questions[1][options][B]"
-                                                    class="form-control" placeholder="Masukkan pilihan B" required>
-                                            </div>
-                                            <div class="choice">
-                                                <label for="optionE_1">Pilihan E</label>
-                                                <input type="text" id="optionE_1" name="questions[1][options][E]"
-                                                    class="form-control" placeholder="Masukkan pilihan E" required>
-                                            </div>
-
-                                            <div class="choice">
-                                                <label for="optionC_1">Pilihan C</label>
-                                                <input type="text" id="optionC_1" name="questions[1][options][C]"
-                                                    class="form-control" placeholder="Masukkan pilihan C" required>
-                                            </div>
-                                            <div class="choice">
-                                                <label for="correct_answer_1">Jawaban Benar</label>
-                                                <select id="correct_answer_1" name="questions[1][correct_answer]"
-                                                    class="form-control" required>
-                                                    <option>Pilihan Jawaban</option>
-                                                    <option value="A">Pilihan A</option>
-                                                    <option value="B">Pilihan B</option>
-                                                    <option value="C">Pilihan C</option>
-                                                    <option value="D">Pilihan D</option>
-                                                    <option value="E">Pilihan E</option>
-                                                </select>
-                                            </div>
+                                @foreach ($pertanyaan as $index => $question)
+                                    <div class="col-12 question-form" id="question-form-{{ $index + 1 }}">
+                                        <div class="form-group">
+                                            <label for="question_{{ $index + 1 }}">Pertanyaan {{ $index + 1 }}</label>
+                                            <textarea class="form-control" rows="2" readonly>{{ $question->isi_pertanyaan }}</textarea>
+                                        </div>
+                                        <div class="form-group choices-grid">
+                                            @foreach ($question->pilihanJawaban as $optionKey => $option)
+                                                <div class="choice">
+                                                    <label>Pilihan {{ chr(65 + $optionKey) }}</label>
+                                                    <input type="text" class="form-control"
+                                                        value="{{ $option->isi_pilihan }}" readonly>
+                                                </div>
+                                            @endforeach
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="form-group d-flex justify-content-end">
-                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                @endforeach
                             </div>
                         </form>
-
-                        <div class="form-group d-flex justify-content-end">
-
-                            <button type="button" class="btn btn-primary" onclick="addChoiceQuestion()">Tambah
-                                Pertanyaan</button>
-                        </div>
-
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
     <!-- dashboard-area-end -->
 
 @endsection
