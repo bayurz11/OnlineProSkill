@@ -71,6 +71,7 @@ class InstrukturQuestionController extends Controller
         $request->validate([
             'judul_tugas' => 'required|string|max:255',
             'course_id' => 'required',
+            'waktu_pengerjaan' => 'required|date_format:H:i',
             'jam_mulai' => 'required|date_format:H:i',
             'jam_akhir' => 'required|date_format:H:i',
             'questions.*.question' => 'required|string|max:255',

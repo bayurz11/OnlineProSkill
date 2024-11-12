@@ -52,26 +52,31 @@
                                         placeholder="Masukkan Judul Quiz Anda" required>
                                 </div>
 
-                                <!-- Course Selection -->
-                                <div class="mb-3">
-                                    <label for="course_id" class="form-label">Pilih Course</label>
-                                    <select class="form-control" id="course_id" name="course_id">
-                                        <option value="" disabled selected>Pilih Kelas</option>
-                                        @foreach ($KelasTatapMuka->where('status', 1) as $kelas)
-                                            @php
-                                                // Check if the course_id exists in the Kurikulum model
-                                                $kurikulumExists = \App\Models\Kurikulum::where(
-                                                    'course_id',
-                                                    $kelas->id,
-                                                )->exists();
-                                            @endphp
-                                            @if ($kurikulumExists)
-                                                <option value="{{ $kelas->id }}">{{ $kelas->nama_kursus }}</option>
-                                            @endif
-                                        @endforeach
-                                    </select>
+                                <div class="mb-3 d-flex justify-content-between">
+                                    <div class="me-2" style="flex: 1;">
+                                        <label for="course_id" class="form-label">Pilih Course</label>
+                                        <select class="form-control" id="course_id" name="course_id">
+                                            <option value="" disabled selected>Pilih Kelas</option>
+                                            @foreach ($KelasTatapMuka->where('status', 1) as $kelas)
+                                                @php
+                                                    // Check if the course_id exists in the Kurikulum model
+                                                    $kurikulumExists = \App\Models\Kurikulum::where(
+                                                        'course_id',
+                                                        $kelas->id,
+                                                    )->exists();
+                                                @endphp
+                                                @if ($kurikulumExists)
+                                                    <option value="{{ $kelas->id }}">{{ $kelas->nama_kursus }}</option>
+                                                @endif
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div style="flex: 1;">
+                                        <label for="waktu_pengerjaan" class="form-label">Waktu Pengerjaan</label>
+                                        <input type="time" class="form-control" id="waktu_pengerjaan"
+                                            name="waktu_pengerjaan">
+                                    </div>
                                 </div>
-
                                 <!-- Time Fields -->
                                 <div class="mb-3 d-flex justify-content-between">
                                     <div class="me-2" style="flex: 1;">

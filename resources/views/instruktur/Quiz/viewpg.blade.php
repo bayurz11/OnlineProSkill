@@ -34,6 +34,8 @@
                         <div class="dashboard__content-title d-flex justify-content-between align-items-center">
                             <h4 class="title">{{ $tugas->judul_tugas }}</h4>
                             <p>Course : {{ $tugas->KelasTatapMuka->nama_kursus }}</p>
+                            <p>Jumlah Soal : {{ $tugas->KelasTatapMuka->nama_kursus }}</p>
+                            <p>Waktu Pengerjaan : {{ $tugas->waktu_pengerjaan }}</p>
                         </div>
 
 
