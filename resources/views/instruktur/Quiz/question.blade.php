@@ -133,7 +133,7 @@
                                 </div>
 
                                 <!-- Add Question Button -->
-                                <div class="form-group d-flex justify-content-end align-items-center">
+                                <div class="form-group d-flex justify-content-end align-items-center mb-0">
                                     <button type="button" class="btn btn-primary" onclick="addChoiceQuestion()">Tambah
                                         Pertanyaan</button>
                                 </div>
