@@ -73,9 +73,17 @@
                                     </div>
                                     <div style="flex: 1;">
                                         <label for="waktu_pengerjaan" class="form-label">Waktu Pengerjaan</label>
-                                        <input type="time" class="form-control" id="waktu_pengerjaan"
-                                            name="waktu_pengerjaan">
+                                        <div style="display: flex; gap: 5px;">
+                                            <input type="number" class="form-control" id="waktu_pengerjaan_jam"
+                                                name="waktu_pengerjaan_jam" placeholder="Jam" min="0">
+                                            <span>Jam</span>
+                                            <input type="number" class="form-control" id="waktu_pengerjaan_menit"
+                                                name="waktu_pengerjaan_menit" placeholder="Menit" min="0"
+                                                max="59">
+                                            <span>Menit</span>
+                                        </div>
                                     </div>
+
                                 </div>
                                 <!-- Time Fields -->
                                 <div class="mb-3 d-flex justify-content-between">
