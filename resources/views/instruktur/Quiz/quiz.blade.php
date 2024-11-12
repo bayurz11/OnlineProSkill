@@ -2,7 +2,6 @@
 <?php $page = 'instruktur.quiz'; ?>
 
 @extends('layout.mainlayout')
-
 @section('content')
 
     <!-- breadcrumb-area -->

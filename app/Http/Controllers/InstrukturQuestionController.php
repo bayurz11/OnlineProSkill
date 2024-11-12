@@ -96,7 +96,7 @@ class InstrukturQuestionController extends Controller
             $pertanyaan = Pertanyaan::create([
                 'isi_pertanyaan' => $questionData['question'],
                 'jenis_pertanyaan' => 'pilihan_ganda',
-                'id_tugas' => $quiz->id,  // Menyambungkan pertanyaan ke quiz
+                'id_tugas' => $quiz->id_tugas,  // Menyambungkan pertanyaan ke quiz
             ]);
 
             // Menyimpan pilihan jawaban untuk setiap pertanyaan
