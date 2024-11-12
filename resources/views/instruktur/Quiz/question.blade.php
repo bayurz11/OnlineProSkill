@@ -211,13 +211,25 @@
                     </div>
                 </div>
             </div>
+            <!-- Ikon hapus untuk pertanyaan ini -->
+                    <div class="choice">
+                        <button type="button" class="btn btn-danger" onclick="removeQuestion(${questionCount})">
+                            <i class="fa fa-trash"></i> Hapus Pertanyaan
+                        </button>
+                    </div>
         </div>
     `;
 
         // Menambahkan form baru ke dalam list
         document.getElementById('questionsList').insertAdjacentHTML('beforeend', questionForm);
     }
-
+    // Fungsi untuk menghapus pertanyaan
+    function removeQuestion(questionId) {
+        const questionForm = document.getElementById(`question-form-${questionId}`);
+        if (questionForm) {
+            questionForm.remove(); // Menghapus elemen pertanyaan dari DOM
+        }
+    }
     document.addEventListener("DOMContentLoaded", function() {
         // Mendapatkan id_tugas dari URL
         const url = window.location.pathname;
