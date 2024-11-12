@@ -117,7 +117,7 @@
                                         <!-- Grid for Answer Choices -->
                                         <div class="form-group">
                                             <div class="choices-grid">
-                                                @foreach (['A', 'D', 'B', 'E', 'C'] as $option)
+                                                @foreach (['A', 'B', 'C', 'D', 'E'] as $option)
                                                     <div class="choice">
                                                         <label for="option{{ $option }}_1">Pilihan
                                                             {{ $option }}</label>
@@ -194,28 +194,27 @@
                         <input type="text" id="optionA_${questionCount}" name="questions[${questionCount}][options][A]"
                             class="form-control" placeholder="Masukkan pilihan A">
                     </div>
-                     <div class="choice">
-                        <label for="optionD_${questionCount}">Pilihan D</label>
-                        <input type="text" id="optionD_${questionCount}" name="questions[${questionCount}][options][D]"
-                            class="form-control" placeholder="Masukkan pilihan D">
-                    </div>
                     <div class="choice">
                         <label for="optionB_${questionCount}">Pilihan B</label>
                         <input type="text" id="optionB_${questionCount}" name="questions[${questionCount}][options][B]"
                             class="form-control" placeholder="Masukkan pilihan B">
                     </div>
                     <div class="choice">
-                        <label for="optionE_${questionCount}">Pilihan E</label>
-                        <input type="text" id="optionE_${questionCount}" name="questions[${questionCount}][options][E]"
-                            class="form-control" placeholder="Masukkan pilihan E">
-                    </div>
-                    <div class="choice">
                         <label for="optionC_${questionCount}">Pilihan C</label>
                         <input type="text" id="optionC_${questionCount}" name="questions[${questionCount}][options][C]"
                             class="form-control" placeholder="Masukkan pilihan C">
                     </div>
-                   
+                     <div class="choice">
+                        <label for="optionD_${questionCount}">Pilihan D</label>
+                        <input type="text" id="optionD_${questionCount}" name="questions[${questionCount}][options][D]"
+                            class="form-control" placeholder="Masukkan pilihan D">
+                    </div>
                     
+                    <div class="choice">
+                        <label for="optionE_${questionCount}">Pilihan E</label>
+                        <input type="text" id="optionE_${questionCount}" name="questions[${questionCount}][options][E]"
+                            class="form-control" placeholder="Masukkan pilihan E">
+                    </div>
                     <div class="choice">
                         <label for="correct_answer_${questionCount}">Jawaban Benar</label>
                         <select id="correct_answer_${questionCount}" name="questions[${questionCount}][correct_answer]"
