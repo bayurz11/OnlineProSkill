@@ -147,7 +147,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($students as $student)
+                                    {{-- @foreach ($students as $student)
                                         <tr>
                                             <td>{{ $student->nama }}</td>
                                             <td>{{ $student->benar ?? 'Belum Mengerjakan Ujian' }}</td>
@@ -157,7 +157,18 @@
                                                 <!-- Tambahkan opsi lain sesuai kebutuhan -->
                                             </td>
                                         </tr>
-                                    @endforeach
+                                    @endforeach --}}
+
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <!-- Tambahkan opsi lain sesuai kebutuhan -->
+                                        </td>
+                                    </tr>
+
                                 </tbody>
                             </table>
                         </div>
