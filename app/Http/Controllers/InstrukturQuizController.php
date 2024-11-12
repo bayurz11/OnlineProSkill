@@ -60,34 +60,6 @@ class InstrukturQuizController extends Controller
         ));
     }
 
-    public function store(Request $request)
-    {
-        // Pastikan user sudah login
-        $user = Auth::user();
-        if (!$user) {
-            return redirect()->route('/'); // Jika belum login, arahkan ke halaman utama
-        }
-
-        // Validasi input dari form
-        $validated = $request->validate([
-            'judul_tugas' => 'required|string|max:255',
-            'course_id' => 'required',
-            'jam_mulai' => 'required|date_format:H:i',
-            'jam_akhir' => 'required|date_format:H:i|after:jam_mulai',
-        ]);
-
-        // Menyimpan data tugas
-        $quiz = new Tugas();
-        $quiz->judul_tugas = $validated['judul_tugas'];
-        $quiz->course_id = $validated['course_id'];
-        $quiz->jam_mulai = $validated['jam_mulai'];
-        $quiz->jam_akhir = $validated['jam_akhir'];
-        $quiz->id_instruktur = $user->id; // Menggunakan ID instruktur dari sesi login
-        $quiz->save();
-
-        // Redirect ke halaman lain atau kembali dengan pesan sukses
-        return redirect()->back()->with('success', 'Quiz berhasil ditambahkan.');
-    }
 
     public function destroy($id_tugas)
     {

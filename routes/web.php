@@ -254,7 +254,6 @@ Route::middleware('isInstruktur')->group(function () {
 
     //Quiz
     Route::get('/instruktur_quiz', [InstrukturQuizController::class, 'index'])->name('instruktur.quiz');
-    Route::post('/instruktur_quiz/store', [InstrukturQuizController::class, 'store'])->name('instruktur_quiz.store');
     Route::delete('/instruktur_quiz/{id_tugas}', [InstrukturQuizController::class, 'destroy'])->name('quiz.destroy');
 
     //Pertanyaan
