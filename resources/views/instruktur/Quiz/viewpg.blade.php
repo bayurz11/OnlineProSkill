@@ -31,13 +31,14 @@
                 <div class="col-lg-9">
                     <!-- Combined Form to Add New Quiz and Questions -->
                     <div class="dashboard__content-wrap">
-                        <div class="dashboard__content-title d-flex align-items-center gap-3">
-                            <h4 class="title mb-0">{{ $tugas->judul_tugas }}</h4>
-                            <p class="mb-0">Course: {{ $tugas->KelasTatapMuka->nama_kursus }}</p>
-                            <p class="mb-0">Jumlah Soal: {{ $tugas->jumlah_soal }}</p>
-                            <p class="mb-0">Waktu Pengerjaan: {{ $tugas->waktu_pengerjaan_jam }} Jam
+                        <div class="dashboard__content-title">
+                            <h4 class="fw-bold mb-2">{{ $tugas->judul_tugas }}</h4>
+                            <p class="mb-1">Course: {{ $tugas->KelasTatapMuka->nama_kursus }}</p>
+                            <p class="mb-1">Jumlah Soal: {{ $tugas->jumlah_soal }}</p>
+                            <p class="mb-1">Waktu Pengerjaan: {{ $tugas->waktu_pengerjaan_jam }} Jam
                                 {{ $tugas->waktu_pengerjaan_menit }} Menit</p>
                         </div>
+
                     </div>
 
                 </div>
