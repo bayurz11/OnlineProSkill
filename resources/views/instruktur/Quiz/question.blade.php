@@ -133,7 +133,7 @@
                                 </div>
 
                                 <!-- Add Question Button -->
-                                <div class="form-group d-flex justify-content-end align-items-center mb-0">
+                                <div class="form-group d-flex justify-content-end align-items-center mb-0 mr-2">
                                     <button type="button" class="btn btn-primary mr-2"
                                         onclick="addChoiceQuestion()">Tambah Pertanyaan</button>
                                     <button type="submit" class="btn btn-primary">Simpan</button>
