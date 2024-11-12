@@ -65,12 +65,14 @@ class InstrukturQuestionController extends Controller
         ));
     }
 
-
-
     public function storepg(Request $request)
     {
-        // Validasi input
+        // Validasi input untuk form quiz
         $request->validate([
+            'judul_tugas' => 'required|string|max:255',
+            'course_id' => 'required|exists:kelas_tatap_muka,id',
+            'jam_mulai' => 'required|date_format:H:i',
+            'jam_akhir' => 'required|date_format:H:i',
             'questions.*.question' => 'required|string|max:255',
             'questions.*.options.A' => 'required|string|max:255',
             'questions.*.options.B' => 'required|string|max:255',
@@ -78,15 +80,23 @@ class InstrukturQuestionController extends Controller
             'questions.*.options.D' => 'required|string|max:255',
             'questions.*.options.E' => 'required|string|max:255',
             'questions.*.correct_answer' => 'required|in:A,B,C,D,E',
-            'id_tugas' => 'required|exists:tugas,id_tugas',
         ]);
 
-        // Menyimpan data pertanyaan
+        // Menyimpan data quiz
+        $quiz = Tugas::create([
+            'judul_tugas' => $request->judul_tugas,
+            'course_id' => $request->course_id,
+            'id_instruktur' => $request->id_instruktur,
+            'jam_mulai' => $request->jam_mulai,
+            'jam_akhir' => $request->jam_akhir,
+        ]);
+
+        // Menyimpan data pertanyaan pilihan ganda
         foreach ($request->input('questions') as $key => $questionData) {
             $pertanyaan = Pertanyaan::create([
                 'isi_pertanyaan' => $questionData['question'],
                 'jenis_pertanyaan' => 'pilihan_ganda',
-                'id_tugas' => $request->id_tugas,
+                'id_tugas' => $quiz->id,  // Menyambungkan pertanyaan ke quiz
             ]);
 
             // Menyimpan pilihan jawaban untuk setiap pertanyaan
@@ -101,8 +111,47 @@ class InstrukturQuestionController extends Controller
             }
         }
 
-        return back()->with('success', 'Pertanyaan berhasil disimpan!');
+        // Redirect atau memberi respon setelah menyimpan data
+        return redirect()->route('instruktur_quiz.index')->with('success', 'Quiz berhasil dibuat!');
     }
+
+
+    // public function storepg(Request $request)
+    // {
+    //     // Validasi input
+    //     $request->validate([
+    //         'questions.*.question' => 'required|string|max:255',
+    //         'questions.*.options.A' => 'required|string|max:255',
+    //         'questions.*.options.B' => 'required|string|max:255',
+    //         'questions.*.options.C' => 'required|string|max:255',
+    //         'questions.*.options.D' => 'required|string|max:255',
+    //         'questions.*.options.E' => 'required|string|max:255',
+    //         'questions.*.correct_answer' => 'required|in:A,B,C,D,E',
+    //         'id_tugas' => 'required|exists:tugas,id_tugas',
+    //     ]);
+
+    //     // Menyimpan data pertanyaan
+    //     foreach ($request->input('questions') as $key => $questionData) {
+    //         $pertanyaan = Pertanyaan::create([
+    //             'isi_pertanyaan' => $questionData['question'],
+    //             'jenis_pertanyaan' => 'pilihan_ganda',
+    //             'id_tugas' => $request->id_tugas,
+    //         ]);
+
+    //         // Menyimpan pilihan jawaban untuk setiap pertanyaan
+    //         foreach ($questionData['options'] as $optionKey => $optionValue) {
+    //             $benar = ($optionKey === $questionData['correct_answer']) ? true : false;
+
+    //             Pilih_Jawaban::create([
+    //                 'id_pertanyaan' => $pertanyaan->id_pertanyaan,
+    //                 'isi_pilihan' => $optionValue,
+    //                 'benar' => $benar,
+    //             ]);
+    //         }
+    //     }
+
+    //     return back()->with('success', 'Pertanyaan berhasil disimpan!');
+    // }
 
     public function esai()
     {
