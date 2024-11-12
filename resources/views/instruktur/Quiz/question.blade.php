@@ -166,7 +166,12 @@
                 <label for="question_${questionCount}">Pertanyaan Pilihan Ganda ${questionCount}</label>
                 <textarea id="question_${questionCount}" name="questions[${questionCount}][question]" class="form-control" rows="2" placeholder="Tulis pertanyaan di sini..."></textarea>
             </div>
-            
+             <!-- Ikon hapus untuk pertanyaan ini menggunakan elemen <a> -->
+                    <div class="choice">
+                        <a href="#" title="Hapus Pertanyaan" class="delete-quiz" onclick="removeQuestion(${questionCount})">
+                            <i class="fa fa-trash"></i> Hapus Pertanyaan
+                        </a>
+                    </div>
             <!-- Grid untuk pilihan jawaban A, B, C, D, E -->
             <div class="form-group">
                 <div class="choices-grid">
@@ -209,12 +214,7 @@
                             <option value="E">Pilihan E</option>
                         </select>
                     </div>
-                     <!-- Ikon hapus untuk pertanyaan ini menggunakan elemen <a> -->
-                    <div class="choice">
-                        <a href="#" title="Hapus Pertanyaan" class="delete-quiz" onclick="removeQuestion(${questionCount})">
-                            <i class="fa fa-trash"></i> Hapus Pertanyaan
-                        </a>
-                    </div>
+                    
                 </div>
             </div>
             
