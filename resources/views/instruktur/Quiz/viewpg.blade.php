@@ -99,8 +99,8 @@
                                         </table>
                                     </div>
                                     <div class="card-footer text-center">
-                                        <button class="btn btn-sm btn-primary">Sebelumnya</button>
-                                        <button class="btn btn-sm btn-primary">Selanjutnya</button>
+                                        <button class="btn btn-sm btn-primary"><i class="fas fa-arrow-left"></i></button>
+                                        <button class="btn btn-sm btn-primary"><i class="fas fa-arrow-right"></i></button>
                                     </div>
                                 </div>
                             </div>
