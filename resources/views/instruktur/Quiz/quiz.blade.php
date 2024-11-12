@@ -87,10 +87,11 @@
                                                     </td>
                                                     <td>
                                                         <div class="dashboard__review-action">
-                                                            <a href="#" title="Lihat Soal"
-                                                                data-id="{{ $quiz->id_tugas }}">
+                                                            <a href="{{ route('instruktur_view_pg', $quiz->id_tugas) }}"
+                                                                title="Lihat Soal">
                                                                 <i class="fas fa-eye"></i>
                                                             </a>
+
 
                                                             <a href="#" title="Hapus Quiz"
                                                                 data-id="{{ $quiz->id_tugas }}" class="delete-quiz">
