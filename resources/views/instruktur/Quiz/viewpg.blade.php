@@ -110,7 +110,7 @@
                                         <a href="#" class="text-primary px-2 fs-4">
                                             &laquo;&laquo;
                                         </a>
-                                        <span>1 / {{ $totalQuestions }} </span>
+                                        <span>1 / 1 </span>
                                         <a href="#" class="text-primary px-2 fs-4">
                                             &raquo;&raquo;
                                         </a>
