@@ -147,7 +147,7 @@ class InstrukturQuestionController extends Controller
             ->with('pilihanJawaban')
             ->orderBy('id_pertanyaan', 'asc') // Mengurutkan berdasarkan id atau kolom lainnya
             ->get();
-
+        $quiz = Tugas::all();
         return view('instruktur.Quiz.viewpg', compact(
             'user',
             'KelasTatapMuka',
@@ -158,7 +158,8 @@ class InstrukturQuestionController extends Controller
             'notifikasiCount',
             'orders',
             'jumlahPendaftaran',
-            'pertanyaan'
+            'pertanyaan',
+            'quiz'
         ));
     }
     // public function storepg(Request $request)
