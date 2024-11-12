@@ -163,7 +163,7 @@
         const questionForm = `
          <div class="col-12 question-form" id="question-form-${questionCount}" style="position: relative;">
             <!-- Ikon hapus untuk pertanyaan ini menggunakan elemen <a> -->
-            <div class="choice" style="position: absolute; top: 10px; right: 10px;">
+            <div class="choice" style="position: absolute; top: 8px; right: 10px;">
                 <a href="#" title="Hapus Pertanyaan" class="delete-quiz" onclick="removeQuestion(${questionCount})">
                     <i class="fa fa-trash"></i> Hapus Pertanyaan
                 </a>
