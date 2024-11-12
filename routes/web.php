@@ -258,7 +258,8 @@ Route::middleware('isInstruktur')->group(function () {
     Route::delete('/instruktur_quiz/{id_tugas}', [InstrukturQuizController::class, 'destroy'])->name('quiz.destroy');
 
     //Pertanyaan
-    Route::get('/instruktur_question_pg/{id_tugas}', [InstrukturQuestionController::class, 'pg'])->name('instruktur_question_pg');
+    Route::get('/instruktur_question_pg', [InstrukturQuestionController::class, 'pg'])->name('instruktur_question_pg');
+    // Route::get('/instruktur_question_pg/{id_tugas}', [InstrukturQuestionController::class, 'pg'])->name('instruktur_question_pg');
     Route::post('/instruktur_pertanyaan_pg/store', [InstrukturQuestionController::class, 'storepg'])->name('instruktur_pertanyaan_pg.store');
     Route::get('/instruktur_question_essay/{id_tugas}', [InstrukturQuestionController::class, 'esai'])->name('instruktur_question_essay');
 });
