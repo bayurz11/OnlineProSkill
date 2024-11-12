@@ -115,7 +115,52 @@ class InstrukturQuestionController extends Controller
         return redirect()->route('instruktur.quiz')->with('success', 'Quiz berhasil dibuat!');
     }
 
+    public function viewpg(Request $request)
+    {
+        $categori = Categories::all();
+        $cart = Session::get('cart', []);
+        $user = Auth::user();
 
+        if (!$user) {
+            return redirect()->route('/');
+        }
+
+        $profile = UserProfile::where('user_id', $user->id)->first();
+        $notifikasi = NotifikasiUser::where('user_id', $user->id)
+            ->orderBy('created_at', 'desc')
+            ->get();
+        $notifikasiCount = $notifikasi->where('status', 1)->count();
+        $KelasTatapMuka = KelasTatapMuka::where('user_id', $user->id)->get();
+
+        $jumlahPendaftaran = Order::select('product_id', DB::raw('count(*) as total'))
+            ->groupBy('product_id')
+            ->pluck('total', 'product_id');
+
+        $orders = Order::where('user_id', $user->id)
+            ->whereIn('status', ['PAID', 'SETTLED'])
+            ->with('KelasTatapMuka')
+            ->get();
+
+        // Mengurutkan pertanyaan berdasarkan id atau urutan yang diinginkan
+        $id_tugas = $request->route('id_tugas');
+        $pertanyaan = Pertanyaan::where('id_tugas', $id_tugas)
+            ->with('pilihanJawaban')
+            ->orderBy('id_pertanyaan', 'asc') // Mengurutkan berdasarkan id atau kolom lainnya
+            ->get();
+
+        return view('instruktur.Quiz.viewpg', compact(
+            'user',
+            'KelasTatapMuka',
+            'categori',
+            'profile',
+            'cart',
+            'notifikasi',
+            'notifikasiCount',
+            'orders',
+            'jumlahPendaftaran',
+            'pertanyaan'
+        ));
+    }
     // public function storepg(Request $request)
     // {
     //     // Validasi input
