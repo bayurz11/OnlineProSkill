@@ -209,14 +209,15 @@
                             <option value="E">Pilihan E</option>
                         </select>
                     </div>
-                </div>
-            </div>
-            <!-- Ikon hapus untuk pertanyaan ini -->
+                    <!-- Ikon hapus untuk pertanyaan ini -->
                     <div class="choice">
                         <button type="button" class="btn btn-danger" onclick="removeQuestion(${questionCount})">
                             <i class="fa fa-trash"></i> Hapus Pertanyaan
                         </button>
                     </div>
+                </div>
+            </div>
+            
         </div>
     `;
 
