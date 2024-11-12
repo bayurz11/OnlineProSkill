@@ -141,13 +141,14 @@ class InstrukturQuestionController extends Controller
             ->with('KelasTatapMuka')
             ->get();
 
-        // Mengurutkan pertanyaan berdasarkan id atau urutan yang diinginkan
         $id_tugas = $request->route('id_tugas');
-        $pertanyaan = Pertanyaan::where('id_tugas', $id_tugas)
-            ->with('pilihanJawaban')
-            ->orderBy('id_pertanyaan', 'asc') // Mengurutkan berdasarkan id atau kolom lainnya
-            ->get();
-        $quiz = Tugas::all();
+
+        // Mengambil tugas dan pertanyaan terkait
+        $tugas = Tugas::with(['pertanyaan' => function ($query) {
+            $query->with('pilihanJawaban')
+                ->orderBy('id_pertanyaan', 'asc');
+        }])->find($id_tugas);
+
         return view('instruktur.Quiz.viewpg', compact(
             'user',
             'KelasTatapMuka',
@@ -158,10 +159,10 @@ class InstrukturQuestionController extends Controller
             'notifikasiCount',
             'orders',
             'jumlahPendaftaran',
-            'pertanyaan',
-            'quiz'
+            'tugas' // Menyertakan data tugas yang berisi pertanyaan
         ));
     }
+
     // public function storepg(Request $request)
     // {
     //     // Validasi input
