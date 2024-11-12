@@ -108,11 +108,11 @@
                                     </div>
                                     <div class="card-footer text-center">
                                         <a href="#" class="text-primary px-2 fs-4">
-                                            &laquo;&laquo;
+                                            &laquo;
                                         </a>
                                         <span>1 / 1 </span>
                                         <a href="#" class="text-primary px-2 fs-4">
-                                            &raquo;&raquo;
+                                            &raquo;
                                         </a>
                                     </div>
 
