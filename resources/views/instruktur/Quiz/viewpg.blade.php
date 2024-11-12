@@ -108,10 +108,15 @@
 
                         <!-- Navigation Buttons -->
                         <div class="mt-4 text-center">
-                            <button class="btn btn-success">Back</button>
+                            <button class="btn btn-success">
+                                <i class="fas fa-arrow-left"></i> <!-- Ikon panah kiri untuk Back -->
+                            </button>
                             <span>1 Dari {{ $totalQuestions }} Nomor Soal</span>
-                            <button class="btn btn-success">Next</button>
+                            <button class="btn btn-success">
+                                <i class="fas fa-arrow-right"></i> <!-- Ikon panah kanan untuk Next -->
+                            </button>
                         </div>
+
                     </div>
                 </div>
 
