@@ -38,7 +38,7 @@
                                 <dd class="col-sm-9">: {{ $tugas->KelasTatapMuka->nama_kursus }}</dd>
 
                                 <dt class="col-sm-3">Jumlah Soal</dt>
-                                <dd class="col-sm-9">: {{ $tugas->jumlah_soal }}</dd>
+                                <dd class="col-sm-9">: {{ $tugas->pertanyaan->count() }}</dd>
 
                                 <dt class="col-sm-3">Waktu Pengerjaan</dt>
                                 <dd class="col-sm-9">: {{ $tugas->waktu_pengerjaan_jam }} Jam
