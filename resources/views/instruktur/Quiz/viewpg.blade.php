@@ -61,9 +61,9 @@
                                             @foreach ($currentQuestion->pilihanJawaban as $index => $option)
                                                 <li>
                                                     <label>
-                                                        <input type="radio" name="answer"
-                                                            value="{{ $option->id_pilihan }}">
-                                                        {{ chr(65 + $index) }}. {{ $option->isi_pilihan }}
+                                                        <span class="option-label">
+                                                            {{ chr(65 + $index) }}. {{ $option->isi_pilihan }}
+                                                        </span>
                                                     </label>
                                                 </li>
                                             @endforeach
