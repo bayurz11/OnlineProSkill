@@ -107,9 +107,14 @@
                                         </table>
                                     </div>
                                     <div class="card-footer text-center">
-                                        <button class="btn btn-sm btn-primary"><i class="fas fa-arrow-left"></i></button>
-                                        <button class="btn btn-sm btn-primary"><i class="fas fa-arrow-right"></i></button>
+                                        <a href="#" class="text-primary px-2">
+                                            <i class="fas fa-arrow-left fa-lg"></i>
+                                        </a>
+                                        <a href="#" class="text-primary px-2">
+                                            <i class="fas fa-arrow-right fa-lg"></i>
+                                        </a>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
