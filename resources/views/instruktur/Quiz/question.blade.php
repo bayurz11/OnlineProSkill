@@ -104,7 +104,7 @@
                                         <!-- Grid for Answer Choices -->
                                         <div class="form-group">
                                             <div class="choices-grid">
-                                                @foreach (['A', 'B', 'C', 'D', 'E'] as $option)
+                                                @foreach (['A', 'D', 'B', 'E', 'C'] as $option)
                                                     <div class="choice">
                                                         <label for="option{{ $option }}_1">Pilihan
                                                             {{ $option }}</label>
@@ -132,6 +132,11 @@
                                     </div>
                                 </div>
 
+                                <!-- Add Question Button -->
+                                <div class="form-group d-flex justify-content-end">
+                                    <button type="button" class="btn btn-primary" onclick="addChoiceQuestion()">Tambah
+                                        Pertanyaan</button>
+                                </div>
                                 <div class="form-group d-flex justify-content-end">
                                     <button type="submit" class="btn btn-primary">Simpan</button>
                                 </div>
@@ -139,20 +144,13 @@
                             </div>
                         </form>
 
-                        <!-- Add Question Button -->
-                        <div class="form-group d-flex justify-content-end">
-                            <button type="button" class="btn btn-primary" onclick="addChoiceQuestion()">Tambah
-                                Pertanyaan</button>
-                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- dashboard-area-end -->
-
-
-
 @endsection
 
 

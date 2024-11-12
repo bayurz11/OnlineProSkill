@@ -88,7 +88,8 @@
                                                     </td>
                                                     <td>
                                                         <div class="dashboard__review-action">
-                                                            <a href="#" title="Lihat Soal">
+                                                            <a href="#" title="Lihat Soal"
+                                                                data-id="{{ $quiz->id_tugas }}">
                                                                 <i class="fas fa-eye"></i>
                                                             </a>
 
@@ -101,10 +102,6 @@
                                                 </tr>
                                             </tbody>
                                         @endforeach
-
-
-
-
 
                                     </table>
                                 </div>
