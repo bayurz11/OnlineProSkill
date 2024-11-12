@@ -161,13 +161,13 @@
 
         // Membuat form pertanyaan pilihan ganda baru
         const questionForm = `
-        <div class="col-12 question-form" id="question-form-${questionCount}">
+         <div class="col-12 question-form" id="question-form-${questionCount}" style="position: relative;">
             <!-- Ikon hapus untuk pertanyaan ini menggunakan elemen <a> -->
-                    <div class="choice">
-                        <a href="#" title="Hapus Pertanyaan" class="delete-quiz" onclick="removeQuestion(${questionCount})">
-                            <i class="fa fa-trash"></i> Hapus Pertanyaan
-                        </a>
-                    </div>
+            <div class="choice" style="position: absolute; top: 10px; right: 10px;">
+                <a href="#" title="Hapus Pertanyaan" class="delete-quiz" onclick="removeQuestion(${questionCount})">
+                    <i class="fa fa-trash"></i> Hapus Pertanyaan
+                </a>
+            </div>
             <div class="form-group">
                 <label for="question_${questionCount}">Pertanyaan Pilihan Ganda ${questionCount}</label>
                 <textarea id="question_${questionCount}" name="questions[${questionCount}][question]" class="form-control" rows="2" placeholder="Tulis pertanyaan di sini..."></textarea>
