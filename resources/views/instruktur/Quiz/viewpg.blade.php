@@ -127,6 +127,42 @@
 
                     </div>
                 </div>
+                <div class="col-lg-9 mt-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong>Nilai Siswa</strong>
+                            <button class="btn btn-sm btn-primary ml-3"><i class="fas fa-print"></i> Cetak</button>
+                            <button class="btn btn-sm btn-success ml-2"><i class="fas fa-file-excel"></i> Ekspor
+                                Excel</button>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Nama Siswa</th>
+                                        <th>Benar</th>
+                                        <th>Salah</th>
+                                        <th>Tidak Dijawab</th>
+                                        <th>Opsi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($students as $student)
+                                        <tr>
+                                            <td>{{ $student->nama }}</td>
+                                            <td>{{ $student->benar ?? 'Belum Mengerjakan Ujian' }}</td>
+                                            <td>{{ $student->salah ?? 'Belum Mengerjakan Ujian' }}</td>
+                                            <td>{{ $student->tidak_dijawab ?? 'Belum Mengerjakan Ujian' }}</td>
+                                            <td>
+                                                <!-- Tambahkan opsi lain sesuai kebutuhan -->
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>
