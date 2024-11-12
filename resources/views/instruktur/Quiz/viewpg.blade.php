@@ -31,10 +31,11 @@
                 <div class="col-lg-9">
                     <!-- Combined Form to Add New Quiz and Questions -->
                     <div class="dashboard__content-wrap">
+                        <!-- Title and Details Section -->
                         <div class="dashboard__content-title">
                             <h4 class="fw-bold mb-3">{{ $tugas->judul_tugas }}</h4>
                             <dl class="row">
-                                <dt class="col-sm-3">Course</dt>
+                                <dt class="col-sm-3">Kelas</dt>
                                 <dd class="col-sm-9">: {{ $tugas->KelasTatapMuka->nama_kursus }}</dd>
 
                                 <dt class="col-sm-3">Jumlah Soal</dt>
@@ -46,9 +47,71 @@
                             </dl>
                         </div>
 
-                    </div>
+                        <!-- Question and Answer Section -->
+                        <div class="row mt-4">
+                            <div class="col-lg-8">
+                                <!-- Question Card -->
+                                <div class="card">
+                                    <div class="card-header">
+                                        <strong>Soal No. {{ $currentQuestionNumber }}</strong>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>{{ $currentQuestion->pertanyaan }}</p>
+                                        <ul class="list-unstyled">
+                                            @foreach ($currentQuestion->options as $option)
+                                                <li>
+                                                    <label>
+                                                        <input type="radio" name="answer" value="{{ $option->id }}">
+                                                        {{ $option->option_text }}
+                                                    </label>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
 
+                            <div class="col-lg-4">
+                                <!-- Answer Summary Card -->
+                                <div class="card">
+                                    <div class="card-header">
+                                        <strong>Jawaban</strong>
+                                    </div>
+                                    <div class="card-body">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>No. Soal</th>
+                                                    <th>Jawaban</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($allQuestions as $index => $question)
+                                                    <tr>
+                                                        <td>{{ $index + 1 }}</td>
+                                                        <td>{{ $question->user_answer }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <button class="btn btn-sm btn-primary">Sebelumnya</button>
+                                        <button class="btn btn-sm btn-primary">Selanjutnya</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Navigation Buttons -->
+                        <div class="mt-4 text-center">
+                            <button class="btn btn-success">Back</button>
+                            <span>1 Dari {{ $totalQuestions }} Nomor Soal</span>
+                            <button class="btn btn-success">Next</button>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
