@@ -61,7 +61,8 @@
                                             @foreach ($currentQuestion->pilihanJawaban as $option)
                                                 <li>
                                                     <label>
-                                                        <input type="radio" name="answer" value="{{ $option->id }}">
+                                                        <input type="radio" name="answer"
+                                                            value="{{ $option->id_pilihan }}">
                                                         {{ $option->isi_pilihan }}
                                                     </label>
                                                 </li>
