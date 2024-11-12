@@ -35,13 +35,13 @@
                             <h4 class="fw-bold mb-3">{{ $tugas->judul_tugas }}</h4>
                             <dl class="row">
                                 <dt class="col-sm-3">Course</dt>
-                                <dd class="col-sm-9">:{{ $tugas->KelasTatapMuka->nama_kursus }}</dd>
+                                <dd class="col-sm-9">: {{ $tugas->KelasTatapMuka->nama_kursus }}</dd>
 
                                 <dt class="col-sm-3">Jumlah Soal</dt>
-                                <dd class="col-sm-9">:{{ $tugas->jumlah_soal }}</dd>
+                                <dd class="col-sm-9">: {{ $tugas->jumlah_soal }}</dd>
 
                                 <dt class="col-sm-3">Waktu Pengerjaan</dt>
-                                <dd class="col-sm-9">:{{ $tugas->waktu_pengerjaan_jam }} Jam
+                                <dd class="col-sm-9">: {{ $tugas->waktu_pengerjaan_jam }} Jam
                                     {{ $tugas->waktu_pengerjaan_menit }} Menit</dd>
                             </dl>
                         </div>
