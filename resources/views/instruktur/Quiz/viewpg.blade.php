@@ -90,7 +90,7 @@
                                                 @foreach ($allQuestions as $index => $question)
                                                     <tr>
                                                         <td>{{ $index + 1 }}</td>
-                                                        <td>{{ $question->user_answer }}</td>
+                                                        <td>{{ $question->benar }}</td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>
