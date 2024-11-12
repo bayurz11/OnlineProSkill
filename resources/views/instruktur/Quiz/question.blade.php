@@ -209,11 +209,11 @@
                             <option value="E">Pilihan E</option>
                         </select>
                     </div>
-                    <!-- Ikon hapus untuk pertanyaan ini -->
+                     <!-- Ikon hapus untuk pertanyaan ini menggunakan elemen <a> -->
                     <div class="choice">
-                        <button type="button" class="btn btn-danger" onclick="removeQuestion(${questionCount})">
+                        <a href="#" title="Hapus Pertanyaan" class="delete-quiz" onclick="removeQuestion(${questionCount})">
                             <i class="fa fa-trash"></i> Hapus Pertanyaan
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -231,6 +231,7 @@
             questionForm.remove(); // Menghapus elemen pertanyaan dari DOM
         }
     }
+
     document.addEventListener("DOMContentLoaded", function() {
         // Mendapatkan id_tugas dari URL
         const url = window.location.pathname;
