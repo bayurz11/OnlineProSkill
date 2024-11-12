@@ -92,9 +92,20 @@
                                                 @foreach ($allQuestions as $index => $question)
                                                     <tr>
                                                         <td>{{ $index + 1 }}</td>
-                                                        <td>{{ $question->benar }}</td>
+                                                        <td>
+                                                            @foreach ($question->pilihanJawaban as $option)
+                                                                @if ($option->benar)
+                                                                    <span class="text-success">Benar:
+                                                                        {{ $option->isi_pilihan }}</span>
+                                                                @else
+                                                                    <span class="text-danger">Salah:
+                                                                        {{ $option->isi_pilihan }}</span>
+                                                                @endif
+                                                            @endforeach
+                                                        </td>
                                                     </tr>
                                                 @endforeach
+
                                             </tbody>
                                         </table>
                                     </div>
