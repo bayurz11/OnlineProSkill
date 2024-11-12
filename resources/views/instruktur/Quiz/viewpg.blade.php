@@ -56,7 +56,7 @@
                                         <strong>Soal No. {{ $currentQuestionNumber }}</strong>
                                     </div>
                                     <div class="card-body">
-                                        <p>{{ $currentQuestion->pertanyaan }}</p>
+                                        <p>{{ $currentQuestion->isi_pertanyaan }}</p>
                                         <ul class="list-unstyled">
                                             @foreach ($currentQuestion->pilihanJawaban as $option)
                                                 <li>
