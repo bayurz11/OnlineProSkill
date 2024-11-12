@@ -136,11 +136,11 @@
                                 <div class="form-group d-flex justify-content-end align-items-center mb-0">
                                     <button type="button" class="btn btn-primary" onclick="addChoiceQuestion()">Tambah
                                         Pertanyaan</button>
-                                    <div class="form-group d-flex justify-content-end">
-                                        <button type="submit" class="btn btn-primary">Simpan</button>
-                                    </div>
+
+                                    <button type="submit" class="btn btn-primary">Simpan</button>
+
                                 </div>
-                                <br>
+
 
                             </div>
                         </form>
