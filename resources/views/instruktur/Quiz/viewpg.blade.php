@@ -1,5 +1,5 @@
 @section('title', 'ProSkill Akademia | Tambah Pertanyaan Pilihan Ganda')
-<?php $page = 'instruktur_question_pg'; ?>
+<?php $page = 'instruktur_view_pg'; ?>
 
 @extends('layout.mainlayout')
 @section('content')
@@ -96,7 +96,7 @@
                                                             @foreach ($question->pilihanJawaban as $i => $option)
                                                                 @if ($option->benar)
                                                                     <span>{{ chr(65 + $i) }}. {{ $option->isi_pilihan }}
-                                                                        (Benar)</span><br>
+                                                                    </span><br>
                                                                 @endif
                                                             @endforeach
                                                         </td>
