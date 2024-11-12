@@ -165,7 +165,7 @@
             <!-- Ikon hapus untuk pertanyaan ini menggunakan elemen <a> -->
             <div class="choice" style="position: absolute; top: 3px; right: 12px;">
                 <a href="#" title="Hapus Pertanyaan" class="delete-quiz" onclick="removeQuestion(${questionCount})">
-                    <i class="fa fa-trash"></i> Hapus Pertanyaan
+                    <i class="fa fa-trash text-danger"></i>
                 </a>
             </div>
             <div class="form-group">
