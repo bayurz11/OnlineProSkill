@@ -112,7 +112,7 @@ class InstrukturQuestionController extends Controller
         }
 
         // Redirect atau memberi respon setelah menyimpan data
-        return redirect()->route('instruktur_quiz.index')->with('success', 'Quiz berhasil dibuat!');
+        return redirect()->route('instruktur.quiz')->with('success', 'Quiz berhasil dibuat!');
     }
 
 
