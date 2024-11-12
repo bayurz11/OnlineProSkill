@@ -33,6 +33,7 @@
                     <div class="dashboard__content-wrap">
                         <div class="dashboard__content-title d-flex justify-content-between align-items-center">
                             <h4 class="title">{{ $tugas->judul_tugas }}</h4>
+                            <p>Course : {{ $tugas->KelasTatapMuka->nama_kursus }}</p>
                         </div>
 
 
