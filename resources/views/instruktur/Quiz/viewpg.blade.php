@@ -122,13 +122,13 @@
 
                         <!-- Navigation Buttons -->
                         <div class="mt-4 text-center">
-                            <button class="btn btn-success">
-                                <i class="fas fa-arrow-left"></i> <!-- Ikon panah kiri untuk Back -->
-                            </button>
+                            <a href="#" class="text-primary px-2 fs-4">
+                                &laquo;&laquo;
+                            </a>
                             <span>1 Dari {{ $totalQuestions }} Nomor Soal</span>
-                            <button class="btn btn-success">
-                                <i class="fas fa-arrow-right"></i> <!-- Ikon panah kanan untuk Next -->
-                            </button>
+                            <a href="#" class="text-primary px-2 fs-4">
+                                &raquo;&raquo;
+                            </a>
                         </div>
 
                     </div>
