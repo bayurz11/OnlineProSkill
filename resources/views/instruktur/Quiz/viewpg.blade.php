@@ -132,7 +132,7 @@
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <strong>Nilai Siswa</strong>
                             <div>
-                                <a href="#" class="text-decoration-none text-white px-3 py-1 rounded mr-2"
+                                <a href="#" class="text-decoration-none text-white px-3 py-1 rounded me-2"
                                     style="background-color: #007bff;">
                                     <i class="fas fa-print"></i> Cetak
                                 </a>
