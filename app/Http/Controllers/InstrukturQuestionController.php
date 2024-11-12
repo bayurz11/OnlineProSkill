@@ -153,6 +153,18 @@ class InstrukturQuestionController extends Controller
                 ->orderBy('id_pertanyaan', 'asc');
         }])->find($id_tugas);
 
+        // Menentukan nomor soal saat ini, default ke 1 jika tidak ada parameter
+        $currentQuestionNumber = $request->input('current_question_number', 1);
+
+        // Mendapatkan soal berdasarkan nomor soal saat ini
+        $currentQuestion = $tugas->pertanyaan()->skip($currentQuestionNumber - 1)->first();
+
+        // Mendapatkan semua soal untuk rangkuman
+        $allQuestions = $tugas->pertanyaan;
+
+        // Menghitung total soal
+        $totalQuestions = $tugas->pertanyaan->count();
+
         return view('instruktur.Quiz.viewpg', compact(
             'user',
             'KelasTatapMuka',
@@ -163,9 +175,14 @@ class InstrukturQuestionController extends Controller
             'notifikasiCount',
             'orders',
             'jumlahPendaftaran',
-            'tugas' // Menyertakan data tugas yang berisi pertanyaan
+            'tugas',
+            'currentQuestionNumber', // Menyertakan nomor soal saat ini
+            'currentQuestion', // Menyertakan data soal saat ini
+            'allQuestions', // Menyertakan semua soal untuk rangkuman
+            'totalQuestions' // Menyertakan total soal
         ));
     }
+
 
     // public function storepg(Request $request)
     // {

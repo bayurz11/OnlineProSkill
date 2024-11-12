@@ -58,7 +58,7 @@
                                     <div class="card-body">
                                         <p>{{ $currentQuestion->pertanyaan }}</p>
                                         <ul class="list-unstyled">
-                                            @foreach ($currentQuestion->options as $option)
+                                            @foreach ($currentQuestion->pilihanJawaban as $option)
                                                 <li>
                                                     <label>
                                                         <input type="radio" name="answer" value="{{ $option->id }}">
@@ -68,6 +68,7 @@
                                             @endforeach
                                         </ul>
                                     </div>
+
                                 </div>
                             </div>
 
