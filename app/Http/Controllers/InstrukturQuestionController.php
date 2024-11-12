@@ -89,6 +89,8 @@ class InstrukturQuestionController extends Controller
             'judul_tugas' => $request->judul_tugas,
             'course_id' => $request->course_id,
             'id_instruktur' => $request->id_instruktur,
+            'waktu_pengerjaan_jam' => $request->waktu_pengerjaan_jam,
+            'waktu_pengerjaan_menit' => $request->waktu_pengerjaan_menit,
             'jam_mulai' => $request->jam_mulai,
             'jam_akhir' => $request->jam_akhir,
         ]);
