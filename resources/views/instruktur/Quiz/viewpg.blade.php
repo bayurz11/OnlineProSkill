@@ -62,7 +62,7 @@
                                                 <li>
                                                     <label>
                                                         <input type="radio" name="answer" value="{{ $option->id }}">
-                                                        {{ $option->option_text }}
+                                                        {{ $option->isi_pilihan }}
                                                     </label>
                                                 </li>
                                             @endforeach
