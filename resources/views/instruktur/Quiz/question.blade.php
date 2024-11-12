@@ -28,6 +28,75 @@
             <div class="row">
                 @include('instruktur.nav.navbar')
                 <div class="col-lg-9">
+
+                    <div class="dashboard__content-wrap">
+                        <div class="dashboard__content-title d-flex justify-content-between align-items-center">
+                            <h4 class="title">Tambah Quiz Baru</h4>
+                        </div>
+
+                        <form id="createKurikulumForm" action="{{ route('instruktur_quiz.store') }}" method="POST"
+                            enctype="multipart/form-data">
+                            @csrf
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="QuizModalLabel">Tambah Quiz Baru</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="btn-close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Hidden field for kurikulum_id -->
+                                <input type="hidden" name="id_instruktur" id="id_instruktur"
+                                    value="{{ Auth::user()->id }}">
+
+
+                                <div class="mb-3">
+                                    <label for="judul_tugas" class="form-label">Judul <span
+                                            class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="judul_tugas" name="judul_tugas"
+                                        placeholder="Masukkan Judul Quiz Anda" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="course_id" class="form-label">Pilih Course</label>
+                                    <select class="form-control" id="course_id" name="course_id">
+                                        <option value="" disabled selected>Pilih Kelas</option>
+                                        @foreach ($KelasTatapMuka->where('status', 1) as $kelas)
+                                            @php
+                                                // Mengecek apakah course_id ada di model Kurikulum
+                                                $kurikulumExists = \App\Models\Kurikulum::where(
+                                                    'course_id',
+                                                    $kelas->id,
+                                                )->exists();
+
+                                            @endphp
+                                            @if ($kurikulumExists)
+                                                <option value="{{ $kelas->id }}">
+                                                    {{ $kelas->nama_kursus }}
+                                                </option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="mb-3 d-flex justify-content-between">
+                                    <div class="me-2" style="flex: 1;">
+                                        <label for="jam_mulai" class="form-label">Waktu Mulai</label>
+                                        <input type="time" class="form-control" id="jam_mulai" name="jam_mulai"
+                                            placeholder="Pilih waktu mulai">
+                                    </div>
+                                    <div style="flex: 1;">
+                                        <label for="jam_akhir" class="form-label">Waktu Selesai</label>
+                                        <input type="time" class="form-control" id="jam_akhir" name="jam_akhir"
+                                            placeholder="Pilih waktu selesai">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
+                                <button type="submit" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </form>
+
+                    </div>
+
                     <div class="dashboard__content-wrap">
                         <div class="dashboard__content-title d-flex justify-content-between align-items-center">
                             <h4 class="title">Pertanyaan Pilihan Ganda</h4>
