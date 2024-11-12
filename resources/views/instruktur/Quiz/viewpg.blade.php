@@ -32,7 +32,7 @@
                     <!-- Combined Form to Add New Quiz and Questions -->
                     <div class="dashboard__content-wrap">
                         <div class="dashboard__content-title d-flex justify-content-between align-items-center">
-                            <h4 class="title">{{ $pertanyaan->tugas->judul_tugas }}</h4>
+                            <h4 class="title">{{ $quiz->judul_tugas }}</h4>
                         </div>
 
                         <!-- Single Form for Quiz and Questions -->
