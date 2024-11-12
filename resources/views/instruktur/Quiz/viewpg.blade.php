@@ -129,12 +129,20 @@
                 </div>
                 <div class="col-lg-12 mt-4">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header d-flex justify-content-between align-items-center">
                             <strong>Nilai Siswa</strong>
-                            <<i class="fas fa-print"></i> Cetak
-                                <i class="fas fa-file-excel"></i> Ekspor
-                                Excel
+                            <div>
+                                <a href="#" class="text-decoration-none text-white px-3 py-1 rounded mr-2"
+                                    style="background-color: #007bff;">
+                                    <i class="fas fa-print"></i> Cetak
+                                </a>
+                                <a href="#" class="text-decoration-none text-white px-3 py-1 rounded"
+                                    style="background-color: #28a745;">
+                                    <i class="fas fa-file-excel"></i> Ekspor Excel
+                                </a>
+                            </div>
                         </div>
+
                         <div class="card-body">
                             <table class="table table-bordered">
                                 <thead>
