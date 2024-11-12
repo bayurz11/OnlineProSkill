@@ -127,7 +127,7 @@
 
                     </div>
                 </div>
-                <div class="col-lg-9 mt-4">
+                <div class="col-lg-12 mt-4">
                     <div class="card">
                         <div class="card-header">
                             <strong>Nilai Siswa</strong>
