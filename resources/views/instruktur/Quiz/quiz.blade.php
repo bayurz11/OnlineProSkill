@@ -178,11 +178,10 @@
             <h4>Pilih Jenis Pertanyaan</h4><br>
             <p>Silakan pilih jenis pertanyaan yang ingin ditambahkan.</p><br>
             <!-- Button menuju halaman pilihan ganda -->
-            <a href="{{ route('instruktur_question_pg', ['id_tugas' => $quiz->id_tugas]) }}"
-                class="btn btn-primary btn-lg">Pilihan Ganda</a>
+            <a href="{{ route('instruktur_question_pg') }}" class="btn btn-primary btn-lg">Pilihan Ganda</a>
             <!-- Button menuju halaman esai -->
-            <a href="{{ route('instruktur_question_essay', ['id_tugas' => $quiz->id_tugas]) }}"
-                class="btn btn-secondary btn-lg">Esai</a>
+            {{-- <a href="{{ route('instruktur_question_essay', ['id_tugas' => $quiz->id_tugas]) }}"
+                class="btn btn-secondary btn-lg">Esai</a> --}}
             <!-- Tombol X di pojok kanan atas -->
             <button onclick="hideModal()"
                 style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 24px; color: #333;">&times;</button>
