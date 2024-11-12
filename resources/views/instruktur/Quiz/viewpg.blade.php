@@ -58,15 +58,16 @@
                                     <div class="card-body">
                                         <p>{{ $currentQuestion->isi_pertanyaan }}</p>
                                         <ul class="list-unstyled">
-                                            @foreach ($currentQuestion->pilihanJawaban as $option)
+                                            @foreach ($currentQuestion->pilihanJawaban as $index => $option)
                                                 <li>
                                                     <label>
                                                         <input type="radio" name="answer"
                                                             value="{{ $option->id_pilihan }}">
-                                                        {{ $option->isi_pilihan }}
+                                                        {{ chr(65 + $index) }}. {{ $option->isi_pilihan }}
                                                     </label>
                                                 </li>
                                             @endforeach
+
                                         </ul>
                                     </div>
 
