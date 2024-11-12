@@ -31,6 +31,7 @@
                     <div class="dashboard__content-wrap">
                         <div class="dashboard__content-title d-flex justify-content-between align-items-center">
                             <h4 class="title">Pertanyaan Pilihan Ganda</h4>
+
                         </div>
 
                         <form id="questionsForm" action="{{ route('instruktur_pertanyaan_pg.store') }}" method="POST">
@@ -95,147 +96,136 @@
                         </form>
 
                         <div class="form-group d-flex justify-content-end">
+
                             <button type="button" class="btn btn-primary" onclick="addChoiceQuestion()">Tambah
                                 Pertanyaan</button>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <!-- dashboard-area-end -->
 
-    <script>
-        let questionCount = 1;
-
-        function addChoiceQuestion() {
-            questionCount++;
-
-            // Mengambil elemen question-form yang pertama sebagai template
-            const questionFormTemplate = document.querySelector('.question-form').cloneNode(true);
-            questionFormTemplate.id = `question-form-${questionCount}`;
-
-            // Mengubah teks label dan atribut id untuk elemen-elemen yang baru
-            const labels = questionFormTemplate.querySelectorAll('label');
-            const inputs = questionFormTemplate.querySelectorAll('input, textarea, select');
-
-            labels.forEach(label => {
-                if (label.getAttribute('for').includes('question_')) {
-                    label.setAttribute('for', `question_${questionCount}`);
-                    label.textContent = `Pertanyaan Pilihan Ganda ${questionCount}`;
-                }
-                if (label.getAttribute('for').includes('optionA_')) {
-                    label.setAttribute('for', `optionA_${questionCount}`);
-                }
-                if (label.getAttribute('for').includes('optionB_')) {
-                    label.setAttribute('for', `optionB_${questionCount}`);
-                }
-                if (label.getAttribute('for').includes('optionC_')) {
-                    label.setAttribute('for', `optionC_${questionCount}`);
-                }
-                if (label.getAttribute('for').includes('optionD_')) {
-                    label.setAttribute('for', `optionD_${questionCount}`);
-                }
-                if (label.getAttribute('for').includes('optionE_')) {
-                    label.setAttribute('for', `optionE_${questionCount}`);
-                }
-                if (label.getAttribute('for').includes('correct_answer_')) {
-                    label.setAttribute('for', `correct_answer_${questionCount}`);
-                }
-            });
-
-            inputs.forEach(input => {
-                if (input.id.includes('question_')) {
-                    input.id = `question_${questionCount}`;
-                    input.name = `questions[${questionCount}][question]`;
-                    input.value = '';
-                }
-                if (input.id.includes('optionA_')) {
-                    input.id = `optionA_${questionCount}`;
-                    input.name = `questions[${questionCount}][options][A]`;
-                    input.value = '';
-                }
-                if (input.id.includes('optionB_')) {
-                    input.id = `optionB_${questionCount}`;
-                    input.name = `questions[${questionCount}][options][B]`;
-                    input.value = '';
-                }
-                if (input.id.includes('optionC_')) {
-                    input.id = `optionC_${questionCount}`;
-                    input.name = `questions[${questionCount}][options][C]`;
-                    input.value = '';
-                }
-                if (input.id.includes('optionD_')) {
-                    input.id = `optionD_${questionCount}`;
-                    input.name = `questions[${questionCount}][options][D]`;
-                    input.value = '';
-                }
-                if (input.id.includes('optionE_')) {
-                    input.id = `optionE_${questionCount}`;
-                    input.name = `questions[${questionCount}][options][E]`;
-                    input.value = '';
-                }
-                if (input.id.includes('correct_answer_')) {
-                    input.id = `correct_answer_${questionCount}`;
-                    input.name = `questions[${questionCount}][correct_answer]`;
-                    input.value = '';
-                }
-            });
-
-            // Menambahkan elemen baru ke dalam questionsList
-            document.getElementById('questionsList').appendChild(questionFormTemplate);
-        }
+@endsection
 
 
+<script>
+    let questionCount = 1; // Inisialisasi nomor pertanyaan
 
-        document.addEventListener("DOMContentLoaded", function() {
-            // Mendapatkan id_tugas dari URL
-            const url = window.location.pathname;
-            const id_tugas = url.split("/").pop(); // Mengambil bagian terakhir dari URL sebagai id_tugas
+    // Fungsi untuk menambah form pertanyaan pilihan ganda
+    function addChoiceQuestion() {
+        questionCount++; // Menambah nomor urut untuk pertanyaan
 
-            // Set id_tugas ke dalam input hidden
-            document.getElementById("id_tugas_input").value = id_tugas;
-        });
-    </script>
+        // Membuat form pertanyaan pilihan ganda baru
+        const questionForm = `
+        <div class="col-12 question-form" id="question-form-${questionCount}">
+            <div class="form-group">
+                <label for="question_${questionCount}">Pertanyaan Pilihan Ganda ${questionCount}</label>
+                <textarea id="question_${questionCount}" name="questions[${questionCount}][question]" class="form-control" rows="2" placeholder="Tulis pertanyaan di sini..."></textarea>
+            </div>
+            
+            <!-- Grid untuk pilihan jawaban A, B, C, D, E -->
+            <div class="form-group">
+                <div class="choices-grid">
+                    <div class="choice">
+                        <label for="optionA_${questionCount}">Pilihan A</label>
+                        <input type="text" id="optionA_${questionCount}" name="questions[${questionCount}][options][A]"
+                            class="form-control" placeholder="Masukkan pilihan A">
+                    </div>
+                     <div class="choice">
+                        <label for="optionD_${questionCount}">Pilihan D</label>
+                        <input type="text" id="optionD_${questionCount}" name="questions[${questionCount}][options][D]"
+                            class="form-control" placeholder="Masukkan pilihan D">
+                    </div>
+                    <div class="choice">
+                        <label for="optionB_${questionCount}">Pilihan B</label>
+                        <input type="text" id="optionB_${questionCount}" name="questions[${questionCount}][options][B]"
+                            class="form-control" placeholder="Masukkan pilihan B">
+                    </div>
+                    <div class="choice">
+                        <label for="optionE_${questionCount}">Pilihan E</label>
+                        <input type="text" id="optionE_${questionCount}" name="questions[${questionCount}][options][E]"
+                            class="form-control" placeholder="Masukkan pilihan E">
+                    </div>
+                    <div class="choice">
+                        <label for="optionC_${questionCount}">Pilihan C</label>
+                        <input type="text" id="optionC_${questionCount}" name="questions[${questionCount}][options][C]"
+                            class="form-control" placeholder="Masukkan pilihan C">
+                    </div>
+                   
+                    
+                    <div class="choice">
+                        <label for="correct_answer_${questionCount}">Jawaban Benar</label>
+                        <select id="correct_answer_${questionCount}" name="questions[${questionCount}][correct_answer]"
+                            class="form-control">
+                            <option>Pilihan Jawaban</option>
+                            <option value="A">Pilihan A</option>
+                            <option value="B">Pilihan B</option>
+                            <option value="C">Pilihan C</option>
+                            <option value="D">Pilihan D</option>
+                            <option value="E">Pilihan E</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
 
-    <style>
-        /* CSS Grid untuk memilih tata letak pilihan A, B, C, D, E */
-        .choices-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            /* Dua kolom untuk A-B dan C-D */
-            gap: 15px;
-            margin-bottom: 15px;
-        }
+        // Menambahkan form baru ke dalam list
+        document.getElementById('questionsList').insertAdjacentHTML('beforeend', questionForm);
+    }
 
-        .choice {
-            display: flex;
-            flex-direction: column;
-        }
+    document.addEventListener("DOMContentLoaded", function() {
+        // Mendapatkan id_tugas dari URL
+        const url = window.location.pathname;
+        const id_tugas = url.split("/").pop(); // Mengambil bagian terakhir dari URL sebagai id_tugas
 
-        .choice input {
-            margin-top: 5px;
-        }
+        // Set id_tugas ke dalam input hidden
+        document.getElementById("id_tugas_input").value = id_tugas;
+    });
+</script>
 
-        /* Menambahkan jarak antar form pertanyaan */
-        .question-form {
-            margin-bottom: 30px;
-            /* Menambah jarak bawah antar pertanyaan */
-        }
+<style>
+    /* CSS Grid untuk memilih tata letak pilihan A, B, C, D, E */
+    .choices-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        /* Dua kolom untuk A-B dan C-D */
+        gap: 15px;
+        margin-bottom: 15px;
+    }
 
-        /* CSS Grid untuk memilih tata letak pilihan A, B, C, D, E */
-        .choices-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 15px;
-        }
+    .choice {
+        display: flex;
+        flex-direction: column;
+    }
 
-        .choice {
-            display: flex;
-            flex-direction: column;
-        }
+    .choice input {
+        margin-top: 5px;
+    }
 
-        .choice input {
-            margin-top: 5px;
-        }
-    </style>
+    /* Menambahkan jarak antar form pertanyaan */
+    .question-form {
+        margin-bottom: 30px;
+        /* Menambah jarak bawah antar pertanyaan */
+    }
+
+    /* CSS Grid untuk memilih tata letak pilihan A, B, C, D, E */
+    .choices-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+
+    .choice {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .choice input {
+        margin-top: 5px;
+    }
+</style>
