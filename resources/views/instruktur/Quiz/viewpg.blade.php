@@ -35,7 +35,8 @@
                             <h4 class="title">{{ $tugas->judul_tugas }}</h4>
                             <p>Course : {{ $tugas->KelasTatapMuka->nama_kursus }}</p>
                             <p>Jumlah Soal : {{ $tugas->KelasTatapMuka->nama_kursus }}</p>
-                            <p>Waktu Pengerjaan : {{ $tugas->waktu_pengerjaan }}</p>
+                            <p>Waktu Pengerjaan : {{ $tugas->waktu_pengerjaan_jam }} Jam :
+                                {{ $tugas->waktu_pengerjaan_menit }} Menit</p>
                         </div>
 
 
