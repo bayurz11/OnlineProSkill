@@ -107,11 +107,11 @@
                                         </table>
                                     </div>
                                     <div class="card-footer text-center">
-                                        <a href="#" class="text-primary px-2">
-                                            <i class="fas fa-arrow-left fa-lg"></i>
+                                        <a href="#" class="text-primary px-2 fs-4">
+                                            &laquo;&laquo;
                                         </a>
-                                        <a href="#" class="text-primary px-2">
-                                            <i class="fas fa-arrow-right fa-lg"></i>
+                                        <a href="#" class="text-primary px-2 fs-4">
+                                            &raquo;&raquo;
                                         </a>
                                     </div>
 
