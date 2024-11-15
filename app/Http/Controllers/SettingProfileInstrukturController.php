@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Log;
 use App\Models\User;
 use App\Models\Order;
 use App\Models\Categories;
@@ -83,7 +84,12 @@ class SettingProfileInstrukturController extends Controller
         User::where('id', $user->id)->update([
             'name' => $request->name,
         ]);
-
+        // Menyimpan data ke tabel logs
+        $log = new Log();
+        $log->action = 'Update Profile';
+        $log->description = 'Profil untuk user ID ' . $user->id . ' berhasil diperbarui.';
+        $log->user_id = $user->id;
+        $log->save();
         return redirect()->route('instruktur_setting')->with('success', 'Profil berhasil diperbarui.');
     }
 
