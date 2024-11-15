@@ -46,7 +46,7 @@
                                     {{ $tugas->waktu_pengerjaan_menit }} Menit</dd>
 
                                 <dt class="col-sm-3">Jumlah Siswa</dt>
-                                <dd class="col-sm-9">: {{ $orders->count() }} Siswa</dd>
+                                <dd class="col-sm-9">: {{ $daftarpesanan->jumlah_order_pai }} Siswa</dd>
                             </dl>
                         </div>
 

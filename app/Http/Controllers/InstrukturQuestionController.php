@@ -4,15 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Tugas;
+use App\Models\Reviews;
 use App\Models\Categories;
 use App\Models\Pertanyaan;
 use App\Models\UserProfile;
 use Illuminate\Http\Request;
+use App\Models\Pilih_Jawaban;
 use App\Models\KelasTatapMuka;
 use App\Models\NotifikasiUser;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Models\Pilih_Jawaban;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -165,6 +166,20 @@ class InstrukturQuestionController extends Controller
         // Menghitung total soal
         $totalQuestions = $tugas->pertanyaan->count();
 
+        // Mengambil daftar pesanan kelas tatap muka berdasarkan user_id dan id yang ada di order
+        $daftarpesanan = KelasTatapMuka::where('user_id', $user->id)
+            ->whereIn('id', function ($query) {
+                $query->select('product_id')->from('orders');
+            })
+            ->get();
+
+        // Menambahkan jumlah order PAID untuk setiap kelas tatap muka ke dalam koleksi
+        foreach ($daftarpesanan as $kelas) {
+            $kelas->jumlah_order_paid = Order::where('product_id', $kelas->id)
+                ->where('status', 'PAID')
+                ->count();
+        }
+
         return view('instruktur.Quiz.viewpg', compact(
             'user',
             'KelasTatapMuka',
@@ -176,10 +191,11 @@ class InstrukturQuestionController extends Controller
             'orders',
             'jumlahPendaftaran',
             'tugas',
-            'currentQuestionNumber', // Menyertakan nomor soal saat ini
-            'currentQuestion', // Menyertakan data soal saat ini
-            'allQuestions', // Menyertakan semua soal untuk rangkuman
-            'totalQuestions' // Menyertakan total soal
+            'currentQuestionNumber',
+            'currentQuestion',
+            'allQuestions',
+            'totalQuestions',
+            'daftarpesanan'
         ));
     }
 
