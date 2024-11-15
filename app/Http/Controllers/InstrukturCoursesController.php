@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Log;
 use App\Models\Order;
 use App\Models\Categories;
 use App\Models\UserProfile;
@@ -99,6 +100,13 @@ class InstrukturCoursesController extends Controller
 
         // Simpan data kursus ke database
         $course->save();
+
+        // Menyimpan data ke tabel logs
+        $log = new Log();
+        $log->action = 'Kelas Baru Ditambahkan';
+        $log->description = 'Kelas dengan nama "' . $request->nama_kursus . '" berhasil ditambahkan oleh user ID: ' . $userId;
+        $log->user_id = $userId;
+        $log->save();
 
         return redirect()->route('instruktur_courses')->with('success', 'Kursus berhasil disimpan.');
     }
