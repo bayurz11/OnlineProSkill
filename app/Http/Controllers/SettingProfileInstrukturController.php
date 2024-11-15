@@ -87,7 +87,7 @@ class SettingProfileInstrukturController extends Controller
         // Menyimpan data ke tabel logs
         $log = new Log();
         $log->action = 'Update Profile';
-        $log->description = 'Profil untuk user ID ' . $user->id . ' berhasil diperbarui.';
+        $log->description = 'Profil ' . $user->name . ' berhasil diperbarui.';
         $log->user_id = $user->id;
         $log->save();
         return redirect()->route('instruktur_setting')->with('success', 'Profil berhasil diperbarui.');
