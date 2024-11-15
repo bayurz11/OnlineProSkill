@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Log;
 use App\Models\Order;
 use App\Models\Kurikulum;
 use App\Models\Categories;
@@ -73,6 +74,12 @@ class InstrukturKurikulumController extends Controller
         $kurikulum->no_urut = $noUrut;
         $kurikulum->save();
 
+        // Menyimpan data ke tabel logs
+        $log = new Log();
+        $log->action = 'Kurikulum Ditambahkan';
+        $log->description = 'Kurikulum dengan judul "' . $validatedData['title'] . '" berhasil ditambahkan untuk course ID: ' . $validatedData['course_id'];
+        $log->user_id = Auth::id(); // ID pengguna yang melakukan aksi
+        $log->save();
         // Redirect ke halaman sebelumnya dengan pesan sukses
         return redirect()->back()->with('success', 'Kurikulum berhasil ditambahkan.');
     }
@@ -84,7 +91,11 @@ class InstrukturKurikulumController extends Controller
         if (!$kurikulum) {
             return response()->json(['message' => 'Kurikulum tidak ditemukan'], 404);
         }
-
+        $log = new Log();
+        $log->action = 'Kurikulum Diakses';
+        $log->description = 'Kurikulum dengan judul "' . $kurikulum->title . '" telah diakses untuk edit';
+        $log->user_id = Auth::id(); // ID pengguna yang melakukan aksi
+        $log->save();
         return response()->json($kurikulum);
     }
     public function update(Request $request, $id)
@@ -106,7 +117,11 @@ class InstrukturKurikulumController extends Controller
         // Jika Anda menambahkan field lain, lakukan update di sini
 
         $kurikulum->save();
-
+        $log = new Log();
+        $log->action = 'Kurikulum Diperbarui';
+        $log->description = 'Kurikulum dengan judul "' . $request->input('title') . '" berhasil diperbarui';
+        $log->user_id = Auth::id(); // ID pengguna yang melakukan aksi
+        $log->save();
         return redirect()->back()->with('success', 'Kurikulum berhasil diperbarui');
     }
 
@@ -123,7 +138,11 @@ class InstrukturKurikulumController extends Controller
         if (!$course) {
             return redirect()->back()->with('error', 'Kategori tidak ditemukan');
         }
-
+        $log = new Log();
+        $log->action = 'Kurikulum Dihapus';
+        $log->description = 'Kurikulum dengan judul "' . $course->title . '" berhasil dihapus';
+        $log->user_id = Auth::id(); // ID pengguna yang melakukan aksi
+        $log->save();
         $course->delete();
 
         return redirect()->back()->with('success', 'Kategori berhasil dihapus');
