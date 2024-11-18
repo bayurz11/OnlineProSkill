@@ -73,28 +73,27 @@
                             </div>
 
                             <div class="col-lg-4">
-                                <!-- Answer Summary Card -->
                                 <div class="card">
                                     <div class="card-header">
                                         <strong>Navigasi Soal</strong>
                                     </div>
-                                    <div class="card-body">
-                                        <div class="d-flex flex-wrap gap-2 justify-content-center">
+                                    <div class="card-body text-center">
+                                        <div class="d-flex justify-content-center flex-wrap gap-2">
                                             @foreach ($allQuestions as $index => $question)
                                                 <a href="{{ route('view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => $index + 1]) }}"
-                                                    class="btn question-btn {{ $currentQuestionNumber == $index + 1 ? 'active' : '' }}">
+                                                    class="btn btn-sm rounded-pill {{ $currentQuestionNumber == $index + 1 ? 'text-white' : 'text-dark' }}"
+                                                    style="background-color: {{ $currentQuestionNumber == $index + 1 ? '#319A58' : '#E0E0E0' }};">
                                                     {{ $index + 1 }}
                                                 </a>
                                             @endforeach
                                         </div>
                                     </div>
-
                                     <div class="card-footer text-center">
                                         <a href="{{ route('view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => max($currentQuestionNumber - 1, 1)]) }}"
                                             class="text-primary px-2 fs-4">
                                             &laquo;
                                         </a>
-                                        <span>No {{ $currentQuestionNumber }} / {{ $totalQuestions }}</span>
+                                        <span>No {{ $currentQuestionNumber }} / {{ $totalQuestions }} </span>
                                         <a href="{{ route('view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => min($currentQuestionNumber + 1, $totalQuestions)]) }}"
                                             class="text-primary px-2 fs-4">
                                             &raquo;
@@ -172,34 +171,5 @@
 
         // Contoh penggunaan: loadQuestion(1, 2);
     </script>
-    <style>
-        .question-btn {
-            display: inline-block;
-            width: 48px;
-            height: 48px;
-            line-height: 48px;
-            text-align: center;
-            background-color: #e9ecef;
-            /* Default grey background */
-            color: #000;
-            /* Default black text */
-            border-radius: 4px;
-            font-weight: bold;
-            text-decoration: none;
-            transition: all 0.3s ease-in-out;
-        }
 
-        .question-btn:hover {
-            background-color: #cfd8dc;
-            /* Hover state */
-            text-decoration: none;
-        }
-
-        .question-btn.active {
-            background-color: #319A58;
-            /* Active state */
-            color: #fff;
-            /* White text */
-        }
-    </style>
 @endsection
