@@ -63,8 +63,8 @@
                                                     <label>
                                                         <input type="radio" name="answer_{{ $currentQuestion->id }}"
                                                             value="{{ $option->id }}" class="me-2"
-                                                            onchange="handleAnswerChange('{{ $tugas->id_tugas }}', '{{ $currentQuestion->id }}', '{{ auth()->user()->id }}', this.value)" />
-
+                                                            onchange="handleAnswerChange('{{ $tugas->id_tugas }}', '{{ $currentQuestion->id }}', '{{ auth()->user()->id }}', this.value, '')" />
+                                                        <!-- Update sesuai jika jawaban esai -->
                                                         <span class="option-label">
                                                             {{ chr(65 + $index) }}. {{ $option->isi_pilihan }}
                                                         </span>
@@ -72,11 +72,12 @@
                                                 </li>
                                             @endforeach
                                         </ul>
-                                        <!-- Tombol simpan, tersembunyi sampai ada pilihan -->
-                                        <div class="d-flex justify-content-end mt-3">
-                                            <button id="save-button" class="btn btn-primary" style="display: none;"
-                                                onclick="saveAnswer()">Simpan</button>
-                                        </div>
+
+                                        <!-- Tombol Simpan -->
+                                        <button id="save-button" class="btn btn-primary mt-3" style="display: none;">
+                                            Simpan
+                                        </button>
+
                                     </div>
 
 
@@ -137,12 +138,12 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                                            <li>
-                                                                                <label>
-                                                                                    <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                                                </label>
-                                                                            </li>
-                                                                        `).join('')}
+                                                                                    <li>
+                                                                                        <label>
+                                                                                            <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                                                        </label>
+                                                                                    </li>
+                                                                                `).join('')}
                                 </ul>
                             </div>
                         </div>
