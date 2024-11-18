@@ -73,8 +73,10 @@
                                             @endforeach
                                         </ul>
                                         <!-- Tombol simpan, tersembunyi sampai ada pilihan -->
-                                        <button id="save-button" class="btn btn-primary mt-3" style="display: none;"
-                                            onclick="saveAnswer()">Simpan</button>
+                                        <div class="d-flex justify-content-end mt-3">
+                                            <button id="save-button" class="btn btn-primary" style="display: none;"
+                                                onclick="saveAnswer()">Simpan</button>
+                                        </div>
                                     </div>
 
                                     <script>
@@ -92,7 +94,7 @@
                                             // Logika penyimpanan jawaban
                                             console.log(
                                                 `Menyimpan jawaban: tugas ${id_tugas}, soal ${question_id}, pengguna ${user_id}, pilihan ${answer_value}`
-                                                );
+                                            );
                                             // Kamu bisa menambahkan AJAX untuk menyimpan jawaban di server
                                         }
                                     </script>
@@ -154,12 +156,12 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                            <li>
-                                                                <label>
-                                                                    <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                                </label>
-                                                            </li>
-                                                        `).join('')}
+                                                                <li>
+                                                                    <label>
+                                                                        <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                                    </label>
+                                                                </li>
+                                                            `).join('')}
                                 </ul>
                             </div>
                         </div>
