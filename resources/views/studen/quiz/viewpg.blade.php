@@ -53,35 +53,35 @@
                             <div class="col-lg-8" id="question-container">
                                 <div class="card">
                                     <div class="card-header">
-                                        <strong>Soal No. {{ $currentQuestionNumber }}</strong>
+                                        @if ($currentQuestion)
+                                            <strong>Soal No. {{ $currentQuestionNumber }}</strong>
+                                        @else
+                                            <strong>Quiz Selesai</strong>
+                                        @endif
                                     </div>
                                     <div class="card-body">
-                                        <p>{{ $currentQuestion->isi_pertanyaan }}</p>
-                                        <ul class="list-unstyled">
-                                            @foreach ($currentQuestion->pilihanJawaban as $index => $option)
-                                                <li>
-                                                    <label>
-                                                        <input type="radio" name="answer_{{ $currentQuestion->id }}"
-                                                            value="{{ $option->id }}" class="me-2"
-                                                            onchange="handleAnswerChange('{{ $tugas->id_tugas }}', '{{ $currentQuestion->id_pertanyaan }}', '{{ auth()->user()->id }}', '{{ $option->id_pilihan }}',this.value, '')" />
-                                                        <!-- Update sesuai jika jawaban esai -->
-                                                        <span class="option-label">
-                                                            {{ chr(65 + $index) }}. {{ $option->isi_pilihan }}
-                                                        </span>
-                                                    </label>
-                                                </li>
-                                            @endforeach
-                                        </ul>
-
-                                        <!-- Tombol Simpan -->
-                                        <div class="d-flex justify-content-end mt-3">
-                                            <button id="save-button" class="btn btn-primary mt-3" style="display: none;">
-                                                Simpan
-                                            </button>
-                                        </div>
+                                        @if ($currentQuestion)
+                                            <p>{{ $currentQuestion->isi_pertanyaan }}</p>
+                                            <ul class="list-unstyled">
+                                                @foreach ($currentQuestion->pilihanJawaban as $index => $option)
+                                                    <li>
+                                                        <label>
+                                                            <input type="radio" name="answer_{{ $currentQuestion->id }}"
+                                                                value="{{ $option->id }}" class="me-2"
+                                                                onchange="handleAnswerChange('{{ $tugas->id_tugas }}', '{{ $currentQuestion->id_pertanyaan }}', '{{ auth()->user()->id }}', '{{ $option->id_pilihan }}', this.value, '')" />
+                                                            <span class="option-label">{{ chr(65 + $index) }}.
+                                                                {{ $option->isi_pilihan }}</span>
+                                                        </label>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        @else
+                                            <p>Quiz telah selesai. Terima kasih telah berpartisipasi!</p>
+                                            <button class="btn btn-success" onclick="finishQuiz()">Akhiri Quiz</button>
+                                        @endif
                                     </div>
-
                                 </div>
+
                             </div>
 
                             <div class="col-lg-4">
@@ -138,12 +138,12 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => ` 
-                                                        <li> 
-                                                            <label>
-                                                                <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                            </label>
-                                                        </li>
-                                                        `).join('')}
+                                                            <li> 
+                                                                <label>
+                                                                    <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                                </label>
+                                                            </li>
+                                                            `).join('')}
                                 </ul>
                             </div>
                         </div>
