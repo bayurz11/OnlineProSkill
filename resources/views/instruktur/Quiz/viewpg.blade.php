@@ -92,22 +92,28 @@
                                             </thead>
                                             <tbody>
                                                 @foreach ($allQuestions as $index => $question)
-                                                    <tr>
-                                                        <td>{{ $index + 1 }}</td>
+                                                    <tr
+                                                        class="{{ $currentQuestionNumber == $index + 1 ? 'table-primary' : '' }}">
+                                                        <td>
+                                                            <a href="{{ route('instruktur_view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => $index + 1]) }}"
+                                                                class="text-decoration-none {{ $currentQuestionNumber == $index + 1 ? 'fw-bold text-dark' : 'text-primary' }}">
+                                                                {{ $index + 1 }}
+                                                            </a>
+                                                        </td>
                                                         <td>
                                                             @foreach ($question->pilihanJawaban as $i => $option)
                                                                 @if ($option->benar)
-                                                                    <span>{{ chr(65 + $i) }}. {{ $option->isi_pilihan }}
-                                                                    </span><br>
+                                                                    <span>{{ chr(65 + $i) }}.
+                                                                        {{ $option->isi_pilihan }}</span><br>
                                                                 @endif
                                                             @endforeach
                                                         </td>
                                                     </tr>
                                                 @endforeach
-
                                             </tbody>
                                         </table>
                                     </div>
+
                                     <div class="card-footer text-center">
                                         <a href="{{ route('instruktur_view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => max($currentQuestionNumber - 1, 1)]) }}"
                                             class="text-primary px-2 fs-4">
@@ -224,14 +230,14 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                                    <li>
-                                                                        <label>
-                                                                            <span class="option-label">
-                                                                                ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
-                                                                            </span>
-                                                                        </label>
-                                                                    </li>
-                                                                `).join('')}
+                                                                        <li>
+                                                                            <label>
+                                                                                <span class="option-label">
+                                                                                    ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
+                                                                                </span>
+                                                                            </label>
+                                                                        </li>
+                                                                    `).join('')}
                                 </ul>
                             </div>
                         </div>
