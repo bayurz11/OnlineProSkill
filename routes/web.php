@@ -46,6 +46,7 @@ use App\Http\Controllers\InstrukturQuestionController;
 use App\Http\Controllers\DashboardInstrukturController;
 use App\Http\Controllers\InstrukturKurikulumController;
 use App\Http\Controllers\OrderHistoryManagerController;
+use App\Http\Controllers\QuizController;
 use App\Http\Controllers\SettingProfileInstrukturController;
 
 //Authentikasi
@@ -215,7 +216,8 @@ Route::middleware('isStuden')->group(function () {
     Route::get('/certificate/preview', [AksesPembelianController::class, 'previewCertificate'])->name('certificate.preview');
     Route::get('/course-content/{id}', [AksesPembelianController::class, 'getKurikulum'])->name('course-content');
 
-
+    //Quiz
+    Route::get('/quiz', [QuizController::class, 'index'])->name('quiz');
 
     // Route::get('/kurikulum-content/{$kurikulum_id}', [AksesPembelianController::class, 'fetchContent'])->name('kurikulum.content');
 });
