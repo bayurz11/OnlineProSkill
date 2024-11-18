@@ -27,7 +27,7 @@
 
             <div class="row">
                 @include('studen.nav.nav')
-                <div class="col-lg-9">
+                <div class="col-lg-8">
                     <!-- Combined Form to Add New Quiz and Questions -->
                     <div class="dashboard__content-wrap">
                         <!-- Title and Details Section -->
@@ -72,7 +72,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-3">
+                            <div class="col-lg-4">
                                 <div class="card">
                                     <div class="card-header">
                                         <strong>Navigasi Soal</strong>
@@ -150,14 +150,14 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                                                                                                                                    <li>
-                                                                                                                                                                        <label>
-                                                                                                                                                                            <span class="option-label">
-                                                                                                                                                                                ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
-                                                                                                                                                                            </span>
-                                                                                                                                                                        </label>
-                                                                                                                                                                    </li>
-                                                                                                                                                                `).join('')}
+                                                                                                                                                                        <li>
+                                                                                                                                                                            <label>
+                                                                                                                                                                                <span class="option-label">
+                                                                                                                                                                                    ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
+                                                                                                                                                                                </span>
+                                                                                                                                                                            </label>
+                                                                                                                                                                        </li>
+                                                                                                                                                                    `).join('')}
                                 </ul>
                             </div>
                         </div>
