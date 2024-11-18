@@ -96,7 +96,7 @@
                                                     <tr>
                                                         <!-- Tambahkan link untuk nomor soal -->
                                                         <td>
-                                                            <a href="{{ route('quiz.show', ['id' => $tugas->id_tugas, 'question' => $index + 1]) }}"
+                                                            <a href="{{ route('instruktur_view_pg', ['id_tugas' => $tugas->id_tugas, 'question' => $index + 1]) }}"
                                                                 class="text-decoration-none text-primary">
                                                                 {{ $index + 1 }}
                                                             </a>
