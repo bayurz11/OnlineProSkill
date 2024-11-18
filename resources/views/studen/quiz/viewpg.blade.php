@@ -59,6 +59,8 @@
                                             @foreach ($currentQuestion->pilihanJawaban as $index => $option)
                                                 <li>
                                                     <label>
+                                                        <input type="radio" name="answer_{{ $currentQuestion->id }}"
+                                                            value="{{ $option->id }}" class="me-2" />
                                                         <span class="option-label">
                                                             {{ chr(65 + $index) }}. {{ $option->isi_pilihan }}
                                                         </span>
@@ -68,10 +70,7 @@
                                         </ul>
                                     </div>
                                 </div>
-
                             </div>
-
-
 
                             <div class="col-lg-4">
                                 <!-- Answer Summary Card -->
@@ -173,14 +172,14 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                                                                                        <li>
-                                                                                                                            <label>
-                                                                                                                                <span class="option-label">
-                                                                                                                                    ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
-                                                                                                                                </span>
-                                                                                                                            </label>
-                                                                                                                        </li>
-                                                                                                                    `).join('')}
+                                                                                                                                <li>
+                                                                                                                                    <label>
+                                                                                                                                        <span class="option-label">
+                                                                                                                                            ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
+                                                                                                                                        </span>
+                                                                                                                                    </label>
+                                                                                                                                </li>
+                                                                                                                            `).join('')}
                                 </ul>
                             </div>
                         </div>
