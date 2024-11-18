@@ -129,14 +129,14 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                                                                                                                                                                                                                            <li>
-                                                                                                                                                                                                                                                                <label>
-                                                                                                                                                                                                                                                                    <span class="option-label">
-                                                                                                                                                                                                                                                                        ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
-                                                                                                                                                                                                                                                                    </span>
-                                                                                                                                                                                                                                                                </label>
-                                                                                                                                                                                                                                                            </li>
-                                                                                                                                                                                                                                                        `).join('')}
+                                                                                                                                                                                                                                                                <li>
+                                                                                                                                                                                                                                                                    <label>
+                                                                                                                                                                                                                                                                        <span class="option-label">
+                                                                                                                                                                                                                                                                            ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
+                                                                                                                                                                                                                                                                        </span>
+                                                                                                                                                                                                                                                                    </label>
+                                                                                                                                                                                                                                                                </li>
+                                                                                                                                                                                                                                                            `).join('')}
                                 </ul>
                             </div>
                         </div>
@@ -175,7 +175,15 @@
             let detik = totalDetik % 60;
 
             // Perbarui tampilan
-            document.getElementById('countdown-timer').textContent = `${jam} Jam ${menit} Menit ${detik} Detik`;
+            let countdownText = `${jam} Jam ${menit} Menit ${detik} Detik`;
+            document.getElementById('countdown-timer').textContent = countdownText;
+
+            // Periksa apakah waktu tersisa 5 menit atau kurang
+            if (totalDetik <= 5 * 60) { // Jika waktu tersisa <= 5 menit
+                document.getElementById('countdown-timer').style.color = 'red'; // Ubah warna teks menjadi merah
+            } else {
+                document.getElementById('countdown-timer').style.color = ''; // Kembalikan warna teks ke default
+            }
 
             // Simpan waktu tersisa ke localStorage
             localStorage.setItem('waktuTersisa', totalDetik);
