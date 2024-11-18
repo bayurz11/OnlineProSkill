@@ -103,7 +103,8 @@
                                             @foreach ($allQuestions as $index => $question)
                                                 <a href="{{ route('view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => $index + 1]) }}"
                                                     class="btn btn-sm rounded {{ $currentQuestionNumber == $index + 1 ? 'text-white border-2 border-success' : 'text-dark' }}"
-                                                    style="margin-top: 8px; margin-bottom: 8px; box-shadow: none;">
+                                                    style="background-color: {{ $currentQuestionNumber == $index + 1 ? '#319A58' : '#E0E0E0' }}; 
+                                                          margin-top: 8px; margin-bottom: 8px; box-shadow: none;">
                                                     {{ $index + 1 }}
                                                 </a>
                                             @endforeach
