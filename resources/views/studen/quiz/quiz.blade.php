@@ -90,10 +90,8 @@
                                                             <a href="{{ route('view_pg', $quiz->id_tugas) }}"
                                                                 title="Kerjakan Soal">
                                                                 <i class="fas fa-pencil-alt"></i>
-                                                                <span>Kerjakan Soal</span>
                                                             </a>
                                                         </div>
-
                                                     </td>
                                                 </tr>
                                             </tbody>
