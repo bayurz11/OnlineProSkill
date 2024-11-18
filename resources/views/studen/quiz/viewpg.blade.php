@@ -74,10 +74,11 @@
                                         </ul>
 
                                         <!-- Tombol Simpan -->
-                                        <button id="save-button" class="btn btn-primary mt-3" style="display: none;">
-                                            Simpan
-                                        </button>
-
+                                        <div class="d-flex justify-content-end mt-3">
+                                            <button id="save-button" class="btn btn-primary mt-3" style="display: none;">
+                                                Simpan
+                                            </button>
+                                        </div>
                                     </div>
 
 
