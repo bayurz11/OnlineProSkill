@@ -259,6 +259,8 @@ Route::middleware('isInstruktur')->group(function () {
     //Pertanyaan
     Route::get('/instruktur_question_pg', [InstrukturQuestionController::class, 'pg'])->name('instruktur_question_pg');
     Route::get('/instruktur_view_pg/{id_tugas}', [InstrukturQuestionController::class, 'viewpg'])->name('instruktur_view_pg');
+    Route::get('/tugas/{id_tugas}/question/{questionNumber}', [InstrukturQuestionController::class, 'fetchQuestion'])
+        ->name('fetch_question');
     Route::post('/instruktur_pertanyaan_pg/store', [InstrukturQuestionController::class, 'storepg'])->name('instruktur_pertanyaan_pg.store');
     Route::get('/instruktur_question_essay/{id_tugas}', [InstrukturQuestionController::class, 'esai'])->name('instruktur_question_essay');
 });

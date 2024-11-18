@@ -280,4 +280,26 @@ class InstrukturQuestionController extends Controller
             'quiz'
         ));
     }
+
+    public function fetchQuestion(Request $request, $id_tugas, $questionNumber)
+    {
+        $tugas = Tugas::with(['pertanyaan' => function ($query) {
+            $query->with('pilihanJawaban')->orderBy('id_pertanyaan', 'asc');
+        }])->findOrFail($id_tugas);
+
+        $totalQuestions = $tugas->pertanyaan->count();
+
+        if ($questionNumber < 1 || $questionNumber > $totalQuestions) {
+            return response()->json(['error' => 'Nomor soal tidak valid'], 400);
+        }
+
+        $currentQuestion = $tugas->pertanyaan[$questionNumber - 1];
+
+        return response()->json([
+            'currentQuestionNumber' => $questionNumber,
+            'totalQuestions' => $totalQuestions,
+            'currentQuestion' => $currentQuestion,
+            'options' => $currentQuestion->pilihanJawaban,
+        ]);
+    }
 }
