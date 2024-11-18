@@ -126,14 +126,21 @@
 
                         <!-- Navigation Buttons -->
                         <div class="mt-4 text-center">
-                            <a href="#" class="text-primary px-2 fs-4">
-                                &laquo;&laquo;
-                            </a>
-                            <span>1 Dari {{ $totalQuestions }} Nomor Soal</span>
-                            <a href="#" class="text-primary px-2 fs-4">
-                                &raquo;&raquo;
-                            </a>
+                            @if ($currentQuestionNumber > 1)
+                                <a href="{{ route('instruktur_view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => $currentQuestionNumber - 1]) }}"
+                                    class="text-primary px-2 fs-4">
+                                    &laquo;
+                                </a>
+                            @endif
+                            <span>{{ $currentQuestionNumber }} dari {{ $totalQuestions }} Nomor Soal</span>
+                            @if ($currentQuestionNumber < $totalQuestions)
+                                <a href="{{ route('instruktur_view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => $currentQuestionNumber + 1]) }}"
+                                    class="text-primary px-2 fs-4">
+                                    &raquo;
+                                </a>
+                            @endif
                         </div>
+
 
                     </div>
                 </div>
@@ -197,4 +204,21 @@
         </div>
     </section>
     <!-- dashboard-area-end -->
+
+    <script>
+        document.querySelectorAll('.text-primary').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const url = this.getAttribute('href');
+
+                fetch(url)
+                    .then(response => response.text())
+                    .then(html => {
+                        // Update konten soal
+                        document.querySelector('.quiz-container').innerHTML = html;
+                    })
+                    .catch(error => console.error('Error:', error));
+            });
+        });
+    </script>
 @endsection
