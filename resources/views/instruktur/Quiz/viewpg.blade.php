@@ -55,7 +55,7 @@
                             <div class="col-lg-8" id="question-container">
                                 <div class="card">
                                     <div class="card-header">
-                                        <strong>Soal No. {{ $current_question_number }}</strong>
+                                        <strong>Soal No. {{ $currentQuestionNumber }}</strong>
                                     </div>
                                     <div class="card-body">
                                         <p>{{ $currentQuestion->isi_pertanyaan }}</p>
@@ -203,31 +203,46 @@
     <!-- dashboard-area-end -->
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.navigate-question').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault(); // Mencegah pengalihan halaman
-                    const url = this.getAttribute('data-url');
+        function loadQuestion(id_tugas, questionNumber) {
+            $.ajax({
+                url: `/tugas/${id_tugas}/question/${questionNumber}`,
+                method: 'GET',
+                success: function(data) {
+                    if (data.error) {
+                        alert(data.error);
+                        return;
+                    }
 
-                    // Memuat ulang kontainer pertanyaan
-                    fetch(url, {
-                            headers: {
-                                'X-Requested-With': 'XMLHttpRequest'
-                            }
-                        })
-                        .then(response => response.text())
-                        .then(html => {
-                            const parser = new DOMParser();
-                            const doc = parser.parseFromString(html, 'text/html');
-                            const newQuestionContainer = doc.querySelector(
-                                '#question-container');
-                            document.querySelector('#question-container').innerHTML =
-                                newQuestionContainer.innerHTML;
-                        })
-                        .catch(error => console.error('Error loading question:', error));
-                });
+                    // Perbarui konten div
+                    $('#question-container').html(`
+                        <div class="card">
+                            <div class="card-header">
+                                <strong>Soal No. ${data.currentQuestionNumber}</strong>
+                            </div>
+                            <div class="card-body">
+                                <p>${data.currentQuestion.isi_pertanyaan}</p>
+                                <ul class="list-unstyled">
+                                    ${data.options.map((option, index) => `
+                                                        <li>
+                                                            <label>
+                                                                <span class="option-label">
+                                                                    ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
+                                                                </span>
+                                                            </label>
+                                                        </li>
+                                                    `).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    `);
+                },
+                error: function(err) {
+                    alert('Terjadi kesalahan saat memuat soal.');
+                }
             });
-        });
+        }
+
+        // Contoh penggunaan: loadQuestion(1, 2);
     </script>
 
 @endsection
