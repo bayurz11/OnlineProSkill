@@ -132,14 +132,14 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                                                                                                                                                                                        <li>
-                                                                                                                                                                                                                            <label>
-                                                                                                                                                                                                                                <span class="option-label">
-                                                                                                                                                                                                                                    ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
-                                                                                                                                                                                                                                </span>
-                                                                                                                                                                                                                            </label>
-                                                                                                                                                                                                                        </li>
-                                                                                                                                                                                                                    `).join('')}
+                                                                                                                                                                                                                            <li>
+                                                                                                                                                                                                                                <label>
+                                                                                                                                                                                                                                    <span class="option-label">
+                                                                                                                                                                                                                                        ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
+                                                                                                                                                                                                                                    </span>
+                                                                                                                                                                                                                                </label>
+                                                                                                                                                                                                                            </li>
+                                                                                                                                                                                                                        `).join('')}
                                 </ul>
                             </div>
                         </div>
@@ -151,7 +151,15 @@
             });
         }
 
-        // Contoh penggunaan: loadQuestion(1, 2);
+        function showSaveButton() {
+            // Tampilkan tombol Simpan saat pilihan radio dipilih
+            document.getElementById('save-button').style.display = 'block';
+        }
+
+        function saveAnswer() {
+            // Fungsi untuk menyimpan jawaban (misalnya mengirim data ke server)
+            alert('Jawaban disimpan!');
+        }
     </script>
 
 @endsection
