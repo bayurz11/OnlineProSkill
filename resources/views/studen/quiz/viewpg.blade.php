@@ -72,8 +72,8 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-4" style="margin-left: 15px; margin-right: 15px;">
-                                <div class="card">
+                            <div class="col-lg-4">
+                                <div class="card px-3">
                                     <div class="card-header">
                                         <strong>Navigasi Soal</strong>
                                     </div>
@@ -101,8 +101,8 @@
                                         </a>
                                     </div>
                                 </div>
-                            </div>
 
+                            </div>
 
                         </div>
 
@@ -152,14 +152,14 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                                                                                                                                                                <li>
-                                                                                                                                                                                                    <label>
-                                                                                                                                                                                                        <span class="option-label">
-                                                                                                                                                                                                            ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
-                                                                                                                                                                                                        </span>
-                                                                                                                                                                                                    </label>
-                                                                                                                                                                                                </li>
-                                                                                                                                                                                            `).join('')}
+                                                                                                                                                                                                        <li>
+                                                                                                                                                                                                            <label>
+                                                                                                                                                                                                                <span class="option-label">
+                                                                                                                                                                                                                    ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
+                                                                                                                                                                                                                </span>
+                                                                                                                                                                                                            </label>
+                                                                                                                                                                                                        </li>
+                                                                                                                                                                                                    `).join('')}
                                 </ul>
                             </div>
                         </div>
