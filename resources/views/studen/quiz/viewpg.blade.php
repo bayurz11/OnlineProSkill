@@ -79,35 +79,14 @@
                                         <strong>Navigasi Soal</strong>
                                     </div>
                                     <div class="card-body">
-                                        <table class="table table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th>No. Soal</th>
-                                                    {{-- <th>Jawaban</th> --}}
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach ($allQuestions as $index => $question)
-                                                    <tr
-                                                        class="{{ $currentQuestionNumber == $index + 1 ? 'table-primary' : '' }}">
-                                                        <td>
-                                                            <a href="{{ route('view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => $index + 1]) }}"
-                                                                class="text-decoration-none {{ $currentQuestionNumber == $index + 1 ? 'fw-bold text-dark' : 'text-primary' }}">
-                                                                {{ $index + 1 }}
-                                                            </a>
-                                                        </td>
-                                                        {{-- <td>
-                                                            @foreach ($question->pilihanJawaban as $i => $option)
-                                                                @if ($option->benar)
-                                                                    <span>{{ chr(65 + $i) }}
-                                                                    </span><br>
-                                                                @endif
-                                                            @endforeach
-                                                        </td> --}}
-                                                    </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
+                                        <div class="d-flex flex-wrap gap-2 justify-content-center">
+                                            @foreach ($allQuestions as $index => $question)
+                                                <a href="{{ route('view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => $index + 1]) }}"
+                                                    class="btn question-btn {{ $currentQuestionNumber == $index + 1 ? 'active' : '' }}">
+                                                    {{ $index + 1 }}
+                                                </a>
+                                            @endforeach
+                                        </div>
                                     </div>
 
                                     <div class="card-footer text-center">
@@ -115,15 +94,15 @@
                                             class="text-primary px-2 fs-4">
                                             &laquo;
                                         </a>
-                                        <span>No {{ $currentQuestionNumber }} / {{ $totalQuestions }} </span>
+                                        <span>No {{ $currentQuestionNumber }} / {{ $totalQuestions }}</span>
                                         <a href="{{ route('view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => min($currentQuestionNumber + 1, $totalQuestions)]) }}"
                                             class="text-primary px-2 fs-4">
                                             &raquo;
                                         </a>
                                     </div>
-
                                 </div>
                             </div>
+
                         </div>
 
                         <!-- Navigation Buttons -->
@@ -172,14 +151,14 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                                                                                                                <li>
-                                                                                                                                                    <label>
-                                                                                                                                                        <span class="option-label">
-                                                                                                                                                            ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
-                                                                                                                                                        </span>
-                                                                                                                                                    </label>
-                                                                                                                                                </li>
-                                                                                                                                            `).join('')}
+                                                                                                                                                        <li>
+                                                                                                                                                            <label>
+                                                                                                                                                                <span class="option-label">
+                                                                                                                                                                    ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
+                                                                                                                                                                </span>
+                                                                                                                                                            </label>
+                                                                                                                                                        </li>
+                                                                                                                                                    `).join('')}
                                 </ul>
                             </div>
                         </div>
@@ -193,5 +172,34 @@
 
         // Contoh penggunaan: loadQuestion(1, 2);
     </script>
+    <style>
+        .question-btn {
+            display: inline-block;
+            width: 48px;
+            height: 48px;
+            line-height: 48px;
+            text-align: center;
+            background-color: #e9ecef;
+            /* Default grey background */
+            color: #000;
+            /* Default black text */
+            border-radius: 4px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+        }
 
+        .question-btn:hover {
+            background-color: #cfd8dc;
+            /* Hover state */
+            text-decoration: none;
+        }
+
+        .question-btn.active {
+            background-color: #319A58;
+            /* Active state */
+            color: #fff;
+            /* White text */
+        }
+    </style>
 @endsection
