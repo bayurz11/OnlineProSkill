@@ -94,12 +94,10 @@
 
                                 </div>
                             </div>
-
-                        </div>
-
-                        <!-- Button Save -->
-                        <div class="mt-4 text-center" id="save-button" style="display: none;">
-                            <button class="btn btn-primary" onclick="saveAnswer()">Simpan</button>
+                            <!-- Button Save -->
+                            <div class="mt-4 text-center" id="save-button" style="display: none;">
+                                <button class="btn btn-primary" onclick="saveAnswer()">Simpan</button>
+                            </div>
                         </div>
 
                     </div>
@@ -132,14 +130,14 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                                                                                                                                                                                                            <li>
-                                                                                                                                                                                                                                                <label>
-                                                                                                                                                                                                                                                    <span class="option-label">
-                                                                                                                                                                                                                                                        ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
-                                                                                                                                                                                                                                                    </span>
-                                                                                                                                                                                                                                                </label>
-                                                                                                                                                                                                                                            </li>
-                                                                                                                                                                                                                                        `).join('')}
+                                                                                                                                                                                                                                                    <li>
+                                                                                                                                                                                                                                                        <label>
+                                                                                                                                                                                                                                                            <span class="option-label">
+                                                                                                                                                                                                                                                                ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
+                                                                                                                                                                                                                                                            </span>
+                                                                                                                                                                                                                                                        </label>
+                                                                                                                                                                                                                                                    </li>
+                                                                                                                                                                                                                                                `).join('')}
                                 </ul>
                             </div>
                         </div>
