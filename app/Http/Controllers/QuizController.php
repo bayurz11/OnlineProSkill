@@ -148,6 +148,7 @@ class QuizController extends Controller
             'id_pilihan' => 'nullable|exists:pilihan_jawaban,id_pilihan',
         ]);
 
+
         // Simpan jawaban siswa
         Jawaban_Siswa::create([
             'id_pertanyaan' => $request->id_pertanyaan,
