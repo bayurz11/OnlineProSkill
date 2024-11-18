@@ -227,14 +227,14 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                                                                        <li>
-                                                                                                            <label>
-                                                                                                                <span class="option-label">
-                                                                                                                    ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
-                                                                                                                </span>
-                                                                                                            </label>
-                                                                                                        </li>
-                                                                                                    `).join('')}
+                                                                                                            <li>
+                                                                                                                <label>
+                                                                                                                    <span class="option-label">
+                                                                                                                        ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
+                                                                                                                    </span>
+                                                                                                                </label>
+                                                                                                            </li>
+                                                                                                        `).join('')}
                                 </ul>
                             </div>
                         </div>
