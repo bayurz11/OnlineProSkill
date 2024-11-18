@@ -102,10 +102,9 @@
                                         <div class="d-flex justify-content flex-wrap gap-3 px-3">
                                             @foreach ($allQuestions as $index => $question)
                                                 <a href="{{ route('view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => $index + 1]) }}"
-                                                    class="btn btn-sm rounded {{ $currentQuestionNumber == $index + 1 ? 'text-white border-3' : 'text-dark' }}"
-                                                    style="background-color: {{ $currentQuestionNumber == $index + 1 ? 'transparent' : '#E0E0E0' }}; 
-                                                         border-color: {{ $currentQuestionNumber == $index + 1 ? '#319A58' : '#319A58' }}; 
-                                                         margin-top: 8px; margin-bottom: 8px; box-shadow: none;">
+                                                    class="btn btn-sm rounded {{ $currentQuestionNumber == $index + 1 ? 'text-white border-2 border-success' : 'text-dark' }}"
+                                                    style="background-color: {{ $currentQuestionNumber == $index + 1 ? '#319A58' : '#E0E0E0' }}; 
+                                                          margin-top: 8px; margin-bottom: 8px; box-shadow: none;">
                                                     {{ $index + 1 }}
                                                 </a>
                                             @endforeach
@@ -147,12 +146,12 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => ` 
-                                                                        <li> 
-                                                                            <label>
-                                                                                <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                                            </label>
-                                                                        </li>
-                                                                        `).join('')}
+                                                                    <li> 
+                                                                        <label>
+                                                                            <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                                        </label>
+                                                                    </li>
+                                                                    `).join('')}
                                 </ul>
                             </div>
                         </div>
