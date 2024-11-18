@@ -96,58 +96,20 @@
 
                         </div>
 
-                        <div class="col-lg-8" id="question-container">
-                            <div class="card">
-                                <div class="card-header">
-                                    <strong>Soal No. {{ $currentQuestionNumber }}</strong>
-                                </div>
-                                <div class="card-body">
-                                    <p>{{ $currentQuestion->isi_pertanyaan }}</p>
-                                    <ul class="list-unstyled">
-                                        @foreach ($currentQuestion->pilihanJawaban as $index => $option)
-                                            <li>
-                                                <label>
-                                                    <input type="radio" name="answer_{{ $currentQuestion->id }}"
-                                                        value="{{ $option->id }}" class="me-2 answer-option" />
-                                                    <span class="option-label">
-                                                        {{ chr(65 + $index) }}. {{ $option->isi_pilihan }}
-                                                    </span>
-                                                </label>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-
-                                <!-- Navigation Buttons -->
-                                @if ($totalQuestions > 1)
-                                    <div id="navigation-buttons" class="mt-4 text-center d-none">
-                                        <a href="{{ route('view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => max($currentQuestionNumber - 1, 1)]) }}"
-                                            class="text-primary px-2 fs-4">
-                                            &laquo;&laquo;
-                                        </a>
-                                        <span>No {{ $currentQuestionNumber }} Dari {{ $totalQuestions }} Soal</span>
-                                        <a href="{{ route('view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => min($currentQuestionNumber + 1, $totalQuestions)]) }}"
-                                            class="text-primary px-2 fs-4">
-                                            &raquo;&raquo;
-                                        </a>
-                                    </div>
-                                @endif
+                        <!-- Navigation Buttons -->
+                        @if ($totalQuestions > 1)
+                            <div class="mt-4 text-center">
+                                <a href="{{ route('view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => max($currentQuestionNumber - 1, 1)]) }}"
+                                    class="text-primary px-2 fs-4">
+                                    &laquo;&laquo;
+                                </a>
+                                <span>No {{ $currentQuestionNumber }} Dari {{ $totalQuestions }} Soal</span>
+                                <a href="{{ route('view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => min($currentQuestionNumber + 1, $totalQuestions)]) }}"
+                                    class="text-primary px-2 fs-4">
+                                    &raquo;&raquo;
+                                </a>
                             </div>
-                        </div>
-
-                        <script>
-                            // Menambahkan event listener untuk radio buttons
-                            const radioButtons = document.querySelectorAll('.answer-option');
-                            const navigationButtons = document.getElementById('navigation-buttons');
-
-                            radioButtons.forEach(button => {
-                                button.addEventListener('change', function() {
-                                    // Menampilkan tombol navigasi setelah memilih jawaban
-                                    navigationButtons.classList.remove('d-none');
-                                });
-                            });
-                        </script>
-
+                        @endif
 
 
                     </div>
