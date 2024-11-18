@@ -60,7 +60,8 @@
                                                 <li>
                                                     <label>
                                                         <input type="radio" name="answer_{{ $currentQuestion->id }}"
-                                                            value="{{ $option->id }}" class="me-2" />
+                                                            value="{{ $option->id }}" class="me-2"
+                                                            onchange="showSaveButton()" />
                                                         <span class="option-label">
                                                             {{ chr(65 + $index) }}. {{ $option->isi_pilihan }}
                                                         </span>
@@ -101,7 +102,6 @@
                             <button class="btn btn-primary" onclick="saveAnswer()">Simpan</button>
                         </div>
 
-
                     </div>
                 </div>
 
@@ -132,14 +132,14 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                                                                                                                                                                                            <li>
-                                                                                                                                                                                                                                <label>
-                                                                                                                                                                                                                                    <span class="option-label">
-                                                                                                                                                                                                                                        ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
-                                                                                                                                                                                                                                    </span>
-                                                                                                                                                                                                                                </label>
-                                                                                                                                                                                                                            </li>
-                                                                                                                                                                                                                        `).join('')}
+                                                                                                                                                                                                                                            <li>
+                                                                                                                                                                                                                                                <label>
+                                                                                                                                                                                                                                                    <span class="option-label">
+                                                                                                                                                                                                                                                        ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
+                                                                                                                                                                                                                                                    </span>
+                                                                                                                                                                                                                                                </label>
+                                                                                                                                                                                                                                            </li>
+                                                                                                                                                                                                                                        `).join('')}
                                 </ul>
                             </div>
                         </div>
@@ -151,14 +151,14 @@
             });
         }
 
+        // Contoh penggunaan: loadQuestion(1, 2);
         function showSaveButton() {
-            // Tampilkan tombol Simpan saat pilihan radio dipilih
-            document.getElementById('save-button').style.display = 'block';
+            document.getElementById("save-button").style.display = "block";
         }
 
         function saveAnswer() {
-            // Fungsi untuk menyimpan jawaban (misalnya mengirim data ke server)
-            alert('Jawaban disimpan!');
+            // Implementasikan logika untuk menyimpan jawaban di sini
+            alert("Jawaban disimpan!");
         }
     </script>
 
