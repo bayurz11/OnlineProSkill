@@ -284,14 +284,15 @@ class InstrukturQuestionController extends Controller
     public function viewQuestion(Request $request, $id_tugas, $current_question_number)
     {
         $tugas = Tugas::with(['pertanyaan', 'KelasTatapMuka'])->findOrFail($id_tugas);
-        $currentQuestion = $tugas->pertanyaan->get($current_question_number - 1); // Menyesuaikan dengan indeks array
+        $currentQuestion = $tugas->pertanyaan->get($current_question_number - 1); // Soal sesuai nomor
         $allQuestions = $tugas->pertanyaan;
+
+        $totalQuestions = $tugas->pertanyaan->count();
 
         if ($request->ajax()) {
             return view('instruktur.partials.question', compact('currentQuestion', 'current_question_number'));
         }
 
-        // Render seluruh halaman jika bukan permintaan AJAX
-        return view('instruktur.tugas.view', compact('tugas', 'currentQuestion', 'current_question_number', 'allQuestions'));
+        return view('instruktur.tugas.view', compact('tugas', 'currentQuestion', 'current_question_number', 'allQuestions', 'totalQuestions'));
     }
 }
