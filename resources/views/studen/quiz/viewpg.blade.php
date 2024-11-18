@@ -146,15 +146,15 @@
                         <p>${data.currentQuestion.isi_pertanyaan}</p>
                         <ul class="list-unstyled">
                             ${data.options.map((option, index) => `
-                                    <li>
-                                        <label>
-                                            <input type="radio" name="answer_${data.currentQuestion.id}"
-                                                value="${option.id_pilihan}" class="me-2"
-                                                onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
-                                            <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                        </label>
-                                    </li>
-                                `).join('')}
+                                            <li>
+                                                <label>
+                                                    <input type="radio" name="answer_${data.currentQuestion.id}"
+                                                        value="${option.id_pilihan}" class="me-2"
+                                                        onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
+                                                    <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                </label>
+                                            </li>
+                                        `).join('')}
                         </ul>
                     </div>
                 </div>
@@ -235,6 +235,13 @@
             if (totalDetik <= 0) {
                 clearInterval(countdownInterval); // Hentikan interval jika waktu habis
                 document.getElementById('countdown-timer').textContent = "Waktu habis!";
+
+                // Nonaktifkan semua input radio
+                const radioButtons = document.querySelectorAll('input[type="radio"]');
+                radioButtons.forEach((radio) => {
+                    radio.disabled = true; // Tambahkan atribut disabled
+                });
+
                 return;
             }
 
@@ -259,7 +266,6 @@
             // Kurangi waktu satu detik
             totalDetik--;
         }
-
         // Mulai hitungan mundur
         const countdownInterval = setInterval(updateCountdown, 1000);
     </script>
