@@ -52,7 +52,6 @@
                                                 <th>&nbsp;</th>
                                             </tr>
                                         </thead>
-
                                         @foreach ($quiz as $quiz)
                                             <tbody>
                                                 <tr>
@@ -87,15 +86,23 @@
                                                     </td>
                                                     <td>
                                                         <div class="dashboard__review-action">
-                                                            <a href="{{ route('view_pg', $quiz->id_tugas) }}"
-                                                                title="Kerjakan Soal">
-                                                                <i class="fas fa-pencil-alt"></i>
-                                                            </a>
+                                                            @if ($isSelesai)
+                                                                <!-- Tautan tidak dapat diklik jika waktu telah berakhir -->
+                                                                <span class="pointer-events-none">
+                                                                    <i class="fas fa-pencil-alt"></i> Kerjakan Soal
+                                                                </span>
+                                                            @else
+                                                                <a href="{{ route('view_pg', $quiz->id_tugas) }}"
+                                                                    title="Kerjakan Soal">
+                                                                    <i class="fas fa-pencil-alt"></i>
+                                                                </a>
+                                                            @endif
                                                         </div>
                                                     </td>
                                                 </tr>
                                             </tbody>
                                         @endforeach
+
 
                                     </table>
                                 </div>
