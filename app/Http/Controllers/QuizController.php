@@ -140,28 +140,23 @@ class QuizController extends Controller
         ));
     }
 
-    public function store(Request $request, $id_tugas)
+    public function storeJawaban(Request $request, $id_tugas)
     {
-        // Validasi input
+        // Validasi data yang dikirim
         $validated = $request->validate([
             'id_pertanyaan' => 'required|exists:pertanyaan,id_pertanyaan',
             'id_pilihan' => 'nullable|exists:pilihan_jawaban,id_pilihan',
             'jawaban_essay' => 'nullable|string',
         ]);
 
-        // Ambil data siswa yang sedang login
-        $siswa_id = Auth::id();
-
         // Simpan jawaban ke database
-        $jawaban = Jawaban_Siswa::create([
+        Jawaban_Siswa::create([
             'id_pertanyaan' => $validated['id_pertanyaan'],
-            'id_siswa' => $siswa_id,
-            'jawaban_essay' => $validated['jawaban_essay'],
+            'id_siswa' => auth()->user()->id,
             'id_pilihan' => $validated['id_pilihan'] ?? null,
-            'nilai' => null,  // Nilai bisa diisi nanti oleh pengajar
+            'jawaban_essay' => $validated['jawaban_essay'],
         ]);
 
-        // Mengembalikan response sukses
-        return response()->json(['message' => 'Jawaban berhasil disimpan', 'jawaban' => $jawaban]);
+        return response()->json(['message' => 'Jawaban berhasil disimpan!']);
     }
 }
