@@ -96,20 +96,10 @@
 
                         </div>
 
-                        <!-- Navigation Buttons -->
-                        @if ($totalQuestions > 1)
-                            <div class="mt-4 text-center">
-                                <a href="{{ route('view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => max($currentQuestionNumber - 1, 1)]) }}"
-                                    class="text-primary px-2 fs-4">
-                                    &laquo;&laquo;
-                                </a>
-                                <span>No {{ $currentQuestionNumber }} Dari {{ $totalQuestions }} Soal</span>
-                                <a href="{{ route('view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => min($currentQuestionNumber + 1, $totalQuestions)]) }}"
-                                    class="text-primary px-2 fs-4">
-                                    &raquo;&raquo;
-                                </a>
-                            </div>
-                        @endif
+                        <!-- Button Save -->
+                        <div class="mt-4 text-center" id="save-button" style="display: none;">
+                            <button class="btn btn-primary" onclick="saveAnswer()">Simpan</button>
+                        </div>
 
 
                     </div>
@@ -142,14 +132,14 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                                                                                                                                                                                    <li>
-                                                                                                                                                                                                                        <label>
-                                                                                                                                                                                                                            <span class="option-label">
-                                                                                                                                                                                                                                ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
-                                                                                                                                                                                                                            </span>
-                                                                                                                                                                                                                        </label>
-                                                                                                                                                                                                                    </li>
-                                                                                                                                                                                                                `).join('')}
+                                                                                                                                                                                                                        <li>
+                                                                                                                                                                                                                            <label>
+                                                                                                                                                                                                                                <span class="option-label">
+                                                                                                                                                                                                                                    ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
+                                                                                                                                                                                                                                </span>
+                                                                                                                                                                                                                            </label>
+                                                                                                                                                                                                                        </li>
+                                                                                                                                                                                                                    `).join('')}
                                 </ul>
                             </div>
                         </div>
