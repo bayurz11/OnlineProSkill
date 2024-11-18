@@ -163,25 +163,4 @@ class QuizController extends Controller
             return response()->json(['message' => 'Error: ' . $e->getMessage()], 422);
         }
     }
-
-    public function getQuestion($id_tugas, $questionNumber)
-    {
-        // Ambil soal berdasarkan nomor soal dan tugas
-        $tugas = Tugas::find($id_tugas);
-        $currentQuestion = $tugas->pertanyaan()->skip($questionNumber - 1)->first(); // Mengambil soal berdasarkan nomor
-
-        if (!$currentQuestion) {
-            return response()->json(['error' => 'Soal tidak ditemukan'], 404);
-        }
-
-        // Ambil pilihan jawaban untuk soal ini
-        $options = $currentQuestion->pilihanJawaban;
-
-        // Return data dalam format JSON
-        return response()->json([
-            'currentQuestionNumber' => $questionNumber,
-            'currentQuestion' => $currentQuestion,
-            'options' => $options
-        ]);
-    }
 }
