@@ -123,19 +123,22 @@
                         </div>
 
                         <!-- Navigation Buttons -->
-                        @if ($totalQuestions > 1)
-                            <div class="mt-4 text-center">
-                                <a href="{{ route('instruktur_view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => max($currentQuestionNumber - 1, 1)]) }}"
-                                    class="text-primary px-2 fs-4">
+                        <div class="mt-4 text-center">
+                            @if ($currentQuestionNumber > 1)
+                                <button
+                                    onclick="loadQuestion('{{ $tugas->id_tugas }}', {{ $currentQuestionNumber - 1 }})">
                                     &laquo;&laquo;
-                                </a>
-                                <span>{{ $currentQuestionNumber }} Dari {{ $totalQuestions }} Nomor Soal</span>
-                                <a href="{{ route('instruktur_view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => min($currentQuestionNumber + 1, $totalQuestions)]) }}"
-                                    class="text-primary px-2 fs-4">
+                                </button>
+                            @endif
+                            <span>{{ $currentQuestionNumber }} Dari {{ $totalQuestions }} Nomor Soal</span>
+                            @if ($currentQuestionNumber < $totalQuestions)
+                                <button
+                                    onclick="loadQuestion('{{ $tugas->id_tugas }}', {{ $currentQuestionNumber + 1 }})">
                                     &raquo;&raquo;
-                                </a>
-                            </div>
-                        @endif
+                                </button>
+                            @endif
+                        </div>
+
 
 
                     </div>
@@ -222,14 +225,14 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                <li>
-                                                    <label>
-                                                        <span class="option-label">
-                                                            ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
-                                                        </span>
-                                                    </label>
-                                                </li>
-                                            `).join('')}
+                                                    <li>
+                                                        <label>
+                                                            <span class="option-label">
+                                                                ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
+                                                            </span>
+                                                        </label>
+                                                    </li>
+                                                `).join('')}
                                 </ul>
                             </div>
                         </div>
