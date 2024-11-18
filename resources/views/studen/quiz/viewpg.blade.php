@@ -102,9 +102,9 @@
                                         <div class="d-flex justify-content flex-wrap gap-3 px-3">
                                             @foreach ($allQuestions as $index => $question)
                                                 <a href="{{ route('view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => $index + 1]) }}"
-                                                    class="btn btn-sm rounded {{ $currentQuestionNumber == $index + 1 ? 'text-white border-2 border-success' : 'text-dark' }}"
+                                                    class="btn btn-sm rounded navigate-question {{ $currentQuestionNumber == $index + 1 ? 'text-white border-2 border-success' : 'text-dark' }}"
                                                     style="background-color: {{ $currentQuestionNumber == $index + 1 ? '#319A58' : '#E0E0E0' }}; 
-                                                          margin-top: 8px; margin-bottom: 8px; box-shadow: none;">
+                                                       margin-top: 8px; margin-bottom: 8px; box-shadow: none;">
                                                     {{ $index + 1 }}
                                                 </a>
                                             @endforeach
@@ -126,9 +126,13 @@
     <!-- dashboard-area-end -->
 
     <script>
-        function loadQuestion(id_tugas, questionNumber) {
+        $(document).on('click', '.navigate-question', function(e) {
+            e.preventDefault();
+
+            const url = $(this).attr('href');
+            $('#question-container').html('<p>Loading...</p>');
             $.ajax({
-                url: `/tugas/${id_tugas}/question/${questionNumber}`,
+                url: url,
                 method: 'GET',
                 success: function(data) {
                     if (data.error) {
@@ -136,7 +140,7 @@
                         return;
                     }
 
-                    // Buat ulang HTML untuk pertanyaan
+                    // Buat ulang konten pertanyaan
                     const questionContent = `
                 <div class="card">
                     <div class="card-header">
@@ -148,7 +152,7 @@
                             ${data.options.map((option, index) => `
                                             <li>
                                                 <label>
-                                                    <input type="radio" name="answer_${data.currentQuestion.id}"
+                                                    <input type="radio" name="answer_${data.currentQuestion.id}" 
                                                         value="${option.id_pilihan}" class="me-2"
                                                         onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
                                                     <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
@@ -167,7 +171,8 @@
                     alert('Terjadi kesalahan saat memuat soal.');
                 }
             });
-        }
+        });
+
 
 
         // Fungsi untuk menangani perubahan pilihan jawaban
