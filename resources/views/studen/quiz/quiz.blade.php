@@ -88,7 +88,7 @@
                                                         <div class="dashboard__review-action">
                                                             @if ($isSelesai)
                                                                 <span class="pointer-events-none">
-                                                                    <i class="fas fa-pencil-alt"></i> Kerjakan Soal
+                                                                    <i class="fas fa-pencil-alt"></i>
                                                                 </span>
                                                             @else
                                                                 <a href="{{ route('view_pg', $quiz->id_tugas) }}"
