@@ -63,7 +63,7 @@
                                                     <label>
                                                         <input type="radio" name="answer_{{ $currentQuestion->id }}"
                                                             value="{{ $option->id }}" class="me-2"
-                                                            onchange="saveAnswer('{{ $tugas->id_tugas }}', '{{ $currentQuestion->id }}', '{{ auth()->user()->id }}', this.value)" />
+                                                            onchange="handleAnswerChange('{{ $tugas->id_tugas }}', '{{ $currentQuestion->id }}', '{{ auth()->user()->id }}', this.value)" />
 
                                                         <span class="option-label">
                                                             {{ chr(65 + $index) }}. {{ $option->isi_pilihan }}
@@ -72,9 +72,31 @@
                                                 </li>
                                             @endforeach
                                         </ul>
+                                        <!-- Tombol simpan, tersembunyi sampai ada pilihan -->
                                         <button id="save-button" class="btn btn-primary mt-3" style="display: none;"
                                             onclick="saveAnswer()">Simpan</button>
                                     </div>
+
+                                    <script>
+                                        // Fungsi untuk menangani perubahan pilihan jawaban
+                                        function handleAnswerChange(id_tugas, question_id, user_id, answer_value) {
+                                            // Tampilkan tombol simpan saat ada pilihan
+                                            document.getElementById('save-button').style.display = 'inline-block';
+
+                                            // Simpan jawaban sementara jika diperlukan
+                                            saveAnswer(id_tugas, question_id, user_id, answer_value);
+                                        }
+
+                                        // Fungsi untuk menyimpan jawaban
+                                        function saveAnswer(id_tugas, question_id, user_id, answer_value) {
+                                            // Logika penyimpanan jawaban
+                                            console.log(
+                                                `Menyimpan jawaban: tugas ${id_tugas}, soal ${question_id}, pengguna ${user_id}, pilihan ${answer_value}`
+                                                );
+                                            // Kamu bisa menambahkan AJAX untuk menyimpan jawaban di server
+                                        }
+                                    </script>
+
                                 </div>
                             </div>
 
@@ -132,12 +154,12 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                        <li>
-                                                            <label>
-                                                                <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                            </label>
-                                                        </li>
-                                                    `).join('')}
+                                                            <li>
+                                                                <label>
+                                                                    <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                                </label>
+                                                            </li>
+                                                        `).join('')}
                                 </ul>
                             </div>
                         </div>
