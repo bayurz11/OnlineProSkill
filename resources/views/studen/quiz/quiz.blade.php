@@ -87,7 +87,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="dashboard__review-action">
-                                                            <a href="{{ route('instruktur_view_pg', $quiz->id_tugas) }}"
+                                                            <a href="{{ route('view_pg', $quiz->id_tugas) }}"
                                                                 title="Lihat Soal">
                                                                 <i class="fas fa-eye"></i>
                                                             </a>
