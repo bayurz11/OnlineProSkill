@@ -120,7 +120,7 @@ class QuizController extends Controller
                 ->count();
         }
 
-        return view('instruktur.Quiz.viewpg', compact(
+        return view('studen.quiz.viewpg', compact(
             'user',
             'KelasTatapMuka',
             'categori',
