@@ -53,7 +53,6 @@
                         <!-- Question and Answer Section -->
                         <div class="row mt-4">
                             <div class="col-lg-8">
-                                <!-- Question Card -->
                                 <div class="card">
                                     <div class="card-header">
                                         <strong>Soal No. {{ $currentQuestionNumber }}</strong>
@@ -70,12 +69,12 @@
                                                     </label>
                                                 </li>
                                             @endforeach
-
                                         </ul>
                                     </div>
-
                                 </div>
+
                             </div>
+
 
                             <div class="col-lg-4">
                                 <!-- Answer Summary Card -->
@@ -94,52 +93,49 @@
                                             <tbody>
                                                 @foreach ($allQuestions as $index => $question)
                                                     <tr>
-                                                        <!-- Tambahkan link untuk nomor soal -->
-                                                        <td>
-                                                            <a href="{{ route('instruktur_view_pg', ['id_tugas' => $tugas->id_tugas, 'question' => $index + 1]) }}"
-                                                                class="text-decoration-none text-primary">
-                                                                {{ $index + 1 }}
-                                                            </a>
-                                                        </td>
+                                                        <td>{{ $index + 1 }}</td>
                                                         <td>
                                                             @foreach ($question->pilihanJawaban as $i => $option)
                                                                 @if ($option->benar)
-                                                                    <span>{{ chr(65 + $i) }}.
-                                                                        {{ $option->isi_pilihan }}</span><br>
+                                                                    <span>{{ chr(65 + $i) }}. {{ $option->isi_pilihan }}
+                                                                    </span><br>
                                                                 @endif
                                                             @endforeach
                                                         </td>
                                                     </tr>
                                                 @endforeach
+
                                             </tbody>
                                         </table>
                                     </div>
                                     <div class="card-footer text-center">
-                                        <a href="#" class="text-primary px-2 fs-4">&laquo;</a>
-                                        <span>1 / {{ $totalQuestions }}</span>
-                                        <a href="#" class="text-primary px-2 fs-4">&raquo;</a>
+                                        <a href="#" class="text-primary px-2 fs-4">
+                                            &laquo;
+                                        </a>
+                                        <span>1 / 1 </span>
+                                        <a href="#" class="text-primary px-2 fs-4">
+                                            &raquo;
+                                        </a>
                                     </div>
+
                                 </div>
                             </div>
-
                         </div>
 
                         <!-- Navigation Buttons -->
-                        <div class="mt-4 text-center">
-                            @if ($currentQuestionNumber > 1)
-                                <a href="{{ route('instruktur_view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => $currentQuestionNumber - 1]) }}"
+                        @if ($totalQuestions > 1)
+                            <div class="mt-4 text-center">
+                                <a href="{{ route('instruktur_view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => max($currentQuestionNumber - 1, 1)]) }}"
                                     class="text-primary px-2 fs-4">
-                                    &laquo;
+                                    &laquo;&laquo;
                                 </a>
-                            @endif
-                            <span>{{ $currentQuestionNumber }} dari {{ $totalQuestions }} Nomor Soal</span>
-                            @if ($currentQuestionNumber < $totalQuestions)
-                                <a href="{{ route('instruktur_view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => $currentQuestionNumber + 1]) }}"
+                                <span>{{ $currentQuestionNumber }} Dari {{ $totalQuestions }} Nomor Soal</span>
+                                <a href="{{ route('instruktur_view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => min($currentQuestionNumber + 1, $totalQuestions)]) }}"
                                     class="text-primary px-2 fs-4">
-                                    &raquo;
+                                    &raquo;&raquo;
                                 </a>
-                            @endif
-                        </div>
+                            </div>
+                        @endif
 
 
                     </div>
@@ -204,21 +200,4 @@
         </div>
     </section>
     <!-- dashboard-area-end -->
-
-    <script>
-        document.querySelectorAll('.text-primary').forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                const url = this.getAttribute('href');
-
-                fetch(url)
-                    .then(response => response.text())
-                    .then(html => {
-                        // Update konten soal
-                        document.querySelector('.quiz-container').innerHTML = html;
-                    })
-                    .catch(error => console.error('Error:', error));
-            });
-        });
-    </script>
 @endsection
