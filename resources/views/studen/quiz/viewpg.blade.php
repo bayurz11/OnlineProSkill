@@ -81,7 +81,6 @@
                                         </div>
                                     </div>
 
-
                                 </div>
                             </div>
 
@@ -119,6 +118,31 @@
     <!-- dashboard-area-end -->
 
     <script>
+        // Fungsi untuk menangani perubahan pilihan jawaban
+        function handleAnswerChange(id_tugas, question_id, user_id, answer_value) {
+            // Tampilkan tombol simpan saat ada pilihan
+            document.getElementById('save-button').style.display = 'inline-block';
+
+            // Simpan jawaban di localStorage
+            localStorage.setItem(`answer_${question_id}`, answer_value);
+
+            // Simpan jawaban menggunakan AJAX
+            saveAnswer(id_tugas, question_id, user_id, answer_value);
+        }
+
+        // Fungsi untuk memuat pilihan yang telah disimpan
+        function loadSavedAnswer(question_id) {
+            const savedAnswer = localStorage.getItem(`answer_${question_id}`);
+            if (savedAnswer) {
+                // Cari input radio yang memiliki value sesuai dengan savedAnswer dan set checked
+                const radioButton = document.querySelector(`input[name="answer_${question_id}"][value="${savedAnswer}"]`);
+                if (radioButton) {
+                    radioButton.checked = true;
+                }
+            }
+        }
+
+        // Fungsi untuk memuat soal dan memeriksa jawaban yang disimpan
         function loadQuestion(id_tugas, questionNumber) {
             $.ajax({
                 url: `/tugas/${id_tugas}/question/${questionNumber}`,
@@ -139,17 +163,23 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                                                                                    <li>
-                                                                                                                        <label>
-                                                                                                                            <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                                                                                        </label>
-                                                                                                                    </li>
-                                                                                                                `).join('')}
+                                            <li>
+                                                <label>
+                                                    <input type="radio" name="answer_${data.currentQuestion.id_pertanyaan}"
+                                                        value="${option.id_pilihan}" class="me-2"
+                                                        onchange="handleAnswerChange('${data.currentQuestion.id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${auth().user().id}', '${option.id_pilihan}', this.value, '')" />
+                                                    <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                </label>
+                                            </li>
+                                        `).join('')}
                                 </ul>
                             </div>
                         </div>
                     `;
                     $('#question-container').html(questionContent);
+
+                    // Muat jawaban yang telah disimpan
+                    loadSavedAnswer(data.currentQuestion.id_pertanyaan);
                 },
                 error: function() {
                     alert('Terjadi kesalahan saat memuat soal.');
@@ -157,26 +187,14 @@
             });
         }
 
-        // Fungsi untuk menangani perubahan pilihan jawaban
-        function handleAnswerChange(id_tugas, question_id, user_id, answer_value) {
-            // Tampilkan tombol simpan saat ada pilihan
-            document.getElementById('save-button').style.display = 'inline-block';
-
-            // Simpan jawaban menggunakan AJAX
-            saveAnswer(id_tugas, question_id, user_id, answer_value);
-        }
-
         // Fungsi untuk menyimpan jawaban
         function saveAnswer(id_tugas, question_id, user_id, answer_value) {
-
             // Persiapkan data yang akan dikirim
             let data = {
                 _token: '{{ csrf_token() }}', // Sertakan CSRF token
                 id_pertanyaan: question_id,
                 id_pilihan: answer_value, // ID pilihan jawaban
             };
-
-            console.log("Data yang dikirim: ", data); // Debugging
 
             // Kirim data ke backend menggunakan AJAX
             $.ajax({
@@ -187,69 +205,16 @@
                     console.log('Jawaban berhasil disimpan:', response.message);
                     alert(response.message);
                     document.getElementById('save-button').style.display =
-                        'none'; // Sembunyikan tombol setelah disimpan
-
-                    // Setelah berhasil disimpan, pindahkan ke soal berikutnya
-                    const nextQuestionNumber = {{ $currentQuestionNumber }} +
-                        1; // Menambah 1 untuk soal berikutnya
-                    window.location.href =
-                        `{{ route('view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => '']) }}` +
-                        nextQuestionNumber;
+                    'none'; // Sembunyikan tombol setelah disimpan
                 },
                 error: function(xhr) {
                     const response = JSON.parse(xhr.responseText);
-                    console.log(response); // Melihat error response dari server
                     alert(response.message || 'Terjadi kesalahan saat mengirim jawaban.');
                 }
             });
         }
-
-
-
-        // Ambil waktu pengerjaan dari PHP (jam dan menit)
-        let waktuJam = {{ $tugas->waktu_pengerjaan_jam }};
-        let waktuMenit = {{ $tugas->waktu_pengerjaan_menit }};
-        let totalDetik = (waktuJam * 60 * 60) + (waktuMenit * 60);
-
-        // Cek waktu tersisa dari localStorage jika ada
-        const waktuTersisa = localStorage.getItem('waktuTersisa');
-        if (waktuTersisa) {
-            totalDetik = parseInt(waktuTersisa); // Gunakan waktu yang tersisa
-        }
-
-        // Fungsi untuk memperbarui tampilan hitungan mundur
-        function updateCountdown() {
-            if (totalDetik <= 0) {
-                clearInterval(countdownInterval); // Hentikan interval jika waktu habis
-                document.getElementById('countdown-timer').textContent = "Waktu habis!";
-                return;
-            }
-
-            // Hitung jam, menit, detik
-            let jam = Math.floor(totalDetik / 3600);
-            let menit = Math.floor((totalDetik % 3600) / 60);
-            let detik = totalDetik % 60;
-
-            // Perbarui tampilan hitungan mundur
-            const countdownText = `${jam} Jam ${menit} Menit ${detik} Detik`;
-            const countdownTimer = document.getElementById('countdown-timer');
-            countdownTimer.textContent = countdownText;
-
-            // Periksa apakah waktu tersisa 5 menit atau kurang
-            countdownTimer.style.color = totalDetik <= 5 * 60 ? 'red' : '';
-
-            // Simpan waktu tersisa hanya saat ada perubahan
-            if (totalDetik !== parseInt(localStorage.getItem('waktuTersisa'))) {
-                localStorage.setItem('waktuTersisa', totalDetik);
-            }
-
-            // Kurangi waktu satu detik
-            totalDetik--;
-        }
-
-        // Mulai hitungan mundur
-        const countdownInterval = setInterval(updateCountdown, 1000);
     </script>
+
 
 
 @endsection
