@@ -77,10 +77,19 @@
                                             </ul>
                                         @else
                                             <p>Quiz telah selesai. Terima kasih telah berpartisipasi!</p>
-                                            <button class="btn btn-success" onclick="finishQuiz()">Akhiri Quiz</button>
+                                            <div class="d-flex justify-content-end mt-3">
+                                                <button class="btn btn-success" onclick="finishQuiz()">Akhiri Quiz</button>
+                                            </div>
                                         @endif
+                                        <!-- Tombol Simpan -->
+                                        <div class="d-flex justify-content-end mt-3">
+                                            <button id="save-button" class="btn btn-primary mt-3" style="display: none;">
+                                                Simpan
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
+
 
                             </div>
 
@@ -138,12 +147,12 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => ` 
-                                                            <li> 
-                                                                <label>
-                                                                    <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                                </label>
-                                                            </li>
-                                                            `).join('')}
+                                                                <li> 
+                                                                    <label>
+                                                                        <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                                    </label>
+                                                                </li>
+                                                                `).join('')}
                                 </ul>
                             </div>
                         </div>
