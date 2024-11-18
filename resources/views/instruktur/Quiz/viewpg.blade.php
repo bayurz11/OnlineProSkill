@@ -55,7 +55,7 @@
                             <div class="col-lg-8" id="question-container">
                                 <div class="card">
                                     <div class="card-header">
-                                        <strong>Soal No. {{ $currentQuestionNumber }}</strong>
+                                        <strong>Soal No. {{ $current_question_number }}</strong>
                                     </div>
                                     <div class="card-body">
                                         <p>{{ $currentQuestion->isi_pertanyaan }}</p>
@@ -72,6 +72,7 @@
                                         </ul>
                                     </div>
                                 </div>
+
                             </div>
 
 
@@ -123,19 +124,20 @@
                         </div>
 
                         <!-- Navigation Buttons -->
-                        @if ($totalQuestions > 1)
-                            <div class="mt-4 text-center">
-                                <a href="{{ route('instruktur_view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => max($currentQuestionNumber - 1, 1)]) }}"
-                                    class="text-primary px-2 fs-4">
-                                    &laquo;&laquo;
-                                </a>
-                                <span>{{ $currentQuestionNumber }} Dari {{ $totalQuestions }} Nomor Soal</span>
-                                <a href="{{ route('instruktur_view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => min($currentQuestionNumber + 1, $totalQuestions)]) }}"
-                                    class="text-primary px-2 fs-4">
-                                    &raquo;&raquo;
-                                </a>
-                            </div>
-                        @endif
+                        <div class="mt-4 text-center">
+                            <a href="#"
+                                data-url="{{ route('instruktur_view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => max($currentQuestionNumber - 1, 1)]) }}"
+                                class="navigate-question text-primary px-2 fs-4">
+                                &laquo;&laquo;
+                            </a>
+                            <span>{{ $currentQuestionNumber }} Dari {{ $totalQuestions }} Nomor Soal</span>
+                            <a href="#"
+                                data-url="{{ route('instruktur_view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => min($currentQuestionNumber + 1, $totalQuestions)]) }}"
+                                class="navigate-question text-primary px-2 fs-4">
+                                &raquo;&raquo;
+                            </a>
+                        </div>
+
 
 
                     </div>
@@ -202,46 +204,31 @@
     <!-- dashboard-area-end -->
 
     <script>
-        function loadQuestion(id_tugas, questionNumber) {
-            $.ajax({
-                url: `/tugas/${id_tugas}/question/${questionNumber}`,
-                method: 'GET',
-                success: function(data) {
-                    if (data.error) {
-                        alert(data.error);
-                        return;
-                    }
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.navigate-question').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault(); // Mencegah pengalihan halaman
+                    const url = this.getAttribute('data-url');
 
-                    // Perbarui konten div
-                    $('#question-container').html(`
-                        <div class="card">
-                            <div class="card-header">
-                                <strong>Soal No. ${data.currentQuestionNumber}</strong>
-                            </div>
-                            <div class="card-body">
-                                <p>${data.currentQuestion.isi_pertanyaan}</p>
-                                <ul class="list-unstyled">
-                                    ${data.options.map((option, index) => `
-                                                <li>
-                                                    <label>
-                                                        <span class="option-label">
-                                                            ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
-                                                        </span>
-                                                    </label>
-                                                </li>
-                                            `).join('')}
-                                </ul>
-                            </div>
-                        </div>
-                    `);
-                },
-                error: function(err) {
-                    alert('Terjadi kesalahan saat memuat soal.');
-                }
+                    // Memuat ulang kontainer pertanyaan
+                    fetch(url, {
+                            headers: {
+                                'X-Requested-With': 'XMLHttpRequest'
+                            }
+                        })
+                        .then(response => response.text())
+                        .then(html => {
+                            const parser = new DOMParser();
+                            const doc = parser.parseFromString(html, 'text/html');
+                            const newQuestionContainer = doc.querySelector(
+                                '#question-container');
+                            document.querySelector('#question-container').innerHTML =
+                                newQuestionContainer.innerHTML;
+                        })
+                        .catch(error => console.error('Error loading question:', error));
+                });
             });
-        }
-
-        // Contoh penggunaan: loadQuestion(1, 2);
+        });
     </script>
 
 @endsection

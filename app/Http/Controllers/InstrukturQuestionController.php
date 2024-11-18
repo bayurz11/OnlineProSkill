@@ -281,25 +281,17 @@ class InstrukturQuestionController extends Controller
         ));
     }
 
-    public function fetchQuestion(Request $request, $id_tugas, $questionNumber)
+    public function viewQuestion(Request $request, $id_tugas, $current_question_number)
     {
-        $tugas = Tugas::with(['pertanyaan' => function ($query) {
-            $query->with('pilihanJawaban')->orderBy('id_pertanyaan', 'asc');
-        }])->findOrFail($id_tugas);
+        $tugas = Tugas::with(['pertanyaan', 'KelasTatapMuka'])->findOrFail($id_tugas);
+        $currentQuestion = $tugas->pertanyaan->get($current_question_number - 1); // Menyesuaikan dengan indeks array
+        $allQuestions = $tugas->pertanyaan;
 
-        $totalQuestions = $tugas->pertanyaan->count();
-
-        if ($questionNumber < 1 || $questionNumber > $totalQuestions) {
-            return response()->json(['error' => 'Nomor soal tidak valid'], 400);
+        if ($request->ajax()) {
+            return view('instruktur.partials.question', compact('currentQuestion', 'current_question_number'));
         }
 
-        $currentQuestion = $tugas->pertanyaan[$questionNumber - 1];
-
-        return response()->json([
-            'currentQuestionNumber' => $questionNumber,
-            'totalQuestions' => $totalQuestions,
-            'currentQuestion' => $currentQuestion,
-            'options' => $currentQuestion->pilihanJawaban,
-        ]);
+        // Render seluruh halaman jika bukan permintaan AJAX
+        return view('instruktur.tugas.view', compact('tugas', 'currentQuestion', 'current_question_number', 'allQuestions'));
     }
 }
