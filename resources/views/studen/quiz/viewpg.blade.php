@@ -139,12 +139,12 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                                                                        <li>
-                                                                                                            <label>
-                                                                                                                <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                                                                            </label>
-                                                                                                        </li>
-                                                                                                    `).join('')}
+                                                                                                                            <li>
+                                                                                                                                <label>
+                                                                                                                                    <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                                                                                                </label>
+                                                                                                                            </li>
+                                                                                                                        `).join('')}
                                 </ul>
                             </div>
                         </div>
@@ -162,9 +162,25 @@
             // Tampilkan tombol simpan saat ada pilihan
             document.getElementById('save-button').style.display = 'inline-block';
 
+            // Simpan jawaban ke localStorage
+            localStorage.setItem(`jawaban_${id_tugas}_${question_id}`, answer_value);
+
             // Simpan jawaban menggunakan AJAX
             saveAnswer(id_tugas, question_id, user_id, answer_value, jawabanEssay);
         }
+        $(document).ready(function() {
+            // Ambil jawaban yang disimpan dari localStorage
+            const selectedAnswer = localStorage.getItem(
+                `jawaban_{{ $tugas->id_tugas }}_{{ $currentQuestion->id_pertanyaan }}`);
+
+            if (selectedAnswer) {
+                // Jika ada jawaban yang disimpan, tandai radio button yang sesuai
+                $(`input[name="answer_{{ $currentQuestion->id }}"][value="${selectedAnswer}"]`).prop('checked',
+                    true);
+            }
+        });
+        localStorage.removeItem(`jawaban_${id_tugas}_${question_id}`);
+
 
         // Fungsi untuk menyimpan jawaban
         function saveAnswer(id_tugas, question_id, user_id, answer_value, jawabanEssay) {
@@ -190,11 +206,11 @@
                     console.log('Jawaban berhasil disimpan:', response.message);
                     alert(response.message);
                     document.getElementById('save-button').style.display =
-                    'none'; // Sembunyikan tombol setelah disimpan
+                        'none'; // Sembunyikan tombol setelah disimpan
 
                     // Setelah berhasil disimpan, pindahkan ke soal berikutnya
                     const nextQuestionNumber = {{ $currentQuestionNumber }} +
-                    1; // Menambah 1 untuk soal berikutnya
+                        1; // Menambah 1 untuk soal berikutnya
                     window.location.href =
                         `{{ route('view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => '']) }}` +
                         nextQuestionNumber;
