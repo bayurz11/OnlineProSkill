@@ -88,10 +88,12 @@
                                                     <td>
                                                         <div class="dashboard__review-action">
                                                             <a href="{{ route('view_pg', $quiz->id_tugas) }}"
-                                                                title="Lihat Soal">
-                                                                <i class="fas fa-eye"></i>
+                                                                title="Kerjakan Soal">
+                                                                <i class="fas fa-pencil-alt"></i>
+                                                                <span>Kerjakan Soal</span>
                                                             </a>
                                                         </div>
+
                                                     </td>
                                                 </tr>
                                             </tbody>
