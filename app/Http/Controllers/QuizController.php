@@ -145,7 +145,7 @@ class QuizController extends Controller
         try {
             // Validasi data yang dikirim
             $validated = $request->validate([
-                'id_pertanyaan' => 'required|exists:pertanyaan,id_pertanyaan',
+                'id_pertanyaan' => 'required',
                 'id_pilihan' => 'nullable|exists:pilihan_jawaban,id_pilihan',
                 'jawaban_essay' => 'nullable|string',
             ]);
