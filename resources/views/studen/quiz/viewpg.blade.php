@@ -73,7 +73,7 @@
                             </div>
 
                             <div class="col-lg-4">
-                                <div class="card">
+                                <div class="card gap-3">
                                     <div class="card-header">
                                         <strong>Navigasi Soal</strong>
                                     </div>
@@ -152,14 +152,14 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                                                                                                                                                        <li>
-                                                                                                                                                                                            <label>
-                                                                                                                                                                                                <span class="option-label">
-                                                                                                                                                                                                    ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
-                                                                                                                                                                                                </span>
-                                                                                                                                                                                            </label>
-                                                                                                                                                                                        </li>
-                                                                                                                                                                                    `).join('')}
+                                                                                                                                                                                            <li>
+                                                                                                                                                                                                <label>
+                                                                                                                                                                                                    <span class="option-label">
+                                                                                                                                                                                                        ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
+                                                                                                                                                                                                    </span>
+                                                                                                                                                                                                </label>
+                                                                                                                                                                                            </li>
+                                                                                                                                                                                        `).join('')}
                                 </ul>
                             </div>
                         </div>
