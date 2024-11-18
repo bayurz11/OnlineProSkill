@@ -142,21 +142,25 @@ class QuizController extends Controller
 
     public function storeJawaban(Request $request, $id_tugas)
     {
-        // Validasi data yang dikirim
-        $validated = $request->validate([
-            'id_pertanyaan' => 'required|exists:pertanyaan,id_pertanyaan',
-            'id_pilihan' => 'nullable|exists:pilihan_jawaban,id_pilihan',
-            'jawaban_essay' => 'nullable|string',
-        ]);
+        try {
+            // Validasi data yang dikirim
+            $validated = $request->validate([
+                'id_pertanyaan' => 'required|exists:pertanyaan,id_pertanyaan',
+                'id_pilihan' => 'nullable|exists:pilihan_jawaban,id_pilihan',
+                'jawaban_essay' => 'nullable|string',
+            ]);
 
-        // Simpan jawaban ke database
-        Jawaban_Siswa::create([
-            'id_pertanyaan' => $validated['id_pertanyaan'],
-            'id_siswa' => auth()->user()->id,
-            'id_pilihan' => $validated['id_pilihan'] ?? null,
-            'jawaban_essay' => $validated['jawaban_essay'],
-        ]);
+            // Simpan jawaban ke database
+            Jawaban_Siswa::create([
+                'id_pertanyaan' => $validated['id_pertanyaan'],
+                'id_siswa' => auth()->user()->id,
+                'id_pilihan' => $validated['id_pilihan'] ?? null,
+                'jawaban_essay' => $validated['jawaban_essay'],
+            ]);
 
-        return response()->json(['message' => 'Jawaban berhasil disimpan!']);
+            return response()->json(['message' => 'Jawaban berhasil disimpan!'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Error: ' . $e->getMessage()], 422);
+        }
     }
 }

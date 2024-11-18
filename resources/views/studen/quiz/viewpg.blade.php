@@ -139,12 +139,12 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                                                    <li>
-                                                                                        <label>
-                                                                                            <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                                                        </label>
-                                                                                    </li>
-                                                                                `).join('')}
+                                                                                        <li>
+                                                                                            <label>
+                                                                                                <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                                                            </label>
+                                                                                        </li>
+                                                                                    `).join('')}
                                 </ul>
                             </div>
                         </div>
@@ -157,7 +157,6 @@
             });
         }
 
-
         // Fungsi untuk menangani perubahan pilihan jawaban
         function handleAnswerChange(id_tugas, question_id, user_id, answer_value, jawabanEssay) {
             // Tampilkan tombol simpan saat ada pilihan
@@ -169,6 +168,9 @@
 
         // Fungsi untuk menyimpan jawaban
         function saveAnswer(id_tugas, question_id, user_id, answer_value, jawabanEssay) {
+            // Pastikan jawaban esai tidak null jika ada
+            jawabanEssay = jawabanEssay || '';
+
             // Persiapkan data yang akan dikirim
             let data = {
                 _token: '{{ csrf_token() }}', // Sertakan CSRF token
@@ -176,6 +178,8 @@
                 id_pilihan: answer_value, // ID pilihan jawaban
                 jawaban_essay: jawabanEssay, // Jawaban esai (jika ada)
             };
+
+            console.log("Data yang dikirim: ", data); // Debugging
 
             // Kirim data ke backend menggunakan AJAX
             $.ajax({
@@ -186,7 +190,7 @@
                     console.log('Jawaban berhasil disimpan:', response.message);
                     alert(response.message);
                     document.getElementById('save-button').style.display =
-                        'none'; // Sembunyikan tombol setelah disimpan
+                    'none'; // Sembunyikan tombol setelah disimpan
                 },
                 error: function(xhr) {
                     const response = JSON.parse(xhr.responseText);
@@ -195,6 +199,8 @@
                 }
             });
         }
+
+
         // Ambil waktu pengerjaan dari PHP (jam dan menit)
         let waktuJam = {{ $tugas->waktu_pengerjaan_jam }};
         let waktuMenit = {{ $tugas->waktu_pengerjaan_menit }};
