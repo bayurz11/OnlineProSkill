@@ -136,26 +136,31 @@
                         return;
                     }
 
-                    // Update the question container with new data
+                    // Buat ulang HTML untuk pertanyaan
                     const questionContent = `
-                        <div class="card">
-                            <div class="card-header">
-                                <strong>Soal No. ${data.currentQuestionNumber}</strong>
-                            </div>
-                            <div class="card-body">
-                                <p>${data.currentQuestion.isi_pertanyaan}</p>
-                                <ul class="list-unstyled">
-                                    ${data.options.map((option, index) => ` 
-                                                                            <li> 
-                                                                                <label>
-                                                                                    <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                                                </label>
-                                                                            </li>
-                                                                            `).join('')}
-                                </ul>
-                            </div>
-                        </div>
-                    `;
+                <div class="card">
+                    <div class="card-header">
+                        <strong>Soal No. ${data.currentQuestionNumber}</strong>
+                    </div>
+                    <div class="card-body">
+                        <p>${data.currentQuestion.isi_pertanyaan}</p>
+                        <ul class="list-unstyled">
+                            ${data.options.map((option, index) => `
+                                        <li>
+                                            <label>
+                                                <input type="radio" name="answer_${data.currentQuestion.id}"
+                                                    value="${option.id_pilihan}" class="me-2"
+                                                    onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
+                                                <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                            </label>
+                                        </li>
+                                    `).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `;
+
+                    // Update container soal
                     $('#question-container').html(questionContent);
                 },
                 error: function() {
@@ -164,14 +169,28 @@
             });
         }
 
-        // Fungsi untuk menangani perubahan pilihan jawaban
-        function handleAnswerChange(id_tugas, question_id, user_id, answer_value) {
 
-            // Tampilkan tombol simpan saat ada pilihan
-            document.getElementById('save-button').style.display = 'inline-block';
+        function handleAnswerChange(id_tugas, question_id, answer_value) {
+            const data = {
+                _token: '{{ csrf_token() }}',
+                id_pertanyaan: question_id,
+                id_pilihan: answer_value
+            };
 
-            // Simpan jawaban menggunakan AJAX
-            saveAnswer(id_tugas, question_id, user_id, answer_value);
+            $.ajax({
+                url: `/tugas/${id_tugas}/jawaban`,
+                method: 'POST',
+                data: data,
+                success: function() {
+                    // Pindah ke soal berikutnya setelah jawaban disimpan
+                    const nextQuestionNumber = parseInt('{{ $currentQuestionNumber }}') + 1;
+                    loadQuestion(id_tugas, nextQuestionNumber);
+                },
+                error: function(xhr) {
+                    const response = JSON.parse(xhr.responseText);
+                    alert(response.message || 'Terjadi kesalahan saat menyimpan jawaban.');
+                }
+            });
         }
 
         // Fungsi untuk menyimpan jawaban
