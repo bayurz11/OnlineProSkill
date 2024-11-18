@@ -139,12 +139,12 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                                                                                            <li>
-                                                                                                                                <label>
-                                                                                                                                    <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                                                                                                </label>
-                                                                                                                            </li>
-                                                                                                                        `).join('')}
+                                                                                                                    <li>
+                                                                                                                        <label>
+                                                                                                                            <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                                                                                        </label>
+                                                                                                                    </li>
+                                                                                                                `).join('')}
                                 </ul>
                             </div>
                         </div>
@@ -158,41 +158,22 @@
         }
 
         // Fungsi untuk menangani perubahan pilihan jawaban
-        function handleAnswerChange(id_tugas, question_id, user_id, answer_value, jawabanEssay) {
+        function handleAnswerChange(id_tugas, question_id, user_id, answer_value) {
             // Tampilkan tombol simpan saat ada pilihan
             document.getElementById('save-button').style.display = 'inline-block';
 
-            // Simpan jawaban ke localStorage
-            localStorage.setItem(`jawaban_${id_tugas}_${question_id}`, answer_value);
-
             // Simpan jawaban menggunakan AJAX
-            saveAnswer(id_tugas, question_id, user_id, answer_value, jawabanEssay);
+            saveAnswer(id_tugas, question_id, user_id, answer_value);
         }
-        $(document).ready(function() {
-            // Ambil jawaban yang disimpan dari localStorage
-            const selectedAnswer = localStorage.getItem(
-                `jawaban_{{ $tugas->id_tugas }}_{{ $currentQuestion->id_pertanyaan }}`);
-
-            if (selectedAnswer) {
-                // Jika ada jawaban yang disimpan, tandai radio button yang sesuai
-                $(`input[name="answer_{{ $currentQuestion->id }}"][value="${selectedAnswer}"]`).prop('checked',
-                    true);
-            }
-        });
-        localStorage.removeItem(`jawaban_${id_tugas}_${question_id}`);
-
 
         // Fungsi untuk menyimpan jawaban
-        function saveAnswer(id_tugas, question_id, user_id, answer_value, jawabanEssay) {
-            // Pastikan jawaban esai tidak null jika ada
-            jawabanEssay = jawabanEssay || '';
+        function saveAnswer(id_tugas, question_id, user_id, answer_value) {
 
             // Persiapkan data yang akan dikirim
             let data = {
                 _token: '{{ csrf_token() }}', // Sertakan CSRF token
                 id_pertanyaan: question_id,
                 id_pilihan: answer_value, // ID pilihan jawaban
-                jawaban_essay: jawabanEssay, // Jawaban esai (jika ada)
             };
 
             console.log("Data yang dikirim: ", data); // Debugging
