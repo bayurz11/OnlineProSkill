@@ -123,22 +123,19 @@
                         </div>
 
                         <!-- Navigation Buttons -->
-                        <div class="mt-4 text-center">
-                            @if ($currentQuestionNumber > 1)
-                                <button
-                                    onclick="loadQuestion('{{ $tugas->id_tugas }}', {{ $currentQuestionNumber - 1 }})">
+                        @if ($totalQuestions > 1)
+                            <div class="mt-4 text-center">
+                                <a href="{{ route('instruktur_view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => max($currentQuestionNumber - 1, 1)]) }}"
+                                    class="text-primary px-2 fs-4">
                                     &laquo;&laquo;
-                                </button>
-                            @endif
-                            <span>{{ $currentQuestionNumber }} Dari {{ $totalQuestions }} Nomor Soal</span>
-                            @if ($currentQuestionNumber < $totalQuestions)
-                                <button
-                                    onclick="loadQuestion('{{ $tugas->id_tugas }}', {{ $currentQuestionNumber + 1 }})">
+                                </a>
+                                <span>{{ $currentQuestionNumber }} Dari {{ $totalQuestions }} Nomor Soal</span>
+                                <a href="{{ route('instruktur_view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => min($currentQuestionNumber + 1, $totalQuestions)]) }}"
+                                    class="text-primary px-2 fs-4">
                                     &raquo;&raquo;
-                                </button>
-                            @endif
-                        </div>
-
+                                </a>
+                            </div>
+                        @endif
 
 
                     </div>
@@ -205,46 +202,84 @@
     <!-- dashboard-area-end -->
 
     <script>
-        function loadQuestion(id_tugas, questionNumber) {
-            $.ajax({
-                url: `/tugas/${id_tugas}/question/${questionNumber}`,
-                method: 'GET',
-                success: function(data) {
-                    if (data.error) {
-                        alert(data.error);
-                        return;
-                    }
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tangkap klik pada semua link navigasi
+            document.querySelectorAll('.text-primary').forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault(); // Mencegah refresh halaman
 
-                    // Perbarui konten div
-                    $('#question-container').html(`
-                        <div class="card">
-                            <div class="card-header">
-                                <strong>Soal No. ${data.currentQuestionNumber}</strong>
-                            </div>
-                            <div class="card-body">
-                                <p>${data.currentQuestion.isi_pertanyaan}</p>
-                                <ul class="list-unstyled">
-                                    ${data.options.map((option, index) => `
-                                                    <li>
-                                                        <label>
-                                                            <span class="option-label">
-                                                                ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
-                                                            </span>
-                                                        </label>
-                                                    </li>
-                                                `).join('')}
-                                </ul>
-                            </div>
-                        </div>
-                    `);
-                },
-                error: function(err) {
-                    alert('Terjadi kesalahan saat memuat soal.');
-                }
+                    // Ambil URL dari atribut href
+                    const url = this.getAttribute('href');
+
+                    // Ambil parameter soal dari URL
+                    const urlParams = new URL(url, window.location.origin);
+                    const questionNumber = urlParams.searchParams.get('current_question_number');
+                    const idTugas = '{{ $tugas->id_tugas }}'; // ID Tugas dari Blade
+
+                    // Panggil fungsi loadQuestion untuk memuat soal
+                    loadQuestion(idTugas, questionNumber);
+                });
             });
+        });
+
+        async function loadQuestion(id_tugas, questionNumber) {
+            try {
+                const response = await fetch(`/tugas/${id_tugas}/question/${questionNumber}`);
+                if (!response.ok) throw new Error('Terjadi kesalahan saat memuat soal.');
+
+                const data = await response.json();
+                if (data.error) {
+                    alert(data.error);
+                    return;
+                }
+
+                // Perbarui konten soal
+                document.getElementById('question-container').innerHTML = `
+                    <div class="card">
+                        <div class="card-header">
+                            <strong>Soal No. ${data.currentQuestionNumber}</strong>
+                        </div>
+                        <div class="card-body">
+                            <p>${data.currentQuestion.isi_pertanyaan}</p>
+                            <ul class="list-unstyled">
+                                ${data.options.map((option, index) => `
+                                            <li>
+                                                <label>
+                                                    <span class="option-label">
+                                                        ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
+                                                    </span>
+                                                </label>
+                                            </li>
+                                        `).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                `;
+
+                // Perbarui navigasi (nomor soal)
+                updateNavigation(id_tugas, data.currentQuestionNumber, data.totalQuestions);
+            } catch (err) {
+                alert(err.message);
+            }
         }
 
-        // Contoh penggunaan: loadQuestion(1, 2);
+        function updateNavigation(id_tugas, currentQuestionNumber, totalQuestions) {
+            const navigation = `
+                <a href="{{ route('instruktur_view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => '${currentQuestionNumber - 1}']) }}"
+                    class="text-primary px-2 fs-4"
+                    ${currentQuestionNumber <= 1 ? 'style="pointer-events: none; opacity: 0.5;"' : ''}>
+                    &laquo;&laquo;
+                </a>
+                <span>${currentQuestionNumber} Dari ${totalQuestions} Nomor Soal</span>
+                <a href="{{ route('instruktur_view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => '${currentQuestionNumber + 1}']) }}"
+                    class="text-primary px-2 fs-4"
+                    ${currentQuestionNumber >= totalQuestions ? 'style="pointer-events: none; opacity: 0.5;"' : ''}>
+                    &raquo;&raquo;
+                </a>
+            `;
+            document.querySelector('.mt-4.text-center').innerHTML = navigation;
+        }
     </script>
+
 
 @endsection
