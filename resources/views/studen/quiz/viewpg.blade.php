@@ -40,9 +40,11 @@
                                 <dt class="col-sm-3">Jumlah Soal</dt>
                                 <dd class="col-sm-9">: {{ $tugas->pertanyaan->count() }}</dd>
 
+                                <!-- Tampilkan waktu pengerjaan -->
                                 <dt class="col-sm-3">Waktu Pengerjaan</dt>
-                                <dd class="col-sm-9">: {{ $tugas->waktu_pengerjaan_jam }} Jam
-                                    {{ $tugas->waktu_pengerjaan_menit }} Menit</dd>
+                                <dd class="col-sm-9">: <span id="countdown-timer">{{ $tugas->waktu_pengerjaan_jam }} Jam
+                                        {{ $tugas->waktu_pengerjaan_menit }} Menit</span></dd>
+
                             </dl>
                         </div>
 
@@ -127,14 +129,14 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                                                                                                                                                                                                            <li>
-                                                                                                                                                                                                                                                <label>
-                                                                                                                                                                                                                                                    <span class="option-label">
-                                                                                                                                                                                                                                                        ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
-                                                                                                                                                                                                                                                    </span>
-                                                                                                                                                                                                                                                </label>
-                                                                                                                                                                                                                                            </li>
-                                                                                                                                                                                                                                        `).join('')}
+                                                                                                                                                                                                                                                    <li>
+                                                                                                                                                                                                                                                        <label>
+                                                                                                                                                                                                                                                            <span class="option-label">
+                                                                                                                                                                                                                                                                ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
+                                                                                                                                                                                                                                                            </span>
+                                                                                                                                                                                                                                                        </label>
+                                                                                                                                                                                                                                                    </li>
+                                                                                                                                                                                                                                                `).join('')}
                                 </ul>
                             </div>
                         </div>
@@ -145,7 +147,35 @@
                 }
             });
         }
-        // Contoh penggunaan: loadQuestion(1, 2);
+        // Hitungan mundur 
+        let waktuJam = {{ $tugas->waktu_pengerjaan_jam }};
+        let waktuMenit = {{ $tugas->waktu_pengerjaan_menit }};
+
+        // Konversi total waktu ke detik
+        let totalDetik = (waktuJam * 60 * 60) + (waktuMenit * 60);
+
+        // Fungsi untuk memperbarui tampilan hitungan mundur
+        function updateCountdown() {
+            if (totalDetik <= 0) {
+                clearInterval(countdownInterval); // Hentikan interval jika waktu habis
+                alert("Waktu habis!");
+                return;
+            }
+
+            // Hitung jam, menit, detik
+            let jam = Math.floor(totalDetik / 3600);
+            let menit = Math.floor((totalDetik % 3600) / 60);
+            let detik = totalDetik % 60;
+
+            // Perbarui tampilan
+            document.getElementById('countdown-timer').textContent = `${jam} Jam ${menit} Menit ${detik} Detik`;
+
+            // Kurangi waktu satu detik
+            totalDetik--;
+        }
+
+        // Mulai hitungan mundur
+        const countdownInterval = setInterval(updateCountdown, 1000);
     </script>
 
 @endsection
