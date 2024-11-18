@@ -131,12 +131,12 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                                <li>
-                                                                    <label>
-                                                                        <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                                    </label>
-                                                                </li>
-                                                            `).join('')}
+                                                                    <li>
+                                                                        <label>
+                                                                            <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                                        </label>
+                                                                    </li>
+                                                                `).join('')}
                                 </ul>
                             </div>
                         </div>
@@ -150,26 +150,33 @@
         }
 
         function saveAnswer(id_tugas, id_pertanyaan, id_siswa, id_pilihan) {
-            // Kirim data jawaban ke server menggunakan AJAX
+            console.log('Data yang dikirim:', {
+                id_tugas: id_tugas,
+                id_pertanyaan: id_pertanyaan,
+                id_siswa: id_siswa,
+                id_pilihan: id_pilihan
+            });
+
             $.ajax({
-                url: '/tugas/' + id_tugas + '/jawaban', // URL untuk menyimpan jawaban
+                url: '/tugas/' + id_tugas + '/jawaban',
                 method: 'POST',
                 data: {
                     id_tugas: id_tugas,
                     id_pertanyaan: id_pertanyaan,
                     id_siswa: id_siswa,
                     id_pilihan: id_pilihan,
-                    _token: '{{ csrf_token() }}' // Pastikan untuk menyertakan token CSRF
+                    _token: '{{ csrf_token() }}'
                 },
                 success: function(response) {
-                    // Tampilkan pesan sukses atau lakukan sesuatu setelah jawaban disimpan
                     console.log('Jawaban berhasil disimpan');
                 },
-                error: function() {
+                error: function(xhr, status, error) {
+                    console.log('Error:', xhr.responseText);
                     alert('Terjadi kesalahan saat menyimpan jawaban.');
                 }
             });
         }
+
 
 
         // Ambil waktu pengerjaan dari PHP (jam dan menit)
