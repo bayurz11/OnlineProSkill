@@ -11,6 +11,12 @@
                         Akses Pembelian
                     </a>
                 </li>
+                <li class="{{ Request::is('quiz') ? 'active' : '' }}">
+                    <a href="{{ route('quiz') }}">
+                        <i class="skillgro-chat"></i>
+                        Quiz
+                    </a>
+                </li>
                 <li class="{{ Request::is('profil') ? 'active' : '' }}">
                     <a href="{{ route('profil') }}">
                         <i class="skillgro-avatar"></i>

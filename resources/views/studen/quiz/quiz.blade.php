@@ -23,10 +23,10 @@
     <!-- dashboard-area -->
     <section class="dashboard__area section-pb-120">
         <div class="container">
-            @include('instruktur.nav.profile')
+            @include('studen.nav.profile')
 
             <div class="row">
-                @include('instruktur.nav.navbar')
+                @include('studen.nav.nav')
                 <div class="col-lg-9">
                     <div class="dashboard__content-wrap">
                         <div class="dashboard__content-title d-flex justify-content-between align-items-center">
