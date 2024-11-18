@@ -27,7 +27,7 @@
 
             <div class="row">
                 @include('studen.nav.nav')
-                <div class="col-lg-8">
+                <div class="col-lg-9">
                     <!-- Combined Form to Add New Quiz and Questions -->
                     <div class="dashboard__content-wrap">
                         <!-- Title and Details Section -->
@@ -48,7 +48,7 @@
 
                         <!-- Question and Answer Section -->
                         <div class="row mt-4">
-                            <div class="col-lg-9" id="question-container">
+                            <div class="col-lg-8" id="question-container">
                                 <div class="card">
                                     <div class="card-header">
                                         <strong>Soal No. {{ $currentQuestionNumber }}</strong>
