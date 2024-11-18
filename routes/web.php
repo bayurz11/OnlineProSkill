@@ -219,7 +219,7 @@ Route::middleware('isStuden')->group(function () {
     //Quiz
     Route::get('/quiz', [QuizController::class, 'index'])->name('quiz');
     Route::get('/view_pg/{id_tugas}', [QuizController::class, 'viewpg'])->name('view_pg');
-
+    Route::post('/tugas/{id_tugas}/jawaban', [QuizController::class, 'store'])->name('jawaban.store');
 
     // Route::get('/kurikulum-content/{$kurikulum_id}', [AksesPembelianController::class, 'fetchContent'])->name('kurikulum.content');
 });
