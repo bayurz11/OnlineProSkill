@@ -137,12 +137,12 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                                        <li>
-                                                                            <label>
-                                                                                <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                                            </label>
-                                                                        </li>
-                                                                    `).join('')}
+                                                                            <li>
+                                                                                <label>
+                                                                                    <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                                                </label>
+                                                                            </li>
+                                                                        `).join('')}
                                 </ul>
                             </div>
                         </div>
@@ -157,39 +157,42 @@
 
 
         // Fungsi untuk menangani perubahan pilihan jawaban
-        function handleAnswerChange(id_tugas, question_id, user_id, answer_value) {
+        function handleAnswerChange(id_tugas, question_id, user_id, answer_value, jawabanEssay) {
             // Tampilkan tombol simpan saat ada pilihan
             document.getElementById('save-button').style.display = 'inline-block';
 
-            // Simpan jawaban sementara jika diperlukan
-            saveAnswer(id_tugas, question_id, user_id, answer_value);
+            // Simpan jawaban menggunakan AJAX
+            saveAnswer(id_tugas, question_id, user_id, answer_value, jawabanEssay);
         }
 
         // Fungsi untuk menyimpan jawaban
-        function saveAnswer(id_tugas, question_id, user_id, answer_value) {
-            const jawabanEssay = document.querySelector('textarea[name="jawaban_essay"]')?.value ||
-                ''; // Jika ada input essay
+        function saveAnswer(id_tugas, question_id, user_id, answer_value, jawabanEssay) {
+            // Persiapkan data yang akan dikirim
+            let data = {
+                _token: '{{ csrf_token() }}', // Sertakan CSRF token
+                id_pertanyaan: question_id,
+                id_pilihan: answer_value, // ID pilihan jawaban
+                jawaban_essay: jawabanEssay, // Jawaban esai (jika ada)
+            };
 
-            // Kirim data menggunakan AJAX
+            // Kirim data ke backend menggunakan AJAX
             $.ajax({
                 url: `/tugas/${id_tugas}/jawaban`,
                 method: 'POST',
-                data: {
-                    _token: '{{ csrf_token() }}', // Sertakan token CSRF untuk proteksi
-                    id_pertanyaan: question_id,
-                    id_pilihan: answer_value, // ID pilihan jawaban
-                    jawaban_essay: jawabanEssay, // Jawaban esai (jika ada)
-                },
-                success: function(data) {
-                    alert(data.message); // Menampilkan pesan sukses
+                data: data,
+                success: function(response) {
+                    console.log('Jawaban berhasil disimpan:', response.message);
+                    alert(response.message);
+                    document.getElementById('save-button').style.display =
+                        'none'; // Sembunyikan tombol setelah disimpan
                 },
                 error: function(xhr) {
-                    alert('Terjadi kesalahan saat mengirim jawaban.');
+                    const response = JSON.parse(xhr.responseText);
+                    console.log(response); // Melihat error response dari server
+                    alert(response.message || 'Terjadi kesalahan saat mengirim jawaban.');
                 }
             });
         }
-
-
         // Ambil waktu pengerjaan dari PHP (jam dan menit)
         let waktuJam = {{ $tugas->waktu_pengerjaan_jam }};
         let waktuMenit = {{ $tugas->waktu_pengerjaan_menit }};
