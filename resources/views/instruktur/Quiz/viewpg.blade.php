@@ -94,33 +94,34 @@
                                             <tbody>
                                                 @foreach ($allQuestions as $index => $question)
                                                     <tr>
-                                                        <td>{{ $index + 1 }}</td>
+                                                        <!-- Tambahkan link untuk nomor soal -->
+                                                        <td>
+                                                            <a href="{{ route('quiz.show', ['id' => $tugas->id_tugas, 'question' => $index + 1]) }}"
+                                                                class="text-decoration-none text-primary">
+                                                                {{ $index + 1 }}
+                                                            </a>
+                                                        </td>
                                                         <td>
                                                             @foreach ($question->pilihanJawaban as $i => $option)
                                                                 @if ($option->benar)
-                                                                    <span>{{ chr(65 + $i) }}. {{ $option->isi_pilihan }}
-                                                                    </span><br>
+                                                                    <span>{{ chr(65 + $i) }}.
+                                                                        {{ $option->isi_pilihan }}</span><br>
                                                                 @endif
                                                             @endforeach
                                                         </td>
                                                     </tr>
                                                 @endforeach
-
                                             </tbody>
                                         </table>
                                     </div>
                                     <div class="card-footer text-center">
-                                        <a href="#" class="text-primary px-2 fs-4">
-                                            &laquo;
-                                        </a>
-                                        <span>1 / 1 </span>
-                                        <a href="#" class="text-primary px-2 fs-4">
-                                            &raquo;
-                                        </a>
+                                        <a href="#" class="text-primary px-2 fs-4">&laquo;</a>
+                                        <span>1 / {{ $totalQuestions }}</span>
+                                        <a href="#" class="text-primary px-2 fs-4">&raquo;</a>
                                     </div>
-
                                 </div>
                             </div>
+
                         </div>
 
                         <!-- Navigation Buttons -->
