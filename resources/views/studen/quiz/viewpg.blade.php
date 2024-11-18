@@ -139,12 +139,12 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                                                                    <li>
-                                                                                                        <label>
-                                                                                                            <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                                                                        </label>
-                                                                                                    </li>
-                                                                                                `).join('')}
+                                                                                                        <li>
+                                                                                                            <label>
+                                                                                                                <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                                                                            </label>
+                                                                                                        </li>
+                                                                                                    `).join('')}
                                 </ul>
                             </div>
                         </div>
@@ -190,7 +190,14 @@
                     console.log('Jawaban berhasil disimpan:', response.message);
                     alert(response.message);
                     document.getElementById('save-button').style.display =
-                        'none'; // Sembunyikan tombol setelah disimpan
+                    'none'; // Sembunyikan tombol setelah disimpan
+
+                    // Setelah berhasil disimpan, pindahkan ke soal berikutnya
+                    const nextQuestionNumber = {{ $currentQuestionNumber }} +
+                    1; // Menambah 1 untuk soal berikutnya
+                    window.location.href =
+                        `{{ route('view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => '']) }}` +
+                        nextQuestionNumber;
                 },
                 error: function(xhr) {
                     const response = JSON.parse(xhr.responseText);
@@ -199,6 +206,7 @@
                 }
             });
         }
+
 
 
         // Ambil waktu pengerjaan dari PHP (jam dan menit)
