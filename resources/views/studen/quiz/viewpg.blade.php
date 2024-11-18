@@ -118,16 +118,6 @@
     <!-- dashboard-area-end -->
 
     <script>
-        // Fungsi untuk menangani perubahan pilihan jawaban
-        function handleAnswerChange(id_tugas, question_id, user_id, answer_value) {
-            // Tampilkan tombol simpan saat ada pilihan
-            document.getElementById('save-button').style.display = 'inline-block';
-
-            // Simpan jawaban di backend menggunakan AJAX
-            saveAnswer(id_tugas, question_id, user_id, answer_value);
-        }
-
-        // Fungsi untuk memuat soal dan memeriksa jawaban yang disimpan
         function loadQuestion(id_tugas, questionNumber) {
             $.ajax({
                 url: `/tugas/${id_tugas}/question/${questionNumber}`,
@@ -140,28 +130,24 @@
 
                     // Update the question container with new data
                     const questionContent = `
-                    <div class="card">
-                        <div class="card-header">
-                            <strong>Soal No. ${data.currentQuestionNumber}</strong>
+                        <div class="card">
+                            <div class="card-header">
+                                <strong>Soal No. ${data.currentQuestionNumber}</strong>
+                            </div>
+                            <div class="card-body">
+                                <p>${data.currentQuestion.isi_pertanyaan}</p>
+                                <ul class="list-unstyled">
+                                    ${data.options.map((option, index) => ` 
+                                                        <li> 
+                                                            <label>
+                                                                <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                            </label>
+                                                        </li>
+                                                        `).join('')}
+                                </ul>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <p>${data.currentQuestion.isi_pertanyaan}</p>
-                            <ul class="list-unstyled">
-                                ${data.options.map((option, index) => `
-                                        <li>
-                                            <label>
-                                                <input type="radio" name="answer_${data.currentQuestion.id_pertanyaan}"
-                                                    value="${option.id_pilihan}" class="me-2"
-                                                    onchange="handleAnswerChange('${data.currentQuestion.id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${auth().user().id}', '${option.id_pilihan}', this.value)" 
-                                                    ${option.id_pilihan === data.userAnswer.id_pilihan ? 'checked' : ''} />
-                                                <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                            </label>
-                                        </li>
-                                    `).join('')}
-                            </ul>
-                        </div>
-                    </div>
-                `;
+                    `;
                     $('#question-container').html(questionContent);
                 },
                 error: function() {
@@ -170,8 +156,19 @@
             });
         }
 
+        // Fungsi untuk menangani perubahan pilihan jawaban
+        function handleAnswerChange(id_tugas, question_id, user_id, answer_value) {
+
+            // Tampilkan tombol simpan saat ada pilihan
+            document.getElementById('save-button').style.display = 'inline-block';
+
+            // Simpan jawaban menggunakan AJAX
+            saveAnswer(id_tugas, question_id, user_id, answer_value);
+        }
+
         // Fungsi untuk menyimpan jawaban
         function saveAnswer(id_tugas, question_id, user_id, answer_value) {
+
             // Persiapkan data yang akan dikirim
             let data = {
                 _token: '{{ csrf_token() }}', // Sertakan CSRF token
@@ -179,23 +176,33 @@
                 id_pilihan: answer_value, // ID pilihan jawaban
             };
 
+            console.log("Data yang dikirim: ", data); // Debugging
+
             // Kirim data ke backend menggunakan AJAX
+
             $.ajax({
                 url: `/tugas/${id_tugas}/jawaban`,
                 method: 'POST',
                 data: data,
                 success: function(response) {
-                    console.log('Jawaban berhasil disimpan:', response.message);
-                    alert(response.message);
-                    document.getElementById('save-button').style.display =
-                    'none'; // Sembunyikan tombol setelah disimpan
+                    // Sembunyikan tombol setelah disimpan
+                    document.getElementById('save-button').style.display = 'none';
+
+                    // Setelah berhasil disimpan, pindahkan ke soal berikutnya
+                    const nextQuestionNumber = {{ $currentQuestionNumber }} +
+                        1; // Menambah 1 untuk soal berikutnya
+                    window.location.href =
+                        `{{ route('view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => '']) }}` +
+                        nextQuestionNumber;
                 },
                 error: function(xhr) {
                     const response = JSON.parse(xhr.responseText);
                     alert(response.message || 'Terjadi kesalahan saat mengirim jawaban.');
                 }
             });
+
         }
+
 
 
         // Ambil waktu pengerjaan dari PHP (jam dan menit)
