@@ -63,7 +63,7 @@
                                                     <label>
                                                         <input type="radio" name="answer_{{ $currentQuestion->id }}"
                                                             value="{{ $option->id }}" class="me-2"
-                                                            onchange="handleAnswerChange('{{ $tugas->id_tugas }}', '{{ $currentQuestion->id }}', '{{ auth()->user()->id }}', this.value, '')" />
+                                                            onchange="handleAnswerChange('{{ $tugas->id_tugas }}', '{{ $currentQuestion->id_pertanyaan }}', '{{ auth()->user()->id }}', this.value, '')" />
                                                         <!-- Update sesuai jika jawaban esai -->
                                                         <span class="option-label">
                                                             {{ chr(65 + $index) }}. {{ $option->isi_pilihan }}
@@ -95,7 +95,6 @@
                                             @foreach ($allQuestions as $index => $question)
                                                 <a href="{{ route('view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => $index + 1]) }}"
                                                     class="btn btn-sm rounded {{ $currentQuestionNumber == $index + 1 ? 'text-white' : 'text-dark' }}"
-                                                    data-id="{{ $tugas->id_pertanyaan }}"
                                                     style="background-color: {{ $currentQuestionNumber == $index + 1 ? '#319A58' : '#E0E0E0' }}; 
                                                           margin-top: 8px; margin-bottom: 8px; box-shadow: none;">
                                                     {{ $index + 1 }}
