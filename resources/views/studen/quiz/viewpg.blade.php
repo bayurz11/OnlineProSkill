@@ -120,9 +120,9 @@
                         alert(data.error);
                         return;
                     }
-    
-                    // Perbarui konten div
-                    $('#question-container').html(`
+
+                    // Update the question container with new data
+                    const questionContent = `
                         <div class="card">
                             <div class="card-header">
                                 <strong>Soal No. ${data.currentQuestionNumber}</strong>
@@ -131,120 +131,68 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                        <li>
-                                            <label>
-                                                <span class="option-label">
-                                                    ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
-                                                </span>
-                                            </label>
-                                        </li>
-                                    `).join('')}
+                                            <li>
+                                                <label>
+                                                    <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                </label>
+                                            </li>
+                                        `).join('')}
                                 </ul>
-                                <!-- Tombol simpan jawaban -->
-                                <button id="save-button" style="display:none" onclick="saveAnswer()">Simpan Jawaban</button>
                             </div>
                         </div>
-                    `);
-    
-                    // Menampilkan tombol simpan saat pilihan jawaban dipilih
-                    document.querySelectorAll('input[name="answer_' + data.currentQuestion.id + '"]').forEach(input => {
-                        input.addEventListener('change', showSaveButton);
-                    });
+                    `;
+                    $('#question-container').html(questionContent);
                 },
-                error: function(err) {
+                error: function() {
                     alert('Terjadi kesalahan saat memuat soal.');
                 }
             });
         }
-    
-        // Fungsi untuk menampilkan tombol simpan
-        function showSaveButton() {
-            document.getElementById('save-button').style.display = 'block';
-        }
-    
-        // Fungsi untuk menyimpan jawaban
-        function saveAnswer() {
-            // Ambil jawaban yang dipilih
-            const selectedAnswer = document.querySelector('input[name="answer_{{ $currentQuestion->id }}"]:checked');
-    
-            if (!selectedAnswer) {
-                alert("Pilih jawaban terlebih dahulu.");
-                return;
-            }
-    
-            const answerId = selectedAnswer.value;
-            const questionId = {{ $currentQuestion->id }};
-    
-            // Kirim jawaban menggunakan AJAX
-            $.ajax({
-                url: `/tugas/${{{ $tugas->id_tugas }}}/jawaban`,
-                method: 'POST',
-                data: {
-                    _token: '{{ csrf_token() }}',
-                    answer: answerId,
-                    question_id: questionId
-                },
-                success: function(response) {
-                    if (response.success) {
-                        alert("Jawaban berhasil disimpan!");
-                        // Sembunyikan tombol setelah disimpan
-                        document.getElementById('save-button').style.display = 'none';
-                    } else {
-                        alert("Terjadi kesalahan saat menyimpan jawaban.");
-                    }
-                },
-                error: function() {
-                    alert("Terjadi kesalahan saat menyimpan jawaban.");
-                }
-            });
-        }
-    
+
         // Ambil waktu pengerjaan dari PHP (jam dan menit)
         let waktuJam = {{ $tugas->waktu_pengerjaan_jam }};
         let waktuMenit = {{ $tugas->waktu_pengerjaan_menit }};
-    
-        // Konversi total waktu ke detik
         let totalDetik = (waktuJam * 60 * 60) + (waktuMenit * 60);
-    
-        // Cek apakah ada waktu yang tersisa yang disimpan di localStorage
-        if (localStorage.getItem('waktuTersisa')) {
-            totalDetik = parseInt(localStorage.getItem('waktuTersisa')); // Gunakan waktu yang tersisa dari localStorage
+
+        // Cek waktu tersisa dari localStorage jika ada
+        const waktuTersisa = localStorage.getItem('waktuTersisa');
+        if (waktuTersisa) {
+            totalDetik = parseInt(waktuTersisa); // Gunakan waktu yang tersisa
         }
-    
+
         // Fungsi untuk memperbarui tampilan hitungan mundur
         function updateCountdown() {
             if (totalDetik <= 0) {
                 clearInterval(countdownInterval); // Hentikan interval jika waktu habis
-                alert("Waktu habis!");
+                document.getElementById('countdown-timer').textContent = "Waktu habis!";
                 return;
             }
-    
+
             // Hitung jam, menit, detik
             let jam = Math.floor(totalDetik / 3600);
             let menit = Math.floor((totalDetik % 3600) / 60);
             let detik = totalDetik % 60;
-    
-            // Perbarui tampilan
-            let countdownText = `${jam} Jam ${menit} Menit ${detik} Detik`;
-            document.getElementById('countdown-timer').textContent = countdownText;
-    
+
+            // Perbarui tampilan hitungan mundur
+            const countdownText = `${jam} Jam ${menit} Menit ${detik} Detik`;
+            const countdownTimer = document.getElementById('countdown-timer');
+            countdownTimer.textContent = countdownText;
+
             // Periksa apakah waktu tersisa 5 menit atau kurang
-            if (totalDetik <= 5 * 60) { // Jika waktu tersisa <= 5 menit
-                document.getElementById('countdown-timer').style.color = 'red'; // Ubah warna teks menjadi merah
-            } else {
-                document.getElementById('countdown-timer').style.color = ''; // Kembalikan warna teks ke default
+            countdownTimer.style.color = totalDetik <= 5 * 60 ? 'red' : '';
+
+            // Simpan waktu tersisa hanya saat ada perubahan
+            if (totalDetik !== parseInt(localStorage.getItem('waktuTersisa'))) {
+                localStorage.setItem('waktuTersisa', totalDetik);
             }
-    
-            // Simpan waktu tersisa ke localStorage
-            localStorage.setItem('waktuTersisa', totalDetik);
-    
+
             // Kurangi waktu satu detik
             totalDetik--;
         }
-    
+
         // Mulai hitungan mundur
         const countdownInterval = setInterval(updateCountdown, 1000);
     </script>
-    
+
 
 @endsection
