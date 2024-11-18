@@ -79,25 +79,6 @@
                                         </div>
                                     </div>
 
-                                    <script>
-                                        // Fungsi untuk menangani perubahan pilihan jawaban
-                                        function handleAnswerChange(id_tugas, question_id, user_id, answer_value) {
-                                            // Tampilkan tombol simpan saat ada pilihan
-                                            document.getElementById('save-button').style.display = 'inline-block';
-
-                                            // Simpan jawaban sementara jika diperlukan
-                                            saveAnswer(id_tugas, question_id, user_id, answer_value);
-                                        }
-
-                                        // Fungsi untuk menyimpan jawaban
-                                        function saveAnswer(id_tugas, question_id, user_id, answer_value) {
-                                            // Logika penyimpanan jawaban
-                                            console.log(
-                                                `Menyimpan jawaban: tugas ${id_tugas}, soal ${question_id}, pengguna ${user_id}, pilihan ${answer_value}`
-                                            );
-                                            // Kamu bisa menambahkan AJAX untuk menyimpan jawaban di server
-                                        }
-                                    </script>
 
                                 </div>
                             </div>
@@ -156,12 +137,12 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                                <li>
-                                                                    <label>
-                                                                        <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                                    </label>
-                                                                </li>
-                                                            `).join('')}
+                                                                        <li>
+                                                                            <label>
+                                                                                <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                                            </label>
+                                                                        </li>
+                                                                    `).join('')}
                                 </ul>
                             </div>
                         </div>
@@ -173,6 +154,41 @@
                 }
             });
         }
+
+
+        // Fungsi untuk menangani perubahan pilihan jawaban
+        function handleAnswerChange(id_tugas, question_id, user_id, answer_value) {
+            // Tampilkan tombol simpan saat ada pilihan
+            document.getElementById('save-button').style.display = 'inline-block';
+
+            // Simpan jawaban sementara jika diperlukan
+            saveAnswer(id_tugas, question_id, user_id, answer_value);
+        }
+
+        // Fungsi untuk menyimpan jawaban
+        function saveAnswer(id_tugas, question_id, user_id, answer_value) {
+            const jawabanEssay = document.querySelector('textarea[name="jawaban_essay"]')?.value ||
+                ''; // Jika ada input essay
+
+            // Kirim data menggunakan AJAX
+            $.ajax({
+                url: `/tugas/${id_tugas}/jawaban`,
+                method: 'POST',
+                data: {
+                    _token: '{{ csrf_token() }}', // Sertakan token CSRF untuk proteksi
+                    id_pertanyaan: question_id,
+                    id_pilihan: answer_value, // ID pilihan jawaban
+                    jawaban_essay: jawabanEssay, // Jawaban esai (jika ada)
+                },
+                success: function(data) {
+                    alert(data.message); // Menampilkan pesan sukses
+                },
+                error: function(xhr) {
+                    alert('Terjadi kesalahan saat mengirim jawaban.');
+                }
+            });
+        }
+
 
         // Ambil waktu pengerjaan dari PHP (jam dan menit)
         let waktuJam = {{ $tugas->waktu_pengerjaan_jam }};

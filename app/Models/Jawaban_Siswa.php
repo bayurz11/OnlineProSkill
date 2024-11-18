@@ -17,4 +17,22 @@ class Jawaban_Siswa extends Model
         'id_pilihan',
         'nilai',
     ];
+
+    // Relasi ke tabel Pertanyaan
+    public function pertanyaan()
+    {
+        return $this->belongsTo(Pertanyaan::class, 'id_pertanyaan');
+    }
+
+    // Relasi ke tabel PilihanJawaban
+    public function pilihanJawaban()
+    {
+        return $this->belongsTo(Pilih_Jawaban::class, 'id_pilihan');
+    }
+
+    // Relasi ke tabel Users (Siswa)
+    public function siswa()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
