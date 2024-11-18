@@ -43,9 +43,6 @@
                                 <dt class="col-sm-3">Waktu Pengerjaan</dt>
                                 <dd class="col-sm-9">: {{ $tugas->waktu_pengerjaan_jam }} Jam
                                     {{ $tugas->waktu_pengerjaan_menit }} Menit</dd>
-
-                                <dt class="col-sm-3">Jumlah Siswa</dt>
-                                <dd class="col-sm-9">: {{ $daftarpesanan[0]->jumlah_order_paid ?? 0 }} Siswa</dd>
                             </dl>
                         </div>
 
@@ -87,7 +84,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>No. Soal</th>
-                                                    <th>Jawaban</th>
+                                                    {{-- <th>Jawaban</th> --}}
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -100,14 +97,14 @@
                                                                 {{ $index + 1 }}
                                                             </a>
                                                         </td>
-                                                        <td>
+                                                        {{-- <td>
                                                             @foreach ($question->pilihanJawaban as $i => $option)
                                                                 @if ($option->benar)
                                                                     <span>{{ chr(65 + $i) }}
                                                                     </span><br>
                                                                 @endif
                                                             @endforeach
-                                                        </td>
+                                                        </td> --}}
                                                     </tr>
                                                 @endforeach
                                             </tbody>
@@ -230,14 +227,14 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                                                                <li>
-                                                                                                    <label>
-                                                                                                        <span class="option-label">
-                                                                                                            ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
-                                                                                                        </span>
-                                                                                                    </label>
-                                                                                                </li>
-                                                                                            `).join('')}
+                                                                                                        <li>
+                                                                                                            <label>
+                                                                                                                <span class="option-label">
+                                                                                                                    ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
+                                                                                                                </span>
+                                                                                                            </label>
+                                                                                                        </li>
+                                                                                                    `).join('')}
                                 </ul>
                             </div>
                         </div>
