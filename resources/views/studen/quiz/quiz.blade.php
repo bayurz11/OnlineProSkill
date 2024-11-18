@@ -87,7 +87,6 @@
                                                     <td>
                                                         <div class="dashboard__review-action">
                                                             @if ($isSelesai)
-                                                                <!-- Tautan tidak dapat diklik jika waktu telah berakhir -->
                                                                 <span class="pointer-events-none">
                                                                     <i class="fas fa-pencil-alt"></i> Kerjakan Soal
                                                                 </span>
