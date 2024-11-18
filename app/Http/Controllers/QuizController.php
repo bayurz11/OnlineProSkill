@@ -121,6 +121,14 @@ class QuizController extends Controller
                 ->count();
         }
 
+        $currentQuestionNumber = $request->input('current_question_number', 1);
+        $currentQuestion = $tugas->pertanyaan()->skip($currentQuestionNumber - 1)->first();
+
+        if ($request->ajax()) {
+            // Hanya render bagian soal
+            return view('studen.quiz.partial_question', compact('currentQuestion', 'currentQuestionNumber'));
+        }
+
         return view('studen.quiz.viewpg', compact(
             'user',
             'KelasTatapMuka',
@@ -136,7 +144,9 @@ class QuizController extends Controller
             'currentQuestion',
             'allQuestions',
             'totalQuestions',
-            'daftarpesanan'
+            'daftarpesanan',
+            'currentQuestion',
+            'currentQuestionNumber'
         ));
     }
 

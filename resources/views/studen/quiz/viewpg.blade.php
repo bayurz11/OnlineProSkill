@@ -81,15 +81,8 @@
                                                 <button class="btn btn-success" onclick="finishQuiz()">Akhiri Quiz</button>
                                             </div>
                                         @endif
-                                        <!-- Tombol Simpan -->
-                                        <div class="d-flex justify-content-end mt-3">
-                                            <button id="save-button" class="btn btn-primary mt-3" style="display: none;">
-                                                Simpan
-                                            </button>
-                                        </div>
                                     </div>
                                 </div>
-
 
                             </div>
 
@@ -101,10 +94,11 @@
                                     <div class="card-body text-center">
                                         <div class="d-flex justify-content flex-wrap gap-3 px-3">
                                             @foreach ($allQuestions as $index => $question)
-                                                <a href="{{ route('view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => $index + 1]) }}"
+                                                <a href="javascript:void(0)"
                                                     class="btn btn-sm rounded {{ $currentQuestionNumber == $index + 1 ? 'text-white border-2 border-success' : 'text-dark' }}"
-                                                    style="background-color: {{ $currentQuestionNumber == $index + 1 ? '#319A58' : '#E0E0E0' }}; 
-                                                          margin-top: 8px; margin-bottom: 8px; box-shadow: none;">
+                                                    style="background-color: {{ $currentQuestionNumber == $index + 1 ? '#319A58' : '#E0E0E0' }}; margin-top: 8px; margin-bottom: 8px; box-shadow: none;"
+                                                    data-question-number="{{ $index + 1 }}"
+                                                    onclick="navigateToQuestion('{{ $tugas->id_tugas }}', {{ $index + 1 }});">
                                                     {{ $index + 1 }}
                                                 </a>
                                             @endforeach
@@ -126,6 +120,19 @@
     <!-- dashboard-area-end -->
 
     <script>
+        function navigateToQuestion(id_tugas, questionNumber) {
+            $.ajax({
+                url: `/tugas/${id_tugas}/view_pg?current_question_number=${questionNumber}`,
+                method: 'GET',
+                success: function(data) {
+                    $('#question-container').html(data); // Update bagian soal
+                },
+                error: function(xhr) {
+                    alert('Gagal memuat soal. Silakan coba lagi.');
+                }
+            });
+        }
+
         function loadQuestion(id_tugas, questionNumber) {
             $.ajax({
                 url: `/tugas/${id_tugas}/question/${questionNumber}`,
@@ -146,15 +153,15 @@
                         <p>${data.currentQuestion.isi_pertanyaan}</p>
                         <ul class="list-unstyled">
                             ${data.options.map((option, index) => `
-                                                <li>
-                                                    <label>
-                                                        <input type="radio" name="answer_${data.currentQuestion.id}"
-                                                            value="${option.id_pilihan}" class="me-2"
-                                                            onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
-                                                        <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                    </label>
-                                                </li>
-                                            `).join('')}
+                                                            <li>
+                                                                <label>
+                                                                    <input type="radio" name="answer_${data.currentQuestion.id}"
+                                                                        value="${option.id_pilihan}" class="me-2"
+                                                                        onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
+                                                                    <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                                </label>
+                                                            </li>
+                                                        `).join('')}
                         </ul>
                     </div>
                 </div>
