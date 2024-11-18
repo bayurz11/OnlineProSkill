@@ -11,7 +11,7 @@
                         Akses Pembelian
                     </a>
                 </li>
-                <li class="{{ Request::is('quiz') ? 'active' : '' }}">
+                <li class="{{ Request::is('quiz', 'view_pg') ? 'active' : '' }}">
                     <a href="{{ route('quiz') }}">
                         <i class="skillgro-chat"></i>
                         Quiz
