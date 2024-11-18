@@ -63,7 +63,7 @@
                                                     <label>
                                                         <input type="radio" name="answer_{{ $currentQuestion->id }}"
                                                             value="{{ $option->id }}" class="me-2"
-                                                            onchange="saveAnswer('{{ $tugas->id_tugas }}', '{{ $currentQuestion->id }}', '{{ auth()->user()->id }}', this.value)" />
+                                                            onchange="showSaveButton()" />
                                                         <span class="option-label">
                                                             {{ chr(65 + $index) }}. {{ $option->isi_pilihan }}
                                                         </span>
@@ -131,12 +131,12 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                                            <li>
-                                                                                <label>
-                                                                                    <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                                                </label>
-                                                                            </li>
-                                                                        `).join('')}
+                                                <li>
+                                                    <label>
+                                                        <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                    </label>
+                                                </li>
+                                            `).join('')}
                                 </ul>
                             </div>
                         </div>
@@ -145,34 +145,6 @@
                 },
                 error: function() {
                     alert('Terjadi kesalahan saat memuat soal.');
-                }
-            });
-        }
-
-        function saveAnswer(id_tugas, id_pertanyaan, id_siswa, id_pilihan) {
-            console.log('Data yang dikirim:', {
-                id_tugas: id_tugas,
-                id_pertanyaan: id_pertanyaan,
-                id_siswa: id_siswa,
-                id_pilihan: id_pilihan
-            });
-
-            $.ajax({
-                url: '/tugas/' + id_tugas + '/jawaban',
-                method: 'POST',
-                data: {
-                    id_tugas: id_tugas,
-                    id_pertanyaan: id_pertanyaan,
-                    id_siswa: id_siswa,
-                    id_pilihan: id_pilihan,
-                    _token: '{{ csrf_token() }}'
-                },
-                success: function(response) {
-                    console.log('Jawaban berhasil disimpan');
-                },
-                error: function(xhr, status, error) {
-                    console.log('Error:', xhr.responseText);
-                    alert('Terjadi kesalahan saat menyimpan jawaban.');
                 }
             });
         }
