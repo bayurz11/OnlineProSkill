@@ -81,11 +81,12 @@
                                         <div class="d-flex justify-content flex-wrap gap-2">
                                             @foreach ($allQuestions as $index => $question)
                                                 <a href="{{ route('view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => $index + 1]) }}"
-                                                    class="btn btn-sm rounded {{ $currentQuestionNumber == $index + 1 ? 'text-white' : 'text-dark' }}"
+                                                    class="btn btn-sm rounded {{ $currentQuestionNumber == $index + 1 ? 'text-white' : 'text-dark' }} ms-2"
                                                     style="background-color: {{ $currentQuestionNumber == $index + 1 ? '#319A58' : '#E0E0E0' }};">
                                                     {{ $index + 1 }}
                                                 </a>
                                             @endforeach
+
                                         </div>
                                     </div>
                                     <div class="card-footer text-center">
@@ -150,14 +151,14 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                                                                                                                                        <li>
-                                                                                                                                                                            <label>
-                                                                                                                                                                                <span class="option-label">
-                                                                                                                                                                                    ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
-                                                                                                                                                                                </span>
-                                                                                                                                                                            </label>
-                                                                                                                                                                        </li>
-                                                                                                                                                                    `).join('')}
+                                                                                                                                                                            <li>
+                                                                                                                                                                                <label>
+                                                                                                                                                                                    <span class="option-label">
+                                                                                                                                                                                        ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
+                                                                                                                                                                                    </span>
+                                                                                                                                                                                </label>
+                                                                                                                                                                            </li>
+                                                                                                                                                                        `).join('')}
                                 </ul>
                             </div>
                         </div>
