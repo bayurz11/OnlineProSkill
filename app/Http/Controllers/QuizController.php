@@ -11,6 +11,7 @@ use App\Models\KelasTatapMuka;
 use App\Models\NotifikasiUser;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Jawaban_Siswa;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -137,5 +138,23 @@ class QuizController extends Controller
             'totalQuestions',
             'daftarpesanan'
         ));
+    }
+
+    public function storeJawaban(Request $request, $id_tugas)
+    {
+        $request->validate([
+            'id_pertanyaan' => 'required|exists:pertanyaan,id_pertanyaan',
+            'id_siswa' => 'required|exists:users,id',
+            'id_pilihan' => 'nullable|exists:pilihan_jawaban,id_pilihan',
+        ]);
+
+        // Simpan jawaban siswa
+        Jawaban_Siswa::create([
+            'id_pertanyaan' => $request->id_pertanyaan,
+            'id_siswa' => $request->id_siswa,
+            'id_pilihan' => $request->id_pilihan,
+        ]);
+
+        return response()->json(['message' => 'Jawaban disimpan']);
     }
 }
