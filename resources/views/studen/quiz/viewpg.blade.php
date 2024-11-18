@@ -145,61 +145,7 @@
 
                     </div>
                 </div>
-                <div class="col-lg-12 mt-4">
-                    <div class="card">
-                        <div class="card-header d-flex justify-content-between align-items-center">
-                            <strong>Nilai Siswa</strong>
-                            <div>
-                                <a href="#" class="text-decoration-none text-white px-3 py-1 rounded me-2"
-                                    style="background-color: #007bff;">
-                                    <i class="fas fa-print"></i> Cetak
-                                </a>
-                                <a href="#" class="text-decoration-none text-white px-3 py-1 rounded"
-                                    style="background-color: #28a745;">
-                                    <i class="fas fa-file-excel"></i> Ekspor Excel
-                                </a>
-                            </div>
-                        </div>
 
-                        <div class="card-body">
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>Nama Siswa</th>
-                                        <th>Benar</th>
-                                        <th>Salah</th>
-                                        <th>Tidak Dijawab</th>
-                                        <th>Opsi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {{-- @foreach ($students as $student)
-                                        <tr>
-                                            <td>{{ $student->nama }}</td>
-                                            <td>{{ $student->benar ?? 'Belum Mengerjakan Ujian' }}</td>
-                                            <td>{{ $student->salah ?? 'Belum Mengerjakan Ujian' }}</td>
-                                            <td>{{ $student->tidak_dijawab ?? 'Belum Mengerjakan Ujian' }}</td>
-                                            <td>
-                                                <!-- Tambahkan opsi lain sesuai kebutuhan -->
-                                            </td>
-                                        </tr>
-                                    @endforeach --}}
-
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>
-                                            <!-- Tambahkan opsi lain sesuai kebutuhan -->
-                                        </td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
 
             </div>
         </div>
@@ -227,14 +173,14 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                                                                            <li>
-                                                                                                                <label>
-                                                                                                                    <span class="option-label">
-                                                                                                                        ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
-                                                                                                                    </span>
-                                                                                                                </label>
-                                                                                                            </li>
-                                                                                                        `).join('')}
+                                                                                                                <li>
+                                                                                                                    <label>
+                                                                                                                        <span class="option-label">
+                                                                                                                            ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
+                                                                                                                        </span>
+                                                                                                                    </label>
+                                                                                                                </li>
+                                                                                                            `).join('')}
                                 </ul>
                             </div>
                         </div>
