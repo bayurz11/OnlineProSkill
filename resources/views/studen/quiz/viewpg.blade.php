@@ -40,7 +40,6 @@
                                 <dt class="col-sm-3">Jumlah Soal</dt>
                                 <dd class="col-sm-9">: {{ $tugas->pertanyaan->count() }}</dd>
 
-                                <!-- Tampilkan waktu pengerjaan -->
                                 <dt class="col-sm-3">Waktu Pengerjaan</dt>
                                 <dd class="col-sm-9">: <span id="countdown-timer">{{ $tugas->waktu_pengerjaan_jam }} Jam
                                         {{ $tugas->waktu_pengerjaan_menit }} Menit</span></dd>
@@ -146,15 +145,15 @@
                         <p>${data.currentQuestion.isi_pertanyaan}</p>
                         <ul class="list-unstyled">
                             ${data.options.map((option, index) => `
-                                                    <li>
-                                                        <label>
-                                                            <input type="radio" name="answer_${data.currentQuestion.id}"
-                                                                value="${option.id_pilihan}" class="me-2"
-                                                                onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
-                                                            <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                        </label>
-                                                    </li>
-                                                `).join('')}
+                                                                <li>
+                                                                    <label>
+                                                                        <input type="radio" name="answer_${data.currentQuestion.id}"
+                                                                            value="${option.id_pilihan}" class="me-2"
+                                                                            onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
+                                                                        <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                                    </label>
+                                                                </li>
+                                                            `).join('')}
                         </ul>
                     </div>
                 </div>
@@ -199,8 +198,8 @@
                 method: 'POST',
                 data: data,
                 success: function(response) {
-                    // Sembunyikan tombol setelah disimpan
-                    document.getElementById('save-button').style.display = 'none';
+                    // // Sembunyikan tombol setelah disimpan
+                    // document.getElementById('save-button').style.display = 'none';
 
                     // Setelah berhasil disimpan, pindahkan ke soal berikutnya
                     const nextQuestionNumber = {{ $currentQuestionNumber }} +
@@ -216,7 +215,6 @@
             });
 
         }
-
 
 
         // Ambil waktu pengerjaan dari PHP (jam dan menit)
