@@ -44,9 +44,6 @@
                                 <dd class="col-sm-9">: {{ $tugas->waktu_pengerjaan_jam }} Jam
                                     {{ $tugas->waktu_pengerjaan_menit }} Menit</dd>
 
-                                {{-- <span id="countdown-timer">{{ $tugas->waktu_pengerjaan_jam }} Jam
-                                    {{ $tugas->waktu_pengerjaan_menit }} Menit</span> --}}
-
                             </dl>
                         </div>
 
@@ -151,15 +148,15 @@
                         <p>${data.currentQuestion.isi_pertanyaan}</p>
                         <ul class="list-unstyled">
                             ${data.options.map((option, index) => `
-                                                                                                                            <li>
-                                                                                                                                <label>
-                                                                                                                                    <input type="radio" name="answer_${data.currentQuestion.id}"
-                                                                                                                                        value="${option.id_pilihan}" class="me-2"
-                                                                                                                                        onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
-                                                                                                                                    <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                                                                                                </label>
-                                                                                                                            </li>
-                                                                                                                        `).join('')}
+                                                                                                                                    <li>
+                                                                                                                                        <label>
+                                                                                                                                            <input type="radio" name="answer_${data.currentQuestion.id}"
+                                                                                                                                                value="${option.id_pilihan}" class="me-2"
+                                                                                                                                                onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
+                                                                                                                                            <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                                                                                                        </label>
+                                                                                                                                    </li>
+                                                                                                                                `).join('')}
                         </ul>
                     </div>
                 </div>
@@ -255,7 +252,7 @@
             let detik = totalDetik % 60;
 
             // Perbarui tampilan hitungan mundur
-            const countdownText = `${jam} Jam ${menit} Menit ${detik} Detik`;
+            const countdownText = `${jam} : ${menit} : ${detik} :`;
             const countdownTimer = document.getElementById('countdown-timer');
             countdownTimer.textContent = countdownText;
 
