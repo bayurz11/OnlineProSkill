@@ -57,8 +57,12 @@
                                         @else
                                             <strong>Quiz Selesai</strong>
                                         @endif
-                                        <i class="fas fa-clock ml-auto" id="countdown-timer"> </i>
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-clock mr-3 text-primary" id="countdown-timer"></i>
+                                            <span id="timer-text" class="ml-2">00:00</span>
+                                        </div>
                                     </div>
+
 
                                     <div class="card-body">
                                         @if ($currentQuestion)
@@ -148,15 +152,15 @@
                         <p>${data.currentQuestion.isi_pertanyaan}</p>
                         <ul class="list-unstyled">
                             ${data.options.map((option, index) => `
-                                                                                                                                    <li>
-                                                                                                                                        <label>
-                                                                                                                                            <input type="radio" name="answer_${data.currentQuestion.id}"
-                                                                                                                                                value="${option.id_pilihan}" class="me-2"
-                                                                                                                                                onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
-                                                                                                                                            <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                                                                                                        </label>
-                                                                                                                                    </li>
-                                                                                                                                `).join('')}
+                                                                                                                                            <li>
+                                                                                                                                                <label>
+                                                                                                                                                    <input type="radio" name="answer_${data.currentQuestion.id}"
+                                                                                                                                                        value="${option.id_pilihan}" class="me-2"
+                                                                                                                                                        onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
+                                                                                                                                                    <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                                                                                                                </label>
+                                                                                                                                            </li>
+                                                                                                                                        `).join('')}
                         </ul>
                     </div>
                 </div>
@@ -252,7 +256,7 @@
             let detik = totalDetik % 60;
 
             // Perbarui tampilan hitungan mundur
-            const countdownText = `${jam} : ${menit} : ${detik} :`;
+            const countdownText = `${jam} : ${menit} : ${detik}`;
             const countdownTimer = document.getElementById('countdown-timer');
             countdownTimer.textContent = countdownText;
 
