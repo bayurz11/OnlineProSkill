@@ -53,7 +53,9 @@
                                 <div class="card">
                                     <div class="card-header">
                                         @if ($currentQuestion)
-                                            <strong>Soal No. {{ $currentQuestionNumber }}</strong>
+                                            <strong>Soal No. {{ $currentQuestionNumber }}</strong> <span
+                                                id="countdown-timer">{{ $tugas->waktu_pengerjaan_jam }} Jam
+                                                {{ $tugas->waktu_pengerjaan_menit }} Menit</span>
                                         @else
                                             <strong>Quiz Selesai</strong>
                                         @endif
@@ -146,15 +148,15 @@
                         <p>${data.currentQuestion.isi_pertanyaan}</p>
                         <ul class="list-unstyled">
                             ${data.options.map((option, index) => `
-                                                                                        <li>
-                                                                                            <label>
-                                                                                                <input type="radio" name="answer_${data.currentQuestion.id}"
-                                                                                                    value="${option.id_pilihan}" class="me-2"
-                                                                                                    onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
-                                                                                                <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                                                            </label>
-                                                                                        </li>
-                                                                                    `).join('')}
+                                                                                            <li>
+                                                                                                <label>
+                                                                                                    <input type="radio" name="answer_${data.currentQuestion.id}"
+                                                                                                        value="${option.id_pilihan}" class="me-2"
+                                                                                                        onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
+                                                                                                    <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                                                                </label>
+                                                                                            </li>
+                                                                                        `).join('')}
                         </ul>
                     </div>
                 </div>
