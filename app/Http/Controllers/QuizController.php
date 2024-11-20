@@ -90,10 +90,13 @@ class QuizController extends Controller
         $id_tugas = $request->route('id_tugas');
 
         // Mengambil tugas dan pertanyaan terkait
-        $tugas = Tugas::with(['pertanyaan' => function ($query) {
-            $query->with('pilihanJawaban')
-                ->orderBy('id_pertanyaan', 'asc');
+        // Mengambil tugas dan pertanyaan terkait, termasuk jawaban yang dipilih
+        $tugas = Tugas::with(['pertanyaan' => function ($query) use ($user) {
+            $query->with(['pilihanJawaban', 'jawaban' => function ($query) use ($user) {
+                $query->where('user_id', $user->id); // Ambil jawaban pengguna
+            }])->orderBy('id_pertanyaan', 'asc');
         }])->find($id_tugas);
+
 
         // Menentukan nomor soal saat ini, default ke 1 jika tidak ada parameter
         $currentQuestionNumber = $request->input('current_question_number', 1);
