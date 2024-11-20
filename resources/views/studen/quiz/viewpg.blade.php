@@ -51,14 +51,15 @@
                         <div class="row mt-4">
                             <div class="col-lg-8" id="question-container">
                                 <div class="card">
-                                    <div class="card-header">
+                                    <div class="card-header d-flex justify-content-between">
                                         @if ($currentQuestion)
                                             <strong>Soal No. {{ $currentQuestionNumber }}</strong>
                                         @else
                                             <strong>Quiz Selesai</strong>
                                         @endif
-                                        <i class="fas fa-clock"></i>
+                                        <i class="fas fa-clock ml-auto"></i>
                                     </div>
+
                                     <div class="card-body">
                                         @if ($currentQuestion)
                                             <p>{{ $currentQuestion->isi_pertanyaan }}</p>
@@ -147,15 +148,15 @@
                         <p>${data.currentQuestion.isi_pertanyaan}</p>
                         <ul class="list-unstyled">
                             ${data.options.map((option, index) => `
-                                                                                                    <li>
-                                                                                                        <label>
-                                                                                                            <input type="radio" name="answer_${data.currentQuestion.id}"
-                                                                                                                value="${option.id_pilihan}" class="me-2"
-                                                                                                                onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
-                                                                                                            <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                                                                        </label>
-                                                                                                    </li>
-                                                                                                `).join('')}
+                                                                                                        <li>
+                                                                                                            <label>
+                                                                                                                <input type="radio" name="answer_${data.currentQuestion.id}"
+                                                                                                                    value="${option.id_pilihan}" class="me-2"
+                                                                                                                    onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
+                                                                                                                <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                                                                            </label>
+                                                                                                        </li>
+                                                                                                    `).join('')}
                         </ul>
                     </div>
                 </div>
