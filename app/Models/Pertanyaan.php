@@ -22,8 +22,8 @@ class Pertanyaan extends Model
     {
         return $this->belongsTo(Tugas::class, 'id_tugas');
     }
-    public function jawaban()
+    public function pilihanJawaban()
     {
-        return $this->hasMany(Jawaban_Siswa::class, 'id_pertanyaan');
+        return $this->hasMany(Pilih_Jawaban::class, 'id_pertanyaan');
     }
 }
