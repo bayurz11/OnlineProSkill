@@ -152,53 +152,30 @@ class QuizController extends Controller
         ));
     }
 
-    // public function storeJawaban(Request $request, $id_tugas)
-    // {
-    //     try {
-    //         // Validasi data yang dikirim
-    //         $validated = $request->validate([
-    //             'id_pertanyaan' => 'required|exists:pertanyaan,id_pertanyaan',
-    //             'id_pilihan' => 'nullable|exists:pilihan_jawaban,id_pilihan',
-
-    //         ]);
-
-    //         // Simpan jawaban ke database
-    //         Jawaban_Siswa::create([
-    //             'id_pertanyaan' => $validated['id_pertanyaan'],
-    //             'id_siswa' => auth()->user()->id,
-    //             'id_pilihan' => $validated['id_pilihan'] ?? null,
-
-    //         ]);
-
-    //         return response()->json(['message' => 'Jawaban berhasil disimpan!'], 200);
-    //     } catch (\Exception $e) {
-    //         return response()->json(['message' => 'Error: ' . $e->getMessage()], 422);
-    //     }
-    // }
-    public function storeJawaban(Request $request, $id_tugas, $id_pertanyaan)
+    public function storeJawaban(Request $request, $id_tugas)
     {
         try {
-            // Validasi data
+            // Validasi data yang dikirim
             $validated = $request->validate([
+                'id_pertanyaan' => 'required|exists:pertanyaan,id_pertanyaan',
                 'id_pilihan' => 'nullable|exists:pilihan_jawaban,id_pilihan',
+
             ]);
 
-            // Simpan atau perbarui jawaban ke database
-            Jawaban_Siswa::updateOrCreate(
-                [
-                    'id_pertanyaan' => $id_pertanyaan,
-                    'id_siswa' => auth()->user()->id,
-                ],
-                [
-                    'id_pilihan' => $validated['id_pilihan'] ?? null,
-                ]
-            );
+            // Simpan jawaban ke database
+            Jawaban_Siswa::create([
+                'id_pertanyaan' => $validated['id_pertanyaan'],
+                'id_siswa' => auth()->user()->id,
+                'id_pilihan' => $validated['id_pilihan'] ?? null,
+
+            ]);
 
             return response()->json(['message' => 'Jawaban berhasil disimpan!'], 200);
         } catch (\Exception $e) {
             return response()->json(['message' => 'Error: ' . $e->getMessage()], 422);
         }
     }
+
 
 
     public function getQuestion(Request $request, $id_tugas, $currentQuestionNumber)
