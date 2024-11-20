@@ -109,14 +109,15 @@
                                     <div class="card-body text-center">
                                         <div class="d-flex justify-content flex-wrap gap-3 px-3">
                                             @foreach ($allQuestions as $index => $question)
-                                                <a href="javascript:void(0)"
-                                                    class="btn btn-sm rounded {{ $currentQuestionNumber == $index + 1 ? 'text-white border-2 border-success' : 'text-dark' }}"
-                                                    style="background-color: {{ $currentQuestionNumber == $index + 1 ? '#319A58' : '#E0E0E0' }}; 
-                                                   margin-top: 8px; margin-bottom: 8px; box-shadow: none;"
-                                                    onclick="loadQuestion('{{ $tugas->id_tugas }}', {{ $index + 1 }})">
+                                                <a href="#"
+                                                    class="btn btn-sm rounded question-nav {{ $currentQuestionNumber == $index + 1 ? 'text-white border-2 border-success' : 'text-dark' }}"
+                                                    style="background-color: {{ $currentQuestionNumber == $index + 1 ? '#319A58' : '#E0E0E0' }}; margin-top: 8px; margin-bottom: 8px; box-shadow: none;"
+                                                    data-id-tugas="{{ $tugas->id_tugas }}"
+                                                    data-question-number="{{ $index + 1 }}">
                                                     {{ $index + 1 }}
                                                 </a>
                                             @endforeach
+
                                         </div>
                                     </div>
                                 </div>
@@ -137,7 +138,7 @@
     <script>
         function loadQuestion(id_tugas, questionNumber) {
             $.ajax({
-                url: `/view_pg/${id_tugas}?current_question_number=${questionNumber}`, // Endpoint untuk mendapatkan data soal
+                url: `/tugas/${id_tugas}/question/${questionNumber}`,
                 method: 'GET',
                 success: function(data) {
                     if (data.error) {
@@ -145,7 +146,7 @@
                         return;
                     }
 
-                    // Buat ulang HTML untuk soal
+                    // Buat ulang HTML untuk pertanyaan
                     const questionContent = `
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
@@ -159,15 +160,15 @@
                         <p>${data.currentQuestion.isi_pertanyaan}</p>
                         <ul class="list-unstyled">
                             ${data.options.map((option, index) => `
-                                                    <li>
-                                                        <label>
-                                                            <input type="radio" name="answer_${data.currentQuestion.id}" 
-                                                                   value="${option.id_pilihan}" class="me-2" 
-                                                                   onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')"
-                                                                   ${option.selected ? 'checked' : ''}>
-                                                            <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                        </label>
-                                                    </li>`).join('')}
+                                            <li>
+                                                <label>
+                                                    <input type="radio" name="answer_${data.currentQuestion.id}" 
+                                                        value="${option.id_pilihan}" class="me-2"
+                                                        onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
+                                                    <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                </label>
+                                            </li>
+                                        `).join('')}
                         </ul>
                         <div class="d-flex justify-content-end mt-3">
                             <button id="save-button" class="btn btn-primary mt-3" style="display: none;">
@@ -178,14 +179,28 @@
                 </div>
             `;
 
-                    // Update container dengan soal baru
+                    // Update container soal
                     $('#question-container').html(questionContent);
                 },
-                error: function(xhr) {
+                error: function() {
                     alert('Terjadi kesalahan saat memuat soal.');
                 }
             });
         }
+        $(document).on('click', '.question-nav', function(e) {
+            e.preventDefault();
+
+            // Ambil id_tugas dan nomor soal dari atribut data
+            const id_tugas = $(this).data('id-tugas');
+            const questionNumber = $(this).data('question-number');
+
+            // Panggil fungsi loadQuestion
+            loadQuestion(id_tugas, questionNumber);
+
+            // Highlight navigasi yang dipilih
+            $('.question-nav').removeClass('text-white border-2 border-success').css('background-color', '#E0E0E0');
+            $(this).addClass('text-white border-2 border-success').css('background-color', '#319A58');
+        });
 
 
 

@@ -220,7 +220,7 @@ Route::middleware('isStuden')->group(function () {
     Route::get('/quiz', [QuizController::class, 'index'])->name('quiz');
     Route::get('/view_pg/{id_tugas}', [QuizController::class, 'viewpg'])->name('view_pg');
     Route::post('/tugas/{id_tugas}/jawaban', [QuizController::class, 'storeJawaban'])->name('jawaban.store');
-    Route::get('/view_pg/${id_tugas}?current_question_number=${questionNumber}', [QuizController::class, 'getQuestion']);
+    Route::get('/tugas/{id_tugas}/question/{questionNumber}', [QuizController::class, 'getQuestion']);
 
 
 
