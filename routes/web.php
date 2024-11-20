@@ -219,7 +219,7 @@ Route::middleware('isStuden')->group(function () {
     //Quiz
     Route::get('/quiz', [QuizController::class, 'index'])->name('quiz');
     Route::get('/view_pg/{id_tugas}', [QuizController::class, 'viewpg'])->name('view_pg');
-    Route::post('/tugas/{id_tugas}/jawaban', [QuizController::class, 'storeJawaban'])->name('jawaban.store');
+    Route::post('/tugas/{id_tugas}/pertanyaan/{id_pertanyaan}/jawaban', [QuizController::class, 'storeJawaban'])->name('jawaban.store');
     Route::get('/tugas/{id_tugas}/question/{currentQuestionNumber}', [QuizController::class, 'getQuestion']);
 
 

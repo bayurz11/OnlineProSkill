@@ -97,7 +97,6 @@ class QuizController extends Controller
             }])->orderBy('id_pertanyaan', 'asc');
         }])->find($id_tugas);
 
-
         // Menentukan nomor soal saat ini, default ke 1 jika tidak ada parameter
         $currentQuestionNumber = $request->input('current_question_number', 1);
 
@@ -153,29 +152,54 @@ class QuizController extends Controller
         ));
     }
 
-    public function storeJawaban(Request $request, $id_tugas)
+    // public function storeJawaban(Request $request, $id_tugas)
+    // {
+    //     try {
+    //         // Validasi data yang dikirim
+    //         $validated = $request->validate([
+    //             'id_pertanyaan' => 'required|exists:pertanyaan,id_pertanyaan',
+    //             'id_pilihan' => 'nullable|exists:pilihan_jawaban,id_pilihan',
+
+    //         ]);
+
+    //         // Simpan jawaban ke database
+    //         Jawaban_Siswa::create([
+    //             'id_pertanyaan' => $validated['id_pertanyaan'],
+    //             'id_siswa' => auth()->user()->id,
+    //             'id_pilihan' => $validated['id_pilihan'] ?? null,
+
+    //         ]);
+
+    //         return response()->json(['message' => 'Jawaban berhasil disimpan!'], 200);
+    //     } catch (\Exception $e) {
+    //         return response()->json(['message' => 'Error: ' . $e->getMessage()], 422);
+    //     }
+    // }
+    public function storeJawaban(Request $request, $id_tugas, $id_pertanyaan)
     {
         try {
-            // Validasi data yang dikirim
+            // Validasi data
             $validated = $request->validate([
-                'id_pertanyaan' => 'required|exists:pertanyaan,id_pertanyaan',
                 'id_pilihan' => 'nullable|exists:pilihan_jawaban,id_pilihan',
-
             ]);
 
-            // Simpan jawaban ke database
-            Jawaban_Siswa::create([
-                'id_pertanyaan' => $validated['id_pertanyaan'],
-                'id_siswa' => auth()->user()->id,
-                'id_pilihan' => $validated['id_pilihan'] ?? null,
-
-            ]);
+            // Simpan atau perbarui jawaban ke database
+            Jawaban_Siswa::updateOrCreate(
+                [
+                    'id_pertanyaan' => $id_pertanyaan,
+                    'id_siswa' => auth()->user()->id,
+                ],
+                [
+                    'id_pilihan' => $validated['id_pilihan'] ?? null,
+                ]
+            );
 
             return response()->json(['message' => 'Jawaban berhasil disimpan!'], 200);
         } catch (\Exception $e) {
             return response()->json(['message' => 'Error: ' . $e->getMessage()], 422);
         }
     }
+
 
     public function getQuestion(Request $request, $id_tugas, $currentQuestionNumber)
     {

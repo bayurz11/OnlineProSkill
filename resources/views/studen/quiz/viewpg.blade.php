@@ -65,12 +65,20 @@
                                                 @foreach ($currentQuestion->pilihanJawaban as $index => $option)
                                                     <li>
                                                         <label>
-                                                            <input type="radio" name="answer_{{ $currentQuestion->id }}"
-                                                                value="{{ $option->id }}" class="me-2"
-                                                                onchange="handleAnswerChange('{{ $tugas->id_tugas }}', '{{ $currentQuestion->id_pertanyaan }}', '{{ auth()->user()->id }}', '{{ $option->id_pilihan }}', this.value, '')"
-                                                                @if ($currentQuestion->jawaban->first() && $currentQuestion->jawaban->first()->pilihan_id == $option->id) checked @endif />
-                                                            <span class="option-label">{{ chr(65 + $index) }}.
-                                                                {{ $option->isi_pilihan }}</span>
+                                                            <input type="radio"
+                                                                name="answer_{{ $currentQuestion->id_pertanyaan }}"
+                                                                value="{{ $option->id_pilihan }}" class="me-2"
+                                                                onchange="handleAnswerChange(
+                                                                    '{{ $tugas->id_tugas }}', 
+                                                                    '{{ $currentQuestion->id_pertanyaan }}', 
+                                                                    '{{ auth()->user()->id }}', 
+                                                                    '{{ $option->id_pilihan }}', 
+                                                                    this.value, 
+                                                                    '')"
+                                                                @if ($currentQuestion->jawaban->first() && $currentQuestion->jawaban->first()->pilihan_id == $option->id_pilihan) checked @endif />
+                                                            <span class="option-label">
+                                                                {{ chr(65 + $index) }}. {{ $option->isi_pilihan }}
+                                                            </span>
                                                         </label>
                                                     </li>
                                                 @endforeach
@@ -146,15 +154,15 @@
                         <p>${data.currentQuestion.isi_pertanyaan}</p>
                         <ul class="list-unstyled">
                             ${data.options.map((option, index) => `
-                                                                                <li>
-                                                                                    <label>
-                                                                                        <input type="radio" name="answer_${data.currentQuestion.id}"
-                                                                                            value="${option.id_pilihan}" class="me-2"
-                                                                                            onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
-                                                                                        <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                                                    </label>
-                                                                                </li>
-                                                                            `).join('')}
+                                                                                                            <li>
+                                                                                                                <label>
+                                                                                                                    <input type="radio" name="answer_${data.currentQuestion.id}"
+                                                                                                                        value="${option.id_pilihan}" class="me-2"
+                                                                                                                        onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
+                                                                                                                    <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                                                                                </label>
+                                                                                                            </li>
+                                                                                                        `).join('')}
                         </ul>
                     </div>
                 </div>
@@ -180,8 +188,8 @@
             saveAnswer(id_tugas, question_id, user_id, answer_value);
         }
 
-        // Fungsi untuk menyimpan jawaban
-        function saveAnswer(id_tugas, question_id, user_id, answer_value) {
+        function saveAnswer(id_tugas, question_id, answer_value) {
+
 
             // Persiapkan data yang akan dikirim
             let data = {
@@ -193,29 +201,34 @@
             console.log("Data yang dikirim: ", data); // Debugging
 
             // Kirim data ke backend menggunakan AJAX
-
             $.ajax({
                 url: `/tugas/${id_tugas}/jawaban`,
                 method: 'POST',
                 data: data,
                 success: function(response) {
-                    // // Sembunyikan tombol setelah disimpan
-                    // document.getElementById('save-button').style.display = 'none';
+                    console.log('Jawaban berhasil disimpan:', response);
 
-                    // Setelah berhasil disimpan, pindahkan ke soal berikutnya
-                    const nextQuestionNumber = {{ $currentQuestionNumber }} +
-                        1; // Menambah 1 untuk soal berikutnya
-                    window.location.href =
-                        `{{ route('view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => '']) }}` +
-                        nextQuestionNumber;
+                    // Pindah ke soal berikutnya
+                    const nextQuestionNumber = parseInt(currentQuestionNumber) + 1; // Pastikan ini berupa angka
+                    const nextQuestionUrl = `/tugas/${id_tugas}?current_question_number=${nextQuestionNumber}`;
+                    window.location.href = nextQuestionUrl;
                 },
                 error: function(xhr) {
-                    const response = JSON.parse(xhr.responseText);
+                    let response;
+                    try {
+                        response = JSON.parse(xhr.responseText);
+                    } catch (e) {
+                        response = {
+                            message: 'Terjadi kesalahan yang tidak diketahui.'
+                        };
+                    }
                     alert(response.message || 'Terjadi kesalahan saat mengirim jawaban.');
+                    console.error('Error:', response);
                 }
             });
-
         }
+
+
 
 
         // Ambil waktu pengerjaan dari PHP (jam dan menit)
