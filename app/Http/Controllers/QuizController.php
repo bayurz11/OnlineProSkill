@@ -92,7 +92,7 @@ class QuizController extends Controller
 
         // Mengambil tugas dan pertanyaan terkait, termasuk jawaban yang dipilih
         $tugas = Tugas::with(['pertanyaan' => function ($query) use ($user) {
-            $query->with(['pilihanJawaban' => function ($query) use ($user) {
+            $query->with(['pilihanJawaban', 'jawaban' => function ($query) use ($user) {
                 $query->where('id_siswa', $user->id); // Ambil jawaban pengguna
             }])->orderBy('id_pertanyaan', 'asc');
         }])->find($id_tugas);
