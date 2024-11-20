@@ -41,8 +41,11 @@
                                 <dd class="col-sm-9">: {{ $tugas->pertanyaan->count() }}</dd>
 
                                 <dt class="col-sm-3">Waktu Pengerjaan</dt>
-                                <dd class="col-sm-9">: <span id="countdown-timer">{{ $tugas->waktu_pengerjaan_jam }} Jam
-                                        {{ $tugas->waktu_pengerjaan_menit }} Menit</span></dd>
+                                <dd class="col-sm-9">: {{ $tugas->waktu_pengerjaan_jam }} Jam
+                                    {{ $tugas->waktu_pengerjaan_menit }} Menit</dd>
+
+                                {{-- <span id="countdown-timer">{{ $tugas->waktu_pengerjaan_jam }} Jam
+                                    {{ $tugas->waktu_pengerjaan_menit }} Menit</span> --}}
 
                             </dl>
                         </div>
@@ -57,17 +60,8 @@
                                         @else
                                             <strong>Quiz Selesai</strong>
                                         @endif
-                                        <div class="d-flex align-items-center ml-auto">
-                                            <i class="fas fa-clock"></i>
-                                            <dd class="col-sm-9 mb-0 ml-2">
-                                                <span id="countdown-timer">
-                                                    {{ $tugas->waktu_pengerjaan_jam }} Jam
-                                                    {{ $tugas->waktu_pengerjaan_menit }} Menit
-                                                </span>
-                                            </dd>
-                                        </div>
+                                        <i class="fas fa-clock ml-auto" id="countdown-timer"> </i>
                                     </div>
-
 
                                     <div class="card-body">
                                         @if ($currentQuestion)
@@ -157,15 +151,15 @@
                         <p>${data.currentQuestion.isi_pertanyaan}</p>
                         <ul class="list-unstyled">
                             ${data.options.map((option, index) => `
-                                                                                                                <li>
-                                                                                                                    <label>
-                                                                                                                        <input type="radio" name="answer_${data.currentQuestion.id}"
-                                                                                                                            value="${option.id_pilihan}" class="me-2"
-                                                                                                                            onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
-                                                                                                                        <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                                                                                    </label>
-                                                                                                                </li>
-                                                                                                            `).join('')}
+                                                                                                                            <li>
+                                                                                                                                <label>
+                                                                                                                                    <input type="radio" name="answer_${data.currentQuestion.id}"
+                                                                                                                                        value="${option.id_pilihan}" class="me-2"
+                                                                                                                                        onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
+                                                                                                                                    <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                                                                                                </label>
+                                                                                                                            </li>
+                                                                                                                        `).join('')}
                         </ul>
                     </div>
                 </div>
