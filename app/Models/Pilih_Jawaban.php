@@ -18,4 +18,8 @@ class Pilih_Jawaban extends Model
     {
         return $this->belongsTo(Pertanyaan::class, 'id_pertanyaan');
     }
+    public function siswa()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
