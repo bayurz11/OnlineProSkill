@@ -28,6 +28,6 @@ class Pertanyaan extends Model
     }
     public function jawaban()
     {
-        return $this->hasMany(Jawaban_Siswa::class, 'pertanyaan_id');
+        return $this->hasMany(Jawaban_Siswa::class, 'id_pertanyaan');
     }
 }
