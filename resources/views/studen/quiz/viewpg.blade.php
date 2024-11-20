@@ -57,12 +57,15 @@
                                         @else
                                             <strong>Quiz Selesai</strong>
                                         @endif
-                                        <div class="card bg-green-500 p-6">
+
+                                        <div class="card bg-success text-white p-3">
                                             <div class="d-flex align-items-center">
-                                                <i class="fas fa-clock mr-3 text-primary"></i>
+                                                <i class="fas fa-clock mr-3"></i> <!-- Icon dengan jarak ke kanan -->
                                                 <span id="timer-text" class="ml-2">00:00</span>
+                                                <!-- Timer dengan jarak ke kiri -->
                                             </div>
                                         </div>
+
                                     </div>
 
 
