@@ -52,54 +52,32 @@
                             <div class="col-lg-8" id="question-container">
                                 <div class="card">
                                     <div class="card-header d-flex justify-content-between">
-                                        @if ($currentQuestion)
-                                            <strong>Soal No. {{ $currentQuestionNumber }}</strong>
-                                        @else
-                                            <strong>Quiz Selesai</strong>
-                                        @endif
-
+                                        <strong>Soal No. {{ $currentQuestionNumber }}</strong>
                                         <div class="d-flex align-items-center">
                                             <i class="fas fa-clock text-success me-2" id="timer-icon"></i>
                                             <span id="timer-text" class="timer-text text-success">00:00</span>
                                         </div>
-
-
-
                                     </div>
-
-
                                     <div class="card-body">
-                                        @if ($currentQuestion)
-                                            <p>{{ $currentQuestion->isi_pertanyaan }}</p>
-                                            <ul class="list-unstyled">
-                                                @foreach ($currentQuestion->pilihanJawaban as $index => $option)
-                                                    <li>
-                                                        <label>
-                                                            <input type="radio" name="answer_{{ $currentQuestion->id }}"
-                                                                value="{{ $option->id }}" class="me-2"
-                                                                onchange="handleAnswerChange('{{ $tugas->id_tugas }}', '{{ $currentQuestion->id_pertanyaan }}', '{{ auth()->user()->id }}', '{{ $option->id_pilihan }}', this.value, '')"
-                                                                @if ($currentQuestion->jawaban->first() && $currentQuestion->jawaban->first()->pilihan_id == $option->id) checked @endif />
-                                                            <span class="option-label">{{ chr(65 + $index) }}.
-                                                                {{ $option->isi_pilihan }}</span>
-                                                        </label>
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                        @else
-                                            <p>Quiz telah selesai. Terima kasih telah berpartisipasi!</p>
-                                            <div class="d-flex justify-content-end mt-3">
-                                                <button class="btn btn-success" onclick="finishQuiz()">Akhiri Quiz</button>
-                                            </div>
-                                        @endif
-                                        <!-- Tombol Simpan -->
-                                        <div class="d-flex justify-content-end mt-3">
-                                            <button id="save-button" class="btn btn-primary mt-3" style="display: none;">
-                                                Simpan
-                                            </button>
-                                        </div>
+                                        <p>{{ $currentQuestion->isi_pertanyaan }}</p>
+                                        <ul class="list-unstyled">
+                                            @foreach ($currentQuestion->pilihanJawaban as $index => $option)
+                                                <li>
+                                                    <label>
+                                                        <input type="radio" name="answer_{{ $currentQuestion->id }}"
+                                                            value="{{ $option->id_pilihan }}" class="me-2"
+                                                            onchange="handleAnswerChange('{{ $tugas->id_tugas }}', '{{ $currentQuestion->id_pertanyaan }}', '{{ auth()->user()->id }}', '{{ $option->id_pilihan }}', this.value, '')"
+                                                            @if ($currentQuestion->jawaban->first() && $currentQuestion->jawaban->first()->pilihan_id == $option->id) checked @endif />
+                                                        <span class="option-label">{{ chr(65 + $index) }}.
+                                                            {{ $option->isi_pilihan }}</span>
+                                                    </label>
+                                                </li>
+                                            @endforeach
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
+
 
                             <div class="col-lg-4">
                                 <div class="card">
@@ -117,11 +95,11 @@
                                                     {{ $index + 1 }}
                                                 </a>
                                             @endforeach
-
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
 
 
                         </div>
@@ -160,21 +138,16 @@
                         <p>${data.currentQuestion.isi_pertanyaan}</p>
                         <ul class="list-unstyled">
                             ${data.options.map((option, index) => `
-                                            <li>
-                                                <label>
-                                                    <input type="radio" name="answer_${data.currentQuestion.id}" 
-                                                        value="${option.id_pilihan}" class="me-2"
-                                                        onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
-                                                    <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                </label>
-                                            </li>
-                                        `).join('')}
+                                    <li>
+                                        <label>
+                                            <input type="radio" name="answer_${data.currentQuestion.id}" 
+                                                value="${option.id_pilihan}" class="me-2"
+                                                onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
+                                             <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                        </label>
+                                    </li>
+                                    `).join('')}
                         </ul>
-                        <div class="d-flex justify-content-end mt-3">
-                            <button id="save-button" class="btn btn-primary mt-3" style="display: none;">
-                                Simpan
-                            </button>
-                        </div>
                     </div>
                 </div>
             `;
@@ -187,14 +160,13 @@
                 }
             });
         }
+
         $(document).on('click', '.question-nav', function(e) {
             e.preventDefault();
 
-            // Ambil id_tugas dan nomor soal dari atribut data
             const id_tugas = $(this).data('id-tugas');
             const questionNumber = $(this).data('question-number');
 
-            // Panggil fungsi loadQuestion
             loadQuestion(id_tugas, questionNumber);
 
             // Highlight navigasi yang dipilih
