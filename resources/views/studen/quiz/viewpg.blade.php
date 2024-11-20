@@ -59,13 +59,10 @@
                                         @endif
                                         <div class="card bg-green-500 p-6">
                                             <div class="d-flex align-items-center">
-                                                <i class="fas fa-clock text-white mr-5"></i>
-                                                <!-- Menambah jarak yang lebih besar -->
-                                                <span id="timer-text" class="text-white ml-3">00:00</span>
-                                                <!-- Menambah jarak di kiri -->
+                                                <i class="fas fa-clock mr-3 text-primary"></i>
+                                                <span id="timer-text" class="ml-2">00:00</span>
                                             </div>
                                         </div>
-
                                     </div>
 
 
@@ -157,15 +154,15 @@
                         <p>${data.currentQuestion.isi_pertanyaan}</p>
                         <ul class="list-unstyled">
                             ${data.options.map((option, index) => `
-                                                                                                                                                    <li>
-                                                                                                                                                        <label>
-                                                                                                                                                            <input type="radio" name="answer_${data.currentQuestion.id}"
-                                                                                                                                                                value="${option.id_pilihan}" class="me-2"
-                                                                                                                                                                onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
-                                                                                                                                                            <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                                                                                                                        </label>
-                                                                                                                                                    </li>
-                                                                                                                                                `).join('')}
+                                                                                                                                                        <li>
+                                                                                                                                                            <label>
+                                                                                                                                                                <input type="radio" name="answer_${data.currentQuestion.id}"
+                                                                                                                                                                    value="${option.id_pilihan}" class="me-2"
+                                                                                                                                                                    onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
+                                                                                                                                                                <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                                                                                                                            </label>
+                                                                                                                                                        </li>
+                                                                                                                                                    `).join('')}
                         </ul>
                     </div>
                 </div>
