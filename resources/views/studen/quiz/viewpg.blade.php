@@ -58,12 +58,9 @@
                                             <strong>Quiz Selesai</strong>
                                         @endif
 
-                                        <div class="card bg-success text-white p-3">
-                                            <div class="d-flex align-items-center">
-                                                <i class="fas fa-clock mr-3"></i> <!-- Icon dengan jarak ke kanan -->
-                                                <span id="timer-text" class="ml-2">00:00</span>
-                                                <!-- Timer dengan jarak ke kiri -->
-                                            </div>
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-clock mr-4 text-primary"></i> <!-- Menambah margin kanan -->
+                                            <span id="timer-text" class="ml-3">00:00</span> <!-- Menambah margin kiri -->
                                         </div>
 
                                     </div>
