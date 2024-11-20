@@ -59,7 +59,7 @@
                                         @endif
                                         <div class="d-flex align-items-center">
                                             <i class="fas fa-clock mr-3 text-primary"></i>
-                                            <span id="countdown-timer" class="ml-2"></span>
+                                            <span id="timer-text" class="ml-2">00:00</span>
                                         </div>
                                     </div>
 
@@ -152,15 +152,15 @@
                         <p>${data.currentQuestion.isi_pertanyaan}</p>
                         <ul class="list-unstyled">
                             ${data.options.map((option, index) => `
-                                                                                                                                                    <li>
-                                                                                                                                                        <label>
-                                                                                                                                                            <input type="radio" name="answer_${data.currentQuestion.id}"
-                                                                                                                                                                value="${option.id_pilihan}" class="me-2"
-                                                                                                                                                                onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
-                                                                                                                                                            <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                                                                                                                        </label>
-                                                                                                                                                    </li>
-                                                                                                                                                `).join('')}
+                                                                                                                                                <li>
+                                                                                                                                                    <label>
+                                                                                                                                                        <input type="radio" name="answer_${data.currentQuestion.id}"
+                                                                                                                                                            value="${option.id_pilihan}" class="me-2"
+                                                                                                                                                            onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
+                                                                                                                                                        <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                                                                                                                    </label>
+                                                                                                                                                </li>
+                                                                                                                                            `).join('')}
                         </ul>
                     </div>
                 </div>
@@ -239,7 +239,7 @@
         function updateCountdown() {
             if (totalDetik <= 0) {
                 clearInterval(countdownInterval); // Hentikan interval jika waktu habis
-                document.getElementById('countdown-timer').textContent = "Waktu habis!";
+                document.getElementById('timer-text').textContent = "Waktu habis!";
 
                 // Nonaktifkan semua input radio
                 const radioButtons = document.querySelectorAll('input[type="radio"]');
@@ -250,14 +250,15 @@
                 return;
             }
 
-            // Hitung jam, menit, detik
-            let jam = Math.floor(totalDetik / 3600);
-            let menit = Math.floor((totalDetik % 3600) / 60);
+            // Hitung menit dan detik
+            let menit = Math.floor(totalDetik / 60);
             let detik = totalDetik % 60;
 
-            // Perbarui tampilan hitungan mundur
-            const countdownText = `${jam} : ${menit} : ${detik}`;
-            const countdownTimer = document.getElementById('countdown-timer');
+            // Format waktu menjadi MM:SS
+            const countdownText = `${String(menit).padStart(2, '0')}:${String(detik).padStart(2, '0')}`;
+
+            // Perbarui tampilan hitungan mundur di elemen dengan id 'timer-text'
+            const countdownTimer = document.getElementById('timer-text');
             countdownTimer.textContent = countdownText;
 
             // Periksa apakah waktu tersisa 5 menit atau kurang
@@ -271,6 +272,7 @@
             // Kurangi waktu satu detik
             totalDetik--;
         }
+
         // Mulai hitungan mundur
         const countdownInterval = setInterval(updateCountdown, 1000);
     </script>
