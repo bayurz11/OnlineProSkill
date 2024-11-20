@@ -58,11 +58,11 @@
                                             <strong>Quiz Selesai</strong>
                                         @endif
 
-
                                         <div class="d-flex align-items-center">
-                                            <i class="fas fa-clock text-success me-2"></i>
+                                            <i class="fas fa-clock text-success me-2" id="timer-icon"></i>
                                             <span id="timer-text" class="timer-text text-success">00:00</span>
                                         </div>
+
 
 
                                     </div>
@@ -156,15 +156,15 @@
                         <p>${data.currentQuestion.isi_pertanyaan}</p>
                         <ul class="list-unstyled">
                             ${data.options.map((option, index) => `
-                                                                                                                                                                                        <li>
-                                                                                                                                                                                            <label>
-                                                                                                                                                                                                <input type="radio" name="answer_${data.currentQuestion.id}"
-                                                                                                                                                                                                    value="${option.id_pilihan}" class="me-2"
-                                                                                                                                                                                                    onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
-                                                                                                                                                                                                <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                                                                                                                                                            </label>
-                                                                                                                                                                                        </li>
-                                                                                                                                                                                    `).join('')}
+                                                                                                                                                                                                <li>
+                                                                                                                                                                                                    <label>
+                                                                                                                                                                                                        <input type="radio" name="answer_${data.currentQuestion.id}"
+                                                                                                                                                                                                            value="${option.id_pilihan}" class="me-2"
+                                                                                                                                                                                                            onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
+                                                                                                                                                                                                        <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                                                                                                                                                                    </label>
+                                                                                                                                                                                                </li>
+                                                                                                                                                                                            `).join('')}
                         </ul>
                     </div>
                 </div>
@@ -240,11 +240,13 @@
         // Fungsi untuk memperbarui tampilan hitungan mundur
         function updateCountdown() {
             const countdownTimer = document.getElementById('timer-text');
+            const timerIcon = document.getElementById('timer-icon');
 
             if (totalDetik <= 0) {
                 clearInterval(countdownInterval); // Hentikan interval jika waktu habis
                 countdownTimer.textContent = "Waktu habis!";
                 countdownTimer.style.color = 'red'; // Beri warna merah saat waktu habis
+                timerIcon.style.color = 'red'; // Ubah warna ikon menjadi merah
 
                 // Nonaktifkan semua input radio
                 const radioButtons = document.querySelectorAll('input[type="radio"]');
@@ -265,8 +267,14 @@
             // Perbarui tampilan hitungan mundur di elemen dengan id 'timer-text'
             countdownTimer.textContent = countdownText;
 
-            // Periksa apakah waktu tersisa 5 menit atau kurang dan ubah warna teks menjadi merah
-            countdownTimer.style.color = totalDetik <= 5 * 60 ? 'red' : '';
+            // Periksa apakah waktu tersisa 5 menit atau kurang dan ubah warna teks dan ikon menjadi merah
+            if (totalDetik <= 5 * 60) {
+                countdownTimer.style.color = 'red';
+                timerIcon.style.color = 'red'; // Ubah warna ikon menjadi merah
+            } else {
+                countdownTimer.style.color = ''; // Kembalikan warna default teks
+                timerIcon.style.color = ''; // Kembalikan warna default ikon
+            }
 
             // Simpan waktu tersisa hanya saat ada perubahan
             if (totalDetik !== parseInt(localStorage.getItem('waktuTersisa'))) {
@@ -276,6 +284,7 @@
             // Kurangi waktu satu detik
             totalDetik--;
         }
+
 
         // Mulai hitungan mundur
         const countdownInterval = setInterval(updateCountdown, 1000);
