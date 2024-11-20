@@ -178,26 +178,31 @@ class QuizController extends Controller
 
 
 
-    public function getQuestion(Request $request, $id_tugas, $currentQuestionNumber)
+    public function getQuestion($id_tugas, $questionNumber)
     {
-        $tugas = Tugas::with(['pertanyaan' => function ($query) {
-            $query->with('pilihanJawaban')->orderBy('id_pertanyaan', 'asc');
-        }])->find($id_tugas);
+        $tugas = Tugas::with(['pertanyaan.pilihanJawaban', 'pertanyaan.jawaban'])->findOrFail($id_tugas);
 
-        if (!$tugas) {
-            return response()->json(['error' => 'Tugas tidak ditemukan.'], 404);
-        }
+        $currentQuestion = $tugas->pertanyaan->skip($questionNumber - 1)->first();
 
-        $question = $tugas->pertanyaan->skip($currentQuestionNumber - 1)->first();
-
-        if (!$question) {
+        if (!$currentQuestion) {
             return response()->json(['error' => 'Soal tidak ditemukan.'], 404);
         }
 
+        $options = $currentQuestion->pilihanJawaban->map(function ($option) use ($currentQuestion) {
+            return [
+                'id_pilihan' => $option->id,
+                'isi_pilihan' => $option->isi_pilihan,
+                'selected' => $currentQuestion->jawaban->first() && $currentQuestion->jawaban->first()->pilihan_id == $option->id
+            ];
+        });
+
         return response()->json([
-            'currentQuestion' => $question,
-            'currentQuestionNumber' => $currentQuestionNumber,
-            'options' => $question->pilihanJawaban,
+            'currentQuestionNumber' => $questionNumber,
+            'currentQuestion' => [
+                'id' => $currentQuestion->id,
+                'isi_pertanyaan' => $currentQuestion->isi_pertanyaan,
+            ],
+            'options' => $options,
         ]);
     }
 }
