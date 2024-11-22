@@ -154,14 +154,14 @@
                         <p>${data.currentQuestion.isi_pertanyaan}</p>
                         <ul class="list-unstyled">
                             ${data.options.map((option, index) => `
-                                                                            <li>
-                                                                                <label>
-                                                                                    <input type="radio" name="answer_${data.currentQuestion.id}"
-                                                                                        value="${option.id_pilihan}" class="me-2"
-                                                                                        onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
-                                                                                    <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                                                </label>
-                                                                            </li>`).join('')}
+                                                                                <li>
+                                                                                    <label>
+                                                                                        <input type="radio" name="answer_${data.currentQuestion.id}"
+                                                                                            value="${option.id_pilihan}" class="me-2"
+                                                                                            onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
+                                                                                        <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                                                    </label>
+                                                                                </li>`).join('')}
                         </ul>
                     </div>
                 </div>
@@ -294,23 +294,24 @@
     </script>
 
     <!-- Modal -->
-    <div class="modal fade" id="quizResultModal" tabindex="-1" aria-labelledby="quizResultModalLabel" aria-hidden="true">
+    <div class="modal fade" id="quizResultModal" tabindex="-1" aria-labelledby="quizResultModalLabel" aria-hidden="true"
+        data-bs-backdrop="static" data-bs-keyboard="false">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
+            <div class="modal-content" style="pointer-events: none;">
+                <div class="modal-header" style="pointer-events: auto;">
                     <h5 class="modal-title" id="quizResultModalLabel">Hasil Quiz</h5>
-                    {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
                 </div>
-                <div class="modal-body text-center">
+                <div class="modal-body text-center" style="pointer-events: auto;">
                     <!-- Konten nilai akan diisi secara dinamis -->
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer" style="pointer-events: auto;">
                     <button type="button" class="btn btn-secondary" id="closeQuizButton" data-bs-dismiss="modal">Tutup
                         Quiz</button>
                 </div>
             </div>
         </div>
     </div>
+
 
 
 @endsection
