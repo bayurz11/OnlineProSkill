@@ -59,7 +59,7 @@
                                                         <div class="dashboard__quiz-info">
                                                             <p>{{ $quiz->created_at->format('d F, Y') }}</p>
                                                             <h6 class="title">{{ $quiz->judul_tugas }}</h6>
-                                                            <p style="font-size: 12px;">Waktu:
+                                                            <p style="font-size: 12px;">Waktu Pengerjaan:
                                                                 {{ \Carbon\Carbon::parse($quiz->jam_mulai)->format('H.i') }}
                                                                 s/d
                                                                 {{ \Carbon\Carbon::parse($quiz->jam_akhir)->format('H.i') }}
