@@ -39,8 +39,7 @@
                                             <tr>
                                                 <th>Quiz</th>
                                                 <th>Course Name</th>
-                                                {{-- <th>TM</th>
-                                                <th>CA</th> --}}
+                                                <th>Nilai</th>
                                                 <th>Keterangan</th>
                                                 <th>&nbsp;</th>
                                             </tr>
@@ -76,6 +75,9 @@
                                                         @else
                                                             <span class="dashboard__quiz-result">Berjalan</span>
                                                         @endif
+                                                    </td>
+                                                    <td>
+                                                        <div> {{ $quiz->nilai }}</div>
                                                     </td>
                                                     <td>
                                                         <div class="dashboard__review-action">

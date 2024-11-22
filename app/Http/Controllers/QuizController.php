@@ -46,7 +46,9 @@ class QuizController extends Controller
             ->whereIn('status', ['PAID', 'SETTLED'])
             ->with('KelasTatapMuka')
             ->get();
-        $quiz = Tugas::all();
+        // $quiz = Tugas::all();
+        $quiz = Tugas::with('pertanyaan.jawaban')->get();
+
         return view('studen.quiz.quiz', compact(
             'user',
             'KelasTatapMuka',
