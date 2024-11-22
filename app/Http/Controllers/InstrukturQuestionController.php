@@ -14,6 +14,7 @@ use App\Models\KelasTatapMuka;
 use App\Models\NotifikasiUser;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Jawaban_Siswa;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -179,7 +180,7 @@ class InstrukturQuestionController extends Controller
                 ->where('status', 'PAID')
                 ->count();
         }
-
+        $jawaban_siswa = Jawaban_Siswa::all();
         return view('instruktur.Quiz.viewpg', compact(
             'user',
             'KelasTatapMuka',
@@ -195,7 +196,8 @@ class InstrukturQuestionController extends Controller
             'currentQuestion',
             'allQuestions',
             'totalQuestions',
-            'daftarpesanan'
+            'daftarpesanan',
+            'jawaban_siswa'
         ));
     }
 
