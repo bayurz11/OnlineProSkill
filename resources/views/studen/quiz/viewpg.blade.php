@@ -139,12 +139,11 @@
                 url: `/tugas/${id_tugas}/question/${questionNumber}`,
                 method: 'GET',
                 success: function(data) {
-                    if (data.error) {
-                        alert(data.error);
+                    if (!data.currentQuestion) {
+                        alert('Soal tidak ditemukan.');
                         return;
                     }
 
-                    // Buat ulang HTML untuk pertanyaan
                     const questionContent = `
                 <div class="card">
                     <div class="card-header">
@@ -154,21 +153,19 @@
                         <p>${data.currentQuestion.isi_pertanyaan}</p>
                         <ul class="list-unstyled">
                             ${data.options.map((option, index) => `
-                                                                                                                                                                                                                <li>
-                                                                                                                                                                                                                    <label>
-                                                                                                                                                                                                                        <input type="radio" name="answer_${data.currentQuestion.id}"
-                                                                                                                                                                                                                            value="${option.id_pilihan}" class="me-2"
-                                                                                                                                                                                                                            onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
-                                                                                                                                                                                                                        <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                                                                                                                                                                                    </label>
-                                                                                                                                                                                                                </li>
-                                                                                                                                                                                                            `).join('')}
+                                    <li>
+                                        <label>
+                                            <input type="radio" name="answer_${data.currentQuestion.id}"
+                                                value="${option.id_pilihan}" class="me-2"
+                                                onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
+                                            <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                        </label>
+                                    </li>`).join('')}
                         </ul>
                     </div>
                 </div>
             `;
 
-                    // Update container soal
                     $('#question-container').html(questionContent);
                 },
                 error: function() {
@@ -227,65 +224,44 @@
         // Ambil waktu pengerjaan dari PHP (jam dan menit)
         let waktuJam = {{ $tugas->waktu_pengerjaan_jam }};
         let waktuMenit = {{ $tugas->waktu_pengerjaan_menit }};
-        let totalDetik = (waktuJam * 60 * 60) + (waktuMenit * 60);
+        let totalSeconds = (waktuJam * 3600) + (waktuMenit * 60);
 
-        // Cek waktu tersisa dari localStorage jika ada
-        const waktuTersisa = localStorage.getItem('waktuTersisa');
-        if (waktuTersisa) {
-            totalDetik = parseInt(waktuTersisa); // Gunakan waktu yang tersisa
+        // Cek apakah waktu tersisa ada di LocalStorage
+        const storedTime = localStorage.getItem('waktuTersisa');
+        if (storedTime) {
+            totalSeconds = parseInt(storedTime);
         }
 
-        // Fungsi untuk memperbarui tampilan hitungan mundur
-        function updateCountdown() {
-            const countdownTimer = document.getElementById('timer-text');
+        function updateTimer() {
+            const timerText = document.getElementById('timer-text');
             const timerIcon = document.getElementById('timer-icon');
 
-            if (totalDetik <= 0) {
-                clearInterval(countdownInterval); // Hentikan interval jika waktu habis
-                countdownTimer.textContent = "Waktu habis!";
-                countdownTimer.style.color = 'red'; // Beri warna merah saat waktu habis
-                timerIcon.style.color = 'red'; // Ubah warna ikon menjadi merah
+            if (totalSeconds <= 0) {
+                clearInterval(timerInterval);
+                timerText.textContent = 'Waktu habis!';
+                timerText.style.color = 'red';
+                timerIcon.style.color = 'red';
 
-                // Nonaktifkan semua input radio
-                const radioButtons = document.querySelectorAll('input[type="radio"]');
-                radioButtons.forEach((radio) => {
-                    radio.disabled = true; // Tambahkan atribut disabled
-                });
-
+                // Disable semua pilihan
+                document.querySelectorAll('input[type="radio"]').forEach(input => input.disabled = true);
                 return;
             }
 
-            // Hitung menit dan detik
-            let menit = Math.floor(totalDetik / 60);
-            let detik = totalDetik % 60;
+            const minutes = Math.floor(totalSeconds / 60);
+            const seconds = totalSeconds % 60;
+            timerText.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 
-            // Format waktu menjadi MM:SS
-            const countdownText = `${String(menit).padStart(2, '0')}:${String(detik).padStart(2, '0')}`;
-
-            // Perbarui tampilan hitungan mundur di elemen dengan id 'timer-text'
-            countdownTimer.textContent = countdownText;
-
-            // Periksa apakah waktu tersisa 5 menit atau kurang dan ubah warna teks dan ikon menjadi merah
-            if (totalDetik <= 5 * 60) {
-                countdownTimer.style.color = 'red';
-                timerIcon.style.color = 'red'; // Ubah warna ikon menjadi merah
-            } else {
-                countdownTimer.style.color = ''; // Kembalikan warna default teks
-                timerIcon.style.color = ''; // Kembalikan warna default ikon
+            // Ubah warna jika kurang dari 5 menit
+            if (totalSeconds <= 300) {
+                timerText.style.color = 'red';
+                timerIcon.style.color = 'red';
             }
 
-            // Simpan waktu tersisa hanya saat ada perubahan
-            if (totalDetik !== parseInt(localStorage.getItem('waktuTersisa'))) {
-                localStorage.setItem('waktuTersisa', totalDetik);
-            }
-
-            // Kurangi waktu satu detik
-            totalDetik--;
+            localStorage.setItem('waktuTersisa', totalSeconds);
+            totalSeconds--;
         }
 
-
-        // Mulai hitungan mundur
-        const countdownInterval = setInterval(updateCountdown, 1000);
+        const timerInterval = setInterval(updateTimer, 1000);
     </script>
 
 
