@@ -251,20 +251,16 @@ class QuizController extends Controller
             // Ambil tugas yang sesuai dengan ID
             $tugas = Tugas::findOrFail($id_tugas);
 
+            // Ambil semua jawaban siswa untuk tugas ini
+            $jawabanSiswa = Jawaban_Siswa::where('id_siswa', $user_id)
+                ->whereIn('id_pertanyaan', $tugas->pertanyaan->pluck('id_pertanyaan')) // Ambil jawaban untuk pertanyaan di tugas
+                ->get();
+
             // Total pertanyaan dalam tugas
             $totalQuestions = $tugas->pertanyaan->count();
-            $correctAnswers = 0;
 
-            // Loop melalui setiap pertanyaan dan cek jawaban pengguna
-            foreach ($tugas->pertanyaan as $pertanyaan) {
-                // Cari jawaban pengguna untuk pertanyaan ini
-                $userAnswer = $pertanyaan->jawaban->where('user_id', $user_id)->first();
-
-                // Pastikan ada jawaban dan periksa apakah jawaban tersebut benar
-                if ($userAnswer && $userAnswer->id_pilihan == $pertanyaan->jawaban_benar) {
-                    $correctAnswers++;
-                }
-            }
+            // Hitung jawaban yang benar berdasarkan nilai di Jawaban_Siswa
+            $correctAnswers = $jawabanSiswa->where('nilai', 1)->count();
 
             // Hitung skor sebagai persentase
             $score = ($totalQuestions > 0) ? ($correctAnswers / $totalQuestions) * 100 : 0;
