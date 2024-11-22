@@ -262,8 +262,8 @@ class QuizController extends Controller
             // Hitung jawaban yang benar berdasarkan nilai di Jawaban_Siswa
             $correctAnswers = $jawabanSiswa->where('nilai', 1)->count();
 
-            // Hitung skor sebagai persentase
-            $score = ($totalQuestions > 0) ? ($correctAnswers / $totalQuestions) * 100 : 0;
+            // Hitung skor sebagai persentase dan batasi hingga 2 desimal
+            $score = ($totalQuestions > 0) ? round(($correctAnswers / $totalQuestions) * 100, 2) : 0;
 
             return response()->json(['score' => $score], 200);
         } catch (\Exception $e) {
