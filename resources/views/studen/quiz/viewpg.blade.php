@@ -74,7 +74,7 @@
                                             <ul class="list-unstyled">
                                                 @foreach ($currentQuestion->pilihanJawaban as $index => $option)
                                                     <li>
-                                                        <label>
+                                                        <label for="option_{{ $option->id }}">
                                                             <input type="radio" name="answer_{{ $currentQuestion->id }}"
                                                                 value="{{ $option->id }}" class="me-2"
                                                                 onchange="handleAnswerChange('{{ $tugas->id_tugas }}', '{{ $currentQuestion->id_pertanyaan }}', '{{ auth()->user()->id }}', '{{ $option->id_pilihan }}', this.value, '')"
@@ -154,15 +154,15 @@
                         <p>${data.currentQuestion.isi_pertanyaan}</p>
                         <ul class="list-unstyled">
                             ${data.options.map((option, index) => `
-                                                                                                                                                                                                        <li>
-                                                                                                                                                                                                            <label>
-                                                                                                                                                                                                                <input type="radio" name="answer_${data.currentQuestion.id}"
-                                                                                                                                                                                                                    value="${option.id_pilihan}" class="me-2"
-                                                                                                                                                                                                                    onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
-                                                                                                                                                                                                                <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                                                                                                                                                                            </label>
-                                                                                                                                                                                                        </li>
-                                                                                                                                                                                                    `).join('')}
+                                                                                                                                                                                                            <li>
+                                                                                                                                                                                                                <label>
+                                                                                                                                                                                                                    <input type="radio" name="answer_${data.currentQuestion.id}"
+                                                                                                                                                                                                                        value="${option.id_pilihan}" class="me-2"
+                                                                                                                                                                                                                        onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
+                                                                                                                                                                                                                    <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                                                                                                                                                                                </label>
+                                                                                                                                                                                                            </li>
+                                                                                                                                                                                                        `).join('')}
                         </ul>
                     </div>
                 </div>

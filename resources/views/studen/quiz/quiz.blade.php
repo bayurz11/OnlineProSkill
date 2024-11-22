@@ -80,7 +80,6 @@
                                                         @endif
                                                     </td>
 
-
                                                     <td>
                                                         <div class="dashboard__review-action">
                                                             @if ($isSelesai)
@@ -96,7 +95,6 @@
                                                 </tr>
                                             </tbody>
                                         @endforeach
-
 
                                     </table>
                                 </div>
