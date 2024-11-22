@@ -154,14 +154,14 @@
                         <p>${data.currentQuestion.isi_pertanyaan}</p>
                         <ul class="list-unstyled">
                             ${data.options.map((option, index) => `
-                                                            <li>
-                                                                <label>
-                                                                    <input type="radio" name="answer_${data.currentQuestion.id}"
-                                                                        value="${option.id_pilihan}" class="me-2"
-                                                                        onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
-                                                                    <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                                </label>
-                                                            </li>`).join('')}
+                                                                            <li>
+                                                                                <label>
+                                                                                    <input type="radio" name="answer_${data.currentQuestion.id}"
+                                                                                        value="${option.id_pilihan}" class="me-2"
+                                                                                        onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
+                                                                                    <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                                                </label>
+                                                                            </li>`).join('')}
                         </ul>
                     </div>
                 </div>
@@ -286,6 +286,11 @@
                 }
             });
         }
+
+        // Event handler untuk tombol "Tutup Quiz" untuk mengarahkan ke route /quiz
+        $('#closeQuizButton').on('click', function() {
+            window.location.href = '{{ route('quiz') }}'; // Arahkan ke halaman quiz
+        });
     </script>
 
     <!-- Modal -->
@@ -294,16 +299,18 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="quizResultModalLabel">Hasil Quiz</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
                 </div>
                 <div class="modal-body text-center">
                     <!-- Konten nilai akan diisi secara dinamis -->
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-secondary" id="closeQuizButton" data-bs-dismiss="modal">Tutup
+                        Quiz</button>
                 </div>
             </div>
         </div>
     </div>
+
 
 @endsection
