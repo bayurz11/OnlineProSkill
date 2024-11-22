@@ -62,6 +62,9 @@
                                                         <p class="color-black">{{ $quiz->KelasTatapMuka->nama_kursus }}</p>
                                                     </td>
                                                     <td>
+                                                        <div>{{ $quiz->nilai ?? 0 }}</div>
+                                                    </td>
+                                                    <td>
                                                         @php
                                                             $waktuAkhir = \Carbon\Carbon::parse(
                                                                 $quiz->created_at->format('Y-m-d') .
@@ -76,9 +79,7 @@
                                                             <span class="dashboard__quiz-result">Berjalan</span>
                                                         @endif
                                                     </td>
-                                                    <td>
-                                                        <div>{{ $quiz->nilai ?? 0 }}</div>
-                                                    </td>
+
 
                                                     <td>
                                                         <div class="dashboard__review-action">
