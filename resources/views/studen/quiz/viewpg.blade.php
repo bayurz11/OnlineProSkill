@@ -117,10 +117,11 @@
                                                 </a>
                                             @endforeach
                                         </div>
+                                        <button class="btn btn-danger mt-4" onclick="finishQuiz()">Selesaikan Quiz</button>
                                     </div>
                                 </div>
-                            </div>
 
+                            </div>
 
                         </div>
 
@@ -153,14 +154,14 @@
                         <p>${data.currentQuestion.isi_pertanyaan}</p>
                         <ul class="list-unstyled">
                             ${data.options.map((option, index) => `
-                                        <li>
-                                            <label>
-                                                <input type="radio" name="answer_${data.currentQuestion.id}"
-                                                    value="${option.id_pilihan}" class="me-2"
-                                                    onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
-                                                <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                            </label>
-                                        </li>`).join('')}
+                                                        <li>
+                                                            <label>
+                                                                <input type="radio" name="answer_${data.currentQuestion.id}"
+                                                                    value="${option.id_pilihan}" class="me-2"
+                                                                    onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
+                                                                <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                            </label>
+                                                        </li>`).join('')}
                         </ul>
                     </div>
                 </div>
@@ -262,7 +263,47 @@
         }
 
         const timerInterval = setInterval(updateTimer, 1000);
+
+        function finishQuiz() {
+            $.ajax({
+                url: `/tugas/{{ $tugas->id_tugas }}/finish`,
+                method: 'POST',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    user_id: '{{ auth()->user()->id }}'
+                },
+                success: function(response) {
+                    // Tampilkan modal dengan nilai yang didapat
+                    $('#quizResultModal .modal-body').html(`
+                <h4 class="text-center">Nilai Anda</h4>
+                <p class="text-center display-4 text-success">${response.score}</p>
+            `);
+                    $('#quizResultModal').modal('show');
+                },
+                error: function(xhr) {
+                    const response = JSON.parse(xhr.responseText);
+                    alert(response.message || 'Terjadi kesalahan saat menyelesaikan quiz.');
+                }
+            });
+        }
     </script>
 
+    <!-- Modal -->
+    <div class="modal fade" id="quizResultModal" tabindex="-1" aria-labelledby="quizResultModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="quizResultModalLabel">Hasil Quiz</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <!-- Konten nilai akan diisi secara dinamis -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 @endsection

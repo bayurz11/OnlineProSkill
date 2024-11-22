@@ -202,4 +202,24 @@ class QuizController extends Controller
             'options' => $question->pilihanJawaban,
         ]);
     }
+
+    public function finishQuiz(Request $request, $id_tugas)
+    {
+        $user_id = $request->user_id;
+        $tugas = Tugas::findOrFail($id_tugas);
+
+        $totalQuestions = $tugas->pertanyaan->count();
+        $correctAnswers = 0;
+
+        foreach ($tugas->pertanyaan as $pertanyaan) {
+            $userAnswer = $pertanyaan->jawaban->where('user_id', $user_id)->first();
+            if ($userAnswer && $userAnswer->id_pilihan == $pertanyaan->jawaban_benar) {
+                $correctAnswers++;
+            }
+        }
+
+        $score = ($correctAnswers / $totalQuestions) * 100;
+
+        return response()->json(['score' => $score], 200);
+    }
 }

@@ -222,6 +222,8 @@ Route::middleware('isStuden')->group(function () {
     Route::post('/tugas/{id_tugas}/jawaban', [QuizController::class, 'storeJawaban'])->name('jawaban.store');
     Route::get('/tugas/{id_tugas}/question/{questionNumber}', [QuizController::class, 'getQuestion']);
 
+    Route::post('/tugas/{id_tugas}/finish', [QuizController::class, 'finishQuiz']);
+
 
 
     // Route::get('/kurikulum-content/{$kurikulum_id}', [AksesPembelianController::class, 'fetchContent'])->name('kurikulum.content');
