@@ -20,36 +20,46 @@ class QuizController extends Controller
 {
     public function index()
     {
-        $categori = Categories::all();
-        $cart = Session::get('cart', []);
         $user = Auth::user();
         if (!$user) {
             return redirect()->route('/');
         }
-        // Mengambil profil pengguna yang sedang login
+
+        // Ambil data terkait
+        $categori = Categories::all();
+        $cart = Session::get('cart', []);
         $profile = UserProfile::where('user_id', $user->id)->first();
-        // Ambil notifikasi untuk pengguna yang sedang login
         $notifikasi = NotifikasiUser::where('user_id', $user->id)
             ->orderBy('created_at', 'desc')
             ->get();
-
-        // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
-
-        // Ambil KelasTatapMuka berdasarkan user_id pengguna yang sedang login
         $KelasTatapMuka = KelasTatapMuka::where('user_id', $user->id)->get();
-
         $jumlahPendaftaran = Order::select('product_id', DB::raw('count(*) as total'))
             ->groupBy('product_id')
             ->pluck('total', 'product_id');
-
         $orders = Order::where('user_id', $user->id)
             ->whereIn('status', ['PAID', 'SETTLED'])
             ->with('KelasTatapMuka')
             ->get();
-        // $quiz = Tugas::all();
+
+        // Ambil semua quiz dengan relasi pertanyaan dan jawaban
         $quiz = Tugas::with('pertanyaan.jawaban')->get();
 
+        // Hitung nilai untuk setiap quiz
+        foreach ($quiz as $tugas) {
+            // Ambil semua jawaban siswa untuk tugas ini
+            $jawabanSiswa = Jawaban_Siswa::where('id_siswa', $user->id)
+                ->whereIn('id_pertanyaan', $tugas->pertanyaan->pluck('id_pertanyaan'))
+                ->get();
+
+            $totalQuestions = $tugas->pertanyaan->count();
+            $correctAnswers = $jawabanSiswa->where('nilai', 1)->count();
+
+            // Hitung nilai untuk quiz ini
+            $tugas->nilai = ($totalQuestions > 0) ? round(($correctAnswers / $totalQuestions) * 100, 2) : 0;
+        }
+
+        // Kembalikan data ke view
         return view('studen.quiz.quiz', compact(
             'user',
             'KelasTatapMuka',
@@ -63,6 +73,7 @@ class QuizController extends Controller
             'quiz'
         ));
     }
+
 
     public function viewpg(Request $request)
     {
