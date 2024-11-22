@@ -56,7 +56,10 @@ class QuizController extends Controller
             $correctAnswers = $jawabanSiswa->where('nilai', 1)->count();
 
             // Hitung nilai untuk quiz ini
-            $tugas->nilai = ($totalQuestions > 0) ? round(($correctAnswers / $totalQuestions) * 100, 2) : 0;
+            $nilai = ($totalQuestions > 0) ? round(($correctAnswers / $totalQuestions) * 100, 2) : 0;
+
+            // Set nilai sebagai atribut dinamis
+            $tugas->setAttribute('nilai', $nilai);
         }
 
         // Kembalikan data ke view
@@ -73,6 +76,7 @@ class QuizController extends Controller
             'quiz'
         ));
     }
+
 
 
     public function viewpg(Request $request)
