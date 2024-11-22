@@ -244,21 +244,34 @@ class QuizController extends Controller
 
     public function finishQuiz(Request $request, $id_tugas)
     {
-        $user_id = $request->user_id;
-        $tugas = Tugas::findOrFail($id_tugas);
+        try {
+            // Dapatkan user ID dari auth, atau jika menggunakan parameter user_id
+            $user_id = $request->user_id ?? auth()->user()->id;  // Jika tidak ada user_id di request, ambil dari auth
 
-        $totalQuestions = $tugas->pertanyaan->count();
-        $correctAnswers = 0;
+            // Ambil tugas yang sesuai dengan ID
+            $tugas = Tugas::findOrFail($id_tugas);
 
-        foreach ($tugas->pertanyaan as $pertanyaan) {
-            $userAnswer = $pertanyaan->jawaban->where('user_id', $user_id)->first();
-            if ($userAnswer && $userAnswer->id_pilihan == $pertanyaan->jawaban_benar) {
-                $correctAnswers++;
+            // Total pertanyaan dalam tugas
+            $totalQuestions = $tugas->pertanyaan->count();
+            $correctAnswers = 0;
+
+            // Loop melalui setiap pertanyaan dan cek jawaban pengguna
+            foreach ($tugas->pertanyaan as $pertanyaan) {
+                // Cari jawaban pengguna untuk pertanyaan ini
+                $userAnswer = $pertanyaan->jawaban->where('user_id', $user_id)->first();
+
+                // Pastikan ada jawaban dan periksa apakah jawaban tersebut benar
+                if ($userAnswer && $userAnswer->id_pilihan == $pertanyaan->jawaban_benar) {
+                    $correctAnswers++;
+                }
             }
+
+            // Hitung skor sebagai persentase
+            $score = ($totalQuestions > 0) ? ($correctAnswers / $totalQuestions) * 100 : 0;
+
+            return response()->json(['score' => $score], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Error: ' . $e->getMessage()], 422);
         }
-
-        $score = ($correctAnswers / $totalQuestions) * 100;
-
-        return response()->json(['score' => $score], 200);
     }
 }
