@@ -29,13 +29,6 @@
                 @include('studen.nav.nav')
                 <div class="col-lg-9">
                     <div class="dashboard__content-wrap">
-                        <div class="dashboard__content-title d-flex justify-content-between align-items-center">
-                            <h4 class="title">Quiz</h4>
-                            <button class="btn btn-primary" onclick="showModal()">
-                                Tambah Quiz
-                            </button>
-
-                        </div>
 
                         <div class="row">
 
