@@ -177,31 +177,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($jawaban_siswa as $student)
+                                    @foreach ($nilaiSiswa as $nilai)
                                         <tr>
-                                            <td>{{ $student->id_siswa }}</td>
-                                            <td>{{ $student->benar ?? 'Belum Mengerjakan Ujian' }}</td>
-                                            <td>{{ $student->salah ?? 'Belum Mengerjakan Ujian' }}</td>
-                                            <td>{{ $student->tidak_dijawab ?? 'Belum Mengerjakan Ujian' }}</td>
+                                            <td>{{ $nilai->siswa->nama ?? 'Tidak Diketahui' }}</td>
+                                            <td>{{ $nilai->benar }}</td>
+                                            <td>{{ $nilai->salah }}</td>
+                                            <td>{{ $nilai->tidak_dijawab }}</td>
                                             <td>
-                                                <!-- Tambahkan opsi lain sesuai kebutuhan -->
+                                                <!-- Tambahkan aksi sesuai kebutuhan -->
+                                                {{-- <a href="{{ route('detail.nilai', ['id_siswa' => $nilai->id_siswa]) }}"
+                                                    class="btn btn-primary">Detail</a> --}}
                                             </td>
                                         </tr>
                                     @endforeach
-
-                                    {{-- <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>
-                                            <!-- Tambahkan opsi lain sesuai kebutuhan -->
-                                        </td>
-                                    </tr> --}}
-
                                 </tbody>
                             </table>
                         </div>
+
                     </div>
                 </div>
 
@@ -231,14 +223,14 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                                                                        <li>
-                                                                                                            <label>
-                                                                                                                <span class="option-label">
-                                                                                                                    ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
-                                                                                                                </span>
-                                                                                                            </label>
-                                                                                                        </li>
-                                                                                                    `).join('')}
+                                                                                                                    <li>
+                                                                                                                        <label>
+                                                                                                                            <span class="option-label">
+                                                                                                                                ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
+                                                                                                                            </span>
+                                                                                                                        </label>
+                                                                                                                    </li>
+                                                                                                                `).join('')}
                                 </ul>
                             </div>
                         </div>
