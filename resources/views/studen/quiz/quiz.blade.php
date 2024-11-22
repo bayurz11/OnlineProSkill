@@ -77,8 +77,9 @@
                                                         @endif
                                                     </td>
                                                     <td>
-                                                        <div> {{ $quiz->nilai }}</div>
+                                                        <div>{{ $quiz->nilai ?? 0 }}</div>
                                                     </td>
+
                                                     <td>
                                                         <div class="dashboard__review-action">
                                                             @if ($isSelesai)
