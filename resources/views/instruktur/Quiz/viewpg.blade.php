@@ -177,23 +177,19 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($nilaiSiswa as $nilai)
-                                        <tr>
-                                            <td>{{ $nilai->siswa->nama ?? 'Tidak Diketahui' }}</td>
-                                            <td>{{ $nilai->benar }}</td>
-                                            <td>{{ $nilai->salah }}</td>
-                                            <td>{{ $nilai->tidak_dijawab }}</td>
-                                            <td>
-                                                <!-- Tambahkan aksi sesuai kebutuhan -->
-                                                {{-- <a href="{{ route('detail.nilai', ['id_siswa' => $nilai->id_siswa]) }}"
-                                                    class="btn btn-primary">Detail</a> --}}
-                                            </td>
-                                        </tr>
-                                    @endforeach
+
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                        </td>
+                                    </tr>
+
                                 </tbody>
                             </table>
                         </div>
-
                     </div>
                 </div>
 
@@ -223,14 +219,14 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                                                                                    <li>
-                                                                                                                        <label>
-                                                                                                                            <span class="option-label">
-                                                                                                                                ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
-                                                                                                                            </span>
-                                                                                                                        </label>
-                                                                                                                    </li>
-                                                                                                                `).join('')}
+                                                                                                                <li>
+                                                                                                                    <label>
+                                                                                                                        <span class="option-label">
+                                                                                                                            ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
+                                                                                                                        </span>
+                                                                                                                    </label>
+                                                                                                                </li>
+                                                                                                            `).join('')}
                                 </ul>
                             </div>
                         </div>
