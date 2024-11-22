@@ -218,6 +218,7 @@ class QuizController extends Controller
     }
 
 
+
     public function getQuestion(Request $request, $id_tugas, $currentQuestionNumber)
     {
         $tugas = Tugas::with(['pertanyaan' => function ($query) {
