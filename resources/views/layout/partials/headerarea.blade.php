@@ -41,17 +41,13 @@
                                         <ul class="sub-menu">
 
                                             <li class="{{ Request::is('#') ? 'active' : '' }}">
-                                                <a href="#">Bootcamp</a>
+                                                <a href="#">Produk Digital</a>
                                             </li>
-                                            <li class="{{ Request::is('#') ? 'active' : '' }}">
-                                                <a href="#">Kelas Tatap Muka</a>
-                                            </li>
-                                            <li class="{{ Request::is('#') ? 'active' : '' }}">
-                                                <a href="#">Kelas Online</a>
-                                            </li>
-                                            <li class="{{ Request::is('#') ? 'active' : '' }}">
-                                                <a href="#"> In-house Training</a>
-                                            </li>
+                                            {{-- <li class="{{ Request::is('#') ? 'active' : '' }}">
+                                                <a href="#">Jasa Pembuatan website
+                                                </a>
+                                            </li> --}}
+
                                         </ul>
                                     </li>
                                     {{-- <li class="{{ Request::is('event') ? 'active' : '' }}">
