@@ -66,10 +66,18 @@
 
                             <div class="tgmenu__search d-none d-md-block">
                                 <form action="{{ route('search') }}" method="GET" class="tgmenu__search-form">
-                                    <div class="input-grp d-flex">
-                                        <input type="text" name="search_term" placeholder="Pencarian Kursus . . .">
-                                        <button type="submit"><i class="flaticon-search"></i></button>
+                                    <div class="row">
+                                        <div class="col-8 col-md-10">
+                                            <input type="text" name="search_term" class="form-control"
+                                                placeholder="Pencarian Kursus . . .">
+                                        </div>
+                                        <div class="col-4 col-md-2">
+                                            <button type="submit" class="btn btn-primary w-100">
+                                                <i class="flaticon-search"></i>
+                                            </button>
+                                        </div>
                                     </div>
+
                                 </form>
                             </div>
 
