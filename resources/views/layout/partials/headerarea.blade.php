@@ -36,21 +36,21 @@
                                         </ul>
                                     </li>
                                     <li
-                                        class="menu-item-has-children {{ Request::is('classroom', 'course', 'pbi') ? 'active' : '' }}">
+                                        class="menu-item-has-children {{ Request::is('#', '#', '#') ? 'active' : '' }}">
                                         <a href="#">Produk</a>
                                         <ul class="sub-menu">
 
-                                            <li class="{{ Request::is('pbi') ? 'active' : '' }}">
-                                                <a href="{{ route('pbi') }}">Bootcamp</a>
+                                            <li class="{{ Request::is('#') ? 'active' : '' }}">
+                                                <a href="#">Bootcamp</a>
                                             </li>
-                                            <li class="{{ Request::is('classroom') ? 'active' : '' }}">
-                                                <a href="{{ route('classroom') }}">Kelas Tatap Muka</a>
+                                            <li class="{{ Request::is('#') ? 'active' : '' }}">
+                                                <a href="#">Kelas Tatap Muka</a>
                                             </li>
-                                            <li class="{{ Request::is('course') ? 'active' : '' }}">
-                                                <a href="{{ route('course') }}">Kelas Online</a>
+                                            <li class="{{ Request::is('#') ? 'active' : '' }}">
+                                                <a href="#">Kelas Online</a>
                                             </li>
-                                            <li class="{{ Request::is('konsultasi') ? 'active' : '' }}">
-                                                <a href="{{ route('konsultasi') }}"> In-house Training</a>
+                                            <li class="{{ Request::is('#') ? 'active' : '' }}">
+                                                <a href="#"> In-house Training</a>
                                             </li>
                                         </ul>
                                     </li>

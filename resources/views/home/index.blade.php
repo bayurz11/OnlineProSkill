@@ -53,17 +53,17 @@
                                 <p class="title"><span>{{ $sertifikat->count() }}</span> Sertifikat</p>
                                 <img src="{{ asset('public/assets/img/others/1.png') }}" alt="img">
                             </div>
-                            <div class="banner__student" data-aos="fade-left" data-aos-delay="200">
+                            <div class="banner__student" data-aos="fade-left" data-aos-delay="200" style="margin-top: -20px;">
                                 <div class="icon">
                                     <img src="{{ asset('public/assets/img/banner/h2_banner_icon.svg') }}" alt="img"
                                         class="injectable">
                                 </div>
-
                                 <div class="content">
                                     <span>Total Siswa</span>
-                                    <h4 class="title"> {{ $daftar_siswa->count() }} Siswa</h4>
+                                    <h4 class="title">{{ $daftar_siswa->count() }} Siswa</h4>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
