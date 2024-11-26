@@ -54,8 +54,7 @@
                                 <img src="{{ asset('public/assets/img/others/1.png') }}" alt="img">
                             </div>
 
-                            <div class="banner__student" data-aos="fade-left" data-aos-delay="200"
-                                style="margin-top: -50px; margin-left: 40px;">
+                            <div class="banner__student" data-aos="fade-left" data-aos-delay="200" style="margin-top: -50px;">
                                 <div class="icon">
                                     <img src="{{ asset('public/assets/img/banner/h2_banner_icon.svg') }}" alt="img"
                                         class="injectable">
