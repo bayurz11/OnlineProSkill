@@ -49,7 +49,8 @@
                             </div>
                             <span class="svg-icon" id="banner-svg"
                                 data-svg-icon="{{ asset('public/assets/img/banner/h2_banner_shape02.svg') }}"></span>
-                            <div class="about__enrolled" data-aos="fade-right" data-aos-delay="200" style="margin-left: -40px;">
+                            <div class="about__enrolled" data-aos="fade-right" data-aos-delay="200"
+                                style="margin-left: -40px; margin-top: -20px;">
                                 <p class="title"><span>{{ $sertifikat->count() }}</span> Sertifikat</p>
                                 <img src="{{ asset('public/assets/img/others/1.png') }}" alt="img">
                             </div>
