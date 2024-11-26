@@ -425,11 +425,11 @@
                                 style="border-left: 2px solid #007368; height: 35px; margin: 0 8px;"></div>
 
                             <div class="d-flex align-items-center mb-3 mb-md-0">
-                                <img src="public/assets/img/icons/calender.svg" alt="Format Icon"
+                                <img src="public/assets/img/icons/25.png" alt="Format Icon"
                                     style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
                                 <div>
                                     <p class="mb-0" style="font-size: 0.6rem;">Start:</p>
-                                    <p class="mb-0 font-weight-bold" style="font-size: 0.6rem;"><b>30 Nov</b></p>
+                                    <p class="mb-0 font-weight-bold" style="font-size: 0.6rem;"><b>25 Jan</b></p>
                                 </div>
                             </div>
 
