@@ -54,9 +54,9 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="{{ Request::is('event') ? 'active' : '' }}">
+                                    {{-- <li class="{{ Request::is('event') ? 'active' : '' }}">
                                         <a href="{{ route('event') }}">Event</a>
-                                    </li>
+                                    </li> --}}
                                     <li class="{{ Request::is('blog') ? 'active' : '' }}">
                                         <a href="{{ route('blog') }}">Tutorial</a>
                                     </li>
@@ -66,18 +66,10 @@
 
                             <div class="tgmenu__search d-none d-md-block">
                                 <form action="{{ route('search') }}" method="GET" class="tgmenu__search-form">
-                                    <div class="row">
-                                        <div class="col-8 col-md-10">
-                                            <input type="text" name="search_term" class="form-control"
-                                                placeholder="Pencarian Kursus . . .">
-                                        </div>
-                                        <div class="col-4 col-md-2">
-                                            <button type="submit" class="btn btn-primary w-100">
-                                                <i class="flaticon-search"></i>
-                                            </button>
-                                        </div>
+                                    <div class="input-grp ">
+                                        <input type="text" name="search_term" placeholder="Pencarian Kursus . . .">
+                                        <button type="submit"><i class="flaticon-search"></i></button>
                                     </div>
-
                                 </form>
                             </div>
 
