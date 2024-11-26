@@ -60,35 +60,21 @@
                                     <li class="{{ Request::is('blog') ? 'active' : '' }}">
                                         <a href="{{ route('blog') }}">Tutorial</a>
                                     </li>
-                                    {{-- <li class="menu-item-has-children {{ Request::is('#') ? 'active' : '' }}">
-                                        <a href="#">Profil</a>
-                                        <ul class="sub-menu">
-                                            <li class="{{ Request::is('about-us') ? 'active' : '' }}">
-                                                <a href="about-us.html">Tantang Kami</a>
-                                            </li>
-                                            <li class="{{ Request::is('login') ? 'active' : '' }}">
-                                                <a href="login.html">Contoh Sertifikat</a>
-                                            </li>
-                                            <li class="{{ Request::is('registration') ? 'active' : '' }}">
-                                                <a href="registration.html">Brosur</a>
-                                            </li>
-                                            <li class="{{ Request::is('404') ? 'active' : '' }}">
-                                                <a href="404.html">Hubungi kami</a>
-                                            </li>
-                                        </ul>
-                                    </li> --}}
+
                                 </ul>
                             </div>
 
                             <div class="tgmenu__search d-none d-md-block">
                                 <form action="{{ route('search') }}" method="GET" class="tgmenu__search-form">
-
-                                    <div class="input-grp">
-                                        <input type="text" name="search_term" placeholder="Pencarian Kursus . . .">
-                                        <button type="submit"><i class="flaticon-search"></i></button>
+                                    <div class="input-grp d-flex align-items-center">
+                                        <input type="text" name="search_term" class="form-control"
+                                            placeholder="Pencarian Kursus . . .">
+                                        <button type="submit" class="btn btn-primary"><i
+                                                class="flaticon-search"></i></button>
                                     </div>
                                 </form>
                             </div>
+
 
                             <div class="tgmenu__action tgmenu__action-two">
                                 <ul class="list-wrap">
