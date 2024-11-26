@@ -54,9 +54,9 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    {{-- <li class="{{ Request::is('event') ? 'active' : '' }}">
+                                    <li class="{{ Request::is('event') ? 'active' : '' }}">
                                         <a href="{{ route('event') }}">Event</a>
-                                    </li> --}}
+                                    </li>
                                     <li class="{{ Request::is('blog') ? 'active' : '' }}">
                                         <a href="{{ route('blog') }}">Tutorial</a>
                                     </li>
