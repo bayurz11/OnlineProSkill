@@ -53,7 +53,7 @@
                                 <p class="title"><span>{{ $sertifikat->count() }}</span> Sertifikat</p>
                                 <img src="{{ asset('public/assets/img/others/1.png') }}" alt="img">
                             </div>
-                            <div class="banner__student hide-on-small" data-aos="fade-left" data-aos-delay="200"
+                            <div class="banner__student d-none d-lg-block" data-aos="fade-left" data-aos-delay="200"
                                 style="margin-top: -50px;">
                                 <div class="icon">
                                     <img src="{{ asset('public/assets/img/banner/h2_banner_icon.svg') }}" alt="img"
