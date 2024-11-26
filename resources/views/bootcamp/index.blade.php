@@ -68,11 +68,11 @@
                             style="border-left: 2px solid #007368; height: 50px; margin: 0 20px;"></div>
 
                         <div class="d-flex align-items-center mb-3 mb-md-0">
-                            <img src="public/assets/img/icons/calender.svg" alt="Format Icon"
+                            <img src="public/assets/img/icons/25.png" alt="Format Icon"
                                 style="width: 28px; height: 28px; vertical-align: middle; margin-right: 10px;">
                             <div>
                                 <p class="mb-0" style="font-size: 0.9rem;">Start:</p>
-                                <p class="mb-0 font-weight-bold" style="font-size: 0.9rem;"><b>30 Nov</b></p>
+                                <p class="mb-0 font-weight-bold" style="font-size: 0.9rem;"><b>25 Jan</b></p>
                             </div>
                         </div>
 
