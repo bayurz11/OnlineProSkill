@@ -68,7 +68,7 @@
                                 <form action="{{ route('search') }}" method="GET" class="tgmenu__search-form">
                                     <div class="input-grp ">
                                         <input type="text" name="search_term" placeholder="Pencarian Kursus . . ."
-                                            style="width: 300px; height: 40px; padding: 10px;">
+                                            style="width: 30px; height: 45px; padding: 10px;">
 
                                         <button type="submit"><i class="flaticon-search"></i></button>
                                     </div>
