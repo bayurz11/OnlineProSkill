@@ -35,11 +35,30 @@
                                             </li>
                                         </ul>
                                     </li>
+                                    <li
+                                        class="menu-item-has-children {{ Request::is('classroom', 'course', 'pbi') ? 'active' : '' }}">
+                                        <a href="#">Produk</a>
+                                        <ul class="sub-menu">
+
+                                            <li class="{{ Request::is('pbi') ? 'active' : '' }}">
+                                                <a href="{{ route('pbi') }}">Bootcamp</a>
+                                            </li>
+                                            <li class="{{ Request::is('classroom') ? 'active' : '' }}">
+                                                <a href="{{ route('classroom') }}">Kelas Tatap Muka</a>
+                                            </li>
+                                            <li class="{{ Request::is('course') ? 'active' : '' }}">
+                                                <a href="{{ route('course') }}">Kelas Online</a>
+                                            </li>
+                                            <li class="{{ Request::is('konsultasi') ? 'active' : '' }}">
+                                                <a href="{{ route('konsultasi') }}"> In-house Training</a>
+                                            </li>
+                                        </ul>
+                                    </li>
                                     <li class="{{ Request::is('event') ? 'active' : '' }}">
                                         <a href="{{ route('event') }}">Event</a>
                                     </li>
                                     <li class="{{ Request::is('blog') ? 'active' : '' }}">
-                                        <a href="{{ route('blog') }}">Artikel</a>
+                                        <a href="{{ route('blog') }}">Tutorial</a>
                                     </li>
                                     {{-- <li class="menu-item-has-children {{ Request::is('#') ? 'active' : '' }}">
                                         <a href="#">Profil</a>
