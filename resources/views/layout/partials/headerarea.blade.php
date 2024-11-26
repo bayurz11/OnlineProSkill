@@ -66,14 +66,14 @@
 
                             <div class="tgmenu__search d-none d-md-block">
                                 <form action="{{ route('search') }}" method="GET" class="tgmenu__search-form">
-                                    <div class="input-grp ">
+                                    <div class="input-grp">
                                         <input type="text" name="search_term" placeholder="Pencarian Kursus . . ."
-                                            style="width: 30px; height: 45px; padding: 10px;">
-
+                                            class="form-control w-50">
                                         <button type="submit"><i class="flaticon-search"></i></button>
                                     </div>
                                 </form>
                             </div>
+
 
                             <div class="tgmenu__action tgmenu__action-two">
                                 <ul class="list-wrap">
