@@ -177,7 +177,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($idSiswaList as $nilai)
+                                    @foreach ($nilaiSiswa as $nilai)
                                         <tr>
                                             <td>{{ $nilai->siswa->nama ?? 'Tidak Diketahui' }}</td>
                                             <td>{{ $nilai->benar }}</td>

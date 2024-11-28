@@ -248,20 +248,16 @@ class InstrukturQuestionController extends Controller
                 ->count();
         }
 
-        // Ambil tugas berdasarkan id_tugas
-        $nilaiSiswa = Tugas::with(['pertanyaan.jawaban'])
-            ->where('id_tugas', $id_tugas)
-            ->first();
-
-        if (!$nilaiSiswa) {
-            return response()->json(['message' => 'Data tugas tidak ditemukan'], 404);
-        }
-
-        // Ambil semua id_siswa dari jawaban terkait
-        $idSiswaList = $nilaiSiswa->pertanyaan->flatMap(function ($pertanyaan) {
-            return $pertanyaan->jawaban->pluck('id_siswa');
-        })->unique(); // Menghapus duplikat jika ada
-
+        $nilaiSiswa = Jawaban_Siswa::select('id_siswa')
+            ->selectRaw('SUM(CASE WHEN nilai = 1.00 THEN 1 ELSE 0 END) as benar')
+            ->selectRaw('SUM(CASE WHEN nilai = 0.00 THEN 1 ELSE 0 END) as salah')
+            ->selectRaw('SUM(CASE WHEN nilai IS NULL THEN 1 ELSE 0 END) as tidak_dijawab')
+            // Menambahkan join dengan tabel Pertanyaan dan Tugas
+            ->join('pertanyaan', 'jawaban_siswa.id_pertanyaan', '=', 'pertanyaan.id_pertanyaan')
+            ->join('tugas', 'pertanyaan.id_tugas', '=', 'tugas.id_tugas')
+            ->groupBy('id_siswa')
+            ->with('siswa') // Asosiasi dengan model Siswa untuk mendapatkan nama siswa
+            ->get();
 
 
         return view('instruktur.Quiz.viewpg', compact(
@@ -280,8 +276,7 @@ class InstrukturQuestionController extends Controller
             'allQuestions',
             'totalQuestions',
             'daftarpesanan',
-            'nilaiSiswa',
-            'idSiswaList'
+            'nilaiSiswa' // Kirim data ini ke view
         ));
     }
 
