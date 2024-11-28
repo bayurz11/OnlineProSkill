@@ -82,13 +82,21 @@
                                                             @if ($isSelesai)
                                                                 <span class="dashboard__quiz-result fail">Selesai</span>
                                                             @else
-                                                                <a href="{{ route('view_pg', $quiz->id_tugas) }}"
-                                                                    title="Kerjakan Soal">
-                                                                    <i class="fas fa-pencil-alt"></i>
-                                                                </a>
+                                                                @if ($quiz->nilai > 70)
+                                                                    <span class="text-muted"
+                                                                        title="Nilai sudah cukup tinggi, tidak perlu mengerjakan lagi">
+                                                                        <i class="fas fa-check-circle"></i>
+                                                                    </span>
+                                                                @else
+                                                                    <a href="{{ route('view_pg', $quiz->id_tugas) }}"
+                                                                        title="Kerjakan Soal">
+                                                                        <i class="fas fa-pencil-alt"></i>
+                                                                    </a>
+                                                                @endif
                                                             @endif
                                                         </div>
                                                     </td>
+
                                                 </tr>
                                             </tbody>
                                         @endforeach
