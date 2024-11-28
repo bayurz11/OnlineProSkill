@@ -248,16 +248,29 @@ class InstrukturQuestionController extends Controller
                 ->count();
         }
 
+        // $nilaiSiswa = Jawaban_Siswa::with(['pertanyaan.tugas', 'siswa']) // Pastikan relasi 'siswa' ada di model
+        //     ->select('id_siswa')
+        //     ->selectRaw('SUM(CASE WHEN nilai = 1.00 THEN 1 ELSE 0 END) as benar')
+        //     ->selectRaw('SUM(CASE WHEN nilai = 0.00 THEN 1 ELSE 0 END) as salah')
+        //     ->selectRaw('SUM(CASE WHEN nilai IS NULL THEN 1 ELSE 0 END) as tidak_dijawab')
+        //     ->whereHas('pertanyaan', function ($query) use ($id_tugas) {
+        //         $query->where('id_tugas', $id_tugas);
+        //     })
+        //     ->groupBy('id_siswa')
+        //     ->get();
         $nilaiSiswa = Jawaban_Siswa::with(['pertanyaan.tugas', 'siswa']) // Pastikan relasi 'siswa' ada di model
             ->select('id_siswa')
             ->selectRaw('SUM(CASE WHEN nilai = 1.00 THEN 1 ELSE 0 END) as benar')
             ->selectRaw('SUM(CASE WHEN nilai = 0.00 THEN 1 ELSE 0 END) as salah')
             ->selectRaw('SUM(CASE WHEN nilai IS NULL THEN 1 ELSE 0 END) as tidak_dijawab')
+            ->selectRaw('COUNT(nilai) as total_pertanyaan')
+            ->selectRaw('ROUND((SUM(CASE WHEN nilai = 1.00 THEN 1 ELSE 0 END) / COUNT(nilai)) * 100, 2) as nilai')
             ->whereHas('pertanyaan', function ($query) use ($id_tugas) {
                 $query->where('id_tugas', $id_tugas);
             })
             ->groupBy('id_siswa')
             ->get();
+
 
 
         return view('instruktur.Quiz.viewpg', compact(
