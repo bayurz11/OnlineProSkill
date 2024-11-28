@@ -51,10 +51,10 @@
                                                         <div class="dashboard__quiz-info">
                                                             <p>{{ $quiz->created_at->format('d F, Y') }}</p>
                                                             <h6 class="title">{{ $quiz->judul_tugas }}</h6>
-                                                            <p style="font-size: 12px;">Waktu Pengerjaan:
-                                                                {{ \Carbon\Carbon::parse($quiz->jam_mulai)->format('H.i') }}
+                                                            <p style="font-size: 12px;">Tanggal Pengerjaan:
+                                                                {{ \Carbon\Carbon::parse($quiz->tanggal_mulai)->format('d F, Y') }}
                                                                 s/d
-                                                                {{ \Carbon\Carbon::parse($quiz->jam_akhir)->format('H.i') }}
+                                                                {{ \Carbon\Carbon::parse($quiz->tanggal_akhir)->format('d F, Y') }}
                                                             </p>
                                                         </div>
                                                     </td>
@@ -66,12 +66,10 @@
                                                     </td>
                                                     <td>
                                                         @php
-                                                            $waktuAkhir = \Carbon\Carbon::parse(
-                                                                $quiz->created_at->format('Y-m-d') .
-                                                                    ' ' .
-                                                                    $quiz->jam_akhir,
-                                                            );
-                                                            $isSelesai = now()->greaterThan($waktuAkhir);
+                                                            $tanggalAkhir = \Carbon\Carbon::parse(
+                                                                $quiz->tanggal_akhir,
+                                                            )->endOfDay();
+                                                            $isSelesai = now()->greaterThan($tanggalAkhir);
                                                         @endphp
                                                         @if ($isSelesai)
                                                             <span class="dashboard__quiz-result fail">Selesai</span>
@@ -79,7 +77,6 @@
                                                             <span class="dashboard__quiz-result">Berjalan</span>
                                                         @endif
                                                     </td>
-
                                                     <td>
                                                         <div class="dashboard__review-action">
                                                             @if ($isSelesai)
@@ -95,6 +92,7 @@
                                                 </tr>
                                             </tbody>
                                         @endforeach
+
 
                                     </table>
                                 </div>
