@@ -257,6 +257,12 @@ class InstrukturQuestionController extends Controller
             return response()->json(['message' => 'Data tugas tidak ditemukan'], 404);
         }
 
+        // Ambil semua id_siswa dari jawaban terkait
+        $idSiswaList = $nilaiSiswa->pertanyaan->flatMap(function ($pertanyaan) {
+            return $pertanyaan->jawaban->pluck('id_siswa');
+        })->unique(); // Menghapus duplikat jika ada
+
+
 
         return view('instruktur.Quiz.viewpg', compact(
             'user',
