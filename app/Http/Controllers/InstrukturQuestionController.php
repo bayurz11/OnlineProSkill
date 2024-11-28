@@ -280,7 +280,8 @@ class InstrukturQuestionController extends Controller
             'allQuestions',
             'totalQuestions',
             'daftarpesanan',
-            'nilaiSiswa' // Kirim data ini ke view
+            'nilaiSiswa',
+            'idSiswaList'
         ));
     }
 
