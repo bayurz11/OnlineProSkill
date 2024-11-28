@@ -248,15 +248,15 @@ class InstrukturQuestionController extends Controller
                 ->count();
         }
 
-        $nilaiSiswa = Jawaban_Siswa::select('id_siswa')
+        $nilaiSiswa = Jawaban_Siswa::with(['pertanyaan.tugas', 'siswa']) // Pastikan relasi 'siswa' ada di model
+            ->select('id_siswa')
             ->selectRaw('SUM(CASE WHEN nilai = 1.00 THEN 1 ELSE 0 END) as benar')
             ->selectRaw('SUM(CASE WHEN nilai = 0.00 THEN 1 ELSE 0 END) as salah')
             ->selectRaw('SUM(CASE WHEN nilai IS NULL THEN 1 ELSE 0 END) as tidak_dijawab')
-            // Menambahkan join dengan tabel Pertanyaan dan Tugas
-            ->join('pertanyaan', 'jawaban_siswa.id_pertanyaan', '=', 'pertanyaan.id_pertanyaan')
-            ->join('tugas', 'pertanyaan.id_tugas', '=', 'tugas.id_tugas')
+            ->whereHas('pertanyaan', function ($query) use ($id_tugas) {
+                $query->where('id_tugas', $id_tugas);
+            })
             ->groupBy('id_siswa')
-            ->with('siswa') // Asosiasi dengan model Siswa untuk mendapatkan nama siswa
             ->get();
 
 
