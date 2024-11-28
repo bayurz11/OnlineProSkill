@@ -134,7 +134,7 @@
     </section>
     <!-- dashboard-area-end -->
 
-    {{-- <script>
+    <script>
         function loadQuestion(id_tugas, questionNumber) {
             $.ajax({
                 url: `/tugas/${id_tugas}/question/${questionNumber}`,
@@ -154,14 +154,14 @@
                         <p>${data.currentQuestion.isi_pertanyaan}</p>
                         <ul class="list-unstyled">
                             ${data.options.map((option, index) => `
-                                                                                                <li>
-                                                                                                    <label>
-                                                                                                        <input type="radio" name="answer_${data.currentQuestion.id}"
-                                                                                                            value="${option.id_pilihan}" class="me-2"
-                                                                                                            onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
-                                                                                                        <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                                                                    </label>
-                                                                                                </li>`).join('')}
+                                                                                                    <li>
+                                                                                                        <label>
+                                                                                                            <input type="radio" name="answer_${data.currentQuestion.id}"
+                                                                                                                value="${option.id_pilihan}" class="me-2"
+                                                                                                                onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
+                                                                                                            <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                                                                        </label>
+                                                                                                    </li>`).join('')}
                         </ul>
                     </div>
                 </div>
@@ -290,174 +290,8 @@
         function redirectToQuiz() {
             window.location.href = '/quiz'; // Ganti dengan URL rute yang sesuai
         }
-    </script> --}}
-    <script>
-        function loadQuestion(id_tugas, questionNumber) {
-            $.ajax({
-                url: `/tugas/${id_tugas}/question/${questionNumber}`,
-                method: 'GET',
-                success: function(data) {
-                    if (!data.currentQuestion) {
-                        alert('Soal tidak ditemukan.');
-                        return;
-                    }
-
-                    const questionContent = `
-                        <div class="card">
-                            <div class="card-header">
-                                <strong>Soal No. ${data.currentQuestionNumber}</strong>
-                            </div>
-                            <div class="card-body">
-                                <p>${data.currentQuestion.isi_pertanyaan}</p>
-                                <ul class="list-unstyled">
-                                    ${data.options.map((option, index) => `
-                                            <li>
-                                                <label>
-                                                    <input type="radio" name="answer_${data.currentQuestion.id}"
-                                                        value="${option.id_pilihan}" class="me-2"
-                                                        onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
-                                                    <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                </label>
-                                            </li>`).join('')}
-                                </ul>
-                            </div>
-                        </div>
-                    `;
-
-                    $('#question-container').html(questionContent);
-                },
-                error: function() {
-                    alert('Terjadi kesalahan saat memuat soal.');
-                }
-            });
-        }
-
-        // Fungsi untuk menangani perubahan pilihan jawaban
-        function handleAnswerChange(id_tugas, question_id, answer_value) {
-            // Tampilkan tombol simpan saat ada pilihan
-            document.getElementById('save-button').style.display = 'inline-block';
-
-            // Simpan jawaban menggunakan AJAX
-            saveAnswer(id_tugas, question_id, answer_value);
-        }
-
-        // Fungsi untuk menyimpan jawaban
-        function saveAnswer(id_tugas, question_id, answer_value) {
-            // Persiapkan data yang akan dikirim
-            let data = {
-                _token: '{{ csrf_token() }}', // Sertakan CSRF token
-                id_pertanyaan: question_id,
-                id_pilihan: answer_value, // ID pilihan jawaban
-            };
-
-            console.log("Data yang dikirim: ", data); // Debugging
-
-            // Kirim data ke backend menggunakan AJAX
-            $.ajax({
-                url: `/tugas/${id_tugas}/jawaban`,
-                method: 'POST',
-                data: data,
-                success: function(response) {
-                    // Setelah berhasil disimpan, pindahkan ke soal berikutnya
-                    const nextQuestionNumber = {{ $currentQuestionNumber }} +
-                    1; // Menambah 1 untuk soal berikutnya
-                    window.location.href =
-                        `{{ route('view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => '']) }}` +
-                        nextQuestionNumber;
-                },
-                error: function(xhr) {
-                    const response = JSON.parse(xhr.responseText);
-                    alert(response.message || 'Terjadi kesalahan saat mengirim jawaban.');
-                }
-            });
-        }
-
-        // Ambil waktu pengerjaan dari PHP (jam dan menit)
-        let waktuJam = {{ $tugas->waktu_pengerjaan_jam }};
-        let waktuMenit = {{ $tugas->waktu_pengerjaan_menit }};
-        let totalSeconds = (waktuJam * 3600) + (waktuMenit * 60);
-
-        // Cek apakah waktu tersisa ada di LocalStorage dan apakah sudah lebih dari 24 jam
-        const storedTime = localStorage.getItem('waktuTersisa');
-        const storedTimestamp = localStorage.getItem('timestamp');
-
-        if (storedTimestamp) {
-            const currentTime = Date.now();
-            const elapsedTime = currentTime - storedTimestamp; // Waktu berlalu dalam milidetik
-            const twentyFourHours = 24 * 60 * 60 * 1000; // 24 jam dalam milidetik
-
-            if (elapsedTime > twentyFourHours) {
-                // Jika sudah lebih dari 24 jam, hapus data
-                localStorage.removeItem('waktuTersisa');
-                localStorage.removeItem('timestamp');
-            } else {
-                // Jika masih dalam 24 jam, gunakan data waktu
-                totalSeconds = parseInt(storedTime);
-            }
-        }
-
-        // Fungsi untuk memperbarui timer
-        function updateTimer() {
-            const timerText = document.getElementById('timer-text');
-            const timerIcon = document.getElementById('timer-icon');
-
-            if (totalSeconds <= 0) {
-                clearInterval(timerInterval);
-                timerText.textContent = 'Waktu habis!';
-                timerText.style.color = 'red';
-                timerIcon.style.color = 'red';
-
-                // Disable semua pilihan
-                document.querySelectorAll('input[type="radio"]').forEach(input => input.disabled = true);
-                return;
-            }
-
-            const minutes = Math.floor(totalSeconds / 60);
-            const seconds = totalSeconds % 60;
-            timerText.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-
-            // Ubah warna jika kurang dari 5 menit
-            if (totalSeconds <= 300) {
-                timerText.style.color = 'red';
-                timerIcon.style.color = 'red';
-            }
-
-            // Simpan waktu tersisa di LocalStorage
-            localStorage.setItem('waktuTersisa', totalSeconds);
-            localStorage.setItem('timestamp', Date.now()); // Update timestamp
-            totalSeconds--;
-        }
-
-        const timerInterval = setInterval(updateTimer, 1000);
-
-        // Fungsi untuk menyelesaikan quiz
-        function finishQuiz() {
-            $.ajax({
-                url: `/tugas/{{ $tugas->id_tugas }}/finish`,
-                method: 'POST',
-                data: {
-                    _token: '{{ csrf_token() }}',
-                    user_id: '{{ auth()->user()->id }}'
-                },
-                success: function(response) {
-                    // Tampilkan modal dengan nilai yang didapat
-                    $('#quizResultModal .modal-body').html(`
-                        <h4 class="text-center">Nilai Anda</h4>
-                        <p class="text-center display-4 text-success">${response.score}</p>
-                    `);
-                    $('#quizResultModal').modal('show');
-                },
-                error: function(xhr) {
-                    const response = JSON.parse(xhr.responseText);
-                    alert(response.message || 'Terjadi kesalahan saat menyelesaikan quiz.');
-                }
-            });
-        }
-
-        function redirectToQuiz() {
-            window.location.href = '/quiz'; // Ganti dengan URL rute yang sesuai
-        }
     </script>
+
 
 
     <!-- Modal -->
