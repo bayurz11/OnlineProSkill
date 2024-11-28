@@ -71,12 +71,15 @@
                                                             )->endOfDay();
                                                             $isSelesai = now()->greaterThan($tanggalAkhir);
                                                         @endphp
-                                                        @if ($isSelesai)
+                                                        @if ($quiz->nilai > 0)
+                                                            <span class="dashboard__quiz-result success">Dikerjakan</span>
+                                                        @elseif ($isSelesai)
                                                             <span class="dashboard__quiz-result fail">Selesai</span>
                                                         @else
                                                             <span class="dashboard__quiz-result">Berjalan</span>
                                                         @endif
                                                     </td>
+
                                                     <td>
                                                         <div class="dashboard__review-action">
                                                             @if ($isSelesai)
