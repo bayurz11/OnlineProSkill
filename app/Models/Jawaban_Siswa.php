@@ -34,6 +34,6 @@ class Jawaban_Siswa extends Model
     // Relasi ke tabel Users (Siswa)
     public function siswa()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'id_siswa');
     }
 }
