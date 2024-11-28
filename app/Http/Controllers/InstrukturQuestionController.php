@@ -75,8 +75,8 @@ class InstrukturQuestionController extends Controller
             'course_id' => 'required',
             'waktu_pengerjaan_jam' => 'required',
             'waktu_pengerjaan_menit' => 'required',
-            'jam_mulai' => 'required|date_format:H:i',
-            'jam_akhir' => 'required|date_format:H:i',
+            'tanggal_mulai' => 'required|date',
+            'tanggal_akhir' => 'required|date|after_or_equal:tanggal_mulai',
             'questions.*.question' => 'required|string|max:255',
             'questions.*.options.A' => 'required|string|max:255',
             'questions.*.options.B' => 'required|string|max:255',
@@ -93,8 +93,8 @@ class InstrukturQuestionController extends Controller
             'id_instruktur' => $request->id_instruktur,
             'waktu_pengerjaan_jam' => $request->waktu_pengerjaan_jam,
             'waktu_pengerjaan_menit' => $request->waktu_pengerjaan_menit,
-            'jam_mulai' => $request->jam_mulai,
-            'jam_akhir' => $request->jam_akhir,
+            'tanggal_mulai' => $request->tanggal_mulai,
+            'tanggal_akhir' => $request->tanggal_akhir,
         ]);
 
         // Menyimpan data pertanyaan pilihan ganda

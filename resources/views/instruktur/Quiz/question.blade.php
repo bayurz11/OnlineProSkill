@@ -86,18 +86,19 @@
 
                                 </div>
                                 <!-- Time Fields -->
-                                <div class="mb-3 d-flex justify-content-between">
-                                    <div class="me-2" style="flex: 1;">
-                                        <label for="jam_mulai" class="form-label">Waktu Mulai</label>
-                                        <input type="time" class="form-control" id="jam_mulai" name="jam_mulai"
-                                            placeholder="Pilih waktu mulai">
+                                <div class="mb-3 row">
+                                    <div class="col-md-6">
+                                        <label for="tanggal_mulai" class="form-label">Tanggal Mulai</label>
+                                        <input type="date" class="form-control" id="tanggal_mulai" name="tanggal_mulai"
+                                            placeholder="Pilih tanggal mulai">
                                     </div>
-                                    <div style="flex: 1;">
-                                        <label for="jam_akhir" class="form-label">Waktu Selesai</label>
-                                        <input type="time" class="form-control" id="jam_akhir" name="jam_akhir"
-                                            placeholder="Pilih waktu selesai">
+                                    <div class="col-md-6">
+                                        <label for="tanggal_akhir" class="form-label">Tanggal Akhir</label>
+                                        <input type="date" class="form-control" id="tanggal_akhir" name="tanggal_akhir"
+                                            placeholder="Pilih tanggal akhir">
                                     </div>
                                 </div>
+
 
                                 <!-- Question Section -->
                                 <div class="dashboard__content-title d-flex justify-content-between align-items-center">
