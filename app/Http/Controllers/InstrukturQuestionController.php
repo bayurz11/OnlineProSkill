@@ -248,7 +248,14 @@ class InstrukturQuestionController extends Controller
                 ->count();
         }
 
-        $nilaiSiswa = Tugas::all();
+        // Ambil tugas berdasarkan id_tugas
+        $nilaiSiswa = Tugas::with(['pertanyaan.jawaban'])
+            ->where('id_tugas', $id_tugas)
+            ->first();
+
+        if (!$nilaiSiswa) {
+            return response()->json(['message' => 'Data tugas tidak ditemukan'], 404);
+        }
 
 
         return view('instruktur.Quiz.viewpg', compact(
