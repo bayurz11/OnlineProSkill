@@ -311,14 +311,14 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                <li>
-                                                    <label>
-                                                        <input type="radio" name="answer_${data.currentQuestion.id}"
-                                                            value="${option.id_pilihan}" class="me-2"
-                                                            onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
-                                                        <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
-                                                    </label>
-                                                </li>`).join('')}
+                                            <li>
+                                                <label>
+                                                    <input type="radio" name="answer_${data.currentQuestion.id}"
+                                                        value="${option.id_pilihan}" class="me-2"
+                                                        onchange="handleAnswerChange('${id_tugas}', '${data.currentQuestion.id_pertanyaan}', '${option.id_pilihan}')">
+                                                    <span class="option-label">${String.fromCharCode(65 + index)}. ${option.isi_pilihan}</span>
+                                                </label>
+                                            </li>`).join('')}
                                 </ul>
                             </div>
                         </div>
@@ -343,11 +343,14 @@
 
         // Fungsi untuk menyimpan jawaban
         function saveAnswer(id_tugas, question_id, answer_value) {
+            // Persiapkan data yang akan dikirim
             let data = {
-                _token: '{{ csrf_token() }}',
+                _token: '{{ csrf_token() }}', // Sertakan CSRF token
                 id_pertanyaan: question_id,
-                id_pilihan: answer_value,
+                id_pilihan: answer_value, // ID pilihan jawaban
             };
+
+            console.log("Data yang dikirim: ", data); // Debugging
 
             // Kirim data ke backend menggunakan AJAX
             $.ajax({
@@ -356,9 +359,11 @@
                 data: data,
                 success: function(response) {
                     // Setelah berhasil disimpan, pindahkan ke soal berikutnya
-                    const nextQuestionNumber = {{ $currentQuestionNumber }} + 1;
+                    const nextQuestionNumber = {{ $currentQuestionNumber }} +
+                    1; // Menambah 1 untuk soal berikutnya
                     window.location.href =
-                        `{{ route('view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => '']) }}${nextQuestionNumber}`;
+                        `{{ route('view_pg', ['id_tugas' => $tugas->id_tugas, 'current_question_number' => '']) }}` +
+                        nextQuestionNumber;
                 },
                 error: function(xhr) {
                     const response = JSON.parse(xhr.responseText);
@@ -372,19 +377,21 @@
         let waktuMenit = {{ $tugas->waktu_pengerjaan_menit }};
         let totalSeconds = (waktuJam * 3600) + (waktuMenit * 60);
 
-        // Cek apakah waktu tersisa ada di LocalStorage berdasarkan id_tugas dan apakah sudah lebih dari 24 jam
-        const storedTime = localStorage.getItem(`waktuTersisa_${id_tugas}`);
-        const storedTimestamp = localStorage.getItem(`timestamp_${id_tugas}`);
+        // Cek apakah waktu tersisa ada di LocalStorage dan apakah sudah lebih dari 24 jam
+        const storedTime = localStorage.getItem('waktuTersisa');
+        const storedTimestamp = localStorage.getItem('timestamp');
 
         if (storedTimestamp) {
             const currentTime = Date.now();
-            const elapsedTime = currentTime - storedTimestamp;
+            const elapsedTime = currentTime - storedTimestamp; // Waktu berlalu dalam milidetik
             const twentyFourHours = 24 * 60 * 60 * 1000; // 24 jam dalam milidetik
 
             if (elapsedTime > twentyFourHours) {
-                localStorage.removeItem(`waktuTersisa_${id_tugas}`);
-                localStorage.removeItem(`timestamp_${id_tugas}`);
+                // Jika sudah lebih dari 24 jam, hapus data
+                localStorage.removeItem('waktuTersisa');
+                localStorage.removeItem('timestamp');
             } else {
+                // Jika masih dalam 24 jam, gunakan data waktu
                 totalSeconds = parseInt(storedTime);
             }
         }
@@ -409,14 +416,15 @@
             const seconds = totalSeconds % 60;
             timerText.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 
+            // Ubah warna jika kurang dari 5 menit
             if (totalSeconds <= 300) {
                 timerText.style.color = 'red';
                 timerIcon.style.color = 'red';
             }
 
-            // Simpan waktu tersisa di LocalStorage untuk id_tugas tertentu
-            localStorage.setItem(`waktuTersisa_${id_tugas}`, totalSeconds);
-            localStorage.setItem(`timestamp_${id_tugas}`, Date.now()); // Update timestamp
+            // Simpan waktu tersisa di LocalStorage
+            localStorage.setItem('waktuTersisa', totalSeconds);
+            localStorage.setItem('timestamp', Date.now()); // Update timestamp
             totalSeconds--;
         }
 
@@ -432,6 +440,7 @@
                     user_id: '{{ auth()->user()->id }}'
                 },
                 success: function(response) {
+                    // Tampilkan modal dengan nilai yang didapat
                     $('#quizResultModal .modal-body').html(`
                         <h4 class="text-center">Nilai Anda</h4>
                         <p class="text-center display-4 text-success">${response.score}</p>
@@ -449,7 +458,6 @@
             window.location.href = '/quiz'; // Ganti dengan URL rute yang sesuai
         }
     </script>
-
 
 
     <!-- Modal -->
