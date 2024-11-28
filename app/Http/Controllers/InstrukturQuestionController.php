@@ -248,7 +248,7 @@ class InstrukturQuestionController extends Controller
                 ->count();
         }
 
-        $nilaiSiswa = Pertanyaan::all();
+        $nilaiSiswa = Tugas::all();
 
 
         return view('instruktur.Quiz.viewpg', compact(
