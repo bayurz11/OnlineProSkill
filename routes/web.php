@@ -46,6 +46,7 @@ use App\Http\Controllers\InstrukturQuestionController;
 use App\Http\Controllers\DashboardInstrukturController;
 use App\Http\Controllers\InstrukturKurikulumController;
 use App\Http\Controllers\OrderHistoryManagerController;
+use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\SettingProfileInstrukturController;
 
@@ -333,6 +334,9 @@ Route::get('/print/{id}', [SertifikatController::class, 'printCertificate'])->na
 Route::post('/classes/{class}/reviews', [ReviewController::class, 'store'])->name('reviews.store');
 Route::put('/reviews/{review}', [ReviewController::class, 'update'])->name('reviews.update');
 Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
+
+//produk
+Route::get('produk', [ProdukController::class, 'index'])->name('produk');
 
 //*********Bootcamp*********//
 //PowerBI
