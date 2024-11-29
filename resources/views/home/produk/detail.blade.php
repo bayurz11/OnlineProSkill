@@ -49,40 +49,40 @@
                                 <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
                                     data-bs-target="#home-tab-pane" type="button" role="tab"
                                     aria-controls="home-tab-pane" aria-selected="true">
-                                    <img src="assets/img/shop/shop_img01.jpg" alt="img">
+                                    <img src="{{ asset('public/assets/img/shop/shop_img01.jpg') }}" alt="img">
                                 </button>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
                                     data-bs-target="#profile-tab-pane" type="button" role="tab"
                                     aria-controls="profile-tab-pane" aria-selected="false">
-                                    <img src="assets/img/shop/shop_img02.jpg" alt="img">
+                                    <img src="{{ asset('public/assets/img/shop/shop_img02.jpg') }}" alt="img">
                                 </button>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="contact-tab" data-bs-toggle="tab"
                                     data-bs-target="#contact-tab-pane" type="button" role="tab"
                                     aria-controls="contact-tab-pane" aria-selected="false">
-                                    <img src="assets/img/shop/shop_img03.jpg" alt="img">
+                                    <img src="{{ asset('public/assets/img/shop/shop_img03.jpg') }}" alt="img">
                                 </button>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
                                 tabindex="0">
-                                <a href="assets/img/shop/shop_img01.jpg" class="popup-image">
+                                <a href="public/assets/img/shop/shop_img01.jpg" class="popup-image">
                                     <img src="assets/img/shop/shop_img01.jpg" alt="img">
                                 </a>
                             </div>
                             <div class="tab-pane" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
                                 tabindex="0">
-                                <a href="assets/img/shop/shop_img02.jpg" class="popup-image">
+                                <a href="public/assets/img/shop/shop_img02.jpg" class="popup-image">
                                     <img src="assets/img/shop/shop_img02.jpg" alt="img">
                                 </a>
                             </div>
                             <div class="tab-pane" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab"
                                 tabindex="0">
-                                <a href="assets/img/shop/shop_img03.jpg" class="popup-image">
+                                <a href="public/assets/img/shop/shop_img03.jpg" class="popup-image">
                                     <img src="assets/img/shop/shop_img03.jpg" alt="img">
                                 </a>
                             </div>
@@ -196,7 +196,7 @@
                             <div class="shop-item">
                                 <div class="shop-thumb">
                                     <a href="shop-details.html">
-                                        <img src="assets/img/shop/shop_img06.jpg" alt="img">
+                                        <img src="public/assets/img/shop/shop_img06.jpg" alt="img">
                                     </a>
                                     <ul class="list-wrap shop-action">
                                         <li><a href="shop-details.html"><i class="fas fa-shopping-cart"></i></a></li>
@@ -222,7 +222,7 @@
                             <div class="shop-item">
                                 <div class="shop-thumb">
                                     <a href="shop-details.html">
-                                        <img src="assets/img/shop/shop_img07.jpg" alt="img">
+                                        <img src="public/assets/img/shop/shop_img07.jpg" alt="img">
                                     </a>
                                     <span class="flash-sale">Sale</span>
                                     <ul class="list-wrap shop-action">
@@ -249,7 +249,7 @@
                             <div class="shop-item">
                                 <div class="shop-thumb">
                                     <a href="shop-details.html">
-                                        <img src="assets/img/shop/shop_img08.jpg" alt="img">
+                                        <img src="public/assets/img/shop/shop_img08.jpg" alt="img">
                                     </a>
                                     <ul class="list-wrap shop-action">
                                         <li><a href="shop-details.html"><i class="fas fa-shopping-cart"></i></a></li>
@@ -275,7 +275,7 @@
                             <div class="shop-item">
                                 <div class="shop-thumb">
                                     <a href="shop-details.html">
-                                        <img src="assets/img/shop/shop_img09.jpg" alt="img">
+                                        <img src="public/assets/img/shop/shop_img09.jpg" alt="img">
                                     </a>
                                     <span class="flash-sale">Sale</span>
                                     <ul class="list-wrap shop-action">
