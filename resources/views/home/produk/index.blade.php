@@ -74,7 +74,6 @@
                                         <span class="flash-sale">Sale</span>
                                         <ul class="list-wrap shop-action">
                                             <li><a href="shop-details.html"><i class="fas fa-shopping-cart"></i></a></li>
-                                            <li><a href="shop-details.html"><i class="far fa-heart"></i></a></li>
                                             <li><a href="shop-details.html"><i class="far fa-eye"></i></a></li>
                                         </ul>
                                     </div>
@@ -117,8 +116,7 @@
                                     </li>
                                     <li>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="cat_2">
+                                            <input class="form-check-input" type="checkbox" value="" id="cat_2">
                                             <label class="form-check-label" for="cat_2">Business (12)</label>
                                         </div>
                                     </li>
