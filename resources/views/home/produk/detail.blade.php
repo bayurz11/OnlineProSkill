@@ -111,7 +111,6 @@
                                 <input type="text" value="1">
                             </div>
                             <a href="shop-details.html" class="cart-btn btn">Add To Cart</a>
-                            <a href="shop-details.html" class="wishlist-btn"><i class="far fa-heart"></i></a>
                         </div>
                         <div class="shop-details-bottom">
                             <ul class="list-wrap">
