@@ -71,13 +71,13 @@
                             <div class="tab-pane show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
                                 tabindex="0">
                                 <a href="public/assets/img/shop/shop_img01.jpg" class="popup-image">
-                                    <img src="assets/img/shop/shop_img01.jpg" alt="img">
+                                    <img src="public/assets/img/shop/shop_img01.jpg" alt="img">
                                 </a>
                             </div>
                             <div class="tab-pane" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
                                 tabindex="0">
                                 <a href="public/assets/img/shop/shop_img02.jpg" class="popup-image">
-                                    <img src="assets/img/shop/shop_img02.jpg" alt="img">
+                                    <img src="public/assets/img/shop/shop_img02.jpg" alt="img">
                                 </a>
                             </div>
                             <div class="tab-pane" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab"
