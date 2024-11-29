@@ -87,7 +87,7 @@
                                             <i class="fas fa-star"></i>
                                             <span class="avg">(5.00)</span>
                                         </div>
-                                        <h4 class="price">$13.00<del>$19.00</del></h4>
+                                        <h4 class="price">Rp 13.000<del>Rp 19.000</del></h4>
                                     </div>
                                 </div>
                             </div>
