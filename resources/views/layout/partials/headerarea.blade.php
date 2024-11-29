@@ -35,24 +35,10 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li
-                                        class="menu-item-has-children {{ Request::is('#', '#', '#') ? 'active' : '' }}">
-                                        <a href="#">Produk</a>
-                                        <ul class="sub-menu">
 
-                                            <li class="{{ Request::is('#') ? 'active' : '' }}">
-                                                <a href="#">Produk Digital</a>
-                                            </li>
-                                            {{-- <li class="{{ Request::is('#') ? 'active' : '' }}">
-                                                <a href="#">Jasa Pembuatan website
-                                                </a>
-                                            </li> --}}
-
-                                        </ul>
+                                    <li class="{{ Request::is('#') ? 'active' : '' }}">
+                                        <a href="{{ route('#') }}">Produk</a>
                                     </li>
-                                    {{-- <li class="{{ Request::is('event') ? 'active' : '' }}">
-                                        <a href="{{ route('event') }}">Event</a>
-                                    </li> --}}
                                     <li class="{{ Request::is('blog') ? 'active' : '' }}">
                                         <a href="{{ route('blog') }}">Tutorial</a>
                                     </li>
