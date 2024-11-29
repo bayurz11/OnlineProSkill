@@ -37,7 +37,7 @@
                                     </li>
 
                                     <li class="{{ Request::is('#') ? 'active' : '' }}">
-                                        <a href="{{ route('#') }}">Produk</a>
+                                        <a href="#">Produk</a>
                                     </li>
                                     <li class="{{ Request::is('blog') ? 'active' : '' }}">
                                         <a href="{{ route('blog') }}">Tutorial</a>
