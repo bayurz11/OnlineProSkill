@@ -73,12 +73,14 @@
                                         </a>
                                         <span class="flash-sale">Sale</span>
                                         <ul class="list-wrap shop-action">
-                                            <li><a href="shop-details.html"><i class="fas fa-shopping-cart"></i></a></li>
+                                            <li><a href="{{ route('produk-detail') }}"><i
+                                                        class="fas fa-shopping-cart"></i></a></li>
                                             <li><a href="shop-details.html"><i class="far fa-eye"></i></a></li>
                                         </ul>
                                     </div>
                                     <div class="shop-content">
-                                        <h3 class="title"><a href="shop-details.html">Garden Adeline Life</a></h3>
+                                        <h3 class="title"><a href="{{ route('produk-detail') }}">Garden Adeline Life</a>
+                                        </h3>
                                         <div class="rating">
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
