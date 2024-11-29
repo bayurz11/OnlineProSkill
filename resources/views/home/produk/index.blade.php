@@ -38,4 +38,498 @@
     </div>
     <!-- breadcrumb-area-end -->
 
+    <!-- shop-area -->
+    <section class="shop-area section-py-120">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-9 col-lg-8 order-0 order-lg-2">
+                    <div class="shop-top-wrap">
+                        <div class="row align-items-center">
+                            <div class="col-md-6 col-sm-7">
+                                <div class="shop-top-left">
+                                    <p>Showing 1-9 of 16 Results</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-5">
+                                <div class="shop-top-right">
+                                    <select name="orderby" class="orderby">
+                                        <option value="Default sorting">Default sorting</option>
+                                        <option value="Sort by popularity">Sort by popularity</option>
+                                        <option value="Sort by average rating">Sort by average rating</option>
+                                        <option value="Sort by latest">Sort by latest</option>
+                                        <option value="Sort by latest">Sort by latest</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shop-item-wrap">
+                        <div class="row">
+                            <div class="col-xl-4 col-sm-6">
+                                <div class="shop-item">
+                                    <div class="shop-thumb">
+                                        <a href="shop-details.html">
+                                            <img src="assets/img/shop/shop_img01.jpg" alt="img">
+                                        </a>
+                                        <span class="flash-sale">Sale</span>
+                                        <ul class="list-wrap shop-action">
+                                            <li><a href="shop-details.html"><i class="fas fa-shopping-cart"></i></a></li>
+                                            <li><a href="shop-details.html"><i class="far fa-heart"></i></a></li>
+                                            <li><a href="shop-details.html"><i class="far fa-eye"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="shop-content">
+                                        <h3 class="title"><a href="shop-details.html">Garden Adeline Life</a></h3>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <span class="avg">(5.00)</span>
+                                        </div>
+                                        <h4 class="price">$13.00<del>$19.00</del></h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-sm-6">
+                                <div class="shop-item">
+                                    <div class="shop-thumb">
+                                        <a href="shop-details.html">
+                                            <img src="assets/img/shop/shop_img02.jpg" alt="img">
+                                        </a>
+                                        <ul class="list-wrap shop-action">
+                                            <li><a href="shop-details.html"><i class="fas fa-shopping-cart"></i></a></li>
+                                            <li><a href="shop-details.html"><i class="far fa-heart"></i></a></li>
+                                            <li><a href="shop-details.html"><i class="far fa-eye"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="shop-content">
+                                        <h3 class="title"><a href="shop-details.html">Time to Explore</a></h3>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                            <span class="avg">(4.50)</span>
+                                        </div>
+                                        <h4 class="price">$19.00</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-sm-6">
+                                <div class="shop-item">
+                                    <div class="shop-thumb">
+                                        <a href="shop-details.html">
+                                            <img src="assets/img/shop/shop_img03.jpg" alt="img">
+                                        </a>
+                                        <span class="flash-sale">Sale</span>
+                                        <ul class="list-wrap shop-action">
+                                            <li><a href="shop-details.html"><i class="fas fa-shopping-cart"></i></a></li>
+                                            <li><a href="shop-details.html"><i class="far fa-heart"></i></a></li>
+                                            <li><a href="shop-details.html"><i class="far fa-eye"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="shop-content">
+                                        <h3 class="title"><a href="shop-details.html">Wildlife Adventure</a></h3>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                            <span class="avg">(4.30)</span>
+                                        </div>
+                                        <h4 class="price">$29.00<del>$39.00</del></h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-sm-6">
+                                <div class="shop-item">
+                                    <div class="shop-thumb">
+                                        <a href="shop-details.html">
+                                            <img src="assets/img/shop/shop_img04.jpg" alt="img">
+                                        </a>
+                                        <span class="flash-sale hot">Hot!</span>
+                                        <ul class="list-wrap shop-action">
+                                            <li><a href="shop-details.html"><i class="fas fa-shopping-cart"></i></a></li>
+                                            <li><a href="shop-details.html"><i class="far fa-heart"></i></a></li>
+                                            <li><a href="shop-details.html"><i class="far fa-eye"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="shop-content">
+                                        <h3 class="title"><a href="shop-details.html">Ketut Susilo Sky</a></h3>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <span class="avg">(5.00)</span>
+                                        </div>
+                                        <h4 class="price">$16.00</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-sm-6">
+                                <div class="shop-item">
+                                    <div class="shop-thumb">
+                                        <a href="shop-details.html">
+                                            <img src="assets/img/shop/shop_img05.jpg" alt="img">
+                                        </a>
+                                        <span class="flash-sale">Sale</span>
+                                        <ul class="list-wrap shop-action">
+                                            <li><a href="shop-details.html"><i class="fas fa-shopping-cart"></i></a></li>
+                                            <li><a href="shop-details.html"><i class="far fa-heart"></i></a></li>
+                                            <li><a href="shop-details.html"><i class="far fa-eye"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="shop-content">
+                                        <h3 class="title"><a href="shop-details.html">The Illusion Design</a></h3>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                            <span class="avg">(4.80)</span>
+                                        </div>
+                                        <h4 class="price">$29.00<del>$39.00</del></h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-sm-6">
+                                <div class="shop-item">
+                                    <div class="shop-thumb">
+                                        <a href="shop-details.html">
+                                            <img src="assets/img/shop/shop_img06.jpg" alt="img">
+                                        </a>
+                                        <ul class="list-wrap shop-action">
+                                            <li><a href="shop-details.html"><i class="fas fa-shopping-cart"></i></a></li>
+                                            <li><a href="shop-details.html"><i class="far fa-heart"></i></a></li>
+                                            <li><a href="shop-details.html"><i class="far fa-eye"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="shop-content">
+                                        <h3 class="title"><a href="shop-details.html">The Fashion Edits</a></h3>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <span class="avg">(5.00)</span>
+                                        </div>
+                                        <h4 class="price">$39.00</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-sm-6">
+                                <div class="shop-item">
+                                    <div class="shop-thumb">
+                                        <a href="shop-details.html">
+                                            <img src="assets/img/shop/shop_img07.jpg" alt="img">
+                                        </a>
+                                        <span class="flash-sale">Sale</span>
+                                        <ul class="list-wrap shop-action">
+                                            <li><a href="shop-details.html"><i class="fas fa-shopping-cart"></i></a></li>
+                                            <li><a href="shop-details.html"><i class="far fa-heart"></i></a></li>
+                                            <li><a href="shop-details.html"><i class="far fa-eye"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="shop-content">
+                                        <h3 class="title"><a href="shop-details.html">The Business Women</a></h3>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                            <span class="avg">(4.50)</span>
+                                        </div>
+                                        <h4 class="price">$19.00<del>$32.00</del></h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-sm-6">
+                                <div class="shop-item">
+                                    <div class="shop-thumb">
+                                        <a href="shop-details.html">
+                                            <img src="assets/img/shop/shop_img08.jpg" alt="img">
+                                        </a>
+                                        <ul class="list-wrap shop-action">
+                                            <li><a href="shop-details.html"><i class="fas fa-shopping-cart"></i></a></li>
+                                            <li><a href="shop-details.html"><i class="far fa-heart"></i></a></li>
+                                            <li><a href="shop-details.html"><i class="far fa-eye"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="shop-content">
+                                        <h3 class="title"><a href="shop-details.html">Online Makeup Tutorial</a></h3>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <span class="avg">(5.00)</span>
+                                        </div>
+                                        <h4 class="price">$49.00</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-4 col-sm-6">
+                                <div class="shop-item">
+                                    <div class="shop-thumb">
+                                        <a href="shop-details.html">
+                                            <img src="assets/img/shop/shop_img09.jpg" alt="img">
+                                        </a>
+                                        <span class="flash-sale">Sale</span>
+                                        <ul class="list-wrap shop-action">
+                                            <li><a href="shop-details.html"><i class="fas fa-shopping-cart"></i></a></li>
+                                            <li><a href="shop-details.html"><i class="far fa-heart"></i></a></li>
+                                            <li><a href="shop-details.html"><i class="far fa-eye"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="shop-content">
+                                        <h3 class="title"><a href="shop-details.html">The Bad Feelings</a></h3>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                            <span class="avg">(4.80)</span>
+                                        </div>
+                                        <h4 class="price">$49.00<del>$69.00</del></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <nav class="pagination__wrap mt-40">
+                        <ul class="list-wrap">
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="shop.html">2</a></li>
+                            <li><a href="shop.html">3</a></li>
+                            <li><a href="shop.html">4</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-xl-3 col-lg-4">
+                    <aside class="courses__sidebar">
+                        <div class="courses-widget">
+                            <h4 class="widget-title">Categories</h4>
+                            <div class="courses-cat-list">
+                                <ul class="list-wrap">
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="cat_1">
+                                            <label class="form-check-label" for="cat_1">Art & Design (8)</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="cat_2">
+                                            <label class="form-check-label" for="cat_2">Business (12)</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="cat_3">
+                                            <label class="form-check-label" for="cat_3">Data Science (7)</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="cat_4">
+                                            <label class="form-check-label" for="cat_4">Development (10)</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="cat_5">
+                                            <label class="form-check-label" for="cat_5">Finance (8)</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="cat_6">
+                                            <label class="form-check-label" for="cat_6">Health & Fitness (8)</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="cat_7">
+                                            <label class="form-check-label" for="cat_7">Lifestyle (9)</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="show-more">
+                                    <a href="#">Show More +</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="courses-widget">
+                            <h4 class="widget-title">Language</h4>
+                            <div class="courses-cat-list">
+                                <ul class="list-wrap">
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="lang_1">
+                                            <label class="form-check-label" for="lang_1">All Language</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="lang_2">
+                                            <label class="form-check-label" for="lang_2">Arabic (11)</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="lang_3">
+                                            <label class="form-check-label" for="lang_3">English (53)</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="lang_4">
+                                            <label class="form-check-label" for="lang_4">Spanish (22)</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="show-more">
+                                <a href="#">Show More +</a>
+                            </div>
+                        </div>
+                        <div class="courses-widget">
+                            <h4 class="widget-title">Price</h4>
+                            <div class="courses-cat-list">
+                                <ul class="list-wrap">
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="price_1">
+                                            <label class="form-check-label" for="price_1">All Price</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="price_2">
+                                            <label class="form-check-label" for="price_2">Free</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="price_3">
+                                            <label class="form-check-label" for="price_3">Paid</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="courses-widget">
+                            <h4 class="widget-title">Ratings</h4>
+                            <div class="courses-rating-list">
+                                <ul class="list-wrap">
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="">
+                                            <div class="rating">
+                                                <ul class="list-wrap">
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                </ul>
+                                                <span>(42)</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="">
+                                            <div class="rating">
+                                                <ul class="list-wrap">
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li class="delete"><i class="fas fa-star"></i></li>
+                                                </ul>
+                                                <span>(23)</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="">
+                                            <div class="rating">
+                                                <ul class="list-wrap">
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li class="delete"><i class="fas fa-star"></i></li>
+                                                    <li class="delete"><i class="fas fa-star"></i></li>
+                                                </ul>
+                                                <span>(11)</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="">
+                                            <div class="rating">
+                                                <ul class="list-wrap">
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li class="delete"><i class="fas fa-star"></i></li>
+                                                    <li class="delete"><i class="fas fa-star"></i></li>
+                                                    <li class="delete"><i class="fas fa-star"></i></li>
+                                                </ul>
+                                                <span>(7)</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="">
+                                            <div class="rating">
+                                                <ul class="list-wrap">
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li class="delete"><i class="fas fa-star"></i></li>
+                                                    <li class="delete"><i class="fas fa-star"></i></li>
+                                                    <li class="delete"><i class="fas fa-star"></i></li>
+                                                    <li class="delete"><i class="fas fa-star"></i></li>
+                                                </ul>
+                                                <span>(3)</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- shop-area-end -->
+
 @endsection
