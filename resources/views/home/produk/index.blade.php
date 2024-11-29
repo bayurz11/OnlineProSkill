@@ -69,7 +69,7 @@
                                 <div class="shop-item">
                                     <div class="shop-thumb">
                                         <a href="shop-details.html">
-                                            <img src="assets/img/shop/shop_img01.jpg" alt="img">
+                                            <img src="{{ asset('public/assets/img/shop/shop_img01.jpg') }}" alt="img">
                                         </a>
                                         <span class="flash-sale">Sale</span>
                                         <ul class="list-wrap shop-action">
