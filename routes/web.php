@@ -190,7 +190,7 @@ Route::middleware('isAdmin')->group(function () {
 
     //*******PRODUK*******//
     //ketegori produk
-    Route::get('/kategoriproduk', [KategoriProdukController::class, 'kategori'])->name('kategoriproduk');
+    Route::get('/kategoriproduk', [KategoriProdukController::class, 'index'])->name('kategoriproduk');
 
 
     //prosuk setting
