@@ -152,7 +152,7 @@
                     document.getElementById('confirmationModal').remove();
                     if (response.ok) {
                         console.log('Kategori berhasil dihapus. Mengalihkan ke halaman pengaturan Kategori.');
-                        window.location.href = '{{ route('categories') }}';
+                        window.location.href = '{{ route('kategoriproduk') }}';
                     } else {
                         response.text().then(text => {
                             console.error('Gagal menghapus Kategori:', text);
