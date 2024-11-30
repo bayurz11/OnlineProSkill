@@ -98,7 +98,7 @@
                     const categoryId = formSwitch.dataset.id;
                     const newStatus = formSwitch.checked ? 1 : 0;
 
-                    fetch('/update-category-status/' + categoryId, {
+                    fetch('/status-update/' + categoryId, {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',

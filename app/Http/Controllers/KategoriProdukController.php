@@ -52,7 +52,7 @@ class KategoriProdukController extends Controller
         return redirect()->route('kategoriproduk')->with('success', 'Data updated successfully');
     }
 
-    public function updateStatus($id, Request $request)
+    public function statusUpdate($id, Request $request)
     {
         $category = KategoriProduk::find($id);
 
