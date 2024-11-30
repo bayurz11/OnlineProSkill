@@ -42,7 +42,7 @@
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
 
-                                            <td>{{ $kategori->name_category }}</td>
+                                            <td>{{ $kategori->name_kategori }}</td>
                                             <td>
 
                                                 <div class="form-check form-switch mb-2">
