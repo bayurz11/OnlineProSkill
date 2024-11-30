@@ -115,7 +115,7 @@
             </li>
             <li class="nav-item nav-category">Produk</li>
             <li class="nav-item">
-                <a href="{{ route('sertifikat') }}" class="nav-link">
+                <a href="{{ route('kategoriproduk') }}" class="nav-link">
                     <i class="link-icon" data-feather="file-text"></i>
                     <span class="link-title">Kategori Produk</span>
                 </a>
