@@ -191,7 +191,7 @@ Route::middleware('isAdmin')->group(function () {
     //*******PRODUK*******//
     //ketegori produk
     Route::get('/kategoriproduk', [KategoriProdukController::class, 'index'])->name('kategoriproduk');
-
+    Route::post('/produk/store', [KategoriProdukController::class, 'store'])->name('produk.store');
 
     //prosuk setting
     Route::get('/produksetting', [ProdukSettingController::class, 'index'])->name('produksetting');

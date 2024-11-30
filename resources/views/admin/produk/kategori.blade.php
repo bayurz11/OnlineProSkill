@@ -12,8 +12,8 @@
             </ol>
         </nav>
 
-        {{-- @include('admin.modal.add_categories')
-        @include('admin.modal.edit_categories') --}}
+        @include('admin.modal.add_kategori_produk')
+        @include('admin.modal.edit_categories')
 
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
