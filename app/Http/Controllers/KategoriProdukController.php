@@ -23,7 +23,7 @@ class KategoriProdukController extends Controller
     public function store(Request $request)
     {
         $categories = new KategoriProduk();
-        $categories->name_category = $request->name_category;
+        $categories->name_kategori = $request->name_kategori;
         $categories->save();
 
         return redirect()->route('kategoriproduk')->with('success', 'Kategori berhasil disimpan.');
@@ -46,7 +46,7 @@ class KategoriProdukController extends Controller
     public function update(Request $request, $id)
     {
         $categories = KategoriProduk::findOrFail($id);
-        $categories->name_category = $request->name_category;
+        $categories->name_kategori = $request->name_kategori;
         $categories->save();
 
         return redirect()->route('kategoriproduk')->with('success', 'Data updated successfully');

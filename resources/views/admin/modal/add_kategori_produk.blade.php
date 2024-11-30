@@ -9,15 +9,11 @@
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="name_category" class="form-label">Nama Kategori<span
+                        <label for="name_kategori" class="form-label">Nama Kategori<span
                                 class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="name_category" name="name_category"
+                        <input type="text" class="form-control" id="name_kategori" name="name_kategori"
                             placeholder="Masukkan Nama Kategori Anda">
                     </div>
-
-
-                    <img id="preview" src="#" alt="Preview banner"
-                        style="max-width: 100%; max-height: 200px; display: none;">
 
                 </div>
                 <div class="modal-footer">
