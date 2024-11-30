@@ -191,11 +191,11 @@ Route::middleware('isAdmin')->group(function () {
     //*******PRODUK*******//
     //ketegori produk
     Route::get('/kategoriproduk', [KategoriProdukController::class, 'index'])->name('kategoriproduk');
-    Route::post('/produk/store', [KategoriProdukController::class, 'store'])->name('produk.store');
+    Route::post('/kategori/store', [KategoriProdukController::class, 'store'])->name('kategori.store');
     Route::post('/status-update/{id}', [KategoriProdukController::class, 'statusUpdate']);
-    Route::get('/categories/{id}/edit', [KategoriProdukController::class, 'edit'])->name('categories.edit');
-    Route::put('/categories/{id}', [KategoriProdukController::class, 'update'])->name('categories.update');
-    Route::delete('/categories_destroy/{id}', [KategoriProdukController::class, 'destroy'])->name('categories.destroy');
+    Route::get('/kategori/{id}/edit', [KategoriProdukController::class, 'edit'])->name('kategori.edit');
+    Route::put('/kategori/produk/{id}', [KategoriProdukController::class, 'update'])->name('kategori.update');
+    Route::delete('/kategori/destroy/{id}', [KategoriProdukController::class, 'destroy'])->name('kategori.destroy');
 
     //prosuk setting
     Route::get('/produksetting', [ProdukSettingController::class, 'index'])->name('produksetting');
