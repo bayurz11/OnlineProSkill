@@ -113,6 +113,31 @@
                     <span class="link-title">Sertifikat</span>
                 </a>
             </li>
+            <li class="nav-item nav-category">Produk</li>
+            <li class="nav-item">
+                <a href="{{ route('sertifikat') }}" class="nav-link">
+                    <i class="link-icon" data-feather="file-text"></i>
+                    <span class="link-title">Kategori Produk</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#authPages" role="button"
+                    aria-expanded="false" aria-controls="authPages">
+                    <i class="link-icon" data-feather="dollar-sign"></i>
+                    <span class="link-title">Kelola Produk</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="authPages">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="{{ route('produksetting') }}" class="nav-link">Tambah Produk</a>
+                        </li>
+                        {{-- <li class="nav-item">
+                            <a href="pages/auth/register.html" class="nav-link">Register</a>
+                        </li> --}}
+                    </ul>
+                </div>
+            </li>
             <li class="nav-item nav-category">Pembayaran</li>
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#authPages" role="button"

@@ -45,8 +45,10 @@ use App\Http\Controllers\HubungiKamiSettingController;
 use App\Http\Controllers\InstrukturQuestionController;
 use App\Http\Controllers\DashboardInstrukturController;
 use App\Http\Controllers\InstrukturKurikulumController;
+use App\Http\Controllers\KategoriProdukController;
 use App\Http\Controllers\OrderHistoryManagerController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\ProdukSettingController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\SettingProfileInstrukturController;
 
@@ -185,6 +187,14 @@ Route::middleware('isAdmin')->group(function () {
     Route::get('/contact/{id}/edit', [HubungiKamiSettingController::class, 'edit'])->name('contact.edit');
     Route::put('/contact/{id}/update', [HubungiKamiSettingController::class, 'update'])->name('contact.update');
     Route::delete('/contact/{id}/destroy', [HubungiKamiSettingController::class, 'destroy'])->name('contact.destroy');
+
+    //*******PRODUK*******//
+    //ketegori produk
+    Route::get('/kategoriproduk', [KategoriProdukController::class, 'kategori'])->name('kategoriproduk');
+
+
+    //prosuk setting
+    Route::get('/produksetting', [ProdukSettingController::class, 'index'])->name('produksetting');
 });
 
 //*********STUDEN*********//
@@ -336,8 +346,8 @@ Route::put('/reviews/{review}', [ReviewController::class, 'update'])->name('revi
 Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
 
 //produk
-Route::get('produk', [ProdukController::class, 'index'])->name('produk');
-Route::get('produk-detail', [ProdukController::class, 'detail'])->name('produk-detail');
+Route::get('/produk', [ProdukController::class, 'index'])->name('produk');
+Route::get('/produk-detail', [ProdukController::class, 'detail'])->name('produk-detail');
 
 //*********Bootcamp*********//
 //PowerBI
