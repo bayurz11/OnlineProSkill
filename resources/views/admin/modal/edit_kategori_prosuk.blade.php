@@ -37,7 +37,7 @@
                     $('#name_kategori_edit').val(data.name_kategori);
 
                     // Set the form action to the update route
-                    $('#editForm').attr('action', `/kategoriproduk/${data.id}`);
+                    $('#editForm').attr('action', `/kategori/produk/${data.id}`);
                 })
                 .catch(error => {
                     console.error('Error fetching data:', error);
