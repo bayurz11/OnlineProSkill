@@ -79,7 +79,7 @@
 
                             @php
                                 // Cek apakah user sudah pernah melakukan order
-                                $biayaPendaftaran = 20000; // Biaya pendaftaran default
+                                $biayaPendaftaran = 30000; // Biaya pendaftaran default
                                 if (Auth::check()) {
                                     // Cari apakah user sudah pernah melakukan order
                                     $userOrders = \App\Models\Order::where('user_id', Auth::id())
