@@ -307,18 +307,26 @@
                                             @for ($i = 0; $i < 5; $i++)
                                                 <i class="fas fa-star {{ $cours->rating > $i ? 'filled' : '' }}"></i>
                                             @endfor
-                                            <span class="avg">({{ $cours->rating }})</span>
+                                            @php
+                                                $averageRating = $cours->reviews()->avg('rating');
+
+                                            @endphp
+                                            <span
+                                                class="avg">({{ $averageRating ? number_format($averageRating, 1) : '0.0' }}
+                                                Reviews)</span>
                                             <!-- Ganti dengan kolom rating -->
                                         </div>
-                                        <h4
-                                            @if (!empty($cours->discountedPrice) && $cours['discount'] != 0) <del>Rp
-                                                {{ number_format($cours->price, 0, ',', '.') }}</del>
-                                            Rp
-                                            {{ number_format($cours->discountedPrice, 0, ',', '.') }}
-                                        @else
-                                            Rp
-                                            {{ number_format($cours->price, 0, ',', '.') }} @endif</h4>
-                                            <!-- Ganti dengan kolom harga -->
+                                        <h4 class="price">
+                                            @if (!empty($cours->discountedPrice) && $cours['discount'] != 0)
+                                                <del>Rp
+                                                    {{ number_format($cours->price, 0, ',', '.') }}</del>
+                                                Rp
+                                                {{ number_format($cours->discountedPrice, 0, ',', '.') }}
+                                            @else
+                                                Rp
+                                                {{ number_format($cours->price, 0, ',', '.') }}
+                                            @endif
+                                        </h4> <!-- Ganti dengan kolom harga -->
                                     </div>
                                 </div>
                             </div>
