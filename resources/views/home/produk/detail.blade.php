@@ -85,7 +85,7 @@
 
                         <h3 class="price">
                             @if (!empty($courses->discountedPrice) && $courses['discount'] != 0)
-                                <del>Rp
+                                <del style="color: gray; font-size: 14px;">Rp
                                     {{ number_format($courses->price, 0, ',', '.') }}</del>
                                 Rp
                                 {{ number_format($courses->discountedPrice, 0, ',', '.') }}
@@ -94,6 +94,7 @@
                                 {{ number_format($courses->price, 0, ',', '.') }}
                             @endif
                         </h3>
+
                         <p>Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesti at bulum nec
                             odio aea the dumm summ ipsum that dolocons rsus mal suada and fadolorit to the consectetur elit.
                         </p>
