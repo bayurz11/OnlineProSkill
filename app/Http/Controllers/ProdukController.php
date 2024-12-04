@@ -206,6 +206,10 @@ class ProdukController extends Controller
             ->toArray()
             : [];
 
+        $results = KelasTatapMuka::query()
+            ->where('status', 1)
+            ->where('course_type', 'produk')
+            ->whereIn('id', $kurikulumCourseIds);
 
         // Ambil sertifikat dan hitung jumlah kategori_id sesuai dengan id dari product_id
         $orderProductIds = Order::where('product_id', $id)->pluck('product_id');
