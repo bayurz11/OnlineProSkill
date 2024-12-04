@@ -95,9 +95,7 @@
                             @endif
                         </h3>
 
-                        <p>Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesti at bulum nec
-                            odio aea the dumm summ ipsum that dolocons rsus mal suada and fadolorit to the consectetur elit.
-                        </p>
+                        <p> {!! $courses->content !!} </p>
                         <div class="shop-details-qty">
                             <div class="cart-plus-minus">
                                 <input type="text" value="1">
