@@ -183,38 +183,37 @@
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" name="price[]"
                                                 value="free" id="price_1"
-                                                {{ !in_array('free', (array) request('price', [])) && !in_array('paid', (array) request('price', [])) ? 'checked' : '' }}
-                                                <label class="form-check-label" for="price_1">All Price</label>
-
+                                                {{ !in_array('free', is_array(request('price')) ? request('price') : (array) request('price', [])) &&
+                                                !in_array('paid', is_array(request('price')) ? request('price') : (array) request('price', []))
+                                                    ? 'checked'
+                                                    : '' }}>
+                                            <label class="form-check-label" for="price_1">All Price</label>
                                         </div>
                                     </li>
 
                                     <!-- Checkbox untuk Free -->
                                     <li>
                                         <div class="form-check">
-
                                             <input class="form-check-input" type="checkbox" name="price[]"
                                                 value="free" id="price_2"
-                                                {{ in_array('free', request('price', [])) ? 'checked' : '' }}>
+                                                {{ in_array('free', is_array(request('price')) ? request('price') : (array) request('price', [])) ? 'checked' : '' }}>
                                             <label class="form-check-label" for="price_2">Free</label>
-
-
                                         </div>
                                     </li>
 
                                     <!-- Checkbox untuk Paid -->
                                     <li>
                                         <div class="form-check">
-
                                             <input class="form-check-input" type="checkbox" name="price[]"
                                                 value="paid" id="price_3"
-                                                {{ in_array('paid', request('price', [])) ? 'checked' : '' }}>
+                                                {{ in_array('paid', is_array(request('price')) ? request('price') : (array) request('price', [])) ? 'checked' : '' }}>
                                             <label class="form-check-label" for="price_3">Paid</label>
                                         </div>
                                     </li>
                                 </ul>
                             </div>
                         </div>
+
 
                     </aside>
                 </div>
