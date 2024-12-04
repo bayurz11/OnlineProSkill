@@ -133,12 +133,8 @@
                         </div>
                     </div>
                     <nav class="pagination__wrap mt-40">
-                        <ul class="list-wrap">
-                            <li class="active"><a href="#">1</a></li>
-                            <li><a href="shop.html">2</a></li>
-                            <li><a href="shop.html">3</a></li>
-                            <li><a href="shop.html">4</a></li>
-                        </ul>
+                        {{ $results->links($paginationView) }}
+
                     </nav>
                 </div>
                 <div class="col-xl-3 col-lg-4">
