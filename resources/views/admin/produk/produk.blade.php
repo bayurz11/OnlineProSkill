@@ -105,7 +105,7 @@
                     const categoryId = formSwitch.dataset.id;
                     const newStatus = formSwitch.checked ? 1 : 0;
 
-                    fetch('/update-class-status/' + categoryId, {
+                    fetch('/update-produk-status/' + categoryId, {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
@@ -146,7 +146,7 @@
             document.body.insertAdjacentHTML('beforeend', confirmationBox);
 
             document.getElementById('confirmDelete').onclick = function() {
-                fetch(`/class_destroy/${id}`, {
+                fetch(`/produk_destroy/${id}`, {
                     method: 'POST', // Menggunakan POST bukan DELETE
                     headers: {
                         'X-CSRF-TOKEN': '{{ csrf_token() }}',
@@ -160,7 +160,7 @@
                     if (response.ok) {
                         console.log(
                             'subcategory berhasil dihapus. Mengalihkan ke halaman pengaturan subcategory.');
-                        window.location.href = '{{ route('classroomsetting') }}';
+                        window.location.href = '{{ route('produksetting') }}';
                     } else {
                         response.text().then(text => {
                             console.error('Gagal menghapus subcategory:', text);

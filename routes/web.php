@@ -202,6 +202,10 @@ Route::middleware('isAdmin')->group(function () {
     //prosuk setting
     Route::get('/produksetting', [ProdukSettingController::class, 'index'])->name('produksetting');
     Route::post('/prosuk/store', [ProdukSettingController::class, 'store'])->name('produk.store');
+    Route::post('/update-produk-status/{id}', [ProdukSettingController::class, 'updateprodukstatus']);
+    Route::get('/produk/{id}/edit', [ProdukSettingController::class, 'edit'])->name('produk.edit');
+    Route::put('/produk/{id}', [ProdukSettingController::class, 'update'])->name('produk.update');
+    Route::delete('/produk_destroy/{id}', [ProdukSettingController::class, 'destroy'])->name('produk.destroy');
 });
 
 //*********STUDEN*********//
