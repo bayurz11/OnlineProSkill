@@ -208,5 +208,179 @@
         </div>
     </section>
     <!-- shop-area-end -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Inisialisasi elemen-elemen yang digunakan
+            const checkboxes = document.querySelectorAll('.category-checkbox');
+            const allCategoriesCheckbox = document.getElementById('all_categories');
+            const sortBySelect = document.querySelector('select[name="orderby"]');
+            const tingkatCheckboxes = document.querySelectorAll('.tingkat-checkbox');
+            const difficultyAllCheckbox = document.getElementById('difficulty_all');
+            const showMoreButton = document.getElementById('toggleButton');
 
+            function updateUrl(selectedCategories, orderby, selectedTingkat) {
+                const url = new URL(window.location.href);
+                url.searchParams.set('categories', selectedCategories.join(','));
+                url.searchParams.set('orderby', orderby);
+                url.searchParams.set('tingkat', selectedTingkat.join(','));
+                window.location.href = url.toString();
+            }
+
+            // Fungsi untuk memperbarui kategori
+            function updateCategories() {
+                const selectedCategories = Array.from(checkboxes)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value);
+                updateUrl(selectedCategories, sortBySelect?.value || '', Array.from(tingkatCheckboxes)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value));
+            }
+
+            // Fungsi untuk memperbarui tingkat
+            function updateLevels() {
+                const selectedTingkat = Array.from(tingkatCheckboxes)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value);
+                updateUrl(Array.from(checkboxes)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value), sortBySelect?.value || '', selectedTingkat);
+            }
+
+            function toggleAllCategories(source) {
+                if (source.checked) {
+                    checkboxes.forEach(checkbox => checkbox.checked = false);
+                    updateCategories();
+                }
+            }
+
+            function toggleAllLevels(source) {
+                if (source.checked) {
+                    tingkatCheckboxes.forEach(checkbox => checkbox.checked = false);
+                    updateLevels();
+                }
+            }
+
+            // Event listener untuk setiap checkbox kategori
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        allCategoriesCheckbox.checked = false;
+                    }
+                    updateCategories();
+                });
+            });
+
+            // Event listener untuk checkbox "Semua Kategori"
+            if (allCategoriesCheckbox) {
+                allCategoriesCheckbox.addEventListener('change', function() {
+                    toggleAllCategories(this);
+                });
+            }
+
+            // Event listener untuk pengurutan (sort by)
+            if (sortBySelect) {
+                sortBySelect.addEventListener('change', function() {
+                    updateCategories();
+                });
+            }
+
+            // Event listener untuk checkbox tingkat
+            tingkatCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    // Jika "Semua Level" dicentang, hapus centang dari semua checkbox tingkat lainnya
+                    if (this.checked && this === difficultyAllCheckbox) {
+                        tingkatCheckboxes.forEach(cb => {
+                            if (cb !== this) cb.checked = false; // Uncheck others
+                        });
+                    }
+
+                    // Update URL berdasarkan tingkat yang dipilih
+                    updateLevels();
+                });
+            });
+
+            // Event listener untuk checkbox "All Levels"
+            if (difficultyAllCheckbox) {
+                difficultyAllCheckbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        tingkatCheckboxes.forEach(checkbox => checkbox.checked = false);
+                        updateLevels();
+                    }
+                });
+            }
+
+            // Fungsi untuk menampilkan atau menyembunyikan lebih banyak kategori
+            if (showMoreButton) {
+                const categoryItems = document.querySelectorAll('.list-wrap .category-item');
+                const showMoreCategoriesStatus = localStorage.getItem('showMoreCategories') === 'true';
+
+                if (categoryItems.length <= 4) {
+                    showMoreButton.style.display = 'none';
+                } else {
+                    for (let i = 4; i < categoryItems.length; i++) {
+                        categoryItems[i].classList.toggle('hidden', !showMoreCategoriesStatus);
+                    }
+                    showMoreButton.innerText = showMoreCategoriesStatus ? 'Tampilkan Lebih Sedikit -' :
+                        'Tampilkan Lebih Banyak +';
+                }
+
+                showMoreButton.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const hiddenCategories = document.querySelectorAll('.category-item.hidden');
+
+                    if (hiddenCategories.length > 0) {
+                        hiddenCategories.forEach(category => category.classList.remove('hidden'));
+                        showMoreButton.innerText = 'Tampilkan Lebih Sedikit -';
+                        localStorage.setItem('showMoreCategories', 'true');
+                    } else {
+                        categoryItems.forEach((category, index) => {
+                            if (index >= 4) {
+                                category.classList.add('hidden');
+                            }
+                        });
+                        showMoreButton.innerText = 'Tampilkan Lebih Banyak +';
+                        localStorage.setItem('showMoreCategories', 'false');
+                    }
+                });
+            }
+
+            // Hapus elemen kategori bootcamp dari tampilan jika ada
+            const bootcampCategories = document.querySelectorAll('.category-item[data-type="bootcamp"]');
+            bootcampCategories.forEach(category => category.style.display = 'none');
+
+            // Aktifkan semua tooltip di halaman
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+
+            // Cek dan centang checkbox berdasarkan parameter URL
+            const urlParams = new URLSearchParams(window.location.search);
+
+            // Centang checkbox kategori
+            if (urlParams.has('categories')) {
+                const categories = urlParams.get('categories').split(',');
+                checkboxes.forEach(checkbox => {
+                    if (categories.includes(checkbox.value)) {
+                        checkbox.checked = true;
+                    }
+                });
+            }
+
+            // Centang checkbox tingkat
+            if (urlParams.has('tingkat')) {
+                const tingkat = urlParams.get('tingkat').split(',');
+                tingkatCheckboxes.forEach(checkbox => {
+                    if (tingkat.includes(checkbox.value)) {
+                        checkbox.checked = true;
+                    }
+                });
+            }
+
+            // Centang dropdown sort by
+            if (urlParams.has('orderby')) {
+                sortBySelect.value = urlParams.get('orderby');
+            }
+        });
+    </script>
 @endsection
