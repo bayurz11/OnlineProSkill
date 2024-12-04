@@ -92,6 +92,7 @@
                                             <h3 class="title"><a
                                                     href="{{ route('produk-detail') }}">{{ $cours->nama_kursus }}</a>
                                             </h3>
+                                            <h4 class="price">Rp 13.000<del>Rp 19.000</del></h4>
                                             <div class="courses__item-bottom">
                                                 <div class="button">
                                                     <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}">
@@ -110,7 +111,7 @@
                                                 </div>
 
                                             </div>
-                                            <h4 class="price">Rp 13.000<del>Rp 19.000</del></h4>
+
                                         </div>
                                     </div>
                                 </div>
