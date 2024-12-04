@@ -31,8 +31,8 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Nama Kursus</th>
-                                        <th>Kursus Owner</th>
+                                        <th>Nama Produk</th>
+                                        <th>Produk Owner</th>
                                         <th>Harga</th>
                                         <th>Status</th>
                                         <th>Action</th>
