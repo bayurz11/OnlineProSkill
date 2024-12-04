@@ -13,7 +13,7 @@ class ProdukSettingController extends Controller
     {
         $user = Auth::user();
         $categori = Categories::all();
-        $course = KelasTatapMuka::with('user')->where('course_type', 'offline')->get();
+        $course = KelasTatapMuka::with('user')->where('course_type', 'produk')->get();
         $count = $course->count();
         if (!$user) {
             return redirect()->route('login_admin');
