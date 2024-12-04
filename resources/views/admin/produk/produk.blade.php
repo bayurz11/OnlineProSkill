@@ -1,5 +1,5 @@
 @section('title', 'ProSkill Akademia | Produk')
-<?php $page = 'Ofline_class'; ?>
+<?php $page = 'Produk'; ?>
 
 @extends('layout.mainlayout_admin')
 @section('content')
@@ -12,8 +12,8 @@
             </ol>
         </nav>
 
-        @include('admin.modal.add_clasroom')
-        @include('admin.modal.edit_clasroom')
+        @include('admin.modal.add_produk')
+        @include('admin.modal.edit_produk')
 
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
