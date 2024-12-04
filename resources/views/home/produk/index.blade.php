@@ -47,18 +47,32 @@
                         <div class="row align-items-center">
                             <div class="col-md-6 col-sm-7">
                                 <div class="shop-top-left">
-                                    <p>Showing 1-9 of 16 Results</p>
+                                    <p>
+                                    <p>Menampilkan {{ $results->count() }} total hasil</p>
+                                    </p>
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-5">
                                 <div class="shop-top-right">
-                                    <select name="orderby" class="orderby">
-                                        <option value="Default sorting">Default sorting</option>
-                                        <option value="Sort by popularity">Sort by popularity</option>
-                                        <option value="Sort by average rating">Sort by average rating</option>
-                                        <option value="Sort by latest">Sort by latest</option>
-                                        <option value="Sort by latest">Sort by latest</option>
-                                    </select>
+                                    <span class="sort-by">Urutkan Berdasarkan:</span>
+                                    <div class="courses-top-right-select">
+                                        <form id="sortForm" method="GET" action="{{ route('search') }}">
+                                            <select name="orderby" class="orderby">
+                                                <option value="latest"
+                                                    {{ request('orderby') == 'latest' ? 'selected' : '' }}>terbaru
+                                                </option>
+                                                <option value="oldest"
+                                                    {{ request('orderby') == 'oldest' ? 'selected' : '' }}>terlama
+                                                </option>
+                                                <option value="highest_price"
+                                                    {{ request('orderby') == 'highest_price' ? 'selected' : '' }}>
+                                                    harga tertinggi</option>
+                                                <option value="lowest_price"
+                                                    {{ request('orderby') == 'lowest_price' ? 'selected' : '' }}>
+                                                    harga terendah</option>
+                                            </select>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -118,7 +132,8 @@
                                     </li>
                                     <li>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="cat_2">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="cat_2">
                                             <label class="form-check-label" for="cat_2">Business (12)</label>
                                         </div>
                                     </li>
