@@ -68,23 +68,24 @@ class ProdukController extends Controller
         $orderby = $request->input('orderby', 'latest'); // Default ke 'latest'
 
         // Menangkap filter harga dari request
-        $priceFilter = dd($request->input('price')); // Menangkap harga yang dipilih
+        $priceFilter = $request->input('price', []);
 
+        // Ambil query dasar untuk hasil kursus
         $results = KelasTatapMuka::query()
             ->where('status', 1)
             ->where('course_type', 'produk')
             ->whereIn('id', $kurikulumCourseIds);
 
-        // Menambahkan filter harga (Free/Paid)
-        if (in_array('free', $priceFilter) && in_array('paid', $priceFilter)) {
-            // Menampilkan semua kursus dengan harga
-        } elseif (in_array('free', $priceFilter)) {
-            $results->where('price', 0); // Kursus Gratis
+        // Menambahkan kondisi filter harga
+        if (in_array('free', $priceFilter)) {
+            // Kursus Gratis (harga 0)
+            $results->where('price', 0);
         } elseif (in_array('paid', $priceFilter)) {
-            $results->where('price', '>', 0); // Kursus Berbayar
+            // Kursus Berbayar (harga lebih besar dari 0)
+            $results->where('price', '>', 0);
         }
 
-        // Mengurutkan hasil berdasarkan pilihan 'orderby'
+        // Mengurutkan hasil berdasarkan parameter 'orderby'
         switch ($orderby) {
             case 'oldest':
                 $results->orderBy('created_at', 'asc'); // Terlama
@@ -103,6 +104,7 @@ class ProdukController extends Controller
 
         // Paginate hasil query
         $results = $results->paginate(6);
+
 
         // Ambil notifikasi untuk pengguna yang sedang login
         $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
