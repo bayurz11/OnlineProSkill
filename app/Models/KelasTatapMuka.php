@@ -29,6 +29,10 @@ class KelasTatapMuka extends Model
     {
         return $this->belongsTo(Categories::class);
     }
+    public function kategoriproduk()
+    {
+        return $this->belongsTo(KategoriProduk::class);
+    }
 
     // Relasi ke model Subkategori
     public function subkategori()
