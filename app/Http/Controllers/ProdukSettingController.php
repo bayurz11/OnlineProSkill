@@ -13,7 +13,7 @@ class ProdukSettingController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $categori = KategoriProduk::all();
+        $categori = Categories::all();
         $course = KelasTatapMuka::with('user')->where('course_type', 'produk')->get();
         $count = $course->count();
         if (!$user) {
