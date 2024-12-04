@@ -56,6 +56,6 @@ class ProdukSettingController extends Controller
         $course->course_type = $request->course_type;
         $course->save();
 
-        return redirect()->route('classroomsetting')->with('success', 'Kursus berhasil disimpan.');
+        return redirect()->route('produksetting')->with('success', 'Kursus berhasil disimpan.');
     }
 }
