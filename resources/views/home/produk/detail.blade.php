@@ -106,11 +106,11 @@
 
                                 <li class="sd-category">
                                     <span class="title">Kategori:</span>
-                                    <a href="shop-details.html">{{ $courses->ketegori_id }}</a>
+                                    <a href="shop-details.html">{{ $courses->kategori_id }}</a>
                                 </li>
                                 <li class="sd-tag">
                                     <span class="title">Tags:</span>
-                                    <a href="shop-details.html">Coaching,</a>
+                                    <a href="shop-details.html">{{ $courses->tag }},</a>
                                     <a href="shop-details.html">Education</a>
                                 </li>
                             </ul>
