@@ -206,15 +206,35 @@ class ProdukController extends Controller
             ->toArray()
             : [];
 
+        // Memastikan query ini mengembalikan data dengan filter yang tepat
         $results = KelasTatapMuka::query()
             ->where('status', 1)
-            ->where('course_type', 'produk')
-            ->whereIn('id', $kurikulumCourseIds);
+            ->where('course_type', 'produk') // pastikan ada nilai 'produk' pada kolom 'course_type'
+            ->whereIn('id', $kurikulumCourseIds) // Filter dengan course_id dari kurikulum
+            ->get(); // Menggunakan get() untuk mengeksekusi query
 
         // Ambil sertifikat dan hitung jumlah kategori_id sesuai dengan id dari product_id
         $orderProductIds = Order::where('product_id', $id)->pluck('product_id');
         $sertifikatCount = Sertifikat::whereIn('kategori_id', $orderProductIds)->count();
         $reviews = Reviews::where('class_id', $id)->with('user', 'kelasTatapMuka')->get();
-        return view('home.produk.detail',  compact('user', 'results', 'reviews', 'categori', 'jumlahPendaftaran', 'courses', 'kurikulum', 'courseList', 'perstaratan', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'section', 'joinedCourses', 'sertifikatCount'));
+
+        return view('home.produk.detail', compact(
+            'user',
+            'results',
+            'reviews',
+            'categori',
+            'jumlahPendaftaran',
+            'courses',
+            'kurikulum',
+            'courseList',
+            'perstaratan',
+            'profile',
+            'cart',
+            'notifikasiCount',
+            'notifikasi',
+            'section',
+            'joinedCourses',
+            'sertifikatCount'
+        ));
     }
 }
