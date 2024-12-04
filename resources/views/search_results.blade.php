@@ -306,10 +306,15 @@
                                                             @endif
                                                         </li>
 
-                                                        @if ($cours->course_type == 'online')
+                                                        @if ($cours['course_type'] == 'online')
                                                             <span class="badge bg-primary">Online</span>
+                                                        @elseif ($cours['course_type'] == 'offline')
+                                                            <span class="badge bg-secondary">Kelas Tatap
+                                                                Muka</span>
+                                                        @elseif ($cours['course_type'] == 'produk')
+                                                            <span class="badge bg-success">Produk</span>
                                                         @else
-                                                            <span class="badge bg-secondary">Kelas Tatap Muka</span>
+                                                            <span class="badge bg-warning">Tidak Diketahui</span>
                                                         @endif
                                                     </ul>
 
