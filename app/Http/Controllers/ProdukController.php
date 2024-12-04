@@ -27,6 +27,7 @@ class ProdukController extends Controller
         $cart = Session::get('cart', []);
         $categori = Categories::all();
         $category_ids = $request->input('categories', []);
+        $priceFilter = $request->input('price', []); // Default is an empty array if no filter
         $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
 
         // Ambil semua tingkat dari kursus dengan course_type 'produk'
@@ -70,7 +71,14 @@ class ProdukController extends Controller
             ->where('course_type', 'produk')
             ->whereIn('id', $kurikulumCourseIds);
 
-        // Mengurutkan hasil berdasarkan pilihan 'orderby'
+        // Apply price filter
+        if (in_array('free', $priceFilter)) {
+            $results->where('price', 0); // Free courses
+        } elseif (in_array('paid', $priceFilter)) {
+            $results->where('price', '>', 0); // Paid courses
+        }
+
+        // Apply other filters like orderby
         switch ($orderby) {
             case 'oldest':
                 $results->orderBy('created_at', 'asc'); // Terlama
@@ -87,8 +95,8 @@ class ProdukController extends Controller
                 break;
         }
 
-        // Paginate hasil query
         $results = $results->paginate(6);
+
 
         // Ambil notifikasi untuk pengguna yang sedang login
         $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)

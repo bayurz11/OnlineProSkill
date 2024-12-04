@@ -140,7 +140,7 @@
                 <div class="col-xl-3 col-lg-4">
                     <aside class="courses__sidebar">
                         <div class="courses-widget">
-                            <h4 class="widget-title">Categories</h4>
+                            <h4 class="widget-title">Kategori</h4>
                             <div class="courses-cat-list">
                                 <ul class="list-wrap">
                                     <li>
@@ -175,33 +175,37 @@
                         </div>
 
                         <div class="courses-widget">
-                            <h4 class="widget-title">Price</h4>
+                            <h4 class="widget-title">Harga</h4>
                             <div class="courses-cat-list">
                                 <ul class="list-wrap">
                                     <li>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="price_1">
+                                            <input class="form-check-input" type="checkbox" name="price[]"
+                                                value="free" id="price_1"
+                                                {{ in_array('free', request('price', [])) ? 'checked' : '' }}>
                                             <label class="form-check-label" for="price_1">All Price</label>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="price_2">
+                                            <input class="form-check-input" type="checkbox" name="price[]"
+                                                value="free" id="price_2"
+                                                {{ in_array('free', request('price', [])) ? 'checked' : '' }}>
                                             <label class="form-check-label" for="price_2">Free</label>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="price_3">
+                                            <input class="form-check-input" type="checkbox" name="price[]"
+                                                value="paid" id="price_3"
+                                                {{ in_array('paid', request('price', [])) ? 'checked' : '' }}>
                                             <label class="form-check-label" for="price_3">Paid</label>
                                         </div>
                                     </li>
                                 </ul>
                             </div>
                         </div>
+
 
                     </aside>
                 </div>
