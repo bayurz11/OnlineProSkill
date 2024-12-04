@@ -139,7 +139,7 @@
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link active" id="description-tab" data-bs-toggle="tab"
                                     data-bs-target="#description-tab-pane" type="button" role="tab"
-                                    aria-controls="description-tab-pane" aria-selected="true">Description</button>
+                                    aria-controls="description-tab-pane" aria-selected="true">Deskripsi</button>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="reviews-tab" data-bs-toggle="tab"
@@ -150,11 +150,7 @@
                         <div class="tab-content" id="myTabContent2">
                             <div class="tab-pane fade show active" id="description-tab-pane" role="tabpanel"
                                 aria-labelledby="description-tab" tabindex="0">
-                                <p>Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur elit. Vesti
-                                    at bulum nec odio aea the dumm summ ipsum that dolocons rsus mal suada and fadolorit to
-                                    the consectetur elit. y to follow tutorials, Exercises, and solutions. This course does
-                                    start from the beginning with very little knowledge and gives a great overview of common
-                                    tools used for data science and progresses into more.</p>
+                                <p>{!! $courses->content !!}</p>
                             </div>
                             <div class="tab-pane fade" id="reviews-tab-pane" role="tabpanel"
                                 aria-labelledby="reviews-tab" tabindex="0">
