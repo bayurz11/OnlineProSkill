@@ -281,33 +281,34 @@
                 </div>
                 <div class="swiper-container shop-active">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="shop-item">
-                                <div class="shop-thumb">
-                                    <a href="shop-details.html">
-                                        <img src="public/assets/img/shop/shop_img06.jpg" alt="img">
-                                    </a>
-                                    <ul class="list-wrap shop-action">
-                                        <li><a href="shop-details.html"><i class="fas fa-shopping-cart"></i></a></li>
-                                        <li><a href="shop-details.html"><i class="far fa-heart"></i></a></li>
-                                        <li><a href="shop-details.html"><i class="far fa-eye"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="shop-content">
-                                    <h3 class="title"><a href="shop-details.html">The Fashion Edits</a></h3>
-                                    <div class="rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <span class="avg">(5.00)</span>
+                        @foreach ($results as $cours)
+                            <div class="swiper-slide">
+                                <div class="shop-item">
+                                    <div class="shop-thumb">
+                                        <a href="shop-details.html">
+                                            <img src="public/assets/img/shop/shop_img06.jpg" alt="img">
+                                        </a>
+                                        <ul class="list-wrap shop-action">
+                                            <li><a href="shop-details.html"><i class="fas fa-shopping-cart"></i></a></li>
+                                            <li><a href="shop-details.html"><i class="far fa-heart"></i></a></li>
+                                            <li><a href="shop-details.html"><i class="far fa-eye"></i></a></li>
+                                        </ul>
                                     </div>
-                                    <h4 class="price">$39.00</h4>
+                                    <div class="shop-content">
+                                        <h3 class="title"><a href="shop-details.html">The Fashion Edits</a></h3>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <span class="avg">(5.00)</span>
+                                        </div>
+                                        <h4 class="price">$39.00</h4>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
+                        @endforeach
                     </div>
                 </div>
             </div>

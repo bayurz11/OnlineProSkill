@@ -160,6 +160,8 @@ class ProdukController extends Controller
         $profile = null;
         $cart = Session::get('cart', []);
         $kurikulum = Kurikulum::with('user')->where('course_id', $id)->get();
+        // Ambil semua course_id yang ada di model Kurikulum
+        $kurikulumCourseIds = Kurikulum::pluck('course_id')->toArray();
 
         if ($user) {
             $profile = UserProfile::where('user_id', $user->id)->first();
@@ -168,7 +170,7 @@ class ProdukController extends Controller
         $courses = KelasTatapMuka::find($id);
 
         if (!$courses) {
-            abort(404, 'Kelas tatap muka tidak ditemukan.');
+            abort(404, 'produk tidak ditemukan.');
         }
 
         $courseList = json_decode($courses->include, true);
@@ -209,6 +211,6 @@ class ProdukController extends Controller
         $orderProductIds = Order::where('product_id', $id)->pluck('product_id');
         $sertifikatCount = Sertifikat::whereIn('kategori_id', $orderProductIds)->count();
         $reviews = Reviews::where('class_id', $id)->with('user', 'kelasTatapMuka')->get();
-        return view('home.produk.detail',  compact('user', 'reviews', 'categori', 'jumlahPendaftaran', 'courses', 'kurikulum', 'courseList', 'perstaratan', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'section', 'joinedCourses', 'sertifikatCount'));
+        return view('home.produk.detail',  compact('user', 'results', 'reviews', 'categori', 'jumlahPendaftaran', 'courses', 'kurikulum', 'courseList', 'perstaratan', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'section', 'joinedCourses', 'sertifikatCount'));
     }
 }
