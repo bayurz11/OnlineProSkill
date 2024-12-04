@@ -132,7 +132,7 @@ class SearchController extends Controller
         $categori = Categories::all();
         $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
         $category_ids = $request->input('categories', []);
-        $tingkatLevels = KelasTatapMuka::where('course_type', '!=', 'bootcamp')
+        $tingkatLevels = KelasTatapMuka::where('course_type', '!=', 'bootcamp', 'produk')
             ->distinct()
             ->pluck('tingkat');
 
@@ -142,7 +142,7 @@ class SearchController extends Controller
         // Menghitung jumlah kursus per kategori yang ada di Kurikulum
         $categoryCounts = KelasTatapMuka::select('kategori_id', DB::raw('count(*) as total'))
             ->where('status', 1)
-            ->where('course_type', '!=', 'bootcamp')
+            ->where('course_type', '!=', 'bootcamp', 'produk')
             ->whereIn('id', $kurikulumCourseIds)
             ->groupBy('kategori_id')
             ->pluck('total', 'kategori_id');
@@ -150,7 +150,7 @@ class SearchController extends Controller
         // Menghitung jumlah kursus per tingkat yang ada di Kurikulum
         $tingkatCounts = KelasTatapMuka::select('tingkat', DB::raw('count(*) as total'))
             ->where('status', 1)
-            ->where('course_type', '!=', 'bootcamp')
+            ->where('course_type', '!=', 'bootcamp', 'produk')
             ->whereIn('id', $kurikulumCourseIds)
             ->groupBy('tingkat')
             ->pluck('total', 'tingkat');
@@ -186,7 +186,7 @@ class SearchController extends Controller
         // Mencari berdasarkan kategori, tingkat, course_type, dan term pencarian dengan pagination
         $results = KelasTatapMuka::query()
             ->where('status', 1)
-            ->whereNotIn('course_type', ['bootcamp'])
+            ->whereNotIn('course_type', ['bootcamp', 'produk'])
             ->when(!empty($category_ids), function ($query) use ($category_ids) {
                 return $query->whereIn('kategori_id', $category_ids);
             })
@@ -223,7 +223,7 @@ class SearchController extends Controller
         $course = KelasTatapMuka::with('user')
             ->where('status', 1)
             ->whereIn('course_type', ['offline', 'online'])
-            ->whereNotIn('course_type', ['bootcamp'])
+            ->whereNotIn('course_type', ['bootcamp', 'produk'])
             ->get();
         $count = $course->count();
 
