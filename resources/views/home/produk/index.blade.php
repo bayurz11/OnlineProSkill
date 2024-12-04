@@ -81,7 +81,7 @@
                                             <a href="shop-details.html">
                                                 <img src="{{ asset('public/uploads/' . $cours->gambar) }}" alt="img">
                                             </a>
-                                            <span class="flash-sale">Sale</span>
+                                            <span class="flash-sale">{{ $cours->discount }}</span>
                                             <ul class="list-wrap shop-action">
                                                 <li><a href="{{ route('produk-detail') }}"><i
                                                             class="fas fa-shopping-cart"></i></a></li>
