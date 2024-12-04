@@ -285,22 +285,22 @@
                             <div class="swiper-slide">
                                 <div class="shop-item">
                                     <div class="shop-thumb">
-                                        <a href="{{ route('course.details', $cours->id) }}">
+                                        <a href="{{ route('produk-detail', ['id' => $cours->id]) }}">
                                             <!-- Ganti dengan URL yang sesuai -->
                                             <img src="{{ asset('storage/' . $cours->image) }}" alt="img">
                                             <!-- Ganti dengan nama kolom yang menyimpan gambar -->
                                         </a>
                                         <ul class="list-wrap shop-action">
-                                            <li><a href="{{ route('course.details', $cours->id) }}"><i
+                                            <li><a href="{{ route('produk-detail', ['id' => $cours->id]) }}"><i
                                                         class="fas fa-shopping-cart"></i></a></li>
                                             <li><a href="javascript:void(0);"><i class="far fa-heart"></i></a></li>
-                                            <li><a href="{{ route('course.details', $cours->id) }}"><i
+                                            <li><a href="{{ route('produk-detail', ['id' => $cours->id]) }}"><i
                                                         class="far fa-eye"></i></a></li>
                                         </ul>
                                     </div>
                                     <div class="shop-content">
                                         <h3 class="title"><a
-                                                href="{{ route('course.details', $cours->id) }}">{{ $cours->name }}</a>
+                                                href="{{ route('produk-detail', ['id' => $cours->id]) }}">{{ $cours->name }}</a>
                                         </h3> <!-- Ganti dengan kolom yang menyimpan nama kursus -->
                                         <div class="rating">
                                             <!-- Menampilkan rating jika tersedia -->
