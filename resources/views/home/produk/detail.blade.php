@@ -287,7 +287,7 @@
                                     <div class="shop-thumb">
                                         <a href="{{ route('produk-detail', ['id' => $cours->id]) }}">
                                             <!-- Ganti dengan URL yang sesuai -->
-                                            <img src="{{ asset('storage/' . $cours->image) }}" alt="img">
+                                            <img src="{{ asset('public/uploads/' . $cours->gambar) }}" alt="img">
                                             <!-- Ganti dengan nama kolom yang menyimpan gambar -->
                                         </a>
                                         <ul class="list-wrap shop-action">
