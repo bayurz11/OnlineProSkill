@@ -222,7 +222,6 @@
     </section>
     <!-- shop-area-end -->
     <script>
-        // Kode JavaScript Anda di sini
         document.addEventListener('DOMContentLoaded', function() {
             const checkboxes = document.querySelectorAll('.category-checkbox');
             const allCategoriesCheckbox = document.getElementById('all_categories');
@@ -232,119 +231,72 @@
             const freeCheckbox = document.querySelector('.form-check-input[value="free"]');
             const paidCheckbox = document.querySelector('.form-check-input[value="paid"]');
 
-            function updateUrl(selectedCategories, orderby, selectedPrices) {
+            // Fungsi untuk memperbarui URL berdasarkan kategori
+            function updateCategoryUrl() {
+                const selectedCategories = Array.from(checkboxes)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value);
+
                 const url = new URL(window.location.href);
                 url.searchParams.set('categories', selectedCategories.join(','));
-                url.searchParams.set('orderby', orderby);
+                window.history.pushState({}, '', url.toString());
+            }
+
+            // Fungsi untuk memperbarui URL berdasarkan harga
+            function updatePriceUrl() {
+                const selectedPrices = Array.from(priceCheckboxes)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value);
+
+                const url = new URL(window.location.href);
                 if (selectedPrices.length > 0) {
                     url.searchParams.set('price', selectedPrices);
                 } else {
                     url.searchParams.delete('price');
                 }
-                window.location.href = url.toString();
+                window.history.pushState({}, '', url.toString());
             }
 
-            function updateCategories() {
-                const selectedCategories = Array.from(checkboxes)
-                    .filter(checkbox => checkbox.checked)
-                    .map(checkbox => checkbox.value);
-                const selectedPrices = Array.from(priceCheckboxes)
-                    .filter(checkbox => checkbox.checked)
-                    .map(checkbox => checkbox.value);
-                updateUrl(selectedCategories, sortBySelect?.value || '', selectedPrices);
+            // Event listener untuk checkbox kategori
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        allCategoriesCheckbox.checked =
+                        false; // Hilangkan centang pada "Semua Kategori"
+                    }
+                    updateCategoryUrl();
+                });
+            });
+
+            // Event listener untuk checkbox "Semua Kategori"
+            if (allCategoriesCheckbox) {
+                allCategoriesCheckbox.addEventListener('change', function() {
+                    checkboxes.forEach(checkbox => (checkbox.checked = this.checked));
+                    updateCategoryUrl();
+                });
             }
 
+            // Event listener untuk checkbox harga (saling meniadakan)
             freeCheckbox.addEventListener('change', function() {
                 if (this.checked) {
-                    paidCheckbox.checked = false;
+                    paidCheckbox.checked = false; // Hilangkan centang pada "Paid"
                 }
-                updateCategories();
+                updatePriceUrl();
             });
 
             paidCheckbox.addEventListener('change', function() {
                 if (this.checked) {
-                    freeCheckbox.checked = false;
+                    freeCheckbox.checked = false; // Hilangkan centang pada "Free"
                 }
-                updateCategories();
+                updatePriceUrl();
             });
 
-            checkboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', function() {
-                    if (this.checked) {
-                        allCategoriesCheckbox.checked = false;
-                    }
-                    updateCategories();
-                });
-            });
-
-            if (allCategoriesCheckbox) {
-                allCategoriesCheckbox.addEventListener('change', function() {
-                    checkboxes.forEach(checkbox => checkbox.checked = this.checked);
-                    updateCategories();
-                });
-            }
-
+            // Event listener untuk pengurutan (sort by)
             if (sortBySelect) {
                 sortBySelect.addEventListener('change', function() {
-                    updateCategories();
-                });
-            }
-
-            if (showMoreButton) {
-                const categoryItems = document.querySelectorAll('.list-wrap .category-item');
-                const showMoreCategoriesStatus = localStorage.getItem('showMoreCategories') === 'true';
-
-                if (categoryItems.length <= 4) {
-                    showMoreButton.style.display = 'none';
-                } else {
-                    for (let i = 4; i < categoryItems.length; i++) {
-                        categoryItems[i].classList.toggle('hidden', !showMoreCategoriesStatus);
-                    }
-                    showMoreButton.innerText = showMoreCategoriesStatus ? 'Tampilkan Lebih Sedikit -' :
-                        'Tampilkan Lebih Banyak +';
-                }
-
-                showMoreButton.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    const hiddenCategories = document.querySelectorAll('.category-item.hidden');
-
-                    if (hiddenCategories.length > 0) {
-                        hiddenCategories.forEach(category => category.classList.remove('hidden'));
-                        showMoreButton.innerText = 'Tampilkan Lebih Sedikit -';
-                        localStorage.setItem('showMoreCategories', 'true');
-                    } else {
-                        categoryItems.forEach((category, index) => {
-                            if (index >= 4) {
-                                category.classList.add('hidden');
-                            }
-                        });
-                        showMoreButton.innerText = 'Tampilkan Lebih Banyak +';
-                        localStorage.setItem('showMoreCategories', 'false');
-                    }
-                });
-            }
-
-            const urlParams = new URLSearchParams(window.location.search);
-
-            if (urlParams.has('categories')) {
-                const categories = urlParams.get('categories').split(',');
-                checkboxes.forEach(checkbox => {
-                    if (categories.includes(checkbox.value)) {
-                        checkbox.checked = true;
-                    }
-                });
-            }
-
-            if (urlParams.has('orderby')) {
-                sortBySelect.value = urlParams.get('orderby');
-            }
-
-            if (urlParams.has('price')) {
-                const prices = urlParams.get('price').split(',');
-                priceCheckboxes.forEach(checkbox => {
-                    if (prices.includes(checkbox.value)) {
-                        checkbox.checked = true;
-                    }
+                    const url = new URL(window.location.href);
+                    url.searchParams.set('orderby', this.value);
+                    window.history.pushState({}, '', url.toString());
                 });
             }
         });
