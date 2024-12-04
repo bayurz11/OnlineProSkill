@@ -110,8 +110,9 @@
                                 </li>
                                 <li class="sd-tag">
                                     <span class="title">Tags:</span>
-                                    <a href="shop-details.html">{{ $courses->tag }},</a>
-                                    <a href="shop-details.html">Education</a>
+                                    <a href="shop-details.html">{{ json_decode($courses->tag)[0]->value }}</a>
+
+
                                 </li>
                             </ul>
                         </div>
