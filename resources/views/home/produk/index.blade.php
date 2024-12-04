@@ -231,6 +231,8 @@
 
             // Elemen untuk filter harga
             const priceCheckboxes = document.querySelectorAll('.form-check-input[name="price[]"]');
+            const freeCheckbox = document.querySelector('.form-check-input[value="free"]');
+            const paidCheckbox = document.querySelector('.form-check-input[value="paid"]');
 
             function updateUrl(selectedCategories, orderby, selectedPrices) {
                 const url = new URL(window.location.href);
@@ -238,6 +240,8 @@
                 url.searchParams.set('orderby', orderby);
                 if (selectedPrices.length > 0) {
                     url.searchParams.set('price', selectedPrices);
+                } else {
+                    url.searchParams.delete('price');
                 }
                 window.location.href = url.toString();
             }
@@ -252,6 +256,21 @@
                     .map(checkbox => checkbox.value);
                 updateUrl(selectedCategories, sortBySelect?.value || '', selectedPrices);
             }
+
+            // Event listener untuk checkbox harga (saling meniadakan)
+            freeCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    paidCheckbox.checked = false; // Hilangkan centang pada "Paid"
+                }
+                updateCategories();
+            });
+
+            paidCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    freeCheckbox.checked = false; // Hilangkan centang pada "Free"
+                }
+                updateCategories();
+            });
 
             // Event listener untuk setiap checkbox kategori
             checkboxes.forEach(checkbox => {
@@ -276,13 +295,6 @@
                     updateCategories();
                 });
             }
-
-            // Event listener untuk setiap checkbox harga
-            priceCheckboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', function() {
-                    updateCategories();
-                });
-            });
 
             // Fungsi untuk menampilkan atau menyembunyikan lebih banyak kategori
             if (showMoreButton) {
