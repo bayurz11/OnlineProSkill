@@ -24,6 +24,7 @@ class KelasTatapMukaController extends Controller
         }
         return view('admin.KelasTatapMuka.classroom', compact('user', 'categori', 'count', 'course'));
     }
+
     public function store(Request $request)
     {
         $userId = Auth::id();

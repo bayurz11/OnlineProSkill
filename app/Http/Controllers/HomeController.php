@@ -108,7 +108,7 @@ class HomeController extends Controller
         $blog = Blog::latest()->take(4)->get();
         $event = AdminEvent::where('tgl', '>=', Carbon::now())->latest()->take(3)->get();
         $daftar_siswa = UserProfile::where('role_id', 3)->get();
-        $sertifikat = Sertifikat::whereIn('kategori_id', [13, 14])->get();
+        $sertifikat = Sertifikat::whereIn('kategori_id', [18, 19, 20, 21])->get();
 
         // Notifikasi
         $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)->latest()->get() : collect();
