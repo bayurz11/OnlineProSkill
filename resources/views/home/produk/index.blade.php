@@ -54,8 +54,7 @@
                             </div>
                             <div class="col-md-6 col-sm-5">
                                 <div class="shop-top-right">
-                                    <span class="sort-by">Urutkan Berdasarkan:</span>
-                                    <div class="courses-top-right-select">
+                                    <select name="orderby" class="orderby">
                                         <form id="sortForm" method="GET" action="{{ route('search') }}">
                                             <select name="orderby" class="orderby">
                                                 <option value="latest"
@@ -72,7 +71,7 @@
                                                     harga terendah</option>
                                             </select>
                                         </form>
-                                    </div>
+                                    </select>
                                 </div>
                             </div>
                         </div>
