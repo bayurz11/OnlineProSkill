@@ -89,34 +89,51 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
-        $cart = Session::get('cart', []);
-        $categori = Categories::all();
 
-        // Mengambil daftar course_type unik dari KelasTatapMuka, kecuali 'bootcamp' dan 'produk'
+        // Eager loading untuk mengurangi query
+        $profile = $user ? UserProfile::where('user_id', $user->id)->first(['id', 'user_id', 'role_id']) : null;
+
+        $cart = Session::get('cart', []);
+
+        // Eager loading untuk menghindari query tambahan
+        $categori = Categories::all(['id', 'name']);
+
+        // Mengambil daftar course_type unik dengan pluck langsung kolom yang diperlukan
         $courseTypes = KelasTatapMuka::distinct()
             ->whereNotIn('course_type', ['bootcamp', 'produk'])
             ->pluck('course_type');
 
-        // Mengambil KelasTatapMuka yang aktif dengan filter berdasarkan status dan mengabaikan 'bootcamp' dan 'produk'
+        // Eager loading untuk KelasTatapMuka
         $KelasTatapMuka = KelasTatapMuka::where('status', 1)
             ->whereNotIn('course_type', ['bootcamp', 'produk'])
             ->orderBy('created_at', 'asc')
-            ->get();
+            ->get(['id', 'name', 'course_type', 'created_at']);
 
+        // Membatasi kolom yang diambil
+        $blog = Blog::latest()->take(4)->get(['id', 'title', 'slug', 'created_at']);
+        $event = AdminEvent::where('tgl', '>=', Carbon::now())
+            ->latest()
+            ->take(3)
+            ->get(['id', 'name', 'tgl', 'description']);
 
-        // Data tambahan
-        $blog = Blog::latest()->take(4)->get();
-        $event = AdminEvent::where('tgl', '>=', Carbon::now())->latest()->take(3)->get();
-        $daftar_siswa = UserProfile::where('role_id', 3)->get();
-        $sertifikat = Sertifikat::whereIn('kategori_id', [18, 19, 20, 21])->get();
+        // Membatasi jumlah data siswa
+        $daftar_siswa = UserProfile::where('role_id', 3)->limit(10)->get(['id', 'name', 'user_id']);
 
-        // Notifikasi
-        $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)->latest()->get() : collect();
+        // Membatasi kolom sertifikat
+        $sertifikat = Sertifikat::whereIn('kategori_id', [18, 19, 20, 21])
+            ->get(['id', 'kategori_id', 'name', 'created_at']);
+
+        // Menggunakan eager loading untuk notifikasi
+        $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
+            ->latest()
+            ->get(['id', 'user_id', 'status', 'message']) : collect();
+
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
-        // Joined courses
-        $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
+        // Hanya mengambil `product_id` langsung
+        $joinedCourses = $user ? Order::where('user_id', $user->id)
+            ->pluck('product_id')
+            ->toArray() : [];
 
         return view('home.index', compact(
             'user',
@@ -134,6 +151,7 @@ class HomeController extends Controller
             'courseTypes'
         ));
     }
+
 
 
     public function classroom()
