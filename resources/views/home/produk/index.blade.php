@@ -92,13 +92,23 @@
                                             <h3 class="title"><a
                                                     href="{{ route('produk-detail') }}">{{ $cours->nama_kursus }}</a>
                                             </h3>
-                                            <div class="rating">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <span class="avg">(5.00)</span>
+                                            <div class="courses__item-bottom">
+                                                <div class="button">
+                                                    <a href="{{ route('classroomdetail', ['id' => $cours->id]) }}">
+                                                        <span class="text">Detail</span>
+                                                        <i class="flaticon-arrow-right"></i>
+                                                    </a>
+                                                </div>
+                                                @php
+                                                    $averageRating = $cours->reviews()->avg('rating');
+
+                                                @endphp
+                                                <div class="avg-rating">
+                                                    <i class="fas fa-star"></i>
+                                                    ({{ $averageRating ? number_format($averageRating, 1) : '0.0' }}
+                                                    Reviews)
+                                                </div>
+
                                             </div>
                                             <h4 class="price">Rp 13.000<del>Rp 19.000</del></h4>
                                         </div>
