@@ -55,22 +55,18 @@
                             <div class="col-md-6 col-sm-5">
                                 <div class="shop-top-right">
                                     <select name="orderby" class="orderby">
-                                        <form id="sortForm" method="GET" action="{{ route('search') }}">
-                                            <select name="orderby" class="orderby">
-                                                <option value="latest"
-                                                    {{ request('orderby') == 'latest' ? 'selected' : '' }}>terbaru
-                                                </option>
-                                                <option value="oldest"
-                                                    {{ request('orderby') == 'oldest' ? 'selected' : '' }}>terlama
-                                                </option>
-                                                <option value="highest_price"
-                                                    {{ request('orderby') == 'highest_price' ? 'selected' : '' }}>
-                                                    harga tertinggi</option>
-                                                <option value="lowest_price"
-                                                    {{ request('orderby') == 'lowest_price' ? 'selected' : '' }}>
-                                                    harga terendah</option>
-                                            </select>
-                                        </form>
+                                        <option value="latest" {{ request('orderby') == 'latest' ? 'selected' : '' }}>
+                                            terbaru
+                                        </option>
+                                        <option value="oldest" {{ request('orderby') == 'oldest' ? 'selected' : '' }}>
+                                            terlama
+                                        </option>
+                                        <option value="highest_price"
+                                            {{ request('orderby') == 'highest_price' ? 'selected' : '' }}>
+                                            harga tertinggi</option>
+                                        <option value="lowest_price"
+                                            {{ request('orderby') == 'lowest_price' ? 'selected' : '' }}>
+                                            harga terendah</option>
                                     </select>
                                 </div>
                             </div>
@@ -131,8 +127,7 @@
                                     </li>
                                     <li>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="cat_2">
+                                            <input class="form-check-input" type="checkbox" value="" id="cat_2">
                                             <label class="form-check-label" for="cat_2">Business (12)</label>
                                         </div>
                                     </li>
