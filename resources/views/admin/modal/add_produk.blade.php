@@ -4,7 +4,7 @@
             <form action="{{ route('storeclas') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Tambah Kursus</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Tambah Produk</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
                 </div>
                 <div class="modal-body">
