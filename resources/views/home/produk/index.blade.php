@@ -222,14 +222,12 @@
     </section>
     <!-- shop-area-end -->
     <script>
+        // Kode JavaScript Anda di sini
         document.addEventListener('DOMContentLoaded', function() {
-            // Inisialisasi elemen-elemen yang digunakan
             const checkboxes = document.querySelectorAll('.category-checkbox');
             const allCategoriesCheckbox = document.getElementById('all_categories');
             const sortBySelect = document.querySelector('select[name="orderby"]');
             const showMoreButton = document.getElementById('toggleButton');
-
-            // Elemen untuk filter harga
             const priceCheckboxes = document.querySelectorAll('.form-check-input[name="price[]"]');
             const freeCheckbox = document.querySelector('.form-check-input[value="free"]');
             const paidCheckbox = document.querySelector('.form-check-input[value="paid"]');
@@ -246,7 +244,6 @@
                 window.location.href = url.toString();
             }
 
-            // Fungsi untuk memperbarui kategori dan filter harga
             function updateCategories() {
                 const selectedCategories = Array.from(checkboxes)
                     .filter(checkbox => checkbox.checked)
@@ -257,22 +254,20 @@
                 updateUrl(selectedCategories, sortBySelect?.value || '', selectedPrices);
             }
 
-            // Event listener untuk checkbox harga (saling meniadakan)
             freeCheckbox.addEventListener('change', function() {
                 if (this.checked) {
-                    paidCheckbox.checked = false; // Hilangkan centang pada "Paid"
+                    paidCheckbox.checked = false;
                 }
                 updateCategories();
             });
 
             paidCheckbox.addEventListener('change', function() {
                 if (this.checked) {
-                    freeCheckbox.checked = false; // Hilangkan centang pada "Free"
+                    freeCheckbox.checked = false;
                 }
                 updateCategories();
             });
 
-            // Event listener untuk setiap checkbox kategori
             checkboxes.forEach(checkbox => {
                 checkbox.addEventListener('change', function() {
                     if (this.checked) {
@@ -282,21 +277,19 @@
                 });
             });
 
-            // Event listener untuk checkbox "Semua Kategori"
             if (allCategoriesCheckbox) {
                 allCategoriesCheckbox.addEventListener('change', function() {
-                    toggleAllCategories(this);
+                    checkboxes.forEach(checkbox => checkbox.checked = this.checked);
+                    updateCategories();
                 });
             }
 
-            // Event listener untuk pengurutan (sort by)
             if (sortBySelect) {
                 sortBySelect.addEventListener('change', function() {
                     updateCategories();
                 });
             }
 
-            // Fungsi untuk menampilkan atau menyembunyikan lebih banyak kategori
             if (showMoreButton) {
                 const categoryItems = document.querySelectorAll('.list-wrap .category-item');
                 const showMoreCategoriesStatus = localStorage.getItem('showMoreCategories') === 'true';
@@ -331,10 +324,8 @@
                 });
             }
 
-            // Cek dan centang checkbox berdasarkan parameter URL
             const urlParams = new URLSearchParams(window.location.search);
 
-            // Centang checkbox kategori
             if (urlParams.has('categories')) {
                 const categories = urlParams.get('categories').split(',');
                 checkboxes.forEach(checkbox => {
@@ -344,12 +335,10 @@
                 });
             }
 
-            // Centang dropdown sort by
             if (urlParams.has('orderby')) {
                 sortBySelect.value = urlParams.get('orderby');
             }
 
-            // Centang checkbox harga berdasarkan parameter URL
             if (urlParams.has('price')) {
                 const prices = urlParams.get('price').split(',');
                 priceCheckboxes.forEach(checkbox => {
