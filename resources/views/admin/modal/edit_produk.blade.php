@@ -6,7 +6,7 @@
                 @csrf
                 @method('PUT')
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editModalLabel">Edit Kursus</h5>
+                    <h5 class="modal-title" id="editModalLabel">Edit Produk</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
                 </div>
                 <div class="modal-body">
@@ -17,9 +17,9 @@
                             <label class="form-check-label" for="edit_online">Online Course</label>
                         </div> --}}
                         <div class="form-check form-check-inline">
-                            <input type="radio" class="form-check-input" name="course_type" id="edit_offline"
-                                value="offline">
-                            <label class="form-check-label" for="edit_offline">Offline Class</label>
+                            <input type="radio" class="form-check-input" name="course_type" id="edit_produk"
+                                value="produk">
+                            <label class="form-check-label" for="edit_produk">Offline Class</label>
                         </div>
                     </div>
                     <div class="mb-3">
@@ -28,22 +28,7 @@
                         <input type="text" class="form-control" id="edit_nama_kursus" name="nama_kursus"
                             placeholder="Masukkan Nama Kursus Anda">
                     </div>
-                    <div class="mb-3">
-                        <label for="durasi" class="form-label">Durasi Kursus<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="edit_durasi" name="durasi"
-                            placeholder="Durasi kursus">
-                    </div>
-                    <div class="mb-3">
-                        <label for="sertifikat" class="form-label">Sertifikat<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="edit_sertifikat" name="sertifikat"
-                            placeholder="Apakah mendapatkan sertifikat">
-                    </div>
-                    <div class="mb-3">
-                        <label for="kuota" class="form-label">Kuota Perkelas<span
-                                class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="edit_kuota" name="kuota"
-                            placeholder="Masukkan Jumlah Kuota yang Disediakan">
-                    </div>
+
                     <div class="mb-3">
                         <label class="form-label">Kategori<span class="text-danger">*</span></label>
                         <select id="edit_category" class="form-select" name="kategori_id">
@@ -56,29 +41,12 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="edit_subcategory" class="form-label">Subkategori<span
-                                class="text-danger">*</span></label>
-                        <select id="edit_subcategory" class="form-select" name="subkategori_id" disabled>
-                            <option value="">Pilih Subkategori</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="edit_tingkat" class="form-label">Tingkat <span class="text-danger">*</span></label>
-                        <select id="edit_tingkat" class="form-select" name="tingkat" required>
-                            <option value="">Pilih Tingkat</option>
-                            <option value="Pemula">Pemula</option>
-                            <option value="Menengah">Menengah</option>
-                            <option value="Lanjutan">Lanjutan</option>
-                            <option value="Semua Tingkat">Semua Tingkat</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
                         <label for="edit_content" class="form-label">Deskripsi<span class="text-danger">*</span></label>
                         <textarea id="edit_content" name="content" style="height: 400px; width: 100%; font-size: 18px;"></textarea>
                         <input type="hidden" id="edit_content_input" name="content">
                     </div>
 
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                         <label for="edit_include" class="form-label">Yang akan dipelajari <span
                                 class="text-danger">*</span></label>
                         <div id="edit-include-container">
@@ -98,11 +66,10 @@
                                 <button class="btn btn-success" type="button" id="add-edit-perstaratan">+</button>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="mb-3">
-                        <label for="edit_price" class="form-label">Harga (Rp)<span
-                                class="text-danger">*</span></label>
+                        <label for="edit_price" class="form-label">Harga (Rp)<span class="text-danger">*</span></label>
                         <input type="number" class="form-control" id="edit_price" name="price">
                     </div>
                     {{-- <div class="mb-3">
@@ -118,8 +85,7 @@
                     <div class="mb-3">
                         <label class="form-label" for="edit_gambar">Gambar Kursus<span
                                 class="text-danger">*</span></label>
-                        <input type="file" accept="image/*" class="form-control" id="edit_gambar"
-                            name="gambar">
+                        <input type="file" accept="image/*" class="form-control" id="edit_gambar" name="gambar">
                     </div>
                     <img id="edit_preview" src="#" alt="Preview banner"
                         style="max-width: 100%; max-height: 200px; display: none;">
@@ -144,12 +110,12 @@
 
         $('.edit-button').on('click', function() {
             const id = $(this).data('id');
-            fetch(`/class/${id}/edit`)
+            fetch(`/produk/${id}/edit`)
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);
 
-                    $('#editCourseForm').attr('action', `/class/${id}`);
+                    $('#editCourseForm').attr('action', `/produk/${id}`);
                     $('#edit_nama_kursus').val(data.nama_kursus);
                     $('#edit_durasi').val(data.durasi);
                     $('#edit_sertifikat').val(data.sertifikat);
@@ -158,8 +124,8 @@
 
                     if (data.course_type === 'online') {
                         $('#edit_online').prop('checked', true);
-                    } else if (data.course_type === 'offline') {
-                        $('#edit_offline').prop('checked', true);
+                    } else if (data.course_type === 'produk') {
+                        $('#edit_produk').prop('checked', true);
                     }
 
                     const categoryId = data.kategori_id;
