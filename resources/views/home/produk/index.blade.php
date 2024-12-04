@@ -89,8 +89,8 @@
                                             </ul>
                                         </div>
                                         <div class="shop-content">
-                                            <h3 class="title"><a href="{{ route('produk-detail') }}">Garden Adeline
-                                                    Life</a>
+                                            <h3 class="title"><a
+                                                    href="{{ route('produk-detail') }}">{{ $cours->nama_kursus }}</a>
                                             </h3>
                                             <div class="rating">
                                                 <i class="fas fa-star"></i>
