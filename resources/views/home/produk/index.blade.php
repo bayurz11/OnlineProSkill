@@ -145,51 +145,28 @@
                                 <ul class="list-wrap">
                                     <li>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="cat_1">
-                                            <label class="form-check-label" for="cat_1">Art & Design (8)</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="cat_2">
-                                            <label class="form-check-label" for="cat_2">Business (12)</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
                                             <input class="form-check-input" type="checkbox" value=""
-                                                id="cat_3">
-                                            <label class="form-check-label" for="cat_3">Data Science (7)</label>
+                                                id="all_categories" onclick="toggleAllCategories(this)"
+                                                {{ empty($category_ids) ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="all_categories">Semua Kategori</label>
                                         </div>
                                     </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="cat_4">
-                                            <label class="form-check-label" for="cat_4">Development (10)</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="cat_5">
-                                            <label class="form-check-label" for="cat_5">Finance (8)</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="cat_6">
-                                            <label class="form-check-label" for="cat_6">Health & Fitness (8)</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="cat_7">
-                                            <label class="form-check-label" for="cat_7">Lifestyle (9)</label>
-                                        </div>
-                                    </li>
+                                    @foreach ($categori as $index => $category)
+                                        @if ($category->status == 1 && ($categoryCounts[$category->id] ?? 0) > 0)
+                                            <li class="category-item {{ $index >= 4 ? 'hidden' : '' }}">
+                                                <div class="form-check">
+                                                    <input class="form-check-input category-checkbox" type="checkbox"
+                                                        value="{{ $category->id }}" data-category-id="{{ $category->id }}"
+                                                        id="cat_{{ $category->id }}"
+                                                        {{ in_array($category->id, $category_ids) ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="cat_{{ $category->id }}">
+                                                        {{ $category->name_category }}
+                                                        ({{ $categoryCounts[$category->id] ?? 0 }})
+                                                    </label>
+                                                </div>
+                                            </li>
+                                        @endif
+                                    @endforeach
                                 </ul>
                                 <div class="show-more">
                                     <a href="#">Show More +</a>
