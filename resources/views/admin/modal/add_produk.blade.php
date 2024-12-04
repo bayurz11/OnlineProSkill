@@ -86,12 +86,13 @@
                         </div>
                     </div> --}}
 
+
                     <div class="mb-3">
                         <label for="price" class="form-label">Harga (Rp)<span class="text-danger">*</span></label>
                         <input type="number" class="form-control" id="price" name="price" required>
                     </div>
 
-                    {{-- <div class="mb-3">
+                    <div class="mb-3">
                         <label for="discount" class="form-label">Diskon %</label>
                         <input type="text" class="form-control" id="discount" name="discount"
                             oninput="calculateDiscountedPrice()">
@@ -99,9 +100,8 @@
 
                     <div class="mb-3">
                         <label for="discountedPrice">Harga Setelah Diskon (Rp)</label>
-                        <input type="text" class="form-control" id="discountedPrice" name="discountedPrice"
-                            readonly>
-                    </div> --}}
+                        <input type="text" class="form-control" id="discountedPrice" name="discountedPrice" readonly>
+                    </div>
                     <div class="mb-3">
                         <label class="form-label" for="gambar">Gambar Produk<span class="text-danger">*</span></label>
                         <input type="file" accept="image/*" class="form-control" id="gambar" name="gambar"
@@ -205,7 +205,6 @@
             }
         });
     });
-
     // Kategori dan Subkategori handling
     document.addEventListener('DOMContentLoaded', function() {
         const categorySelect = document.getElementById('category');
