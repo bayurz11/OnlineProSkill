@@ -74,37 +74,24 @@ class ProdukController extends Controller
         // Ambil query dasar untuk hasil kursus
         $results = KelasTatapMuka::query()
             ->where('status', 1)
-            ->where('course_type', 'produk')
-            ->whereIn('id', $kurikulumCourseIds);
+            ->whereNotIn('course_type', ['bootcamp', 'produk']) // Pengecualian course_type
+            ->when(!empty($category_ids), function ($query) use ($category_ids) {
+                return $query->whereIn('kategori_id', $category_ids);
+            })
 
-        // Menambahkan kondisi filter harga
-        if (in_array('free', $priceFilter)) {
-            // Kursus Gratis (harga 0)
-            $results->where('price', 0);
-        } elseif (in_array('paid', $priceFilter)) {
-            // Kursus Berbayar (harga lebih besar dari 0)
-            $results->where('price', '>', 0);
-        }
-
-        // Mengurutkan hasil berdasarkan parameter 'orderby'
-        switch ($orderby) {
-            case 'oldest':
-                $results->orderBy('created_at', 'asc'); // Terlama
-                break;
-            case 'highest_price':
-                $results->orderBy('price', 'desc'); // Harga tertinggi
-                break;
-            case 'lowest_price':
-                $results->orderBy('price', 'asc'); // Harga terendah
-                break;
-            case 'latest':
-            default:
-                $results->orderBy('created_at', 'desc'); // Terbaru
-                break;
-        }
-
-        // Paginate hasil query
-        $results = $results->paginate(6);
+            ->when($orderby, function ($query, $orderby) {
+                if ($orderby == 'latest') {
+                    return $query->orderBy('created_at', 'desc');
+                } elseif ($orderby == 'oldest') {
+                    return $query->orderBy('created_at', 'asc');
+                } elseif ($orderby == 'highest_price') {
+                    return $query->orderBy('price', 'desc');
+                } elseif ($orderby == 'lowest_price') {
+                    return $query->orderBy('price', 'asc');
+                }
+            })
+            ->whereIn('id', $kurikulumCourseIds)
+            ->paginate(6);
 
 
         // Ambil notifikasi untuk pengguna yang sedang login
