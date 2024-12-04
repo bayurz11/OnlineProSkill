@@ -70,10 +70,14 @@ class ProdukController extends Controller
 
         // Menangkap filter harga dari request, pastikan ini adalah array
         $priceFilter = $request->input('price', []);
+
+        // Jika $priceFilter bukan array, ubah menjadi array (untuk kasus hanya satu harga yang dipilih)
         if (!is_array($priceFilter)) {
-            $priceFilter = explode(',', $priceFilter); // Mengubah string menjadi array
+            $priceFilter = [$priceFilter];  // Ubah menjadi array dengan satu elemen
         }
+
         $priceFilter = array_filter($priceFilter); // Filter nilai kosong
+
 
         // Ambil query dasar untuk hasil kursus
         $results = KelasTatapMuka::query()

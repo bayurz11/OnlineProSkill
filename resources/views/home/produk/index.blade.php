@@ -185,22 +185,27 @@
                                                 value="free" id="price_1"
                                                 {{ !in_array('free', request('price', [])) && !in_array('paid', request('price', [])) ? 'checked' : '' }}>
                                             <label class="form-check-label" for="price_1">All Price</label>
+
                                         </div>
                                     </li>
 
                                     <!-- Checkbox untuk Free -->
                                     <li>
                                         <div class="form-check">
+
                                             <input class="form-check-input" type="checkbox" name="price[]"
                                                 value="free" id="price_2"
                                                 {{ in_array('free', request('price', [])) ? 'checked' : '' }}>
                                             <label class="form-check-label" for="price_2">Free</label>
+
+
                                         </div>
                                     </li>
 
                                     <!-- Checkbox untuk Paid -->
                                     <li>
                                         <div class="form-check">
+
                                             <input class="form-check-input" type="checkbox" name="price[]"
                                                 value="paid" id="price_3"
                                                 {{ in_array('paid', request('price', [])) ? 'checked' : '' }}>
