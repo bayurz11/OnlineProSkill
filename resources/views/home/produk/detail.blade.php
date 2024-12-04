@@ -83,7 +83,17 @@
                             <span>({{ $reviews->count() }} Reviews)</span>
                         </div>
 
-                        <h3 class="price">$13.00</h3>
+                        <h3 class="price">
+                            @if (!empty($cours->discountedPrice) && $cours['discount'] != 0)
+                                <del>Rp
+                                    {{ number_format($cours->price, 0, ',', '.') }}</del>
+                                Rp
+                                {{ number_format($cours->discountedPrice, 0, ',', '.') }}
+                            @else
+                                Rp
+                                {{ number_format($cours->price, 0, ',', '.') }}
+                            @endif
+                        </h3>
                         <p>Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesti at bulum nec
                             odio aea the dumm summ ipsum that dolocons rsus mal suada and fadolorit to the consectetur elit.
                         </p>
