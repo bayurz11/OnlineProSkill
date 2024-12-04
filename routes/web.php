@@ -201,6 +201,7 @@ Route::middleware('isAdmin')->group(function () {
 
     //prosuk setting
     Route::get('/produksetting', [ProdukSettingController::class, 'index'])->name('produksetting');
+    Route::post('/prosuk/store', [ProdukSettingController::class, 'store'])->name('produk.store');
 });
 
 //*********STUDEN*********//
