@@ -226,15 +226,12 @@
             const checkboxes = document.querySelectorAll('.category-checkbox');
             const allCategoriesCheckbox = document.getElementById('all_categories');
             const sortBySelect = document.querySelector('select[name="orderby"]');
-            const tingkatCheckboxes = document.querySelectorAll('.tingkat-checkbox');
-            const difficultyAllCheckbox = document.getElementById('difficulty_all');
             const showMoreButton = document.getElementById('toggleButton');
 
-            function updateUrl(selectedCategories, orderby, selectedTingkat) {
+            function updateUrl(selectedCategories, orderby) {
                 const url = new URL(window.location.href);
                 url.searchParams.set('categories', selectedCategories.join(','));
                 url.searchParams.set('orderby', orderby);
-                url.searchParams.set('tingkat', selectedTingkat.join(','));
                 window.location.href = url.toString();
             }
 
@@ -243,32 +240,13 @@
                 const selectedCategories = Array.from(checkboxes)
                     .filter(checkbox => checkbox.checked)
                     .map(checkbox => checkbox.value);
-                updateUrl(selectedCategories, sortBySelect?.value || '', Array.from(tingkatCheckboxes)
-                    .filter(checkbox => checkbox.checked)
-                    .map(checkbox => checkbox.value));
-            }
-
-            // Fungsi untuk memperbarui tingkat
-            function updateLevels() {
-                const selectedTingkat = Array.from(tingkatCheckboxes)
-                    .filter(checkbox => checkbox.checked)
-                    .map(checkbox => checkbox.value);
-                updateUrl(Array.from(checkboxes)
-                    .filter(checkbox => checkbox.checked)
-                    .map(checkbox => checkbox.value), sortBySelect?.value || '', selectedTingkat);
+                updateUrl(selectedCategories, sortBySelect?.value || '');
             }
 
             function toggleAllCategories(source) {
                 if (source.checked) {
                     checkboxes.forEach(checkbox => checkbox.checked = false);
                     updateCategories();
-                }
-            }
-
-            function toggleAllLevels(source) {
-                if (source.checked) {
-                    tingkatCheckboxes.forEach(checkbox => checkbox.checked = false);
-                    updateLevels();
                 }
             }
 
@@ -293,31 +271,6 @@
             if (sortBySelect) {
                 sortBySelect.addEventListener('change', function() {
                     updateCategories();
-                });
-            }
-
-            // Event listener untuk checkbox tingkat
-            tingkatCheckboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', function() {
-                    // Jika "Semua Level" dicentang, hapus centang dari semua checkbox tingkat lainnya
-                    if (this.checked && this === difficultyAllCheckbox) {
-                        tingkatCheckboxes.forEach(cb => {
-                            if (cb !== this) cb.checked = false; // Uncheck others
-                        });
-                    }
-
-                    // Update URL berdasarkan tingkat yang dipilih
-                    updateLevels();
-                });
-            });
-
-            // Event listener untuk checkbox "All Levels"
-            if (difficultyAllCheckbox) {
-                difficultyAllCheckbox.addEventListener('change', function() {
-                    if (this.checked) {
-                        tingkatCheckboxes.forEach(checkbox => checkbox.checked = false);
-                        updateLevels();
-                    }
                 });
             }
 
@@ -379,20 +332,11 @@
                 });
             }
 
-            // Centang checkbox tingkat
-            if (urlParams.has('tingkat')) {
-                const tingkat = urlParams.get('tingkat').split(',');
-                tingkatCheckboxes.forEach(checkbox => {
-                    if (tingkat.includes(checkbox.value)) {
-                        checkbox.checked = true;
-                    }
-                });
-            }
-
             // Centang dropdown sort by
             if (urlParams.has('orderby')) {
                 sortBySelect.value = urlParams.get('orderby');
             }
         });
     </script>
+
 @endsection
