@@ -27,7 +27,6 @@ class ProdukController extends Controller
         $cart = Session::get('cart', []);
         $categori = Categories::all();
         $category_ids = $request->input('categories', []);
-        $priceFilter = $request->input('price', []); // Default is an empty array if no filter
         $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
 
         // Ambil semua tingkat dari kursus dengan course_type 'produk'
@@ -37,11 +36,13 @@ class ProdukController extends Controller
 
         // Ambil semua course_id yang ada di model Kurikulum
         $kurikulumCourseIds = Kurikulum::pluck('course_id')->toArray();
+
         // Pastikan category_ids adalah array
         if (!is_array($category_ids)) {
             $category_ids = explode(',', $category_ids);
         }
         $category_ids = array_filter($category_ids);
+
         // Menghitung jumlah kursus per kategori yang ada di Kurikulum
         $categoryCounts = KelasTatapMuka::select('kategori_id', DB::raw('count(*) as total'))
             ->where('status', 1)
@@ -66,19 +67,22 @@ class ProdukController extends Controller
         // Menambahkan logika pencarian berdasarkan orderby
         $orderby = $request->input('orderby', 'latest'); // Default ke 'latest'
 
+        // Menangkap filter harga dari request
+        $priceFilter = $request->input('price', []); // Menangkap harga yang dipilih
+
         $results = KelasTatapMuka::query()
             ->where('status', 1)
             ->where('course_type', 'produk')
             ->whereIn('id', $kurikulumCourseIds);
 
-        // Apply price filter
+        // Menambahkan filter harga (Free/Paid)
         if (in_array('free', $priceFilter)) {
-            $results->where('price', 0); // Free courses
+            $results->where('price', 0); // Kursus Gratis
         } elseif (in_array('paid', $priceFilter)) {
-            $results->where('price', '>', 0); // Paid courses
+            $results->where('price', '>', 0); // Kursus Berbayar
         }
 
-        // Apply other filters like orderby
+        // Mengurutkan hasil berdasarkan pilihan 'orderby'
         switch ($orderby) {
             case 'oldest':
                 $results->orderBy('created_at', 'asc'); // Terlama
@@ -95,8 +99,8 @@ class ProdukController extends Controller
                 break;
         }
 
+        // Paginate hasil query
         $results = $results->paginate(6);
-
 
         // Ambil notifikasi untuk pengguna yang sedang login
         $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
@@ -138,6 +142,7 @@ class ProdukController extends Controller
             'category_ids'
         ))->with('paginationView', 'vendor.custom');
     }
+
 
 
 
