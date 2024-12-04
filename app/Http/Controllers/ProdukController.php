@@ -57,13 +57,33 @@ class ProdukController extends Controller
             ->groupBy('class_id')
             ->pluck('total', 'class_id');
 
-        // Ambil kursus dengan course_type 'produk'
+        // Menambahkan logika pencarian berdasarkan orderby
+        $orderby = $request->input('orderby', 'latest'); // Default ke 'latest'
+
         $results = KelasTatapMuka::query()
             ->where('status', 1)
             ->where('course_type', 'produk')
-            ->whereIn('id', $kurikulumCourseIds)
-            ->orderBy('created_at', 'desc')
-            ->paginate(6);
+            ->whereIn('id', $kurikulumCourseIds);
+
+        // Mengurutkan hasil berdasarkan pilihan 'orderby'
+        switch ($orderby) {
+            case 'oldest':
+                $results->orderBy('created_at', 'asc'); // Terlama
+                break;
+            case 'highest_price':
+                $results->orderBy('price', 'desc'); // Harga tertinggi
+                break;
+            case 'lowest_price':
+                $results->orderBy('price', 'asc'); // Harga terendah
+                break;
+            case 'latest':
+            default:
+                $results->orderBy('created_at', 'desc'); // Terbaru
+                break;
+        }
+
+        // Paginate hasil query
+        $results = $results->paginate(6);
 
         // Ambil notifikasi untuk pengguna yang sedang login
         $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
@@ -104,6 +124,7 @@ class ProdukController extends Controller
             'ratingCounts'
         ))->with('paginationView', 'vendor.custom');
     }
+
 
 
 
