@@ -11,4 +11,8 @@ class KategoriProduk extends Model
     protected $table = 'kategori_produk';
 
     protected $guarded = [];
+    protected $fillable = [
+        'name_kategori',
+        'status',
+    ];
 }
