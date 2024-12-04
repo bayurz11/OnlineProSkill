@@ -84,14 +84,14 @@
                         </div>
 
                         <h3 class="price">
-                            @if (!empty($cours->discountedPrice) && $cours['discount'] != 0)
+                            @if (!empty($courses->discountedPrice) && $courses['discount'] != 0)
                                 <del>Rp
-                                    {{ number_format($cours->price, 0, ',', '.') }}</del>
+                                    {{ number_format($courses->price, 0, ',', '.') }}</del>
                                 Rp
-                                {{ number_format($cours->discountedPrice, 0, ',', '.') }}
+                                {{ number_format($courses->discountedPrice, 0, ',', '.') }}
                             @else
                                 Rp
-                                {{ number_format($cours->price, 0, ',', '.') }}
+                                {{ number_format($courses->price, 0, ',', '.') }}
                             @endif
                         </h3>
                         <p>Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesti at bulum nec
