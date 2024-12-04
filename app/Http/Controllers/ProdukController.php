@@ -72,13 +72,13 @@ class ProdukController extends Controller
         $priceFilter = $request->input('price', []);
 
         // Ambil query dasar untuk hasil kursus
+        // Ambil query dasar untuk hasil kursus
         $results = KelasTatapMuka::query()
             ->where('status', 1)
-            ->whereNotIn('course_type', ['bootcamp', 'produk']) // Pengecualian course_type
+            ->where('course_type', 'produk') // Hanya kursus dengan course_type 'produk'
             ->when(!empty($category_ids), function ($query) use ($category_ids) {
                 return $query->whereIn('kategori_id', $category_ids);
             })
-
             ->when($orderby, function ($query, $orderby) {
                 if ($orderby == 'latest') {
                     return $query->orderBy('created_at', 'desc');
@@ -92,6 +92,7 @@ class ProdukController extends Controller
             })
             ->whereIn('id', $kurikulumCourseIds)
             ->paginate(6);
+
 
 
         // Ambil notifikasi untuk pengguna yang sedang login
