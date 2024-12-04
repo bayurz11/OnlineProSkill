@@ -285,30 +285,37 @@
                             <div class="swiper-slide">
                                 <div class="shop-item">
                                     <div class="shop-thumb">
-                                        <a href="shop-details.html">
-                                            <img src="public/assets/img/shop/shop_img06.jpg" alt="img">
+                                        <a href="{{ route('course.details', $cours->id) }}">
+                                            <!-- Ganti dengan URL yang sesuai -->
+                                            <img src="{{ asset('storage/' . $cours->image) }}" alt="img">
+                                            <!-- Ganti dengan nama kolom yang menyimpan gambar -->
                                         </a>
                                         <ul class="list-wrap shop-action">
-                                            <li><a href="shop-details.html"><i class="fas fa-shopping-cart"></i></a></li>
-                                            <li><a href="shop-details.html"><i class="far fa-heart"></i></a></li>
-                                            <li><a href="shop-details.html"><i class="far fa-eye"></i></a></li>
+                                            <li><a href="{{ route('course.details', $cours->id) }}"><i
+                                                        class="fas fa-shopping-cart"></i></a></li>
+                                            <li><a href="javascript:void(0);"><i class="far fa-heart"></i></a></li>
+                                            <li><a href="{{ route('course.details', $cours->id) }}"><i
+                                                        class="far fa-eye"></i></a></li>
                                         </ul>
                                     </div>
                                     <div class="shop-content">
-                                        <h3 class="title"><a href="shop-details.html">The Fashion Edits</a></h3>
+                                        <h3 class="title"><a
+                                                href="{{ route('course.details', $cours->id) }}">{{ $cours->name }}</a>
+                                        </h3> <!-- Ganti dengan kolom yang menyimpan nama kursus -->
                                         <div class="rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <span class="avg">(5.00)</span>
+                                            <!-- Menampilkan rating jika tersedia -->
+                                            @for ($i = 0; $i < 5; $i++)
+                                                <i class="fas fa-star {{ $cours->rating > $i ? 'filled' : '' }}"></i>
+                                            @endfor
+                                            <span class="avg">({{ $cours->rating }})</span>
+                                            <!-- Ganti dengan kolom rating -->
                                         </div>
-                                        <h4 class="price">$39.00</h4>
+                                        <h4 class="price">{{ $cours->price }}</h4> <!-- Ganti dengan kolom harga -->
                                     </div>
                                 </div>
                             </div>
                         @endforeach
+
                     </div>
                 </div>
             </div>
