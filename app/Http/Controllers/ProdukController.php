@@ -42,7 +42,7 @@ class ProdukController extends Controller
         if (!is_array($category_ids)) {
             $category_ids = explode(',', $category_ids);
         }
-        $category_ids = array_filter($category_ids);
+        $category_ids = array_filter($category_ids); // Filter nilai kosong
 
         // Menghitung jumlah kursus per kategori yang ada di Kurikulum
         $categoryCounts = KelasTatapMuka::select('kategori_id', DB::raw('count(*) as total'))
@@ -68,8 +68,12 @@ class ProdukController extends Controller
         // Menambahkan logika pencarian berdasarkan orderby
         $orderby = $request->input('orderby', 'latest'); // Default ke 'latest'
 
-        // Menangkap filter harga dari request
+        // Menangkap filter harga dari request, pastikan ini adalah array
         $priceFilter = $request->input('price', []);
+        if (!is_array($priceFilter)) {
+            $priceFilter = explode(',', $priceFilter); // Mengubah string menjadi array
+        }
+        $priceFilter = array_filter($priceFilter); // Filter nilai kosong
 
         // Ambil query dasar untuk hasil kursus
         $results = KelasTatapMuka::query()
@@ -90,25 +94,17 @@ class ProdukController extends Controller
                 }
             })
             // Filter berdasarkan harga
-            ->when($priceFilter, function ($query) use ($priceFilter) {
-                // Jika priceFilter kosong, anggap sebagai 'free'
-                if (empty($priceFilter)) {
-                    return $query->where('price', 0);  // Harga 0 dianggap Free
-                }
-
-                // Jika ada 'paid' dalam filter, cari yang harga > 0
+            ->when(!empty($priceFilter), function ($query) use ($priceFilter) {
                 if (in_array('paid', $priceFilter)) {
                     return $query->where('price', '>', 0);
                 }
 
-                // Jika ada 'free' dalam filter, cari yang harga = 0
                 if (in_array('free', $priceFilter)) {
                     return $query->where('price', 0);
                 }
             })
             ->whereIn('id', $kurikulumCourseIds)
             ->paginate(6);
-
 
         // Ambil notifikasi untuk pengguna yang sedang login
         $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
@@ -150,6 +146,7 @@ class ProdukController extends Controller
             'category_ids'
         ))->with('paginationView', 'vendor.custom');
     }
+
 
 
 
