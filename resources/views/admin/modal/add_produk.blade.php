@@ -31,22 +31,6 @@
                         <input type="text" class="form-control" id="nama_kursus" name="nama_kursus"
                             placeholder="Masukkan Nama Kursus Anda" required>
                     </div>
-                    <div class="mb-3">
-                        <label for="durasi" class="form-label">Durasi Kursus<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="durasi" name="durasi"
-                            placeholder="durasi kursus" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="sertifikat" class="form-label">Sertifikat<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="sertifikat" name="sertifikat"
-                            placeholder="apakah mendapatkan sertifikat" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="kuota" class="form-label">Kuota Perkelas<span
-                                class="text-danger">*</span></label>
-                        <input type="number" class="form-control" id="kuota" name="kuota"
-                            placeholder="Masukkan Jumlah Kuota yang Disediakan" required>
-                    </div>
 
                     <div class="mb-3">
                         <label class="form-label">Kategori<span class="text-danger">*</span></label>
@@ -70,16 +54,6 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="tingkat" class="form-label">Tingkat <span class="text-danger">*</span></label>
-                        <select id="tingkat" class="form-select" name="tingkat" required>
-                            <option value="">Pilih Tingkat</option>
-                            <option value="Pemula">Pemula</option>
-                            <option value="Menengah">Menengah</option>
-                            <option value="Lanjutan">Lanjutan</option>
-                            <option value="Semua Tingkat">Semua Tingkat</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
                         <label for="content" class="form-label">Deskripsi<span class="text-danger">*</span></label>
                         <textarea id="content" name="content" style="height: 400px; width: 100%; font-size: 18px;"></textarea>
                         <input type="hidden" id="content_input" name="content" required>
@@ -98,7 +72,7 @@
                         </script>
                     </div>
 
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                         <label for="include" class="form-label">Apa yang akan di pelajari <span
                                 class="text-danger">*</span></label>
                         <div id="include-container">
@@ -109,7 +83,7 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="perstaratan" class="form-label">Persyaratan Kelas <span
+                        <label for="perstaratan" class="form-label">Persyaratan <span
                                 class="text-danger">*</span></label>
                         <div id="perstaratan-container">
                             <div class="input-group mb-2">
@@ -117,7 +91,7 @@
                                 <button class="btn btn-success" type="button" id="add-perstaratan">+</button>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="mb-3">
                         <label for="price" class="form-label">Harga (Rp)<span class="text-danger">*</span></label>
@@ -136,8 +110,7 @@
                             readonly>
                     </div> --}}
                     <div class="mb-3">
-                        <label class="form-label" for="gambar">Gambar Kursus<span
-                                class="text-danger">*</span></label>
+                        <label class="form-label" for="gambar">Gambar Produk<span class="text-danger">*</span></label>
                         <input type="file" accept="image/*" class="form-control" id="gambar" name="gambar"
                             required>
                     </div>
