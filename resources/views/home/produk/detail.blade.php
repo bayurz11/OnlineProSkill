@@ -97,10 +97,9 @@
 
                         <p> {!! $courses->content !!} </p>
                         <div class="shop-details-qty">
-                            <div class="cart-plus-minus">
-                                <input type="text" value="1">
-                            </div>
-                            <a href="shop-details.html" class="cart-btn btn">Add To Cart</a>
+
+                            <a href="{{ route('cart.adddetail', ['id' => $courses->id]) }}" class="cart-btn btn">Masukkan
+                                Keranjang</a>
                         </div>
                         <div class="shop-details-bottom">
                             <ul class="list-wrap">
