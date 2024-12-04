@@ -220,10 +220,15 @@
                                                             <li class="courses__item-tag">
                                                                 @if ($cours['course_type'] == 'online')
                                                                     <span class="badge bg-primary">Online</span>
-                                                                @else
+                                                                @elseif ($cours['course_type'] == 'offline')
                                                                     <span class="badge bg-secondary">Kelas Tatap
                                                                         Muka</span>
+                                                                @elseif ($cours['course_type'] == 'produk')
+                                                                    <span class="badge bg-success">Produk</span>
+                                                                @else
+                                                                    <span class="badge bg-warning">Tidak Diketahui</span>
                                                                 @endif
+
                                                             </li>
                                                             @if (in_array($cours->id, $joinedCourses))
                                                                 <i class="fas fa-check-circle fa-lg" style="color: green;"
