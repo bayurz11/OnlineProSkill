@@ -23,50 +23,37 @@ use Illuminate\Support\Facades\Session;
 class HomeController extends Controller
 {
 
+
     // public function index()
     // {
     //     $user = Auth::user();
     //     $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
     //     $cart = Session::get('cart', []);
-
-    //     // Mengambil kategori
     //     $categori = Categories::all();
 
-    //     // Mengambil daftar course_type unik dari KelasTatapMuka
-    //     $courseTypes = KelasTatapMuka::select('course_type')
-    //         ->distinct()
+    //     // Mengambil daftar course_type unik dari KelasTatapMuka, kecuali 'bootcamp' dan 'produk'
+    //     $courseTypes = KelasTatapMuka::distinct()
+    //         ->whereNotIn('course_type', ['bootcamp', 'produk'])
     //         ->pluck('course_type');
 
-    //     // Mengambil KelasTatapMuka berdasarkan course_type
-    //     $KelasTatapMuka = KelasTatapMuka::whereIn('course_type', ['online', 'offline'])
+    //     // Mengambil KelasTatapMuka yang aktif dengan filter berdasarkan status dan mengabaikan 'bootcamp' dan 'produk'
+    //     $KelasTatapMuka = KelasTatapMuka::where('status', 1)
+    //         ->whereNotIn('course_type', ['bootcamp', 'produk'])
     //         ->orderBy('created_at', 'asc')
-    //         ->get()
-    //         ->flatMap(function ($kelas) {
-    //             return [$kelas]; // Duplikasi 3 kali
-    //         });
-
-    //     // Mengambil Blog terbaru
-    //     $blog = Blog::latest()->take(4)->get();
-
-    //     // Mengambil event yang belum lewat
-    //     $event = AdminEvent::where('tgl', '>=', Carbon::now())
-    //         ->latest()
-    //         ->take(3)
     //         ->get();
 
-    //     // Mengambil daftar siswa dan sertifikat
+
+    //     // Data tambahan
+    //     $blog = Blog::latest()->take(4)->get();
+    //     $event = AdminEvent::where('tgl', '>=', Carbon::now())->latest()->take(3)->get();
     //     $daftar_siswa = UserProfile::where('role_id', 3)->get();
-    //     $sertifikat = Sertifikat::whereIn('kategori_id', [13, 14])->get();
+    //     $sertifikat = Sertifikat::whereIn('kategori_id', [18, 19, 20, 21])->get();
 
-    //     // Mengambil notifikasi
-    //     $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
-    //         ->latest()
-    //         ->get() : collect();
-
-    //     // Hitung notifikasi dengan status tertentu
+    //     // Notifikasi
+    //     $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)->latest()->get() : collect();
     //     $notifikasiCount = $notifikasi->where('status', 1)->count();
 
-    //     // Ambil joined courses untuk user yang login
+    //     // Joined courses
     //     $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
 
     //     return view('home.index', compact(
@@ -85,34 +72,55 @@ class HomeController extends Controller
     //         'courseTypes'
     //     ));
     // }
-
     public function index()
     {
         $user = Auth::user();
+
+        // Profile
         $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
+
         $cart = Session::get('cart', []);
         $categori = Categories::all();
 
-        // Mengambil daftar course_type unik dari KelasTatapMuka, kecuali 'bootcamp' dan 'produk'
+        // Mengambil daftar course_type unik
         $courseTypes = KelasTatapMuka::distinct()
             ->whereNotIn('course_type', ['bootcamp', 'produk'])
             ->pluck('course_type');
 
-        // Mengambil KelasTatapMuka yang aktif dengan filter berdasarkan status dan mengabaikan 'bootcamp' dan 'produk'
+        // Paginasi untuk KelasTatapMuka
         $KelasTatapMuka = KelasTatapMuka::where('status', 1)
             ->whereNotIn('course_type', ['bootcamp', 'produk'])
             ->orderBy('created_at', 'asc')
-            ->get();
+            ->paginate(10);  // Menampilkan 10 per halaman
 
+        // Paginasi untuk Blog (ambil 4 per halaman)
+        $blog = Blog::latest()->paginate(4);  // Menampilkan 4 per halaman
 
-        // Data tambahan
-        $blog = Blog::latest()->take(4)->get();
-        $event = AdminEvent::where('tgl', '>=', Carbon::now())->latest()->take(3)->get();
-        $daftar_siswa = UserProfile::where('role_id', 3)->get();
-        $sertifikat = Sertifikat::whereIn('kategori_id', [18, 19, 20, 21])->get();
+        // Paginasi untuk Event
+        $event = AdminEvent::where('tgl', '>=', Carbon::now())
+            ->latest()
+            ->paginate(3);  // Menampilkan 3 event per halaman
 
-        // Notifikasi
-        $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)->latest()->get() : collect();
+        // Chunking untuk Daftar Siswa (ambil dalam chunk kecil, misalnya 100)
+        $daftar_siswa = UserProfile::where('role_id', 3)
+            ->chunk(100, function ($chunk) {
+                foreach ($chunk as $siswa) {
+                    // Proses siswa di sini jika perlu
+                }
+            });
+
+        // Sertifikat dengan chunking (untuk menghindari memori besar)
+        $sertifikat = Sertifikat::whereIn('kategori_id', [18, 19, 20, 21])
+            ->chunk(100, function ($chunk) {
+                foreach ($chunk as $sertifikatItem) {
+                    // Proses sertifikat di sini jika perlu
+                }
+            });
+
+        // Notifikasi (paginasi atau chunking jika perlu)
+        $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
+            ->latest()
+            ->paginate(10) : collect();  // Menampilkan 10 notifikasi per halaman
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
         // Joined courses
