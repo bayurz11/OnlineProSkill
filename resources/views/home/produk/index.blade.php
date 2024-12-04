@@ -230,7 +230,6 @@
             const freeCheckbox = document.getElementById('price_2');
             const paidCheckbox = document.getElementById('price_3');
 
-            // Fungsi untuk memperbarui parameter URL tanpa reload
             function updateUrl(params) {
                 const url = new URL(window.location.href);
                 Object.keys(params).forEach(key => {
@@ -240,10 +239,9 @@
                         url.searchParams.delete(key);
                     }
                 });
-                window.history.pushState({}, '', url.toString());
+                window.location.href = url.toString(); // Memuat ulang halaman dengan URL baru
             }
 
-            // Fungsi untuk memperbarui filter kategori
             function updateCategoryFilter() {
                 const selectedCategories = Array.from(categoryCheckboxes)
                     .filter(checkbox => checkbox.checked)
@@ -255,7 +253,6 @@
                 });
             }
 
-            // Fungsi untuk memperbarui filter harga
             function updatePriceFilter() {
                 let selectedPrice = null;
                 if (freeCheckbox.checked) {
@@ -269,18 +266,15 @@
                 });
             }
 
-            // Event listener untuk checkbox kategori
             categoryCheckboxes.forEach(checkbox => {
                 checkbox.addEventListener('change', function() {
                     if (this.checked) {
-                        allCategoriesCheckbox.checked =
-                        false; // Hilangkan centang pada "Semua Kategori"
+                        allCategoriesCheckbox.checked = false;
                     }
                     updateCategoryFilter();
                 });
             });
 
-            // Event listener untuk checkbox "Semua Kategori"
             allCategoriesCheckbox.addEventListener('change', function() {
                 if (this.checked) {
                     categoryCheckboxes.forEach(checkbox => (checkbox.checked = false));
@@ -288,7 +282,6 @@
                 updateCategoryFilter();
             });
 
-            // Event listener untuk checkbox harga
             allPriceCheckbox.addEventListener('change', function() {
                 if (this.checked) {
                     freeCheckbox.checked = false;
