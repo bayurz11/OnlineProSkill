@@ -281,59 +281,64 @@
                 </div>
                 <div class="swiper-container shop-active">
                     <div class="swiper-wrapper">
-                        @foreach ($results as $cours)
-                            <div class="swiper-slide">
-                                <div class="shop-item">
-                                    <div class="shop-thumb">
-                                        <a href="{{ route('produk-detail', ['id' => $cours->id]) }}">
-                                            <!-- Ganti dengan URL yang sesuai -->
-                                            <img src="{{ asset('public/uploads/' . $cours->gambar) }}" alt="img">
-                                            <!-- Ganti dengan nama kolom yang menyimpan gambar -->
-                                        </a>
-                                        @if (!empty($cours->discount))
-                                            <span class="flash-sale"
-                                                style="background-color: white; color: red;">{{ $cours->discount }}%</span>
-                                        @endif
-                                        <ul class="list-wrap shop-action">
-                                            <li><a href="{{ route('cart.adddetail', ['id' => $courses->id]) }}"><i
-                                                        class="fas fa-shopping-cart"></i></a></li>
-                                            <li><a href="{{ route('produk-detail', ['id' => $cours->id]) }}"><i
-                                                        class="far fa-eye"></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="shop-content">
-                                        <h3 class="title"><a
-                                                href="{{ route('produk-detail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
-                                        </h3> <!-- Ganti dengan kolom yang menyimpan nama kursus -->
-                                        <div class="rating">
-                                            <!-- Menampilkan rating jika tersedia -->
-                                            @for ($i = 0; $i < 5; $i++)
-                                                <i class="fas fa-star {{ $cours->rating > $i ? 'filled' : '' }}"></i>
-                                            @endfor
-                                            @php
-                                                $averageRating = $cours->reviews()->avg('rating');
-
-                                            @endphp
-                                            <span
-                                                class="avg">({{ $averageRating ? number_format($averageRating, 1) : '0.0' }}
-                                                Reviews)</span>
-                                            <!-- Ganti dengan kolom rating -->
-                                        </div>
-                                        <h4 class="price">
-                                            @if (!empty($cours->discountedPrice) && $cours['discount'] != 0)
-                                                <del>Rp
-                                                    {{ number_format($cours->price, 0, ',', '.') }}</del>
-                                                Rp
-                                                {{ number_format($cours->discountedPrice, 0, ',', '.') }}
-                                            @else
-                                                Rp
-                                                {{ number_format($cours->price, 0, ',', '.') }}
+                        @if ($results->isNotEmpty())
+                            @foreach ($results as $cours)
+                                <div class="swiper-slide">
+                                    <div class="shop-item">
+                                        <div class="shop-thumb">
+                                            <a href="{{ route('produk-detail', ['id' => $cours->id]) }}">
+                                                <!-- Ganti dengan URL yang sesuai -->
+                                                <img src="{{ asset('public/uploads/' . $cours->gambar) }}"
+                                                    alt="img">
+                                                <!-- Ganti dengan nama kolom yang menyimpan gambar -->
+                                            </a>
+                                            @if (!empty($cours->discount))
+                                                <span class="flash-sale"
+                                                    style="background-color: white; color: red;">{{ $cours->discount }}%</span>
                                             @endif
-                                        </h4> <!-- Ganti dengan kolom harga -->
+                                            <ul class="list-wrap shop-action">
+                                                <li><a href="{{ route('cart.adddetail', ['id' => $courses->id]) }}"><i
+                                                            class="fas fa-shopping-cart"></i></a></li>
+                                                <li><a href="{{ route('produk-detail', ['id' => $cours->id]) }}"><i
+                                                            class="far fa-eye"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="shop-content">
+                                            <h3 class="title"><a
+                                                    href="{{ route('produk-detail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
+                                            </h3> <!-- Ganti dengan kolom yang menyimpan nama kursus -->
+                                            <div class="rating">
+                                                <!-- Menampilkan rating jika tersedia -->
+                                                @for ($i = 0; $i < 5; $i++)
+                                                    <i class="fas fa-star {{ $cours->rating > $i ? 'filled' : '' }}"></i>
+                                                @endfor
+                                                @php
+                                                    $averageRating = $cours->reviews()->avg('rating');
+
+                                                @endphp
+                                                <span
+                                                    class="avg">({{ $averageRating ? number_format($averageRating, 1) : '0.0' }}
+                                                    Reviews)</span>
+                                                <!-- Ganti dengan kolom rating -->
+                                            </div>
+                                            <h4 class="price">
+                                                @if (!empty($cours->discountedPrice) && $cours['discount'] != 0)
+                                                    <del>Rp
+                                                        {{ number_format($cours->price, 0, ',', '.') }}</del>
+                                                    Rp
+                                                    {{ number_format($cours->discountedPrice, 0, ',', '.') }}
+                                                @else
+                                                    Rp
+                                                    {{ number_format($cours->price, 0, ',', '.') }}
+                                                @endif
+                                            </h4> <!-- Ganti dengan kolom harga -->
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        @else
+                            <p>Tidak ada data yang ditemukan.</p>
+                        @endif
 
                     </div>
                 </div>
