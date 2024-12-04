@@ -211,9 +211,6 @@
                             </div>
                         </div>
 
-
-
-
                     </aside>
                 </div>
             </div>
@@ -228,10 +225,16 @@
             const sortBySelect = document.querySelector('select[name="orderby"]');
             const showMoreButton = document.getElementById('toggleButton');
 
-            function updateUrl(selectedCategories, orderby) {
+            // Elemen untuk filter harga
+            const priceCheckboxes = document.querySelectorAll('.form-check-input[name="price[]"]');
+
+            function updateUrl(selectedCategories, orderby, selectedPrices) {
                 const url = new URL(window.location.href);
                 url.searchParams.set('categories', selectedCategories.join(','));
                 url.searchParams.set('orderby', orderby);
+                if (selectedPrices.length > 0) {
+                    url.searchParams.set('price', selectedPrices);
+                }
                 window.location.href = url.toString();
             }
 
@@ -240,7 +243,10 @@
                 const selectedCategories = Array.from(checkboxes)
                     .filter(checkbox => checkbox.checked)
                     .map(checkbox => checkbox.value);
-                updateUrl(selectedCategories, sortBySelect?.value || '');
+                const selectedPrices = Array.from(priceCheckboxes)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value);
+                updateUrl(selectedCategories, sortBySelect?.value || '', selectedPrices);
             }
 
             function toggleAllCategories(source) {
@@ -273,6 +279,13 @@
                     updateCategories();
                 });
             }
+
+            // Event listener untuk setiap checkbox harga
+            priceCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    updateCategories();
+                });
+            });
 
             // Fungsi untuk menampilkan atau menyembunyikan lebih banyak kategori
             if (showMoreButton) {
@@ -336,7 +349,18 @@
             if (urlParams.has('orderby')) {
                 sortBySelect.value = urlParams.get('orderby');
             }
+
+            // Centang checkbox harga berdasarkan parameter URL
+            if (urlParams.has('price')) {
+                const prices = urlParams.get('price').split(',');
+                priceCheckboxes.forEach(checkbox => {
+                    if (prices.includes(checkbox.value)) {
+                        checkbox.checked = true;
+                    }
+                });
+            }
         });
     </script>
+
 
 @endsection
