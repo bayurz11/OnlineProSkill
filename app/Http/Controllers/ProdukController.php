@@ -68,7 +68,7 @@ class ProdukController extends Controller
         $orderby = $request->input('orderby', 'latest'); // Default ke 'latest'
 
         // Menangkap filter harga dari request
-        $priceFilter = $request->input('price', []); // Menangkap harga yang dipilih
+        $priceFilter = dd($request->input('price')); // Menangkap harga yang dipilih
 
         $results = KelasTatapMuka::query()
             ->where('status', 1)
