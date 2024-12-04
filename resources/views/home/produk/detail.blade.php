@@ -98,8 +98,22 @@
                         <p> {!! $courses->content !!} </p>
                         <div class="shop-details-qty">
 
-                            <a href="{{ route('cart.adddetail', ['id' => $courses->id]) }}" class="cart-btn btn">Masukkan
-                                Keranjang</a>
+                            <div class="tg-button-wrap">
+                                <a href="{{ route('cart.checkout', ['id' => $courses->id]) }}"
+                                    class="btn btn-two arrow-btn">
+                                    Checkout
+                                    <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
+                                        class="injectable">
+                                </a>
+                            </div>
+                            <br>
+                            <div class="tg-button-wrap">
+                                <a href="{{ route('cart.adddetail', ['id' => $courses->id]) }}" class="btn">Masukkan
+                                    keranjang
+                                    <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
+                                        class="injectable">
+                                </a>
+                            </div>
                         </div>
                         <div class="shop-details-bottom">
                             <ul class="list-wrap">
