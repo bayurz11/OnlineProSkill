@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\Blog;
 use App\Models\Order;
 use App\Models\Reviews;
+use App\Models\Section;
 use App\Models\Kurikulum;
 use App\Models\AdminEvent;
 use App\Models\Categories;
@@ -152,51 +153,62 @@ class ProdukController extends Controller
 
 
 
-    public function detail()
+    public function detail($id)
     {
-        $user = Auth::user();
-        $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
-        $cart = Session::get('cart', []);
         $categori = Categories::all();
+        $user = Auth::user();
+        $profile = null;
+        $cart = Session::get('cart', []);
+        $kurikulum = Kurikulum::with('user')->where('course_id', $id)->get();
 
-        // Mengambil daftar course_type unik dari KelasTatapMuka, kecuali 'bootcamp'
-        $courseTypes = KelasTatapMuka::distinct()
-            ->where('course_type', '!=', 'bootcamp')
-            ->pluck('course_type');
+        if ($user) {
+            $profile = UserProfile::where('user_id', $user->id)->first();
+        }
 
-        // Mengambil KelasTatapMuka yang aktif dengan filter berdasarkan status dan mengabaikan 'bootcamp'
-        $KelasTatapMuka = KelasTatapMuka::where('status', 1)
-            ->where('course_type', '!=', 'bootcamp')
-            ->orderBy('created_at', 'asc')
-            ->get();
+        $courses = KelasTatapMuka::find($id);
 
-        // Data tambahan
-        $blog = Blog::latest()->take(4)->get();
-        $event = AdminEvent::where('tgl', '>=', Carbon::now())->latest()->take(3)->get();
-        $daftar_siswa = UserProfile::where('role_id', 3)->get();
-        $sertifikat = Sertifikat::whereIn('kategori_id', [13, 14])->get();
+        if (!$courses) {
+            abort(404, 'Kelas tatap muka tidak ditemukan.');
+        }
 
-        // Notifikasi
-        $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)->latest()->get() : collect();
+        $courseList = json_decode($courses->include, true);
+
+        if (!is_array($courseList)) {
+            $courseList = [];
+        }
+        $perstaratan = json_decode($courses->perstaratan, true);
+
+        if (!is_array($perstaratan)) {
+            $perstaratan = [];
+        }
+
+        $fasilitas = json_decode($courses->fasilitas, true);
+
+        // Ambil notifikasi untuk pengguna yang sedang login
+        $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
+            ->orderBy('created_at', 'desc')
+            ->get()
+            : collect(); // Menggunakan collect() untuk membuat koleksi kosong jika pengguna belum login
+
+        // Hitung jumlah notifikasi dengan status = 1
         $notifikasiCount = $notifikasi->where('status', 1)->count();
+        $jumlahPendaftaran = Order::where('product_id', $id)->count();
 
-        // Joined courses
-        $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
+        // Ambil section yang relevan dengan kurikulum
+        $section = Section::whereIn('kurikulum_id', $kurikulum->pluck('id'))->get()->groupBy('kurikulum_id');
 
-        return view('home.produk.detail', compact(
-            'user',
-            'profile',
-            'joinedCourses',
-            'cart',
-            'notifikasiCount',
-            'notifikasi',
-            'categori',
-            'KelasTatapMuka',
-            'event',
-            'blog',
-            'daftar_siswa',
-            'sertifikat',
-            'courseTypes'
-        ));
+        $joinedCourses = $user
+            ? Order::where('user_id', $user->id)
+            ->whereIn('status', ['paid', 'settled']) // Memeriksa status
+            ->pluck('product_id')
+            ->toArray()
+            : [];
+
+
+        // Ambil sertifikat dan hitung jumlah kategori_id sesuai dengan id dari product_id
+        $orderProductIds = Order::where('product_id', $id)->pluck('product_id');
+        $sertifikatCount = Sertifikat::whereIn('kategori_id', $orderProductIds)->count();
+
+        return view('home.produk.detail',  compact('user', 'categori', 'jumlahPendaftaran', 'courses', 'kurikulum', 'courseList', 'perstaratan', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'section', 'joinedCourses', 'sertifikatCount'));
     }
 }

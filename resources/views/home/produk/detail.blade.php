@@ -61,7 +61,7 @@
                             <div class="tab-pane" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab"
                                 tabindex="0">
                                 <a href="public/assets/img/shop/shop_img03.jpg" class="popup-image">
-                                    <img src="{{ asset('public/uploads/' . $cours->gambar) }}" alt="img">
+                                    <img src="public/assets/img/shop/shop_img03.jpg" alt="img">
                                 </a>
                             </div>
                         </div>
