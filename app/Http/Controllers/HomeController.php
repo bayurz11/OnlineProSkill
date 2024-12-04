@@ -93,16 +93,17 @@ class HomeController extends Controller
         $cart = Session::get('cart', []);
         $categori = Categories::all();
 
-        // Mengambil daftar course_type unik dari KelasTatapMuka, kecuali 'bootcamp'
+        // Mengambil daftar course_type unik dari KelasTatapMuka, kecuali 'bootcamp' dan 'produk'
         $courseTypes = KelasTatapMuka::distinct()
-            ->where('course_type', '!=', 'bootcamp')
+            ->whereNotIn('course_type', ['bootcamp', 'produk'])
             ->pluck('course_type');
 
-        // Mengambil KelasTatapMuka yang aktif dengan filter berdasarkan status dan mengabaikan 'bootcamp'
+        // Mengambil KelasTatapMuka yang aktif dengan filter berdasarkan status dan mengabaikan 'bootcamp' dan 'produk'
         $KelasTatapMuka = KelasTatapMuka::where('status', 1)
-            ->where('course_type', '!=', 'bootcamp')
+            ->whereNotIn('course_type', ['bootcamp', 'produk'])
             ->orderBy('created_at', 'asc')
             ->get();
+
 
         // Data tambahan
         $blog = Blog::latest()->take(4)->get();
