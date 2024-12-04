@@ -45,13 +45,6 @@
                         </select>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="subcategory" class="form-label">Subkategori<span
-                                class="text-danger">*</span></label>
-                        <select id="subcategory" class="form-control" name="subkategori_id" disabled>
-                            <option value="">Pilih Subkategori</option>
-                        </select>
-                    </div>
 
                     <div class="mb-3">
                         <label for="content" class="form-label">Deskripsi<span class="text-danger">*</span></label>
