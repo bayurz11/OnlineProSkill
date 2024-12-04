@@ -114,12 +114,12 @@
                 </a>
             </li>
             <li class="nav-item nav-category">Produk</li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a href="{{ route('kategoriproduk') }}" class="nav-link">
                     <i class="link-icon" data-feather="file-text"></i>
                     <span class="link-title">Kategori Produk</span>
                 </a>
-            </li>
+            </li> --}}
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#authPages" role="button"
                     aria-expanded="false" aria-controls="authPages">

@@ -191,13 +191,13 @@ Route::middleware('isAdmin')->group(function () {
     Route::delete('/contact/{id}/destroy', [HubungiKamiSettingController::class, 'destroy'])->name('contact.destroy');
 
     //*******PRODUK*******//
-    //ketegori produk
-    Route::get('/kategoriproduk', [KategoriProdukController::class, 'index'])->name('kategoriproduk');
-    Route::post('/kategori/store', [KategoriProdukController::class, 'store'])->name('kategori.store');
-    Route::post('/status-update/{id}', [KategoriProdukController::class, 'statusUpdate']);
-    Route::get('/kategori/{id}/edit', [KategoriProdukController::class, 'edit'])->name('kategori.edit');
-    Route::put('/kategori/produk/{id}', [KategoriProdukController::class, 'update'])->name('kategori.update');
-    Route::delete('/kategori/destroy/{id}', [KategoriProdukController::class, 'destroy'])->name('kategori.destroy');
+    // //ketegori produk
+    // Route::get('/kategoriproduk', [KategoriProdukController::class, 'index'])->name('kategoriproduk');
+    // Route::post('/kategori/store', [KategoriProdukController::class, 'store'])->name('kategori.store');
+    // Route::post('/status-update/{id}', [KategoriProdukController::class, 'statusUpdate']);
+    // Route::get('/kategori/{id}/edit', [KategoriProdukController::class, 'edit'])->name('kategori.edit');
+    // Route::put('/kategori/produk/{id}', [KategoriProdukController::class, 'update'])->name('kategori.update');
+    // Route::delete('/kategori/destroy/{id}', [KategoriProdukController::class, 'destroy'])->name('kategori.destroy');
 
     //prosuk setting
     Route::get('/produksetting', [ProdukSettingController::class, 'index'])->name('produksetting');
