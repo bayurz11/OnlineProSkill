@@ -120,14 +120,13 @@
 
                                 <li class="sd-category">
                                     <span class="title">Kategori:</span>
-                                    <a href="shop-details.html">{{ $courses->kategori_id }}</a>
+                                    <a href="">{{ $courses->kategori_id }}</a>
                                 </li>
                                 <li class="sd-tag">
                                     <span class="title">Tags:</span>
-                                    <a href="shop-details.html">{{ json_decode($courses->tag)[0]->value }}</a>
-
-
+                                    <span>{{ json_decode($courses->tag)[0]->value }}</span>
                                 </li>
+
                             </ul>
                         </div>
                     </div>
