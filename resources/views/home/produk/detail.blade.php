@@ -300,7 +300,7 @@
                                     </div>
                                     <div class="shop-content">
                                         <h3 class="title"><a
-                                                href="{{ route('produk-detail', ['id' => $cours->id]) }}">{{ $cours->name }}</a>
+                                                href="{{ route('produk-detail', ['id' => $cours->id]) }}">{{ $cours->nama_kursus }}</a>
                                         </h3> <!-- Ganti dengan kolom yang menyimpan nama kursus -->
                                         <div class="rating">
                                             <!-- Menampilkan rating jika tersedia -->
