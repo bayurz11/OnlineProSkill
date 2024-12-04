@@ -178,14 +178,17 @@
                             <h4 class="widget-title">Harga</h4>
                             <div class="courses-cat-list">
                                 <ul class="list-wrap">
+                                    <!-- Checkbox untuk All Price -->
                                     <li>
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" name="price[]"
                                                 value="free" id="price_1"
-                                                {{ in_array('free', request('price', [])) ? 'checked' : '' }}>
+                                                {{ !in_array('free', request('price', [])) && !in_array('paid', request('price', [])) ? 'checked' : '' }}>
                                             <label class="form-check-label" for="price_1">All Price</label>
                                         </div>
                                     </li>
+
+                                    <!-- Checkbox untuk Free -->
                                     <li>
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" name="price[]"
@@ -194,6 +197,8 @@
                                             <label class="form-check-label" for="price_2">Free</label>
                                         </div>
                                     </li>
+
+                                    <!-- Checkbox untuk Paid -->
                                     <li>
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" name="price[]"
@@ -205,6 +210,7 @@
                                 </ul>
                             </div>
                         </div>
+
 
 
                     </aside>

@@ -76,7 +76,9 @@ class ProdukController extends Controller
             ->whereIn('id', $kurikulumCourseIds);
 
         // Menambahkan filter harga (Free/Paid)
-        if (in_array('free', $priceFilter)) {
+        if (in_array('free', $priceFilter) && in_array('paid', $priceFilter)) {
+            // Menampilkan semua kursus dengan harga
+        } elseif (in_array('free', $priceFilter)) {
             $results->where('price', 0); // Kursus Gratis
         } elseif (in_array('paid', $priceFilter)) {
             $results->where('price', '>', 0); // Kursus Berbayar
@@ -142,6 +144,7 @@ class ProdukController extends Controller
             'category_ids'
         ))->with('paginationView', 'vendor.custom');
     }
+
 
 
 
