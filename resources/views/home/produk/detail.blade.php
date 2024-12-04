@@ -103,13 +103,10 @@
                         </div>
                         <div class="shop-details-bottom">
                             <ul class="list-wrap">
-                                <li class="sd-sku">
-                                    <span class="title">SKU:</span>
-                                    <span class="code">#CDP21</span>
-                                </li>
+
                                 <li class="sd-category">
-                                    <span class="title">Categories:</span>
-                                    <a href="shop-details.html">Business & Marketing</a>
+                                    <span class="title">Kategori:</span>
+                                    <a href="shop-details.html">{{ $courses->ketegori_id }}</a>
                                 </li>
                                 <li class="sd-tag">
                                     <span class="title">Tags:</span>
