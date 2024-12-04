@@ -223,82 +223,95 @@
     <!-- shop-area-end -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const checkboxes = document.querySelectorAll('.category-checkbox');
+            const categoryCheckboxes = document.querySelectorAll('.category-checkbox');
             const allCategoriesCheckbox = document.getElementById('all_categories');
-            const sortBySelect = document.querySelector('select[name="orderby"]');
-            const showMoreButton = document.getElementById('toggleButton');
-            const priceCheckboxes = document.querySelectorAll('.form-check-input[name="price[]"]');
-            const freeCheckbox = document.querySelector('.form-check-input[value="free"]');
-            const paidCheckbox = document.querySelector('.form-check-input[value="paid"]');
+            const priceCheckboxes = document.querySelectorAll('input[name="price[]"]');
+            const allPriceCheckbox = document.getElementById('price_1');
+            const freeCheckbox = document.getElementById('price_2');
+            const paidCheckbox = document.getElementById('price_3');
 
-            // Fungsi untuk memperbarui URL berdasarkan kategori
-            function updateCategoryUrl() {
-                const selectedCategories = Array.from(checkboxes)
-                    .filter(checkbox => checkbox.checked)
-                    .map(checkbox => checkbox.value);
-
+            // Fungsi untuk memperbarui parameter URL tanpa reload
+            function updateUrl(params) {
                 const url = new URL(window.location.href);
-                url.searchParams.set('categories', selectedCategories.join(','));
+                Object.keys(params).forEach(key => {
+                    if (params[key] !== null) {
+                        url.searchParams.set(key, params[key]);
+                    } else {
+                        url.searchParams.delete(key);
+                    }
+                });
                 window.history.pushState({}, '', url.toString());
             }
 
-            // Fungsi untuk memperbarui URL berdasarkan harga
-            function updatePriceUrl() {
-                const selectedPrices = Array.from(priceCheckboxes)
+            // Fungsi untuk memperbarui filter kategori
+            function updateCategoryFilter() {
+                const selectedCategories = Array.from(categoryCheckboxes)
                     .filter(checkbox => checkbox.checked)
                     .map(checkbox => checkbox.value);
 
-                const url = new URL(window.location.href);
-                if (selectedPrices.length > 0) {
-                    url.searchParams.set('price', selectedPrices);
-                } else {
-                    url.searchParams.delete('price');
+                const categoriesParam = selectedCategories.length > 0 ? selectedCategories.join(',') : null;
+                updateUrl({
+                    categories: categoriesParam
+                });
+            }
+
+            // Fungsi untuk memperbarui filter harga
+            function updatePriceFilter() {
+                let selectedPrice = null;
+                if (freeCheckbox.checked) {
+                    selectedPrice = 'free';
+                } else if (paidCheckbox.checked) {
+                    selectedPrice = 'paid';
                 }
-                window.history.pushState({}, '', url.toString());
+
+                updateUrl({
+                    price: selectedPrice
+                });
             }
 
             // Event listener untuk checkbox kategori
-            checkboxes.forEach(checkbox => {
+            categoryCheckboxes.forEach(checkbox => {
                 checkbox.addEventListener('change', function() {
                     if (this.checked) {
                         allCategoriesCheckbox.checked =
                         false; // Hilangkan centang pada "Semua Kategori"
                     }
-                    updateCategoryUrl();
+                    updateCategoryFilter();
                 });
             });
 
             // Event listener untuk checkbox "Semua Kategori"
-            if (allCategoriesCheckbox) {
-                allCategoriesCheckbox.addEventListener('change', function() {
-                    checkboxes.forEach(checkbox => (checkbox.checked = this.checked));
-                    updateCategoryUrl();
-                });
-            }
+            allCategoriesCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    categoryCheckboxes.forEach(checkbox => (checkbox.checked = false));
+                }
+                updateCategoryFilter();
+            });
 
-            // Event listener untuk checkbox harga (saling meniadakan)
+            // Event listener untuk checkbox harga
+            allPriceCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    freeCheckbox.checked = false;
+                    paidCheckbox.checked = false;
+                }
+                updatePriceFilter();
+            });
+
             freeCheckbox.addEventListener('change', function() {
                 if (this.checked) {
-                    paidCheckbox.checked = false; // Hilangkan centang pada "Paid"
+                    allPriceCheckbox.checked = false;
+                    paidCheckbox.checked = false;
                 }
-                updatePriceUrl();
+                updatePriceFilter();
             });
 
             paidCheckbox.addEventListener('change', function() {
                 if (this.checked) {
-                    freeCheckbox.checked = false; // Hilangkan centang pada "Free"
+                    allPriceCheckbox.checked = false;
+                    freeCheckbox.checked = false;
                 }
-                updatePriceUrl();
+                updatePriceFilter();
             });
-
-            // Event listener untuk pengurutan (sort by)
-            if (sortBySelect) {
-                sortBySelect.addEventListener('change', function() {
-                    const url = new URL(window.location.href);
-                    url.searchParams.set('orderby', this.value);
-                    window.history.pushState({}, '', url.toString());
-                });
-            }
         });
     </script>
 
