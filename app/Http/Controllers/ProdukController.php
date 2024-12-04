@@ -126,7 +126,8 @@ class ProdukController extends Controller
             'tingkatLevels',
             'tingkatCounts',
             'categori',
-            'ratingCounts'
+            'ratingCounts',
+            'category_ids'
         ))->with('paginationView', 'vendor.custom');
     }
 
