@@ -48,8 +48,8 @@
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
                                 tabindex="0">
-                                <a href="public/assets/img/shop/shop_img01.jpg" class="popup-image">
-                                    <img src="public/assets/img/shop/shop_img01.jpg" alt="img">
+                                <a href="{{ asset('public/uploads/' . $courses->gambar) }}" class="popup-image">
+                                    <img src="{{ asset('public/uploads/' . $courses->gambar) }}" alt="img">
                                 </a>
                             </div>
                             <div class="tab-pane" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
