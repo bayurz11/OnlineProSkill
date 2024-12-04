@@ -72,14 +72,17 @@
                         <h2 class="title">{{ $courses->nama_kursus }}</h2>
                         <div class="product-review">
                             <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                                @for ($i = 1; $i <= 5; $i++)
+                                    @if ($i <= $reviews->avg('rating'))
+                                        <i class="fas fa-star"></i>
+                                    @else
+                                        <i class="far fa-star"></i>
+                                    @endif
+                                @endfor
                             </div>
-                            <span>( Reviews 5.0 )</span>
+                            <span>({{ $reviews->count() }} Reviews)</span>
                         </div>
+
                         <h3 class="price">$13.00</h3>
                         <p>Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur Vesti at bulum nec
                             odio aea the dumm summ ipsum that dolocons rsus mal suada and fadolorit to the consectetur elit.
