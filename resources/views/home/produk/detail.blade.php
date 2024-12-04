@@ -69,7 +69,7 @@
                 </div>
                 <div class="col-xl-7 col-lg-6">
                     <div class="shop-details-content">
-                        <h2 class="title">Garden Adeline Life</h2>
+                        <h2 class="title">{{ $courses->nama_kursus }}</h2>
                         <div class="product-review">
                             <div class="rating">
                                 <i class="fas fa-star"></i>
