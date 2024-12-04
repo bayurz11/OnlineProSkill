@@ -26,6 +26,7 @@ class ProdukController extends Controller
         $user = Auth::user();
         $cart = Session::get('cart', []);
         $categori = Categories::all();
+        $category_ids = $request->input('categories', []);
         $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
 
         // Ambil semua tingkat dari kursus dengan course_type 'produk'
@@ -35,7 +36,11 @@ class ProdukController extends Controller
 
         // Ambil semua course_id yang ada di model Kurikulum
         $kurikulumCourseIds = Kurikulum::pluck('course_id')->toArray();
-
+        // Pastikan category_ids adalah array
+        if (!is_array($category_ids)) {
+            $category_ids = explode(',', $category_ids);
+        }
+        $category_ids = array_filter($category_ids);
         // Menghitung jumlah kursus per kategori yang ada di Kurikulum
         $categoryCounts = KelasTatapMuka::select('kategori_id', DB::raw('count(*) as total'))
             ->where('status', 1)
