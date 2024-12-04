@@ -72,10 +72,9 @@ class ProdukController extends Controller
         $priceFilter = $request->input('price', []);
 
         // Ambil query dasar untuk hasil kursus
-        // Ambil query dasar untuk hasil kursus
         $results = KelasTatapMuka::query()
             ->where('status', 1)
-            ->where('course_type', 'produk') // Hanya kursus dengan course_type 'produk'
+            ->where('course_type', 'produk')
             ->when(!empty($category_ids), function ($query) use ($category_ids) {
                 return $query->whereIn('kategori_id', $category_ids);
             })
@@ -90,10 +89,25 @@ class ProdukController extends Controller
                     return $query->orderBy('price', 'asc');
                 }
             })
+            // Filter berdasarkan harga
+            ->when($priceFilter, function ($query) use ($priceFilter) {
+                // Jika priceFilter kosong, anggap sebagai 'free'
+                if (empty($priceFilter)) {
+                    return $query->where('price', 0);  // Harga 0 dianggap Free
+                }
+
+                // Jika ada 'paid' dalam filter, cari yang harga > 0
+                if (in_array('paid', $priceFilter)) {
+                    return $query->where('price', '>', 0);
+                }
+
+                // Jika ada 'free' dalam filter, cari yang harga = 0
+                if (in_array('free', $priceFilter)) {
+                    return $query->where('price', 0);
+                }
+            })
             ->whereIn('id', $kurikulumCourseIds)
             ->paginate(6);
-
-
 
         // Ambil notifikasi untuk pengguna yang sedang login
         $notifikasi = $user ? NotifikasiUser::where('user_id', $user->id)
