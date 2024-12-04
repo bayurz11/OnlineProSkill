@@ -182,10 +182,9 @@
                                     <li>
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" name="price[]"
-                                                value="all" id="price_0"
-                                                {{ !in_array('free', request('price', [])) && !in_array('paid', request('price', [])) ? 'checked' : '' }}
-                                                onchange="togglePriceFilters(this)">
-                                            <label class="form-check-label" for="price_0">All Price</label>
+                                                value="free" id="price_1"
+                                                {{ !in_array('free', request('price', [])) && !in_array('paid', request('price', [])) ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="price_1">All Price</label>
                                         </div>
                                     </li>
 
@@ -194,8 +193,7 @@
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" name="price[]"
                                                 value="free" id="price_2"
-                                                {{ in_array('free', request('price', [])) ? 'checked' : '' }}
-                                                onclick="togglePriceFilters(this)">
+                                                {{ in_array('free', request('price', [])) ? 'checked' : '' }}>
                                             <label class="form-check-label" for="price_2">Free</label>
                                         </div>
                                     </li>
@@ -205,8 +203,7 @@
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" name="price[]"
                                                 value="paid" id="price_3"
-                                                {{ in_array('paid', request('price', [])) ? 'checked' : '' }}
-                                                onclick="togglePriceFilters(this)">
+                                                {{ in_array('paid', request('price', [])) ? 'checked' : '' }}>
                                             <label class="form-check-label" for="price_3">Paid</label>
                                         </div>
                                     </li>
@@ -241,7 +238,7 @@
                 window.location.href = url.toString();
             }
 
-            // Fungsi untuk memperbarui kategori
+            // Fungsi untuk memperbarui kategori dan filter harga
             function updateCategories() {
                 const selectedCategories = Array.from(checkboxes)
                     .filter(checkbox => checkbox.checked)
@@ -250,13 +247,6 @@
                     .filter(checkbox => checkbox.checked)
                     .map(checkbox => checkbox.value);
                 updateUrl(selectedCategories, sortBySelect?.value || '', selectedPrices);
-            }
-
-            function toggleAllCategories(source) {
-                if (source.checked) {
-                    checkboxes.forEach(checkbox => checkbox.checked = false);
-                    updateCategories();
-                }
             }
 
             // Event listener untuk setiap checkbox kategori
@@ -324,16 +314,6 @@
                     }
                 });
             }
-
-            // Hapus elemen kategori bootcamp dari tampilan jika ada
-            const bootcampCategories = document.querySelectorAll('.category-item[data-type="bootcamp"]');
-            bootcampCategories.forEach(category => category.style.display = 'none');
-
-            // Aktifkan semua tooltip di halaman
-            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-            var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
-                return new bootstrap.Tooltip(tooltipTriggerEl);
-            });
 
             // Cek dan centang checkbox berdasarkan parameter URL
             const urlParams = new URLSearchParams(window.location.search);

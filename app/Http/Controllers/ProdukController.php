@@ -148,11 +148,6 @@ class ProdukController extends Controller
     }
 
 
-
-
-
-
-
     public function detail($id)
     {
         $categori = Categories::all();
