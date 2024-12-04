@@ -208,7 +208,7 @@ class ProdukController extends Controller
         // Ambil sertifikat dan hitung jumlah kategori_id sesuai dengan id dari product_id
         $orderProductIds = Order::where('product_id', $id)->pluck('product_id');
         $sertifikatCount = Sertifikat::whereIn('kategori_id', $orderProductIds)->count();
-
-        return view('home.produk.detail',  compact('user', 'categori', 'jumlahPendaftaran', 'courses', 'kurikulum', 'courseList', 'perstaratan', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'section', 'joinedCourses', 'sertifikatCount'));
+        $reviews = Reviews::where('class_id', $id)->with('user', 'kelasTatapMuka')->get();
+        return view('home.produk.detail',  compact('user', 'reviews', 'categori', 'jumlahPendaftaran', 'courses', 'kurikulum', 'courseList', 'perstaratan', 'profile', 'cart', 'notifikasiCount', 'notifikasi', 'section', 'joinedCourses', 'sertifikatCount'));
     }
 }
