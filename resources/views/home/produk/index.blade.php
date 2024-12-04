@@ -183,8 +183,8 @@
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" name="price[]"
                                                 value="free" id="price_1"
-                                                {{ !in_array('free', request('price', [])) && !in_array('paid', request('price', [])) ? 'checked' : '' }}>
-                                            <label class="form-check-label" for="price_1">All Price</label>
+                                                {{ !in_array('free', (array) request('price', [])) && !in_array('paid', (array) request('price', [])) ? 'checked' : '' }}
+                                                <label class="form-check-label" for="price_1">All Price</label>
 
                                         </div>
                                     </li>
