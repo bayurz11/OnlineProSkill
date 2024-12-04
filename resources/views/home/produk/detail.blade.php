@@ -268,7 +268,6 @@
             <div class="related-product-area">
                 <div class="section__title mb-40">
                     <h2 class="title">
-                        Related
                         <span class="position-relative">
                             <svg x="0px" y="0px" preserveAspectRatio="none" viewBox="0 0 209 59" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
