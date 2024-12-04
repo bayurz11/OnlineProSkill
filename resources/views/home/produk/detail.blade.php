@@ -120,7 +120,7 @@
 
                                 <li class="sd-category">
                                     <span class="title">Kategori:</span>
-                                    <a href="">{{ $courses->kategori_id }}</a>
+                                    <a href="">{{ $courses->kategori->name_category }}</a>
                                 </li>
                                 <li class="sd-tag">
                                     <span class="title">Tags:</span>
