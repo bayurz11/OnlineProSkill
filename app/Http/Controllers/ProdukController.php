@@ -27,8 +27,9 @@ class ProdukController extends Controller
         $cart = Session::get('cart', []);
         $categori = Categories::all();
         $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
-        $category_ids = $request->input('categories', []);
-        $tingkatLevels = KelasTatapMuka::where('course_type', '!=', 'bootcamp')
+
+        // Ambil semua tingkat dari kursus dengan course_type 'produk'
+        $tingkatLevels = KelasTatapMuka::where('course_type', 'produk')
             ->distinct()
             ->pluck('tingkat');
 
@@ -38,7 +39,7 @@ class ProdukController extends Controller
         // Menghitung jumlah kursus per kategori yang ada di Kurikulum
         $categoryCounts = KelasTatapMuka::select('kategori_id', DB::raw('count(*) as total'))
             ->where('status', 1)
-            ->where('course_type', '!=', 'bootcamp')
+            ->where('course_type', 'produk')
             ->whereIn('id', $kurikulumCourseIds)
             ->groupBy('kategori_id')
             ->pluck('total', 'kategori_id');
@@ -46,7 +47,7 @@ class ProdukController extends Controller
         // Menghitung jumlah kursus per tingkat yang ada di Kurikulum
         $tingkatCounts = KelasTatapMuka::select('tingkat', DB::raw('count(*) as total'))
             ->where('status', 1)
-            ->where('course_type', '!=', 'bootcamp')
+            ->where('course_type', 'produk')
             ->whereIn('id', $kurikulumCourseIds)
             ->groupBy('tingkat')
             ->pluck('total', 'tingkat');
@@ -56,59 +57,12 @@ class ProdukController extends Controller
             ->groupBy('class_id')
             ->pluck('total', 'class_id');
 
-        // Pastikan category_ids adalah array
-        if (!is_array($category_ids)) {
-            $category_ids = explode(',', $category_ids);
-        }
-        $category_ids = array_filter($category_ids);
-
-        $search_term = $request->input('search_term');
-        $orderby = $request->input('orderby', 'latest');
-        $selectedTingkat = $request->input('tingkat', []);
-
-        // Pastikan selectedTingkat adalah array
-        if (!is_array($selectedTingkat)) {
-            $selectedTingkat = explode(',', $selectedTingkat);
-        }
-        $selectedTingkat = array_filter($selectedTingkat);
-
-        // Dapatkan course_type dari request
-        $courseType = $request->input('course_type', []);
-        if (!is_array($courseType)) {
-            $courseType = explode(',', $courseType);
-        }
-        $courseType = array_filter($courseType);
-
-        // Mencari berdasarkan kategori, tingkat, course_type, dan term pencarian dengan pagination
+        // Ambil kursus dengan course_type 'produk'
         $results = KelasTatapMuka::query()
             ->where('status', 1)
-            ->whereNotIn('course_type', ['bootcamp'])
-            ->when(!empty($category_ids), function ($query) use ($category_ids) {
-                return $query->whereIn('kategori_id', $category_ids);
-            })
-            ->when($search_term, function ($query, $search_term) {
-                return $query->where('nama_kursus', 'like', '%' . $search_term . '%')
-                    ->orWhere('tag', 'like', '%' . $search_term . '%');
-            })
-            ->when(!empty($selectedTingkat), function ($query) use ($selectedTingkat) {
-                return $query->whereIn('tingkat', $selectedTingkat);
-            })
-            ->when(!empty($courseType), function ($query) use ($courseType) {
-                return $query->whereIn('course_type', $courseType);
-            })
-
-            ->when($orderby, function ($query, $orderby) {
-                if ($orderby == 'latest') {
-                    return $query->orderBy('created_at', 'desc');
-                } elseif ($orderby == 'oldest') {
-                    return $query->orderBy('created_at', 'asc');
-                } elseif ($orderby == 'highest_price') {
-                    return $query->orderBy('price', 'desc');
-                } elseif ($orderby == 'lowest_price') {
-                    return $query->orderBy('price', 'asc');
-                }
-            })
+            ->where('course_type', 'produk')
             ->whereIn('id', $kurikulumCourseIds)
+            ->orderBy('created_at', 'desc')
             ->paginate(6);
 
         // Ambil notifikasi untuk pengguna yang sedang login
@@ -118,8 +72,7 @@ class ProdukController extends Controller
 
         $course = KelasTatapMuka::with('user')
             ->where('status', 1)
-            ->whereIn('course_type', ['offline', 'online'])
-            ->whereNotIn('course_type', ['bootcamp'])
+            ->where('course_type', 'produk')
             ->get();
         $count = $course->count();
 
@@ -134,9 +87,24 @@ class ProdukController extends Controller
         // Ambil ID kursus yang telah diikuti oleh user
         $joinedCourses = $user ? Order::where('user_id', $user->id)->pluck('product_id')->toArray() : [];
 
-        return view('home.produk.index', compact('results', 'cart', 'notifikasi', 'notifikasiCount', 'user', 'profile', 'jumlahPendaftaran', 'joinedCourses', 'course', 'categoryCounts', 'category_ids', 'tingkatLevels', 'tingkatCounts', 'categori', 'ratingCounts'))
-            ->with('paginationView', 'vendor.custom');
+        return view('home.produk.index', compact(
+            'results',
+            'cart',
+            'notifikasi',
+            'notifikasiCount',
+            'user',
+            'profile',
+            'jumlahPendaftaran',
+            'joinedCourses',
+            'course',
+            'categoryCounts',
+            'tingkatLevels',
+            'tingkatCounts',
+            'categori',
+            'ratingCounts'
+        ))->with('paginationView', 'vendor.custom');
     }
+
 
 
     public function detail()
