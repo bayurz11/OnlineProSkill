@@ -208,10 +208,10 @@ class ProdukController extends Controller
         // Memastikan query ini mengembalikan data dengan filter yang tepat
         $results = KelasTatapMuka::query()
             ->where('status', 1)
-            ->where('course_type', 'produk') // pastikan ada nilai 'produk' pada kolom 'course_type'
-            ->whereIn('id', $kurikulumCourseIds) // Filter dengan course_id dari kurikulum
-            ->get(); // Menggunakan get() untuk mengeksekusi query
-
+            ->where('course_type', 'produk')
+            ->whereIn('id', $kurikulumCourseIds)
+            ->inRandomOrder() // Mengacak urutan data
+            ->get();
         // Ambil sertifikat dan hitung jumlah kategori_id sesuai dengan id dari product_id
         $orderProductIds = Order::where('product_id', $id)->pluck('product_id');
         $sertifikatCount = Sertifikat::whereIn('kategori_id', $orderProductIds)->count();
