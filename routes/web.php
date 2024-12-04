@@ -358,7 +358,7 @@ Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])->name('
 
 //produk
 Route::get('/produk', [ProdukController::class, 'index'])->name('produk');
-Route::get('/produk-detail', [ProdukController::class, 'detail'])->name('produk-detail');
+Route::get('/produk-detail/{id}', [ProdukController::class, 'detail'])->name('produk-detail');
 
 //*********Bootcamp*********//
 //PowerBI
