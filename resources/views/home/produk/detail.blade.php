@@ -310,7 +310,15 @@
                                             <span class="avg">({{ $cours->rating }})</span>
                                             <!-- Ganti dengan kolom rating -->
                                         </div>
-                                        <h4 class="price">{{ $cours->price }}</h4> <!-- Ganti dengan kolom harga -->
+                                        <h4
+                                            @if (!empty($cours->discountedPrice) && $cours['discount'] != 0) <del>Rp
+                                                {{ number_format($cours->price, 0, ',', '.') }}</del>
+                                            Rp
+                                            {{ number_format($cours->discountedPrice, 0, ',', '.') }}
+                                        @else
+                                            Rp
+                                            {{ number_format($cours->price, 0, ',', '.') }} @endif</h4>
+                                            <!-- Ganti dengan kolom harga -->
                                     </div>
                                 </div>
                             </div>
