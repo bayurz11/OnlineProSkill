@@ -78,7 +78,7 @@
                                 <div class="col-xl-4 col-sm-6">
                                     <div class="shop-item">
                                         <div class="shop-thumb">
-                                            <a href="shop-details.html">
+                                            <a href="{{ route('produk-detail', ['id' => $cours->id]) }}">
                                                 <img src="{{ asset('public/uploads/' . $cours->gambar) }}" alt="img">
                                             </a>
                                             @if (!empty($cours->discount))
