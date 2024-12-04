@@ -132,7 +132,7 @@ class SearchController extends Controller
         $categori = Categories::all();
         $profile = $user ? UserProfile::where('user_id', $user->id)->first() : null;
         $category_ids = $request->input('categories', []);
-        $tingkatLevels = KelasTatapMuka::where('course_type', '!=', 'bootcamp', 'produk')
+        $tingkatLevels = KelasTatapMuka::whereNotIn('course_type', ['bootcamp', 'produk'])
             ->distinct()
             ->pluck('tingkat');
 
@@ -142,7 +142,7 @@ class SearchController extends Controller
         // Menghitung jumlah kursus per kategori yang ada di Kurikulum
         $categoryCounts = KelasTatapMuka::select('kategori_id', DB::raw('count(*) as total'))
             ->where('status', 1)
-            ->where('course_type', '!=', 'bootcamp', 'produk')
+            ->whereNotIn('course_type', ['bootcamp', 'produk'])
             ->whereIn('id', $kurikulumCourseIds)
             ->groupBy('kategori_id')
             ->pluck('total', 'kategori_id');
@@ -150,7 +150,7 @@ class SearchController extends Controller
         // Menghitung jumlah kursus per tingkat yang ada di Kurikulum
         $tingkatCounts = KelasTatapMuka::select('tingkat', DB::raw('count(*) as total'))
             ->where('status', 1)
-            ->where('course_type', '!=', 'bootcamp', 'produk')
+            ->whereNotIn('course_type', ['bootcamp', 'produk'])
             ->whereIn('id', $kurikulumCourseIds)
             ->groupBy('tingkat')
             ->pluck('total', 'tingkat');
@@ -186,7 +186,7 @@ class SearchController extends Controller
         // Mencari berdasarkan kategori, tingkat, course_type, dan term pencarian dengan pagination
         $results = KelasTatapMuka::query()
             ->where('status', 1)
-            ->whereNotIn('course_type', ['bootcamp', 'produk'])
+            ->whereNotIn('course_type', ['bootcamp', 'produk']) // Pengecualian course_type
             ->when(!empty($category_ids), function ($query) use ($category_ids) {
                 return $query->whereIn('kategori_id', $category_ids);
             })
@@ -200,7 +200,6 @@ class SearchController extends Controller
             ->when(!empty($courseType), function ($query) use ($courseType) {
                 return $query->whereIn('course_type', $courseType);
             })
-
             ->when($orderby, function ($query, $orderby) {
                 if ($orderby == 'latest') {
                     return $query->orderBy('created_at', 'desc');
