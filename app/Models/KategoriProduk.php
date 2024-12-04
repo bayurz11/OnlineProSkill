@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\KelasTatapMuka;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class KategoriProduk extends Model
 {
@@ -15,4 +16,9 @@ class KategoriProduk extends Model
         'name_kategori',
         'status',
     ];
+
+    public function kelastatapmuka()
+    {
+        return $this->hasMany(KelasTatapMuka::class, 'kategori_id');
+    }
 }
