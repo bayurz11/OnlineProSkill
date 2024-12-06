@@ -80,8 +80,13 @@ class AksesPembelianController extends Controller
         $kurikulum = Kurikulum::with('sections')->where('course_id', $id)->get();
         $userSectionStatuses = UserSectionStatus::where('user_id', $user->id)->pluck('status', 'section_id')->toArray();
 
-        // Periksa course_type
-        $courseType = Kurikulum::where('course_id', $id)->value('course_type');
+        // Ambil course_type dari model KelasTatapMuka
+        $kelas = KelasTatapMuka::where('id', $id)->first();
+        if (!$kelas) {
+            return abort(404, 'Kelas tidak ditemukan');
+        }
+
+        $courseType = $kelas->course_type;
 
         // Jika course_type bukan 'produk', lakukan pengecekan sertifikat
         $sertifikat = null;
