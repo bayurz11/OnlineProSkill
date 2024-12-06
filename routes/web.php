@@ -232,7 +232,7 @@ Route::middleware('isStuden')->group(function () {
     Route::post('/review/store', [ReviewController::class, 'store'])->name('review.store');
 
     //lesson
-    Route::get('/lesson/{id}', [AksesPembelianController::class, 'lesson'])->name('lesson');
+
     Route::put('/sectionupdatestatus/{id}', [AksesPembelianController::class, 'updatestatus'])->name('sectionstatus');
     Route::post('/print_certificate/{id}', [AksesPembelianController::class, 'printCertificate'])->name('print_certificate');
     Route::get('/certificate/preview', [AksesPembelianController::class, 'previewCertificate'])->name('certificate.preview');
@@ -250,7 +250,7 @@ Route::middleware('isStuden')->group(function () {
 
     // Route::get('/kurikulum-content/{$kurikulum_id}', [AksesPembelianController::class, 'fetchContent'])->name('kurikulum.content');
 });
-
+Route::get('/lesson/{id}', [AksesPembelianController::class, 'lesson'])->name('lesson');
 
 Route::match(['get', 'post'], '/webhook/xendit', [PaymentController::class, 'handleXenditWebhook']);
 Route::get('/success/{uuid}', [PaymentController::class, 'success'])->name('success');
