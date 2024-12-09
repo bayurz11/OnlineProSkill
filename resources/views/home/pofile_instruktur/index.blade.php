@@ -118,8 +118,12 @@
                                                         'course_id',
                                                         $item['id'],
                                                     )->exists();
-                                                    $averageRating = $item->reviews()->avg('rating');
+                                                    $averageRating = \App\Models\Review::where(
+                                                        'course_id',
+                                                        $item['id'],
+                                                    )->avg('rating');
                                                 @endphp
+
 
                                                 @if ($kurikulumExists)
                                                     <div class="swiper-slide">
