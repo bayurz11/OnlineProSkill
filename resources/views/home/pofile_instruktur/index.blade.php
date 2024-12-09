@@ -55,7 +55,7 @@
                                 <span class="designation">Mentor sejak
                                     {{ \Carbon\Carbon::parse($instructorProfile->created_at)->format('d M Y') }}</span>
                                 <ul class="list-wrap">
-                                    <li class="avg-rating"><i class="fas fa-star"></i>(4.8 Reviews)</li>
+                                    {{-- <li class="avg-rating"><i class="fas fa-star"></i>(4.8 Reviews)</li> --}}
                                     <li><i class="far fa-envelope"></i><a
                                             href="mailto:{{ $instructorProfile->user->email }}">{{ $instructorProfile->user->email }}</a>
                                     </li>
@@ -65,7 +65,7 @@
 
                                 <div class="instructor__details-social">
                                     <ul class="list-wrap">
-                                        <li>
+                                        {{-- <li>
                                             <a href="#"><i class="fab fa-facebook-f"></i></a>
                                         </li>
                                         <li>
@@ -73,15 +73,15 @@
                                         </li>
                                         <li>
                                             <a href="#"><i class="fab fa-instagram"></i></a>
-                                        </li>
+                                        </li> --}}
                                         <li>
                                             <a href="#" id="whatsappLink" target="_blank">
                                                 <i class="fab fa-whatsapp"></i>
                                             </a>
                                         </li>
-                                        <li>
+                                        {{-- <li>
                                             <a href="#"><i class="fab fa-youtube"></i></a>
-                                        </li>
+                                        </li> --}}
                                     </ul>
                                 </div>
                             </div>
@@ -136,8 +136,8 @@
                                                                         @endif
                                                                     </li>
 
-                                                                    <li class="avg-rating"><i class="fas fa-star"></i> (4.3
-                                                                        Reviews)</li>
+                                                                    {{-- <li class="avg-rating"><i class="fas fa-star"></i> (4.3
+                                                                        Reviews)</li> --}}
                                                                     <li class="price">
                                                                         @if (!empty($item['discountedPrice']) && $item['discount'] != 0)
                                                                             <del style="color: red; margin-right: 8px;">Rp
