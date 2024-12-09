@@ -113,6 +113,13 @@
                                                         $item['id'],
                                                     )->exists();
                                                 @endphp
+                                                @php
+                                                    $kurikulumExists = \App\Models\Kurikulum::where(
+                                                        'course_id',
+                                                        $item['id'],
+                                                    )->exists();
+                                                    $averageRating = $item->reviews()->avg('rating');
+                                                @endphp
 
                                                 @if ($kurikulumExists)
                                                     <div class="swiper-slide">
@@ -134,15 +141,7 @@
                                                                                 Muka</span>
                                                                         @endif
                                                                     </li>
-                                                                    @php
-                                                                        $kurikulumExists = \App\Models\Kurikulum::where(
-                                                                            'course_id',
-                                                                            $item->id,
-                                                                        )->exists();
-                                                                        $averageRating = $item
-                                                                            ->reviews()
-                                                                            ->avg('rating');
-                                                                    @endphp
+
                                                                     <li class="avg-rating"><i class="fas fa-star"></i>
                                                                         ({{ $averageRating ? number_format($averageRating, 1) : '0.0' }}
                                                                         Reviews)
