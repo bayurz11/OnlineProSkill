@@ -134,6 +134,30 @@ class CartController extends Controller
 
         return redirect()->route('classroomdetail', ['id' => $id]);
     }
+    public function addToCartProduk($id)
+
+    {
+        $course = KelasTatapMuka::find($id);
+        $cart = Session::get('cart', []);
+
+        if (!isset($cart[$id])) {
+            $cart[$id] = [
+                "id" => $id,
+                "name" => $course->nama_kursus,
+                "price" => $course->discountedPrice,
+                "gambar" => $course->gambar,
+                "quantity" => 1,
+            ];
+
+            Session::flash('success', 'Item telah ditambahkan ke keranjang!');
+        } else {
+            Session::flash('info', 'Item sudah ada di keranjang!');
+        }
+
+        Session::put('cart', $cart);
+
+        return redirect()->route('produk-detail', ['id' => $id]);
+    }
     public function removeFromCart($id)
     {
         $cart = Session::get('cart', []);

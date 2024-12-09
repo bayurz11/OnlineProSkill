@@ -316,6 +316,7 @@ Route::get('/checkout/{id}', [HomeController::class, 'checkout'])->name('checkou
 Route::get('/cart', [CartController::class, 'show'])->name('cart.view');
 Route::get('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
 Route::get('/cart/adddetail/{id}', [CartController::class, 'addToCartdetail'])->name('cart.adddetail');
+Route::get('/cart/adddetailproduk/{id}', [CartController::class, 'addToCartProduk'])->name('cart.adddetailproduk');
 Route::get('/cart/checkout/{id}', [CartController::class, 'addToCartceckout'])->name('cart.checkout');
 Route::post('cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
 Route::post('cart/update/{id}', [CartController::class, 'updateQuantity'])->name('cart.updateQuantity');
