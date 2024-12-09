@@ -137,9 +137,9 @@
                                                                     @php
                                                                         $kurikulumExists = \App\Models\Kurikulum::where(
                                                                             'course_id',
-                                                                            $kelas->id,
+                                                                            $item->id,
                                                                         )->exists();
-                                                                        $averageRating = $kelas
+                                                                        $averageRating = $item
                                                                             ->reviews()
                                                                             ->avg('rating');
                                                                     @endphp
