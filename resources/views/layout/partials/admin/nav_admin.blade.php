@@ -30,10 +30,10 @@
                     <ul class="nav sub-menu">
 
                         <li class="nav-item">
-                            <a href="{{ route('categories') }}" class="nav-link">Categories</a>
+                            <a href="{{ route('categories') }}" class="nav-link">Kategori</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('subcategories') }}" class="nav-link">Subcategories</a>
+                            <a href="{{ route('subcategories') }}" class="nav-link">Sub Kategori</a>
                         </li>
 
                     </ul>
