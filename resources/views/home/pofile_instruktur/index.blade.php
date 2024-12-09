@@ -113,14 +113,6 @@
                                                         $item['id'],
                                                     )->exists();
                                                 @endphp
-                                                @php
-                                                    $course = \App\Models\Course::find($item['id']);
-                                                    $kurikulumExists = \App\Models\Kurikulum::where(
-                                                        'course_id',
-                                                        $course->id,
-                                                    )->exists();
-                                                    $averageRating = $course->reviews()->avg('rating');
-                                                @endphp
 
 
                                                 @if ($kurikulumExists)
@@ -144,10 +136,8 @@
                                                                         @endif
                                                                     </li>
 
-                                                                    <li class="avg-rating"><i class="fas fa-star"></i>
-                                                                        ({{ $averageRating ? number_format($averageRating, 1) : '0.0' }}
-                                                                        Reviews)
-                                                                    </li>
+                                                                    <li class="avg-rating"><i class="fas fa-star"></i> (4.3
+                                                                        Reviews)</li>
                                                                     <li class="price">
                                                                         @if (!empty($item['discountedPrice']) && $item['discount'] != 0)
                                                                             <del style="color: red; margin-right: 8px;">Rp
