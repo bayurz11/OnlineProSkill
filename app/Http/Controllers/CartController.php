@@ -106,7 +106,7 @@ class CartController extends Controller
 
         Session::put('cart', $cart);
 
-        return redirect()->route('classroom');
+        return redirect()->route('produk');
     }
 
 
