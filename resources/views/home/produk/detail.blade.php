@@ -108,7 +108,8 @@
                             </div>
                             <br>
                             <div class="tg-button-wrap">
-                                <a href="{{ route('cart.adddetail', ['id' => $courses->id]) }}" class="btn">Masukkan
+                                <a href="{{ route('cart.adddetailproduk', ['id' => $courses->id]) }}"
+                                    class="btn">Masukkan
                                     keranjang
                                     <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                         class="injectable">
