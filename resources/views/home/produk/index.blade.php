@@ -87,7 +87,8 @@
                                             @endif
 
                                             <ul class="list-wrap shop-action">
-                                                <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                                                <li><a href="{{ route('cart.adddetailproduk', ['id' => $courses->id]) }}"><i
+                                                            class="fas fa-shopping-cart"></i></a></li>
                                                 <li><a href="{{ route('produk-detail', ['id' => $cours->id]) }}"><i
                                                             class="far fa-eye"></i></a></li>
                                             </ul>

@@ -297,7 +297,7 @@
                                                     style="background-color: white; color: red;">{{ $cours->discount }}%</span>
                                             @endif
                                             <ul class="list-wrap shop-action">
-                                                <li><a href="{{ route('cart.adddetail', ['id' => $courses->id]) }}"><i
+                                                <li><a href="{{ route('cart.adddetailproduk', ['id' => $courses->id]) }}"><i
                                                             class="fas fa-shopping-cart"></i></a></li>
                                                 <li><a href="{{ route('produk-detail', ['id' => $cours->id]) }}"><i
                                                             class="far fa-eye"></i></a></li>
