@@ -114,14 +114,12 @@
                                                     )->exists();
                                                 @endphp
                                                 @php
+                                                    $course = \App\Models\Course::find($item['id']);
                                                     $kurikulumExists = \App\Models\Kurikulum::where(
                                                         'course_id',
-                                                        $item['id'],
+                                                        $course->id,
                                                     )->exists();
-                                                    $averageRating = \App\Models\Review::where(
-                                                        'course_id',
-                                                        $item['id'],
-                                                    )->avg('rating');
+                                                    $averageRating = $course->reviews()->avg('rating');
                                                 @endphp
 
 
