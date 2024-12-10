@@ -193,6 +193,8 @@ Route::middleware('isAdmin')->group(function () {
 
     //Instruktur Setting
     Route::get('/instruktursetting', [InstrukturSettingController::class, 'index'])->name('instruktursetting');
+    Route::post('/instruktur/store', [InstrukturSettingController::class, 'storeInstruktur'])->name('regisInstruktur');
+
 
     //*******PRODUK*******//
     // //ketegori produk
