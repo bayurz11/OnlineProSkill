@@ -9,7 +9,33 @@
                 </div>
                 <div class="modal-body">
 
-                    <div class="form-grp">
+
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nama <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="name" name="name"
+                            placeholder="Masukkan Nama Event">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email<span class="text-danger">*</span></label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone_number" class="form-label">Nomor Telepon<span
+                                class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="phone_number" name="phone_number" maxlength="12">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">password<span class="text-danger">*</span></label>
+                        <input type="password" class="form-control" id="password" name="password"
+                            placeholder="Masukkan Nama Event">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password_confirmation" class="form-label">Konfirmasi Password<span
+                                class="text-danger">*</span></label>
+                        <input type="password" id="password_confirmation" placeholder="Konfirmasi Password"
+                            name="password_confirmation">
+                    </div>
+                    {{-- <div class="form-grp">
                         <input type="text" id="name" name="name" placeholder="Masukkan Nama Lengkap Anda">
                     </div>
                     <div class="form-grp">
@@ -33,13 +59,15 @@
                         data-callback="onSubmitregisInstruktur" data-action='submit'>Daftar
                         <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                             class="injectable">
-                    </button>
+                    </button> --}}
 
                 </div>
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Keluar</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="submit" class="btn btn-primary"
+                        data-sitekey="{{ config('services.recaptcha_v3.siteKey') }}"
+                        data-callback="onSubmitregisInstruktur" data-action='submit'>Simpan</button>
                 </div>
             </form>
         </div>
