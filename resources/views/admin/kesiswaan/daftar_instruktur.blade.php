@@ -12,7 +12,7 @@
             </ol>
         </nav>
         @include('admin.modal.edit_siswa')
-        @include('admin.modal.add_instruktur')
+        {{-- @include('admin.modal.add_instruktur') --}}
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
