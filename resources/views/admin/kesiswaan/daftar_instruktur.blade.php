@@ -19,7 +19,7 @@
                     <div class="card-body">
                         <h6 class="card-title">Daftar Siswa</h6>
 
-                        <p class="text-muted mb-3"> Jumlah Siswa : {{ $daftar_siswa->count() }}</p>
+                        <p class="text-muted mb-3"> Jumlah Siswa : {{ $daftar_instruktur->count() }}</p>
                         <div class="table-responsive">
                             <table id="dataTableExample" class="table">
                                 <thead>
@@ -32,7 +32,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($daftar_siswa as $daftar)
+                                    @foreach ($daftar_instruktur as $daftar)
                                         <tr>
                                             <td><img src="{{ $daftar && $daftar->gambar ? (strpos($daftar->gambar, 'googleusercontent') !== false ? $daftar->gambar : asset('public/uploads/' . $daftar->gambar)) : asset('public/assets/img/default_image.jpg') }}"
                                                     alt="Banner" class="wd-100 wd-sm-150 me-3"></td>
