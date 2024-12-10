@@ -1,10 +1,10 @@
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="InstrukturModal" tabindex="-1" aria-labelledby="InstrukturModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form id="articleForm" action="{{ route('blog.store') }}" method="POST" enctype="multipart/form-data">
+            <form id="articleForm" action="#" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Tambah Artikel</h5>
+                    <h5 class="modal-title" id="InstrukturModalLabel">Tambah Artikel</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="btn-close"></button>
                 </div>
                 <div class="modal-body">
