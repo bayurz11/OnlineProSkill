@@ -1,7 +1,7 @@
 <div class="modal fade" id="InstrukturModal" tabindex="-1" aria-labelledby="InstrukturModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <form action="{{ route('regisInstruktur') }}" method="POST" id="regisInstruktur">
+            <form action="{{ route('instruktur.store') }}" method="POST" id="regisInstruktur">
                 @csrf
                 <div class="modal-header">
                     <h5 class="modal-title" id="InstrukturModalLabel">Tambah Instruktur Baru</h5>
