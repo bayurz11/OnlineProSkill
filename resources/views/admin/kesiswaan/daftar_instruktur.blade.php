@@ -17,9 +17,13 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h6 class="card-title">Daftar Siswa</h6>
-
-                        <p class="text-muted mb-3"> Jumlah Siswa : {{ $daftar_instruktur->count() }}</p>
+                        <h6 class="card-title">Daftar Instruktur</h6>
+                        <button type="button" class="btn btn-outline-primary position-absolute top-0 end-0 mt-3 me-3"
+                            data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="btn-icon-prepend"
+                                data-feather="plus-circle"></i>
+                            Instruktur
+                        </button>
+                        <p class="text-muted mb-3"> Jumlah Instruktur : {{ $daftar_instruktur->count() }}</p>
                         <div class="table-responsive">
                             <table id="dataTableExample" class="table">
                                 <thead>
