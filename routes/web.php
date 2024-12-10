@@ -45,6 +45,7 @@ use App\Http\Controllers\HubungiKamiSettingController;
 use App\Http\Controllers\InstrukturQuestionController;
 use App\Http\Controllers\DashboardInstrukturController;
 use App\Http\Controllers\InstrukturKurikulumController;
+use App\Http\Controllers\InstrukturSettingController;
 use App\Http\Controllers\KategoriProdukController;
 use App\Http\Controllers\OrderHistoryManagerController;
 use App\Http\Controllers\ProdukController;
@@ -189,6 +190,9 @@ Route::middleware('isAdmin')->group(function () {
     Route::get('/contact/{id}/edit', [HubungiKamiSettingController::class, 'edit'])->name('contact.edit');
     Route::put('/contact/{id}/update', [HubungiKamiSettingController::class, 'update'])->name('contact.update');
     Route::delete('/contact/{id}/destroy', [HubungiKamiSettingController::class, 'destroy'])->name('contact.destroy');
+
+    //Instruktur Setting
+    Route::get('/instruktursetting', [InstrukturSettingController::class, 'index'])->name('instruktursetting');
 
     //*******PRODUK*******//
     // //ketegori produk

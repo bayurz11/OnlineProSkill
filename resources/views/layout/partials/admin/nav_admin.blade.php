@@ -117,7 +117,23 @@
                     </ul>
                 </div>
             </li>
-            <li class="nav-item nav-category">Kesiswaan</li>
+            <li class="nav-item nav-category">Manajemen User</li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" role="button"
+                    aria-expanded="false" aria-controls="general-pages">
+                    <i class="link-icon" data-feather="users"></i>
+                    <span class="link-title">Kelola Instruktur</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="general-pages">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="{{ route('instruktursetting') }}" class="nav-link">Daftar Instruktur</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" role="button"
                     aria-expanded="false" aria-controls="general-pages">
