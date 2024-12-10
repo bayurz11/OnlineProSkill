@@ -32,8 +32,8 @@
                     <div class="mb-3">
                         <label for="password_confirmation" class="form-label">Konfirmasi Password<span
                                 class="text-danger">*</span></label>
-                        <input type="password" id="password_confirmation" placeholder="Konfirmasi Password"
-                            name="password_confirmation">
+                        <input type="password" class="form-control" id="password_confirmation"
+                            placeholder="Konfirmasi Password" name="password_confirmation">
                     </div>
                     {{-- <div class="form-grp">
                         <input type="text" id="name" name="name" placeholder="Masukkan Nama Lengkap Anda">
