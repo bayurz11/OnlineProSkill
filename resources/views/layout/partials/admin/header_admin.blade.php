@@ -14,7 +14,7 @@
         </form>
         <ul class="navbar-nav">
 
-            <li class="nav-item dropdown">
+            {{-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="notificationDropdown" role="button"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i data-feather="bell"></i>
@@ -34,7 +34,7 @@
                         <a href="javascript:;">View all</a>
                     </div>
                 </div>
-            </li>
+            </li> --}}
 
 
             <li class="nav-item dropdown">
@@ -54,7 +54,8 @@
                         </div>
                     </div>
                     <ul class="list-unstyled p-1">
-
+                        <li><a href="html/user-profile-regular.html"><em class="icon ni ni-user-alt"></em><span>View
+                                    Profile</span></a></li>
                         <li class="dropdown-item py-2">
                             <a href="#" class="text-body ms-0"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
