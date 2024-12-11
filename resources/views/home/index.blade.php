@@ -269,10 +269,16 @@
                                                 class="courses__item-content courses__item-content-two d-flex flex-column flex-grow-1">
                                                 <ul class="courses__item-meta list-wrap">
                                                     <li class="courses__item-tag">
-                                                        <span
-                                                            class="badge {{ $kelas->course_type == 'online' ? 'bg-primary' : 'bg-secondary' }}">
-                                                            {{ $kelas->course_type == 'online' ? 'Online' : 'Kelas Tatap Muka' }}
-                                                        </span>
+                                                        @if ($kelas['course_type'] == 'online')
+                                                            <span class="badge bg-primary">Online</span>
+                                                        @elseif ($kelas['course_type'] == 'offline')
+                                                            <span class="badge bg-secondary">Kelas Tatap
+                                                                Muka</span>
+                                                        @elseif ($kelas['course_type'] == 'produk')
+                                                            <span class="badge bg-success">Produk</span>
+                                                        @else
+                                                            <span class="badge bg-warning">Tidak Diketahui</span>
+                                                        @endif
                                                     </li>
                                                     <li class="price">
                                                         @if (!empty($kelas->discountedPrice) && $kelas->discount != 0)
