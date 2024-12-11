@@ -72,16 +72,6 @@
                                                 <a href="{{ route('admin_view_pg', $quiz->id_tugas) }}" title="Lihat Soal">
                                                     <i data-feather="eye"></i>
                                                 </a>
-
-                                                <a href="{{ route('admin_view_pg', $quiz->id_tugas) }}"
-                                                    class="btn btn-success btn-icon kurikulum-btn" title="Lihat Soal">
-                                                    <i data-feather="eye"></i>
-                                                </a>
-                                                <a href="" data-id="{{ $quiz->id_tugas }}"
-                                                    class="btn btn-danger  delete-quiz" title="Hapus Quiz">
-                                                    <i data-feather="trash"></i>
-                                                </a>
-
                                                 <a href="#" title="Hapus Quiz" data-id="{{ $quiz->id_tugas }}"
                                                     class="delete-quiz">
                                                     <i data-feather="trash"></i>
