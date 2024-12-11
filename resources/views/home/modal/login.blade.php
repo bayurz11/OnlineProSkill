@@ -67,8 +67,8 @@
             toggleIcon.classList.add('bi-eye-slash');
         } else {
             passwordField.type = 'password';
-            toggleIcon.classList.remove('bi-eye-slash');
-            toggleIcon.classList.add('bi-eye');
+            toggleIcon.classList.remove('bi-eye');
+            toggleIcon.classList.add('bi-eye-slash');
         }
     }
 </script>
