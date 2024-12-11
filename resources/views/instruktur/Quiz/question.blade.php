@@ -4,6 +4,8 @@
 @extends('layout.mainlayout')
 @section('content')
 
+
+
     <!-- breadcrumb-area -->
     <div class="breadcrumb__area breadcrumb__bg breadcrumb__bg-three"
         data-background="{{ asset('public/assets/img/bg/breadcrumb_bg.jpg') }}">

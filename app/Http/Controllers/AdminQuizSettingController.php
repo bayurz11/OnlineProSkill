@@ -110,7 +110,7 @@ class AdminQuizSettingController extends Controller
             ->orderBy('id_pertanyaan', 'asc') // Mengurutkan berdasarkan id atau kolom lainnya
             ->get();
 
-        return view('instruktur.Quiz.question', compact(
+        return view('admin.quiz.pertanyaan', compact(
             'user',
             'KelasTatapMuka',
             'categori',

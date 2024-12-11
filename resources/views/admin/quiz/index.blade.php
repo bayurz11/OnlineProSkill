@@ -96,7 +96,6 @@
 
 
 
-
     <div class="modal fade" id="confirmationModalQuestion" tabindex="-1" aria-labelledby="confirmationModalQuestionlLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-lg">
