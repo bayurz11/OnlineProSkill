@@ -43,21 +43,10 @@
                                             <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                                    data-feather="eye" class="icon-sm me-2"></i> <span
-                                                    class="">View</span></a>
-                                            <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                                    data-feather="edit-2" class="icon-sm me-2"></i> <span
-                                                    class="">Edit</span></a>
-                                            <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                                    data-feather="trash" class="icon-sm me-2"></i> <span
-                                                    class="">Delete</span></a>
-                                            <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                                    data-feather="printer" class="icon-sm me-2"></i> <span
-                                                    class="">Print</span></a>
-                                            <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                                    data-feather="download" class="icon-sm me-2"></i> <span
-                                                    class="">Download</span></a>
+                                            <a class="dropdown-item d-flex align-items-center"
+                                                href="{{ route('daftar_siswa') }}"><i data-feather="eye"
+                                                    class="icon-sm me-2"></i> <span class="">View</span></a>
+
                                         </div>
                                     </div>
                                 </div>
@@ -121,21 +110,9 @@
                                             <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                            <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                                    data-feather="eye" class="icon-sm me-2"></i> <span
-                                                    class="">View</span></a>
-                                            <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                                    data-feather="edit-2" class="icon-sm me-2"></i> <span
-                                                    class="">Edit</span></a>
-                                            <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                                    data-feather="trash" class="icon-sm me-2"></i> <span
-                                                    class="">Delete</span></a>
-                                            <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                                    data-feather="printer" class="icon-sm me-2"></i> <span
-                                                    class="">Print</span></a>
-                                            <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                                    data-feather="download" class="icon-sm me-2"></i> <span
-                                                    class="">Download</span></a>
+                                            <a class="dropdown-item d-flex align-items-center"
+                                                href="{{ route('CourseMaster') }}"><i data-feather="eye"
+                                                    class="icon-sm me-2"></i> <span class="">View</span></a>
                                         </div>
                                     </div>
                                 </div>
@@ -160,21 +137,10 @@
                                             <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                            <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                                    data-feather="eye" class="icon-sm me-2"></i> <span
-                                                    class="">View</span></a>
-                                            <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                                    data-feather="edit-2" class="icon-sm me-2"></i> <span
-                                                    class="">Edit</span></a>
-                                            <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                                    data-feather="trash" class="icon-sm me-2"></i> <span
-                                                    class="">Delete</span></a>
-                                            <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                                    data-feather="printer" class="icon-sm me-2"></i> <span
-                                                    class="">Print</span></a>
-                                            <a class="dropdown-item d-flex align-items-center" href="javascript:;"><i
-                                                    data-feather="download" class="icon-sm me-2"></i> <span
-                                                    class="">Download</span></a>
+                                            <a class="dropdown-item d-flex align-items-center"
+                                                href="{{ route('classroomsetting') }}"><i data-feather="eye"
+                                                    class="icon-sm me-2"></i> <span class="">View</span></a>
+
                                         </div>
                                     </div>
                                 </div>
@@ -203,7 +169,7 @@
             <div class="col-lg-7 col-xl-12 stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h6 class="card-title">Status Transaksi</h6>
+                        <h6 class="card-title">Transaksi Kursus Online, Ofline, dan Produk</h6>
 
                         <p class="text-muted mb-3">Jumlah Transaksi : {{ $orders->count() }}</p>
                         <div class="table-responsive">
