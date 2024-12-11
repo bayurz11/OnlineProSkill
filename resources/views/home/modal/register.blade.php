@@ -27,14 +27,14 @@
                             <input type="password" id="password" placeholder="Password" name="password">
                             <i class="toggle-password bi bi-eye-slash position-absolute"
                                 style="right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer;"
-                                onclick="togglePasswordVisibilityregis('password', this)"></i>
+                                onclick="togglePasswordVisibility('password', this)"></i>
                         </div>
                         <div class="form-grp position-relative">
                             <input type="password" id="password_confirmation" placeholder="Konfirmasi Password"
                                 name="password_confirmation">
                             <i class="toggle-password bi bi-eye-slash position-absolute"
                                 style="right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer;"
-                                onclick="togglePasswordVisibilityregis('password_confirmation', this)"></i>
+                                onclick="togglePasswordVisibility('password_confirmation', this)"></i>
                         </div>
 
                         <span>Password minimal 8 karakter terdiri simbol,
@@ -57,7 +57,7 @@
     </div>
 </div>
 <script>
-    function togglePasswordVisibilityregis() {
+    function togglePasswordVisibility() {
         const passwordField = document.getElementById('password');
         const toggleIcon = document.querySelector('.toggle-password');
 
