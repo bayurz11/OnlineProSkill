@@ -84,18 +84,36 @@
                                                             <span class="dashboard__quiz-result">Berjalan</span>
                                                         @endif
                                                     </td>
-
                                                     <td>
-
-                                                        <a href="{{ route('instruktur_view_pg', $quiz->id_tugas) }}"
-                                                            title="Lihat Soal">
-                                                            <i class="fas fa-eye"></i>
-                                                        </a>
-                                                        <a href="#" title="Hapus Quiz" data-id="{{ $quiz->id_tugas }}"
-                                                            class="delete-quiz">
-                                                            <i class="skillgro-bin"></i>
+                                                        <a href="{{ route('kurikulum', ['id' => $courses->id]) }}"
+                                                            class="btn btn-success btn-icon kurikulum-btn"
+                                                            data-id="{{ $courses->id }}" title="Kurikulum">
+                                                            <i data-feather="settings"></i>
                                                         </a>
 
+
+                                                        <button type="button" class="btn btn-primary btn-icon edit-button"
+                                                            title="Edit" data-bs-toggle="modal"
+                                                            data-bs-target="#editModal" data-id="{{ $courses->id }}">
+                                                            <i data-feather="edit"></i>
+                                                        </button>
+
+                                                        <button onclick="hapus('{{ $courses->id }}')"
+                                                            class="btn btn-danger btn-icon" title="Hapus">
+                                                            <i data-feather="trash-2"></i>
+                                                        </button>
+                                                    </td>
+                                                    <td>
+                                                        <div class="dashboard__review-action">
+                                                            <a href="{{ route('instruktur_view_pg', $quiz->id_tugas) }}"
+                                                                title="Lihat Soal">
+                                                                <i class="fas fa-eye"></i>
+                                                            </a>
+                                                            <a href="#" title="Hapus Quiz"
+                                                                data-id="{{ $quiz->id_tugas }}" class="delete-quiz">
+                                                                <i class="skillgro-bin"></i>
+                                                            </a>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                             </tbody>
