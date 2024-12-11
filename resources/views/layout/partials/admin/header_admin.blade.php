@@ -54,24 +54,25 @@
                         </div>
                     </div>
                     <ul class="list-unstyled p-1">
+
+                        <li class="dropdown-item py-2">
                         <li><a href="html/user-profile-regular.html"><em class="icon ni ni-user-alt"></em><span>View
                                     Profile</span></a></li>
-                        <li class="dropdown-item py-2">
-                            <a href="#" class="text-body ms-0"
-                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                <i class="me-2 icon-md" data-feather="log-out"></i>
-                                <span>Log Out</span>
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
+                        <a href="#" class="text-body ms-0"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <i class="me-2 icon-md" data-feather="log-out"></i>
+                            <span>Log Out</span>
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
 
-                        </li>
-
-                    </ul>
-                </div>
             </li>
+
         </ul>
+    </div>
+    </li>
+    </ul>
     </div>
 </nav>
 <script>
