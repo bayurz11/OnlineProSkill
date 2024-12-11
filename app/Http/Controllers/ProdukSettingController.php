@@ -44,6 +44,7 @@ class ProdukSettingController extends Controller
         $course->nama_kursus = $request->nama_kursus;
         $course->kategori_id = $request->kategori_id;
         $course->content = $request->content;
+        $course->tingkat = "Semua Tingkat";
 
         // $course->include = json_encode($request->include);
         // $course->perstaratan = json_encode($request->perstaratan);
