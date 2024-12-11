@@ -20,7 +20,7 @@
                         <div class="dashboard__content-wrap">
                             <div class="dashboard__content-title d-flex justify-content-between align-items-center">
                                 <h4 class="title">Tambah Quiz Baru</h4>
-                            </div>
+                            </div><br>
 
                             <!-- Single Form for Quiz and Questions -->
                             <form id="createQuizForm" action="{{ route('admin_pertanyaan_pg.store') }}" method="POST"
