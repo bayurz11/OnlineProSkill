@@ -322,7 +322,7 @@
         </div>
     </section>
     <!-- course-area-end -->
-    @if ($KelasTatapMuka->where('status', 1)->count() > 0)
+    @if ($KelasTatapMuka->where('course_type', 'bootcamp')->where('status', 1)->count() > 0)
         <!-- about-area -->
         <section class="about-area tg-motion-effects section-py-120">
             <div class="container">
