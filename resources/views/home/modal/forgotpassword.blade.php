@@ -11,33 +11,30 @@
                     <h2 class="title">Lupa Password ProSkill</h2>
                     <p>Silahkan isi form berikut untuk melanjutkan.</p>
 
-                    <form action="{{ route('updatePassword', ['id' => $user->id]) }}" method="POST"
-                        enctype="multipart/form-data" class="instructor__profile-form">
+                    <form action="{{ route('forgotPassword.update') }}" method="POST" enctype="multipart/form-data"
+                        class="instructor__profile-form">
                         @csrf
+
                         <div class="form-grp">
-                            <input type="text" id="name" name="name"
-                                placeholder="Masukkan Nama Lengkap Anda">
+                            <input type="email" id="email" placeholder="Email" name="email" required>
                         </div>
                         <div class="form-grp">
-                            <input type="email" id="email" placeholder="Email" name="email">
-                        </div>
-                        <div class="form-grp">
-                            <input type="password" id="password" placeholder="password" name="password">
+                            <input type="password" id="password" placeholder="Password Baru" name="password" required>
                         </div>
                         <div class="form-grp">
                             <input type="password" id="password_confirmation" placeholder="Konfirmasi Password"
-                                name="password_confirmation">
+                                name="password_confirmation" required>
                         </div>
-                        <span>Password minimal 8 karakter terdiri simbol,
-                            huruf, dan angka</span>
+                        <span>Password minimal 8 karakter terdiri simbol, huruf, dan angka</span>
                         <button class="g-recaptcha btn btn-two arrow-btn"
                             data-sitekey="{{ config('services.recaptcha_v3.siteKey') }}"
-                            data-callback="onSubmitguestregister" data-action='submit'>
-                            Daftar
+                            data-callback="onSubmitForgotPassword" data-action="submit">
+                            Ubah Password
                             <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                 class="injectable">
                         </button>
-                    </form><br>
+                    </form>
+                    <br>
 
                     <div class="account__switch">
                         <p>Apakah Punya Akun?<a href="#" data-bs-toggle="modal"

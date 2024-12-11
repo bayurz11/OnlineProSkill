@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\User;
 use App\Models\Order;
+use App\Models\Reviews;
 use App\Models\Section;
 use App\Models\Kurikulum;
 use App\Models\AdminEvent;
@@ -16,8 +18,8 @@ use App\Models\NotifikasiUser;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Models\Reviews;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
@@ -329,5 +331,27 @@ class HomeController extends Controller
         $notifikasiCount = $notifikasi->where('status', 1)->count();
 
         return view('home.checkout', compact('user', 'categori', 'profile', 'courses', 'cart', 'notifikasiCount', 'notifikasi'));
+    }
+
+    public function update(Request $request)
+    {
+        // Validasi input
+        $request->validate([
+            'email' => 'required|email|max:255',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+
+        // Cari user berdasarkan email
+        $user = User::where('email', $request->email)->first();
+        if (!$user) {
+            return back()->withErrors(['email' => 'Email tidak ditemukan'])->withInput();
+        }
+
+        // Update password user
+        $user->update([
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect()->route('login')->with('success', 'Password berhasil diperbarui. Silakan login.');
     }
 }
