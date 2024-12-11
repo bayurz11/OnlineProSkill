@@ -6,7 +6,7 @@
                  <div class="col-xl-3 col-lg-4 col-md-6">
                      <div class="footer__widget">
                          <div class="logo mb-35">
-                             <a href="index.html"><img src="{{ asset('public/assets/img/logo/logo.svg') }}"
+                             <a href="{{ route('/') }}"><img src="{{ asset('public/assets/img/logo/logo.svg') }}"
                                      alt="img"></a>
                          </div>
                          <div class="footer__content">
@@ -44,7 +44,7 @@
                              <ul class="list-wrap">
                                  <li><a href="{{ route('pbi') }}">Bootcamp</a></li>
                                  <li><a href="{{ route('classroom') }}">Kelas Tatap Muka</a></li>
-                                 <li><a href="{{ route('course') }}">kelas Online</a></li>
+                                 <li><a href="{{ route('course') }}">Kelas Online</a></li>
                              </ul>
                          </div>
                      </div>
