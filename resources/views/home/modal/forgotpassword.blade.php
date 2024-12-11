@@ -18,18 +18,12 @@
                         <div class="form-grp">
                             <input type="email" id="email" placeholder="Email" name="email" required>
                         </div>
-                        <div class="form-grp position-relative">
-                            <input type="password" id="password" placeholder="Password" name="password">
-                            <i class="toggle-password bi bi-eye position-absolute"
-                                style="right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer;"
-                                onclick="togglePasswordVisibility('password', this)"></i>
+                        <div class="form-grp">
+                            <input type="password" id="password" placeholder="Password Baru" name="password" required>
                         </div>
-                        <div class="form-grp position-relative">
+                        <div class="form-grp">
                             <input type="password" id="password_confirmation" placeholder="Konfirmasi Password"
-                                name="password_confirmation">
-                            <i class="toggle-password bi bi-eye position-absolute"
-                                style="right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer;"
-                                onclick="togglePasswordVisibility('password_confirmation', this)"></i>
+                                name="password_confirmation" required>
                         </div>
                         <span>Password minimal 8 karakter terdiri simbol, huruf, dan angka</span>
                         <button class="g-recaptcha btn btn-two arrow-btn"
@@ -46,19 +40,3 @@
         </div>
     </div>
 </div>
-{{-- <script>
-    function togglePasswordVisibilityforgot(inputId, iconElement) {
-        const passwordField = document.getElementById(inputId);
-
-        if (passwordField.type === 'password') {
-            passwordField.type = 'text';
-            iconElement.classList.remove('bi-eye');
-            iconElement.classList.add('bi-eye-slash');
-        } else {
-            passwordField.type = 'password';
-            iconElement.classList.remove('bi-eye-slash');
-            iconElement.classList.add('bi-eye');
-        }
-    }
-</script> --}}
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
