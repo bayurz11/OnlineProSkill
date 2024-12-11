@@ -50,7 +50,7 @@
                                 <form action="{{ route('search') }}" method="GET" class="tgmenu__search-form">
                                     <div class="input-grp">
                                         <input type="text" name="search_term"
-                                            placeholder="Cari Kelas atau Produk, Cth:Office, Ai..."
+                                            placeholder="Cari Kelas atau Produk, Cth: Office, Ai..."
                                             class="form-control w-90">
                                         <button type="submit"><i class="flaticon-search"></i></button>
                                     </div>
@@ -206,7 +206,7 @@
                             </div>
                             <div class="tgmobile__search">
                                 <form action="{{ route('search') }} " method="GET">
-                                    <input type="text" placeholder="Pencarian Kursus dan Produk...">
+                                    <input type="text" placeholder="Cari Kelas atau Produk, Cth: Office, Ai...">
                                     <button type="submit"><i class="fas fa-search"></i></button>
                                 </form>
                             </div>
