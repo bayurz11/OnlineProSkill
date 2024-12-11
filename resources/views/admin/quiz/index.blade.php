@@ -18,7 +18,7 @@
                     <div class="card-body">
                         <h6 class="card-title">Quiz</h6>
                         <button type="button" class="btn btn-outline-primary position-absolute top-0 end-0 mt-3 me-3"
-                            data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="btn-icon-prepend"
+                            data-bs-toggle="modal" data-bs-target="#confirmationModalQuestion"><i class="btn-icon-prepend"
                                 data-feather="plus-circle"></i>
                             Quiz
                         </button>
@@ -94,42 +94,27 @@
 
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const formSwitches = document.querySelectorAll('.formSwitch');
 
-            formSwitches.forEach(function(formSwitch) {
-                // Set initial state of the switch based on the status
-                formSwitch.checked = formSwitch.dataset.status == 1;
 
-                formSwitch.addEventListener('change', function() {
-                    const UserId = formSwitch.dataset.id;
-                    const newStatus = formSwitch.checked ? 1 : 0;
+    <div id="confirmationModalQuestion"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: none; justify-content: center; align-items: center; z-index: 1000;">
+        <div style="background: white; padding: 40px; border-radius: 8px; text-align: center; position: relative;">
+            <h4>Pilih Jenis Pertanyaan</h4><br>
+            <p>Silakan pilih jenis pertanyaan yang ingin ditambahkan.</p><br>
+            <!-- Button menuju halaman pilihan ganda -->
+            <a href="{{ route('instruktur_question_pg') }}" class="btn btn-primary btn-lg">Pilihan Ganda</a>
+            <!-- Button menuju halaman esai -->
+            {{-- <a href="{{ route('instruktur_question_essay', ['id_tugas' => $quiz->id_tugas]) }}"
+                class="btn btn-secondary btn-lg">Esai</a> --}}
+            <!-- Tombol X di pojok kanan atas -->
+            <button onclick="hideModal()"
+                style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 24px; color: #333;">&times;</button>
 
-                    fetch('/update-daftar_siswa/' + UserId, {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                            },
-                            body: JSON.stringify({
-                                status: newStatus
-                            })
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data.success) {
-                                formSwitch.dataset.status = newStatus;
-                            } else {
-                                alert('Gagal mengupdate status');
-                            }
-                        })
-                        .catch(() => {
-                            alert('Terjadi kesalahan');
-                        });
-                });
-            });
-        });
-    </script>
+            <button onclick="hideModal()" class="btn btn-danger btn-lg"
+                style="background-color: #6c757d; border-color: #6c757d; color: white;">Batal</button>
+
+
+        </div>
+    </div>
 
 @endsection
