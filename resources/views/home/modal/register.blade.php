@@ -58,7 +58,7 @@
     </div>
 </div>
 <script>
-    function togglePasswordVisibility(inputId, iconElement) {
+    function togglePasswordVisibilityregister(inputId, iconElement) {
         const input = document.getElementById(inputId);
         const icon = iconElement.querySelector('i');
 
