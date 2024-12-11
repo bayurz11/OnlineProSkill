@@ -8,6 +8,7 @@
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('admin.quiz') }}">Quiz</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Pertanyaan Pilihan Ganda</li>
             </ol>
         </nav>
