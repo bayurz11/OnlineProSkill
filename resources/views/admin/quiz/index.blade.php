@@ -77,8 +77,8 @@
                                                     class="btn btn-success btn-icon kurikulum-btn" title="Lihat Soal">
                                                     <i data-feather="eye"></i>
                                                 </a>
-                                                <a href="{{ route('admin_view_pg', $quiz->id_tugas) }}"
-                                                    class="btn btn-success btn-icon kurikulum-btn" title="Lihat Soal">
+                                                <a href="" data-id="{{ $quiz->id_tugas }}"
+                                                    class="btn btn-danger btn-icon kurikulum-btn" title="Hapus Quiz">
                                                     <i data-feather="trash"></i>
                                                 </a>
 
