@@ -79,8 +79,8 @@
                                                 </a>
 
                                                 <form id="deleteQuizForm-{{ $quiz->id_tugas }}"
-                                                    action="{{ route('quiz.destroy', $quiz->id_tugas) }}" method="POST"
-                                                    style="display: none;">
+                                                    action="{{ route('adminquiz.destroy', $quiz->id_tugas) }}"
+                                                    method="POST" style="display: none;">
                                                     @csrf
                                                     @method('DELETE')
                                                 </form>

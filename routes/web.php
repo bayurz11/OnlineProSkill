@@ -218,7 +218,7 @@ Route::middleware('isAdmin')->group(function () {
 
     //Quiz
     Route::get('/admin_quiz', [AdminQuizSettingController::class, 'index'])->name('admin.quiz');
-    Route::delete('/admin_quiz/{id_tugas}', [AdminQuizSettingController::class, 'destroy'])->name('quiz.destroy');
+    Route::delete('/admin_quiz/{id_tugas}', [AdminQuizSettingController::class, 'destroy'])->name('adminquiz.destroy');
 
     //Pertanyaan
     Route::get('/admin_question_pg', [AdminQuizSettingController::class, 'pg'])->name('admin_question_pg');
