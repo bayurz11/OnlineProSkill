@@ -96,25 +96,32 @@
 
 
 
-    <div id="confirmationModalQuestion"
-        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); display: none; justify-content: center; align-items: center; z-index: 1000;">
-        <div style="background: white; padding: 40px; border-radius: 8px; text-align: center; position: relative;">
-            <h4>Pilih Jenis Pertanyaan</h4><br>
-            <p>Silakan pilih jenis pertanyaan yang ingin ditambahkan.</p><br>
-            <!-- Button menuju halaman pilihan ganda -->
-            <a href="{{ route('instruktur_question_pg') }}" class="btn btn-primary btn-lg">Pilihan Ganda</a>
-            <!-- Button menuju halaman esai -->
-            {{-- <a href="{{ route('instruktur_question_essay', ['id_tugas' => $quiz->id_tugas]) }}"
-                class="btn btn-secondary btn-lg">Esai</a> --}}
-            <!-- Tombol X di pojok kanan atas -->
-            <button onclick="hideModal()"
-                style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 24px; color: #333;">&times;</button>
 
-            <button onclick="hideModal()" class="btn btn-danger btn-lg"
-                style="background-color: #6c757d; border-color: #6c757d; color: white;">Batal</button>
+    <div class="modal fade" id="confirmationModalQuestion" tabindex="-1" aria-labelledby="confirmationModalQuestionlLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div style="background: white; padding: 40px; border-radius: 8px; text-align: center; position: relative;">
+                    <h4>Pilih Jenis Pertanyaan</h4><br>
+                    <p>Silakan pilih jenis pertanyaan yang ingin ditambahkan.</p><br>
+                    <!-- Button menuju halaman pilihan ganda -->
+                    <a href="{{ route('instruktur_question_pg') }}" class="btn btn-primary btn-lg">Pilihan Ganda</a>
+                    <!-- Button menuju halaman esai -->
+                    {{-- <a href="{{ route('instruktur_question_essay', ['id_tugas' => $quiz->id_tugas]) }}"
+                        class="btn btn-secondary btn-lg">Esai</a> --}}
+                    <!-- Tombol X di pojok kanan atas -->
+                    <button onclick="hideModal()"
+                        style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 24px; color: #333;">&times;</button>
+
+                    <button onclick="hideModal()" class="btn btn-danger btn-lg"
+                        style="background-color: #6c757d; border-color: #6c757d; color: white;">Batal</button>
 
 
+                </div>
+            </div>
         </div>
     </div>
+
+
 
 @endsection
