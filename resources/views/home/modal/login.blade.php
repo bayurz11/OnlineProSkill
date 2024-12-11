@@ -25,7 +25,8 @@
                                 <label for="terms-check" class="form-check-label">Ingat saya</label>
                             </div>
                             <div class="account__check-forgot">
-                                <a href="#">Lupa Password?</a>
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModallupaPassword">Lupa
+                                    Password?</a>
                             </div>
                         </div>
                         <button class="g-recaptcha btn btn-two arrow-btn"
