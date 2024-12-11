@@ -217,16 +217,16 @@ Route::middleware('isAdmin')->group(function () {
 
 
     //Quiz
-    Route::get('/instruktur_quiz', [AdminQuizSettingController::class, 'index'])->name('instruktur.quiz');
-    Route::delete('/instruktur_quiz/{id_tugas}', [AdminQuizSettingController::class, 'destroy'])->name('quiz.destroy');
+    Route::get('/admin_quiz', [AdminQuizSettingController::class, 'index'])->name('admin.quiz');
+    Route::delete('/admin_quiz/{id_tugas}', [AdminQuizSettingController::class, 'destroy'])->name('quiz.destroy');
 
     //Pertanyaan
-    Route::get('/instruktur_question_pg', [AdminQuizSettingController::class, 'pg'])->name('instruktur_question_pg');
-    Route::get('/instruktur_view_pg/{id_tugas}', [AdminQuizSettingController::class, 'viewpg'])->name('instruktur_view_pg');
+    Route::get('/admin_question_pg', [AdminQuizSettingController::class, 'pg'])->name('admin_question_pg');
+    Route::get('/admin_view_pg/{id_tugas}', [AdminQuizSettingController::class, 'viewpg'])->name('admin_view_pg');
     Route::get('/tugas/{id_tugas}/question/{questionNumber}', [AdminQuizSettingController::class, 'fetchQuestion'])
         ->name('fetch_question');
-    Route::post('/instruktur_pertanyaan_pg/store', [AdminQuizSettingController::class, 'storepg'])->name('instruktur_pertanyaan_pg.store');
-    Route::get('/instruktur_question_essay/{id_tugas}', [AdminQuizSettingController::class, 'esai'])->name('instruktur_question_essay');
+    Route::post('/admin_pertanyaan_pg/store', [AdminQuizSettingController::class, 'storepg'])->name('admin_pertanyaan_pg.store');
+    Route::get('/admin_question_essay/{id_tugas}', [AdminQuizSettingController::class, 'esai'])->name('admin_question_essay');
 });
 
 //*********STUDEN*********//

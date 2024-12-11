@@ -127,7 +127,7 @@
                 <div class="collapse" id="quiz-pages">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
-                            <a href="{{ route('instruktur.quiz') }}" class="nav-link">Daftar Quiz</a>
+                            <a href="{{ route('admin.quiz') }}" class="nav-link">Daftar Quiz</a>
                         </li>
 
                     </ul>
