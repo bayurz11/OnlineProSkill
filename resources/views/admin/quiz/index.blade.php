@@ -105,7 +105,7 @@
                     <h4>Pilih Jenis Pertanyaan</h4><br>
                     <p>Silakan pilih jenis pertanyaan yang ingin ditambahkan.</p><br>
                     <!-- Button menuju halaman pilihan ganda -->
-                    <a href="{{ route('instruktur_question_pg') }}" class="btn btn-primary btn-lg">Pilihan Ganda</a>
+                    <a href="{{ route('admin_question_pg') }}" class="btn btn-primary btn-lg">Pilihan Ganda</a>
                     <!-- Button menuju halaman esai -->
                     {{-- <a href="{{ route('instruktur_question_essay', ['id_tugas' => $quiz->id_tugas]) }}"
                         class="btn btn-secondary btn-lg">Esai</a> --}}
