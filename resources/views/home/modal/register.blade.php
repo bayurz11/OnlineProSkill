@@ -74,7 +74,7 @@
     }
 
     function togglePasswordVisibility2() {
-        const passwordField = document.getElementById('password');
+        const passwordField = document.getElementById('password_confirmation');
         const toggleIcon = document.querySelector('.toggle-password2');
 
         if (passwordField.type === 'password') {
