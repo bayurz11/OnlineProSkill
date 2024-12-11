@@ -29,13 +29,7 @@ class AdminQuizSettingController extends Controller
         }
         // Mengambil profil pengguna yang sedang login
         $profile = UserProfile::where('user_id', $user->id)->first();
-        // Ambil notifikasi untuk pengguna yang sedang login
-        $notifikasi = NotifikasiUser::where('user_id', $user->id)
-            ->orderBy('created_at', 'desc')
-            ->get();
 
-        // Hitung jumlah notifikasi dengan status = 1
-        $notifikasiCount = $notifikasi->where('status', 1)->count();
 
         // Ambil KelasTatapMuka berdasarkan user_id pengguna yang sedang login
         $KelasTatapMuka = KelasTatapMuka::where('user_id', $user->id)->get();
@@ -54,9 +48,7 @@ class AdminQuizSettingController extends Controller
             'KelasTatapMuka',
             'categori',
             'profile',
-            'cart',
-            'notifikasi',
-            'notifikasiCount',
+
             'orders',
             'jumlahPendaftaran',
             'quiz'
