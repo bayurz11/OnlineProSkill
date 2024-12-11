@@ -324,7 +324,7 @@ class AdminQuizSettingController extends Controller
 
 
 
-        return view('instruktur.Quiz.viewpg', compact(
+        return view('admin.Quiz.viewpg', compact(
             'user',
             'KelasTatapMuka',
             'categori',
