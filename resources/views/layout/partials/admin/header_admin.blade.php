@@ -53,26 +53,43 @@
                             <p class="tx-12 text-muted">{{ $user->email }}</p>
                         </div>
                     </div>
-                    <ul class="list-unstyled p-1">
+                    <div class="dropdown-inner">
+                        <ul class="link-list">
+                            <li><a href="html/user-profile-regular.html"><em class="icon ni ni-user-alt"></em><span>View
+                                        Profile</span></a></li>
+
+                        </ul>
+                    </div>
+                    <div class="dropdown-inner">
+                        <ul class="link-list">
+                            <li><a href="#" class="text-body ms-0"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="me-2 icon-md" data-feather="log-out"></i>
+                                    <span>Log Out</span>
+                                </a></li>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </ul>
+                    </div>
+                    {{-- <ul class="list-unstyled p-1">
 
                         <li class="dropdown-item py-2">
-                        <li><a href="html/user-profile-regular.html"><em class="icon ni ni-user-alt"></em><span>View
-                                    Profile</span></a></li>
-                        <a href="#" class="text-body ms-0"
-                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            <i class="me-2 icon-md" data-feather="log-out"></i>
-                            <span>Log Out</span>
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
+                            <a href="#" class="text-body ms-0"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <i class="me-2 icon-md" data-feather="log-out"></i>
+                                <span>Log Out</span>
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
 
+                        </li>
+
+                    </ul> --}}
+                </div>
             </li>
-
         </ul>
-    </div>
-    </li>
-    </ul>
     </div>
 </nav>
 <script>
