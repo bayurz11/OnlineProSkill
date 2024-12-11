@@ -57,7 +57,6 @@
             </li>
 
             <li class="nav-item nav-category">Kelas Online Setting</li>
-
             <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#advancedUI" role="button" aria-expanded="false"
                     aria-controls="advancedUI">
@@ -114,6 +113,23 @@
                         {{-- <li class="nav-item">
                             <a href="pages/auth/register.html" class="nav-link">Register</a>
                         </li> --}}
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item nav-category">Quiz Setting</li>
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#quiz-pages" role="button"
+                    aria-expanded="false" aria-controls="quiz-pages">
+                    <i class="link-icon" data-feather="users"></i>
+                    <span class="link-title">Kelola Quiz</span>
+                    <i class="link-arrow" data-feather="chevron-down"></i>
+                </a>
+                <div class="collapse" id="quiz-pages">
+                    <ul class="nav sub-menu">
+                        <li class="nav-item">
+                            <a href="{{ route('instruktur.quiz') }}" class="nav-link">Daftar Quiz</a>
+                        </li>
+
                     </ul>
                 </div>
             </li>
