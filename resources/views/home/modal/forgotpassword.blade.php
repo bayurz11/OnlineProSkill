@@ -30,7 +30,7 @@
 
                         <button class="g-recaptcha btn btn-two arrow-btn"
                             data-sitekey="{{ config('services.recaptcha_v3.siteKey') }}"
-                            data-callback="onSubmitForgotPassword" data-action='submit'>Masuk
+                            data-callback="onSubmitForgotPassword" data-action='submit'>Reset Password
                             <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                 class="injectable">
                         </button>
