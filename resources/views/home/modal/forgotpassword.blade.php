@@ -26,20 +26,17 @@
                                 name="password_confirmation" required>
                         </div>
                         <span>Password minimal 8 karakter terdiri simbol, huruf, dan angka</span>
+
+
                         <button class="g-recaptcha btn btn-two arrow-btn"
                             data-sitekey="{{ config('services.recaptcha_v3.siteKey') }}"
                             data-callback="onSubmitForgotPassword" data-action='submit'>Masuk
                             <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                 class="injectable">
                         </button>
-
                     </form>
                     <br>
 
-                    <div class="account__switch">
-                        <p>Apakah Punya Akun?<a href="#" data-bs-toggle="modal"
-                                data-bs-target="#exampleModalchart">Masuk</a></p>
-                    </div>
                 </div>
             </div>
         </div>
