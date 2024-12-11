@@ -169,7 +169,7 @@ class AdminQuizSettingController extends Controller
         }
 
         // Redirect atau memberi respon setelah menyimpan data
-        return redirect()->route('instruktur.quiz')->with('success', 'Quiz berhasil dibuat!');
+        return redirect()->route('admin.quiz')->with('success', 'Quiz berhasil dibuat!');
     }
 
     // public function viewpg(Request $request)
