@@ -26,8 +26,6 @@
                                 name="password_confirmation" required>
                         </div>
                         <span>Password minimal 8 karakter terdiri simbol, huruf, dan angka</span>
-
-
                         <button class="g-recaptcha btn btn-two arrow-btn"
                             data-sitekey="{{ config('services.recaptcha_v3.siteKey') }}"
                             data-callback="onSubmitForgotPassword" data-action='submit'>Reset Password
