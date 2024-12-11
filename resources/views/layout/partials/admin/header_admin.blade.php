@@ -58,7 +58,7 @@
 
                         <li class="dropdown-item py-2">
                             <a href="html/user-profile-regular.html" class="text-body ms-0">
-                                <em class="icon ni ni-user-alt me-2"></em>
+                                <i class="me-2 icon-md" data-feather="user"></i>
                                 <span>View Profile</span>
                             </a>
                         </li>
