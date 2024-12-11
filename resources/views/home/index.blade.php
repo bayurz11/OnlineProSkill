@@ -322,140 +322,143 @@
         </div>
     </section>
     <!-- course-area-end -->
+    @foreach ($KelasTatapMuka->where('status', 1) as $kelas)
+        <!-- about-area -->
+        <section class="about-area tg-motion-effects section-py-120">
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
 
-    <!-- about-area -->
-    <section class="about-area tg-motion-effects section-py-120">
-        <div class="container">
-            <div class="row align-items-center justify-content-center">
-
-                <div class="col-lg-5" style="position: relative;">
-                    <div class="banner__images"
-                        style="position: relative; display: flex; justify-content: center; align-items: center;">
-                        <!-- Background Image -->
-                        <img src="public/assets/img/banner/banner1.png" alt="img" class="main-img"
-                            data-aos="fade-right" data-aos-delay="800">
-
-                        <!-- Decorative Background Dots -->
-                        <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme"
-                            data-aos="fade-right" data-aos-delay="600">
-                        <!-- Background Gradient -->
-                        <div
-                            style="  position: absolute; top: 0;  left: -80px; right: 0; bottom: 0; width: 100%; height: 100%;
-                                     background: linear-gradient(to bottom, transparent, white); z-index: 1; pointer-events: none;">
-                        </div>
-                        <!-- Wrapper untuk konten tengah (ikon & teks) -->
-                        <div
-                            style="position: absolute; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 102;">
-                            <!-- Teks di atas tautan video -->
-                            <span style="font-size: 18px; color: #000; font-weight: bold; margin-bottom: 8px;"
-                                data-aos="fade-right" data-aos-delay="800">Lihat</span>
-
-                            <!-- Tautan untuk membuka video di modal popup -->
-                            <a href="https://www.youtube.com/watch?v=1umLD1G-Ljo" class="popup-video"
+                    <div class="col-lg-5" style="position: relative;">
+                        <div class="banner__images"
+                            style="position: relative; display: flex; justify-content: center; align-items: center;">
+                            <!-- Background Image -->
+                            <img src="public/assets/img/banner/banner1.png" alt="img" class="main-img"
                                 data-aos="fade-right" data-aos-delay="800">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
-                                    viewBox="0 0 22 28" fill="none">
-                                    <path
-                                        d="M0.19043 26.3132V1.69421C0.190288 1.40603 0.245303 1.12259 0.350273 0.870694C0.455242 0.6188 0.606687 0.406797 0.79027 0.254768C0.973854 0.10274 1.1835 0.0157243 1.39936 0.00193865C1.61521 -0.011847 1.83014 0.0480663 2.02378 0.176003L20.4856 12.3292C20.6973 12.4694 20.8754 12.6856 20.9999 12.9535C21.1245 13.2214 21.1904 13.5304 21.1904 13.8456C21.1904 14.1608 21.1245 14.4697 20.9999 14.7376C20.8754 15.0055 20.6973 15.2217 20.4856 15.3619L2.02378 27.824C1.83056 27.9517 1.61615 28.0116 1.40076 27.9981C1.18536 27.9847 0.97607 27.8983 0.792638 27.7472C0.609205 27.596 0.457661 27.385 0.352299 27.1342C0.246938 26.8833 0.191236 26.6008 0.19043 26.3132Z"
-                                        fill="red" />
-                                </svg>
-                            </a>
 
-                            <!-- Teks di bawah tautan video -->
-                            <span style="font-size: 18px; color: #000; font-weight: bold; margin-top: 8px;"
-                                data-aos="fade-right" data-aos-delay="800">Sesi Bootcamp
-                                Sebelumnya</span>
-                        </div>
-                    </div>
+                            <!-- Decorative Background Dots -->
+                            <img src="public/assets/img/banner/bg_dots.svg" alt="shape" class="shape bg-dots rotateme"
+                                data-aos="fade-right" data-aos-delay="600">
+                            <!-- Background Gradient -->
+                            <div
+                                style="  position: absolute; top: 0;  left: -80px; right: 0; bottom: 0; width: 100%; height: 100%;
+                                     background: linear-gradient(to bottom, transparent, white); z-index: 1; pointer-events: none;">
+                            </div>
+                            <!-- Wrapper untuk konten tengah (ikon & teks) -->
+                            <div
+                                style="position: absolute; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 102;">
+                                <!-- Teks di atas tautan video -->
+                                <span style="font-size: 18px; color: #000; font-weight: bold; margin-bottom: 8px;"
+                                    data-aos="fade-right" data-aos-delay="800">Lihat</span>
 
-                </div>
-                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="600">
-                    <div class="about__content">
-                        <div class="section__title">
-                            <span class="sub-title">Acara Mendatang</span>
-                            <h2 class="title">
-                                Bootcamp
-                                <span class="position-relative">
-                                    <svg x="0px" y="0px" preserveAspectRatio="none" viewBox="0 0 209 59" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
+                                <!-- Tautan untuk membuka video di modal popup -->
+                                <a href="https://www.youtube.com/watch?v=1umLD1G-Ljo" class="popup-video"
+                                    data-aos="fade-right" data-aos-delay="800">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+                                        viewBox="0 0 22 28" fill="none">
                                         <path
-                                            d="M4.74438 7.70565C69.7006 -1.18799 136.097 -2.38304 203.934 4.1205C207.178 4.48495 209.422 7.14626 208.933 10.0534C206.793 23.6481 205.415 36.5704 204.801 48.8204C204.756 51.3291 202.246 53.5582 199.213 53.7955C136.093 59.7623 74.1922 60.5985 13.5091 56.3043C10.5653 56.0924 7.84371 53.7277 7.42158 51.0325C5.20725 38.2627 2.76333 25.6511 0.0898448 13.1978C-0.465589 10.5873 1.61173 8.1379 4.73327 7.70565"
-                                            fill="currentcolor" />
+                                            d="M0.19043 26.3132V1.69421C0.190288 1.40603 0.245303 1.12259 0.350273 0.870694C0.455242 0.6188 0.606687 0.406797 0.79027 0.254768C0.973854 0.10274 1.1835 0.0157243 1.39936 0.00193865C1.61521 -0.011847 1.83014 0.0480663 2.02378 0.176003L20.4856 12.3292C20.6973 12.4694 20.8754 12.6856 20.9999 12.9535C21.1245 13.2214 21.1904 13.5304 21.1904 13.8456C21.1904 14.1608 21.1245 14.4697 20.9999 14.7376C20.8754 15.0055 20.6973 15.2217 20.4856 15.3619L2.02378 27.824C1.83056 27.9517 1.61615 28.0116 1.40076 27.9981C1.18536 27.9847 0.97607 27.8983 0.792638 27.7472C0.609205 27.596 0.457661 27.385 0.352299 27.1342C0.246938 26.8833 0.191236 26.6008 0.19043 26.3132Z"
+                                            fill="red" />
                                     </svg>
-                                    Power BI
-                                </span><br>
-                                untuk data analyst pemula
-                            </h2>
-                        </div>
-                        <p class="desc">
-                            📊 Siap Mengembangkan Skill Sebagai <b>Data Analyst? </b> Gabung Sekarang di <b>Bootcamp Power
-                                BI </b>Untuk Pemula! Kuasai keterampilan <b>Analisis Data </b>Dari nol dengan Panduan
-                            Langsung dari <b>Mentor Berpengalaman.</b> Jangan Lewatkan Kesempatan ini Untuk <b>Mengasah
-                                Kemampuanmu!</b>
-                            <br>
-                            <br>
-                            📝 Pelajari Program <b>Bootcamp Power Bi</b> dari <b>Proskill Akademia!.</b>
+                                </a>
 
-                        </p>
-                        <div class="d-flex justify-content-between align-items-center flex-wrap" data-aos="fade-top"
-                            data-aos-delay="600">
-                            <div class="d-flex align-items-center mb-3 mb-md-0">
-                                <div>
-                                    <p class="mb-0" style="font-size: 0.6rem;"><b>5X</b> <b><img
-                                                src="public/assets/img/icons/zoom.svg" alt="zoom"
-                                                style="width: 30px; height: 26px; vertical-align: middle; margin-right: 3px;"></b>
-                                        Online</p>
-                                    <p class="mb-0" style="font-size: 0.6rem;"><b>Setiap Sabtu</b></p>
-                                </div>
-                            </div>
-
-                            <div class="d-none d-md-block border-left"
-                                style="border-left: 2px solid #007368; height: 35px; margin: 0 8px;"></div>
-
-                            <div class="d-flex align-items-center mb-3 mb-md-0">
-                                <img src="public/assets/img/icons/Video.svg" alt="Clock Icon"
-                                    style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
-                                <div>
-                                    <p class="mb-0" style="font-size: 0.6rem;">50+ Video</p>
-                                    <p class="mb-0 font-weight-bold" style="font-size: 0.6rem;"><b>on demand</b></p>
-                                </div>
-                            </div>
-
-                            <div class="d-none d-md-block border-left"
-                                style="border-left: 2px solid #007368; height: 35px; margin: 0 8px;"></div>
-
-                            <div class="d-flex align-items-center mb-3 mb-md-0">
-                                <img src="public/assets/img/icons/25.png" alt="Format Icon"
-                                    style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
-                                <div>
-                                    <p class="mb-0" style="font-size: 0.6rem;">Start:</p>
-                                    <p class="mb-0 font-weight-bold" style="font-size: 0.6rem;"><b>25 Jan</b></p>
-                                </div>
-                            </div>
-
-                            <div class="d-none d-md-block border-left"
-                                style="border-left: 2px solid #007368; height: 35px; margin: 0 8px;"></div>
-
-                            <div class="d-flex align-items-center mb-3 mb-md-0">
-                                <div>
-                                    <p class="mb-0" style="font-size: 0.6rem;">In demand</p>
-                                    <p class="mb-0 font-weight-bold" style="font-size: 0.6rem;"><b>Tools & Skills</b></p>
-                                </div>
-                                <img src="public/assets/img/icons/power-bi.png" alt="Tools Icon"
-                                    style="width: 20px; height: 24px; vertical-align: middle; margin-left: 8px;">
+                                <!-- Teks di bawah tautan video -->
+                                <span style="font-size: 18px; color: #000; font-weight: bold; margin-top: 8px;"
+                                    data-aos="fade-right" data-aos-delay="800">Sesi Bootcamp
+                                    Sebelumnya</span>
                             </div>
                         </div>
-                        <div class="tg-button-wrap">
-                            <a href="{{ route('pbi') }}" class="btn arrow-btn">Detail Bootcamp<img
-                                    src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
+
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left" data-aos-delay="600">
+                        <div class="about__content">
+                            <div class="section__title">
+                                <span class="sub-title">Acara Mendatang</span>
+                                <h2 class="title">
+                                    Bootcamp
+                                    <span class="position-relative">
+                                        <svg x="0px" y="0px" preserveAspectRatio="none" viewBox="0 0 209 59"
+                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M4.74438 7.70565C69.7006 -1.18799 136.097 -2.38304 203.934 4.1205C207.178 4.48495 209.422 7.14626 208.933 10.0534C206.793 23.6481 205.415 36.5704 204.801 48.8204C204.756 51.3291 202.246 53.5582 199.213 53.7955C136.093 59.7623 74.1922 60.5985 13.5091 56.3043C10.5653 56.0924 7.84371 53.7277 7.42158 51.0325C5.20725 38.2627 2.76333 25.6511 0.0898448 13.1978C-0.465589 10.5873 1.61173 8.1379 4.73327 7.70565"
+                                                fill="currentcolor" />
+                                        </svg>
+                                        Power BI
+                                    </span><br>
+                                    untuk data analyst pemula
+                                </h2>
+                            </div>
+                            <p class="desc">
+                                📊 Siap Mengembangkan Skill Sebagai <b>Data Analyst? </b> Gabung Sekarang di <b>Bootcamp
+                                    Power
+                                    BI </b>Untuk Pemula! Kuasai keterampilan <b>Analisis Data </b>Dari nol dengan Panduan
+                                Langsung dari <b>Mentor Berpengalaman.</b> Jangan Lewatkan Kesempatan ini Untuk <b>Mengasah
+                                    Kemampuanmu!</b>
+                                <br>
+                                <br>
+                                📝 Pelajari Program <b>Bootcamp Power Bi</b> dari <b>Proskill Akademia!.</b>
+
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center flex-wrap" data-aos="fade-top"
+                                data-aos-delay="600">
+                                <div class="d-flex align-items-center mb-3 mb-md-0">
+                                    <div>
+                                        <p class="mb-0" style="font-size: 0.6rem;"><b>5X</b> <b><img
+                                                    src="public/assets/img/icons/zoom.svg" alt="zoom"
+                                                    style="width: 30px; height: 26px; vertical-align: middle; margin-right: 3px;"></b>
+                                            Online</p>
+                                        <p class="mb-0" style="font-size: 0.6rem;"><b>Setiap Sabtu</b></p>
+                                    </div>
+                                </div>
+
+                                <div class="d-none d-md-block border-left"
+                                    style="border-left: 2px solid #007368; height: 35px; margin: 0 8px;"></div>
+
+                                <div class="d-flex align-items-center mb-3 mb-md-0">
+                                    <img src="public/assets/img/icons/Video.svg" alt="Clock Icon"
+                                        style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
+                                    <div>
+                                        <p class="mb-0" style="font-size: 0.6rem;">50+ Video</p>
+                                        <p class="mb-0 font-weight-bold" style="font-size: 0.6rem;"><b>on demand</b></p>
+                                    </div>
+                                </div>
+
+                                <div class="d-none d-md-block border-left"
+                                    style="border-left: 2px solid #007368; height: 35px; margin: 0 8px;"></div>
+
+                                <div class="d-flex align-items-center mb-3 mb-md-0">
+                                    <img src="public/assets/img/icons/25.png" alt="Format Icon"
+                                        style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">
+                                    <div>
+                                        <p class="mb-0" style="font-size: 0.6rem;">Start:</p>
+                                        <p class="mb-0 font-weight-bold" style="font-size: 0.6rem;"><b>25 Jan</b></p>
+                                    </div>
+                                </div>
+
+                                <div class="d-none d-md-block border-left"
+                                    style="border-left: 2px solid #007368; height: 35px; margin: 0 8px;"></div>
+
+                                <div class="d-flex align-items-center mb-3 mb-md-0">
+                                    <div>
+                                        <p class="mb-0" style="font-size: 0.6rem;">In demand</p>
+                                        <p class="mb-0 font-weight-bold" style="font-size: 0.6rem;"><b>Tools & Skills</b>
+                                        </p>
+                                    </div>
+                                    <img src="public/assets/img/icons/power-bi.png" alt="Tools Icon"
+                                        style="width: 20px; height: 24px; vertical-align: middle; margin-left: 8px;">
+                                </div>
+                            </div>
+                            <div class="tg-button-wrap">
+                                <a href="{{ route('pbi') }}" class="btn arrow-btn">Detail Bootcamp<img
+                                        src="public/assets/img/icons/right_arrow.svg" alt="img"
+                                        class="injectable"></a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- about-area-end -->
-
+        </section>
+        <!-- about-area-end -->
+    @endforeach
     <!-- testimonial-area -->
     <section class="testimonial__area-six section-py-140 testimonial__bg-three"
         data-background="public/assets/img/bg/h8_testimonial_bg.jpg">
