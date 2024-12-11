@@ -38,12 +38,18 @@ class HomeController extends Controller
             ->pluck('course_type');
 
         // Mengambil KelasTatapMuka yang aktif dengan filter berdasarkan status dan mengabaikan 'bootcamp' dan 'produk'
+        // $KelasTatapMuka = KelasTatapMuka::where('status', 1)
+        //     // ->whereNotIn('course_type', ['bootcamp', 'produk'])
+        //     ->orderBy('created_at', 'asc')
+        //     ->get();
+
         $KelasTatapMuka = KelasTatapMuka::where('status', 1)
-            // ->whereNotIn('course_type', ['bootcamp', 'produk'])
+            ->where(function ($query) {
+                $query->where('course_type', '!=', 'bootcamp')
+                    ->orWhere('status', 1);
+            })
             ->orderBy('created_at', 'asc')
             ->get();
-
-
         // Data tambahan
         $blog = Blog::latest()->take(4)->get();
         $event = AdminEvent::where('tgl', '>=', Carbon::now())->latest()->take(3)->get();
