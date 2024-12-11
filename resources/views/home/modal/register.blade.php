@@ -23,21 +23,13 @@
                             <input type="phone" id="phone_number" placeholder="08**********" name="phone_number"
                                 maxlength="12">
                         </div>
-                        <div class="form-grp position-relative">
-                            <input id="password" type="password" placeholder="Password" name="password">
-                            <i class="toggle-password1 bi bi-eye-slash position-absolute"
-                                style="right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer;"
-                                onclick="togglePasswordVisibility('password', this)"></i>
+                        <div class="form-grp">
+                            <input type="password" id="password" placeholder="Password" name="password">
                         </div>
-
-                        <div class="form-grp position-relative">
-                            <input id="password_confirmation" type="password" placeholder="Konfirmasi Password"
+                        <div class="form-grp">
+                            <input type="password" id="password_confirmation" placeholder="Konfirmasi Password"
                                 name="password_confirmation">
-                            <i class="toggle-password2 bi bi-eye-slash position-absolute"
-                                style="right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer;"
-                                onclick="togglePasswordVisibility('password_confirmation', this)"></i>
                         </div>
-
                         <span>Password minimal 8 karakter terdiri simbol,
                             huruf, dan angka</span>
                         <button class="g-recaptcha btn btn-two arrow-btn"
@@ -57,41 +49,3 @@
         </div>
     </div>
 </div>
-
-{{-- <script>
-    function togglePasswordVisibility3(inputId, iconElement) {
-        const input = document.getElementById(inputId);
-        if (input.type === "password") {
-            input.type = "text";
-            iconElement.classList.remove("bi-eye-slash");
-            iconElement.classList.add("bi-eye");
-        } else {
-            input.type = "password";
-            iconElement.classList.remove("bi-eye");
-            iconElement.classList.add("bi-eye-slash");
-        }
-    }
-
-    function togglePasswordVisibility4(inputId, iconElement) {
-        const input = document.getElementById(inputId);
-        if (input.type === "password") {
-            input.type = "text";
-            iconElement.classList.remove("bi-eye-slash");
-            iconElement.classList.add("bi-eye");
-        } else {
-            input.type = "password";
-            iconElement.classList.remove("bi-eye");
-            iconElement.classList.add("bi-eye-slash");
-        }
-    }
-
-    // Fungsi untuk memanggil togglePasswordVisibility untuk password
-    function togglePasswordVisibility1(inputId, iconElement) {
-        togglePasswordVisibility4(inputId, iconElement);
-    }
-
-    // Fungsi untuk memanggil togglePasswordVisibility untuk konfirmasi password
-    function togglePasswordVisibility2(inputId, iconElement) {
-        togglePasswordVisibility3(inputId, iconElement);
-    }
-</script> --}}
