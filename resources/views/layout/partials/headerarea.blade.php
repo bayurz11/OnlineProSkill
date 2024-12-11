@@ -51,11 +51,14 @@
                                     <div class="input-grp">
                                         <input type="text" name="search_term"
                                             placeholder="Cari Kelas atau Produk, Cth: Office, Ai..."
-                                            class="form-control w-90">
-                                        <button type="submit"><i class="flaticon-search"></i></button>
+                                            class="form-control w-90" value="{{ request()->input('search_term') }}">
+                                        <button type="submit">
+                                            <i class="flaticon-search"></i>
+                                        </button>
                                     </div>
                                 </form>
                             </div>
+
 
 
                             <div class="tgmenu__action tgmenu__action-two">
