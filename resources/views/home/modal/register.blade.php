@@ -27,14 +27,14 @@
                             <input type="password" id="password" placeholder="Password" name="password">
                             <i class="toggle-password bi bi-eye position-absolute"
                                 style="right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer;"
-                                onclick="togglePasswordVisibilityregister('password', this)"></i>
+                                onclick="togglePasswordVisibilityregister1('password', this)"></i>
                         </div>
                         <div class="form-grp position-relative">
                             <input type="password" id="password_confirmation" placeholder="Konfirmasi Password"
                                 name="password_confirmation">
                             <i class="toggle-password bi bi-eye position-absolute"
                                 style="right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer;"
-                                onclick="togglePasswordVisibilityregister1('password_confirmation', this)"></i>
+                                onclick="togglePasswordVisibilityregister2('password_confirmation', this)"></i>
                         </div>
 
                         <span>Password minimal 8 karakter terdiri simbol,
@@ -57,7 +57,7 @@
     </div>
 </div>
 <script>
-    function togglePasswordVisibilityregister(inputId, iconElement) {
+    function togglePasswordVisibilityregister1(inputId, iconElement) {
         const passwordField = document.getElementById(inputId);
 
         if (passwordField.type === 'password') {
@@ -71,15 +71,15 @@
         }
     }
 
-    function togglePasswordVisibilityregister1(inputId, iconElement) {
+    function togglePasswordVisibilityregister2(inputId, iconElement) {
         const passwordField = document.getElementById(inputId);
 
-        if (passwordField.type === 'password') {
+        if (passwordField.type === 'password_confirmation') {
             passwordField.type = 'text';
             iconElement.classList.remove('bi-eye');
             iconElement.classList.add('bi-eye-slash');
         } else {
-            passwordField.type = 'password';
+            passwordField.type = 'password_confirmation';
             iconElement.classList.remove('bi-eye-slash');
             iconElement.classList.add('bi-eye');
         }
