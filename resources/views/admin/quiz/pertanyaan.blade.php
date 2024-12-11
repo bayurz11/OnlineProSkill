@@ -136,12 +136,12 @@
                                     </div>
 
                                     <!-- Add Question Button -->
-                                    <div class="form-group d-flex justify-content-end align-items-center mb-0 ">
-                                        <button type="button" class="btn btn-primary mr-6"
-                                            onclick="addChoiceQuestion()">Tambah
-                                            Pertanyaan</button>
+                                    <div class="form-group d-flex justify-content-end align-items-center mb-0">
+                                        <button type="button" class="btn btn-primary mr-3"
+                                            onclick="addChoiceQuestion()">Tambah Pertanyaan</button>
                                         <button type="submit" class="btn btn-primary">Simpan</button>
                                     </div>
+
 
                                 </div>
                             </form>
