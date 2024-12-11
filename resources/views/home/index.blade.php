@@ -322,7 +322,7 @@
         </div>
     </section>
     <!-- course-area-end -->
-    @foreach ($KelasTatapMuka->where('status', 1) as $kelas)
+    @if ($KelasTatapMuka->where('status', 1)->count() > 0)
         <!-- about-area -->
         <section class="about-area tg-motion-effects section-py-120">
             <div class="container">
@@ -458,7 +458,7 @@
             </div>
         </section>
         <!-- about-area-end -->
-    @endforeach
+    @endif
     <!-- testimonial-area -->
     <section class="testimonial__area-six section-py-140 testimonial__bg-three"
         data-background="public/assets/img/bg/h8_testimonial_bg.jpg">
