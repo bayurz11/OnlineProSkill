@@ -27,7 +27,7 @@
                             <input id="password" type="password" placeholder="Password" name="password">
                             <i class="toggle-password bi bi-eye position-absolute"
                                 style="right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer;"
-                                onclick="togglePasswordVisibility1()"></i>
+                                onclick="toggleVisibility()"></i>
                         </div>
                         <div class="form-grp">
                             <input type="password" id="password_confirmation" placeholder="Konfirmasi Password"
@@ -53,7 +53,7 @@
     </div>
 </div>
 <script>
-    function togglePasswordVisibility1() {
+    function toggleVisibility() {
         const passwordField = document.getElementById('password');
         const toggleIcon = document.querySelector('.toggle-password');
 
