@@ -37,7 +37,7 @@
             </li> --}}
 
 
-            {{-- <li class="nav-item dropdown">
+            <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img class="wd-30 ht-30 rounded-circle" src="https://via.placeholder.com/30x30" alt="profile">
@@ -57,6 +57,13 @@
                     <ul class="list-unstyled p-1">
 
                         <li class="dropdown-item py-2">
+                            <a href="html/user-profile-regular.html" class="text-body ms-0">
+                                <em class="icon ni ni-user-alt me-2"></em>
+                                <span>View Profile</span>
+                            </a>
+                        </li>
+
+                        <li class="dropdown-item py-2">
                             <a href="#" class="text-body ms-0"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 <i class="me-2 icon-md" data-feather="log-out"></i>
@@ -65,44 +72,10 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
-
                         </li>
 
                     </ul>
-                </div>
-            </li> --}}
 
-            <li class="dropdown user-dropdown">
-
-                <div class="dropdown-menu dropdown-menu-md dropdown-menu-end">
-                    <div class="dropdown-inner user-card-wrap bg-lighter d-none d-md-block">
-                        <div class="user-card">
-                            <div class="user-avatar">
-                                <span>AB</span>
-                            </div>
-                            <div class="user-info">
-                                <span class="lead-text">Abu Bin Ishtiyak</span>
-                                <span class="sub-text">info@softnio.com</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="dropdown-inner">
-                        <ul class="link-list">
-                            <li><a href="html/user-profile-regular.html"><em class="icon ni ni-user-alt"></em><span>View
-                                        Profile</span></a></li>
-                            <li><a href="html/user-profile-setting.html"><em
-                                        class="icon ni ni-setting-alt"></em><span>Account Setting</span></a></li>
-                            <li><a href="html/user-profile-activity.html"><em
-                                        class="icon ni ni-activity-alt"></em><span>Login Activity</span></a></li>
-                            <li><a class="dark-switch" href="#"><em class="icon ni ni-moon"></em><span>Dark
-                                        Mode</span></a></li>
-                        </ul>
-                    </div>
-                    <div class="dropdown-inner">
-                        <ul class="link-list">
-                            <li><a href="#"><em class="icon ni ni-signout"></em><span>Sign out</span></a></li>
-                        </ul>
-                    </div>
                 </div>
             </li>
         </ul>
