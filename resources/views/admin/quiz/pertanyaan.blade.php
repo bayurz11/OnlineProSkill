@@ -247,7 +247,12 @@
     </script>
 
     <style>
+        .button-spacing {
+            margin-right: 10px;
+        }
+
         /* CSS Grid untuk memilih tata letak pilihan A, B, C, D, E */
+
         .choices-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
