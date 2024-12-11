@@ -21,7 +21,7 @@
                     </div>
 
                     <!-- Single Form for Quiz and Questions -->
-                    <form id="createQuizForm" action="{{ route('instruktur_pertanyaan_pg.store') }}" method="POST"
+                    <form id="createQuizForm" action="{{ route('admin_pertanyaan_pg.store') }}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
                         <div class="modal-body">
