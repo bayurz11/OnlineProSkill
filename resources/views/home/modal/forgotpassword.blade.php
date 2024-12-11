@@ -12,7 +12,7 @@
                     <p>Silahkan isi form berikut untuk melanjutkan.</p>
 
                     <form action="{{ route('forgotPassword.update') }}" method="POST" enctype="multipart/form-data"
-                        class="instructor__profile-form">
+                        class="instructor__profile-form" id="forgotpassword">
                         @csrf
 
                         <div class="form-grp">
