@@ -18,7 +18,7 @@
                         </div>
                         <div class="form-grp position-relative">
                             <input id="password" type="password" placeholder="Password" name="password">
-                            <i class="toggle-password bi bi-eye-slash position-absolute"
+                            <i class="toggle-password bi bi-eye position-absolute"
                                 style="right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer;"
                                 onclick="togglePasswordVisibility()"></i>
                         </div>
@@ -63,13 +63,12 @@
 
         if (passwordField.type === 'password') {
             passwordField.type = 'text';
-            toggleIcon.classList.remove('bi-eye-slash ');
-            toggleIcon.classList.add('bi-eye');
-        } else {
-            passwordField.type = 'password';
             toggleIcon.classList.remove('bi-eye');
             toggleIcon.classList.add('bi-eye-slash');
+        } else {
+            passwordField.type = 'password';
+            toggleIcon.classList.remove('bi-eye-slash');
+            toggleIcon.classList.add('bi-eye');
         }
     }
 </script>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
