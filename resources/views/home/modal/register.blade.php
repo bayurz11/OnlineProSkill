@@ -27,7 +27,7 @@
                             <input id="password" type="password" placeholder="Password" name="password">
                             <i class="toggle-password1 bi bi-eye-slash position-absolute"
                                 style="right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer;"
-                                onclick="togglePasswordVisibility1('password', this)"></i>
+                                onclick="togglePasswordVisibility('password', this)"></i>
                         </div>
 
                         <div class="form-grp position-relative">
@@ -35,7 +35,7 @@
                                 name="password_confirmation">
                             <i class="toggle-password2 bi bi-eye-slash position-absolute"
                                 style="right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer;"
-                                onclick="togglePasswordVisibility2('password_confirmation', this)"></i>
+                                onclick="togglePasswordVisibility('password_confirmation', this)"></i>
                         </div>
 
                         <span>Password minimal 8 karakter terdiri simbol,
@@ -58,7 +58,7 @@
     </div>
 </div>
 
-<script>
+{{-- <script>
     function togglePasswordVisibility3(inputId, iconElement) {
         const input = document.getElementById(inputId);
         if (input.type === "password") {
@@ -94,4 +94,4 @@
     function togglePasswordVisibility2(inputId, iconElement) {
         togglePasswordVisibility3(inputId, iconElement);
     }
-</script>
+</script> --}}
