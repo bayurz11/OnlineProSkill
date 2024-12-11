@@ -7,7 +7,7 @@
     @php
         use Carbon\Carbon;
     @endphp
-    <!-- breadcrumb-area -->
+    {{-- <!-- breadcrumb-area -->
     <div class="breadcrumb__area breadcrumb__bg breadcrumb__bg-two"
         data-background="{{ asset('public/assets/img/bg/breadcrumb_bg.jpg') }}">
         <div class="container">
@@ -38,7 +38,7 @@
                 data-aos-delay="400">
         </div>
     </div>
-    <!-- breadcrumb-area-end -->
+    <!-- breadcrumb-area-end --> --}}
     <!-- all-courses -->
     <section class="all-courses-area section-py-120">
         <div class="container">
@@ -156,8 +156,8 @@
                                                 <button class="nav-link active" id="grid-tab" data-bs-toggle="tab"
                                                     data-bs-target="#grid" type="button" role="tab"
                                                     aria-controls="grid" aria-selected="true">
-                                                    <svg width="18" height="18" viewBox="0 0 18 18"
-                                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
                                                         <path
                                                             d="M6 1H2C1.44772 1 1 1.44772 1 2V6C1 6.55228 1.44772 7 2 7H6C6.55228 7 7 6.55228 7 6V2C7 1.44772 6.55228 1 6 1Z"
                                                             stroke="currentColor" stroke-width="2" stroke-linecap="round"
