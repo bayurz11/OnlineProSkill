@@ -19,21 +19,16 @@
                         <div class="form-grp">
                             <input type="email" id="email" placeholder="Email" name="email">
                         </div>
-                        <div class="form-grp position-relative">
-                            <input type="password" id="password" placeholder="Password" name="password">
-                            <span class="toggle-password" onclick="togglePasswordVisibilityregister('password', this)">
-                                <i class="bi bi-eye"></i>
-                            </span>
+                        <div class="form-grp">
+                            <input type="phone" id="phone_number" placeholder="08**********" name="phone_number"
+                                maxlength="12">
                         </div>
                         <div class="form-grp position-relative">
-                            <input type="password" id="password_confirmation" placeholder="Konfirmasi Password"
-                                name="password_confirmation">
-                            <span class="toggle-password"
-                                onclick="togglePasswordVisibilityregister('password_confirmation', this)">
-                                <i class="bi bi-eye"></i>
-                            </span>
+                            <input id="password" type="password" placeholder="Password" name="password">
+                            <i class="toggle-password bi bi-eye position-absolute"
+                                style="right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer;"
+                                onclick="togglePasswordVisibility1()"></i>
                         </div>
-
                         <div class="form-grp">
                             <input type="password" id="password_confirmation" placeholder="Konfirmasi Password"
                                 name="password_confirmation">
@@ -58,18 +53,18 @@
     </div>
 </div>
 <script>
-    function togglePasswordVisibilityregister(inputId, iconElement) {
-        const input = document.getElementById(inputId);
-        const icon = iconElement.querySelector('i');
+    function togglePasswordVisibility1() {
+        const passwordField = document.getElementById('password');
+        const toggleIcon = document.querySelector('.toggle-password');
 
-        if (input.type === 'password') {
-            input.type = 'text';
-            icon.classList.remove('bi-eye');
-            icon.classList.add('bi-eye-slash');
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            toggleIcon.classList.remove('bi-eye');
+            toggleIcon.classList.add('bi-eye-slash');
         } else {
-            input.type = 'password';
-            icon.classList.remove('bi-eye-slash');
-            icon.classList.add('bi-eye');
+            passwordField.type = 'password';
+            toggleIcon.classList.remove('bi-eye-slash');
+            toggleIcon.classList.add('bi-eye');
         }
     }
 </script>
