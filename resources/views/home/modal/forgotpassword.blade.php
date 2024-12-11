@@ -11,7 +11,7 @@
                     <h2 class="title">Lupa Password ProSkill</h2>
                     <p>Silahkan isi form berikut untuk melanjutkan.</p>
 
-                    <form action="{{ route('forgotpassword') }}" method="POST" enctype="multipart/form-data"
+                    <form action="{{ route('forgotPassword.update') }}" method="POST" enctype="multipart/form-data"
                         class="instructor__profile-form">
                         @csrf
 

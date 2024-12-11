@@ -352,6 +352,6 @@ class HomeController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect()->route('login')->with('success', 'Password berhasil diperbarui. Silakan login.');
+        return redirect()->route('/')->with('success', 'Password berhasil diperbarui. Silakan login.');
     }
 }
