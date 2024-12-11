@@ -170,5 +170,46 @@
         </div>
 
     </div>
+    <script>
+        function loadQuestion(id_tugas, questionNumber) {
+            $.ajax({
+                url: `/tugas/${id_tugas}/question/${questionNumber}`,
+                method: 'GET',
+                success: function(data) {
+                    if (data.error) {
+                        alert(data.error);
+                        return;
+                    }
 
+                    // Perbarui konten div
+                    $('#question-container').html(`
+                        <div class="card">
+                            <div class="card-header">
+                                <strong>Soal No. ${data.currentQuestionNumber}</strong>
+                            </div>
+                            <div class="card-body">
+                                <p>${data.currentQuestion.isi_pertanyaan}</p>
+                                <ul class="list-unstyled">
+                                    ${data.options.map((option, index) => `
+                                                                                                                                                        <li>
+                                                                                                                                                            <label>
+                                                                                                                                                                <span class="option-label">
+                                                                                                                                                                    ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
+                                                                                                                                                                </span>
+                                                                                                                                                            </label>
+                                                                                                                                                        </li>
+                                                                                                                                                    `).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    `);
+                },
+                error: function(err) {
+                    alert('Terjadi kesalahan saat memuat soal.');
+                }
+            });
+        }
+
+        // Contoh penggunaan: loadQuestion(1, 2);
+    </script>
 @endsection
