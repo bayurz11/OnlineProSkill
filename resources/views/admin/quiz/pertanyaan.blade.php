@@ -52,11 +52,12 @@
                                                             $kelas->id,
                                                         )->exists();
                                                     @endphp
-                                                    @if ($kurikulumExists)
+                                                    @if ($kurikulumExists && $kelas->course_type !== 'bootcamp')
                                                         <option value="{{ $kelas->id }}">{{ $kelas->nama_kursus }}
                                                         </option>
                                                     @endif
                                                 @endforeach
+
                                             </select>
                                         </div>
                                         <div style="flex: 1;">

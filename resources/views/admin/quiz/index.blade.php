@@ -11,7 +11,7 @@
                 <li class="breadcrumb-item active" aria-current="page">Quiz Setting</li>
             </ol>
         </nav>
-        @include('admin.modal.edit_siswa')
+
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
