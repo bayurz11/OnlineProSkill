@@ -8,6 +8,7 @@
         <nav class="page-breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('admin.quiz') }}">Quiz</a></li>
                 <li class="breadcrumb-item active" aria-current="page">View Quiz</li>
             </ol>
         </nav>
@@ -204,14 +205,14 @@
                                 <p>${data.currentQuestion.isi_pertanyaan}</p>
                                 <ul class="list-unstyled">
                                     ${data.options.map((option, index) => `
-                                                                                                                                                                                            <li>
-                                                                                                                                                                                                <label>
-                                                                                                                                                                                                    <span class="option-label">
-                                                                                                                                                                                                        ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
-                                                                                                                                                                                                    </span>
-                                                                                                                                                                                                </label>
-                                                                                                                                                                                            </li>
-                                                                                                                                                                                        `).join('')}
+                                                                                                                                                                                                <li>
+                                                                                                                                                                                                    <label>
+                                                                                                                                                                                                        <span class="option-label">
+                                                                                                                                                                                                            ${String.fromCharCode(65 + index)}. ${option.isi_pilihan}
+                                                                                                                                                                                                        </span>
+                                                                                                                                                                                                    </label>
+                                                                                                                                                                                                </li>
+                                                                                                                                                                                            `).join('')}
                                 </ul>
                             </div>
                         </div>
