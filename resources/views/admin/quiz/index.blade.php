@@ -121,6 +121,47 @@
         </div>
     </div>
 
+    <form id="delete-form" action="" method="POST" style="display: none;">
+        @csrf
+        @method('DELETE')
+    </form>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const deleteLinks = document.querySelectorAll('.delete-quiz');
+            const deleteForm = document.getElementById('delete-form');
+            const confirmationModal = document.getElementById('confirmationModal');
+            const confirmDeleteBtn = document.getElementById('confirmDelete');
+            const cancelDeleteBtn = document.getElementById('cancelDelete');
+
+            let quizId; // Variable to store quiz ID for deletion
+
+            deleteLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    quizId = this.getAttribute('data-id');
+                    confirmationModal.style.display = 'flex';
+                });
+            });
+
+            confirmDeleteBtn.addEventListener('click', function() {
+                deleteForm.action = `/instruktur_quiz/${quizId}`;
+                deleteForm.submit();
+                confirmationModal.style.display = 'none';
+            });
+
+            cancelDeleteBtn.addEventListener('click', function() {
+                confirmationModal.style.display = 'none';
+            });
+        });
+
+        function showModal() {
+            document.getElementById('confirmationModalQuestion').style.display = 'flex';
+        }
+
+        function hideModal() {
+            document.getElementById('confirmationModalQuestion').style.display = 'none';
+        }
+    </script>
 
 @endsection
