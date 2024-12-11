@@ -26,9 +26,10 @@
                                 <input type="checkbox" class="form-check-input" value="" id="terms-check">
                                 <label for="terms-check" class="form-check-label">Ingat saya</label>
                             </div>
-                            {{-- <div class="account__check-forgot">
-                                <a href="registration.html">Lupa Password?</a>
-                            </div> --}}
+                            <div class="account__check-forgot">
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModallupaPassword">Lupa
+                                    Password?</a>
+                            </div>
                         </div>
                         <button class="g-recaptcha btn btn-two arrow-btn"
                             data-sitekey="{{ config('services.recaptcha_v3.siteKey') }}"
