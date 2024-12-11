@@ -716,7 +716,7 @@
     </section>
     <!-- blog-area-end -->
 
-    <!-- instructor-area-two -->
+    {{-- <!-- instructor-area-two -->
     <section class="instructor__area-four">
         <div class="container">
             <div class="instructor__item-wrap-two">
@@ -751,7 +751,7 @@
             </div>
         </div>
     </section>
-    <!-- instructor-area-two-end -->
+    <!-- instructor-area-two-end --> --}}
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Mengatur tinggi untuk elemen course-title
