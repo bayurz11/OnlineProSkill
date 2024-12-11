@@ -56,6 +56,10 @@
         function onSubmitloginstuden(token) {
             document.getElementById("loginstuden").submit();
         }
+
+        function onSubmitForgotPassword(token) {
+            document.getElementById("forgotpassword").submit();
+        }
     </script>
 
     @if (session('success'))

@@ -305,7 +305,7 @@ Route::middleware('isInstruktur')->group(function () {
 
 //*********FRONTEND*********//
 Route::get('/', [HomeController::class, 'index'])->name('/');
-Route::post('/forgot-password', [HomeController::class, 'update'])->name('forgotPassword.update');
+Route::post('/forgotpassword', [HomeController::class, 'update'])->name('forgotpassword');
 
 
 //Classroom

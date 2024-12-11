@@ -11,7 +11,7 @@
                     <h2 class="title">Lupa Password ProSkill</h2>
                     <p>Silahkan isi form berikut untuk melanjutkan.</p>
 
-                    <form action="{{ route('forgotPassword.update') }}" method="POST" enctype="multipart/form-data"
+                    <form action="{{ route('forgotpassword') }}" method="POST" enctype="multipart/form-data"
                         class="instructor__profile-form">
                         @csrf
 
@@ -28,11 +28,11 @@
                         <span>Password minimal 8 karakter terdiri simbol, huruf, dan angka</span>
                         <button class="g-recaptcha btn btn-two arrow-btn"
                             data-sitekey="{{ config('services.recaptcha_v3.siteKey') }}"
-                            data-callback="onSubmitForgotPassword" data-action="submit">
-                            Ubah Password
+                            data-callback="onSubmitForgotPassword" data-action='submit'>Masuk
                             <img src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                 class="injectable">
                         </button>
+
                     </form>
                     <br>
 
