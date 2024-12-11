@@ -25,14 +25,14 @@
                         </div>
                         <div class="form-grp position-relative">
                             <input type="password" id="password" placeholder="Password" name="password">
-                            <i class="toggle-password bi bi-eye position-absolute"
+                            <i class="toggle-password bi bi-eye-slash position-absolute"
                                 style="right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer;"
                                 onclick="togglePasswordVisibilityregis('password', this)"></i>
                         </div>
                         <div class="form-grp position-relative">
                             <input type="password" id="password_confirmation" placeholder="Konfirmasi Password"
                                 name="password_confirmation">
-                            <i class="toggle-password bi bi-eye position-absolute"
+                            <i class="toggle-password bi bi-eye-slash position-absolute"
                                 style="right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer;"
                                 onclick="togglePasswordVisibilityregis('password_confirmation', this)"></i>
                         </div>
@@ -57,17 +57,18 @@
     </div>
 </div>
 <script>
-    function togglePasswordVisibilityregis(inputId, iconElement) {
-        const passwordField = document.getElementById(inputId);
+    function togglePasswordVisibilityregis() {
+        const passwordField = document.getElementById('password');
+        const toggleIcon = document.querySelector('.toggle-password');
 
         if (passwordField.type === 'password') {
             passwordField.type = 'text';
-            iconElement.classList.remove('bi-eye');
-            iconElement.classList.add('bi-eye-slash');
+            toggleIcon.classList.remove('bi-eye-slash');
+            toggleIcon.classList.add('bi-eye');
         } else {
             passwordField.type = 'password';
-            iconElement.classList.remove('bi-eye-slash');
-            iconElement.classList.add('bi-eye');
+            toggleIcon.classList.remove('bi-eye');
+            toggleIcon.classList.add('bi-eye-slash');
         }
     }
 </script>
