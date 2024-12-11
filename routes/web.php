@@ -72,6 +72,7 @@ Route::middleware('isAdmin')->group(function () {
 
     //******** Admin *********//
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/adminProfile', [DashboardController::class, 'profile'])->name('adminProfile');
     Route::get('/get-notifications', [NotificationController::class, 'getNotifications']);
     Route::post('/mark-notifications-read', [NotificationController::class, 'markNotificationsRead']);
 
