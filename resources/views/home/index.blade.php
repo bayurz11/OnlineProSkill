@@ -202,7 +202,7 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-6 col-lg-8">
                         <div class="section__title text-center mb-40">
-                            <span class="sub-title">Program ProSkill Akademia</span>
+                            <span class="sub-title">Program & Produk ProSkill Akademia</span>
                             <h2 class="title">Jelajahi Program Unggulan Kami</h2>
                             <p class="desc">Inilah saat yang tepat untuk melangkah maju! Program ProSkill Akademia siap
                                 membantu Anda meningkatkan keterampilan dengan pelatihan terbaik yang sesuai dengan
@@ -214,7 +214,7 @@
                                     <button class="nav-link active" id="all-tab" data-bs-toggle="tab"
                                         data-bs-target="#all-tab-pane" type="button" role="tab"
                                         aria-controls="all-tab-pane" aria-selected="true">
-                                        Semua Program
+                                        Semua Program & Produk
                                     </button>
                                 </li>
                                 {{-- <li class="nav-item" role="presentation">
