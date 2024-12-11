@@ -153,7 +153,7 @@
             });
 
             confirmDeleteBtn.addEventListener('click', function() {
-                deleteForm.action = `/instruktur_quiz/${quizId}`;
+                deleteForm.action = `/admin_quiz/${quizId}`;
                 deleteForm.submit();
                 confirmationModal.style.display = 'none';
             });
