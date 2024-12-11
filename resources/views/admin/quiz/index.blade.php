@@ -69,11 +69,12 @@
                                             </td>
                                             <td>
 
-                                                <a href="{{ route('admin_view_pg', $quiz->id_tugas) }}" title="Lihat Soal">
+                                                <a href="{{ route('admin_view_pg', $quiz->id_tugas) }}" title="Lihat Soal"
+                                                    class="btn btn-success">
                                                     <i data-feather="eye"></i>
                                                 </a>
                                                 <a href="#" title="Hapus Quiz" data-id="{{ $quiz->id_tugas }}"
-                                                    class="delete-quiz">
+                                                    class="btn btn-danger delete-quiz">
                                                     <i data-feather="trash"></i>
                                                 </a>
 
@@ -140,52 +141,7 @@
         </div>
     </div>
 
-    <form id="delete-form" action="" method="POST" style="display: none;">
-        @csrf
-        @method('DELETE')
-    </form>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const deleteLinks = document.querySelectorAll('.delete-quiz');
-            const deleteForm = document.getElementById('delete-form');
-            const confirmationModal = document.getElementById('confirmationModal');
-            const confirmDeleteBtn = document.getElementById('confirmDelete');
-            const cancelDeleteBtn = document.getElementById('cancelDelete');
 
-            let quizId; // Variable to store quiz ID for deletion
-
-            // Show the modal
-            function showModal() {
-                confirmationModal.style.display = 'flex';
-            }
-
-            // Hide the modal
-            function hideModal() {
-                confirmationModal.style.display = 'none';
-            }
-
-            // Attach event listeners to delete links
-            deleteLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    quizId = this.getAttribute('data-id');
-                    showModal();
-                });
-            });
-
-            // Confirm delete action
-            confirmDeleteBtn.addEventListener('click', function() {
-                deleteForm.action = `/admin_quiz/${quizId}`;
-                deleteForm.submit();
-                hideModal();
-            });
-
-            // Cancel delete action
-            cancelDeleteBtn.addEventListener('click', function() {
-                hideModal();
-            });
-        });
-    </script>
 
 
 @endsection
