@@ -72,9 +72,22 @@
         }
     }
 
+    function togglePasswordVisibility4(inputId, iconElement) {
+        const input = document.getElementById(inputId);
+        if (input.type === "password") {
+            input.type = "text";
+            iconElement.classList.remove("bi-eye-slash");
+            iconElement.classList.add("bi-eye");
+        } else {
+            input.type = "password";
+            iconElement.classList.remove("bi-eye");
+            iconElement.classList.add("bi-eye-slash");
+        }
+    }
+
     // Fungsi untuk memanggil togglePasswordVisibility untuk password
     function togglePasswordVisibility1(inputId, iconElement) {
-        togglePasswordVisibility3(inputId, iconElement);
+        togglePasswordVisibility4(inputId, iconElement);
     }
 
     // Fungsi untuk memanggil togglePasswordVisibility untuk konfirmasi password
