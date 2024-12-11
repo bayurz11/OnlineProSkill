@@ -49,8 +49,8 @@
                             <div class="tgmenu__search d-none d-md-block">
                                 <form action="{{ route('search') }}" method="GET" class="tgmenu__search-form">
                                     <div class="input-grp">
-                                        <input type="text" name="search_term" placeholder="Pencarian Kursus . . ."
-                                            class="form-control w-50">
+                                        <input type="text" name="search_term"
+                                            placeholder="Pencarian Kursus dan Produk . . ." class="form-control w-50">
                                         <button type="submit"><i class="flaticon-search"></i></button>
                                     </div>
                                 </form>
@@ -205,7 +205,7 @@
                             </div>
                             <div class="tgmobile__search">
                                 <form action="{{ route('search') }} " method="GET">
-                                    <input type="text" placeholder="Pencarian Kursus...">
+                                    <input type="text" placeholder="Pencarian Kursus dan Produk...">
                                     <button type="submit"><i class="fas fa-search"></i></button>
                                 </form>
                             </div>
