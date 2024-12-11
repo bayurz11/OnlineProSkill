@@ -23,11 +23,8 @@
                             <input type="phone" id="phone_number" placeholder="08**********" name="phone_number"
                                 maxlength="12">
                         </div>
-                        <div class="form-grp position-relative">
-                            <input id="password" type="password" placeholder="Password" name="password">
-                            <i class="toggle-password bi bi-eye position-absolute"
-                                style="right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer;"
-                                onclick="toggleVisibility()"></i>
+                        <div class="form-grp">
+                            <input type="password" id="password" placeholder="Password" name="password">
                         </div>
                         <div class="form-grp">
                             <input type="password" id="password_confirmation" placeholder="Konfirmasi Password"
@@ -52,19 +49,3 @@
         </div>
     </div>
 </div>
-<script>
-    function toggleVisibility() {
-        const passwordField = document.getElementById('password');
-        const toggleIcon = document.querySelector('.toggle-password');
-
-        if (passwordField.type === 'password') {
-            passwordField.type = 'text';
-            toggleIcon.classList.remove('bi-eye');
-            toggleIcon.classList.add('bi-eye-slash');
-        } else {
-            passwordField.type = 'password';
-            toggleIcon.classList.remove('bi-eye-slash');
-            toggleIcon.classList.add('bi-eye');
-        }
-    }
-</script>
