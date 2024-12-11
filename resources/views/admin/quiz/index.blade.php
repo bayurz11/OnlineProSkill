@@ -149,21 +149,31 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const deleteButtons = document.querySelectorAll('.delete-quiz');
+            let quizIdToDelete = null;
 
             deleteButtons.forEach(button => {
                 button.addEventListener('click', function(e) {
                     e.preventDefault();
 
-                    const quizId = this.dataset.id;
-                    const form = document.getElementById(`deleteQuizForm-${quizId}`);
+                    // Menyimpan ID quiz yang akan dihapus
+                    quizIdToDelete = this.dataset.id;
 
-                    if (confirm('Apakah Anda yakin ingin menghapus quiz ini?')) {
-                        form.submit();
-                    }
+                    // Menampilkan modal
+                    const modal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+                    modal.show();
                 });
+            });
+
+            // Mengonfirmasi penghapusan setelah modal ditampilkan
+            document.getElementById('confirmDelete').addEventListener('click', function() {
+                if (quizIdToDelete) {
+                    const form = document.getElementById(`deleteQuizForm-${quizIdToDelete}`);
+                    form.submit(); // Mengirimkan formulir untuk menghapus quiz
+                }
             });
         });
     </script>
+
 
 
 @endsection
