@@ -39,7 +39,7 @@ class HomeController extends Controller
 
         // Mengambil KelasTatapMuka yang aktif dengan filter berdasarkan status dan mengabaikan 'bootcamp' dan 'produk'
         $KelasTatapMuka = KelasTatapMuka::where('status', 1)
-            ->whereNotIn('course_type', ['bootcamp', 'produk'])
+            // ->whereNotIn('course_type', ['bootcamp', 'produk'])
             ->orderBy('created_at', 'asc')
             ->get();
 
