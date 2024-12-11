@@ -78,6 +78,7 @@
                                                 </a>
 
 
+
                                             </td>
                                         </tr>
                                     @endforeach
@@ -120,11 +121,53 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Konfirmasi Penghapusan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Apakah Anda yakin ingin menghapus quiz ini?
+                </div>
+                <div class="modal-footer">
+                    <button id="cancelDelete" type="button" class="btn btn-secondary"
+                        data-bs-dismiss="modal">Batal</button>
+                    <button id="confirmDelete" type="button" class="btn btn-danger">Hapus</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <form id="delete-form" action="" method="POST" style="display: none;">
         @csrf
         @method('DELETE')
     </form>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const deleteLinks = document.querySelectorAll('.delete-quiz');
+            const deleteForm = document.getElementById('delete-form');
+            let quizId;
+
+            // Ketika tombol hapus diklik
+            deleteLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    quizId = this.getAttribute('data-id');
+                    const modal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+                    modal.show();
+                });
+            });
+
+            // Ketika tombol "Hapus" di modal diklik
+            document.getElementById('confirmDelete').addEventListener('click', function() {
+                deleteForm.action = `/admin_quiz/${quizId}`;
+                deleteForm.submit();
+            });
+        });
+    </script>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
