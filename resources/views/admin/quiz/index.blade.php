@@ -22,7 +22,7 @@
                                 data-feather="plus-circle"></i>
                             Quiz
                         </button>
-                        {{-- <p class="text-muted mb-3"> Jumlah Produk : {{ $course->count() }}</p> --}}
+                        <p class="text-muted mb-3"> Jumlah Quiz : {{ $quiz->count() }}</p>
                         <div class="table-responsive">
                             <table id="dataTableExample" class="table">
                                 <thead>
