@@ -59,7 +59,7 @@
 </div>
 
 <script>
-    function togglePasswordVisibility(inputId, iconElement) {
+    function togglePasswordVisibility3(inputId, iconElement) {
         const input = document.getElementById(inputId);
         if (input.type === "password") {
             input.type = "text";
@@ -74,11 +74,11 @@
 
     // Fungsi untuk memanggil togglePasswordVisibility untuk password
     function togglePasswordVisibility1(inputId, iconElement) {
-        togglePasswordVisibility(inputId, iconElement);
+        togglePasswordVisibility3(inputId, iconElement);
     }
 
     // Fungsi untuk memanggil togglePasswordVisibility untuk konfirmasi password
     function togglePasswordVisibility2(inputId, iconElement) {
-        togglePasswordVisibility(inputId, iconElement);
+        togglePasswordVisibility3(inputId, iconElement);
     }
 </script>
