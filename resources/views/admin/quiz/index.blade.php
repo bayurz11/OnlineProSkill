@@ -78,7 +78,12 @@
                                                     <i data-feather="trash"></i>
                                                 </a>
 
-
+                                                <form id="deleteQuizForm-{{ $quiz->id_tugas }}"
+                                                    action="{{ route('quiz.destroy', $quiz->id_tugas) }}" method="POST"
+                                                    style="display: none;">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                </form>
 
                                             </td>
                                         </tr>
@@ -141,7 +146,24 @@
         </div>
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const deleteButtons = document.querySelectorAll('.delete-quiz');
 
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    const quizId = this.dataset.id;
+                    const form = document.getElementById(`deleteQuizForm-${quizId}`);
+
+                    if (confirm('Apakah Anda yakin ingin menghapus quiz ini?')) {
+                        form.submit();
+                    }
+                });
+            });
+        });
+    </script>
 
 
 @endsection
