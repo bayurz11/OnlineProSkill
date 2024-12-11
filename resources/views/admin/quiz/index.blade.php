@@ -32,7 +32,7 @@
                                         {{-- <th>TM</th>
                                         <th>CA</th> --}}
                                         <th>Keterangan</th>
-                                        <th>&nbsp;</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
 
@@ -69,7 +69,7 @@
                                             </td>
                                             <td>
                                                 <div class="dashboard__review-action">
-                                                    <a href="{{ route('instruktur_view_pg', $quiz->id_tugas) }}"
+                                                    <a href="{{ route('admin_view_pg', $quiz->id_tugas) }}"
                                                         title="Lihat Soal">
                                                         <i class="fas fa-eye"></i>
                                                     </a>
