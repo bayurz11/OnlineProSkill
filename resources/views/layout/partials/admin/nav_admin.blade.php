@@ -100,13 +100,13 @@
                 </a>
             </li> --}}
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#authPages" role="button"
-                    aria-expanded="false" aria-controls="authPages">
+                <a class="nav-link" data-bs-toggle="collapse" href="#produk" role="button" aria-expanded="false"
+                    aria-controls="produk">
                     <i class="link-icon" data-feather="dollar-sign"></i>
                     <span class="link-title">Kelola Produk</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
-                <div class="collapse" id="authPages">
+                <div class="collapse" id="produk">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
                             <a href="{{ route('produksetting') }}" class="nav-link">Tambah Produk</a>
@@ -119,13 +119,13 @@
             </li>
             <li class="nav-item nav-category">Manajemen User</li>
             <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" role="button"
-                    aria-expanded="false" aria-controls="general-pages">
+                <a class="nav-link" data-bs-toggle="collapse" href="#instruktur-pages" role="button"
+                    aria-expanded="false" aria-controls="instruktur-pages">
                     <i class="link-icon" data-feather="users"></i>
                     <span class="link-title">Kelola Instruktur</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
-                <div class="collapse" id="general-pages">
+                <div class="collapse" id="instruktur-pages">
                     <ul class="nav sub-menu">
                         <li class="nav-item">
                             <a href="{{ route('instruktursetting') }}" class="nav-link">Daftar Instruktur</a>
