@@ -20,6 +20,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GiftClassController;
 use App\Http\Controllers\KurikulumController;
 use App\Http\Controllers\AdminEventController;
+use App\Http\Controllers\AdminQuizSettingController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\KonsultasiController;
 use App\Http\Controllers\SertifikatController;
@@ -213,6 +214,19 @@ Route::middleware('isAdmin')->group(function () {
     Route::get('/produk/{id}/edit', [ProdukSettingController::class, 'edit'])->name('produk.edit');
     Route::put('/produk/{id}', [ProdukSettingController::class, 'update'])->name('produk.update');
     Route::delete('/produk_destroy/{id}', [ProdukSettingController::class, 'destroy'])->name('produk.destroy');
+
+
+    //Quiz
+    Route::get('/instruktur_quiz', [AdminQuizSettingController::class, 'index'])->name('instruktur.quiz');
+    Route::delete('/instruktur_quiz/{id_tugas}', [AdminQuizSettingController::class, 'destroy'])->name('quiz.destroy');
+
+    //Pertanyaan
+    Route::get('/instruktur_question_pg', [AdminQuizSettingController::class, 'pg'])->name('instruktur_question_pg');
+    Route::get('/instruktur_view_pg/{id_tugas}', [AdminQuizSettingController::class, 'viewpg'])->name('instruktur_view_pg');
+    Route::get('/tugas/{id_tugas}/question/{questionNumber}', [AdminQuizSettingController::class, 'fetchQuestion'])
+        ->name('fetch_question');
+    Route::post('/instruktur_pertanyaan_pg/store', [AdminQuizSettingController::class, 'storepg'])->name('instruktur_pertanyaan_pg.store');
+    Route::get('/instruktur_question_essay/{id_tugas}', [AdminQuizSettingController::class, 'esai'])->name('instruktur_question_essay');
 });
 
 //*********STUDEN*********//
