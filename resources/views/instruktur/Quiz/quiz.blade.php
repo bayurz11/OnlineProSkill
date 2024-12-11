@@ -84,17 +84,18 @@
                                                             <span class="dashboard__quiz-result">Berjalan</span>
                                                         @endif
                                                     </td>
+
                                                     <td>
-                                                        <div class="dashboard__review-action">
-                                                            <a href="{{ route('instruktur_view_pg', $quiz->id_tugas) }}"
-                                                                title="Lihat Soal">
-                                                                <i class="fas fa-eye"></i>
-                                                            </a>
-                                                            <a href="#" title="Hapus Quiz"
-                                                                data-id="{{ $quiz->id_tugas }}" class="delete-quiz">
-                                                                <i class="skillgro-bin"></i>
-                                                            </a>
-                                                        </div>
+
+                                                        <a href="{{ route('instruktur_view_pg', $quiz->id_tugas) }}"
+                                                            title="Lihat Soal">
+                                                            <i class="fas fa-eye"></i>
+                                                        </a>
+                                                        <a href="#" title="Hapus Quiz" data-id="{{ $quiz->id_tugas }}"
+                                                            class="delete-quiz">
+                                                            <i class="skillgro-bin"></i>
+                                                        </a>
+
                                                     </td>
                                                 </tr>
                                             </tbody>
