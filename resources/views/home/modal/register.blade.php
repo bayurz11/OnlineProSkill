@@ -34,7 +34,7 @@
                                 name="password_confirmation">
                             <i class="toggle-password bi bi-eye position-absolute"
                                 style="right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer;"
-                                onclick="togglePasswordVisibilityregister('password_confirmation', this)"></i>
+                                onclick="togglePasswordVisibilityregister1('password_confirmation', this)"></i>
                         </div>
 
                         <span>Password minimal 8 karakter terdiri simbol,
@@ -58,6 +58,20 @@
 </div>
 <script>
     function togglePasswordVisibilityregister(inputId, iconElement) {
+        const passwordField = document.getElementById(inputId);
+
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            iconElement.classList.remove('bi-eye');
+            iconElement.classList.add('bi-eye-slash');
+        } else {
+            passwordField.type = 'password';
+            iconElement.classList.remove('bi-eye-slash');
+            iconElement.classList.add('bi-eye');
+        }
+    }
+
+    function togglePasswordVisibilityregister1(inputId, iconElement) {
         const passwordField = document.getElementById(inputId);
 
         if (passwordField.type === 'password') {
