@@ -57,34 +57,28 @@
         </div>
     </div>
 </div>
-<script>
-    function togglePasswordVisibility1() {
-        const passwordField = document.getElementById('password');
-        const toggleIcon = document.querySelector('.toggle-password1');
 
-        if (passwordField.type === 'password') {
-            passwordField.type = 'text';
-            toggleIcon.classList.remove('bi-eye-slash');
-            toggleIcon.classList.add('bi-eye');
+<script>
+    function togglePasswordVisibility(inputId, iconElement) {
+        const input = document.getElementById(inputId);
+        if (input.type === "password") {
+            input.type = "text";
+            iconElement.classList.remove("bi-eye-slash");
+            iconElement.classList.add("bi-eye");
         } else {
-            passwordField.type = 'password';
-            toggleIcon.classList.remove('bi-eye');
-            toggleIcon.classList.add('bi-eye-slash');
+            input.type = "password";
+            iconElement.classList.remove("bi-eye");
+            iconElement.classList.add("bi-eye-slash");
         }
     }
 
-    function togglePasswordVisibility2() {
-        const passwordField = document.getElementById('password_confirmation');
-        const toggleIcon = document.querySelector('.toggle-password2');
+    // Fungsi untuk memanggil togglePasswordVisibility untuk password
+    function togglePasswordVisibility1(inputId, iconElement) {
+        togglePasswordVisibility(inputId, iconElement);
+    }
 
-        if (passwordField.type === 'password') {
-            passwordField.type = 'text';
-            toggleIcon.classList.remove('bi-eye-slash');
-            toggleIcon.classList.add('bi-eye');
-        } else {
-            passwordField.type = 'password';
-            toggleIcon.classList.remove('bi-eye');
-            toggleIcon.classList.add('bi-eye-slash');
-        }
+    // Fungsi untuk memanggil togglePasswordVisibility untuk konfirmasi password
+    function togglePasswordVisibility2(inputId, iconElement) {
+        togglePasswordVisibility(inputId, iconElement);
     }
 </script>
