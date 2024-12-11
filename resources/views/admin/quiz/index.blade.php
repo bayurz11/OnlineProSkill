@@ -78,12 +78,14 @@
                                                     <i data-feather="eye"></i>
                                                 </a>
                                                 <a href="" data-id="{{ $quiz->id_tugas }}"
-                                                    class="btn btn-danger btn-icon kurikulum-btn delete-quiz"
-                                                    title="Hapus Quiz">
+                                                    class="btn btn-danger  delete-quiz" title="Hapus Quiz">
                                                     <i data-feather="trash"></i>
                                                 </a>
 
-
+                                                <a href="#" title="Hapus Quiz" data-id="{{ $quiz->id_tugas }}"
+                                                    class="delete-quiz">
+                                                    <i data-feather="trash"></i>
+                                                </a>
 
 
                                             </td>
@@ -153,7 +155,7 @@
             });
 
             confirmDeleteBtn.addEventListener('click', function() {
-                deleteForm.action = `/admin_quiz/${quizId}`;
+                deleteForm.action = `/instruktur_quiz/${quizId}`;
                 deleteForm.submit();
                 confirmationModal.style.display = 'none';
             });
