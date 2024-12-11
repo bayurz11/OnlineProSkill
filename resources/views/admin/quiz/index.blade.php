@@ -148,63 +148,44 @@
         document.addEventListener('DOMContentLoaded', function() {
             const deleteLinks = document.querySelectorAll('.delete-quiz');
             const deleteForm = document.getElementById('delete-form');
-            let quizId;
-
-            // Ketika tombol hapus diklik
-            deleteLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    quizId = this.getAttribute('data-id');
-                    const modal = new bootstrap.Modal(document.getElementById('confirmationModal'));
-                    modal.show();
-                });
-            });
-
-            // Ketika tombol "Hapus" di modal diklik
-            document.getElementById('confirmDelete').addEventListener('click', function() {
-                deleteForm.action = `/admin_quiz/${quizId}`;
-                deleteForm.submit();
-            });
-        });
-    </script>
-
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const deleteLinks = document.querySelectorAll('.delete-quiz');
-            const deleteForm = document.getElementById('delete-form');
             const confirmationModal = document.getElementById('confirmationModal');
             const confirmDeleteBtn = document.getElementById('confirmDelete');
             const cancelDeleteBtn = document.getElementById('cancelDelete');
 
             let quizId; // Variable to store quiz ID for deletion
 
+            // Show the modal
+            function showModal() {
+                confirmationModal.style.display = 'flex';
+            }
+
+            // Hide the modal
+            function hideModal() {
+                confirmationModal.style.display = 'none';
+            }
+
+            // Attach event listeners to delete links
             deleteLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     quizId = this.getAttribute('data-id');
-                    confirmationModal.style.display = 'flex';
+                    showModal();
                 });
             });
 
+            // Confirm delete action
             confirmDeleteBtn.addEventListener('click', function() {
                 deleteForm.action = `/admin_quiz/${quizId}`;
                 deleteForm.submit();
-                confirmationModal.style.display = 'none';
+                hideModal();
             });
 
+            // Cancel delete action
             cancelDeleteBtn.addEventListener('click', function() {
-                confirmationModal.style.display = 'none';
+                hideModal();
             });
         });
-
-        function showModal() {
-            document.getElementById('confirmationModalQuestion').style.display = 'flex';
-        }
-
-        function hideModal() {
-            document.getElementById('confirmationModalQuestion').style.display = 'none';
-        }
     </script>
+
 
 @endsection
