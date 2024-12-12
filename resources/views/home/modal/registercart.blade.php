@@ -24,12 +24,17 @@
                             <input type="phone" id="phone_number" placeholder="08**********" name="phone_number"
                                 maxlength="12">
                         </div>
-                        <div class="form-grp">
-                            <input type="password" id="password" placeholder="Password" name="password">
+                        <div class="form-grp position-relative">
+                            <input id="password2" type="password" placeholder="Password" name="password"
+                                class="form-control">
+                            <i id="togglePassword1" class="toggle-password bi bi-eye position-absolute"
+                                style="right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
                         </div>
-                        <div class="form-grp">
-                            <input type="password" id="password_confirmation" placeholder="Konfirmasi Password"
-                                name="password_confirmation">
+                        <div class="form-grp position-relative">
+                            <input id="password_confirmation1" type="password" placeholder="Konfirmasi Password"
+                                name="password_confirmation" class="form-control">
+                            <i id="togglePassword1Confirmation" class="toggle-password bi bi-eye position-absolute"
+                                style="right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
                         </div>
                         <span>Password minimal 8 karakter terdiri simbol,
                             huruf, dan angka</span>
@@ -51,3 +56,43 @@
         </div>
     </div>
 </div>
+
+<script>
+    function togglePassword1() {
+        const passwordField = document.getElementById('password2');
+        const toggleIcon = document.getElementById('togglePassword1');
+
+        // Cek apakah password saat ini disembunyikan atau terlihat
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text'; // Menampilkan password
+            toggleIcon.classList.remove('bi-eye');
+            toggleIcon.classList.add('bi-eye-slash'); // Ganti ikon ke mata tertutup
+        } else {
+            passwordField.type = 'password'; // Menyembunyikan password
+            toggleIcon.classList.remove('bi-eye-slash');
+            toggleIcon.classList.add('bi-eye'); // Ganti ikon ke mata terbuka
+        }
+    }
+
+
+
+    // Fungsi untuk toggle password confirmation visibility
+    function togglePassword1Confirmation() {
+        const passwordConfirmationField = document.getElementById('password_confirmation1');
+        const toggleIcon = document.getElementById('togglePassword1Confirmation');
+
+        if (passwordConfirmationField.type === 'password') {
+            passwordConfirmationField.type = 'text';
+            toggleIcon.classList.remove('bi-eye');
+            toggleIcon.classList.add('bi-eye-slash');
+        } else {
+            passwordConfirmationField.type = 'password';
+            toggleIcon.classList.remove('bi-eye-slash');
+            toggleIcon.classList.add('bi-eye');
+        }
+    }
+
+    // Menambahkan event listener untuk tombol toggle password
+    document.getElementById('togglePassword1').addEventListener('click', togglePassword1);
+    document.getElementById('togglePassword1Confirmation').addEventListener('click', togglePassword1Confirmation);
+</script>

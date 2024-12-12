@@ -18,8 +18,11 @@
                             <input id="email_or_phone" type="text" placeholder="Email atau Nomor Telepon"
                                 name="email_or_phone" autofocus>
                         </div>
-                        <div class="form-grp">
-                            <input id="password" type="password" placeholder="Password" name="password">
+                        <div class="form-grp position-relative">
+                            <input id="password1" type="password" placeholder="Password" name="password">
+                            <i class="toggle-password bi bi-eye position-absolute"
+                                style="right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer;"
+                                onclick="toggle()"></i>
                         </div>
                         <div class="account__check">
                             <div class="account__check-remember">
@@ -50,3 +53,20 @@
         </div>
     </div>
 </div>
+
+<script>
+    function toggle() {
+        const passwordField = document.getElementById('password1');
+        const toggleIcon = document.querySelector('.toggle-password');
+
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            toggleIcon.classList.remove('bi-eye');
+            toggleIcon.classList.add('bi-eye-slash');
+        } else {
+            passwordField.type = 'password';
+            toggleIcon.classList.remove('bi-eye-slash');
+            toggleIcon.classList.add('bi-eye');
+        }
+    }
+</script>
