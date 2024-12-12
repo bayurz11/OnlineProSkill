@@ -36,7 +36,6 @@
                                 style="right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
                         </div>
 
-
                         <span>Password minimal 8 karakter terdiri simbol,
                             huruf, dan angka</span>
                         <button class="g-recaptcha btn btn-two arrow-btn"
@@ -58,25 +57,38 @@
 </div>
 <script>
     // Fungsi untuk toggle password visibility
-    function togglePasswordVisibilityy() {
+    function togglePassword() {
         const passwordField = document.getElementById('password');
-        const passwordIcon = document.getElementById('togglePassword');
-        const type = passwordField.type === 'password' ? 'text' : 'password';
-        passwordField.type = type;
-        passwordIcon.classList.toggle('bi-eye-slash'); // Ganti ikon mata
+        const toggleIcon = document.getElementById('togglePassword');
+
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            toggleIcon.classList.remove('bi-eye');
+            toggleIcon.classList.add('bi-eye-slash');
+        } else {
+            passwordField.type = 'password';
+            toggleIcon.classList.remove('bi-eye-slash');
+            toggleIcon.classList.add('bi-eye');
+        }
     }
 
     // Fungsi untuk toggle password confirmation visibility
-    function togglePasswordVisibilityConfirmation() {
+    function togglePasswordConfirmation() {
         const passwordConfirmationField = document.getElementById('password_confirmation');
-        const passwordConfirmationIcon = document.getElementById('togglePasswordConfirmation');
-        const type = passwordConfirmationField.type === 'password' ? 'text' : 'password';
-        passwordConfirmationField.type = type;
-        passwordConfirmationIcon.classList.toggle('bi-eye-slash'); // Ganti ikon mata
+        const toggleIcon = document.getElementById('togglePasswordConfirmation');
+
+        if (passwordConfirmationField.type === 'password') {
+            passwordConfirmationField.type = 'text';
+            toggleIcon.classList.remove('bi-eye');
+            toggleIcon.classList.add('bi-eye-slash');
+        } else {
+            passwordConfirmationField.type = 'password';
+            toggleIcon.classList.remove('bi-eye-slash');
+            toggleIcon.classList.add('bi-eye');
+        }
     }
 
-    // Tambahkan event listener untuk tombol toggle password
-    document.getElementById('togglePassword').addEventListener('click', togglePasswordVisibilityy);
-    document.getElementById('togglePasswordConfirmation').addEventListener('click',
-        togglePasswordVisibilityConfirmation);
+    // Menambahkan event listener untuk tombol toggle password
+    document.getElementById('togglePassword').addEventListener('click', togglePassword);
+    document.getElementById('togglePasswordConfirmation').addEventListener('click', togglePasswordConfirmation);
 </script>
