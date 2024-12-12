@@ -26,17 +26,16 @@
                         <div class="form-grp position-relative">
                             <input id="password" type="password" placeholder="Password" name="password"
                                 class="form-control">
-                            <i class="toggle-password bi bi-eye position-absolute"
-                                style="right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer;"
-                                onclick="togglePasswordVisibility1()"></i>
+                            <i id="togglePassword" class="toggle-password bi bi-eye position-absolute"
+                                style="right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
                         </div>
                         <div class="form-grp position-relative">
                             <input id="password_confirmation" type="password" placeholder="Konfirmasi Password"
                                 name="password_confirmation" class="form-control">
-                            <i class="toggle-password bi bi-eye position-absolute"
-                                style="right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer;"
-                                onclick="togglePasswordVisibilityConfirmation()"></i>
+                            <i id="togglePasswordConfirmation" class="toggle-password bi bi-eye position-absolute"
+                                style="right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
                         </div>
+
 
                         <span>Password minimal 8 karakter terdiri simbol,
                             huruf, dan angka</span>
@@ -59,24 +58,25 @@
 </div>
 <script>
     // Fungsi untuk toggle password visibility
-    function togglePasswordVisibility1() {
+    function togglePasswordVisibility() {
         const passwordField = document.getElementById('password');
-        const passwordIcon = document.querySelector('#password + .toggle-password');
-        // Cek tipe input password
+        const passwordIcon = document.getElementById('togglePassword');
         const type = passwordField.type === 'password' ? 'text' : 'password';
         passwordField.type = type;
-        // Ganti ikon mata
-        passwordIcon.classList.toggle('bi-eye-slash');
+        passwordIcon.classList.toggle('bi-eye-slash'); // Ganti ikon mata
     }
 
     // Fungsi untuk toggle password confirmation visibility
     function togglePasswordVisibilityConfirmation() {
         const passwordConfirmationField = document.getElementById('password_confirmation');
-        const passwordConfirmationIcon = document.querySelector('#password_confirmation + .toggle-password');
-        // Cek tipe input password confirmation
+        const passwordConfirmationIcon = document.getElementById('togglePasswordConfirmation');
         const type = passwordConfirmationField.type === 'password' ? 'text' : 'password';
         passwordConfirmationField.type = type;
-        // Ganti ikon mata
-        passwordConfirmationIcon.classList.toggle('bi-eye-slash');
+        passwordConfirmationIcon.classList.toggle('bi-eye-slash'); // Ganti ikon mata
     }
+
+    // Tambahkan event listener untuk tombol toggle password
+    document.getElementById('togglePassword').addEventListener('click', togglePasswordVisibility);
+    document.getElementById('togglePasswordConfirmation').addEventListener('click',
+        togglePasswordVisibilityConfirmation);
 </script>
