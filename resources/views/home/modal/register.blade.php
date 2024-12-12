@@ -57,20 +57,24 @@
 </div>
 <script>
     // Fungsi untuk toggle password visibility
+    // Fungsi untuk toggle password visibility
     function togglePassword() {
         const passwordField = document.getElementById('password');
         const toggleIcon = document.getElementById('togglePassword');
 
+        // Cek apakah password saat ini disembunyikan atau terlihat
         if (passwordField.type === 'password') {
-            passwordField.type = 'text';
+            passwordField.type = 'text'; // Menampilkan password
             toggleIcon.classList.remove('bi-eye');
-            toggleIcon.classList.add('bi-eye-slash');
+            toggleIcon.classList.add('bi-eye-slash'); // Ganti ikon ke mata tertutup
         } else {
-            passwordField.type = 'password';
+            passwordField.type = 'password'; // Menyembunyikan password
             toggleIcon.classList.remove('bi-eye-slash');
-            toggleIcon.classList.add('bi-eye');
+            toggleIcon.classList.add('bi-eye'); // Ganti ikon ke mata terbuka
         }
     }
+
+
 
     // Fungsi untuk toggle password confirmation visibility
     function togglePasswordConfirmation() {
