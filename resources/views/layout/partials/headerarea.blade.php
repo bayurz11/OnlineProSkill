@@ -164,10 +164,17 @@
                                 <a href="{{ route('cart.view') }}" class="cart-count" role="button">
                                     <img src="{{ asset('public/assets/img/icons/cart.svg') }}" class="injectable"
                                         alt="img">
-                                    <span
-                                        class="mini-cart-count">{{ array_sum(array_column($cart, 'quantity')) }}</span>
+                                    <span class="mini-cart-count">
+                                        {{-- Cek apakah variabel $cart ada dan tidak kosong --}}
+                                        @isset($cart)
+                                            {{ array_sum(array_column($cart, 'quantity')) }}
+                                        @else
+                                            0
+                                        @endisset
+                                    </span>
                                 </a>
                             </div>
+
 
                             @auth
                                 <div class="mobile-menu-dropdown dropdown">
