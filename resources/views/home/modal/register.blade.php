@@ -24,7 +24,7 @@
                                 maxlength="12">
                         </div>
                         <div class="form-grp position-relative">
-                            <input id="password" type="password" placeholder="Password" name="password"
+                            <input id="passworda" type="password" placeholder="Password" name="password"
                                 class="form-control">
                             <i id="togglePassword" class="toggle-password bi bi-eye position-absolute"
                                 style="right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
@@ -56,10 +56,8 @@
     </div>
 </div>
 <script>
-    // Fungsi untuk toggle password visibility
-    // Fungsi untuk toggle password visibility
     function togglePassword() {
-        const passwordField = document.getElementById('password');
+        const passwordField = document.getElementById('passworda');
         const toggleIcon = document.getElementById('togglePassword');
 
         // Cek apakah password saat ini disembunyikan atau terlihat
