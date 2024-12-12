@@ -410,7 +410,7 @@ Route::post('forgot-password', function (\Illuminate\Http\Request $request) {
     );
 
     return $status === Password::RESET_LINK_SENT
-        ? back()->with(['status' => __($status)])
+        ? back()->with('success', 'Email reset password berhasil dikirim.')
         : back()->withErrors(['email' => __($status)]);
 })->middleware('guest')->name('password.email');
 
@@ -437,6 +437,6 @@ Route::post('reset-password', function (\Illuminate\Http\Request $request) {
     );
 
     return $status === Password::PASSWORD_RESET
-        ? redirect()->route('/')->with('status', __($status))
+        ? redirect()->route('/')->with('success', 'Password berhasil diperbarui. Silakan login.')
         : back()->withErrors(['email' => [__($status)]]);
 })->middleware('guest')->name('password.update');
