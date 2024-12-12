@@ -1,4 +1,4 @@
-@section('title', 'ProSkill Akademia | Hasil Pencarian')
+@section('title', 'ProSkill Akademia | Kelas dan Produk')
 <?php $page = 'Search'; ?>
 
 @extends('layout.mainlayout')
@@ -14,13 +14,13 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb__content">
-                        <h3 class="title">Hasil Pencarian</h3>
+                        <h3 class="title">Kelas & Produk</h3>
                         <nav class="breadcrumb">
                             <span property="itemListElement" typeof="ListItem">
                                 <a href="{{ route('/') }}">Beranda</a>
                             </span>
                             <span class="breadcrumb-separator"><i class="fas fa-angle-right"></i></span>
-                            <span property="itemListElement" typeof="ListItem">Hasil Pencarian</span>
+                            <span property="itemListElement" typeof="ListItem">Kelas & Produk</span>
                         </nav>
                     </div>
                 </div>

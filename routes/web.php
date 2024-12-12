@@ -351,6 +351,7 @@ Route::post('/notifikasi/baca-semua', [NotifikasiUserController::class, 'bacaSem
 
 //search
 Route::get('/search', [SearchController::class, 'search'])->name('search');
+Route::get('/kelasdanproduk', [SearchController::class, 'kelasdanproduk'])->name('kelasdanproduk');
 
 //Event 
 Route::get('/event', [EventController::class, 'index'])->name('event');

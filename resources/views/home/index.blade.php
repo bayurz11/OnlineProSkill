@@ -31,7 +31,7 @@
                             </h3>
 
                             <div class="banner__btn-two" data-aos="fade-right" data-aos-delay="600">
-                                <a href="{{ route('search') }}" class="btn arrow-btn">Lihat Kelas & Produk <img
+                                <a href="{{ route('kelasdanproduk') }}" class="btn arrow-btn">Lihat Kelas & Produk <img
                                         src="{{ asset('public/assets/img/icons/right_arrow.svg') }}" alt="img"
                                         class="injectable"></a>
                                 <a href="https://www.youtube.com/watch?v=NwCzzvlDOmo" class="play-btn popup-video"><i
@@ -323,7 +323,7 @@
 
             <div class="all-courses-btn mt-30">
                 <div class="tg-button-wrap justify-content-center">
-                    <a href="{{ route('search') }}" class="btn arrow-btn">Lihat Semua Kelas & Produk<img
+                    <a href="{{ route('kelasdanproduk') }}" class="btn arrow-btn">Lihat Semua Kelas & Produk<img
                             src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
                 </div>
             </div>
