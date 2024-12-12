@@ -1,4 +1,7 @@
-@extends('layouts.app')
+@section('title', 'ProSkill Akademia | Produk')
+<?php $page = 'index'; ?>
+
+@extends('layout.mainlayout')
 
 @section('content')
     <div class="container">
