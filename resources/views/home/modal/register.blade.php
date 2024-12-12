@@ -58,7 +58,7 @@
 </div>
 <script>
     // Fungsi untuk toggle password visibility
-    function togglePasswordVisibility() {
+    function togglePasswordVisibilityy() {
         const passwordField = document.getElementById('password');
         const passwordIcon = document.getElementById('togglePassword');
         const type = passwordField.type === 'password' ? 'text' : 'password';
@@ -76,7 +76,7 @@
     }
 
     // Tambahkan event listener untuk tombol toggle password
-    document.getElementById('togglePassword').addEventListener('click', togglePasswordVisibility);
+    document.getElementById('togglePassword').addEventListener('click', togglePasswordVisibilityy);
     document.getElementById('togglePasswordConfirmation').addEventListener('click',
         togglePasswordVisibilityConfirmation);
 </script>
