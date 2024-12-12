@@ -5,10 +5,13 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\QuizController;
 use App\Http\Middleware\AdminMiddleware;
+use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\OauthController;
 use App\Http\Controllers\PixelController;
+use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\PaymentController;
@@ -20,7 +23,6 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GiftClassController;
 use App\Http\Controllers\KurikulumController;
 use App\Http\Controllers\AdminEventController;
-use App\Http\Controllers\AdminQuizSettingController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\KonsultasiController;
 use App\Http\Controllers\SertifikatController;
@@ -31,27 +33,26 @@ use App\Http\Controllers\TentangKamiController;
 use App\Http\Controllers\CourseMasterController;
 use App\Http\Controllers\KategoriBlogController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\ProdukSettingController;
 use App\Http\Controllers\SubcategoriesController;
 use App\Http\Controllers\AksesPembelianController;
 use App\Http\Controllers\InstrukturQuizController;
+use App\Http\Controllers\KategoriProdukController;
 use App\Http\Controllers\KelasTatapMukaController;
 use App\Http\Controllers\NotifikasiUserController;
 use App\Http\Controllers\BootcampsettingController;
 use App\Http\Controllers\DashboardStudenController;
+use App\Http\Controllers\AdminQuizSettingController;
 use App\Http\Controllers\RiwayatTransaksiController;
 use App\Http\Controllers\InstrukturCoursesController;
 use App\Http\Controllers\InstrukturSectionController;
+use App\Http\Controllers\InstrukturSettingController;
 use App\Http\Controllers\ProfileInstrukturController;
 use App\Http\Controllers\HubungiKamiSettingController;
 use App\Http\Controllers\InstrukturQuestionController;
 use App\Http\Controllers\DashboardInstrukturController;
 use App\Http\Controllers\InstrukturKurikulumController;
-use App\Http\Controllers\InstrukturSettingController;
-use App\Http\Controllers\KategoriProdukController;
 use App\Http\Controllers\OrderHistoryManagerController;
-use App\Http\Controllers\ProdukController;
-use App\Http\Controllers\ProdukSettingController;
-use App\Http\Controllers\QuizController;
 use App\Http\Controllers\SettingProfileInstrukturController;
 
 //Authentikasi
@@ -396,3 +397,46 @@ Route::get('/excel', [BootcampController::class, 'indexexcel'])->name('excel');
 Route::get('/cart_bootcamp/checkout/{id}', [BootcampController::class, 'addToCartceckout'])->name('cart_bootcamp.checkout');
 Route::get('/cart_bootcamp', [BootcampController::class, 'show'])->name('cart_bootcamp.view');
 Route::post('cart_bootcamp/remove/{id}', [BootcampController::class, 'removeFromCart'])->name('cart_bootcamp.remove');
+
+// Route::get('forgot-password', function () {
+//     return view('auth.forgot-password'); // Sesuaikan nama view
+// })->middleware('guest')->name('password.request');
+
+Route::post('forgot-password', function (\Illuminate\Http\Request $request) {
+    $request->validate(['email' => 'required|email']);
+
+    $status = Password::sendResetLink(
+        $request->only('email')
+    );
+
+    return $status === Password::RESET_LINK_SENT
+        ? back()->with(['status' => __($status)])
+        : back()->withErrors(['email' => __($status)]);
+})->middleware('guest')->name('password.email');
+
+Route::get('reset-password/{token}', function ($token) {
+    return view('auth.reset-password', ['token' => $token]); // Sesuaikan nama view
+})->middleware('guest')->name('password.reset');
+
+Route::post('reset-password', function (\Illuminate\Http\Request $request) {
+    $request->validate([
+        'token' => 'required',
+        'email' => 'required|email',
+        'password' => 'required|min:8|confirmed',
+    ]);
+
+    $status = Password::reset(
+        $request->only('email', 'password', 'password_confirmation', 'token'),
+        function ($user, $password) {
+            $user->forceFill([
+                'password' => bcrypt($password),
+            ])->save();
+
+            $user->setRememberToken(\Illuminate\Support\Str::random(60));
+        }
+    );
+
+    return $status === Password::PASSWORD_RESET
+        ? redirect()->route('login')->with('status', __($status))
+        : back()->withErrors(['email' => [__($status)]]);
+})->middleware('guest')->name('password.update');

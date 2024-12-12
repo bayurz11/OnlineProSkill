@@ -11,21 +11,13 @@
                     <h2 class="title">Lupa Password ProSkill</h2>
                     <p>Silahkan isi form berikut untuk melanjutkan.</p>
 
-                    <form action="{{ route('forgotPassword.update') }}" method="POST" enctype="multipart/form-data"
+                    <form action="{{ route('password.email') }}" method="POST" enctype="multipart/form-data"
                         class="instructor__profile-form" id="forgotpassword">
                         @csrf
 
                         <div class="form-grp">
                             <input type="email" id="email" placeholder="Email" name="email" required>
                         </div>
-                        <div class="form-grp">
-                            <input type="password" id="password" placeholder="Password Baru" name="password" required>
-                        </div>
-                        <div class="form-grp">
-                            <input type="password" id="password_confirmation" placeholder="Konfirmasi Password"
-                                name="password_confirmation" required>
-                        </div>
-                        <span>Password minimal 8 karakter terdiri simbol, huruf, dan angka</span>
                         <button class="g-recaptcha btn btn-two arrow-btn"
                             data-sitekey="{{ config('services.recaptcha_v3.siteKey') }}"
                             data-callback="onSubmitForgotPassword" data-action='submit'>Reset Password
