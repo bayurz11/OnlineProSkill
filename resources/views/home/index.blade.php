@@ -254,7 +254,7 @@
                                     $averageRating = $kelas->reviews()->avg('rating');
                                 @endphp
 
-                                @if ($kurikulumExists)
+                                @if ($kurikulumExists && $kelas->course_type != 'bootcamp')
                                     <div class="swiper-slide">
                                         <div
                                             class="courses__item courses__item-two shine__animate-item d-flex flex-column h-100">
@@ -272,8 +272,7 @@
                                                         @if ($kelas['course_type'] == 'online')
                                                             <span class="badge bg-primary">Online</span>
                                                         @elseif ($kelas['course_type'] == 'offline')
-                                                            <span class="badge bg-secondary">Kelas Tatap
-                                                                Muka</span>
+                                                            <span class="badge bg-secondary">Kelas Tatap Muka</span>
                                                         @elseif ($kelas['course_type'] == 'produk')
                                                             <span class="badge bg-success">Produk</span>
                                                         @else
@@ -307,27 +306,21 @@
                                                     </div>
                                                     <div class="avg-rating">
                                                         <i class="fas fa-star"></i>
-                                                        ({{ $averageRating ? number_format($averageRating, 1) : '0.0' }}
-                                                        Reviews)
+
+
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                @endif
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="all-courses-btn mt-30">
-                <div class="tg-button-wrap justify-content-center">
-                    <a href="{{ route('kelasdanproduk') }}" class="btn arrow-btn">Lihat Semua Kelas & Produk<img
-                            src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
-                </div>
-            </div>
-        </div>
+                                        <div class="all-courses-btn mt-30">
+                                            <div class="tg-button-wrap justify-content-center">
+                                                <a href="{{ route('kelasdanproduk') }}" class="btn arrow-btn">Lihat Semua
+                                                    Kelas & Produk<img src="public/assets/img/icons/right_arrow.svg"
+                                                        alt="img" class="injectable"></a>
+                                            </div>
+                                        </div>
+                                    </div>
     </section>
     <!-- course-area-end -->
     @if ($KelasTatapMuka->where('course_type', 'bootcamp')->where('status', 1)->count() > 0)
