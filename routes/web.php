@@ -423,6 +423,13 @@ Route::post('reset-password', function (\Illuminate\Http\Request $request) {
         'token' => 'required',
         'email' => 'required|email',
         'password' => 'required|min:8|confirmed',
+    ], [
+
+        'email.required' => 'Alamat email wajib diisi.',
+        'email.email' => 'Alamat email tidak valid.',
+        'password.required' => 'Password wajib diisi.',
+        'password.min' => 'Password harus memiliki minimal 8 karakter.',
+        'password.confirmed' => 'Konfirmasi password tidak cocok.',
     ]);
 
     $status = Password::reset(
