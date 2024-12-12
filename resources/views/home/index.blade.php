@@ -306,21 +306,28 @@
                                                     </div>
                                                     <div class="avg-rating">
                                                         <i class="fas fa-star"></i>
-
-
+                                                        ({{ $averageRating ? number_format($averageRating, 1) : '0.0' }}
+                                                        Reviews)
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <div class="all-courses-btn mt-30">
-                                            <div class="tg-button-wrap justify-content-center">
-                                                <a href="{{ route('kelasdanproduk') }}" class="btn arrow-btn">Lihat Semua
-                                                    Kelas & Produk<img src="public/assets/img/icons/right_arrow.svg"
-                                                        alt="img" class="injectable"></a>
-                                            </div>
-                                        </div>
                                     </div>
+                                @endif
+                            @endforeach
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="all-courses-btn mt-30">
+                <div class="tg-button-wrap justify-content-center">
+                    <a href="{{ route('kelasdanproduk') }}" class="btn arrow-btn">Lihat Semua Kelas & Produk<img
+                            src="public/assets/img/icons/right_arrow.svg" alt="img" class="injectable"></a>
+                </div>
+            </div>
+        </div>
     </section>
     <!-- course-area-end -->
     @if ($KelasTatapMuka->where('course_type', 'bootcamp')->where('status', 1)->count() > 0)
