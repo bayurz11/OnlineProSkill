@@ -261,7 +261,7 @@
 @include('home.modal.register')
 @include('home.modal.registerinstruktur')
 @include('home.modal.registercart')
-@include('home.modal.forgotpassword')
+@include('home.modal.forgot-password')
 <!-- Model instruktur -->
 @if (Auth::check() && Auth::user()->userRole->role_id == 2)
     @include('instruktur.modal.modalcreateCourse')
