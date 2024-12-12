@@ -1,6 +1,6 @@
 @extends('layout.mainlayout')
 
-@section('title', 'ProSkill Akademia | Cart2')
+@section('title', 'ProSkill Akademia | Cart')
 <?php $page = 'Cart'; ?>
 
 @section('content')
