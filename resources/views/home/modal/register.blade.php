@@ -23,19 +23,19 @@
                             <input type="phone" id="phone_number" placeholder="08**********" name="phone_number"
                                 maxlength="12">
                         </div>
-                        <div class="form-grp">
-                            <input type="password" id="password" placeholder="Password" name="password"
-                                class="password-field">
-                            <button type="button" id="togglePassword" class="toggle-password">
-                                <i class="fa fa-eye"></i> <!-- Icon mata -->
-                            </button>
+                        <div class="form-grp position-relative">
+                            <input id="password" type="password" placeholder="Password" name="password"
+                                class="form-control">
+                            <i class="toggle-password bi bi-eye position-absolute"
+                                style="right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer;"
+                                onclick="togglePasswordVisibility1()"></i>
                         </div>
-                        <div class="form-grp">
-                            <input type="password" id="password_confirmation" placeholder="Konfirmasi Password"
-                                name="password_confirmation" class="password-field">
-                            <button type="button" id="togglePasswordConfirmation" class="toggle-password">
-                                <i class="fa fa-eye"></i> <!-- Icon mata -->
-                            </button>
+                        <div class="form-grp position-relative">
+                            <input id="password_confirmation" type="password" placeholder="Konfirmasi Password"
+                                name="password_confirmation" class="form-control">
+                            <i class="toggle-password bi bi-eye position-absolute"
+                                style="right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer;"
+                                onclick="togglePasswordVisibilityConfirmation()"></i>
                         </div>
 
                         <span>Password minimal 8 karakter terdiri simbol,
@@ -57,45 +57,26 @@
         </div>
     </div>
 </div>
-<style>
-    .toggle-password {
-        position: absolute;
-        right: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-        background: none;
-        border: none;
-        cursor: pointer;
-    }
-
-    .password-field {
-        position: relative;
-        padding-right: 40px;
-        /* Memberikan ruang untuk tombol toggle */
-    }
-</style>
 <script>
-    // Menangani toggle untuk password
-    const togglePassword = document.getElementById('togglePassword');
-    const passwordField = document.getElementById('password');
-    togglePassword.addEventListener('click', function() {
+    // Fungsi untuk toggle password visibility
+    function togglePasswordVisibility1() {
+        const passwordField = document.getElementById('password');
+        const passwordIcon = document.querySelector('#password + .toggle-password');
         // Cek tipe input password
         const type = passwordField.type === 'password' ? 'text' : 'password';
         passwordField.type = type;
         // Ganti ikon mata
-        togglePassword.innerHTML = type === 'password' ? '<i class="fa fa-eye"></i>' :
-            '<i class="fa fa-eye-slash"></i>';
-    });
+        passwordIcon.classList.toggle('bi-eye-slash');
+    }
 
-    // Menangani toggle untuk password_confirmation
-    const togglePasswordConfirmation = document.getElementById('togglePasswordConfirmation');
-    const passwordConfirmationField = document.getElementById('password_confirmation');
-    togglePasswordConfirmation.addEventListener('click', function() {
-        // Cek tipe input password_confirmation
+    // Fungsi untuk toggle password confirmation visibility
+    function togglePasswordVisibilityConfirmation() {
+        const passwordConfirmationField = document.getElementById('password_confirmation');
+        const passwordConfirmationIcon = document.querySelector('#password_confirmation + .toggle-password');
+        // Cek tipe input password confirmation
         const type = passwordConfirmationField.type === 'password' ? 'text' : 'password';
         passwordConfirmationField.type = type;
         // Ganti ikon mata
-        togglePasswordConfirmation.innerHTML = type === 'password' ? '<i class="fa fa-eye"></i>' :
-            '<i class="fa fa-eye-slash"></i>';
-    });
+        passwordConfirmationIcon.classList.toggle('bi-eye-slash');
+    }
 </script>
