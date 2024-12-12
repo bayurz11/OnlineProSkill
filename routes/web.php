@@ -415,7 +415,7 @@ Route::post('forgot-password', function (\Illuminate\Http\Request $request) {
 })->middleware('guest')->name('password.email');
 
 Route::get('reset-password/{token}', function ($token) {
-    return view('auth.reset-password', ['token' => $token]); // Sesuaikan nama view
+    return view('reset-password', ['token' => $token]); // Sesuaikan nama view
 })->middleware('guest')->name('password.reset');
 
 Route::post('reset-password', function (\Illuminate\Http\Request $request) {
