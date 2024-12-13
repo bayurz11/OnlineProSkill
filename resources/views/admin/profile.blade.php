@@ -8,10 +8,12 @@
         <!-- User Profile Form -->
         <div class="text-center mb-4">
             <div class="position-relative d-inline-block">
-                <img src="/path/to/default-profile.png" alt="Profile Picture" class="rounded-circle border" width="120"
-                    height="120">
-                <label for="profile_picture" class="position-absolute bottom-0 end-0 bg-white border rounded-circle p-1">
-                    <i class="bi bi-camera-fill"></i>
+                <img src="/path/to/default-profile.png" alt="Profile Picture" class="rounded-circle border shadow-sm"
+                    width="120" height="120">
+                <label for="profile_picture"
+                    class="position-absolute bottom-0 end-0 bg-primary text-white border rounded-circle p-2"
+                    style="cursor: pointer;">
+                    <i class="bi bi-camera-fill fs-5"></i>
                 </label>
                 <input type="file" id="profile_picture" name="profile_picture" class="d-none">
             </div>
