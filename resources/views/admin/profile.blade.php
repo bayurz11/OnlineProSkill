@@ -6,7 +6,7 @@
 @section('content')
     <br><br>
     <div class="container mt-5">
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('dmin.profile.update') }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <!-- User Profile Form -->
