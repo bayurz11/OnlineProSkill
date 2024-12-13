@@ -14,7 +14,7 @@
                 <div class="position-relative d-inline-block"
                     style="width: 120px; height: 120px; overflow: hidden; border-radius: 50%; border: 1px solid #dee2e6; box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);">
                     <img id="profile_preview"
-                        src="{{ $profile && $profile->gambar ? (strpos($profile->gambar, 'googleusercontent') !== false ? $profile->gambar : asset('uploads/' . $profile->gambar)) : asset('assets/img/courses/details_instructors02.jpg') }}"
+                        src="{{ $profile && $profile->gambar ? (strpos($profile->gambar, 'googleusercontent') !== false ? $profile->gambar : asset('public/uploads/' . $profile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
                         alt="Profile Picture" style="width: 100%; height: 100%; object-fit: cover;">
                     <label for="profile_picture" class="position-absolute"
                         style="bottom: 5px; right: 5px; transform: translateX(-50%); background-color: #007bff; color: #fff; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);">
