@@ -84,7 +84,7 @@
                                                             <span class="dashboard__quiz-result">Berjalan</span>
                                                         @endif
                                                     </td>
-                                                    <td>
+                                                    {{-- <td>
                                                         <a href="{{ route('kurikulum', ['id' => $quiz->id]) }}"
                                                             class="btn btn-success btn-icon kurikulum-btn"
                                                             data-id="{{ $quiz->id }}" title="Kurikulum">
@@ -102,7 +102,7 @@
                                                             class="btn btn-danger btn-icon" title="Hapus">
                                                             <i data-feather="trash-2"></i>
                                                         </button>
-                                                    </td>
+                                                    </td> --}}
                                                     <td>
                                                         <div class="dashboard__review-action">
                                                             <a href="{{ route('instruktur_view_pg', $quiz->id_tugas) }}"
