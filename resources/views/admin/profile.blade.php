@@ -4,13 +4,21 @@
 @extends('layout.mainlayout_admin')
 
 @section('content')
-    <br><br><br>
-    <div class="container mt-4">
+    <div class="container mt-5">
         <!-- User Profile Form -->
-        <div class="card mb-4">
-            <div class="card-header bg-primary text-white">
-                <h4 class="mb-0">User Profile</h4>
+        <div class="text-center mb-4">
+            <div class="position-relative d-inline-block">
+                <img src="/path/to/default-profile.png" alt="Profile Picture" class="rounded-circle border" width="120"
+                    height="120">
+                <label for="profile_picture" class="position-absolute bottom-0 end-0 bg-white border rounded-circle p-1">
+                    <i class="bi bi-camera-fill"></i>
+                </label>
+                <input type="file" id="profile_picture" name="profile_picture" class="d-none">
             </div>
+            <h5 class="mt-3">Profil Pengguna</h5>
+        </div>
+
+        <div class="card mb-4">
             <div class="card-body">
                 <form action="" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -18,7 +26,7 @@
 
                     <!-- Name -->
                     <div class="row mb-3">
-                        <label for="name" class="col-md-3 col-form-label">Name</label>
+                        <label for="name" class="col-md-3 col-form-label">Nama</label>
                         <div class="col-md-9">
                             <input type="text" name="name" id="name" class="form-control"
                                 value="{{ auth()->user()->name }}" required>
@@ -39,32 +47,12 @@
                         <label for="phone" class="col-md-3 col-form-label">Phone</label>
                         <div class="col-md-9">
                             <input type="text" name="phone" id="phone" class="form-control"
-                                value="{{ auth()->user()->phone }}">
-                        </div>
-                    </div>
-
-                    <!-- Profile Picture -->
-                    <div class="row mb-3">
-                        <label for="profile_picture" class="col-md-3 col-form-label">Profile Picture</label>
-                        <div class="col-md-9">
-                            <input type="file" name="profile_picture" id="profile_picture" class="form-control">
-                            @if (auth()->user()->profile_picture)
-                                <img src="{{ asset('storage/' . auth()->user()->profile_picture) }}" alt="Profile Picture"
-                                    class="img-thumbnail mt-2" width="100">
-                            @endif
-                        </div>
-                    </div>
-
-                    <!-- Address -->
-                    <div class="row mb-3">
-                        <label for="address" class="col-md-3 col-form-label">Address</label>
-                        <div class="col-md-9">
-                            <textarea name="address" id="address" class="form-control" rows="3">{{ auth()->user()->address }}</textarea>
+                                value="{{ auth()->user()->phone ?? '' }}" required>
                         </div>
                     </div>
 
                     <div class="text-end">
-                        <button type="submit" class="btn btn-success">Save Changes</button>
+                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                     </div>
                 </form>
             </div>
@@ -72,10 +60,8 @@
 
         <!-- Change Password Form -->
         <div class="card">
-            <div class="card-header bg-warning text-white">
-                <h4 class="mb-0">Change Password</h4>
-            </div>
             <div class="card-body">
+                <h5 class="card-title">Change Password</h5>
                 <form action="" method="POST">
                     @csrf
                     @method('PUT')
@@ -107,7 +93,7 @@
                     </div>
 
                     <div class="text-end">
-                        <button type="submit" class="btn btn-danger">Change Password</button>
+                        <button type="submit" class="btn btn-warning">Change Password</button>
                     </div>
                 </form>
             </div>
