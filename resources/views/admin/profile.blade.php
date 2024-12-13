@@ -1,7 +1,8 @@
-@section('title', 'ProSkill Akademia | Admin Profil')
 <?php $page = 'profil_admin'; ?>
 
 @extends('layout.mainlayout_admin')
+
+@section('title', 'ProSkill Akademia | Admin Profil')
 
 @section('content')
     <br><br>
@@ -13,7 +14,7 @@
                 <div class="position-relative d-inline-block"
                     style="width: 120px; height: 120px; overflow: hidden; border-radius: 50%; border: 1px solid #dee2e6; box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);">
                     <img id="profile_preview"
-                        src="{{ $profile && $profile->gambar ? (strpos($profile->gambar, 'googleusercontent') !== false ? $profile->gambar : asset('public/uploads/' . $profile->gambar)) : asset('public/assets/img/courses/details_instructors02.jpg') }}"
+                        src="{{ $profile && $profile->gambar ? (strpos($profile->gambar, 'googleusercontent') !== false ? $profile->gambar : asset('uploads/' . $profile->gambar)) : asset('assets/img/courses/details_instructors02.jpg') }}"
                         alt="Profile Picture" style="width: 100%; height: 100%; object-fit: cover;">
                     <label for="profile_picture" class="position-absolute"
                         style="bottom: 5px; right: 5px; transform: translateX(-50%); background-color: #007bff; color: #fff; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);">
@@ -22,14 +23,11 @@
                     <input type="file" id="profile_picture" name="foto" class="d-none"
                         accept="image/png, image/jpeg, image/jpg">
                 </div>
-
                 <h5 class="mt-3">Profil Pengguna</h5>
             </div>
 
             <div class="card mb-4">
                 <div class="card-body">
-
-
                     <!-- Name -->
                     <div class="row mb-3">
                         <label for="name" class="col-md-3 col-form-label">Nama</label>
@@ -44,7 +42,7 @@
                         <label for="email" class="col-md-3 col-form-label">Email</label>
                         <div class="col-md-9">
                             <input type="email" name="email" id="email" class="form-control"
-                                value="{{ auth()->user()->email }}" required>
+                                value="{{ auth()->user()->email }}" required readonly>
                         </div>
                     </div>
 
@@ -53,17 +51,17 @@
                         <label for="phone_number" class="col-md-3 col-form-label">Phone</label>
                         <div class="col-md-9">
                             <input type="text" name="phone_number" id="phone_number" class="form-control"
-                                value="{{ $profile->phone_number ?? '' }}">
+                                value="{{ $profile->phone_number ?? '' }}" required>
                         </div>
                     </div>
 
                     <div class="text-end">
                         <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                     </div>
-
                 </div>
             </div>
         </form>
+
         <!-- Change Password Form -->
         <div class="card">
             <div class="card-body">
@@ -105,10 +103,11 @@
             </div>
         </div>
     </div>
+
     <script>
         document.getElementById('profile_picture').addEventListener('change', function(event) {
             const file = event.target.files[0];
-            const imgElement = document.getElementById('profile_preview'); // Mengambil elemen <img>
+            const imgElement = document.getElementById('profile_preview');
 
             if (file) {
                 const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
@@ -129,6 +128,4 @@
             }
         });
     </script>
-
-
 @endsection

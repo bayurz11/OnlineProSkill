@@ -69,7 +69,7 @@ class DashboardController extends Controller
         // Validasi data permintaan
         $request->validate([
             'name' => 'required|string|max:255',
-            'phone' => 'required|string|max:15',
+            'phone_number' => 'required|string|max:15',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
         ]);
 
@@ -83,22 +83,25 @@ class DashboardController extends Controller
         // Perbarui data profil
         $profile->date_of_birth = $request->input('dateofBirth');
         $profile->gender = $request->input('gender');
-        $profile->phone_number = $request->input('phonenumber');
+        $profile->phone_number = $request->input('phone_number');
         $profile->address = $request->input('alamat');
         $profile->save();
 
-        // Pastikan user dapat diperbarui menggunakan Query Builder jika metode update tidak ditemukan
-        User::where('id', $user->id)->update([
+        // Update user name
+        $user->update([
             'name' => $request->name,
         ]);
+
         // Menyimpan data ke tabel logs
         $log = new Log();
         $log->action = 'Update Profile';
         $log->description = 'Profil ' . $user->name . ' berhasil diperbarui.';
         $log->user_id = $user->id;
         $log->save();
+
         return redirect()->route('adminProfile')->with('success', 'Profil berhasil diperbarui.');
     }
+
 
 
     // Update password admin
