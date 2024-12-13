@@ -6,28 +6,29 @@
 @section('content')
     <br><br>
     <div class="container mt-5">
-        <!-- User Profile Form -->
-        <div class="text-center mb-4">
-            <div class="position-relative d-inline-block"
-                style="width: 120px; height: 120px; overflow: hidden; border-radius: 50%; border: 1px solid #dee2e6; box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);">
-                <img id="profile_preview" src="https://via.placeholder.com/120x120" alt="Profile Picture"
-                    style="width: 100%; height: 100%; object-fit: cover;">
-                <label for="profile_picture" class="position-absolute"
-                    style="bottom: 5px; right: 5px; transform: translateX(-50%); background-color: #007bff; color: #fff; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);">
-                    <i data-feather="camera" style="width: 16px; height: 16px;"></i>
-                </label>
-                <input type="file" id="profile_picture" name="profile_picture" class="d-none"
-                    accept="image/png, image/jpeg, image/jpg">
+        <form action="" method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
+            <!-- User Profile Form -->
+            <div class="text-center mb-4">
+                <div class="position-relative d-inline-block"
+                    style="width: 120px; height: 120px; overflow: hidden; border-radius: 50%; border: 1px solid #dee2e6; box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);">
+                    <img id="profile_preview" src="https://via.placeholder.com/120x120" alt="Profile Picture"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                    <label for="profile_picture" class="position-absolute"
+                        style="bottom: 5px; right: 5px; transform: translateX(-50%); background-color: #007bff; color: #fff; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);">
+                        <i data-feather="camera" style="width: 16px; height: 16px;"></i>
+                    </label>
+                    <input type="file" id="profile_picture" name="profile_picture" class="d-none"
+                        accept="image/png, image/jpeg, image/jpg">
+                </div>
+
+                <h5 class="mt-3">Profil Pengguna</h5>
             </div>
 
-            <h5 class="mt-3">Profil Pengguna</h5>
-        </div>
+            <div class="card mb-4">
+                <div class="card-body">
 
-        <div class="card mb-4">
-            <div class="card-body">
-                <form action="" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @method('PUT')
 
                     <!-- Name -->
                     <div class="row mb-3">
@@ -59,10 +60,10 @@
                     <div class="text-end">
                         <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                     </div>
-                </form>
-            </div>
-        </div>
 
+                </div>
+            </div>
+        </form>
         <!-- Change Password Form -->
         <div class="card">
             <div class="card-body">
