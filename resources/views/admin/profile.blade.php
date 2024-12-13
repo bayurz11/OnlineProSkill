@@ -63,7 +63,7 @@
         </form>
 
         <!-- Change Password Form -->
-        <div class="card">
+        {{-- <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Change Password</h5>
                 <form action="" method="POST">
@@ -101,7 +101,7 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </div> --}}
     </div>
 
     <script>
