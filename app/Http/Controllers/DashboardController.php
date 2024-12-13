@@ -119,10 +119,10 @@ class DashboardController extends Controller
         }
 
         // Update user dan user profile
-
         $user->update([
             'password' => $request->password ? Hash::make($request->password) : $user->password,
         ]);
+
 
         return redirect()->route('adminProfile')->with('success', 'Kata Sandi Berhasil Dirubah');
     }
