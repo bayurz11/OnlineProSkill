@@ -73,12 +73,12 @@
                         Quiz
                     </a>
                 </li>
-                <li class="{{ Request::is('#') ? 'active' : '' }}">
+                {{-- <li class="{{ Request::is('#') ? 'active' : '' }}">
                     <a href="instructor-assignment.html">
                         <i class="skillgro-list"></i>
                         Tugas
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </nav>
         <div class="dashboard__sidebar-title mt-30 mb-20">
