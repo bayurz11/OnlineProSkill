@@ -92,7 +92,7 @@ class DashboardController extends Controller
         $log->user_id = $user->id;
         $log->save();
 
-        return redirect()->route('admin.profile')->with('success', 'Profil berhasil diperbarui.');
+        return back()->with('success', 'Profil berhasil diperbarui.');
     }
 
     // Update password admin
@@ -119,6 +119,6 @@ class DashboardController extends Controller
         $log->user_id = $user->id;
         $log->save();
 
-        return redirect()->route('admin.profile')->with('success', 'Password berhasil diubah.');
+        return back()->with('success', 'Password berhasil diubah.');
     }
 }
