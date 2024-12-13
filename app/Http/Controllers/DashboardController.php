@@ -126,6 +126,6 @@ class DashboardController extends Controller
             'password' => $request->password ? Hash::make($request->password) : $user->password,
         ]);
 
-        return redirect()->route('instruktur_setting')->with('success', 'Kata Sandi Berhasil Dirubah');
+        return redirect()->route('adminProfile')->with('success', 'Kata Sandi Berhasil Dirubah');
     }
 }
