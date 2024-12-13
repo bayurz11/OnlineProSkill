@@ -45,7 +45,7 @@ class InstrukturQuizController extends Controller
             ->whereIn('status', ['PAID', 'SETTLED'])
             ->with('KelasTatapMuka')
             ->get();
-        $quiz = Tugas::where('user_id', $user->id)->get();
+        $quiz = Tugas::where('id_instruktur', $user->id)->get();
 
         return view('instruktur.Quiz.quiz', compact(
             'user',
