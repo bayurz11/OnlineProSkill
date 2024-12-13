@@ -16,6 +16,7 @@ class DashboardController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $profile = UserProfile::where('user_id', $user->id)->first();
         $course = KelasTatapMuka::with('user')->where('course_type', 'offline')->get();
         $onlinecourse = KelasTatapMuka::with('user')->where('course_type', 'online')->get();
         $daftar_siswa = UserProfile::where('role_id', 3)->get();
@@ -38,6 +39,7 @@ class DashboardController extends Controller
     public function profile()
     {
         $user = Auth::user();
+        $profile = UserProfile::where('user_id', $user->id)->first();
         $course = KelasTatapMuka::with('user')->where('course_type', 'offline')->get();
         $onlinecourse = KelasTatapMuka::with('user')->where('course_type', 'online')->get();
         $daftar_siswa = UserProfile::where('role_id', 3)->get();
