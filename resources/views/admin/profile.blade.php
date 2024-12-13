@@ -8,16 +8,18 @@
     <div class="container mt-5">
         <!-- User Profile Form -->
         <div class="text-center mb-4">
-            <div class="position-relative d-inline-block">
-                <img id="profile_preview" src="https://via.placeholder.com/30x30" alt="Profile Picture"
-                    class="rounded-circle border shadow-sm" width="120" height="120">
+            <div class="position-relative d-inline-block"
+                style="width: 120px; height: 120px; overflow: hidden; border-radius: 50%;">
+                <img id="profile_preview" src="https://via.placeholder.com/120x120" alt="Profile Picture"
+                    style="width: 100%; height: 100%; object-fit: cover; border: 1px solid #dee2e6; box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);">
                 <label for="profile_picture"
                     class="position-absolute bottom-0 end-0 bg-primary text-white border rounded-circle p-3"
                     style="cursor: pointer; transform: translate(50%, 50%);">
                     <i class="me-2 icon-md" data-feather="camera"
                         style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"></i>
                 </label>
-                <input type="file" id="profile_picture" name="profile_picture" class="d-none">
+                <input type="file" id="profile_picture" name="profile_picture" class="d-none"
+                    accept="image/png, image/jpeg, image/jpg">
             </div>
 
             <h5 class="mt-3">Profil Pengguna</h5>
@@ -107,8 +109,7 @@
     <script>
         document.getElementById('profile_picture').addEventListener('change', function(event) {
             const file = event.target.files[0];
-            const imgElement = document.getElementById(
-            'profile_preview'); // Mengambil elemen <img> dengan id 'profile_preview'
+            const imgElement = document.getElementById('profile_preview'); // Mengambil elemen <img>
 
             if (file) {
                 const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
@@ -122,7 +123,7 @@
                 const reader = new FileReader();
 
                 reader.onload = function(e) {
-                    imgElement.src = e.target.result; // Mengganti src dengan hasil pratinjau
+                    imgElement.src = e.target.result; // Mengubah src elemen img dengan hasil pratinjau
                 }
 
                 reader.readAsDataURL(file);
