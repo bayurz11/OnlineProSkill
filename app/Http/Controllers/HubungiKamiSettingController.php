@@ -39,16 +39,27 @@ class HubungiKamiSettingController extends Controller
         return redirect()->back()->with('success', 'Contact information saved successfully!');
     }
 
+    // public function edit($id)
+    // {
+    //     $contactUs = ContactUs::find($id);
+
+    //     if (!$contactUs) {
+    //         return response()->json(['message' => 'contactUs not found'], 404);
+    //     }
+
+    //     return response()->json($contactUs);
+    // }
     public function edit($id)
     {
         $contactUs = ContactUs::find($id);
 
         if (!$contactUs) {
-            return response()->json(['message' => 'contactUs not found'], 404);
+            return response()->json(['message' => 'ContactUs not found'], 404);
         }
 
         return response()->json($contactUs);
     }
+
 
     public function update(Request $request, $id)
     {
