@@ -12,14 +12,17 @@
                 <img src="https://via.placeholder.com/30x30" alt="Profile Picture" class="rounded-circle border shadow-sm"
                     width="120" height="120">
                 <label for="profile_picture"
-                    class="position-absolute bottom-0 end-0 bg-primary text-white border rounded-circle p-2"
-                    style="cursor: pointer;">
-                    <i class="me-2 icon-md" data-feather="camera"></i>
+                    class="position-absolute bottom-0 end-0 bg-primary text-white border rounded-circle p-3"
+                    style="cursor: pointer; transform: translate(50%, 50%);">
+                    <i class="me-2 icon-md" data-feather="camera"
+                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"></i>
+                    <!-- Posisikan ikon di tengah -->
                 </label>
                 <input type="file" id="profile_picture" name="profile_picture" class="d-none">
             </div>
             <h5 class="mt-3">Profil Pengguna</h5>
         </div>
+
 
         <div class="card mb-4">
             <div class="card-body">
