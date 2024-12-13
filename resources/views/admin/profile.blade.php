@@ -4,7 +4,7 @@
 @extends('layout.mainlayout_admin')
 
 @section('content')
-    <br><br><br>
+    <br><br>
     <div class="container mt-5">
         <!-- User Profile Form -->
         <div class="text-center mb-4">
@@ -14,6 +14,7 @@
                 <label for="profile_picture"
                     class="position-absolute bottom-0 end-0 bg-primary text-white border rounded-circle p-2"
                     style="cursor: pointer;">
+                    <i class="me-2 icon-md" data-feather="camera-fill"></i>
                     <i class="bi bi-camera-fill fs-5"></i>
                 </label>
                 <input type="file" id="profile_picture" name="profile_picture" class="d-none">
