@@ -8,7 +8,6 @@
     <div class="container mt-5">
         <form action="{{ route('admin.profile.update') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            @method('PUT')
             <!-- User Profile Form -->
             <div class="text-center mb-4">
                 <div class="position-relative d-inline-block"
