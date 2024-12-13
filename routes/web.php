@@ -79,7 +79,7 @@ Route::middleware('isAdmin')->group(function () {
     Route::post('/admin/profile/update', [DashboardController::class, 'updateProfil'])->name('admin.profile.update');
 
     // Route untuk update password
-    Route::post('/admin/profile/password', [DashboardController::class, 'updatePassword'])->name('admin.password.update');
+    Route::post('/admin/profile/password/{id}', [DashboardController::class, 'updatePassword'])->name('admin.password.update');
     Route::get('/get-notifications', [NotificationController::class, 'getNotifications']);
     Route::post('/mark-notifications-read', [NotificationController::class, 'markNotificationsRead']);
 
