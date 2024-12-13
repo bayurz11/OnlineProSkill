@@ -76,10 +76,10 @@ Route::middleware('isAdmin')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/adminProfile', [DashboardController::class, 'profile'])->name('adminProfile');
     // Route untuk update profil
-    Route::put('/admin/profile/update', [DashboardController::class, 'updateProfil'])->name('admin.profile.update');
+    Route::post('/admin/profile/update', [DashboardController::class, 'updateProfil'])->name('admin.profile.update');
 
     // Route untuk update password
-    Route::put('/admin/profile/password', [DashboardController::class, 'updatePassword'])->name('admin.password.update');
+    Route::post('/admin/profile/password', [DashboardController::class, 'updatePassword'])->name('admin.password.update');
     Route::get('/get-notifications', [NotificationController::class, 'getNotifications']);
     Route::post('/mark-notifications-read', [NotificationController::class, 'markNotificationsRead']);
 
