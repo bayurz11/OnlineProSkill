@@ -24,31 +24,21 @@ class HubungiKamiSettingController extends Controller
         // Validate the request data
         $request->validate([
             'alamat' => 'required|string|max:255',
-            'include.*' => 'nullable|string|max:15', // assuming these are phone numbers
-            'includemail.*' => 'nullable|email|max:255',
+            'telepon' => 'nullable|string|max:15', // assuming these are phone numbers
+            'email' => 'nullable|email|max:255',
         ]);
 
         // Create a new ContactUs record
         $contactUs = new ContactUs();
         $contactUs->alamat = $request->input('alamat');
-        $contactUs->telepon = json_encode($request->input('include')); // Store as JSON array
-        $contactUs->email = json_encode($request->input('includemail')); // Store as JSON array
+        $contactUs->telepon = json_encode($request->input('telepon')); // Store as JSON array
+        $contactUs->email = json_encode($request->input('email')); // Store as JSON array
         $contactUs->save();
 
         // Redirect or respond with a success message
         return redirect()->back()->with('success', 'Contact information saved successfully!');
     }
 
-    // public function edit($id)
-    // {
-    //     $contactUs = ContactUs::find($id);
-
-    //     if (!$contactUs) {
-    //         return response()->json(['message' => 'contactUs not found'], 404);
-    //     }
-
-    //     return response()->json($contactUs);
-    // }
     public function edit($id)
     {
         $contactUs = ContactUs::find($id);
@@ -57,13 +47,8 @@ class HubungiKamiSettingController extends Controller
             return response()->json(['message' => 'contactUs not found'], 404);
         }
 
-        // Format data sebelum mengembalikan
-        $contactUs->telepon = json_decode($contactUs->telepon, true);
-        $contactUs->email = json_decode($contactUs->email, true);
-
         return response()->json($contactUs);
     }
-
 
     public function update(Request $request, $id)
     {

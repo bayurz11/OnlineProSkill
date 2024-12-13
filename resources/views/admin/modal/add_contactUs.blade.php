@@ -14,26 +14,17 @@
                         <input type="text" class="form-control" id="alamat" name="alamat"
                             placeholder="Masukkan Alamat Anda" required>
                     </div>
+                    <div class="mb-3">
+                        <label for="telepon" class="form-label">Tetepon<span class="text-danger">*</span></label>
+                        <input type="number" class="form-control" id="telepon" name="telepon"
+                            placeholder="Masukkan Nomor Telepon Anda" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Alamat Email <span class="text-danger">*</span></label>
+                        <input type="email" class="form-control" id="email" name="email"
+                            placeholder="Masukkan Email Anda" required>
+                    </div>
 
-                    <div class="mb-3">
-                        <label for="include" class="form-label">Telepon <span class="text-danger">*</span></label>
-                        <div id="include-container">
-                            <div class="input-group mb-2">
-                                <input type="text" class="form-control" id="include" name="include[]">
-                                <button class="btn btn-success" type="button" id="add-include">+</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="includemail" class="form-label">Alamat Email <span
-                                class="text-danger">*</span></label>
-                        <div id="includemail-container">
-                            <div class="input-group mb-2">
-                                <input type="text" class="form-control" id="includemail" name="includemail[]">
-                                <button class="btn btn-success" type="button" id="add-includemail">+</button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="modal-footer">
