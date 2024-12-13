@@ -85,20 +85,20 @@
                                                         @endif
                                                     </td>
                                                     <td>
-                                                        <a href="{{ route('kurikulum', ['id' => $courses->id]) }}"
+                                                        <a href="{{ route('kurikulum', ['id' => $quiz->id]) }}"
                                                             class="btn btn-success btn-icon kurikulum-btn"
-                                                            data-id="{{ $courses->id }}" title="Kurikulum">
+                                                            data-id="{{ $quiz->id }}" title="Kurikulum">
                                                             <i data-feather="settings"></i>
                                                         </a>
 
 
                                                         <button type="button" class="btn btn-primary btn-icon edit-button"
                                                             title="Edit" data-bs-toggle="modal"
-                                                            data-bs-target="#editModal" data-id="{{ $courses->id }}">
+                                                            data-bs-target="#editModal" data-id="{{ $quiz->id }}">
                                                             <i data-feather="edit"></i>
                                                         </button>
 
-                                                        <button onclick="hapus('{{ $courses->id }}')"
+                                                        <button onclick="hapus('{{ $quiz->id }}')"
                                                             class="btn btn-danger btn-icon" title="Hapus">
                                                             <i data-feather="trash-2"></i>
                                                         </button>
