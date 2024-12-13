@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AdminEvent;
+use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreAdminEventRequest;
@@ -14,12 +15,13 @@ class AdminEventController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $profile = UserProfile::where('user_id', $user->id)->first();
         $event = AdminEvent::all();
         $count = $event->count();
         if (!$user) {
             return redirect()->route('login_admin');
         }
-        return view('admin.event.index', compact('user', 'event', 'count'));
+        return view('admin.event.index', compact('user', 'event', 'count', 'profile'));
     }
 
 

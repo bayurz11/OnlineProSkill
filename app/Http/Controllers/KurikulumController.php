@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Section;
 use App\Models\Kurikulum;
 use App\Models\Categories;
+use App\Models\UserProfile;
+use Illuminate\Http\Request;
 use App\Models\KelasTatapMuka;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreKurikulumRequest;
 use App\Http\Requests\UpdateKurikulumRequest;
-use App\Models\Section;
-use Illuminate\Http\Request;
 
 class KurikulumController extends Controller
 {
@@ -18,6 +19,7 @@ class KurikulumController extends Controller
     public function index($id)
     {
         $user = Auth::user();
+        $profile = UserProfile::where('user_id', $user->id)->first();
         $categori = Categories::all();
         $kurikulum = Kurikulum::with('user')->where('course_id', $id)->get();
         $cours = KelasTatapMuka::all();
@@ -25,7 +27,7 @@ class KurikulumController extends Controller
         if (!$user) {
             return redirect()->route('login_admin');
         }
-        return view('admin.KelasTatapMuka.kurikulum', compact('user', 'categori', 'kurikulum', 'cours', 'section'));
+        return view('admin.KelasTatapMuka.kurikulum', compact('user', 'categori', 'kurikulum', 'cours', 'section', 'profile'));
     }
 
     /**

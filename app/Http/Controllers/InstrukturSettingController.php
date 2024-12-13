@@ -17,13 +17,14 @@ class InstrukturSettingController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $profile = UserProfile::where('user_id', $user->id)->first();
         if (!$user) {
             return redirect()->route('login_admin');
         }
 
         $daftar_instruktur = UserProfile::where('role_id', 2)->get();
 
-        return view('admin.kesiswaan.daftar_instruktur', compact('user', 'daftar_instruktur'));
+        return view('admin.kesiswaan.daftar_instruktur', compact('user', 'daftar_instruktur', 'profile'));
     }
     public function storeInstruktur(Request $request)
     {

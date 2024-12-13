@@ -19,13 +19,14 @@ class SertifikatController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $profile = UserProfile::where('user_id', $user->id)->first();
         $sertifikat = Sertifikat::with('kelasTatapMuka')->get();
         $classroom = KelasTatapMuka::all();
         if (!$user) {
             return redirect()->route('/');
         }
 
-        return view('admin.sertifikat.index', compact('user', 'sertifikat', 'classroom'));
+        return view('admin.sertifikat.index', compact('user', 'sertifikat', 'classroom', 'profile'));
     }
 
     public function store(Request $request)

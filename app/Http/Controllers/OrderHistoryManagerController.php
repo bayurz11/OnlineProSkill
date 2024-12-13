@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Categories;
+use App\Models\UserProfile;
 use App\Models\OrderHistoryManager;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
@@ -16,6 +17,7 @@ class OrderHistoryManagerController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $profile = UserProfile::where('user_id', $user->id)->first();
         $categori = Categories::all();
         $count = $categori->count();
 
@@ -37,7 +39,7 @@ class OrderHistoryManagerController extends Controller
             }
         }
 
-        return view('admin.CourseMaster.orderhistory', compact('user', 'categori', 'count', 'orders'));
+        return view('admin.CourseMaster.orderhistory', compact('user', 'categori', 'count', 'orders', 'profile'));
     }
     public function cetak($id)
     {

@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categories;
-use App\Models\Subcategories;
+use App\Models\UserProfile;
 use Illuminate\Http\Request;
+use App\Models\Subcategories;
 use Illuminate\Support\Facades\Auth;
 
 class SubcategoriesController extends Controller
@@ -12,13 +13,14 @@ class SubcategoriesController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $profile = UserProfile::where('user_id', $user->id)->first();
         $categori = Categories::all();
         $subcategori = Subcategories::with('category')->get();
         $count = $categori->count();
         if (!$user) {
             return redirect()->route('login_admin');
         }
-        return view('admin.categories.subcategories', compact('user', 'categori', 'count', 'subcategori'));
+        return view('admin.categories.subcategories', compact('user', 'profile', 'categori', 'count', 'subcategori'));
     }
 
 

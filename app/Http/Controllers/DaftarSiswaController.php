@@ -13,14 +13,16 @@ class DaftarSiswaController extends Controller
 {
     public function index()
     {
+
         $user = Auth::user();
+        $profile = UserProfile::where('user_id', $user->id)->first();
         if (!$user) {
             return redirect()->route('login_admin');
         }
 
         $daftar_siswa = UserProfile::where('role_id', 3)->get();
 
-        return view('admin.kesiswaan.daftar_siswa', compact('user', 'daftar_siswa'));
+        return view('admin.kesiswaan.daftar_siswa', compact('user', 'daftar_siswa', 'profile'));
     }
 
     public function updateStatus($id, Request $request)

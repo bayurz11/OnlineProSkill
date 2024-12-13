@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categories;
+use App\Models\UserProfile;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
 use App\Http\Requests\UpdateCategoriesRequest;
 
 class CategoriesController extends Controller
@@ -15,10 +16,11 @@ class CategoriesController extends Controller
         $user = Auth::user();
         $categori = Categories::all();
         $count = $categori->count();
+        $profile = UserProfile::where('user_id', $user->id)->first();
         if (!$user) {
             return redirect()->route('login_admin');
         }
-        return view('admin.categories.categories', compact('user', 'categori', 'count'));
+        return view('admin.categories.categories', compact('user', 'categori', 'profile', 'count'));
     }
 
 

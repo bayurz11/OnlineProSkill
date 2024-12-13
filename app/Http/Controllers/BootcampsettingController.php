@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Categories;
+use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use App\Models\KelasTatapMuka;
 use Illuminate\Support\Facades\Log;
@@ -15,6 +16,7 @@ class BootcampsettingController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $profile = UserProfile::where('user_id', $user->id)->first();
         $categori = Categories::all();
         $course = KelasTatapMuka::with('user')->where('course_type', 'bootcamp')->get();
         $count = $course->count();
@@ -22,7 +24,7 @@ class BootcampsettingController extends Controller
             return redirect()->route('login_admin');
         }
 
-        return view('admin.Bootcamp.bootcampsetting', compact('user', 'categori', 'count', 'course'));
+        return view('admin.Bootcamp.bootcampsetting', compact('user', 'categori', 'count', 'course', 'profile'));
     }
     public function store(Request $request)
     {
@@ -68,6 +70,7 @@ class BootcampsettingController extends Controller
     public function history()
     {
         $user = Auth::user();
+        $profile = UserProfile::where('user_id', $user->id)->first();
         $categori = Categories::all();
         $count = $categori->count();
 
@@ -93,7 +96,7 @@ class BootcampsettingController extends Controller
             }
         }
 
-        return view('admin.Bootcamp.history', compact('user', 'categori', 'count', 'orders'));
+        return view('admin.Bootcamp.history', compact('user', 'categori', 'count', 'orders', 'profile'));
     }
 
     public function cetak($id)

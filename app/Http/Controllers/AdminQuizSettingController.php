@@ -24,6 +24,7 @@ class AdminQuizSettingController extends Controller
         $categori = Categories::all();
         $cart = Session::get('cart', []);
         $user = Auth::user();
+        $profile = UserProfile::where('user_id', $user->id)->first();
         if (!$user) {
             return redirect()->route('/');
         }
@@ -48,7 +49,7 @@ class AdminQuizSettingController extends Controller
             'KelasTatapMuka',
             'categori',
             'profile',
-
+            'profile',
             'orders',
             'jumlahPendaftaran',
             'quiz'
@@ -178,7 +179,7 @@ class AdminQuizSettingController extends Controller
         $categori = Categories::all();
         $cart = Session::get('cart', []);
         $user = Auth::user();
-
+        $profile = UserProfile::where('user_id', $user->id)->first();
         if (!$user) {
             return redirect()->route('/');
         }
@@ -263,7 +264,8 @@ class AdminQuizSettingController extends Controller
             'allQuestions',
             'totalQuestions',
             'daftarpesanan',
-            'nilaiSiswa' // Kirim data ini ke view
+            'profile',
+            'nilaiSiswa'
         ));
     }
 
@@ -280,6 +282,7 @@ class AdminQuizSettingController extends Controller
         $categori = Categories::all();
         $cart = Session::get('cart', []);
         $user = Auth::user();
+        $profile = UserProfile::where('user_id', $user->id)->first();
         if (!$user) {
             return redirect()->route('/');
         }
@@ -315,6 +318,7 @@ class AdminQuizSettingController extends Controller
             'notifikasiCount',
             'orders',
             'jumlahPendaftaran',
+            'profile',
             'quiz'
         ));
     }

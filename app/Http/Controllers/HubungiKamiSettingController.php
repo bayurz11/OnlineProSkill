@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ContactUs;
+use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,11 +13,12 @@ class HubungiKamiSettingController extends Controller
     {
         $contactUs = ContactUs::all();
         $user = Auth::user();
+        $profile = UserProfile::where('user_id', $user->id)->first();
         if (!$user) {
             return redirect()->route('/');
         }
 
-        return view('admin.PengaturanUmum.contactUs', compact('user', 'contactUs'));
+        return view('admin.PengaturanUmum.contactUs', compact('user', 'contactUs', 'profile'));
     }
 
     public function store(Request $request)

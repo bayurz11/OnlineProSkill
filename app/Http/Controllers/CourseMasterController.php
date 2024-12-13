@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categories;
+use App\Models\UserProfile;
 use App\Models\CourseMaster;
 use Illuminate\Http\Request;
 use App\Models\KelasTatapMuka;
@@ -16,6 +17,7 @@ class CourseMasterController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $profile = UserProfile::where('user_id', $user->id)->first();
         $categori = Categories::all();
         $course = KelasTatapMuka::with('user')->where('course_type', 'online')->get();
         $count = $course->count();
@@ -23,7 +25,7 @@ class CourseMasterController extends Controller
             return redirect()->route('login_admin');
         }
 
-        return view('admin.CourseMaster.course', compact('user', 'categori', 'count', 'course'));
+        return view('admin.CourseMaster.course', compact('user', 'categori', 'count', 'course', 'profile'));
     }
     public function store(Request $request)
     {
