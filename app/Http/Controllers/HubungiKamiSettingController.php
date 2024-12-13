@@ -52,11 +52,11 @@ class HubungiKamiSettingController extends Controller
 
     public function update(Request $request, $id)
     {
-        // Validasi input
+        // Validate the request data
         $request->validate([
             'alamat' => 'required|string|max:255',
-            'include.*' => 'nullable|string|max:15', // Validasi untuk telepon
-            'includemail.*' => 'nullable|email|max:255', // Validasi untuk email
+            'telepon' => 'nullable|string|max:15', // assuming these are phone numbers
+            'email' => 'nullable|email|max:255',
         ]);
 
         // Temukan ContactUs berdasarkan ID
@@ -64,8 +64,8 @@ class HubungiKamiSettingController extends Controller
 
         // Update data
         $contactUs->alamat = $request->input('alamat');
-        $contactUs->telepon = json_encode($request->input('include')); // Simpan sebagai array JSON
-        $contactUs->email = json_encode($request->input('includemail')); // Simpan sebagai array JSON
+        $contactUs->telepon = json_encode($request->input('telepon')); // Simpan sebagai array JSON
+        $contactUs->email = json_encode($request->input('email')); // Simpan sebagai array JSON
         $contactUs->save();
 
         // Redirect dengan pesan sukses

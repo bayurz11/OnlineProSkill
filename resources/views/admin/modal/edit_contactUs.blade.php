@@ -16,19 +16,15 @@
                             placeholder="Masukkan Alamat Anda" required>
                     </div>
                     <div class="mb-3">
-                        <label for="edittelepon" class="form-label">Telepon <span class="text-danger">*</span></label>
-                        <div id="telepon-container">
-                            <!-- Input telepon akan dinamis di sini -->
-                        </div>
-                        <button class="btn btn-success" type="button" id="add-telepon">Tambah Telepon</button>
+                        <label for="edittelepon" class="form-label">Tetepon<span class="text-danger">*</span></label>
+                        <input type="number" class="form-control" id="edittelepon" name="telepon"
+                            placeholder="Masukkan Nomor Telepon Anda" required>
                     </div>
                     <div class="mb-3">
                         <label for="editemail" class="form-label">Alamat Email <span
                                 class="text-danger">*</span></label>
-                        <div id="email-container">
-                            <!-- Input email akan dinamis di sini -->
-                        </div>
-                        <button class="btn btn-success" type="button" id="add-email">Tambah Email</button>
+                        <input type="email" class="form-control" id="editemail" name="email"
+                            placeholder="Masukkan Email Anda" required>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -47,95 +43,82 @@
         // Menangani klik tombol edit
         $('.edit-button').on('click', function() {
             const id = $(this).data('id');
+
+            // Fetch data untuk mengisi form
             fetch(`/contact/${id}/edit`)
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
                 .then(data => {
-                    // Memasukkan data alamat
-                    $('#editalamat').val(data.alamat);
+                    // Memasukkan data ke input form
+                    $('#editalamat').val(data.alamat || '');
 
-                    // Mengelola telepon
-                    const teleponContainer = $('#telepon-container');
-                    teleponContainer.html('');
+                    // Memasukkan telepon
+                    populateContainer('#telepon-container', data.telepon, 'telepon');
 
-                    try {
-                        const teleponList = JSON.parse(data.telepon);
-
-                        if (Array.isArray(teleponList)) {
-                            teleponList.forEach(item => {
-                                const inputGroup = $(`
-                                <div class="input-group mb-2">
-                                    <input type="text" class="form-control" name="telepon[]" value="${item}">
-                                    <button class="btn btn-danger remove-telepon" type="button">-</button>
-                                </div>
-                            `);
-                                teleponContainer.append(inputGroup);
-                            });
-                        } else {
-                            console.error('Parsed telepon bukan array:', teleponList);
-                        }
-                    } catch (e) {
-                        console.error('Error parsing telepon:', e, data.telepon);
-                    }
-
-                    // Mengelola email
-                    const emailContainer = $('#email-container');
-                    emailContainer.html('');
-
-                    try {
-                        const emailList = JSON.parse(data.email);
-
-                        if (Array.isArray(emailList)) {
-                            emailList.forEach(item => {
-                                const inputGroup = $(`
-                                <div class="input-group mb-2">
-                                    <input type="email" class="form-control" name="email[]" value="${item}">
-                                    <button class="btn btn-danger remove-email" type="button">-</button>
-                                </div>
-                            `);
-                                emailContainer.append(inputGroup);
-                            });
-                        } else {
-                            console.error('Parsed email bukan array:', emailList);
-                        }
-                    } catch (e) {
-                        console.error('Error parsing email:', e, data.email);
-                    }
+                    // Memasukkan email
+                    populateContainer('#email-container', data.email, 'email');
 
                     // Mengatur aksi form untuk rute pembaruan
                     $('#editcontactModalForm').attr('action', `/contact/${data.id}/update`);
                 })
                 .catch(error => {
                     console.error('Error fetching data:', error);
+                    alert('Terjadi kesalahan saat mengambil data. Silakan coba lagi.');
                 });
         });
 
-        // Menambah input baru untuk telepon
-        $(document).on('click', '#add-telepon', function() {
-            $('#telepon-container').append(`
-            <div class="input-group mb-2">
-                <input type="text" class="form-control" name="telepon[]" placeholder="Masukkan nomor telepon">
-                <button class="btn btn-danger remove-telepon" type="button">-</button>
-            </div>
-        `);
-        });
+        // Fungsi untuk mengisi container input dinamis
+        function populateContainer(containerSelector, data, name) {
+            const container = $(containerSelector);
+            container.html(''); // Kosongkan kontainer
 
-        // Menghapus input telepon
-        $(document).on('click', '.remove-telepon', function() {
-            $(this).closest('.input-group').remove();
+            try {
+                const dataList = JSON.parse(data);
+                if (Array.isArray(dataList)) {
+                    dataList.forEach(item => {
+                        const inputGroup = $(
+                            `<div class="input-group mb-2">
+                            <input type="${name === 'email' ? 'email' : 'text'}" class="form-control" name="${name}[]" value="${item}" placeholder="Masukkan ${name}">
+                            <button class="btn btn-danger remove-${name}" type="button">-</button>
+                        </div>`
+                        );
+                        container.append(inputGroup);
+                    });
+                } else {
+                    console.warn(`${name} bukan array:`, dataList);
+                }
+            } catch (e) {
+                console.error(`Error parsing ${name}:`, e);
+            }
+        }
+
+        // Menambah input baru untuk telepon
+        $('#add-telepon').on('click', function() {
+            addInput('#telepon-container', 'telepon', 'text');
         });
 
         // Menambah input baru untuk email
-        $(document).on('click', '#add-email', function() {
-            $('#email-container').append(`
-            <div class="input-group mb-2">
-                <input type="email" class="form-control" name="email[]" placeholder="Masukkan alamat email">
-                <button class="btn btn-danger remove-email" type="button">-</button>
-            </div>
-        `);
+        $('#add-email').on('click', function() {
+            addInput('#email-container', 'email', 'email');
         });
 
-        // Menghapus input email
-        $(document).on('click', '.remove-email', function() {
+        // Fungsi untuk menambah input baru
+        function addInput(containerSelector, name, type) {
+            const inputGroup = $(
+                `<div class="input-group mb-2">
+                <input type="${type}" class="form-control" name="${name}[]" placeholder="Masukkan ${name}">
+                <button class="btn btn-danger remove-${name}" type="button">-</button>
+            </div>`
+            );
+            $(containerSelector).append(inputGroup);
+        }
+
+        // Menghapus input telepon atau email
+        $(document).on('click', '.remove-telepon, .remove-email', function() {
             $(this).closest('.input-group').remove();
         });
     });
