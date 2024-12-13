@@ -31,8 +31,8 @@ class HubungiKamiSettingController extends Controller
         // Create a new ContactUs record
         $contactUs = new ContactUs();
         $contactUs->alamat = $request->input('alamat');
-        $contactUs->telepon = json_encode($request->input('telepon')); // Store as JSON array
-        $contactUs->email = json_encode($request->input('email')); // Store as JSON array
+        $contactUs->telepon = $request->input('telepon');
+        $contactUs->email = $request->input('email');
         $contactUs->save();
 
         // Redirect or respond with a success message
@@ -75,8 +75,8 @@ class HubungiKamiSettingController extends Controller
 
         // Update data
         $contactUs->alamat = $request->input('alamat');
-        $contactUs->telepon = json_encode($request->input('telepon')); // Simpan sebagai array JSON
-        $contactUs->email = json_encode($request->input('email')); // Simpan sebagai array JSON
+        $contactUs->telepon = $request->input('telepon');
+        $contactUs->email = $request->input('email');
         $contactUs->save();
 
         // Redirect dengan pesan sukses
