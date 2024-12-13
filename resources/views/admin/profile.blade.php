@@ -23,7 +23,6 @@
             <h5 class="mt-3">Profil Pengguna</h5>
         </div>
 
-
         <div class="card mb-4">
             <div class="card-body">
                 <form action="" method="POST" enctype="multipart/form-data">
@@ -53,7 +52,7 @@
                         <label for="phone" class="col-md-3 col-form-label">Phone</label>
                         <div class="col-md-9">
                             <input type="text" name="phone" id="phone" class="form-control"
-                                value="{{ auth()->user()->phone ?? '' }}" required>
+                                value="{{ $profile->phone_number ?? '' }}" required>
                         </div>
                     </div>
 
