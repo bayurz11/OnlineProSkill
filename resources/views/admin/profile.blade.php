@@ -8,7 +8,7 @@
         <!-- User Profile Form -->
         <div class="text-center mb-4">
             <div class="position-relative d-inline-block">
-                <img src="/path/to/default-profile.png" alt="Profile Picture" class="rounded-circle border shadow-sm"
+                <img src="https://via.placeholder.com/30x30" alt="Profile Picture" class="rounded-circle border shadow-sm"
                     width="120" height="120">
                 <label for="profile_picture"
                     class="position-absolute bottom-0 end-0 bg-primary text-white border rounded-circle p-2"
