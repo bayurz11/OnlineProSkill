@@ -20,7 +20,7 @@
                         style="bottom: 5px; right: 5px; transform: translateX(-50%); background-color: #007bff; color: #fff; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);">
                         <i data-feather="camera" style="width: 16px; height: 16px;"></i>
                     </label>
-                    <input type="file" id="profile_picture" name="profile_picture" class="d-none"
+                    <input type="file" id="profile_picture" name="foto" class="d-none"
                         accept="image/png, image/jpeg, image/jpg">
                 </div>
 

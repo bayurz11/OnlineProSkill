@@ -69,14 +69,14 @@ class DashboardController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
             'phone' => 'required|string|max:15',
-            'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10000'
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10000'
         ]);
 
         // Menghandle upload gambar profil
-        if ($request->hasFile('profile_picture')) {
-            $profilePictureName = time() . '.' . $request->profile_picture->extension();
-            $request->profile_picture->move(public_path('uploads'), $profilePictureName);
-            $user->profile_picture = $profilePictureName;
+        if ($request->hasFile('foto')) {
+            $profilePictureName = time() . '.' . $request->foto->extension();
+            $request->foto->move(public_path('uploads'), $profilePictureName);
+            $user->foto = $profilePictureName;
         }
 
         // Perbarui data user
