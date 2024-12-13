@@ -14,8 +14,7 @@
                 <label for="profile_picture"
                     class="position-absolute bottom-0 end-0 bg-primary text-white border rounded-circle p-2"
                     style="cursor: pointer;">
-                    <i class="me-2 icon-md" data-feather="camera-fill"></i>
-                    <i class="bi bi-camera-fill fs-5"></i>
+                    <i class="feather-icon me-2 icon-md" data-feather="camera-fill"></i>
                 </label>
                 <input type="file" id="profile_picture" name="profile_picture" class="d-none">
             </div>
