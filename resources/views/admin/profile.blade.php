@@ -110,6 +110,14 @@
             const imgElement = document.querySelector('.position-relative img');
 
             if (file) {
+                const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+
+                if (!allowedTypes.includes(file.type)) {
+                    alert('Hanya file gambar dengan format JPG, JPEG, atau PNG yang diperbolehkan.');
+                    event.target.value = ''; // Reset input file
+                    return;
+                }
+
                 const reader = new FileReader();
 
                 reader.onload = function(e) {
@@ -120,4 +128,5 @@
             }
         });
     </script>
+
 @endsection
