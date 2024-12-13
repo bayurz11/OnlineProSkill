@@ -34,7 +34,7 @@ class DashboardController extends Controller
         if (!$user) {
             return redirect()->route('login_admin');
         }
-        return view('admin.dashboard', compact('user', 'course', 'count', 'daftar_siswa', 'onlinecourse', 'orders', 'bootcamp'));
+        return view('admin.dashboard', compact('user', 'profile', 'course', 'count', 'daftar_siswa', 'onlinecourse', 'orders', 'bootcamp'));
     }
     public function profile()
     {
@@ -57,7 +57,7 @@ class DashboardController extends Controller
         if (!$user) {
             return redirect()->route('login_admin');
         }
-        return view('admin.profile', compact('user', 'course', 'count', 'daftar_siswa', 'onlinecourse', 'orders', 'bootcamp'));
+        return view('admin.profile', compact('user', 'course', 'profile', 'count', 'daftar_siswa', 'onlinecourse', 'orders', 'bootcamp'));
     }
     // Update profil admin
     public function updateProfil(Request $request)
