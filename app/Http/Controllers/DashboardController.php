@@ -63,37 +63,43 @@ class DashboardController extends Controller
     public function updateProfil(Request $request)
     {
         $user = Auth::user();
+        // Pastikan pengguna yang terautentikasi hanya dapat memperbarui profil mereka sendiri
+        $profile = UserProfile::where('user_id', $user->id)->firstOrFail();
 
         // Validasi data permintaan
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
             'phone' => 'required|string|max:15',
-            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10000'
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
         ]);
 
-        // Menghandle upload gambar profil
+        // Menangani upload gambar profil
         if ($request->hasFile('foto')) {
             $profilePictureName = time() . '.' . $request->foto->extension();
             $request->foto->move(public_path('uploads'), $profilePictureName);
-            $user->foto = $profilePictureName;
+            $profile->gambar = $profilePictureName;
         }
 
-        // Perbarui data user
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->phone = $request->phone;
-        $user->save();
+        // Perbarui data profil
+        $profile->date_of_birth = $request->input('dateofBirth');
+        $profile->gender = $request->input('gender');
+        $profile->phone_number = $request->input('phonenumber');
+        $profile->address = $request->input('alamat');
+        $profile->save();
 
-        // Simpan log aktivitas
+        // Pastikan user dapat diperbarui menggunakan Query Builder jika metode update tidak ditemukan
+        User::where('id', $user->id)->update([
+            'name' => $request->name,
+        ]);
+        // Menyimpan data ke tabel logs
         $log = new Log();
         $log->action = 'Update Profile';
         $log->description = 'Profil ' . $user->name . ' berhasil diperbarui.';
         $log->user_id = $user->id;
         $log->save();
-
-        return back()->with('success', 'Profil berhasil diperbarui.');
+        return redirect()->route('adminProfile')->with('success', 'Profil berhasil diperbarui.');
     }
+
 
     // Update password admin
     public function updatePassword(Request $request)
