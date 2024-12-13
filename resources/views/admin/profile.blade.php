@@ -14,7 +14,7 @@
                 <label for="profile_picture"
                     class="position-absolute bottom-0 end-0 bg-primary text-white border rounded-circle p-2"
                     style="cursor: pointer;">
-                    <i class="me-2 icon-md" data-feather="log-out"></i>
+                    <i class="me-2 icon-md" data-feather="camera"></i>
                 </label>
                 <input type="file" id="profile_picture" name="profile_picture" class="d-none">
             </div>
