@@ -66,7 +66,8 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Change Password</h5>
-                <form action="{{ route('admin.password.update', ['id' => $user->id]) }}" method="POST">
+                <form action="{{ route('admin.password.update', ['id' => $user->id]) }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
 
                     <!-- New Password -->
