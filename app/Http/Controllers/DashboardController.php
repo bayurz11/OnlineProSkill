@@ -105,29 +105,27 @@ class DashboardController extends Controller
 
 
     // Update password admin
-    public function updatePassword(Request $request)
+    public function updatePassword(Request $request, $id)
     {
+        // Validasi input
         $request->validate([
-            'current_password' => 'required',
-            'new_password' => 'required|min:8|confirmed',
+            'email' => 'required|email|max:255',
+            'password' => 'nullable|string|min:3|confirmed',
         ]);
 
-        $user = Auth::user();
-
-        if (!Hash::check($request->current_password, $user->password)) {
-            return redirect()->back()->with('error', 'Password saat ini tidak sesuai.');
+        // Cari user berdasarkan ID
+        $user = User::find($id);
+        if (!$user) {
+            return response()->json(['message' => 'User tidak ditemukan'], 404);
         }
 
-        $user->password = Hash::make($request->new_password);
-        $user->save();
+        // Update user dan user profile
 
-        // Simpan log aktivitas
-        $log = new Log();
-        $log->action = 'Change Password';
-        $log->description = 'Password ' . $user->name . ' berhasil diubah.';
-        $log->user_id = $user->id;
-        $log->save();
+        $user->update([
+            'email' => $request->email,
+            'password' => $request->password ? Hash::make($request->password) : $user->password,
+        ]);
 
-        return back()->with('success', 'Password berhasil diubah.');
+        return redirect()->route('instruktur_setting')->with('success', 'Kata Sandi Berhasil Dirubah');
     }
 }

@@ -63,35 +63,25 @@
         </form>
 
         <!-- Change Password Form -->
-        {{-- <div class="card">
+        <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Change Password</h5>
-                <form action="" method="POST">
+                <form action="{{ route('admin.password.update', ['id' => $user->id]) }}" method="POST">
                     @csrf
-                    @method('PUT')
-
-                    <!-- Current Password -->
-                    <div class="row mb-3">
-                        <label for="current_password" class="col-md-3 col-form-label">Current Password</label>
-                        <div class="col-md-9">
-                            <input type="password" name="current_password" id="current_password" class="form-control"
-                                required>
-                        </div>
-                    </div>
 
                     <!-- New Password -->
                     <div class="row mb-3">
-                        <label for="new_password" class="col-md-3 col-form-label">New Password</label>
+                        <label for="password" class="col-md-3 col-form-label">New Password</label>
                         <div class="col-md-9">
-                            <input type="password" name="new_password" id="new_password" class="form-control" required>
+                            <input type="password" name="password" id="password" class="form-control" required>
                         </div>
                     </div>
 
                     <!-- Confirm New Password -->
                     <div class="row mb-3">
-                        <label for="new_password_confirmation" class="col-md-3 col-form-label">Confirm New Password</label>
+                        <label for="password_confirmation" class="col-md-3 col-form-label">Confirm New Password</label>
                         <div class="col-md-9">
-                            <input type="password" name="new_password_confirmation" id="new_password_confirmation"
+                            <input type="password" name="password_confirmation" id="password_confirmation"
                                 class="form-control" required>
                         </div>
                     </div>
@@ -101,7 +91,7 @@
                     </div>
                 </form>
             </div>
-        </div> --}}
+        </div>
     </div>
 
     <script>
