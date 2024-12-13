@@ -54,7 +54,7 @@
                         <label for="phone" class="col-md-3 col-form-label">Phone</label>
                         <div class="col-md-9">
                             <input type="text" name="phone" id="phone" class="form-control"
-                                value="{{ $profile->phone_number ?? '' }}" required>
+                                value="{{ $profile->phone_number ?? '' }}">
                         </div>
                     </div>
 
