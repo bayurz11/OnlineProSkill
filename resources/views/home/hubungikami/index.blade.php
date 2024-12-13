@@ -61,9 +61,9 @@
                                 </div>
                                 <div class="content">
                                     <h4 class="title">Telepon</h4>
-                                    @foreach ($teleponList as $tlp)
-                                        <a href="tel:{{ $tlp }}">{{ $tlp }}</a>
-                                    @endforeach
+
+                                    <a href="tel:{{ $contactUs->telepon }}">{{ $contactUs->telepon }}</a>
+
                                 </div>
 
                             </li>
@@ -73,9 +73,9 @@
                                 </div>
                                 <div class="content">
                                     <h4 class="title">E-mail Address</h4>
-                                    @foreach ($emailList as $email)
-                                        <a href="mailto:{{ $email }}">{{ $email }}</a>
-                                    @endforeach
+
+                                    <a href="mailto:{{ $contactUs->email }}">{{ $contactUs->email }}</a>
+
                                 </div>
                             </li>
                         </ul>
