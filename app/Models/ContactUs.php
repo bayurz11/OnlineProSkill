@@ -12,4 +12,16 @@ class ContactUs extends Model
     protected $primaryKey = 'id';
 
     protected $guarded = [];
+
+    protected $fillable = [
+        'alamat',
+        'telepon',
+        'email',
+        // kolom lain...
+    ];
+
+    protected $casts = [
+        'telepon' => 'array',
+        'email' => 'array',
+    ];
 }

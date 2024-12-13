@@ -293,18 +293,18 @@
                 </a>
                 <div class="collapse" id="charts">
                     <ul class="nav sub-menu">
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="{{ route('herosection') }}" class="nav-link">Banner Area</a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <a href="{{ route('settingcontactus') }}" class="nav-link">Hubungi Kami</a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="pages/charts/flot.html" class="nav-link">Tentang Kami</a>
                         </li>
                         <li class="nav-item">
                             <a href="pages/charts/peity.html" class="nav-link">Faq</a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
             </li>

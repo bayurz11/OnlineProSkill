@@ -48,7 +48,7 @@
                                                 {{ number_format($order->price, 0) }}
                                             </td>
                                             <td>
-                                                @if ($order->status == 'PAID' || $order->status == 'SETTLED')
+                                                @if ($order->status == 'PAID' || $order->status == 'SETTLED' || $order->status == 'paid' || $order->status == 'settled')
                                                     <span class="badge bg-success">
                                                         Sukses
                                                     </span>
