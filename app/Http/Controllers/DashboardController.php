@@ -109,7 +109,6 @@ class DashboardController extends Controller
     {
         // Validasi input
         $request->validate([
-            'email' => 'required|email|max:255',
             'password' => 'nullable|string|min:3|confirmed',
         ]);
 
@@ -122,7 +121,6 @@ class DashboardController extends Controller
         // Update user dan user profile
 
         $user->update([
-            'email' => $request->email,
             'password' => $request->password ? Hash::make($request->password) : $user->password,
         ]);
 
