@@ -42,7 +42,7 @@
 
                                     <div class="mb-3 d-flex justify-content-between">
                                         <div class="me-2" style="flex: 1;">
-                                            <label for="course_id" class="form-label">Pilih Course</label>
+                                            <label for="course_id" class="form-label">Pilih Kelas</label>
                                             <select class="form-control" id="course_id" name="course_id">
                                                 <option value="" disabled selected>Pilih Kelas</option>
                                                 @foreach ($KelasTatapMuka->where('status', 1) as $kelas)
