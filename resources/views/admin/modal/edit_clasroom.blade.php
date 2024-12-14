@@ -75,7 +75,7 @@
                     <div class="mb-3">
                         <label for="edit_content" class="form-label">Deskripsi<span class="text-danger">*</span></label>
                         <textarea id="edit_content" name="content" style="height: 400px; width: 100%; font-size: 18px;"></textarea>
-                        <input type="hidden" id="edit_content_input" name="edit_content_input">
+                        {{-- <input type="hidden" id="edit_content_input" name="content"> --}}
                     </div>
 
                     <div class="mb-3">
@@ -358,13 +358,15 @@
     $(document).ready(function() {
         const editors = {};
 
+        // Event klik tombol edit
         $('.edit-button').on('click', function() {
-            const id = $(this).data('id');
+            const id = $(this).data('id'); // Ambil ID dari tombol
             fetch(`/class/${id}/edit`)
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);
 
+                    // Set data untuk formulir
                     $('#editCourseForm').attr('action', `/class/${id}`);
                     $('#edit_nama_kursus').val(data.nama_kursus);
                     $('#edit_durasi').val(data.durasi);
@@ -372,12 +374,14 @@
                     $('#edit_kuota').val(data.kuota);
                     $('#edit_category').val(data.kategori_id);
 
+                    // Tipe kursus
                     if (data.course_type === 'online') {
                         $('#edit_online').prop('checked', true);
                     } else if (data.course_type === 'offline') {
                         $('#edit_offline').prop('checked', true);
                     }
 
+                    // Load subkategori jika kategori sudah ada
                     const categoryId = data.kategori_id;
                     const subcategorySelect = $('#edit_subcategory');
                     subcategorySelect.prop('disabled', !categoryId);
@@ -389,15 +393,13 @@
                                     '<option value="">Pilih Subkategori</option>'
                                 );
                                 subcategories.forEach(subcategory => {
-                                    if (subcategory.status == 1) {
-                                        const option = $('<option></option>')
-                                            .attr('value', subcategory.id)
-                                            .text(subcategory.name);
-                                        if (subcategory.id == data.subkategori_id) {
-                                            option.prop('selected', true);
-                                        }
-                                        subcategorySelect.append(option);
+                                    const option = $('<option></option>')
+                                        .attr('value', subcategory.id)
+                                        .text(subcategory.name);
+                                    if (subcategory.id == data.subkategori_id) {
+                                        option.prop('selected', true);
                                     }
+                                    subcategorySelect.append(option);
                                 });
                             })
                             .catch(error => console.error('Error fetching subcategories:', error));
@@ -407,111 +409,94 @@
 
                     $('#edit_tingkat').val(data.tingkat);
 
+                    // Inisialisasi atau perbarui editor
                     if (editors[id]) {
                         editors[id].destroy().then(() => {
                             delete editors[id];
-                            createEditor(id, data.content);
+                            createEditor('#edit_content', data.content);
                         });
                     } else {
-                        createEditor(id, data.content);
+                        createEditor('#edit_content', data.content);
                     }
 
+                    // Set nilai harga dan diskon
                     $('#edit_price').val(data.price);
                     $('#edit_discount').val(data.discount);
                     $('#edit_discountedPrice').val(data.discountedPrice);
 
+                    // Preview gambar
                     if (data.gambar) {
                         $('#edit_preview').attr('src', `/public/uploads/${data.gambar}`).show();
                     } else {
                         $('#edit_preview').hide();
                     }
 
+                    // Set tag
                     let tagValue = '';
                     try {
-                        const parsedTag = JSON.parse(data.tag);
-
-                        if (Array.isArray(parsedTag) && parsedTag.length > 0) {
-                            tagValue = parsedTag[0].value;
-                        } else if (typeof parsedTag === 'object' && parsedTag !== null) {
-                            tagValue = parsedTag.value;
-                        } else if (typeof parsedTag === 'string') {
-                            tagValue = parsedTag;
-                        }
+                        tagValue = typeof data.tag === 'string' ? data.tag : JSON.stringify(data
+                            .tag);
                     } catch (e) {
-                        if (typeof data.tag === 'string') {
-                            tagValue = data.tag;
-                        }
+                        console.error('Error parsing tag:', e);
                     }
-
                     $('#edit_tag').val(tagValue);
 
-                    const includeContainer = $('#edit-include-container');
-                    includeContainer.html('');
-
-                    try {
-                        const includes = JSON.parse(data.include);
-
-                        if (Array.isArray(includes)) {
-                            includes.forEach(item => {
-                                const inputGroup = $(`
-                            <div class="input-group mb-2">
-                                <input type="text" class="form-control" name="include[]" value="${item}">
-                                <button class="btn btn-danger remove-edit-include" type="button">-</button>
-                            </div>
-                        `);
-                                includeContainer.append(inputGroup);
-                            });
-                        } else {
-                            console.error('Parsed include is not an array:', includes);
-                        }
-                    } catch (e) {
-                        console.error('Error parsing include:', e, data.include);
-                    }
-                    const perstaratanContainer = $('#edit-perstaratan-container');
-                    perstaratanContainer.html('');
-
-                    try {
-                        const perstaratans = JSON.parse(data.perstaratan);
-
-                        if (Array.isArray(perstaratans)) {
-                            perstaratans.forEach(item => {
-                                const inputGroup = $(`
-                            <div class="input-group mb-2">
-                                <input type="text" class="form-control" name="perstaratan[]" value="${item}">
-                                <button class="btn btn-danger remove-edit-perstaratan" type="button">-</button>
-                            </div>
-                        `);
-                                perstaratanContainer.append(inputGroup);
-                            });
-                        } else {
-                            console.error('Parsed perstaratan is not an array:', perstaratans);
-                        }
-                    } catch (e) {
-                        console.error('Error parsing perstaratan:', e, data.perstaratan);
-                    }
+                    // Include & perstaratan
+                    populateEditableInputs('#edit-include-container', data.include, 'include');
+                    populateEditableInputs('#edit-perstaratan-container', data.perstaratan,
+                        'perstaratan');
 
                     toggleEditPriceAndDiscount();
                 })
                 .catch(error => console.error('Error fetching class data:', error));
         });
 
-        function createEditor(id, content) {
-            ClassicEditor.create(document.querySelector('#edit_content'))
+        // Fungsi untuk membuat editor
+        function createEditor(selector, content) {
+            ClassicEditor.create(document.querySelector(selector))
                 .then(editor => {
-                    editors[id] = editor;
+                    const editorId = $(selector).closest('form').find('.edit-button').data('id');
+                    editors[editorId] = editor;
                     editor.setData(content);
+
+                    // Sinkronisasi data ke form
                     editor.model.document.on('change:data', () => {
-                        $('#edit_content_input').val(editor
-                            .getData()); // Simpan data ke input tersembunyi
+                        $(selector).val(editor.getData());
                     });
                 })
                 .catch(error => console.error(error));
         }
 
+        // Fungsi untuk populasi input include dan perstaratan
+        function populateEditableInputs(containerSelector, jsonData, inputName) {
+            const container = $(containerSelector);
+            container.html('');
+
+            try {
+                const items = JSON.parse(jsonData);
+                if (Array.isArray(items)) {
+                    items.forEach(item => {
+                        const inputGroup = $(`
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" name="${inputName}[]" value="${item}">
+                                <button class="btn btn-danger remove-edit-${inputName}" type="button">-</button>
+                            </div>
+                        `);
+                        container.append(inputGroup);
+                    });
+                } else {
+                    console.error(`Parsed ${inputName} is not an array:`, items);
+                }
+            } catch (e) {
+                console.error(`Error parsing ${inputName}:`, e, jsonData);
+            }
+        }
+
+        // Event submit form
         $('#editCourseForm').on('submit', function() {
             const editorId = $(this).find('.edit-button').data('id');
             if (editors[editorId]) {
-                $('#edit_content_input').val(editors[editorId].getData()); // Simpan data saat submit
+                $('#edit_content').val(editors[editorId].getData());
             }
         });
 
