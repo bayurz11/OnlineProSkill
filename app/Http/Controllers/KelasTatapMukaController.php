@@ -103,7 +103,7 @@ class KelasTatapMukaController extends Controller
         $course->nama_kursus = $request->nama_kursus;
         $course->kategori_id = $request->kategori_id;
         $course->subkategori_id = $request->subkategori_id;
-        $course->content = $request->content;
+        $course->edit_content_input = $request->content;
         $course->tingkat = $request->tingkat;
         $course->include = json_encode($request->include);
         $course->perstaratan = json_encode($request->perstaratan);

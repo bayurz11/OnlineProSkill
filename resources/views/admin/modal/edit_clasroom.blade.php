@@ -75,7 +75,7 @@
                     <div class="mb-3">
                         <label for="edit_content" class="form-label">Deskripsi<span class="text-danger">*</span></label>
                         <textarea id="edit_content" name="content" style="height: 400px; width: 100%; font-size: 18px;"></textarea>
-                        <input type="hidden" id="edit_content_input" name="content">
+                        <input type="hidden" id="edit_content_input" name="edit_content_input">
                     </div>
 
                     <div class="mb-3">
