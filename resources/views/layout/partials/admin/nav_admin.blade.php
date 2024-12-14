@@ -44,7 +44,7 @@
                 <a class="nav-link" data-bs-toggle="collapse" href="#uiComponents" role="button" aria-expanded="false"
                     aria-controls="uiComponents">
                     <i class="link-icon" data-feather="book-open"></i>
-                    <span class="link-title">Kelola Kursus</span>
+                    <span class="link-title">Kelas Tatap Muka</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 <div class="collapse" id="uiComponents">
@@ -61,7 +61,7 @@
                 <a class="nav-link" data-bs-toggle="collapse" href="#advancedUI" role="button" aria-expanded="false"
                     aria-controls="advancedUI">
                     <i class="link-icon" data-feather="book-open"></i>
-                    <span class="link-title">Kelola Kursus</span>
+                    <span class="link-title">Kelas Online</span>
                     <i class="link-arrow" data-feather="chevron-down"></i>
                 </a>
                 <div class="collapse" id="advancedUI">
