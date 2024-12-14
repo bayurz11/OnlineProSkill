@@ -77,7 +77,7 @@
                             <input type="password" name="password" id="password" class="form-control" required>
                             <button type="button"
                                 class="btn btn-sm btn-outline-secondary position-absolute top-50 end-0 translate-middle-y me-2"
-                                onclick="Visibility('password', this)">
+                                onclick="togglePasswordVisibility('password', this)">
                                 <i class="bi bi-eye"></i>
                             </button>
                         </div>
@@ -91,7 +91,7 @@
                                 class="form-control" required>
                             <button type="button"
                                 class="btn btn-sm btn-outline-secondary position-absolute top-50 end-0 translate-middle-y me-2"
-                                onclick="Visibility1('password_confirmation', this)">
+                                onclick="togglePasswordVisibility('password_confirmation', this)">
                                 <i class="bi bi-eye"></i>
                             </button>
                         </div>
