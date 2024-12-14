@@ -95,20 +95,19 @@ class AksesPembelianController extends Controller
         }
 
         $allSectionsCompleted = $kurikulum->every(function ($kurikulumItem) use ($userSectionStatuses) {
-        //     $totalSections = Section::countSectionsByKurikulum($kurikulumItem->id);
-        //     $completedSections = collect($userSectionStatuses)
-        //         ->filter(fn($status, $section_id) => $status === 1 && Section::find($section_id)->kurikulum_id === $kurikulumItem->id)
-        //         ->count();
+            $totalSections = Section::countSectionsByKurikulum($kurikulumItem->id);
+            // $completedSections = collect($userSectionStatuses)
+            //     ->filter(fn($status, $section_id) => $status === 1 && Section::find($section_id)->kurikulum_id === $kurikulumItem->id)
+            //     ->count();
 
-        //     return $completedSections === $totalSections;
-        // });
-        $completedSections = collect($userSectionStatuses)
-    ->filter(function ($status, $section_id) use ($kurikulumItem) {
-        $section = Section::find($section_id);
-        return $section && $status === 1 && $section->kurikulum_id === $kurikulumItem->id;
-    })
-    ->count();
-
+            // return $completedSections === $totalSections;
+            $completedSections = collect($userSectionStatuses)
+                ->filter(function ($status, $section_id) use ($kurikulumItem) {
+                    $section = Section::find($section_id);
+                    return $section && $status === 1 && $section->kurikulum_id === $kurikulumItem->id;
+                })
+                ->count();
+        });
 
         // Cek jika pengguna sudah memberi review untuk kelas ini
         $hasReviewed = Reviews::where('user_id', $user->id)->where('class_id', $id)->exists();
