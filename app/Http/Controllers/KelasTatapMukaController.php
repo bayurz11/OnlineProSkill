@@ -109,7 +109,7 @@ class KelasTatapMukaController extends Controller
         $course->perstaratan = json_encode($request->perstaratan);
         $course->price = $request->free ? null : $request->price;
         $course->discount = $request->discount;
-        $course->discountedPrice = $hargaSetelahDiskon;
+        $course->discountedPrice = $request->discountedPrice;
         $course->tag = $request->tag;
         $course->user_id = $userId;
         $course->save();
