@@ -78,7 +78,7 @@
                             <button type="button"
                                 class="btn btn-sm btn-outline-secondary position-absolute top-50 end-0 translate-middle-y me-2"
                                 onclick="togglePasswordVisibility('password', this)">
-                                <i class="bi bi-eye"></i>
+                                <i class="link-icon" data-feather="eye"></i>
                             </button>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
                             <button type="button"
                                 class="btn btn-sm btn-outline-secondary position-absolute top-50 end-0 translate-middle-y me-2"
                                 onclick="togglePasswordVisibility('password_confirmation', this)">
-                                <i class="bi bi-eye"></i>
+                                <i class="link-icon" data-feather="eye"></i>
                             </button>
                         </div>
                     </div>
@@ -111,12 +111,14 @@
 
                 if (field.type === 'password') {
                     field.type = 'text';
-                    icon.classList.remove('bi-eye');
-                    icon.classList.add('bi-eye-slash');
+                    icon.setAttribute('data-feather', 'eye-off');
                 } else {
                     field.type = 'password';
-                    icon.classList.remove('bi-eye-slash');
-                    icon.classList.add('bi-eye');
+                    icon.setAttribute('data-feather', 'eye');
+                }
+                // Re-render feather icons
+                if (typeof feather !== 'undefined') {
+                    feather.replace();
                 }
             }
         </script>
