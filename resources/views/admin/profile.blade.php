@@ -73,17 +73,27 @@
                     <!-- New Password -->
                     <div class="row mb-3">
                         <label for="password" class="col-md-3 col-form-label">New Password</label>
-                        <div class="col-md-9">
+                        <div class="col-md-9 position-relative">
                             <input type="password" name="password" id="password" class="form-control" required>
+                            <button type="button"
+                                class="btn btn-sm btn-outline-secondary position-absolute top-50 end-0 translate-middle-y me-2"
+                                onclick="Visibility('password', this)">
+                                <i class="bi bi-eye"></i>
+                            </button>
                         </div>
                     </div>
 
                     <!-- Confirm New Password -->
                     <div class="row mb-3">
                         <label for="password_confirmation" class="col-md-3 col-form-label">Confirm New Password</label>
-                        <div class="col-md-9">
+                        <div class="col-md-9 position-relative">
                             <input type="password" name="password_confirmation" id="password_confirmation"
                                 class="form-control" required>
+                            <button type="button"
+                                class="btn btn-sm btn-outline-secondary position-absolute top-50 end-0 translate-middle-y me-2"
+                                onclick="Visibility1('password_confirmation', this)">
+                                <i class="bi bi-eye"></i>
+                            </button>
                         </div>
                     </div>
 
@@ -93,6 +103,24 @@
                 </form>
             </div>
         </div>
+
+        <script>
+            function togglePasswordVisibility(fieldId, button) {
+                const field = document.getElementById(fieldId);
+                const icon = button.querySelector('i');
+
+                if (field.type === 'password') {
+                    field.type = 'text';
+                    icon.classList.remove('bi-eye');
+                    icon.classList.add('bi-eye-slash');
+                } else {
+                    field.type = 'password';
+                    icon.classList.remove('bi-eye-slash');
+                    icon.classList.add('bi-eye');
+                }
+            }
+        </script>
+
     </div>
 
     <script>
