@@ -105,7 +105,7 @@
                                 class="text-danger">*</span></label>
                         <input type="number" class="form-control" id="edit_price" name="price">
                     </div>
-                    {{-- <div class="mb-3">
+                    <div class="mb-3">
                         <label for="edit_discount" class="form-label">Diskon %</label>
                         <input type="text" class="form-control" id="edit_discount" name="discount"
                             oninput="calculateEditDiscountedPrice()">
@@ -114,7 +114,7 @@
                         <label for="edit_discountedPrice" class="form-label">Harga Setelah Diskon (Rp)</label>
                         <input type="text" class="form-control" id="edit_discountedPrice" name="discountedPrice"
                             readonly>
-                    </div> --}}
+                    </div>
                     <div class="mb-3">
                         <label class="form-label" for="edit_gambar">Gambar Kursus<span
                                 class="text-danger">*</span></label>
